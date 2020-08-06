@@ -1,0 +1,37 @@
+// Styles for the ToC component.
+// Overrides some default tag styles so the 11ty ToC plugin renders as expected.
+// Breakpoints are tied to tech-detail layout, so before reusing it some adjustments may be necessary.
+
+.toc {
+  @include expandingNav($bkpt-tech-details--3-cols, 'toc', 1rem, 1rem);
+
+  &__nav {
+    margin-top: 0.75rem;
+  }
+
+  // Need to hard-override this because the links will be visited once a user's been on the page once.
+  &__link {
+    @include mq($bkpt-tech-details--3-cols) {
+      #{'--bkg'}: transparent;
+      display: inline;
+    }
+  }
+
+  @include mq($bkpt-tech-details--3-cols) {
+    position: sticky;
+    top: 6.5rem;
+
+    &__summary {
+      padding-left: 1.75rem;
+    }
+
+    &__nav {
+      margin-bottom: 2.5rem;
+      max-height: calc(100vh - 11.5rem);
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding-left: 1.75rem;
+      position: relative;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+---
+title: Android developer options
+metadesc: Learn to configure additional Android developer options.
+date: 2020-07-15
+weight: -4
+---
+
+You can configure additional Android developer options:
+
+1.  Open Settings
+2.  Navigate to **Apps** and select **Google Play Store**.
+3.  Click **Manage Android preferences** to bring up the Android settings. You may want to right-click on the Android settings icon in the shelf and pin it there to get faster access in the future.
+
+![The Chrome OS and Android settings icons look very similar, but for Android settings, the gear is slightly larger and the background color is green.](/images/develop/android/android_settings.png)
+
+4.  Go to **System**, you should see the **Developer options** menu. If you don't, then do the following:
+    - Click **About device**.
+    - Click **Build number** seven times to move into developer mode.
+    - Click the arrow in the top-left area of the window to go back to the main System screen.
+5.  Click **Developer options** and choose the configuration you need, one flag that might be particularly useful is:
+    - **Show debug information in caption title** - Displays debugging information for Android applications in the window title bar.

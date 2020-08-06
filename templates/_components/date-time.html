@@ -1,0 +1,20 @@
+<!--{#
+  Creates a date label.
+
+  @param {string} label - The content label.
+  @param {Date} value - The date to be rendered.
+  @param {string} locale - The locale to use when rendering the date.
+  @param {Object=} options - Object containing formating options.
+  @param {Object=} modifiers - Object containing style modifiers.
+  @param {boolean} modifiers.inline - Use the inline modifier.
+#}-->
+{% macro dateTime(label, value, locale, options=undefined, modifiers={}) %}
+<p class="date-time {{'date-time--inline' if modifiers.inline}}">
+  <span class="date-time__label type--label">{{ label }}</span>
+  {% if modifiers.inline %}
+  <time class="type--small" datetime="{{ value }}">{{ value | date(locale, options) }}</time>
+  {% else %}
+  <time class="type--h6" datetime="{{ value }}">{{ value | date(locale, options) }}</time>
+  {% endif %}
+</p>
+{% endmacro %}

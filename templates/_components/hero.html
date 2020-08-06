@@ -1,0 +1,25 @@
+<!--{#
+  Renders a Hero with copy and an image (bottom in mobile, rigth desktop).
+
+  @param {object} content: Object containing the following attributes.
+  @param {string} content.eyebrow: String representing the hero eyebrow.
+  @param {string} content.title: String representing the page main title.
+  @param {string} content.copy: String with some additional text for the hero.
+  @param {object} img: Object representing the image.
+  @param {string} img.path: String representing image path.
+  @param {string} img.alt: String representing the image alt.
+  @param {object} cta: Object representing the CTA information.
+  @param {string} cta.url: String representing the CTA url.
+  @param {string} cta.text: String representing the CTA text.
+ #}-->
+{% macro hero(content, img, cta) -%}
+<article class="hero">
+  <section class="hero__copy-wrapper">
+    <small class="hero__eyebrow type--eyebrow">{{content.eyebrow}}</small>
+    <h1 class="type--h1">{{content.title}}</h1>
+    <p class="type--large">{{content.copy}}</p>
+    <a class="hero__link cta cta--high" href="{{cta.url}}">{{cta.text}}</a>
+  </section>
+  <img class="hero__image" src="{{img.path}}" alt="{{img.alt}}" />
+</article>
+{%- endmacro %}

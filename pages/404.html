@@ -1,0 +1,8 @@
+---
+layout: _wrapper
+title: Not Found
+---
+
+{% for locale in l10n %} {% if locale['404'].title %}
+<h1>{{locale['404'].title}}</h1>
+{% endif %} {% endfor %}

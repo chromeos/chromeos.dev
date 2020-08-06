@@ -1,0 +1,31 @@
+// Stats component styling
+
+.stats {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style: none;
+    margin: -0.75rem; // Ugly, but needed to offset.
+    padding: 0;
+  }
+
+  &__item {
+    align-items: center;
+    display: flex;
+    flex-basis: 140px;
+    flex-direction: column;
+    margin: 0.75rem;
+  }
+
+  &__stat {
+    @include statsCircle(80px, 120px, 160px);
+    @include flexFont((16px 16px), (44px 44px), (60px 60px));
+    font-family: $font-google-sans-display;
+  }
+
+  &__desc {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+}

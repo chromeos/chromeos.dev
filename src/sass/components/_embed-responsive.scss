@@ -1,0 +1,8 @@
+// Styles for embeded content, especially video, from Markdown
+// These classes aren't controlled by us, so we need to follow their naming conventions
+
+.embed-responsive {
+  &-16by9 {
+    @include ir;
+  }
+}

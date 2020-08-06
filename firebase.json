@@ -1,0 +1,20 @@
+{
+  "hosting": {
+    "trailingSlash": false,
+    "rewrites": [
+      {
+        "source": "/search",
+        "function": "search"
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/",
+        "destination": "/en",
+        "type": 301
+      }
+    ],
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "src/**", "tests/**", "lib/**", "gulpfile.js", "rollup.*.config.js", "rollup.sw.js", "babel.config.js", "package*.json", "package-lock.json", "lighthouse.config.json"]
+  }
+}

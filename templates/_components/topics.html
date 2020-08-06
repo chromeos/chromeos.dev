@@ -1,0 +1,17 @@
+<!--{#
+  Renders a list of topics with a label.
+
+  @param {string} label - A label for the list of topics.
+  @param {string[]} items - A list of topics.
+  @param {string} localeCode - 
+ #}-->
+{% macro topics(label, items, localeCode) -%}
+<section class="topics">
+  <h5 class="topics__label type--label">{{label}}</h5>
+  <ul class="topics__list">
+    {% for topic in items -%}
+    <li class="topics__item type--small"><a class="type--link" href="/{{localeCode}}/search?q={{ topic }}&field=tag&locale={{localeCode}}">{{ topic }}{{ ',' if not loop.last }}</a></li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endmacro %}

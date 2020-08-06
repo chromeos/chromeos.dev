@@ -1,0 +1,120 @@
+// Styles for the animated hero.
+
+.hero-animated {
+  $bkpt-hero--medium: 600px;
+  $bkpt-hero--large: 1200px;
+
+  #{'--heading-margin-start'}: pxRem(48px);
+  #{'--wrapper-padding'}: pxRem(24px);
+
+  display: grid;
+  grid-row-gap: 1rem;
+  grid-template-rows: repeat(3, min-content);
+  overflow: hidden;
+  position: relative;
+
+  // @supports (--heading-margin-start: clamp(3rem, 7vw, 7.5rem)) was failing in safari.
+  @supports (margin: clamp(3rem, 7vw, 7.5rem)) {
+    #{'--heading-margin-start'}: clamp(3rem, 7vw, 7.5rem);
+  }
+
+  @include mq($bkpt-hero--medium) {
+    #{'--wrapper-padding'}: pxRem(40px);
+  }
+
+  @include mq($bkpt-hero--large) {
+    grid-template-columns: 1fr repeat(3, minmax(min-content, pxRem(480px))) 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  &.background::before {
+    background-color: var(--grey-100);
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(var(--background-position, 125%)) rotate(-30deg) scaleX(4) scaleY(2);
+    z-index: -2;
+
+    @include mq($bkpt-hero--medium) {
+      #{--background-position}: 120%;
+    }
+  }
+
+  &__heading {
+    margin-top: var(--heading-margin-start);
+    padding: 0 var(--wrapper-padding);
+    text-shadow: 1px 1px 1px var(--white);
+
+    @include mq($bkpt-hero--large) {
+      grid-column: 2 / span 2;
+      grid-row: 1;
+    }
+  }
+
+  &__cta {
+    padding: 0 var(--wrapper-padding);
+
+    @include mq($bkpt-hero--medium) {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    @include mq($bkpt-hero--large) {
+      grid-column: 2;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+  }
+
+  &__wrapper {
+    display: grid;
+    padding: 0 var(--wrapper-padding) var(--wrapper-padding);
+
+    @include mq($bkpt-hero--medium) {
+      grid-column: 1;
+      grid-row: 2 / span 2;
+      z-index: -1;
+    }
+
+    @include mq($bkpt-hero--large) {
+      grid-column: 3 / span 2;
+      grid-row: 1 / span 2;
+      padding: var(--wrapper-padding) var(--wrapper-padding) var(--wrapper-padding) 0;
+    }
+  }
+
+  &__background,
+  &__animation {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  // Picture elements are added automatically by the build.
+  // We want to make sure all elements of the animation are equally set.
+  &__background picture,
+  &__animation-item {
+    animation: 0.5s ease-in-out 0.25s backwards hero-animated__page-load;
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  // Animation setup
+  @keyframes hero-animated__page-load {
+    from {
+      opacity: 0;
+      transform: translateY(1.5rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

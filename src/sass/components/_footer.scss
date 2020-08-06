@@ -1,0 +1,104 @@
+// Styles of the Global footer
+.footer {
+  background-color: var(--grey-50);
+  bottom: 0;
+  flex-shrink: 0;
+  width: 100%;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin: 0 auto;
+    padding: pxRem(16px) pxRem(42px) pxRem(26px);
+
+    @supports (padding-left: clamp(pxRem(28px), 7vw, pxRem(72px))) {
+      padding-left: clamp(pxRem(28px), 7vw, pxRem(72px));
+      padding-right: clamp(pxRem(28px), 7vw, pxRem(72px));
+    }
+  }
+
+  &__logo-container {
+    display: flex;
+    flex-grow: 0;
+    justify-content: flex-start;
+    padding: pxRem(24px) pxRem(48px) 0 0;
+  }
+
+  &__google-logo {
+    fill: var(--grey-700);
+    height: pxRem(24px);
+    width: pxRem(75px);
+  }
+
+  &__primary-links {
+    display: flex;
+    flex-grow: 2;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-left: pxRem(-12px);
+    padding: pxRem(16px) 0;
+  }
+
+  &__item {
+    padding: pxRem(8px) pxRem(12px);
+  }
+
+  &__secondary-links {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    justify-content: start;
+    list-style: none;
+    padding: pxRem(16px) 0;
+  }
+
+  &__help {
+    margin-right: pxRem(32px);
+    min-width: max-content;
+  }
+
+  &__languages {
+    flex-grow: 1;
+    max-width: pxRem(220px);
+    min-width: pxRem(100px);
+    position: relative;
+  }
+
+  &__help-link {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &:hover .footer__help-icon {
+      fill: var(--grey-900);
+    }
+  }
+
+  &__help-icon {
+    fill: var(--grey-700);
+    height: pxRem(32px);
+    margin-right: pxRem(8px);
+    vertical-align: middle;
+    width: pxRem(24px);
+  }
+
+  &__select {
+    -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    appearance: none;
+    background-color: var(--grey-50);
+    background-image: url('/images/icons/sprite.svg#arrow-drop-down');
+    background-position: right 0% top 50%;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    border: 0;
+    border-bottom: 1px solid var(--grey-600);
+    border-radius: 0;
+    cursor: pointer;
+    line-height: normal;
+    padding: pxRem(7px) 0;
+    width: 100%;
+  }
+}

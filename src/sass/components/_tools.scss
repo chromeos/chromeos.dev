@@ -1,0 +1,26 @@
+// Styles for tools list component.
+// Breakpoints are tied to tech-detail layout, so before reusing it some adjustments may be necessary.
+
+.tools {
+  margin-bottom: 1rem;
+
+  @include mq($bkpt-tech-details--3-cols) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.75rem;
+  }
+
+  &__item-name {
+    margin-bottom: 0.25rem;
+  }
+
+  &__versions {
+    list-style: none;
+    margin-top: 0.75rem;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+}

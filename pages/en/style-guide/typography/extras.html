@@ -1,0 +1,99 @@
+---
+title: Extras
+metadesc: Extra typographic styles for used in long-form text.
+typography: true
+intro: |-
+  These typographic styles are built on top of the [core styles](../core) and are usually used as part of long-form text. As such, these are all displayed wrapped in `.type--base` from core styles, but they will adapt to whatever text section they're added to.
+---
+
+<div class="type">
+  {{ intro | safe }}
+</div>
+
+<section class="style-guide__section">
+  <div class="type--base">
+    <dl class="type--dl">
+      <dt class="type--dt">Description List</dt>
+      <dd class="type--dd">A list of terms and their description</dd>
+      <dt class="type--dt">Another term</dt>
+      <dd class="type--dd">And its definition</dd>
+    </dl>
+  </div>
+  <div class="type">
+    <p>
+      Description lists are used to display terms and their related description and are made up of two parts: terms and description. Description lists are often used for lists of terms and their definitions. Description lists <em>must</em> use the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl"><code>dl</code></a> element and can be styled through the <code>.type--dl</code> class.
+    </p>
+    <p>
+      Terms <em>must</em> use the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt"><code>dt</code></a> element and can be styled through the <code>.type--dt</code> class.
+    </p>
+    <p>
+      Descriptions <em>must</em> use the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd"><code>dd</code></a> element and can be styled through the <code>.type--dd</code> class.
+    </p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <div class="type--base">
+    <ul class="type--list">
+      <li class="type--list-item">Unordered List</li>
+      <li class="type--list-item">With styling</li>
+    </ul>
+    <ol class="type--list">
+      <li class="type--list-item">Ordered List</li>
+      <li class="type--list-item">With styling</li>
+    </ol>
+  </div>
+  <div class="type">
+    <p>
+      Both ordered and unordered lists share the same styling, making it easy to style. The list wrapper <em>must</em> use <em>either</em> the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul"><code>ul</code></a> element (for unordered lists) or the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol"><code>ol</code></a> element (for ordered lists) and can be styled through the <code>.type--list</code> class. List items <em>must</em> use the the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li"><code>li</code></a> element and can be styled through the <code>.type--list-item</code> class.
+    </p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <p class="type--base"><kbd class="type--kbd">K</kbd>+<kbd class="type--kbd">B</kbd>+<kbd class="type--kbd">D</kbd></p>
+  <div class="type">
+    <p>
+      KBD is meant to represent keyboard input. Each key in a keyboard sequence <em>must</em> use the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd"><code>kbd</code></a> element and can be styled through the <code>.type--kbd</code> element.
+    </p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <div class="style-guide__separate-items">
+    <blockquote class="type--quote">
+      <p>These quotes are super cool! They've got internationalized quotes surrounding the main copy, which I think is super tool. You can even have one more more paragraphs and the quotes only wrap around the first and last items!</p>
+      <p>They support citations too! Add them normally with a <code class="type--code">footer</code> element, or, if you're working in Markdown, follow your blockquote section with a paragraph and the <code class="type--code">{.cite}</code> attribute to have it automagically converted into a blockquote footer.</p>
+      <footer>
+        <p>Style Guide Author</p>
+      </footer>
+    </blockquote>
+    <blockquote class="type--quote" lang="fr">
+      <p>Ceci est une citation qui est écrite en français! Remarquez les différentes citations basées sur <code class="type--code">lang="fr"</code>.</p>
+    </blockquote>
+  </div>
+  <div class="type">
+    <p>Quotes are meant to emphasize extended quotations, be it from the current source or an external source, optionally with some form of citation. They <em>must</em> use the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">blockquote</a> element and can be styled through the <code>.type--quote</code> class.</p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <div class="style-guide__separate-items">
+    <aside class="message">
+      <p><strong>Info:</strong> This is a <code>message</code>, used to convey non-critical information to a user.</p>
+    </aside>
+    <aside class="message--note message">
+      <p><strong>Note:</strong> This is a <code>message--note</code>, used to convey important, but not critical, information to a user.</p>
+    </aside>
+    <aside class="message--warning message">
+      <p><strong>Warning:</strong> This is a <code>message--warning</code>, used to convey critical information to a user.</p>
+    </aside>
+    <aside class="message--tip message">
+      <p><strong>Tip:</strong> This is a <code>message--tip</code>, used to convey helpful but not required information to a user.</p>
+    </aside>
+  </div>
+  <div class="type">
+    <p>Messages are used as call-outs to direct readers users to additional, often important, information. They come in four flavors, <code>info</code>, <code>note</code>, <code>warning</code>, and <code>tip</code>, with <code>info</code> being the default. The <code>note</code> version should be used when there's something the user should pay attention to but is not critical. The <code>warning</code> version should be used when there's something critical the user <em>must</em> know. The <code>tip</code> version should be used when there's additional helpful information for the user. If none of the above options make sense, the standard <code>info</code> version should be used.</p>
+    <p>Messages usually use the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside">aside</a> element and can be styled by using the <code>.message</code> class as well as optionally one of the modifiers <code>.message--note</code>, <code>.message--warning</code>, <code>.message--tip</code></p>
+  </div>
+</section>

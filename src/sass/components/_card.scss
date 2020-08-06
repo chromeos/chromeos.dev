@@ -1,0 +1,130 @@
+// Styles for card component.
+
+.card {
+  display: block;
+  text-decoration: none;
+
+  &--rounded & {
+    &__container {
+      border-bottom-left-radius: pxRem(24px);
+    }
+  }
+
+  &--disabled &__container {
+    background-color: var(--grey-100);
+
+    .card:focus &,
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  &__container {
+    @include elevation(0);
+    background-color: var(--white);
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    padding: pxRem(40px) pxRem(24px) pxRem(24px);
+    position: relative;
+    width: 100%;
+    z-index: 1;
+
+    .card:focus &,
+    &:hover {
+      @include elevation(2);
+    }
+  }
+
+  &__eyebrow {
+    display: ∫inline-block;
+    margin-bottom: pxRem(8px);
+  }
+
+  &__title {
+    margin-bottom: pxRem(16px);
+  }
+
+  &__body {
+    margin-bottom: pxRem(24px);
+  }
+
+  &__footer {
+    align-items: center;
+    display: flex;
+    margin-top: auto;
+  }
+
+  &__source-logo {
+    @include elevation(0);
+    border-radius: 50%;
+    height: pxRem(40px);
+    object-fit: cover;
+    object-position: center;
+    width: pxRem(40px);
+  }
+
+  &__source {
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 0.5rem;
+  }
+
+  &__message {
+    align-self: flex-end;
+
+    [dir='ltr'] & {
+      margin-left: auto;
+    }
+
+    [dir='rtl'] & {
+      margin-right: auto;
+    }
+
+    &-body {
+      display: inline-block;
+      transform: translateY(1px);
+    }
+  }
+
+  &__icon {
+    align-self: flex-end;
+    fill: var(--blue-600);
+
+    [dir='ltr'] & {
+      margin-left: auto;
+    }
+
+    [dir='rtl'] & {
+      margin-right: auto;
+    }
+
+    a:hover &,
+    a:focus & {
+      fill: var(--blue-900);
+    }
+
+    //sass-lint:disable no-qualifying-elements
+    a[href^='http://'] &,
+    a[href^='https://'] &,
+    a[href^='//'] & {
+      transform: rotate(-45deg);
+    }
+
+    .card__message & {
+      fill: currentColor;
+
+      [dir='ltr'] & {
+        margin-left: 0.5rem;
+      }
+
+      [dir='rtl'] & {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  &__search {
+    margin-bottom: pxRem(24px);
+  }
+}

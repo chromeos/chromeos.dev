@@ -1,0 +1,80 @@
+// Styles for card-subnav component.
+
+.card-subnav {
+  $self: &;
+  $inline-padding: pxRem(28px);
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 40ch;
+
+  &__header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0 $inline-padding;
+  }
+
+  &__title {
+    margin-bottom: pxRem(8px);
+    text-align: center;
+  }
+
+  &__body {
+    margin-bottom: pxRem(40px);
+    padding: 0 $inline-padding;
+    text-align: center;
+  }
+
+  &__icon-wrapper {
+    align-items: center;
+    background-color: var(--blue-600);
+    border-radius: 50%;
+    display: flex;
+    height: pxRem(96px);
+    justify-content: center;
+    margin-bottom: pxRem(24px);
+    width: pxRem(96px);
+  }
+
+  &__icon {
+    fill: var(--white);
+    transform: scale(1.5);
+  }
+
+  &__sections {
+    align-self: flex-start;
+    list-style: none;
+    width: 100%;
+  }
+
+  &__section-icon {
+    color: $anchor-color--default;
+    margin-left: pxRem(24px);
+  }
+
+  &__anchor {
+    align-items: center;
+    color: var(--anchor-color, --grey-900);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: pxRem(12px) $inline-padding;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      #{'--anchor-color'}: $anchor-color--hover;
+      background-color: var(--blue-50);
+      border-radius: 4px;
+    }
+  }
+
+  &__arrow {
+    fill: currentColor;
+    height: pxRem(16px);
+    width: pxRem(16px);
+  }
+}

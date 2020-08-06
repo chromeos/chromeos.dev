@@ -1,0 +1,23 @@
+.animation {
+  $duration: 0.25s;
+  $root: &;
+
+  &__lift-fade {
+    #{$root}--active &--start {
+      opacity: 0;
+      transform: translateY(1.5rem);
+      transition: transform $duration ease-in, opacity $duration ease-in;
+
+      @for $i from 1 through 10 {
+        &[data-step='#{$i}'] {
+          transition-delay: $duration / 2 * $i;
+        }
+      }
+    }
+
+    #{$root}--active &--end {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

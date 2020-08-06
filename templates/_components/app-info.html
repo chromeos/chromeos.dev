@@ -1,0 +1,16 @@
+<!--{# Renders the basic information of an app.
+  Arguments:
+    app: List of objects containing the following attributes.
+    - name: App name.
+    - logo: Path to app logo (could be internal or external).
+    - company: Company name.
+#}-->
+{% macro appInfo(app) -%}
+<figure class="app-info">
+  <img class="app-info__logo" src="{{app.logo}}" aria-hidden="true" alt="" />
+  <figcaption class="app-info__copy-wrapper">
+    <p class="type--h5">{{app.name}}</p>
+    <p class="app-info__company">{{app.company}}</p>
+  </figcaption>
+</figure>
+{%- endmacro %}

@@ -1,0 +1,81 @@
+%anchor {
+  color: $anchor-color--default;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: $anchor-color--hover;
+    text-decoration: none;
+  }
+
+  &:focus {
+    background-color: var(--blue-25);
+  }
+
+  &:visited {
+    color: $anchor-color--visited;
+  }
+
+  &--page-nav {
+    @include fontSetup(14px, 18px);
+    font-family: $font-roboto;
+
+    &[data-active] {
+      text-shadow: 0 0 0 currentColor;
+    }
+
+    &:hover {
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    &:focus {
+      background-color: var(--blue-25);
+    }
+
+    &:visited {
+      color: $anchor-color--default;
+    }
+  }
+
+  &--primary {
+    @include fontSetup(16px, 24px);
+    color: var(--grey-700);
+    font-family: $font-google-sans;
+    font-weight: 500;
+    text-decoration: none;
+
+    &[data-active],
+    &:hover,
+    &:focus {
+      color: var(--grey-900);
+    }
+  }
+
+  &--secondary {
+    @include fontSetup(14px, 18px);
+    color: var(--grey-700);
+    font-family: $font-roboto;
+    text-decoration: none;
+
+    &[data-active],
+    &:hover,
+    &:focus {
+      color: var(--grey-900);
+      text-shadow: 0 0 0 currentColor;
+    }
+  }
+
+  &--tertiary {
+    @include fontSetup(16px, 24px, 500);
+    color: var(--grey-700);
+    font-family: $font-google-sans;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: var(--grey-900);
+      text-decoration: underline;
+    }
+  }
+}

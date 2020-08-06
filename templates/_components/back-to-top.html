@@ -1,0 +1,4 @@
+<!--{# Renders a "back to top" button that appears from small to medium viewports.#}-->
+{% macro backToTop() %}
+<a href="#body" class="back-to-top" aria-label="Scroll to top"> {% from 'icon.html' import icon %} {{ icon("arrow-upward", "back-to-top__icon") }}</a>
+{% endmacro %}

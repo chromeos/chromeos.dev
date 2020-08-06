@@ -1,0 +1,17 @@
+<!--{#
+  Renders the community information.
+
+  Arguments:
+    @param {string} logo: Logo path.
+    @param {object} cta: Object containing the following attributes.
+    @param {string} url: CTA url.
+    @param {string} text: CTA text.
+ #}-->
+{% from 'icon.html' import icon %} {% macro externalCommunity(logo, cta) -%}
+<figure class="external-community">
+  <img class="external-community__logo" src="{{logo}}" aria-hidden="true" alt="" />
+  <figcaption class="external-community__copy-wrapper">
+    <a href="{{cta.url}}" class="cta cta--link">{{cta.text}}</a>
+  </figcaption>
+</figure>
+{%- endmacro %}

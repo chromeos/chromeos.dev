@@ -1,0 +1,16 @@
+#########################
+## Code files
+#########################
+*                         @chromeos/dev-eng
+
+#########################
+## Content
+#########################
+/src/images/              @chromeos/dev-content
+/src/videos/              @chromeos/dev-content
+/pages/                   @chromeos/dev-content
+
+#########################
+## Icon
+#########################
+/src/images/icons/        @chromeos/dev-eng

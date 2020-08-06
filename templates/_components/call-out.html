@@ -1,0 +1,18 @@
+<!--{#
+  Renders a call out component.
+
+    @param {object[]} content: List of objects containing the following attributes.
+    @param {string} content.title: Content title.
+    @param {string} content.body: Content body copy.
+
+    @param {object[]} cta: Object the cta information.
+    @param {string} cta.text: Cta text.
+    @param {string} cta.url: Cta url.
+ #}-->
+{% macro callOut(content, cta) -%}
+<aside class="call-out">
+  <h2 class="type--h4">{{content.title}}</h2>
+  <p class="type">{{content.body}}</p>
+  <a class="cta cta--high" href="{{cta.url}}">{{cta.text}}</a>
+</aside>
+{%- endmacro %}

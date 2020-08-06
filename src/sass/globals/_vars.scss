@@ -1,0 +1,41 @@
+// Global variables.
+// Module settings
+$breakpoint: (
+  'to ems': true,
+);
+
+// Font families used across the site.
+$font-roboto: 'Roboto', Arial, Helvetica, sans-serif;
+$font-google-sans: 'Google Sans', $font-roboto;
+$font-google-sans-display: 'Google Sans Display', $font-google-sans;
+$font-mono: 'Roboto Mono', monospace;
+
+// Base font size to be used for calculations.
+$base-font-size: 16px;
+
+// Default spacing between elements following the normal flow.
+$rhythm: 1.5rem;
+
+// Breakpoints for tech detail page.
+$bkpt-tech-details--2-cols: 758px;
+$bkpt-tech-details--landing: 881px;
+$bkpt-tech-details--3-cols: 988px;
+
+// Articles
+$bkpt-articles--2-cols: 700px;
+$bkpt-articles--3-cols: 1000px;
+
+// Anchor colors
+$anchor-color--default: var(--blue-700);
+$anchor-color--hover: var(--blue-900);
+$anchor-color--visited: var(--purple-900);
+
+//Header
+$bkpt-map--header--large: (
+  'en': 833px,
+  'es': 939px,
+);
+
+//Landings
+$content-max-width: pxRem(1440px);
+$bkpt-landing--large: 1024px;

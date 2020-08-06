@@ -1,0 +1,25 @@
+<!--{#
+  Renders a Hero with a full bleed background image.
+
+  @param {object} data: List of objects containing the following attributes.
+  @param {string} data.eyebrow: String representing the hero eyebrow.
+  @param {string} data.title: String representing the page main title.
+  @param {string} data.copy: String with main content for the hero.
+  @param {object} data.bkgImg: Object for the image properties.
+  @param {string} data.bkgImg.path: String representing the background image path.
+  @param {string} data.bkgImg.alt: String representing the background image alt.
+  @param {object} data.cta: Object representing the CTA (Call To Action) information.
+  @param {string} data.cta.url: String representing the CTA url.
+  @param {string} data.cta.text: String representing the CTA text.
+ #}-->
+{% macro heroFullBleed(data) -%}
+<article class="hero-full-bleed">
+  <img class="hero-full-bleed__background-image" src="{{data.bkgImg.path}}" alt="{{data.bkgImg.alt}}" />
+  <section class="hero-full-bleed__wrapper">
+    <small class="hero-full-bleed__eyebrow type--eyebrow">{{data.eyebrow}}</small>
+    <h1 class="hero-full-bleed__title type--h1">{{data.title}}</h1>
+    <p class="hero-full-bleed__copy type--large">{{data.copy}}</p>
+    <a class="hero-full-bleed__link cta cta--high" href="{{data.cta.url}}">{{data.cta.text}}</a>
+  </section>
+</article>
+{%- endmacro %}

@@ -1,0 +1,9 @@
+:root {
+  @each $c, $v in $google-colors {
+    $name: '--#{$c}';
+    #{$name}: #{$v};
+  }
+
+  #{'--black'}: map-get($google-colors, 'grey-900');
+  #{'--white'}: #fff;
+}

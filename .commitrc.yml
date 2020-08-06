@@ -1,0 +1,31 @@
+scopes:
+  - name: code
+    description: Site codebase changes
+  - name: functions
+    description: Serverless function changes
+  - name: ux
+    description: User experience changes
+  - name: tests
+    description: Testing changes
+  - name: general
+    description: Other website content
+  - name: android
+    description: Apps & Games - Adapting Android
+  - name: web
+    description: Apps & Games - Adapting Web
+  - name: games
+    description: Apps & Game - Adapting Games
+  - name: publish
+    description: Publishing
+  - name: linux
+    description: Develop - Linux (Beta)
+  - name: web-env
+    description: Develop - Web Environment
+  - name: android-env
+    description: Develop - Android Environment
+  - name: productivity
+    description: Develop - Productivity
+  - name: post
+    description: News & Stories - Post
+  - name: stories
+    description: News & Stories - Case Study

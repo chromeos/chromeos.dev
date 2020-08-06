@@ -1,0 +1,45 @@
+// Styles for footnotes component.
+.footnotes {
+  &-sep {
+    border: 0;
+    border-top: 1px solid var(--grey-300);
+    left: 0;
+    margin-top: $section-block-margin;
+    position: absolute;
+    width: 100%;
+  }
+
+  &-list {
+    // Double margin is needed here, since footnotes-sep position is absolute and it gets rendered off the regular flow.
+    margin-left: 1em;
+    margin-top: 2 * $section-block-margin;
+
+    &--grey-bkg {
+      background-color: var(--grey-50);
+      margin: 0;
+      padding: pxRem(24px);
+
+      @supports (padding: clamp(28px, 4vw, 40px)) {
+        padding: pxRem(24px) clamp(24px, 4vw, 40px);
+      }
+    }
+
+    &--landing {
+      margin: 0;
+      padding: pxRem(28px) pxRem(42px);
+
+      @supports (padding-left: clamp(pxRem(28px), 7vw, pxRem(72px))) {
+        padding-left: clamp(pxRem(28px), 7vw, pxRem(72px));
+        padding-right: clamp(pxRem(28px), 7vw, pxRem(72px));
+      }
+    }
+  }
+}
+
+.footnote-item {
+  margin: 0;
+
+  &__p {
+    display: inline;
+  }
+}

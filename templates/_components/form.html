@@ -1,0 +1,28 @@
+<!--{#
+    Renders a Form component.
+    @param {Object} settings - Object containing form configuration.
+    @param {Object} content - Object containing texts and general copies.
+    @param {Object[]} fields - List of form fields.
+    @param {String} locale - String containing the locale.
+#}-->
+{% from 'form/input.html' import input %} {% from 'form/select.html' import select %} {% from 'form/select-country.html' import country %} {% from 'form/submit-button.html' import submitButton %} {% macro form(settings, content, fields, locale) %}
+<div class="form">
+  <h2 class="form__title type--h2">{{ content.title }}</h2>
+  <p class="form__copy type">{{ content.copy }}</p>
+  {% for error in content.errors %}
+  <p class="message message--warning form__error form__error--{{ error.type }}">
+    {{ error.text }}
+  </p>
+  {% endfor %}
+  <form action="{{ settings.endpoint }}" id="{{ settings.name }}" action="" method="post" enctype="multipart/form-content" class="form__wrapper">
+    {% for item in fields %} {% set id = settings.name + '-' + item.name %}
+    <div class="form__item form__item-{{ item.type }}{% if item.required %} form__item--required {% endif %} form__item--label-on-top">
+      {% if item.type not in ["select", "country", "submit"] %} {{ input(item, id) }} {% endif %} {% if item.type == "select" %} {{ select(item, id) }} {% endif %} {% if item.type == "country" %} {{ country(item, id, locale) }} {% endif %} {% if item.type == "submit" %} {{ submitButton(item, settings.name) }} {% endif %} {% if item.required %} <span class="form__helper type--small"> {{ content.required }}</span>{% endif %} {% if item.error %}
+      <span role="alert" id="invalid-{{ item.name | slug }}" class="form__error form__error--{{ item.type }} type--small">{{ item.error }}</span>
+      {% endif %}
+    </div>
+    {% endfor %}
+    <div class="form__disclaimer type  type--small">{{ content.disclaimer | markdown | safe }}</div>
+  </form>
+</div>
+{% endmacro %}

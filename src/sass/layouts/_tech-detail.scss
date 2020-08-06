@@ -1,0 +1,186 @@
+// Styles for tech detail page
+.tech-detail {
+  $root: &;
+  $spacing: clamp(3.75rem, 7.8125vw, 5rem);
+  $inline-padding: 1.75rem;
+  $block-padding: 2.5rem;
+
+  // TODO check breakpoints, spacing distribution when sample content is loaded.
+  // Validate with design.
+  $topics-and-resources-width: 300px;
+  $content-width: minmax(50ch, 80ch);
+  $versions-toc-width: minmax(235px, 320px);
+
+  display: grid;
+
+  @include mq($bkpt-tech-details--2-cols) {
+    grid-template-columns: $topics-and-resources-width 1fr $content-width 1fr;
+    grid-template-rows: auto auto 1fr auto;
+  }
+
+  @include mq($bkpt-tech-details--3-cols) {
+    grid-template-columns: $topics-and-resources-width 1fr $content-width $versions-toc-width 1fr;
+  }
+
+  &--landing {
+    border-bottom: 1px solid var(--grey-300);
+
+    @include mq($bkpt-tech-details--landing) {
+      grid-template-columns: $topics-and-resources-width minmax($spacing, 1fr) minmax(auto, 90ch) minmax($spacing, 1fr);
+      grid-template-rows: auto 4rem auto 1fr auto;
+    }
+  }
+
+  &__hero {
+    background: linear-gradient(18deg, var(--grey-100), var(--grey-100) 50%, var(--grey-50) 50%);
+    grid-column: 1 / -1;
+    grid-row: 2 / span 1;
+
+    @include mq($bkpt-tech-details--2-cols) {
+      grid-column: 2 / -1;
+      grid-row: 1 / span 2;
+    }
+
+    @include mq($bkpt-tech-details--landing) {
+      min-height: 10rem;
+    }
+
+    &:not(:empty) {
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    &-image {
+      max-height: 20vh;
+      width: auto;
+
+      @include mq($bkpt-tech-details--landing) {
+        padding-bottom: 4rem;
+      }
+    }
+
+    &:empty {
+      background: var(--blue-600);
+    }
+  }
+
+  &__chapters {
+    border-top: 1px solid var(--grey-300);
+    margin-bottom: $spacing;
+    margin-top: $spacing;
+    padding-top: $spacing;
+  }
+
+  &__content {
+    margin-top: -5rem;
+    padding: 0 $inline-padding $block-padding;
+    padding-top: 5rem;
+
+    @include mq($bkpt-tech-details--2-cols) {
+      grid-column: 3 / span 1;
+
+      #{$root}--landing & {
+        padding-left: $spacing;
+        padding-right: $spacing;
+      }
+    }
+  }
+
+  &__header {
+    margin-bottom: $block-padding / 2;
+    margin-top: -5rem;
+    padding: 0 $inline-padding;
+    padding-top: $block-padding / 2 + 5rem;
+
+    #{$root}--landing & {
+      background-color: var(--white);
+      border-top: 0.5rem solid var(--blue-600);
+      grid-row: 3 / span 1;
+    }
+
+    @include mq($bkpt-tech-details--2-cols) {
+      grid-column: 3 / span 1;
+      grid-row: 1 / span 1;
+      padding-top: $block-padding + 5rem;
+
+      #{$root}--landing & {
+        grid-row: 3 / span 1;
+        padding-left: $spacing;
+        padding-right: $spacing;
+      }
+    }
+
+    @include mq($bkpt-tech-details--landing) {
+      #{$root}--landing & {
+        grid-row: 2 / span 2;
+      }
+    }
+  }
+
+  &__topics-and-resources {
+    grid-row: 1 / span 1;
+    position: relative;
+
+    @include mq($bkpt-tech-details--2-cols) {
+      border-right: 1px solid var(--grey-300);
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 3;
+
+      #{$root}--landing & {
+        grid-row: 1 / span 4;
+      }
+
+      > .subnav {
+        border-bottom: 1px solid var(--grey-300);
+        margin-bottom: -1px;
+        max-height: calc(100vh - 4rem - 1px);
+        overflow-y: auto;
+        padding-bottom: 0;
+        padding-top: $block-padding;
+        position: sticky;
+        top: 4rem;
+
+        > .resources {
+          padding-bottom: $block-padding;
+        }
+      }
+    }
+  }
+
+  &__recommended {
+    border-top: 1px solid var(--grey-300);
+    grid-column: 1 / -1;
+  }
+
+  &__recommended-items {
+    margin: 0 auto;
+    max-width: 1409px;
+    padding: 5rem 1.75rem;
+
+    @include mq($bkpt-tech-details--3-cols) {
+      padding: 5rem 3.75rem;
+    }
+  }
+
+  &__versions-and-toc {
+    margin-bottom: $block-padding;
+    padding: 0 $inline-padding;
+    position: relative;
+
+    @include mq($bkpt-tech-details--2-cols) {
+      grid-column: 3 / span 1;
+    }
+
+    @include mq($bkpt-tech-details--3-cols) {
+      grid-column: 4 / span 1;
+      grid-row: 1 / span 3;
+      margin-bottom: 0;
+      margin-top: $block-padding;
+    }
+
+    &:empty {
+      padding: 0;
+    }
+  }
+}

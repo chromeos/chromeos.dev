@@ -1,0 +1,122 @@
+---
+hero:
+  heading:
+    - Su aplicación + Chrome OS.
+    - Mire las posibilidades
+  cta:
+    text: Comience a crear
+    url: "#home__subnav"
+  img:
+    src: '/images/landings/home/hero.png'
+    alt: 'Se muestran Chromebook, tablet,  teléfono celular, teléfono plegable, lápiz
+      óptico, y un mouse. Los dispositivos con pantalla muestran la misma imagen:
+      una mezcla de círculos de colores, barras redondeadas, y líneas en rojo, amarillo,
+      azul y verde. Estos objetos se mueven en unísono.'
+results:
+  desc: Obtenga resultados con Chrome OS
+  content:
+    heading:
+      - Más dispositivos
+      - Nuevas audiencias.
+      - Resultados reales
+    desc: Ofrezca experiencias enriquecedoras y atractivas a más personas adaptando
+      sus aplicaciones Android, Google Play y Web para Chromebook. Con algunos cambios
+      en su aplicación existente, puede atraer nuevas audiencias en diferentes formatos
+      y dispositivos, en cualquier momento y en cualquier lugar.
+  img:
+    src: gs://home/intro
+    alt: Vista panorámica de un escritorio de madera con un Chromebook y un teléfono
+      Pixel. Dos personas se sientan una al lado de la otra, colaborando.
+  stats:
+    title: Ventas de unidades de Chromebook año tras año
+    value: 103%
+    icon: trending-up
+  footnote: 1
+  cta:
+    text: Get started on Chrome OS
+    url: '/en/android'
+onAndWith:
+  desc: Construya para Chrome OS, usando Chrome OS
+  cards:
+    - content:
+        title: Da vida a las ideas con Linux en Chrome OS
+        copy: Linux en Chrome OS te da el poder de usar una sola máquina para construir
+          y ejecutar aplicaciones de Android, Web y Linux usando tus editores favoritos,
+          IDES y herramientas de desarrollo de clase mundial. Simplemente configure
+          Linux en Chrome OS para comenzar a construir.
+      cta:
+        url: '/en/linux'
+        text: Inicie con Linux
+      modifiers:
+        offset: true
+      images:
+        - src: '/images/landings/home/linux-laptop-base.png'
+          alt: Un Chromebook
+        - src: '/images/landings/home/android-studio.png'
+          alt: Android Studio ejecutándose en Chrome OS.
+        - src: '/images/landings/home/terminal.png'
+          alt: La aplicación Terminal para Linux en Chrome OS.
+      image:
+        alt: A Chromebook showing a close up of Android Studio’s interface and a Linux
+          command module open.
+        src: '/images/landings/home/laptop-linux.png'
+    - content:
+        title: Catalice su último proyecto con recursos de diseño para Chrome OS
+        copy: Encuentre todo lo que necesita saber sobre el diseño de su aplicación
+          para Chrome OS y las pautas de la aplicación, incluida información sobre la
+          experiencia del usuario, el diseño visual, los componentes de la interfaz
+          de usuario, la navegación, las fuentes y más.
+      cta:
+        url: '/en/android/design'
+        text: Mire los recursos de diseño
+      modifiers:
+        offset: true
+      images:
+        - src: '/images/landings/home/design-resources-laptop.png'
+          alt: Una aplicación de pantalla grande en una computadora portátil que muestra
+            cómo elementos específicos, resaltados en azul, amarillo, verde y rojo, se
+            han adaptado de una aplicación de pantalla pequeña en un teléfono (la siguiente
+            imagen).
+        - src: '/images/landings/home/design-resources-phone.png'
+          alt: Una aplicación de pantalla pequeña en un teléfono con elementos resaltados
+            en azul y amarillo antes de adaptarse a una aplicación de pantalla grande
+            (la imagen anterior).
+      image:
+        alt: Show an app design that works for mobile (as shown in a phone) as well
+          as on a desktop screen. The design shows similar elements including blocks
+          of color in the Google spectrum (blue, yellow, green, and red).
+        src: '/images/landings/home/laptop-design-guidelines.png'
+posts:
+  title: Lo último sobre Chrome OS
+  modifiers:
+    shapeOn: 1
+featured:
+  modifiers:
+    custom: landing--news-grey-overlay
+subnav:
+  content:
+    title: Comience a construir con información y herramientas para Chrome OS
+  modifiers:
+    variant: subnav
+chromebook:
+  image:
+    src: gs://home/chromebooks-device
+    alt: Una imagen que muestra tres Chromebooks. Una Chromebook Samsung está plegada.
+      Otro Acer Chromebook se dobla como una tableta. El último está abierto para
+      uso estándar de computadoras portátiles.
+  content:
+    title: Conozca Chromebook
+    copy: Con todas las formas y tamaños, las Chromebook son rápidas, simples, seguras
+      y funcionan con Chrome OS.
+  cta:
+    url: https://www.google.com/chromebook/
+    text: Obtenga información sobre Chromebook
+community:
+  title: Noticias y recursos para desarrolladores para ponerlo en funcionamiento
+  modifiers:
+    variant: community
+footnotes:
+  notes:
+    - The NPD Group, Inc., Servicio de seguimiento minorista de EE. UU., Computadoras
+      portátiles, basadas en ventas de unidades, abril-junio 2020 y marzo-junio 2020.
+  variant: landing

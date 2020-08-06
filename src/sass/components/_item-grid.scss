@@ -1,0 +1,67 @@
+// Styles for the item-grid component.
+// Breakpoints are fixed, so before reusing it some adjustments may be necessary.
+//
+// Customizations.
+// These values are used when the component uses a background color
+// --block-start-padding: Sets the top padding for the component.
+// --block-end-padding: Sets the bottom padding for the component.
+// --inline-padding: Sets the left and right padding for the component.
+
+.item-grid {
+  $bkpt-grid--large: 100ch;
+  // We explicitly need the three values here to match the design margin on large resolutions.
+  padding: var(--block-start-padding, 0) var(--inline-padding, 0) var(--block-end-padding, 0); // sass-lint:disable-line shorthand-values
+  position: relative;
+  z-index: 10;
+
+  &__title {
+    margin: 0 auto;
+    max-width: pxRem(640px);
+    padding: 0 calc(var(--shape-circle--size) / 6);
+    position: relative;
+    text-align: center;
+    z-index: 3;
+  }
+
+  &__content {
+    display: grid;
+    grid-gap: pxRem(40px) pxRem(24px);
+    margin-top: pxRem(40px);
+
+    @include mq(430px) {
+      grid-template-columns: repeat(auto-fit, minmax(pxRem(300px), 1fr));
+    }
+  }
+
+  &--community & {
+    &__content {
+      align-items: start;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &--icon-card & {
+    &__content {
+      grid-gap: pxRem(40px) 10%;
+      grid-template-columns: 1fr;
+      @include mq($bkpt-grid--large) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+
+  &--subnav & {
+    &__content {
+      grid-template-columns: repeat(auto-fit, minmax(pxRem(256px), 1fr));
+      justify-content: center;
+    }
+  }
+
+  &--circled &__content {
+    border-image-outset: 300px;
+    border-image-slice: 0 fill;
+    border-image-source: paint(circles);
+  }
+}

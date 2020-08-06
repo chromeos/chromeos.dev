@@ -1,0 +1,12 @@
+<!--{#
+  Creates a switch button component.
+
+  Arguments:
+    label: String that provides the accesibility message related to the switch button.
+#}-->
+{% macro switch(label) %}
+<div class="switch">
+  <label for="{{label | slug}}" class="switch__label type--label">{{label}}</label>
+  <input id="{{label | slug}}" type="checkbox" class="switch__input" />
+</div>
+{% endmacro %}

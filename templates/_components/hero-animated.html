@@ -1,0 +1,28 @@
+<!--{#
+  Renders a hero with an animation.
+
+  Arguments:
+    @param {string[]} heading: List of strings representing heading lines. Each line will break with a <br/> tag.
+    @param {Object} cta: Object containing the CTA info.
+    @param {string} cta.text: The CTA's text.
+    @param {string} cta.url: The CTA's URL.
+    @param {Object} img: Object containing the background image.
+    @param {string} img.src: The image's source path.
+    @param {string} img.alt: The image's atl text.
+#}-->
+{% macro heroAnimated(heading, cta, img) -%} {% set br = joiner("<br />") %}
+<div class="hero-animated background">
+  <h1 class="hero-animated__heading type--h1">
+    {%- for title in heading -%}{{ br() | safe }}{{ title }}{%- endfor -%}
+  </h1>
+  <div class="hero-animated__cta">
+    <a class="hero-animated__link cta cta--high" href="{{ cta.url }}">{{ cta.text }}</a>
+  </div>
+  <div class="hero-animated__wrapper">
+    <div class="hero-animated__background">
+      <img class="hero-animated__animation-item" src="{{ img.src }}" alt="{{ img.alt }}" />
+    </div>
+    <div class="hero-animated__animation"></div>
+  </div>
+</div>
+{%- endmacro %}

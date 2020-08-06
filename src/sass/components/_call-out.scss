@@ -1,0 +1,12 @@
+// Styles for call-out component.
+
+.call-out {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  > :not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}

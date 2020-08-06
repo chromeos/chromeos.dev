@@ -1,0 +1,62 @@
+// Styles for the hero component.
+// Breakpoint is selected given copy-min-width and its margin.
+// To use images optimization process the background image is placed on a div with position absolute and style according the design.
+
+.hero-full-bleed {
+  // Breakpoint selected based on __wrapper max-width.
+  $bkpt-hero-full-bleed--large: 720px;
+
+  height: calc(100vh - 4rem);
+  max-height: pxRem(800px);
+  min-height: pxRem(640px);
+  padding: pxRem(60px) pxRem(28px) 0;
+  position: relative;
+
+  @include mq($bkpt-hero-full-bleed--large) {
+    align-items: center;
+    background-size: cover;
+    display: flex;
+    height: 80vh;
+    padding: 0 pxRem(80px);
+  }
+
+  &__eyebrow {
+    margin-bottom: pxRem(8px);
+  }
+
+  &__background-image {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &__title {
+    margin-bottom: pxRem(16px);
+  }
+
+  &__copy {
+    margin-bottom: pxRem(16px);
+    max-width: 60ch;
+  }
+
+  &__link {
+    display: inline-block;
+  }
+
+  &__wrapper {
+    background: var(--white);
+    padding: pxRem(40px) pxRem(24px);
+
+    @include mq($bkpt-hero-full-bleed--large) {
+      max-width: 75ch;
+      min-width: 55ch;
+      padding: pxRem(40px);
+    }
+  }
+}

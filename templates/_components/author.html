@@ -1,0 +1,27 @@
+<!--{#
+  Renders author info.
+
+  @param {object[]} author - List of objects containing the following attributes.
+  @param {object[]} author[].name - List of objects containing the following attributes.
+  @param {string} author[].name.given - author's name.
+  @param {string} author[].name.family - author's last name.
+  @param {object[]} author[].work - List of objects containing the following attributes.
+  @param {string} author[].work.title - author's title.
+  @param {string} author[].work.company - author's company.
+  @param {string} author[].work.title - author's company organization.
+  @param {string} alt - String to describe the author's photo, and should be used author.alt from the microcopy template.
+  
+ #}-->
+{% macro author(author, alt, contribid) -%}
+<figure class="author">
+  {% set imagePath = 'contributors/' + contribid + '.jpg' %} {% if imagePath | existingImage %}
+  <img src="/images/{{imagePath}}" class="author__photo" alt="{{alt}}" />
+  {% endif %}
+  <figcaption class="author__copy">
+    <p class="type--h6">{{author.name | name}}</p>
+    {% if author.work | role %}
+    <p class="type--small">{{author.work | role}}</p>
+    {% endif %}
+  </figcaption>
+</figure>
+{%- endmacro %}

@@ -1,0 +1,130 @@
+---
+title: Core Typography
+metadesc: These core typographic styles
+typography: true
+intro: |-
+  These core typographic styles are used throughout `ChromeOS.dev` and serve as the building blocks for other typography throughout the site.
+
+headlines: |-
+  Headlines on `ChromeOS.dev` do not use global fixed breakpoints. Instead, they leverage a flexible approach to headlines based on the current viewport width, utilizing the CSS [`clamp`](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp) function.
+
+  In browsers that don't support `clamp`, a medium size between the smallest and largest sizes the headline can grow is used.
+
+  All headlines are typeset in Google Sans, with no custom letter spacing. Sizes are given in `px` but converted to `em` (for `font-size`) or a ratio (for `line-height`) when implemented. Headlines are all `--grey-900` (`#202124`).
+
+  In long-form text, headers use one heading size smaller than described here, so an `h1` will be styled as an `h2`, an `h2` will be styled as an `h3`, etc…
+
+fixed: |-
+  These type styles do not change based on screen size or where they are displayed. When rendered, `font-size`, `letter-spacing`, `padding` are converted to `em` and `line-height` is converted to a ratio.
+---
+
+<div class="type">
+  {{ intro | safe }}
+</div>
+
+<section class="style-guide__section">
+  <h2 class="type--h3">Headlines</h2>
+  <div class="type">
+    {{ headlines | safe }}
+  </div>
+  <section class="style-guide__section">
+    <h1 class="type--h1">Headline 1</h1>
+    <div class="type">
+      <p>Headline 1 grows from <code>36px</code>/<code>40px</code> to <code>60px</code>/<code>72px</code>, with a medium size of <code>48px</code>/<code>56px</code>. It's set in Google Sans Display with a font weight of <code>400</code>.</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <h2 class="type--h2">Headline 2</h2>
+    <div class="type">
+      <p>Headline 2 grows from <code>28px</code>/<code>40px</code> to <code>48px</code>/<code>56px</code>, with a medium size of <code>40px</code>/<code>48px</code>. It's set in Google Sans Display with a font weight of <code>400</code>.</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <h3 class="type--h3">Headline 3</h3>
+    <div class="type">
+      <p>Headline 3 grows from <code>24px</code>/<code>32px</code> to <code>36px</code>/<code>44px</code>, with a medium size of <code>32px</code>/<code>40px</code>. It's set in Google Sans with a font weight of <code>400</code>.</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <h4 class="type--h4">Headline 4</h4>
+    <div class="type">
+      <p>Headline 4 grows from <code>18px</code>/<code>28px</code> to <code>28px</code>/<code>36px</code>, with a medium size of <code>20px</code>/<code>28px</code>. It's set in Google Sans with a font weight of <code>400</code>.</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <h5 class="type--h5">Headline 5</h5>
+    <div class="type">
+      <p>Headline 5 grows from <code>16px</code>/<code>28px</code> to <code>20px</code>/<code>28px</code>, with a medium size of <code>20px</code>/<code>28px</code>. It's set in Google Sans with a font weight of <code>400</code>.</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <h6 class="type--h6">Headline 6</h6>
+    <div class="type">
+      <p>Headline 6 grows from <code>14px</code>/<code>24px</code> to <code>16px</code>/<code>28px</code>, with a medium size of <code>16px</code>/<code>28px</code>. It's set in Google Sans with a font weight of <code>500</code>.</p>
+    </div>
+  </section>
+</section>
+
+<section class="style-guide__section">
+  <h2 class="type--h3">Fixed Styles</h2>
+  <div class="type">
+    {{ fixed | safe }}
+  </div>
+  <section class="style-guide__section">
+    <p class="type--base">This is regular-sized body copy, used for most body copy. The following is filler to help flesh out what this looks like for long stretches of text. There's also some <strong>bold</strong> and <em>italic</em> text thrown in for god measure. There's so many poorly chosen words in that sentence. I hear the jury's still out on science. That's why you always leave a note! I don't understand the question, and I won't respond to it. I care deeply for nature. I'm half machine. I'm a monster.</p>
+    <div class="type">
+      <p>Regular body styling can be applied with the <code>.type--base</code> class. It's set in Roboto with a weight of <code>400</code>, colored using <code>--grey-700</code>, and is typeset at <code>16px</code>/<code>28px</code>.</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <p class="type--large">This is large-sized body copy, used for shorter blocks of marketing copy, generally found on landing pages. The following is filler to help flesh out what this looks like for long stretches of text. There's also some <strong>bold</strong> and <em>italic</em> text thrown in for god measure. There's so many poorly chosen words in that sentence. I hear the jury's still out on science. That's why you always leave a note! I don't understand the question, and I won't respond to it. I care deeply for nature. I'm half machine. I'm a monster.</p>
+    <div class="type">
+      <p>Large body styling can be applied with the <code>.type--large</code> class. It's set in Roboto with a weight of <code>400</code>, colored using <code>--grey-700</code>, and is typeset at <code>18px</code>/<code>28px</code>.</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <small class="type--small">Small text</small>
+    <div class="type">
+      <p>
+        Small text is used for supplemental information usually towards the end of pages (e.g. sources, disclaimers, and tags), should be used with the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small"><code>&lt;small&gt;</code></a> element, and its styling can be applied with the <code>.type--small</code> class. It's set in Roboto with a weight of <code>400</code>, colored using <code>--grey-700</code>, and is typeset at <code>12px</code>/<code>16px</code>.
+      </p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <small class="type--eyebrow">Eyebrow</small>
+    <div class="type">
+      <p>
+        Eyebrows are used to give context to content, should be used with the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small"><code>&lt;small&gt;</code></a> element, and its styling can be applied with the <code>.type--eyebrow</code> class. It's set in Google Sans with a weight of <code>500</code>, colored using <code>--grey-700</code>, set in all caps, have a letter spacing of <code>.5px</code>, and is typeset at <code>14px</code>/<code>20px</code>.
+      </p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <p class="type--label">Label text</p>
+    <div class="type">
+      <p>Label text is as a descriptor for smaller interaction elements (e.g. article tags, TOC title, etc…) and its styling can be applied with the <code>.type--label</code> class. It's set in Roboto with a weight of <code>600</code>, colored using <code>--grey-900</code>, set in all caps, and is typeset at <code>11px</code>/<code>16px</code>.</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <figcaption class="type--caption">Caption text.</figcaption>
+    <div class="type">
+      <p>Caption text is used for image captions and its styling can be applied with the <code>.type--caption</code> class. It's set in Roboto with a weight of <code>400</code>, colored using <code>--grey-700</code>, and is typeset at <code>14px</code>/<code>18px</code>.</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <p>This is <code class="type--code">Inline Code</code> inside some longer text.</p>
+    <div class="type">
+      <p>Inline code is used to display monospaced text, usually code, in-line with other text or where other in-line text can go, and its styling can be applied with the <code>.type--code</code> class. It's set in Roboto Mono with a weight of <code>400</code>, colored using <code>--grey-700</code>, has a background of <code>--grey-100</code>, padding of <code>4px</code>, and is typeset at <code>14px</code>/<code>20px</code>.</p>
+    </div>
+  </section>
+</section>

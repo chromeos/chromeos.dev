@@ -1,0 +1,49 @@
+---
+layout: _wrapper
+---
+
+{% from 'skip-link.html' import skipLink %} {% from 'toc.html' import toc as tableOfContents %} {% from 'tools.html' import tools as toolsMacro %} {% from 'subnav.html' import subnav %} {% from 'resources.html' import resources as resourcesMacro %} {% from 'item-grid.html' import itemGrid %} {% set class="tech-detail" %} {% if landingPage %} {% set class = "tech-detail tech-detail--landing" %} {% endif %}
+
+<article class="{{class}}">
+  {% set related = collections[section + '--' + locale.code] %}
+  <aside class="tech-detail__topics-and-resources">
+    {{skipLink(microcopy.skip.content, 'content')}} {{ subnav(related, eyebrow, page.url, resources, microcopy.resources.title)}}
+  </aside>
+  {% if landingPage %}
+  <div class="tech-detail__hero">
+    {%- if hero -%}{% set position = hero.position if hero.position else 'middle' %}
+    <img class="tech-detail__hero-image tech-detail__hero-image--{{position}}" src="{{hero.image}}" alt="{{hero.alt}}" />
+    {%- endif -%}
+  </div>
+  {% endif %}
+  <header class="tech-detail__header" id="content">
+    {% if eyebrow %}
+    <small class="type--eyebrow">{{eyebrow}}</small>
+    {% endif %}
+    <h1 class="type--h2">{{title}}</h1>
+  </header>
+
+  {% if (content | toc or tools) and landingPage == false %}
+  <aside class="tech-detail__versions-and-toc">
+    {{toolsMacro(tools, microcopy.tools)}} {{tableOfContents(content, microcopy.toc.title, {title: microcopy.skip.toc, id: 'article'})}}
+  </aside>
+  {% endif %}
+
+  <section class="tech-detail__content" id="article">
+    <div class="type">
+      {{ content | safe }}
+    </div>
+    {% if landingPage and landingPage.subnav %}
+    <div class="tech-detail__chapters">
+      {{itemGrid(microcopy.landing.chapters, landingPage.subnav)}}
+    </div>
+    {% endif %}
+  </section>
+
+  {% if landingPage == false %}
+  <section class="tech-detail__recommended wrapper--padding wrapper--padded wrapper__contained">
+    {{itemGrid(microcopy.recommended, title | related(locale.code, page.url))}}
+  </section>
+  {% endif %}
+</article>
+{% from 'back-to-top.html' import backToTop %} {{ backToTop() }}

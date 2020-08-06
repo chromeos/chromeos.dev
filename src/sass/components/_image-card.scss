@@ -1,0 +1,72 @@
+// Styles for image-card component.
+
+.image-card {
+  $content-space: pxRem(20px);
+  $this: &;
+  #{'--offset-orientation'}: -1;
+
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__image {
+    object-fit: contain;
+  }
+
+  &__wrapper {
+    flex: 1 1 35ch;
+    margin-bottom: 1rem;
+  }
+
+  &__image-wrapper {
+    flex: 1 0 10%;
+    margin-bottom: 1rem;
+    min-width: 55%;
+    position: relative;
+    z-index: 2;
+
+    picture:not(:first-of-type) {
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .type--h3,
+  .type--large {
+    margin-bottom: 1rem;
+  }
+
+  &:nth-of-type(even) {
+    flex-direction: row-reverse;
+  }
+
+  &:nth-of-type(even),
+  &--flip {
+    #{'--offset-orientation'}: 1;
+  }
+
+  &--flip {
+    flex-direction: row-reverse;
+
+    &:nth-of-type(even) {
+      #{'--offset-orientation'}: -1;
+      flex-direction: row;
+    }
+  }
+
+  // Breakpoints chosen by looking in browser, only works when components are full-width
+  &--offset {
+    @include mq(859px) {
+      #{$this}__image-wrapper {
+        transform: translateX(calc(30% * var(--offset-orientation))) scale(1.5);
+      }
+    }
+
+    @include mq(1100px) {
+      #{$this}__image-wrapper {
+        transform: translateX(calc(15% * var(--offset-orientation))) scale(1.2);
+      }
+    }
+  }
+}

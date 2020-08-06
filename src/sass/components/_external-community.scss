@@ -1,0 +1,31 @@
+// Styles for the external community with logo.
+.external-community {
+  $logo-size: pxRem(60px);
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  margin: 0 pxRem(8px) pxRem(40px);
+  text-align: center;
+  width: 9rem;
+  @supports (width: clamp(pxRem(125px), 20vw, pxRem(160px))) {
+    width: clamp(pxRem(125px), 20vw, pxRem(160px));
+  }
+  @supports (margin: 0 clamp(0.5rem, 4vw, 1.5rem) pxRem(40px)) {
+    margin: 0 clamp(0.5rem, 4vw, pxRem(30px)) pxRem(40px);
+  }
+
+  // This style is needed because the picture tag is created automatically.
+  picture {
+    height: $logo-size;
+    margin-bottom: 1rem;
+    width: $logo-size;
+  }
+
+  &__logo {
+    height: $logo-size;
+    max-height: initial;
+    width: $logo-size;
+  }
+}

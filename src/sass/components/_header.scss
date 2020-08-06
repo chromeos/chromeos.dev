@@ -1,0 +1,64 @@
+// Site Header
+
+.header {
+  background: var(--white);
+  border-bottom: 1px solid var(--grey-300);
+  padding: 0.75rem 1.25rem;
+  position: fixed;
+  width: 100%;
+  z-index: 200;
+
+  @include minLangMQ($bkpt-map--header--large) {
+    padding-bottom: 0;
+  }
+
+  &__container {
+    display: grid;
+    grid-gap: 1.25rem;
+
+    grid-template-columns: 1.5em auto 1fr 1.5em;
+
+    @include minLangMQ($bkpt-map--header--large) {
+      grid-gap: 3rem;
+      grid-template-columns: 185px auto min-content;
+    }
+  }
+
+  &__home {
+    line-height: 1;
+    position: relative;
+    text-decoration: none;
+    z-index: 3;
+
+    @include minLangMQ($bkpt-map--header--large) {
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 1;
+    }
+  }
+
+  &__logo {
+    height: 2.5em;
+  }
+
+  &__search,
+  &__menu {
+    background: none;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    grid-column: -2 / span 1;
+    grid-row: 1 / span 1;
+    padding: 0;
+  }
+
+  &__search {
+    height: 2.5rem;
+  }
+
+  &__menu {
+    grid-column: 1 / span 1;
+    @include minLangMQ($bkpt-map--header--large) {
+      display: none;
+    }
+  }
+}

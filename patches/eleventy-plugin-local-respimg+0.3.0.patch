@@ -1,0 +1,13 @@
+diff --git a/node_modules/eleventy-plugin-local-respimg/lib/helpers.js b/node_modules/eleventy-plugin-local-respimg/lib/helpers.js
+index 01367bd..0362d4c 100644
+--- a/node_modules/eleventy-plugin-local-respimg/lib/helpers.js
++++ b/node_modules/eleventy-plugin-local-respimg/lib/helpers.js
+@@ -70,7 +70,7 @@ function generateSrcset(sizes, src, type) {
+  * @return {object} - {src: string, local: boolean}
+  */
+ function determineImagePath(src, outputPath, outputFolder) {
+-  const local = !RegExp('^https?://').test(src);
++  const local = !RegExp('^(\\w+?)://').test(src);
+ 
+   if (!local) {
+     return {

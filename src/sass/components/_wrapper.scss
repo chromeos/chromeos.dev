@@ -1,0 +1,235 @@
+// Styles for landing pages.
+//
+// Customizations.
+// On wider screens (width > $content-max-width) if you have a component with a
+// full-bleed background use --alter-background-color to set it.
+
+.wrapper {
+  $content-max-width: pxRem(1440px);
+
+  $max-width: 1024px;
+  $scaler: $max-width / 100 / 1vw;
+
+  $block-spacing-s: 5.75rem;
+  $block-spacing-l: 7.5rem;
+  $inline-spacing-s: 3.75rem;
+  $inline-spacing-l: 5rem;
+
+  $bumper-s: 0.875rem;
+  $bumper-l: 1.25rem;
+
+  $block-spacing-m: ($block-spacing-l + $block-spacing-s) / 2;
+  $inline-spacing-m: ($inline-spacing-l + $inline-spacing-s) / 2;
+  $bumper-m: ($bumper-l + $bumper-s) / 2;
+
+  $this: #{&};
+
+  $block-spacing-r: clamp($block-spacing-s, ($block-spacing-l / 1rem * 16px / $scaler), $block-spacing-l);
+  $inline-spacing-r: clamp($inline-spacing-s, ($inline-spacing-l / 1rem * 16px / $scaler), $inline-spacing-l);
+  $bumper-r: clamp($bumper-s, ($bumper-l / 1rem * 16px / $scaler), $bumper-l);
+
+  height: auto;
+  margin: $block-spacing-m / 2 auto;
+  max-width: $content-max-width;
+
+  @supports (margin: clamp(1px, 1vw, 2px)) {
+    margin: calc(#{$block-spacing-r} / 2) auto;
+  }
+
+  &--padding {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: $block-spacing-m / 2;
+    padding-top: $block-spacing-m / 2;
+
+    @supports (padding: clamp(1px, 1vw, 2px)) {
+      padding-bottom: calc(#{$block-spacing-r} / 2);
+      padding-top: calc(#{$block-spacing-r} / 2);
+    }
+  }
+
+  &--padded {
+    padding-left: $inline-spacing-m;
+    padding-right: $inline-spacing-m;
+
+    @supports (margin: clamp(1px, 1vw, 2px)) {
+      padding-left: $inline-spacing-r;
+      padding-right: $inline-spacing-r;
+    }
+  }
+
+  // sass-lint:disable no-universal-selectors
+  &--rhythm > *:not(:last-child) {
+    margin-bottom: $block-spacing-m;
+
+    @supports (margin: clamp(1px, 1vw, 2px)) {
+      margin-bottom: $block-spacing-r;
+    }
+  }
+  // sass-lint:enable no-universal-selectors
+
+  &--full-top {
+    margin-top: $block-spacing-m;
+
+    @supports (margin: clamp(1px, 1vw, 2px)) {
+      margin-top: $block-spacing-r;
+    }
+
+    &#{$this}--padding {
+      margin-top: 0;
+      padding-top: $block-spacing-m;
+
+      @supports (padding: clamp(1px, 1vw, 2px)) {
+        margin-top: 0;
+        padding-top: $block-spacing-r;
+      }
+    }
+  }
+
+  &--full-bottom {
+    margin-bottom: $block-spacing-m;
+
+    @supports (margin: clamp(1px, 1vw, 2px)) {
+      margin-bottom: $block-spacing-r;
+    }
+
+    &#{$this}--padding {
+      margin-bottom: 0;
+      padding-bottom: $block-spacing-m;
+
+      @supports (padding: clamp(1px, 1vw, 2px)) {
+        margin-bottom: 0;
+        padding-bottom: $block-spacing-r;
+      }
+    }
+  }
+
+  &--bumper-top {
+    margin-top: $bumper-m + $block-spacing-m / 2;
+
+    @supports (margin: clamp(1px, 1vw, 2px)) {
+      margin-top: calc(#{$bumper-r} + #{$block-spacing-r} / 2);
+    }
+
+    &#{$this}--padding {
+      margin-top: 0;
+      padding-top: $bumper-m + $block-spacing-m / 2;
+
+      @supports (padding: clamp(1px, 1vw, 2px)) {
+        margin-top: 0;
+        padding-top: calc(#{$bumper-r} + #{$block-spacing-r} / 2);
+      }
+    }
+  }
+
+  &--bumper-bottom {
+    margin-bottom: $bumper-m + $block-spacing-m / 2;
+
+    @supports (margin: clamp(1px, 1vw, 2px)) {
+      margin-bottom: calc(#{$bumper-r} + #{$block-spacing-r} / 2);
+    }
+
+    &#{$this}--padding {
+      margin-bottom: 0;
+      padding-bottom: $bumper-m + $block-spacing-m / 2;
+
+      @supports (padding: clamp(1px, 1vw, 2px)) {
+        margin-bottom: 0;
+        padding-bottom: calc(#{$bumper-r} + #{$block-spacing-r} / 2);
+      }
+    }
+  }
+
+  &--no-bottom {
+    margin-bottom: 0;
+
+    &#{$this}--padding {
+      padding-bottom: 0;
+    }
+  }
+
+  &--no-top {
+    margin-top: 0;
+
+    &#{$this}--padding {
+      padding-top: 0;
+    }
+  }
+
+  &--no-spacing {
+    margin-bottom: 0;
+    margin-top: 0;
+
+    &#{$this}--padding {
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+  }
+
+  &--full-bleed {
+    max-width: 100%;
+  }
+
+  &--hidden-x {
+    overflow-x: hidden;
+  }
+
+  // sass-lint:disable no-universal-selectors
+  &__contained > * {
+    margin: 0 auto;
+    max-width: $content-max-width;
+  }
+  // sass-lint:enable no-universal-selectors
+
+  &__background {
+    background-color: var(--grey-50);
+    overflow: hidden;
+
+    .cta--link {
+      color: var(--blue-700);
+
+      &:visited {
+        color: var(--purple-900);
+      }
+
+      &:hover,
+      &:focus {
+        color: var(--blue-900);
+      }
+    }
+  }
+
+  &__responsive-circle {
+    $circle-s: 100px;
+    $circle-l: 150px;
+    $circle-m: ($circle-l + $circle-s) / 2;
+
+    $medium: $circle-m / ($circle-l / $scaler / 100vw);
+    #{--circle-radius}: $circle-s;
+    #{--circle-offset}: -50; // sass-lint:disable-line no-duplicate-properties
+
+    @include mq($medium) {
+      #{--circle-radius}: $circle-m;
+    }
+
+    @include mq($max-width) {
+      #{--circle-radius}: $circle-l;
+      #{--circle-offset}: 0; // sass-lint:disable-line no-duplicate-properties
+    }
+  }
+
+  &__green-circle {
+    #{--shape-color}: var(--green-500);
+  }
+
+  &__yellow-circle {
+    #{--shape-color}: var(--yellow-500);
+  }
+
+  &--full-circles {
+    #{--circle-type}: full-circles;
+    #{--shape-color}: var(--blue-600), var(--yellow-500); // sass-lint:disable-line no-duplicate-properties
+    background-image: paint(circles);
+    height: 100%;
+  }
+}

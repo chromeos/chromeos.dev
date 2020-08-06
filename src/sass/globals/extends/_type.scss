@@ -1,0 +1,161 @@
+%type {
+  &--header {
+    color: var(--grey-900);
+    text-rendering: optimizeLegibility;
+  }
+
+  &--h1 {
+    @extend %type--header;
+
+    @include flexFont((36px 40px), (48px 56px), (60px 72px), 400);
+    font-family: $font-google-sans-display;
+  }
+
+  &--h2 {
+    @extend %type--header;
+
+    @include flexFont((28px 40px), (40px 48px), (48px 56px), 400);
+    font-family: $font-google-sans-display;
+  }
+
+  &--h3 {
+    @extend %type--header;
+
+    @include flexFont((24px 32px), (32px 40px), (36px 44px), 400);
+    font-family: $font-google-sans;
+  }
+
+  &--h4 {
+    @extend %type--header;
+
+    @include flexFont((18px 28px), (28px 36px), (28px 36px), 400);
+    font-family: $font-google-sans;
+  }
+
+  &--h5 {
+    @extend %type--header;
+
+    @include flexFont((16px 28px), (20px 28px), (20px 28px), 400);
+    font-family: $font-google-sans;
+  }
+
+  &--h6 {
+    @extend %type--header;
+
+    @include flexFont((14px 24px), (16px 28px), (16px 28px), 500);
+    font-family: $font-google-sans;
+  }
+
+  &--base {
+    @include fontSetup(16px, 28px, 400);
+    color: var(--grey-700);
+    font-family: $font-roboto;
+  }
+
+  &--large {
+    @extend %type--base;
+
+    @include fontSetup(18px, 28px, 400);
+  }
+
+  &--small {
+    @extend %type--base;
+
+    @include fontSetup(12px, 16px, 400);
+  }
+
+  &--quote {
+    @include fontSetup(20px, 28px, 500);
+    color: var(--grey-700);
+    font-family: $font-google-sans;
+  }
+
+  &--eyebrow {
+    @include fontSetup(14px, 20px, 500);
+    color: var(--grey-700);
+    display: inline-block;
+    font-family: $font-google-sans;
+    letter-spacing: pxEm(0.5px);
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+  }
+
+  &--label {
+    @include fontSetup(11px, 16px, 600);
+    color: var(--grey-900);
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+  }
+
+  &--revert {
+    text-transform: none;
+  }
+
+  &--caption {
+    #{--icon-offset}: 0.1em;
+    @include fontSetup(14px, 18px, 400);
+    color: var(--grey-700);
+  }
+
+  &--code {
+    @include fontSetup(14px, 20px, 400, false);
+    background-color: var(--grey-100);
+    color: var(--grey-700);
+    font-family: $font-mono;
+    padding: 0.25em;
+    word-break: break-word;
+
+    a & {
+      color: $anchor-color--default;
+    }
+
+    a:hover &,
+    a:focus & {
+      color: $anchor-color--hover;
+    }
+
+    a:visited & {
+      color: $anchor-color--visited;
+    }
+  }
+
+  &--dt {
+    @extend %type--eyebrow;
+    margin-left: 1em;
+  }
+
+  &--dd {
+    margin-left: 2em;
+    margin-top: 0;
+
+    + dt,
+    + .type--dt {
+      margin-top: 0.5em;
+    }
+  }
+
+  &--kbd {
+    background-color: var(--grey-100);
+    border-radius: pxRem(3px);
+    box-shadow: 1px 1px 1px var(--grey-700);
+    display: inline-block;
+    font-family: $font-mono;
+    font-size: 0.8em;
+    font-variant: small-caps;
+    font-weight: bold;
+    letter-spacing: pxRem(1px);
+    margin: 0 0.125em;
+    padding: 0 0.5em;
+    text-rendering: optimizeLegibility;
+    vertical-align: text-bottom;
+  }
+
+  &--list {
+    margin-left: 2em;
+    max-width: calc(100% - 4em);
+  }
+
+  &--list-item {
+    margin-top: 0.5em;
+  }
+}

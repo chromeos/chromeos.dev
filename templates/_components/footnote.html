@@ -1,0 +1,11 @@
+<!--{#
+  Renders a footnote.
+
+  @param {number} index - Index of one specific reference of the footnotes.
+ #}-->
+
+{% macro footnote(index) %}
+<sup class="footnote-ref">
+  <a id="fnref{{index}}" href="#fn{{index}}">[{{index}}]</a>
+</sup>
+{% endmacro %}

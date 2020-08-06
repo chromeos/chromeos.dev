@@ -1,0 +1,199 @@
+// Styles of form fields. (inputs  and selects)
+
+.form {
+  $self: &;
+
+  &__item {
+    margin-bottom: pxRem(20px);
+  }
+
+  // Needs to fluid between 1 and 2 columns.
+  &__item:first-child,
+  &__item-checkbox,
+  &__item-radio {
+    grid-column: 1 / -1;
+  }
+
+  &__item-submit {
+    order: 1;
+  }
+
+  &__item-hidden {
+    display: none;
+  }
+
+  &__item-checkbox {
+    #{$self}__field {
+      -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+      -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+      appearance: none;
+      border: 2px solid var(--grey-700);
+      border-radius: 2px;
+      height: 20px;
+      padding: 0;
+      width: 20px;
+
+      &:checked {
+        background-color: var(--blue-600);
+        border-color: var(--blue-600);
+      }
+
+      &:checked + #{$self}__label {
+        &::after {
+          content: '';
+        }
+      }
+
+      &:focus {
+        border-color: var(--blue-600);
+        outline: none;
+      }
+    }
+
+    #{$self}__label {
+      &::after {
+        border: solid var(--white);
+        border-width: 0 pxRem(2px) pxRem(2px) 0;
+        display: block;
+        height: pxRem(13px);
+        left: pxRem(6px);
+        position: absolute;
+        top: pxRem(6px);
+        transform: rotate(45deg);
+        width: pxRem(7px);
+      }
+    }
+  }
+
+  &__item-checkbox,
+  &__item-radio {
+    #{$self}__helper,
+    #{$self}__error {
+      margin-left: pxRem(30px);
+    }
+
+    #{$self}__field {
+      margin-right: 0.7rem;
+    }
+
+    #{$self}__group {
+      align-items: center;
+      display: inline-flex;
+      position: relative;
+    }
+
+    #{$self}__label {
+      margin: 0;
+    }
+  }
+
+  &__item--required {
+    margin-bottom: 0;
+  }
+
+  &__item--label-on-top:not(.form__item-checkbox):not(.form__item-radio) {
+    #{$self}__label {
+      align-self: self-start;
+      background: var(--white);
+      font-size: 0.75em;
+      padding: 0 pxRem(5px);
+      transform: translateY(-50%);
+    }
+  }
+
+  &__item--focus:not(.form__item-checkbox):not(.form__item-radio) {
+    #{$self}__label,
+    #{$self}__helper {
+      color: var(--blue-600);
+    }
+  }
+
+  &__item--focus {
+    #{$self}__helper {
+      color: var(--blue-600);
+      display: block;
+    }
+
+    #{$self}__error {
+      display: none;
+    }
+  }
+
+  &__item--invalid:not(.form__item-checkbox):not(.form__item-radio) {
+    #{$self}__field,
+    #{$self}__field:invalid {
+      border-color: var(--red-600);
+      box-shadow: 0 0 0 1px var(--red-600);
+    }
+
+    #{$self}__helper,
+    #{$self}__label {
+      color: var(--red-600);
+    }
+  }
+
+  &__item--invalid {
+    #{$self}__error {
+      display: block;
+    }
+
+    #{$self}__helper {
+      display: none;
+    }
+  }
+
+  &__group {
+    display: grid;
+    position: relative;
+  }
+
+  &__label {
+    align-self: center;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: self-start;
+    margin-left: pxRem(15px);
+    transition: transform 0.2s ease;
+  }
+
+  &__field:not([type='checkbox']):not([type='radio']) {
+    background-color: transparent;
+    border: pxRem(1px) solid var(--grey-700);
+    border-radius: pxRem(4px);
+    color: var(--grey-900);
+    display: block;
+    font-size: 1em;
+    grid-column: 1;
+    grid-row: 1;
+
+    &:disabled {
+      color: var(--grey-700);
+    }
+
+    &:focus {
+      border-color: var(--blue-600);
+      box-shadow: 0 0 0 1px var(--blue-600);
+      outline: none;
+    }
+  }
+
+  &__field--input {
+    padding: 1rem;
+  }
+
+  &__field--select {
+    -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    appearance: none;
+    background-image: url('/images/icons/sprite.svg#arrow-drop-down');
+    background-position: right 1% top 50%;
+    background-repeat: no-repeat;
+    background-size: 1.5rem 1.5rem;
+    color: var(--grey-700);
+    cursor: pointer;
+    font-weight: normal;
+    line-height: normal;
+    padding: 1rem 1.8rem 1rem 1rem;
+    width: 100%;
+  }
+}

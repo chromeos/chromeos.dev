@@ -1,0 +1,16 @@
+{
+  "layout": "tech-detail",
+  "tags": ["android", "optimization"],
+  "section": "android",
+  "eyebrow": "Adapting Android",
+  "resources": [
+    {
+      "title": "Android Developer Center",
+      "url": "http://developers.android.com/"
+    },
+    {
+      "title": "Android Studio",
+      "url": "https://developer.android.com/studio"
+    }
+  ]
+}

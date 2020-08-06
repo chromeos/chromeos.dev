@@ -1,0 +1,33 @@
+// Styles for hero--cta component.
+.hero--cta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__wrapper {
+    flex: 1 1 40ch;
+    margin: 1rem 0;
+
+    > :not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  picture {
+    flex: 1 1 10%;
+    min-width: 60%;
+    transform: translateX(17%) scale(1.1) translateY(1.5rem);
+
+    .animation--active &.animation__lift-fade--start {
+      transform: translateX(17%) scale(1.1) translateY(3rem);
+    }
+
+    .animation--active &.animation__lift-fade--end {
+      transform: translateX(17%) scale(1.1) translateY(1.5rem);
+    }
+  }
+
+  .type--large {
+    max-width: 55ch;
+  }
+}

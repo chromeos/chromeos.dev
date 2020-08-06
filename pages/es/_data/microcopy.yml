@@ -1,0 +1,37 @@
+topics: Temas
+lastUpdated: Última actualización
+breadcrumbs: Volver a ((t))
+posted: Posted by ((t))
+datePosted: Fecha de publicación
+more: Leer más
+recommended: Recomendaciones
+featured:
+  eyebrow: Historia destacada
+resources:
+  title: Recursos
+related:
+  title: Temas Relacionados
+tools:
+  title: Información de versiones
+  versions:
+    singular: versión
+    plural: versiones
+toc:
+  title: En esta página
+styleGuide:
+  title: Style guide
+  args: Arguments
+  params: Parameters
+  name: Component name
+  template: Template
+  macro: Macro
+  detailed: Detailed documentation
+  docs: Documentation
+  content: Content
+  components: Components
+  typography: Typography
+author:
+  alt: Profile picture of ((t))
+sw:
+  page: Una nueva version de esta página está disponible.
+  refresh: Refrescar

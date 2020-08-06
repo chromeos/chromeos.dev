@@ -1,0 +1,20 @@
+root: true
+extends:
+  - eslint:recommended
+  - google
+  - plugin:prettier/recommended
+plugins:
+  - import
+  - prettier
+env:
+  browser: true
+  node: false
+  es6: true
+  es2017: true
+  es2020: true
+parserOptions:
+  parser: babel-eslint
+  ecmaVersion: 2020
+  sourceType: module
+globals:
+  PRODUCTION: readonly

@@ -1,0 +1,227 @@
+// General typography styles.
+
+// sass-lint:disable no-universal-selectors
+$section-block-margin: 3.75rem;
+
+:root {
+  @extend %type--base;
+  font-size: 100%;
+}
+
+// Don't control class, essential to typography
+.header-anchor {
+  color: inherit;
+  position: relative;
+  text-decoration: none;
+
+  &:focus::before,
+  &:hover::before {
+    -webkit-mask-image: url('/images/icons/sprite.svg#link'); // sass-lint:disable-line no-vendor-prefixes
+    -webkit-mask-position: center left; // sass-lint:disable-line no-vendor-prefixes
+    -webkit-mask-repeat: no-repeat; // sass-lint:disable-line no-vendor-prefixes
+    -webkit-mask-size: 0.75em; // sass-lint:disable-line no-vendor-prefixes
+    background-color: currentColor;
+    content: '';
+    display: block;
+    height: 0.75em;
+    left: -0.875em;
+    margin-left: 0;
+    mask-image: url('/images/icons/sprite.svg#link');
+    mask-position: center right;
+    mask-repeat: no-repeat;
+    mask-size: 0.75em;
+    position: absolute;
+    top: 0.25em;
+    width: 0.75em;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    display: inline-block;
+  }
+
+  &--wrapper {
+    margin-top: -5rem;
+    padding-top: 5rem;
+  }
+}
+
+.type {
+  @extend %type--base;
+  position: relative;
+
+  @for $i from 1 through 6 {
+    &--h#{$i} {
+      @extend %type--h#{$i};
+    }
+
+    @if $i != 6 {
+      h#{$i}:not([class^='type--var']) {
+        @extend %type--h#{$i + 1};
+      }
+    }
+  }
+
+  &--link {
+    @extend %anchor;
+  }
+
+  &--page-nav {
+    @extend %anchor;
+    @extend %anchor--page-nav;
+  }
+
+  &--primary-nav {
+    @extend %anchor--primary;
+  }
+
+  &--secondary-nav {
+    @extend %anchor--secondary;
+  }
+
+  &--tertiary-nav {
+    @extend %anchor--tertiary;
+  }
+
+  &--base {
+    @extend %type--base;
+  }
+
+  &--large {
+    @extend %type--large;
+  }
+
+  &--small {
+    @extend %type--small;
+  }
+
+  &--caption {
+    @extend %type--caption;
+  }
+
+  &--eyebrow {
+    @extend %type--eyebrow;
+  }
+
+  &--label {
+    @extend %type--label;
+  }
+
+  &--revert {
+    @extend %type--revert;
+  }
+
+  &--code {
+    @extend %type--code;
+  }
+
+  &--quote {
+    @extend %blockquote;
+  }
+
+  // Long-form type styling
+  * + *:not(:empty) {
+    margin-top: 1em;
+  }
+
+  p > * + *:not(:empty) {
+    margin-top: 0;
+  }
+
+  a > .icon {
+    margin-top: 0;
+  }
+
+  a:not([class]) {
+    @extend %anchor;
+  }
+
+  code:not([class]) {
+    @extend %type--code;
+  }
+
+  dt:not([class]),
+  &--dt {
+    @extend %type--dt;
+  }
+
+  dd:not([class]),
+  &--dd {
+    @extend %type--dd;
+  }
+
+  ul:not([class]),
+  ol:not([class]),
+  &--list {
+    @extend %type--list;
+  }
+
+  li,
+  &--list-item {
+    @extend %type--list-item;
+  }
+
+  kbd,
+  &--kbd {
+    @extend %type--kbd;
+  }
+
+  img:not(:first-child):not([class]),
+  video:not(:first-child),
+  pre:not(:first-child),
+  table:not(:first-child) {
+    margin-bottom: 2.5rem;
+    margin-top: 2.5rem;
+  }
+
+  figure:not(:first-child) {
+    margin-top: 2.5rem;
+  }
+
+  figure:not(:first-child) > :last-child:not(figcaption) {
+    margin-bottom: 2.5rem;
+  }
+
+  figure:not(:first-child) > figcaption:not([class]) {
+    margin-bottom: 1.5rem;
+  }
+
+  figure img:nth-of-type(1n),
+  figure video:nth-of-type(1n),
+  figure pre:nth-of-type(1n),
+  figure table:nth-of-type(1n) {
+    margin: 0;
+  }
+
+  figure img:not(:first-child):not([class]) {
+    margin-bottom: 0;
+  }
+
+  figure > picture,
+  picture > img {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  figcaption {
+    margin-top: 0.5rem;
+
+    &:not([class]) {
+      @extend %type--caption;
+    }
+  }
+
+  section:not(:first-child) {
+    margin-top: $section-block-margin;
+  }
+
+  blockquote {
+    @extend %blockquote;
+    margin-bottom: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .message {
+    margin: 2.5rem 0;
+  }
+}

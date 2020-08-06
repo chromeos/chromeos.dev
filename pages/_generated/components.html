@@ -1,0 +1,54 @@
+---
+layout: _wrapper
+pagination:
+  data: site.l10n
+  size: 1
+  alias: l10n
+permalink: '{{ l10n.locale.code | slug }}/style-guide/components/index.html'
+---
+
+{% set collection = collections['style-guide--' + l10n.locale.code] %}
+<div class="style-guide">
+  <header class="style-guide__header">
+    <h1 class="type--h1">{{l10n.microcopy.styleGuide.title}}</h1>
+  </header>
+  <article class="style-guide__content">
+    <dl>
+      {% for component, info in components %}
+      <dt class="style-guide__list-item">
+        <h3 id="{{component | slug }}" class="type--h4">
+          {{ info.macro if info.macro is defined else component}}
+        </h3>
+      </dt>
+      <dd>
+        <div class="type">
+          <dl>
+            {% if info.macro %}
+            <dt>{{l10n.microcopy.styleGuide.template}}</dt>
+            <dd>{{component}}</dd>
+            {% endif %}
+            <dt>{{l10n.microcopy.styleGuide.macro}}</dt>
+            <dd>{{info.macro is defined }}</dd>
+            {% if info.arguments is defined %}
+            <dt>{{l10n.microcopy.styleGuide.params}}</dt>
+            <dd>
+              <ul class="style-guide__params">
+                {% for argument in info.arguments %}
+                <li><code>{{argument}}</code></li>
+                {% endfor %}
+              </ul>
+            </dd>
+            {% endif %} {% set docs = component | componentHasDocs(collection) %} {% if docs %}
+            <dt>{{l10n.microcopy.styleGuide.docs}}</dt>
+            <dd><a href="{{docs.url}}">{{docs.fileSlug}}</a></dd>
+            {% elseif info.docs is defined %}
+            <dt>{{l10n.microcopy.styleGuide.docs}}</dt>
+            <dd>{% highlight "json" %}{{info.docs | safe}}{% endhighlight %}</dd>
+            {% endif %}
+          </dl>
+        </div>
+      </dd>
+      {% endfor %}
+    </dl>
+  </article>
+</div>

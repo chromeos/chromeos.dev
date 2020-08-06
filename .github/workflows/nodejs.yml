@@ -1,0 +1,170 @@
+name: Build, Test, Deploy
+
+on: [push, pull_request]
+
+jobs:
+  #########################
+  ## Site Build & Testing
+  #########################
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.16.1
+      - name: Examine Node
+        run: |
+          node -v
+          npm -v
+      - name: Determine Lockfile
+        id: lockfile
+        run: |
+          if [[ -f "package-lock.json" || -f "npm-shrinkwrap.json" ]]; then
+            echo "::set-output name=exists::true"
+          else
+            echo "::set-output name=exists::false"
+          fi
+      - name: Install - Lockfile
+        if: steps.lockfile.outputs.exists == 'true'
+        run: |
+          npm ci --no-optional
+      - name: Install - No Lockfile
+        if: steps.lockfile.outputs.exists == 'false'
+        run: |
+          npm install
+      - name: Install CLI dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install giflib-tools webp ffmpeg
+      - name: Build and Test
+        run: |
+          npm run build --if-present
+          npm test
+        env:
+          CI: true
+      - name: Upload built state
+        uses: actions/upload-artifact@v1
+        with:
+          name: site
+          path: public
+      - name: Upload search index state
+        uses: actions/upload-artifact@v1
+        with:
+          name: indexes
+          path: functions/indexes
+
+  #########################
+  ## Preview Deploy & Lighthouse Testing
+  #########################
+  lighthouse:
+    needs: build-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download compiled site
+        uses: actions/download-artifact@v1
+        with:
+          name: site
+          path: public
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Firebase tools and JQ
+        run: |
+          npm install -g https://storage.googleapis.com/firebase-preview-drop/node/firebase-tools/firebase-tools-7.13.0-hostingpreviews.1.tgz
+          firebase --open-sesame hostingpreviews
+          sudo apt-get update
+          sudo apt-get install jq
+          npm --prefix .github/actions/message install
+      - name: Deploy preview
+        id: deploy
+        run: |
+          firebase hosting:preview --token $FIREBASE_TOKEN --json > deploy.json
+          echo "::set-output name=status::$(cat deploy.json | jq -r '.status')"
+          echo "::set-output name=url::$(cat deploy.json | jq -r '.result.previews.default.url')"
+          echo "::set-output name=sha::$GITHUB_SHA"
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Lighthouse Audit
+        id: lighthouse
+        uses: treosh/lighthouse-ci-action@v3
+        with:
+          urls: |
+            https://cros-staging.web.app/en
+            ${{ steps.deploy.outputs.url }}/en
+            ${{ steps.deploy.outputs.url }}/es
+          configPath: ./.lighthouserc.yml
+          temporaryPublicStorage: true
+          uploadArtifacts: true
+          runs: 3
+      - name: Build message
+        if: github.event_name == 'pull_request' && (success() || failure())
+        id: message
+        uses: ./.github/actions/message
+        with:
+          url: ${{ steps.deploy.outputs.url }}
+          status: ${{ steps.deploy.outputs.status }}
+          sha: ${{ steps.deploy.outputs.sha }}
+          links: ${{ steps.lighthouse.outputs.links }}
+          results: ${{ steps.lighthouse.outputs.assertionResults }}
+      - name: Leave preview comment
+        if: github.event_name == 'pull_request' && (success() || failure())
+        uses: unsplash/comment-on-pr@v1.2.0
+        with:
+          msg: |
+            ${{ steps.message.outputs.message }}
+          check_for_duplicate_msg: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  #########################
+  ## Production Deploy
+  #########################
+  deploy:
+    needs: build-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/trunk'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download compiled site
+        uses: actions/download-artifact@v1
+        with:
+          name: site
+          path: public
+      - name: Download compiled indexes
+        uses: actions/download-artifact@v1
+        with:
+          name: indexes
+          path: functions/indexes
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: Determine Functions Lockfile
+        id: lockfile
+        run: |
+          if [[ -f "functions/package-lock.json" || -f "functions/npm-shrinkwrap.json" ]]; then
+            echo "::set-output name=exists::true"
+          else
+            echo "::set-output name=exists::false"
+          fi
+      - name: Install Functions Dependencies - Lockfile
+        if: steps.lockfile.outputs.exists == 'true'
+        run: |
+          npm ci --prefix functions
+      - name: Install Functions Dependencies - No Lockfile
+        if: steps.lockfile.outputs.exists == 'false'
+        run: |
+          npm install --prefix functions
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@v1.3.0
+        with:
+          args: deploy
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

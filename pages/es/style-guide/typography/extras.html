@@ -1,0 +1,90 @@
+<p>--- título: Extras metadesc: Estilos tipográficos adicionales para usar en texto de formato largo. typography: true intro: | - Estos estilos tipográficos se construyen sobre los [estilos básicos] (../ core) y generalmente se usan como parte del texto de formato largo. Como tal, todos se muestran envueltos en `.type - base` de los estilos principales, pero se adaptarán a cualquier sección de texto a la que se agreguen. ---</p>
+<div class="type">{{ intro | safe }}</div>
+
+<section class="style-guide__section">
+  <div class="type--base">
+    <dl class="type--dl">
+      <dt class="type--dt">Lista de descripciones</dt>
+      <dd class="type--dd">Una lista de términos y su descripción.</dd>
+      <dt class="type--dt">Otro termino</dt>
+      <dd class="type--dd">Y su definición</dd>
+    </dl>
+  </div>
+  <div class="type">
+    <p>
+      Las listas de descripción se utilizan para mostrar términos y su descripción relacionada y se componen de dos partes: términos y descripción. Las listas de descripción se usan a menudo para listas de términos y sus definiciones. Las listas de descripción <em>deben</em> usar el elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl"><code>dl</code></a> y se pueden diseñar a través de la <code>.type--dl</code> .
+    </p>
+    <p>
+      Los términos <em>deben</em> usar el elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt"><code>dt</code></a> y se pueden diseñar a través de la <code>.type--dt</code> .
+    </p>
+    <p>
+      Las descripciones <em>deben</em> usar el elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd"><code>dd</code></a> y se pueden diseñar a través de la <code>.type--dd</code> .
+    </p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <div class="type--base">
+    <ul class="type--list">
+      <li class="type--list-item">Lista desordenada</li>
+      <li class="type--list-item">Con estilo</li>
+    </ul>
+    <ol class="type--list">
+      <li class="type--list-item">Lista ordenada</li>
+      <li class="type--list-item">Con estilo</li>
+    </ol>
+  </div>
+  <div class="type">
+    <p>
+      Las listas ordenadas y no ordenadas comparten el mismo estilo, lo que facilita su diseño. La envoltura lista <em>debe</em> <em>utilizar</em> el <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul"><code>ul</code></a> elemento (para listas desordenadas) o el <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol"><code>ol</code></a> elemento (para listas ordenadas) y puede ser de estilo a través de la <code>.type--list</code> clase. Los elementos de la lista <em>deben</em> usar el elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li"><code>li</code></a> y se pueden diseñar a través de la <code>.type--list-item</code> .
+    </p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <p class="type--base"><kbd class="type--kbd">K</kbd> + <kbd class="type--kbd">B</kbd> + <kbd class="type--kbd">D</kbd></p>
+  <div class="type">
+    <p>
+      KBD está destinado a representar la entrada del teclado. Cada tecla en una secuencia de teclado <em>debe</em> usar el elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd"><code>kbd</code></a> y se puede diseñar a través del elemento <code>.type--kbd</code> .
+    </p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <div class="style-guide__separate-items">
+    <blockquote class="type--quote">
+      <p>¡Estas citas son súper geniales! Tienen citas internacionalizadas que rodean la copia principal, que creo que es una súper herramienta. ¡Incluso puede tener uno más párrafos más y las citas solo se envuelven alrededor del primer y último elemento!</p>
+      <p>¡También admiten citas! Agréguelos normalmente con un elemento de <code class="type--code">footer</code> , o, si está trabajando en Markdown, siga su sección blockquote con un párrafo y el atributo <code class="type--code">{.cite}</code> para convertirlo automáticamente en un pie de página blockquote.</p>
+      <footer>
+        <p>Autor de la guía de estilo</p>
+      </footer>
+    </blockquote>
+    <blockquote class="type--quote" lang="fr">
+      <p>Ceci est une citation qui est écrite en français! Remarquez les différentes citas basées sur <code class="type--code">lang="fr"</code> .</p>
+    </blockquote>
+  </div>
+  <div class="type">
+    <p>Las citas están destinadas a enfatizar citas extendidas, ya sea de la fuente actual o de una fuente externa, opcionalmente con alguna forma de cita. <em>Deben</em> usar el elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">blockquote</a> y se pueden diseñar a través de la <code>.type--quote</code> .</p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <div class="style-guide__separate-items">
+    <aside class="message">
+      <p><strong>Información:</strong> este es un <code>message</code> utiliza para transmitir información no crítica a un usuario.</p>
+    </aside>
+    <aside class="message--note message">
+      <p><strong>Nota:</strong> Este es un <code>message--note</code> , utilizada para transmitir información importante, pero no crítica, a un usuario.</p>
+    </aside>
+    <aside class="message--warning message">
+      <p><strong>Advertencia:</strong> Este es un <code>message--warning</code> , utilizado para transmitir información crítica a un usuario.</p>
+    </aside>
+    <aside class="message--tip message">
+      <p><strong>Sugerencia:</strong> Este es un <code>message--tip</code> , utilizada para transmitir información útil pero no requerida a un usuario.</p>
+    </aside>
+  </div>
+  <div class="type">
+    <p>Los mensajes se utilizan como llamadas para dirigir a los usuarios lectores a información adicional, a menudo importante. Vienen en cuatro sabores, <code>info</code> , <code>note</code> , <code>warning</code> y <code>tip</code> , siendo la <code>info</code> el valor predeterminado. La versión de la <code>note</code> debe usarse cuando hay algo a lo que el usuario debe prestar atención pero que no es crítico. La versión de <code>warning</code> debe usarse cuando hay algo crítico que el usuario <em>debe</em> saber. La versión de <code>tip</code> debe usar cuando haya información útil adicional para el usuario. Si ninguna de las opciones anteriores tiene sentido, se debe utilizar la versión de <code>info</code> estándar.</p>
+    <p>Los mensajes generalmente usan el elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside">aside</a> y se les pueda dar estilos usando la clase <code>.message</code> así como alguno de los siguientes modificadores <code>.message--note</code>, <code>.message--warning</code>, <code>.message--tip</code></p>
+  </div>
+</section>

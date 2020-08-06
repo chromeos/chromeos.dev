@@ -1,0 +1,43 @@
+<!--{#
+  Renders a featured content component.
+
+  Note: If you are not placing the component inside a container with a max-width you may need to add
+  'overflow-x: hidden;' to the container to avoid the horizontal scrool created because of image translation.
+
+  Arguments:
+    @param {object} data - Object containing the following attributes.
+    @param {string} data.eyebrow - Eyebrow for the component.
+    @param {string} data.title - Title for the component.
+    @param {string} data.copy - Copy for the component.
+    @param {object} data.cta - Object containing the cta attributes.
+    @param {string} data.cta.url - Url for the cta.
+    @param {string} data.cta.text - Text for the cta.
+    @param {string} data.imagePrimary - Object for the main image.
+    @param {string} data.imagePrimary.path - String for the main image path.
+    @param {string} data.imagePrimary.alt - String for the main image alt.
+    @param {string} data.imageSecondary - Object for the secondary image.
+    @param {string} data.imageSecondary.path - String for the secondary image path.
+    @param {string} data.imageSecondary.alt - String for the secondary image alt.
+
+    @param {object} modifiers - Object containing style variations for the component.
+    @param {string} modifiers.custom Class that will allow to override CSS properties for this component.
+        Use this modifier if you want to override --overlay-color and/or --featured-shape-color.
+
+ #}-->
+{% macro featuredContent(data, modifiers) -%}
+<article class="featured-content {{modifiers.custom}}">
+  <section class="featured-content__copy-wrapper">
+    <small class="featured-content__eyebrow type--eyebrow">{{ data.eyebrow }}</small>
+    <h2 class="featured-content__title type--h2">{{ data.title }}</h2>
+    <p class="featured-content__copy type--large">{{ data.desc }}</p>
+    <a href="{{ data.cta.url }}" class="cta cta--link">{{ data.cta.text }}</a>
+  </section>
+  <div class="featured-content__ilustrations-wrapper">
+    <figure class="featured-content__image-wrapper">
+      {% for image in data.images %}
+      <img class="featured-content__image" src="{{image.image}}" alt="{{image.alt}}" />
+      {% endfor %}
+    </figure>
+  </div>
+</article>
+{%- endmacro %}

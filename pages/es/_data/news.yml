@@ -1,0 +1,11 @@
+posts:
+  title: Historias y noticias sobre Chrome OS
+  modifiers:
+    shapeOn: 1
+featured:
+  modifiers:
+    custom: landing--news-grey-overlay
+stories:
+  title: Vea cómo las marcas están abriendo nuevas oportunidades con Chrome OS
+  modifiers:
+    variant: icon

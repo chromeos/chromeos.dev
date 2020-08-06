@@ -1,0 +1,10 @@
+<!--{#
+  Renders a keyboard navigation skip link
+
+  @param {string} title - Title of skip link
+  @param {string} id - ID to skip to
+
+ #}-->
+{% macro skipLink(title, id) -%}
+<a href="#{{id}}" class="a11y--skip-link">{{title}}</a>
+{%- endmacro %}

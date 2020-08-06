@@ -1,0 +1,37 @@
+// Styles for the hero 50 - 50, copy and images stacked on mobile, side by side on large.
+
+.hero {
+  align-items: center;
+  column-gap: 2.75rem;
+  display: grid;
+  grid-row-gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+
+  @supports (column-gap: clamp(2.5rem, 1vw, 3rem)) {
+    column-gap: clamp(2.5rem, 1vw, 3rem);
+  }
+
+  @supports (grid-template-columns: repeat(auto-fit, minmax(clamp(20ch, 45vw, 60ch), 1fr))) {
+    grid-template-columns: repeat(auto-fit, minmax(clamp(20ch, 45vw, 60ch), 1fr));
+  }
+
+  &__eyebrow {
+    margin-bottom: pxRem(8px);
+  }
+
+  &__title,
+  &__copy {
+    margin-bottom: 1rem;
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: 1rem;
+  }
+
+  &__image {
+    display: block;
+    margin: 0 auto;
+    max-height: initial;
+  }
+}

@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; URL='/en'" />
+    <style>
+      body,
+      a {
+        color: transparent;
+        animation: 0.25s ease-in 3s forwards show;
+      }
+
+      a {
+        --color: blue;
+      }
+      @keyframes show {
+        0% {
+          color: transparent;
+        }
+        100% {
+          color: var(--color, black);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Redirecting to <a href="/en">home page</a></h1>
+  </body>
+</html>

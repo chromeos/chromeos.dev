@@ -1,0 +1,40 @@
+- logo: /images/landings/home/android-logo.png
+  cta:
+    url: https://android-developers.googleblog.com/
+    text: Android Developer Blog
+- logo: /images/landings/home/twitter-logo.png
+  cta:
+    url: https://twitter.com/AndroidDev
+    text: Android Developer Twitter Channel
+- logo: /images/landings/home/youtube-logo.png
+  cta:
+    url: https://www.youtube.com/user/androiddevelopers
+    text: Android Developer YouTube Channel
+- logo: /images/landings/home/twitter-logo.png
+  cta:
+    url: https://twitter.com/ChromiumDev
+    text: Chrome Developer Twitter Channel
+- logo: /images/landings/home/github-logo.png
+  cta:
+    url: https://github.com/googlechrome
+    text: Chrome OS on github
+- logo: /images/landings/home/codelabs-logo.png
+  cta:
+    url: https://developers.google.com/web/fundamentals/codelabs/
+    text: Codelabs & Code Samples
+- logo: /images/landings/home/medium-logo.png
+  cta:
+    url: https://medium.com/googleplaydev
+    text: Google Play on Medium
+- logo: /images/landings/home/reddit-logo.png
+  cta:
+    url: https://www.reddit.com/r/chromeos/
+    text: Linux (Beta) on Chrome OS Reddit Community
+- logo: /images/landings/home/stackoverflow-logo.png
+  cta:
+    url: https://stackoverflow.com/questions/tagged/google-chrome-os
+    text: Stack Overflow
+- logo: /images/landings/home/webdev-logo.png
+  cta:
+    url: https://web.dev/
+    text: web.dev

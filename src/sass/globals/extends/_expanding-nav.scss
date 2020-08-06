@@ -1,0 +1,74 @@
+%expanding-nav {
+  background-color: var(--grey-100);
+
+  &[open] {
+    padding-bottom: 1.5rem;
+  }
+
+  &__summary {
+    align-items: center;
+    background-color: var(--grey-100);
+    cursor: pointer;
+    list-style: none;
+    padding: 1rem;
+
+    // Chrome/Webkit needs this non-standard selector
+    // sass-lint:disable  no-vendor-prefixes
+    &::-webkit-details-marker {
+      // sass-lint:disable  no-vendor-prefixes
+      display: none;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    width: calc(100% - 2rem);
+  }
+
+  &__nav {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  &--expand {
+    display: inline-block;
+    transform: scale(0.75);
+  }
+
+  &__link {
+    display: inline-block;
+    width: 100%;
+
+    &[data-active] {
+      position: relative;
+      z-index: 1;
+
+      &::after {
+        background-color: var(--bkg);
+        border-left: 4px solid var(--blue-500);
+        content: '';
+        height: calc(100% + var(--padding) * 2);
+        position: absolute;
+        top: calc(var(--padding) * -1);
+        z-index: -1;
+      }
+    }
+  }
+
+  // Need to use tags selectors because ToC plugin doesn't allow for class customization
+  ol,
+  ul {
+    list-style: none;
+
+    ol,
+    ul {
+      margin-top: 0.75rem;
+      padding-left: 1rem;
+    }
+  }
+
+  li + li {
+    margin-top: 0.75rem;
+  }
+}

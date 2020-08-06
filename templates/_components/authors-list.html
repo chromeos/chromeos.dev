@@ -1,0 +1,18 @@
+<!--{#
+  Renders a list of authors info of the case study.
+
+  @param {string[]} authors - List of authors
+  @param {object} contributors - Object of contributor data to pull the author information from; should use global `contributors` data
+  @param {object} microcopy - Microcopy object
+  @param {string} microcopy.author.alt - String to describe the author's photo
+
+ #}-->
+{% from 'author.html' import author as authorMacro %} {% macro authorsList(authors, contributors, microcopy) -%}
+<ul class="authors-list">
+  {% for author in authors %}
+  <li class="authors-list__author">
+    {{authorMacro(contributors[author], microcopy.author.alt, author)}}
+  </li>
+  {% endfor %}
+</ul>
+{%- endmacro %}

@@ -1,0 +1,18 @@
+// Styles for date-time label.
+
+.date-time {
+  &__label {
+    display: block;
+  }
+
+  &--inline & {
+    &__label {
+      display: inline;
+      margin-right: 0.5rem;
+
+      @supports (margin-right: clamp(0.5rem, 1vw, 0.75rem)) {
+        margin-right: clamp(0.5rem, 1vw, 0.75rem);
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+// Styles of form component.
+@import 'form/form-field';
+@import 'form/form-errors';
+
+.form {
+  margin: 0 auto;
+  max-width: 75ch;
+
+  &__disclaimer {
+    grid-column: 1 / -1;
+    line-height: 2;
+    margin-top: 0;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-gap: pxRem(24px);
+    grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__copy {
+    font-size: 1.125em;
+    margin-bottom: pxRem(40px);
+  }
+
+  &__message {
+    margin-bottom: pxRem(40px);
+  }
+
+  &__title,
+  &__copy {
+    text-align: center;
+  }
+
+  &--disabled & {
+    &__item,
+    &__disclaimer,
+    &__button {
+      opacity: 50%;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    max-width: min-content;
+    position: relative;
+
+    &--loader & {
+      &-text {
+        visibility: hidden;
+      }
+
+      &-icon {
+        display: block;
+      }
+    }
+  }
+
+  &__button-icon {
+    animation: form__spinner 1s linear infinite;
+    display: none;
+    height: pxRem(20px);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    width: pxRem(20px);
+  }
+
+  @keyframes form__spinner {
+    0% {
+      transform: translate(-50%, -50%) rotate(0);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+  }
+}

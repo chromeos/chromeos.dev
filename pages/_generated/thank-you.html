@@ -1,0 +1,17 @@
+---
+layout: _wrapper
+pagination:
+  data: site.l10n
+  size: 1
+  alias: l10n
+permalink: '{{ l10n.locale.code | slug }}/thank-you/index.html'
+hideNewsletter: true
+---
+
+<article class="wrapper wrapper--full-bleed wrapper--padded wrapper--padding wrapper--full-circles">
+  <section class="thank-you" tabindex="-1" role="alert">
+    <h2 class="thank-you__title type--h2">{{ l10n.newsletter.thankYou.title }}</h2>
+    <p class="thank-you__message type--h2">{{ l10n.newsletter.thankYou.message }}</p>
+    <p class="thank-you__redirect type--large">{{ l10n.newsletter.thankYou.redirect }}</p>
+  </section>
+</article>

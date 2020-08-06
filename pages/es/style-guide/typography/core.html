@@ -1,0 +1,105 @@
+<p>--- título: Core Typography metadesc: Estos estilos tipográficos principales tipografía: introducción verdadera: | - Estos estilos tipográficos principales se utilizan en todo `ChromeOS.dev` y sirven como bloques de construcción para otras tipografías en todo el sitio. encabezados: | - Los encabezados en `ChromeOS.dev` no utilizan puntos de interrupción fijos globales. En cambio, aprovechan un enfoque flexible para los titulares en función del ancho de la ventana gráfica actual, utilizando la función CSS [`clamp`] (https://developer.mozilla.org/en-US/docs/Web/CSS/clamp). En los navegadores que no admiten `abrazadera`, se utiliza un tamaño medio entre los tamaños más pequeños y más grandes que puede crecer el titular. Todos los encabezados se componen en Google Sans, sin espacios de letras personalizados. Los tamaños se dan en `px` pero se convierten a` em` (para `font-size`) o una relación (para` line-height`) cuando se implementan. Los titulares son todos `--grey-900` (` # 202124`). En el texto de formato largo, los encabezados usan un tamaño de encabezado más pequeño que el descrito aquí, por lo que un `h1` tendrá un estilo como` h2`, un `h2` tendrá un estilo como` h3`, etc.… arreglado: | - Estos los estilos de letra no cambian según el tamaño de la pantalla o el lugar donde se muestran. Cuando se procesa, `font-size`,` letter-spacing`, `padding` se convierten en` em` y `line-height` se convierte en una relación. ---</p>
+<div class="type">{{ intro | safe }}</div>
+
+<section class="style-guide__section">
+  <h2 class="type--h3">Titulares</h2>
+  <div class="type">{{headlines | safe }}</div>
+  <section class="style-guide__section">
+    <h1 class="type--h1">Título 1</h1>
+    <div class="type">
+      <p>El título 1 crece de <code>36px</code> / <code>40px</code> a <code>60px</code> / <code>72px</code> , con un tamaño medio de <code>48px</code> / <code>56px</code> . Está configurado en Google Sans Display con un peso de fuente de <code>400</code> .</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <h2 class="type--h2">Título 2</h2>
+    <div class="type">
+      <p>El título 2 crece de <code>28px</code> / <code>40px</code> a <code>48px</code> / <code>56px</code> , con un tamaño medio de <code>40px</code> / <code>48px</code> . Está configurado en Google Sans Display con un peso de fuente de <code>400</code> .</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <h3 class="type--h3">Título 3</h3>
+    <div class="type">
+      <p>Headline 3 crece de <code>24px</code> / <code>32px</code> a <code>36px</code> / <code>44px</code> , con un tamaño medio de <code>32px</code> / <code>40px</code> . Está configurado en Google Sans con un peso de fuente de <code>400</code> .</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <h4 class="type--h4">Título 4</h4>
+    <div class="type">
+      <p>Headline 4 crece de <code>18px</code> / <code>28px</code> a <code>28px</code> / <code>36px</code> , con un tamaño medio de <code>20px</code> / <code>28px</code> . Está configurado en Google Sans con un peso de fuente de <code>400</code> .</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <h5 class="type--h5">Título 5</h5>
+    <div class="type">
+      <p>Headline 5 crece de <code>16px</code> / <code>28px</code> a <code>20px</code> / <code>28px</code> , con un tamaño medio de <code>20px</code> / <code>28px</code> . Está configurado en Google Sans con un peso de fuente de <code>400</code> .</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <h6 class="type--h6">Título 6</h6>
+    <div class="type">
+      <p>Headline 6 crece de <code>14px</code> / <code>24px</code> a <code>16px</code> / <code>28px</code> , con un tamaño medio de <code>16px</code> / <code>28px</code> . Está configurado en Google Sans con un peso de fuente de <code>500</code> .</p>
+    </div>
+  </section>
+</section>
+
+<section class="style-guide__section">
+  <h2 class="type--h3">Estilos fijos</h2>
+  <div class="type">{{fixed | safe }}</div>
+  <section class="style-guide__section">
+    <p class="type--base">Esta es una copia del cuerpo de tamaño normal, utilizada para la mayoría de las copias del cuerpo. El siguiente es un relleno para ayudar a desarrollar cómo se ve esto durante largos tramos de texto. También hay algunos textos en <strong>negrita</strong> y <em>cursiva</em> para la medida de Dios. Hay tantas palabras mal elegidas en esa oración. Escuché que el jurado todavía está fuera de la ciencia. ¡Por eso siempre dejas una nota! No entiendo la pregunta y no voy a responderla. Me preocupo profundamente por la naturaleza. Soy media maquina. Soy un monstruo.</p>
+    <div class="type">
+      <p>El estilo de cuerpo regular se puede aplicar con la <code>.type--base</code> .type. Está configurado en Roboto con un peso de <code>400</code> , coloreado con <code>--grey-700</code> , y está compuesto a <code>16px</code> / <code>28px</code> .</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <p class="type--large">Esta es una copia corporal de gran tamaño, utilizada para bloques más cortos de copia de marketing, que generalmente se encuentra en las páginas de destino. El siguiente es un relleno para ayudar a desarrollar cómo se ve esto durante largos tramos de texto. También hay algunos textos en <strong>negrita</strong> y <em>cursiva</em> para la medida de Dios. Hay tantas palabras mal elegidas en esa oración. Escuché que el jurado todavía está fuera de la ciencia. ¡Por eso siempre dejas una nota! No entiendo la pregunta y no voy a responderla. Me preocupo profundamente por la naturaleza. Soy media maquina. Soy un monstruo.</p>
+    <div class="type">
+      <p>El estilo de cuerpo grande se puede aplicar con la clase <code>.type--large</code>. Está configurado en Roboto con un peso de <code>400</code>, coloreado con <code>--grey-700</code>, y está compuesto a <code>18px</code>/<code>28px</code>.</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <small class="type--small">Texto pequeño</small>
+    <div class="type">
+      <p>
+        El texto pequeño se usa para información complementaria, generalmente hacia el final de las páginas (por ejemplo, fuentes, renuncias y etiquetas), se debe usar con el elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small"><code>&lt;small&gt;</code></a> , y su estilo se puede aplicar con la <code>.type--small</code> . Está configurado en Roboto con un peso de <code>400</code> , coloreado con <code>--grey-700</code> , y está compuesto a <code>12px</code> / <code>16px</code> .
+      </p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <small class="type--eyebrow">Ceja</small>
+    <div class="type">
+      <p>
+        Las cejas se usan para dar contexto al contenido, se deben usar con el elemento <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small"><code>&lt;small&gt;</code></a> , y su estilo se puede aplicar con la <code>.type--eyebrow</code> . Está configurado en Google Sans con un peso de <code>500</code> , coloreado usando <code>--grey-700</code> , en mayúsculas, tiene un espacio entre letras de <code>.5px</code> y está compuesto en <code>14px</code> / <code>20px</code> .
+      </p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <p class="type--label">Texto de la etiqueta</p>
+    <div class="type">
+      <p>El texto de la etiqueta es como un descriptor para elementos de interacción más pequeños (por ejemplo, etiquetas de artículos, título de TOC, etc.) y su estilo se puede aplicar con la <code>.type--label</code> . Está configurado en Roboto con un peso de <code>600</code> , coloreado usando <code>--grey-900</code> , en mayúsculas, y está compuesto a <code>11px</code> / <code>16px</code> .</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <figcaption class="type--caption">Texto del subtítulo</figcaption>
+    <div class="type">
+      <p>El texto de los subtítulos se usa para los subtítulos de las imágenes y su estilo se puede aplicar con la <code>.type--caption</code> . Está configurado en Roboto con un peso de <code>400</code> , coloreado con <code>--grey-700</code> , y está compuesto a <code>14px</code> / <code>18px</code> .</p>
+    </div>
+  </section>
+
+  <section class="style-guide__section">
+    <p>Este es <code class="type--code"> Código en línea </code> dentro de un texto más largo.</p>
+    <div class="type">
+      <p>El código en línea se usa para mostrar texto monoespaciado, generalmente código, en línea con otro texto o donde puede ir otro texto en línea, y su estilo se puede aplicar con la <code>.type--code</code> .type. Está configurado en Roboto Mono con un peso de <code>400</code> , coloreado con <code>--grey-700</code> , tiene un fondo de <code>--grey-100</code> , relleno de <code>4px</code> , y está compuesto a <code>14px</code> / <code>20px</code> .</p>
+    </div>
+  </section>
+</section>

@@ -1,0 +1,9 @@
+// Styles for authors list info used in news and stories.
+.authors-list {
+  list-style: none;
+  margin: pxRem(24px) 0;
+
+  &__author {
+    margin-bottom: 1rem;
+  }
+}

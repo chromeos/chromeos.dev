@@ -1,0 +1,13 @@
+# Put production config here, but don't delete!
+# Service Worker Config
+serviceWorker:
+  src: sw.js
+  dest: sw.js
+  precache: # Glob patterns to precache when Service Worker is installed
+    - css/**/*.css
+    - js/**/*.js
+    - _components/**/*.txt
+    - images/icons/sprite.svg
+    - en/index.html
+    - index.html
+    - main-*.js

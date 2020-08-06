@@ -1,0 +1,29 @@
+- title: Apps & Juegos
+  desc: Encuentre recursos para crear y optimizar su aplicación de Android, web, juegos y más.
+  icon: game-controller
+  sections:
+    - title: Adaptar Android
+      url: android
+    - title: Adaptar Web
+      url: web
+    - title: Juegos
+      url: games
+- title: Publicar
+  url: publish
+  icon: game-controller
+  alt: publish
+- title: Desarrollo
+  desc: Usa Chrome OS para crear Apps & Juegos
+  icon: wrench
+  sections:
+    - title: Linux (Beta)
+      url: linux
+    - title: Configuración para Android
+      url: android-environment
+    - title: Configuración para Web
+      url: web-environment
+    - title: Productividad
+      url: productivity
+- title: Historias & Noticias
+  url: news
+  alt: stories

@@ -1,0 +1,30 @@
+// Styles for the header with icon used in case studies.
+// Breakpoints are tied to the article layout, so before reusing it some adjustments may be necessary.
+
+.app-info {
+  $logo-size: pxRem(80px);
+
+  display: flex;
+
+  @include mq($bkpt-articles--2-cols) {
+    flex-direction: column;
+  }
+
+  &__logo {
+    display: block;
+    height: $logo-size;
+    width: $logo-size;
+  }
+
+  &__copy-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: pxRem(24px);
+
+    @include mq($bkpt-articles--2-cols) {
+      margin-left: 0;
+      margin-top: pxRem(24px);
+    }
+  }
+}

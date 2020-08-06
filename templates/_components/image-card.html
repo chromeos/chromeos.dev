@@ -1,0 +1,35 @@
+<!--{#
+  Renders an image next to a related text.
+
+  @param {object[]} images - Image information
+  @param {string} image.alt - Image description.
+  @param {string} image.src - Image's source.
+  @param {object} content - Object containing the following attributes.
+  @param {string} content.title - Title of the content.
+  @param {string} content.copy - Summary about the content.
+  @param {object} cta - Contains the cta arguments.
+  @param {string} cta.url - Url for the cta.
+  @param {string} cta.text - Cta message.
+  @param {object} modifiers - Object containing the following attributes.
+  @param {boolean} modifiers.flip - Flag that allows to switch position between the copy and the image.
+  @param {string} modifiers.custom - Allows to add a custom modifier.
+ #}-->
+{% macro imageCard(images, content, cta, modifiers) %}
+<article class="image-card {{'image-card--flip' if modifiers.flip}} {{'image-card--offset' if modifiers.offset}} {{modifiers.custom}}">
+  <div class="image-card__image-wrapper">
+    {% for image in images %}
+    <img class="image-card__image" src="{{image.src}}" alt="{{image.alt}}" />
+    {% endfor %}
+  </div>
+
+  <div class="image-card__wrapper">
+    <h3 class="type--h3">
+      {{content.title}}
+    </h3>
+    <p class="type--large">
+      {{content.copy}}
+    </p>
+    <a class="cta cta--link" href="{{cta.url}}">{{cta.text}}</a>
+  </div>
+</article>
+{% endmacro %}

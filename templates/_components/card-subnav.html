@@ -1,0 +1,45 @@
+<!--{#
+  Renders a card with subnav links.
+
+  @param {object} navSection - Object containing the following attributes.
+  @param {string} navSection.title - Nav section title.
+  @param {string} navSection.desc - Nav section description.
+  @param {string} navSection.icon - Nav section icon.
+  @param {object[]} navSection.sections - List of sections representing the sub-navigation of the site.
+  @param {string} navSection.sections[].title - Title of the subnav section.
+  @param {string} navSection.sections[].url - Url of the subnav section.
+
+ #}-->
+{% from 'icon.html' import icon %} {% macro cardSubnav(navSection, locale) -%}
+<article class="card-subnav">
+  <header class="card-subnav__header">
+    <div class="card-subnav__icon-wrapper">
+      {{ icon(navSection.icon, 'card-subnav__icon') }}
+    </div>
+    <h4 class="card-subnav__title type--h4">{{ navSection.title }}</h4>
+  </header>
+  <p class="card-subnav__body type--large">{{ navSection.desc }}</p>
+  <ul class="card-subnav__sections">
+    {% if navSection.sections %} {% for section in navSection.sections %}
+    <li class="card-subnav__section type--h5">
+      <a href="/{{locale}}/{{section.url}}" class="card-subnav__anchor">
+        {{section.title}}
+        <span class="card-subnav__section-icon" aria-hidden="true">
+          {{ icon('arrow-forward', 'card-subnav__arrow icon--animated') }}
+        </span>
+      </a>
+    </li>
+    {% endfor %} {% else %}
+    <li class="card-subnav__section type--h5">
+      {% set url = "/" + locale + "/" + navSection.url %}
+      <a href="{{url}}" class="card-subnav__anchor">
+        {{ url | attrByURL('title') }}
+        <span class="card-subnav__section-icon" aria-hidden="true">
+          {{ icon('arrow-forward', 'card-subnav__arrow icon--animated') }}
+        </span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</article>
+{%- endmacro %}

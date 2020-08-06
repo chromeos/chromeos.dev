@@ -1,0 +1,19 @@
+<!--{#
+  Renders statistics
+
+  @param {object[]} items - List of objects containing the following attributes.
+  @param {string} items[].stat - Statistic
+  @param {string} items[].desc - Description of statistic
+ #}-->
+{% macro stats(items) %}
+<figure class="stats">
+  <dl class="stats__list">
+    {% for item in items %}
+    <div class="stats__item">
+      <dt class="stats__stat"><span>{{item.stat}}</span></dt>
+      <dd class="stats__desc type--h5">{{item.desc}}</dd>
+    </div>
+    {% endfor %}
+  </dl>
+</figure>
+{% endmacro %}

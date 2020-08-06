@@ -1,0 +1,135 @@
+%cta {
+  $shadow-color: rgba(map-get($google-colors, 'grey-800'), 0.15);
+  $this: &;
+
+  @include fontSetup(16px, 24px, 500);
+  align-items: center;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  font-family: $font-google-sans;
+  justify-content: center;
+  padding: 0.75em 1.5em;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+
+  &--left-icon {
+    padding: 0.75em 1em 0.75em 0.75em;
+
+    .icon {
+      margin-right: 0.5em;
+    }
+  }
+
+  &--right-icon {
+    padding: 0.75em 0.75em 0.75em 1em;
+
+    .icon {
+      margin-left: 0.5em;
+    }
+  }
+
+  &--high {
+    background-color: var(--blue-600);
+    border: 2px solid var(--blue-600);
+    color: var(--white);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--blue-800);
+    }
+
+    &:hover,
+    &:active {
+      border-color: var(--blue-800);
+    }
+
+    &:focus {
+      border-color: var(--blue-200);
+    }
+
+    &:active {
+      box-shadow: 0 1px 3px 1px $shadow-color;
+    }
+  }
+
+  &--high,
+  &--medium {
+    text-align: center;
+  }
+
+  &--medium {
+    background-color: var(--white);
+    border: 1px solid var(--grey-300);
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--blue-25);
+      border-color: var(--blue-600);
+    }
+
+    &:active {
+      background-color: var(--blue-50);
+      box-shadow: 1px 0 1px var(--blue-600), -1px 0 1px var(--blue-600), 0 1px 1px var(--blue-600), 0 -1px 1px var(--blue-600);
+    }
+  }
+
+  &--low,
+  &--link,
+  &--back {
+    &:visited {
+      color: var(--purple-900);
+    }
+  }
+
+  &--link {
+    display: inline-block;
+  }
+
+  &--back {
+    display: inline-block;
+
+    &:visited {
+      #{--visited-color}: var(--blue-600);
+      color: var(--blue-600);
+    }
+  }
+
+  &--medium,
+  &--low,
+  &--link,
+  &--back {
+    color: var(--blue-600);
+  }
+
+  // sass-lint:disable no-mergeable-selectors
+  &--low,
+  &--link,
+  &--back {
+    background-color: transparent;
+    padding: 0;
+    position: relative;
+
+    &:hover,
+    &:focus {
+      color: var(--blue-900);
+    }
+
+    &:focus {
+      background-color: var(--blue-50);
+
+      &::before {
+        background-color: var(--blue-50);
+      }
+    }
+  }
+
+  .icon {
+    fill: currentColor;
+    height: 1.125em;
+    width: 1.125em;
+  }
+}

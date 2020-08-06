@@ -1,0 +1,14 @@
+// Styles for Thanks page.
+.thank-you {
+  margin: 0 auto;
+  max-width: 65ch;
+  text-align: center;
+
+  &__title {
+    margin-bottom: 2.5rem;
+  }
+
+  &__message {
+    margin-bottom: 1.5rem;
+  }
+}

@@ -1,0 +1,27 @@
+<!--{#
+    Renders a select-country element.
+    @param {Object} select - select settings.
+    @param {String} select.name - String containing the select's name.
+    @param {String} select.type - String containing the select's type.
+    @param {String} select.label - String containing the select's label.
+    @param {Boolean} select.required - Boolean containing if the select element is required.
+    @param {Object} select.error - Object containing the select error configuration.
+    @param {Object[]} select.options - Object containing the options list.
+    @param {String} id - String containing the select's id.
+    @param {String locale the Locale information.
+#}-->
+{% macro country(select, id, locale) -%}
+<span class="form__group">
+  <select name="{{ select.name }}" {% if select.error %} aria-describedby="{{ select.error.id }}" {% endif %} id="{{ id }}" class="form__field form__field--select" {% if select.required %} required aria-required="true" {% endif %}>
+    <option selected value="" class="form__select--default"></option>
+    {% set countries = locale | countries %} {% for item in countries %}
+    <option value="{{ item.code }}" class="form__select--default">
+      {{ item.name }}
+    </option>
+    {% endfor %}
+  </select>
+  <label class="form__label" for="{{ id }}">
+    {{ select.label }}
+  </label>
+</span>
+{%- endmacro %}

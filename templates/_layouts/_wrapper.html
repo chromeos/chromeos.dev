@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{ locale.code }}" dir="{{ locale.dir }}">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- TODO: Remove when ready to launch. Issue #281 -->
+    <meta name="robots" content="none" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>{% if title %}{{ title }} | {% endif %}chromeOS.dev</title>
+    <meta name="Description" content="{{ metadesc }}" />
+    <meta name="theme-color" content="#2196f3" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon.png" />
+    <link rel="apple-touch-icon" href="/images/icons/pwa/icon-192x192.png" />
+
+    {% for prop in og %}
+    <meta property="og:{{prop.property}}" content="{{prop.content}}" />
+    {% endfor %} {% for lang in site.languages %}{%if lang !== locale.code %}
+    <link rel="alternate" hreflang="{{ lang }}" href="{{page.url | localeURL(lang)}}" />
+    {% endif %}{% endfor %}
+
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin="" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:400,500|Google+Sans+Display:400|Roboto:400,400i,700,700i|Roboto+Mono:400,600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Product+Sans:400&display=swap&text=chromeOS" />
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="module" defer src="/js/main.js"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-168234575-1"></script>
+  </head>
+  <body id="body">
+    {% from 'header.html' import header %} {{ header(nav, search.placeholder, locale) }}
+    <main class="main">
+      {{ content | safe }} {% if showNewsletter and subscribe %}
+      <div class="wrapper wrapper--padded">{% from "call-out.html" import callOut %} {{ callOut(subscribe.content, subscribe.cta) }}</div>
+      {% endif %}
+    </main>
+    {% from 'footer.html' import footer %}{{ footer(locale.code, site.languages, footerContent, true) }} {% include 'inline-svg.html' %} {% from 'cookie-disclaimer.html' import cookieDisclaimer %}{{ cookieDisclaimer(locale.code, cookies.title, cookies.content, cookies.ctas) }}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-168234575-1');
+    </script>
+  </body>
+</html>
