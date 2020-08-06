@@ -81,18 +81,6 @@ export class MainNavigation {
         this.slideMenu();
       }
     });
-
-    this.elem_.addEventListener('pointerover', e => {
-      if (e.target.hasAttribute('aria-haspopup') && e.target.getAttribute('aria-expanded') !== 'true' && e.target.classList.contains('nav__link') && this.expanded_) {
-        this.expandSubnav(e);
-      }
-    });
-
-    this.elem_.addEventListener('pointerleave', () => {
-      if (this.expanded_ && this.active_) {
-        this.expandSubnav({ target: this.active_ });
-      }
-    });
   }
 
   /**
