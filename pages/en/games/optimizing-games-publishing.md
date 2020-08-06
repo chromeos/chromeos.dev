@@ -16,7 +16,6 @@ The same Android apps that run on phones and tablets can run on Chromebooks with
 
 To learn more about Google Play Store support on Chromebooks, see the following [Google Chrome blog post](https://chrome.googleblog.com/2016/05/the-google-play-store-coming-to.html).
 
-
 ## Chipsets
 
 Many Chrome OS devices use x86 chipsets, which contrasts with the mobile market where, in 2020, the majority of Android phones have ARM chipsets. For basic apps and games written in Kotlin or Java, this is not a concern. For those with native code, as many games do, including those created with game engines, this is an important concern.
