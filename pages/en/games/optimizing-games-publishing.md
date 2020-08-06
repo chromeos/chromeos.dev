@@ -5,6 +5,20 @@ date: 2020-06-16
 weight: -5
 ---
 
+The same Android apps that run on phones and tablets can run on Chromebooks without compromising their speed, simplicity, or security. To develop the best experience for Android apps across Chromebooks, you should test your app on a suite of devices that consists of the following categories:
+
+- ARM architecture
+- Intel x86 architecture
+- Touch
+- Non-touch (uses fake-touch)
+- Convertible
+- Stylus-capable
+
+To learn more about Google Play Store support on Chromebooks, see the following [Google Chrome blog post](https://chrome.googleblog.com/2016/05/the-google-play-store-coming-to.html).
+
+
+## Chipsets
+
 Many Chrome OS devices use x86 chipsets, which contrasts with the mobile market where, in 2020, the majority of Android phones have ARM chipsets. For basic apps and games written in Kotlin or Java, this is not a concern. For those with native code, as many games do, including those created with game engines, this is an important concern.
 
 Ideally, all apps and games with native code would ship with all [four major Android ABIs](https://developer.android.com/ndk/guides/abis): armeabi-v7a (arm32), arm64-v8a (arm64), x86 (x86_32), and x86_64.
