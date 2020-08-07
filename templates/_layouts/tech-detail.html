@@ -17,10 +17,15 @@ layout: _wrapper
   </div>
   {% endif %}
   <header class="tech-detail__header" id="content">
-    {% if eyebrow %}
-    <small class="type--eyebrow">{{eyebrow}}</small>
+    {% if landingPage %}
+    <div class="tech-detail__eyebrow-wrapper">
+      {% endif %} {% if eyebrow %}
+      <small class="type--eyebrow">{{eyebrow}}</small>
+      {% endif %}
+      <h1 class="type--h2">{{title}}</h1>
+      {% if landingPage %}
+    </div>
     {% endif %}
-    <h1 class="type--h2">{{title}}</h1>
   </header>
 
   {% if (content | toc or tools) and landingPage == false %}
