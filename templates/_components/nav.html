@@ -20,9 +20,9 @@
         {% for section in item.sections %}
         <li class="nav__secondary-item">
           {% if section.alt %}
-          <a class="nav__link type--primary-nav" href="/{{locale.code}}/{{section.url}}" data-alt="/{{locale.code}}/{{section.alt}}" tabindex="-1">{{section.title}}</a>
+          <a class="nav__link type--primary-nav" href="/{{locale.code}}/{{section.url}}" data-alt="/{{locale.code}}/{{section.alt}}">{{section.title}}</a>
           {% else %}
-          <a class="nav__link type--primary-nav" href="/{{locale.code}}/{{section.url}}" tabindex="-1">{{section.title}}</a>
+          <a class="nav__link type--primary-nav" href="/{{locale.code}}/{{section.url}}">{{section.title}}</a>
           {% endif %}
         </li>
         {% endfor %}
