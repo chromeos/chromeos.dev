@@ -36,4 +36,4 @@ También consiguieron que las escuelas adoptaran Squid en las aulas para usar co
 
 ## Empezar
 
-Learn how to best [optimize your apps for Chrome OS](/%7B%7Blocale.code%7D%7D/android/optimizing).
+Learn how to best [optimize your apps for Chrome OS](/{{locale.code}}/android/optimizing).
