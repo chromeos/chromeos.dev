@@ -55,7 +55,7 @@ Otro perfilador útil de dispositivos ARM es [ARM Mobile Studio](https://develop
 
 Chrome OS tiene un generador de perfiles de gráficos incorporado que te ayuda a comprender cómo interactúa tu juego de Android con el compositor de escritorio. Puede ayudarlo a obtener una vista global del sistema operativo y ver si se producen fallas debido a que su juego no está produciendo fotogramas lo suficientemente rápido o si otras partes del sistema están utilizando la CPU. Puede incluir etiquetas de rastreo personalizadas en su aplicación para reducir qué partes de su código son responsables de las ventanas de representación faltantes.
 
-Inicie la herramienta de rastreo navegando a `chrome://arc-graphics-tracing` en el navegador en Chrome OS. Las instrucciones de uso detalladas se pueden encontrar en [depuración de animación jank](/%7B%7Blocale.code%7D%7D/develop/animation) .
+Inicie la herramienta de rastreo navegando a `chrome://arc-graphics-tracing` en el navegador en Chrome OS. Las instrucciones de uso detalladas se pueden encontrar en [depuración de animación jank](/{{locale.code}}/develop/animation) .
 
 ## Próximos pasos
 
