@@ -62,7 +62,6 @@ jobs:
   lighthouse:
     needs: build-test
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -95,6 +94,7 @@ jobs:
       - name: Lighthouse Audit
         id: lighthouse
         uses: treosh/lighthouse-ci-action@v3
+        continue-on-error: true
         with:
           urls: |
             https://cros-staging.web.app/en
