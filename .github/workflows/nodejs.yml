@@ -62,6 +62,7 @@ jobs:
   lighthouse:
     needs: build-test
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Checkout
         uses: actions/checkout@v2
