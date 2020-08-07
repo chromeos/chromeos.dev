@@ -3,8 +3,6 @@ description: Builds a PR comment based on preview deploy and Lighthouse info
 inputs:
   url:
     description: Deploy URL
-  status:
-    description: Deploy status
   sha:
     description: Deploy SHA
   links:

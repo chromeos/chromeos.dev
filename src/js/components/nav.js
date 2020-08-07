@@ -35,7 +35,6 @@ export class MainNavigation {
 
     // Toggle if nav items can be tabbed on load
     if (window.getComputedStyle(this.menu_).display !== 'none') {
-      this.toggleTab(false);
       this.elem_.setAttribute('aria-expanded', 'false');
       this.expanded_ = false;
     }
@@ -79,18 +78,6 @@ export class MainNavigation {
     this.elem_.addEventListener('click', e => {
       if (e.target === e.currentTarget && this.isExpanded(this.elem_)) {
         this.slideMenu();
-      }
-    });
-
-    this.elem_.addEventListener('pointerover', e => {
-      if (e.target.hasAttribute('aria-haspopup') && e.target.getAttribute('aria-expanded') !== 'true' && e.target.classList.contains('nav__link') && this.expanded_) {
-        this.expandSubnav(e);
-      }
-    });
-
-    this.elem_.addEventListener('pointerleave', () => {
-      if (this.expanded_ && this.active_) {
-        this.expandSubnav({ target: this.active_ });
       }
     });
   }
@@ -140,12 +127,11 @@ export class MainNavigation {
       if (entry.target === this.menu_) {
         if (entry.contentRect.width > 0) {
           this.elem_.setAttribute('aria-expanded', 'false');
-          this.toggleTab(false);
+
           this.expanded_ = false;
         } else {
           this.elem_.removeAttribute('aria-expanded');
           this.elem_.classList.remove('nav--animated');
-          this.toggleTab(true);
           this.expanded_ = true;
         }
       }
@@ -163,21 +149,6 @@ export class MainNavigation {
   }
 
   /**
-   *
-   * @param {boolean} enable - Whether to enable tabbing or not
-   * Toggles if tabbables can be tabbed to.
-   */
-  toggleTab(enable = false) {
-    for (const tabbable of this.tabbables_) {
-      if (enable) {
-        tabbable.removeAttribute('tabindex');
-      } else {
-        tabbable.setAttribute('tabindex', -1);
-      }
-    }
-  }
-
-  /**
    * Slides menu out or in
    */
   slideMenu() {
@@ -188,10 +159,8 @@ export class MainNavigation {
     if (expanded) {
       this.elem_.setAttribute('aria-expanded', 'false');
       this.menu_.focus();
-      this.toggleTab(false);
     } else {
       this.elem_.setAttribute('aria-expanded', 'true');
-      this.toggleTab(true);
       this.links_[0].focus();
     }
   }
