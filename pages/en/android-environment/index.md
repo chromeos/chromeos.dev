@@ -29,12 +29,12 @@ Android Studio has been officially supported on Chrome OS since [version 3.5](ht
 
 #### Recommended devices for Android Studio
 
-- **Acer:** Chromebook 13/Spin 13, Chromebox CXI3
-- **ASUS:** Chromebox 3
+- **Acer:** Chromebook 13/Spin 13, Chromebox CXI3, Chromebook 712 [C871]
+- **ASUS:** Chromebox 3, Chromebook Flip C436FA
 - **CTL:** Chromebox CBx1
-- **Dell:** Inspiron Chromebook 14
-- **HP:** Chromebook x360 14, Chromebox G2
-- **Lenovo:** Yoga C630 Chromebook
+- **Dell:** Inspiron Chromebook 14, Latitude 5300 2-in-1 Chromebook Enterprise, Latitude 5400 Chromebook Enterprise
+- **HP:** Chromebook x360 14, Chromebox G2, Chromebook x360 14c
+- **Lenovo:** Yoga C630 Chromebook, Flex 5 Chromebook
 - **ViewSonic:** NMP660 Chromebox
 
 ### Install Flutter on Chrome OS
@@ -51,7 +51,6 @@ Supported Chromebooks can now run a full version of the Android Emulator, which 
 
 - **Acer:** Chromebook 712 [C871]
 - **ASUS:** Chromebook Flip C436FA
-- **Dell:** Latitude 5300 2-in-1 Chromebook Enterprise
-- **Dell:** Latitude 5400 Chromebook Enterprise
+- **Dell:** Latitude 5300 2-in-1 Chromebook Enterprise, Latitude 5400 Chromebook Enterprise
 - **HP:** Chromebook x360 14c
 - **Lenovo:** Flex 5 Chromebook
