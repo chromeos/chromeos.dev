@@ -24,6 +24,7 @@
     "js": "rollup -c",
     "lint": "cross-env NODE_ENV=production run-p *:lint sass",
     "md:lint": "remark 'pages/*/!(style-guide)/**/*.md' -q -f",
+    "patch": "patch-package",
     "postbuild": "cross-env NODE_ENV=production run-p compile:optimize js:sw",
     "postinstall": "patch-package",
     "prebuild": "del public",
