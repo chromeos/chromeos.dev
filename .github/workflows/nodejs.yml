@@ -76,23 +76,25 @@ jobs:
           node-version: 12.x
       - name: Install Firebase tools and JQ
         run: |
-          npm install -g https://storage.googleapis.com/firebase-preview-drop/node/firebase-tools/firebase-tools-7.13.0-hostingpreviews.1.tgz
-          firebase --open-sesame hostingpreviews
+          npm install -g https://storage.googleapis.com/firebase-preview-drop/node/firebase-tools/firebase-tools-8.8.0-channels.1.tgz
+          firebase --open-sesame hostingchannels
           sudo apt-get update
           sudo apt-get install jq
           npm --prefix .github/actions/message install
       - name: Deploy preview
         id: deploy
         run: |
-          firebase hosting:preview --token $FIREBASE_TOKEN --json > deploy.json
-          echo "::set-output name=status::$(cat deploy.json | jq -r '.status')"
-          echo "::set-output name=url::$(cat deploy.json | jq -r '.result.previews.default.url')"
+          CHANNEL=$(cat /proc/sys/kernel/random/uuid)
+          firebase hosting:channel:deploy $CHANNEL
+          DEPLOY=$(firebase hosting:channel:list --token $FIREBASE_TOKEN --json | jq -r --arg CHANNEL "$CHANNEL" '.result.channels[] | select(.name | contains($CHANNEL))')
+          echo "::set-output name=url::$(echo $DEPLOY | jq -r '.url')"
           echo "::set-output name=sha::$GITHUB_SHA"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       - name: Lighthouse Audit
         id: lighthouse
         uses: treosh/lighthouse-ci-action@v3
+        continue-on-error: true
         with:
           urls: |
             https://cros-staging.web.app/en
@@ -108,7 +110,6 @@ jobs:
         uses: ./.github/actions/message
         with:
           url: ${{ steps.deploy.outputs.url }}
-          status: ${{ steps.deploy.outputs.status }}
           sha: ${{ steps.deploy.outputs.sha }}
           links: ${{ steps.lighthouse.outputs.links }}
           results: ${{ steps.lighthouse.outputs.assertionResults }}

@@ -35,7 +35,7 @@ layout: _wrapper
     </div>
     {% if landingPage and landingPage.subnav %}
     <div class="tech-detail__chapters">
-      {{itemGrid(microcopy.landing.chapters, landingPage.subnav)}}
+      {{itemGrid(microcopy.landing.chapters, landingPage.subnav.slice(1))}}
     </div>
     {% endif %}
   </section>
