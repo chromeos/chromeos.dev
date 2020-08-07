@@ -19,7 +19,7 @@ const core = require('@actions/core');
 /**
  * Builds a message and sets it as the output
  */
-const input = ['url', 'status', 'sha', 'links', 'results']
+const input = ['url', 'sha', 'links', 'results']
   .map(i => {
     const input = core.getInput(i, { required: true });
     try {
@@ -46,7 +46,6 @@ for (const result of input.results) {
 let message = `## <img src="https://firebase.google.com/downloads/brand-guidelines/SVG/logo-logomark.svg" height="26" alt="Firebase"> Deploy Preview
 |   |   |
 | :---: | --- |
-| status | \`${input.status}\` |
 | url    | ${input.url} |
 | commit | ${input.sha} |
 
