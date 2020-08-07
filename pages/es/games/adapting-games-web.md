@@ -8,7 +8,7 @@ weight: -1
 Los juegos web se ven y funcionan muy bien en Chrome OS. Puede llegar a más usuarios y proporcionar una mejor integración empaquetando su aplicación como PWA. Lea sobre PWA con los siguientes enlaces:
 
 - [Descripción general de PWA de web.dev](https://web.dev/progressive-web-apps/)
-- [PWAs de escritorio en Chrome OS](/%7B%7Blocale.code%7D%7D/web/desktop-progressive-web-apps)
+- [PWAs de escritorio en Chrome OS](/{{locale.code}}/web/desktop-progressive-web-apps)
 
 ## Pantallas táctiles
 

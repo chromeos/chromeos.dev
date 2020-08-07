@@ -61,4 +61,4 @@ Frederik Seiffert, director técnico de Algoriddim, estaba encantado con la flui
 
 ## Empezar
 
-Aprenda como [optimizar su aplicación para Chrome OS](/%7B%7Blocale.code%7D%7D/android/optimizing) de la mejor manera.
+Aprenda como [optimizar su aplicación para Chrome OS](/{{locale.code}}/android/optimizing) de la mejor manera.

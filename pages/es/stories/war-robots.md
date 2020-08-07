@@ -124,10 +124,10 @@ Estas optimizaciones también aseguraron que el juego no se detuviera y que el H
 
 ## Resultados
 
-Gracias a una extensa biblioteca de [recursos en línea](/%7B%7Blocale.code%7D%7D/android/) , todo el proceso llevó al equipo de desarrollo de cinco miembros de Pixonic en solo dos semanas.
+Gracias a una extensa biblioteca de [recursos en línea](/{{locale.code}}/android/) , todo el proceso llevó al equipo de desarrollo de cinco miembros de Pixonic en solo dos semanas.
 
 Más de 100,000 jugadores ya han jugado War Robots en Chrome OS desde que Pixonic lanzó las últimas optimizaciones. Debido a que el juego ahora puede aprovechar el espacio adicional en pantallas más grandes, las batallas de War Robots son aún más inmersivas y atractivas que antes. De hecho, las sesiones de usuario son un 25% más largas en Chromebooks en comparación con otros dispositivos Android. Los comentarios iniciales han sido increíblemente positivos, y algunos jugadores incluso han notado que el juego optimizado para Chromebook funciona mejor que el emulador de BlueStacks.
 
 Con base en su éxito, los desarrolladores de Pixonic planean actualizar los gráficos de War Robots en todos los dispositivos Android para que el juego se acerque aún más a una experiencia de calidad de PC.
 
-Consulte algunas de las mejores prácticas para [optimizar sus aplicaciones para Chrome OS](/%7B%7Blocale.code%7D%7D/android/optimizing) .
+Consulte algunas de las mejores prácticas para [optimizar sus aplicaciones para Chrome OS](/{{locale.code}}/android/optimizing) .

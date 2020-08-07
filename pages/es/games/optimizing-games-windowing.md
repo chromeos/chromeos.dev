@@ -27,7 +27,7 @@ Un juego de rompecabezas es un juego para Android maduro que fue diseñado para 
 
 Un juego de carreras de autos diseñado para dispositivos móviles está bloqueado en modo horizontal, para optimizar el espacio de la pantalla para los teléfonos. Últimamente, los usuarios de tabletas y Chrome OS se han quejado de que es difícil de jugar y han pedido soporte para retratos. El desarrollador incluye una verificación del tamaño de la pantalla en su código, y si la pantalla es lo suficientemente grande, se permite el modo vertical. Para permitir la vista amplia requerida para el juego, el contenido se coloca en el centro de la pantalla mientras aparece una barra adicional de interfaz de usuario para el estéreo del automóvil en la parte inferior de la pantalla que permite a los usuarios cambiar fácilmente la estación de radio y el mapa y las estadísticas de carrera se mueven a la parte superior de la pantalla, liberando la vista del parabrisas y mejorando el juego.
 
-Visite también [las guías para Android en pantallas grandes](/%7B%7Blocale.code%7D%7D/android/design) y [documentación para tamños de pantalla de Android](https://developer.android.com/training/multiscreen/screensizes).
+Visite también [las guías para Android en pantallas grandes](/{{locale.code}}/android/design) y [documentación para tamños de pantalla de Android](https://developer.android.com/training/multiscreen/screensizes).
 
 ## Capacidad de múltiples ventanas
 
@@ -45,7 +45,7 @@ Hay algunas consideraciones importantes si su juego es redimensionable:
 - Manejo de `onPause` correctamente en caso de que su aplicación esté visible y [`STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State) , pero no [`RESUMED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State) . Ver [ciclo de vida de múltiples ventanas](https://developer.android.com/guide/topics/ui/multi-window#lifecycle) .
 - Considere diferentes proporciones de aspecto para ventanas redimensionadas (recorte versus escala de activos)
 
-Lea más sobre la [gestión de ventanas](/%7B%7Blocale.code%7D%7D/android/window-management) .
+Lea más sobre la [gestión de ventanas](/{{locale.code}}/android/window-management) .
 
 ## Modo de pantalla completa
 
