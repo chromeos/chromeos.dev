@@ -15,6 +15,6 @@ Si cobra dinero por su aplicación / juego, también puede usar las API de Play 
 
 - Sigue la [Lista de verificación de inicio de Google Play](https://developer.android.com/distribute/best-practices/launch/launch-checklist) .
 - Chequee [la compatibilidad de su apliación](https://support.google.com/googleplay/android-developer/answer/7353455) con distintos dispostivos para asegurarse que es posible instalarla en todas las Chromebooks.
-- Si está utilizando código nativo (NDK), revise las [consideraciones de publicación](/%7B%7Blocale.code%7D%7D/games/optimizing-games-publishing) para obtener el mejor rendimiento.
+- Si está utilizando código nativo (NDK), revise las [consideraciones de publicación](/{{locale.code}}/games/optimizing-games-publishing) para obtener el mejor rendimiento.
 - Pruebe antes del lanzamiento utilizando [pistas de prueba](https://developer.android.com/distribute/best-practices/launch/test-tracks) .
 - Aprende cómo hacer [crecer tu audiencia optimizando tu aplicación para Chrome OS](https://playacademy.exceedlms.com/student/activity/19745-grow-your-audience-by-optimizing-your-app-for-chrome-os) .
