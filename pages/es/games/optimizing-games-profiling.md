@@ -29,7 +29,7 @@ Si bien es posible determinar los cuellos de botella por su cuenta, contar con l
 
 ### Android Studio Profiler
 
-La forma más fácil de crear un perfil de rendimiento para cualquier aplicación de Android es con el [perfilador integrado de Android Studio](https://developer.android.com/studio/profile/android-profiler) . Desde Android Studio, en vez de hacer clic en “Correr”, simplemente elija “Perfil” para correr su aplicación y para obtener información en tiempo real sobre el CPU, memoria y uso de la red. Las trazas de CPU simples pueden ser una forma rápida de aislar áreas de código para observar.
+La forma más fácil de crear un perfil de rendimiento para cualquier aplicación de Android es con el [perfilador integrado de Android Studio](https://developer.android.com/studio/profile/android-profiler?hl=es) . Desde Android Studio, en vez de hacer clic en “Correr”, simplemente elija “Perfil” para correr su aplicación y para obtener información en tiempo real sobre el CPU, memoria y uso de la red. Las trazas de CPU simples pueden ser una forma rápida de aislar áreas de código para observar.
 
 Esta herramienta no garantiza una visión real del uso de la GPU ni de lo que sucede entre cada sincronización de cuadros, por lo que, aunque es una buena herramienta para tener en la caja de herramientas, es probable que no sea suficiente para que su juego funcione con el máximo rendimiento.
 
@@ -45,7 +45,7 @@ Consulte la [documentación oficial de uso](https://developer.qualcomm.com/softw
 
 ### ARM Mobile Studio
 
-Otro perfilador útil de dispositivos ARM es [ARM Mobile Studio](https://developer.arm.com/tools-and-software/graphics-and-gaming/arm-mobile-studio). Algunos desarrolladores pueden preferirlo al Snapdragon Profiler, pero puede usarse de manera similar. Consulte [la documentación oficial ](https://developer.arm.com/tools-and-software/graphics-and-gaming/arm-mobile-studio/learn/get-started).
+Otro perfilador útil de dispositivos ARM es [ARM Mobile Studio](https://developer.arm.com/tools-and-software/graphics-and-gaming/arm-mobile-studio). Algunos desarrolladores pueden preferirlo al Snapdragon Profiler, pero puede usarse de manera similar. Consulte [la documentación oficial](https://developer.arm.com/tools-and-software/graphics-and-gaming/arm-mobile-studio/learn/get-started).
 
 ### Inspector de GPU de Android
 
@@ -75,6 +75,6 @@ Considere leer la guía de ARM sobre creación de [perfiles y optimización de j
 
 ### Unreal
 
-Unreal ha escrito sus propias [pautas de rendimiento ](https://docs.unrealengine.com/en-US/Platforms/Mobile/Performance/index.html) y [sugerencias y consejos ](https://docs.unrealengine.com/en-US/Platforms/Mobile/Performance/TipsAndTricks/index.html)que le enseñan cómo aprovechar mejor muchas de las opciones y configuraciones que proporciona el motor. Aquí encontrará cosas como trucos de nivel de detalle, cómo aprovechar al máximo la iluminación, guías paso a paso sobre configuraciones de calidad del material y sombreadores, entre otras sugerencias.
+Unreal ha escrito sus propias [pautas de rendimiento](https://docs.unrealengine.com/en-US/Platforms/Mobile/Performance/index.html) y [sugerencias y consejos](https://docs.unrealengine.com/en-US/Platforms/Mobile/Performance/TipsAndTricks/index.html)que le enseñan cómo aprovechar mejor muchas de las opciones y configuraciones que proporciona el motor. Aquí encontrará cosas como trucos de nivel de detalle, cómo aprovechar al máximo la iluminación, guías paso a paso sobre configuraciones de calidad del material y sombreadores, entre otras sugerencias.
 
 Para obtener más optimizaciones basadas en gráficos, ARM ha escrito una [guía](https://developer.arm.com/docs/100959/0101/optimizations-and-optimization-techniques/unreal-engine-best-practices) para optimizar los juegos móviles. Aquí se pueden encontrar consejos generales de optimización, así como consideraciones de gráficos específicos de Unreal.

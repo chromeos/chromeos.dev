@@ -91,7 +91,7 @@ Emoji can be used in :memo: sentences too.
 
 Agregue una imagen con título visible como una figura lógica única. Las figuras se pueden numerar opcionalmente, lo que les permitirá vincularse directamente.
 
-# [Título de imagen](/images/icons/pwa/chromeOS.svg)
+#[Título de imagen](/images/icons/pwa/chromeOS.svg)
 
 # 1 [Título de imagen] (/ images / icons / pwa / chromeOS.svg [Con una descripción accesible de la imagen])
 

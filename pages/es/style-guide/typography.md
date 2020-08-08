@@ -9,13 +9,13 @@ Este es un ejemplo de tipografía de formato largo utilizada en todo el sitio. S
 
 Al crear componentes, tenemos un conjunto de tipografía con clases que debe usar directamente en lugar de confiar en este estilo de formato largo. Se dividen en 4 secciones:
 
-[Núcleo](%7B%7Bpage.url%7D%7Dcore) : Estilos tipográficos básicos sobre los que se construyen todos los demás estilos del sitio.
+[Núcleo]({{page.url}}core) : Estilos tipográficos básicos sobre los que se construyen todos los demás estilos del sitio.
 
-[Extras](%7B%7Bpage.url%7D%7Dextras) : estilos tipográficos que se usan comúnmente y heredan su estilo de uno de los conjuntos principales de estilo.
+[Extras]({{page.url}}extras) : estilos tipográficos que se usan comúnmente y heredan su estilo de uno de los conjuntos principales de estilo.
 
-[CTA](%7B%7Bpage.url%7D%7Dcta) : estilo de llamado a la acción, más comúnmente visualizado como botones y enlaces.
+[CTA]({{page.url}}cta) : estilo de llamado a la acción, más comúnmente visualizado como botones y enlaces.
 
-[Enlaces](%7B%7Bpage.url%7D%7Dlinks) : Tipos específicos de estilo de enlaces utilizados en todo el sitio.
+[Enlaces]({{page.url}}links) : Tipos específicos de estilo de enlaces utilizados en todo el sitio.
 
 ---
 

@@ -5,7 +5,7 @@ date: 2020-06-16
 weight: -4
 ---
 
-Para muchas necesidades los protocolos de [Android’s Network Discover](https://developer.android.com/training/connect-devices-wirelessly/nsd) deben proveer todo lo que un desarrollador esperaría y funcionar de acuerdo a las expectativas. Chrome OS también tiene un reenvío de transmisión incorporado en ambas direcciones para garantizar que su juego reciba correctamente las respuestas a los paquetes de transmisión enviados a sus pares en la red local, y para recibir los paquetes de transmisión enviados por otros pares en la red local.
+Para muchas necesidades los protocolos de [Android’s Network Discover](https://developer.android.com/training/connect-devices-wirelessly/nsd?hl=es) deben proveer todo lo que un desarrollador esperaría y funcionar de acuerdo a las expectativas. Chrome OS también tiene un reenvío de transmisión incorporado en ambas direcciones para garantizar que su juego reciba correctamente las respuestas a los paquetes de transmisión enviados a sus pares en la red local, y para recibir los paquetes de transmisión enviados por otros pares en la red local.
 
 Debido a la arquitectura y las reglas de seguridad de Chrome OS, una aplicación de Android que necesita conocer la dirección IPv4 del dispositivo Chrome OS en el que se está ejecutando, por ejemplo, para comunicar la dirección a un servidor que desea intermediar un cliente a cliente El juego multijugador con clientes que no sean Chrome OS ubicados dentro de la misma red local, por ejemplo, necesitará implementar alguna lógica adicional.
 

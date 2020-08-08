@@ -122,7 +122,7 @@ No! Ver las preguntas anteriores.
 
 ¡Por supuesto! Hay algunas formas de hacer esto.
 
-- [environment.d ](https://www.freedesktop.org/software/systemd/man/environment.d.html) le permite establecer variables de entorno para su sesión `systemd --user` , que incluye el [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app) y todas las aplicaciones GUI. Es posible que necesite un contenedor más nuevo, [Debian](https://www.debian.org/) 10 "buster", para utilizar este método.
+- [environment.d](https://www.freedesktop.org/software/systemd/man/environment.d.html) le permite establecer variables de entorno para su sesión `systemd --user` , que incluye el [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app) y todas las aplicaciones GUI. Es posible que necesite un contenedor más nuevo, [Debian](https://www.debian.org/) 10 "buster", para utilizar este método.
 - Si desea variables de entorno en su [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app), las puede establerce en los archivos de configuración del shell, como por ejemplo `~/.bashrc` o `~/.zshrc`.
 
 Los cambios en las variables de entorno solo tienen efecto para los programas recién iniciados. También es posible que deba reiniciar los programas o todo el contenedor para que los cambios surtan efecto.
@@ -339,7 +339,7 @@ Claro, siéntase libre de eliminar lo que quiera. El comando `vmc destroy` puede
 
 ## ¿Puedo desactivar estas funciones?
 
-Los administradores pueden controlar el acceso a contenedores / [VMs ](https://en.wikipedia.org/wiki/Virtual_machine) a través de la consola de administración, por lo que las organizaciones empresariales / educativas que desean limitar esto pueden hacerlo.
+Los administradores pueden controlar el acceso a contenedores / [VMs](https://en.wikipedia.org/wiki/Virtual_machine) a través de la consola de administración, por lo que las organizaciones empresariales / educativas que desean limitar esto pueden hacerlo.
 
 Inicialmente hay una opción "Linux (Beta)" en la configuración estándar de Chrome OS, pero el plan a largo plazo es eliminar este botón para que todo funcione a pedido. En ese momento, no habrá perilla para dispositivos no administrados.
 

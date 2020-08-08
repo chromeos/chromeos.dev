@@ -82,4 +82,4 @@ Debido a que Linux en Chrome OS se ejecuta dentro de un contenedor, puede hacer 
 
 ## Solución de problemas
 
-Para obtener más ayuda para habilitar o solucionar problemas, lea la página de ayuda de Chromebook sobre [cómo configurar el contenedor de Linux](https://support.google.com/chromebook/answer/9145439?hl=%7B%7Blocale.code%7D%7D) .
+Para obtener más ayuda para habilitar o solucionar problemas, lea la página de ayuda de Chromebook sobre [cómo configurar el contenedor de Linux](https://support.google.com/chromebook/answer/9145439?hl={{locale.code}}) .

@@ -10,7 +10,6 @@ tools:
       min: 75
       max: Actual
 ---
-
 Uno de los problemas más difíciles para los desarrolladores de aplicaciones es garantizar una animación fluida, sin fallas y sin distorciones. Esto es especialmente difícil de depurar cuando el sistema también realiza tareas en segundo plano de uso intensivo de recursos. No hay una manera fácil de determinar si su aplicación o el sistema causan algúna distorción. Sin embargo, existe una herramienta de perfil que puede ayudarle a identificar la posible fuente del mal comportamiento.
 
 ## Renderizado en Chrome OS
@@ -27,7 +26,7 @@ Cuando el sistema operativo está trabajando muy duro, la GPU se puede comprimir
 
 Chrome OS tiene una herramienta de creación de perfiles que muestra cómo los búferes se filtran a través del sistema, cuándo se producen intercambios de memoria, qué tan ocupada está la CPU / GPU y qué está haciendo su aplicación en un momento dado:
 
-![Jank Profiler, con la aplicación ARC ++ ejecutándose a la izquierda y la información de CPU, memoria, gráficos de Chrome y gráficos de Android a la derecha.](/images/android/animation/jank-profiler.png)
+![Ejemplo del perfilador, con la aplicación ARC ++ ejecutándose a la izquierda y la información de CPU, memoria, gráficos de Chrome y gráficos de Android a la derecha.](/images/android/animation/jank-profiler.png)
 
 ### Configurar el perfilador
 

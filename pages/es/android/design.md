@@ -44,7 +44,7 @@ En particular, asegúrese de que sus diseños no aparezcan "estirados" en la pan
 
 ## Aproveche el área de pantalla adicional
 
-Los dispositivos de Chrome OS brindan significativamente más espacio en la pantalla a su aplicación Cuando considere la interfaz de usuario de su aplicación para que se ejecute en pantallas más grandes, asegúrese de aprovechar al máximo el área de pantalla adicional disponible. Tanto en el ejemplo anterior de [Reply](https://material.io/design/material-studies/reply.html) como en el ejemplo de [Rally ](https://material.io/design/material-studies/rally.html) a continuación, puede ver que ambas aplicaciones adoptan un enfoque diferente para aprovechar el aumento del tamaño de la pantalla. Reply agrega espacio para que se vea más limpio y amigable, mientras que Rally agrega más datos en la pantalla para que los usuarios puedan ver más con menos desplazamiento o clics.
+Los dispositivos de Chrome OS brindan significativamente más espacio en la pantalla a su aplicación Cuando considere la interfaz de usuario de su aplicación para que se ejecute en pantallas más grandes, asegúrese de aprovechar al máximo el área de pantalla adicional disponible. Tanto en el ejemplo anterior de [Reply](https://material.io/design/material-studies/reply.html) como en el ejemplo de [Rally](https://material.io/design/material-studies/rally.html) a continuación, puede ver que ambas aplicaciones adoptan un enfoque diferente para aprovechar el aumento del tamaño de la pantalla. Reply agrega espacio para que se vea más limpio y amigable, mientras que Rally agrega más datos en la pantalla para que los usuarios puedan ver más con menos desplazamiento o clics.
 
 ![Material Study: Rally](/images/android/design/rally.png)
 
@@ -62,7 +62,7 @@ Aquí hay algunas recomendaciones para su aplicación:
 
 Para garantizar que su aplicación se vea mejor, proporcione íconos y otros recursos para cada densidad en el rango comúnmente admitido por Chrome OS. Específicamente, debe diseñar sus iconos para la barra de acción, las notificaciones y el iniciador de acuerdo con las [pautas de iconografía](https://material.io/design/iconography/#design-principles) y proporcionarlos en formatos vectoriales para que puedan escalar con gracia con las diferentes pantallas en las que encontrará su aplicación.
 
-Para obtener más información sobre VectorDrawables y los activos de vectores en Android, consulte esta [ publicación ](https://medium.com/androiddevelopers/understanding-androids-vector-image-format-vectordrawable-ab09e41d5c68) de [Nick Butcher](https://twitter.com/crafty).
+Para obtener más información sobre VectorDrawables y los activos de vectores en Android, consulte esta [ publicación](https://medium.com/androiddevelopers/understanding-androids-vector-image-format-vectordrawable-ab09e41d5c68) de [Nick Butcher](https://twitter.com/crafty).
 
 ## Ajustar tamaños de fuente y objetivos táctiles
 

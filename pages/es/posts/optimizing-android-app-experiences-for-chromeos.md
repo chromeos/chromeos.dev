@@ -66,7 +66,7 @@ Para aplicaciones que requieren eventos de movimiento táctil más avanzados, pu
 
 ### NDK
 
-Juegos y aplicaciones en Chrome OS automáticamente reciben traducción de ARM a x86. Pero si el rendimiento es su prioridad, es esencial implementar soporte para x86. [ La mayoría de dispositivos de Chrome OS ](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices) tienen chipsets 64-bit x86 y más están siendo desarrollados. Para proveer el mejor desempeño y soporte a través de todos los dispositivos, asegúrese de proveer archivos para ARM, ARM64, x86, and x86_64 si su aplicación tiene código nativo.
+Juegos y aplicaciones en Chrome OS automáticamente reciben traducción de ARM a x86. Pero si el rendimiento es su prioridad, es esencial implementar soporte para x86. [ La mayoría de dispositivos de Chrome OS](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices) tienen chipsets 64-bit x86 y más están siendo desarrollados. Para proveer el mejor desempeño y soporte a través de todos los dispositivos, asegúrese de proveer archivos para ARM, ARM64, x86, and x86_64 si su aplicación tiene código nativo.
 
 Android Studio simplifica el soporte: al usar paquetes de aplicaciones de Android, empaqueta todos los objetivos de compilación listos para Play Store, que luego solo envía los objetivos de compilación que los usuarios de su aplicación necesitan para mantener los tamaños de descarga al mínimo.
 

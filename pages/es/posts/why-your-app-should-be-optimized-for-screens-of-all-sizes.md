@@ -65,7 +65,7 @@ Mientras tanto, el equipo de desarrollo de Slack optimizó su popular aplicació
 
 ### 1 Contraseña
 
-1Password colaboró con el equipo de Chrome OS team para mejorar drásticamente la experiencia de usuario en solo seis semanas. Para asegurarse que la aplicación hiciera el mejor uso de [el espacio en la pantalla en cualquier orientación y de cualquier tamaño ](/{{locale.code}}/android/window-management), el equipo de desarrollo combinó sus diseños existentes para teléfonos y tabletas para presentar un diseño flexible cuando los usuarios cambian el tamaño de la ventana de la aplicación. El equipo también utilizó la funcionalidad de arrartrar y colocar de Chrome OS para que los usuarios de la aplicación pudieran arrastrar contenido fácilmente entre 1Password y otras aplicaciones de Android en Chrome OS.
+1Password colaboró con el equipo de Chrome OS team para mejorar drásticamente la experiencia de usuario en solo seis semanas. Para asegurarse que la aplicación hiciera el mejor uso de [el espacio en la pantalla en cualquier orientación y de cualquier tamaño](/{{locale.code}}/android/window-management), el equipo de desarrollo combinó sus diseños existentes para teléfonos y tabletas para presentar un diseño flexible cuando los usuarios cambian el tamaño de la ventana de la aplicación. El equipo también utilizó la funcionalidad de arrartrar y colocar de Chrome OS para que los usuarios de la aplicación pudieran arrastrar contenido fácilmente entre 1Password y otras aplicaciones de Android en Chrome OS.
 
 ![1 Aplicación de contraseña en diferentes configuraciones en diferentes modos de dispositivo](/images/posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/1password.jpg)
 

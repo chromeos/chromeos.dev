@@ -8,7 +8,7 @@ date: 2020-05-01
 Este es un proceso avanzado que no recomendamos para nuevos usuarios de Linux.
 !!!
 
-Chrome OS admite la ejecución de código arbitrario dentro de [máquinas virtuales](https://en.wikipedia.org/wiki/Virtual_machine) . Esta es la documentación detallada sobre ese soporte; Para una vista más fácil de usar, vea los [otros contenedores de Linux](%7B%7Bpage.url%7D%7D../container-manipulation#using-another-linux-distribution) en la documentación de manipulación de contenedores.
+Chrome OS admite la ejecución de código arbitrario dentro de [máquinas virtuales](https://en.wikipedia.org/wiki/Virtual_machine) . Esta es la documentación detallada sobre ese soporte; Para una vista más fácil de usar, vea los [otros contenedores de Linux]({{page.url}}../container-manipulation#using-another-linux-distribution) en la documentación de manipulación de contenedores.
 
 ## Prerrequisitos
 
@@ -17,7 +17,7 @@ Chrome OS admite la ejecución de código arbitrario dentro de [máquinas virtua
   - Inicie una [actualización del sistema](https://support.google.com/chromebook/answer/177889) si es necesario y reinicie.
   - Esto debería funcionar en el [canal estable](https://support.google.com/chromebook/answer/1086915) .
   - **No es** necesario ponerlo en modo de desarrollador.
-- [Habilite el contenedor de Linux](%7B%7Bpage.url%7D%7D../#enabling-the-linux-container)
+- [Habilite el contenedor de Linux]({{page.url}}../#enabling-the-linux-container)
 
 ## Características de tiempo de ejecución
 
@@ -37,7 +37,7 @@ Hay muchas frutas bajas en las que estamos trabajando para desarrollar. Un par d
 - Decodificación de hardware de video.
 - [IME](https://crbug.com/826614)
 
-Si bien se están considerando más cosas, el equipo de Chrome OS adopta un enfoque medido para implementar nuevas funciones para garantizar que la seguridad general del sistema no se vea comprometida. Consulte las [Preguntas frecuentes de Crostini](%7B%7Bpage.url%7D%7D../crostini-faq) para obtener información más detallada que cubre la mayoría de los temas relacionados con Linux en el desarrollo de Chrome OS.
+Si bien se están considerando más cosas, el equipo de Chrome OS adopta un enfoque medido para implementar nuevas funciones para garantizar que la seguridad general del sistema no se vea comprometida. Consulte las [Preguntas frecuentes de Crostini]({{page.url}}../crostini-faq) para obtener información más detallada que cubre la mayoría de los temas relacionados con Linux en el desarrollo de Chrome OS.
 
 ## Seguridad
 
@@ -65,13 +65,13 @@ Las vulnerabilidades Meltdown / Spectre tienen implicaciones para el uso seguro 
 
 ## Ciclos de vida
 
-Una vez que haya [habilitado el contenedor de Linux](%7B%7Bpage.url%7D%7D../#enabling-the-linux-container) (que se encarga de instalar todos los demás componentes necesarios como Termina), el sistema está listo para usar.
+Una vez que haya [habilitado el contenedor de Linux]({{page.url}}../#enabling-the-linux-container) (que se encarga de instalar todos los demás componentes necesarios como Termina), el sistema está listo para usar.
 
 Si bien estos componentes pueden instalarse, nada comienza a ejecutarse de inmediato. Cuando cierra la sesión, todo se cierra y finaliza, y cuando inicia sesión, nada se reinicia automáticamente.
 
 Cuando ejecuta la aplicación Terminal, o cualquier otra aplicación de Linux que inicie el contenedor, y su contenedor principal aún no se está ejecutando, la máquina virtual Termina se iniciará automáticamente, y el contenedor predeterminado de Linux en Chrome OS (también conocido como Crostini) comenzar en Termina. Esto le permite conectarse al contenedor a través de SSH o SFTP (a través de la aplicación Archivos).
 
-Cuando cierra todas las aplicaciones visibles, las máquinas virtuales / contenedores no se apagan. Si lo desea, puede [detenerlos e iniciarlos manualmente](%7B%7Bpage.url%7D%7D../container-manipulation#manually-starting-the-container) , así como generar más contenedores que solo el predeterminado.
+Cuando cierra todas las aplicaciones visibles, las máquinas virtuales / contenedores no se apagan. Si lo desea, puede [detenerlos e iniciarlos manualmente]({{page.url}}../container-manipulation#manually-starting-the-container) , así como generar más contenedores que solo el predeterminado.
 
 ### Persistencia de datos
 
