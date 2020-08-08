@@ -10,6 +10,7 @@ tools:
       min: 75
       max: Actual
 ---
+
 Uno de los problemas más difíciles para los desarrolladores de aplicaciones es garantizar una animación fluida, sin fallas y sin distorciones. Esto es especialmente difícil de depurar cuando el sistema también realiza tareas en segundo plano de uso intensivo de recursos. No hay una manera fácil de determinar si su aplicación o el sistema causan algúna distorción. Sin embargo, existe una herramienta de perfil que puede ayudarle a identificar la posible fuente del mal comportamiento.
 
 ## Renderizado en Chrome OS
