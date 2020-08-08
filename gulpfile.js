@@ -32,6 +32,7 @@ const tap = require('gulp-tap');
 const fs = require('fs');
 const multiDest = require('gulp-multi-dest');
 const htmlmin = require('gulp-htmlmin');
+const critical = require('critical').stream;
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -171,8 +172,10 @@ buildTasks.push('indexes');
 gulp.task('html:optimize', () => {
   const src = path.join(folders.output, '**/*.html');
   const dest = folders.output;
+  optimize.critical.base = dest;
   return gulp
     .src(src)
+    .pipe(gulpif(production, critical(optimize.critical)))
     .pipe(gulpif(production, htmlmin(optimize.htmlmin)))
     .pipe(gulp.dest(dest));
 });

@@ -87,14 +87,6 @@
     }
   }
 
-  &__eyebrow-wrapper {
-    background-color: var(--white);
-    border-top: 0.5rem solid var(--blue-600);
-    padding-left: $spacing;
-    padding-right: $spacing;
-    padding-top: 2rem;
-  }
-
   &__header {
     margin-bottom: $block-padding / 2;
     margin-top: -5rem;
@@ -102,9 +94,9 @@
     padding-top: $block-padding / 2 + 5rem;
 
     #{$root}--landing & {
+      background-color: var(--white);
+      border-top: 0.5rem solid var(--blue-600);
       grid-row: 3 / span 1;
-      padding: 0;
-      padding-top: $block-padding / 2 + 3rem;
     }
 
     @include mq($bkpt-tech-details--2-cols) {
@@ -114,6 +106,8 @@
 
       #{$root}--landing & {
         grid-row: 3 / span 1;
+        padding-left: $spacing;
+        padding-right: $spacing;
       }
     }
 
