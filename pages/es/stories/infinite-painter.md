@@ -37,13 +37,13 @@ Lo primero que Infinite Studio se dio cuenta fue con qué frecuencia los diseña
 
 ### ![](/images/icons/mouse.png) {.icon - redondeado} Dispositivos de entrada
 
-Luego, Infinite Studio [optimizó la aplicación para varios dispositivos de entrada](/{{locale.code}}/android/input-compatibility) , como un mouse externo, la punta de los dedos (algunas Chromebooks vienen equipadas con una pantalla táctil), un lápiz óptico o un panel táctil. Para los paneles táctiles, el equipo agregó la capacidad de ampliar y desplazar fácilmente el lienzo con gestos con dos dedos. Para los ratones externos, agregaron el zoom de la rueda de desplazamiento y la información sobre herramientas que aparece cuando los usuarios se desplazan sobre los elementos de la interfaz con el cursor.
+Luego, Infinite Studio [optimizó la aplicación para varios dispositivos de entrada](/%7B%7Blocale.code%7D%7D/android/input-compatibility) , como un mouse externo, la punta de los dedos (algunas Chromebooks vienen equipadas con una pantalla táctil), un lápiz óptico o un panel táctil. Para los paneles táctiles, el equipo agregó la capacidad de ampliar y desplazar fácilmente el lienzo con gestos con dos dedos. Para los ratones externos, agregaron el zoom de la rueda de desplazamiento y la información sobre herramientas que aparece cuando los usuarios se desplazan sobre los elementos de la interfaz con el cursor.
 
 Los desarrolladores ya tenían soporte para la entrada de lápiz y dedo para usuarios móviles, pero trabajaron estrechamente con el equipo de Chrome OS para hacer que la experiencia sea aún más fluida con la API de baja latencia. Esto permite que la aplicación dibuje trazos directamente en la superposición de la pantalla y brinda a los usuarios la sensación de dibujar directamente en la pantalla con su lápiz o sus dedos.
 
 ### ![](/images/icons/aspect_ratio.png) {.icon - redondeado} Ventanas redimensionables
 
-Finalmente, el equipo [optimizó la aplicación para admitir diferentes tamaños de ventana](/{{locale.code}}/android/window-management) . Los usuarios pueden cambiar el tamaño de la ventana de la aplicación para una experiencia óptima en cualquier factor de forma, ya sea que prefieran trabajar en modo de pantalla completa o abrir y usar otra aplicación junto a ella. Los desarrolladores también agregaron la capacidad de los usuarios de arrastrar y soltar imágenes externas en la aplicación.
+Finalmente, el equipo [optimizó la aplicación para admitir diferentes tamaños de ventana](/%7B%7Blocale.code%7D%7D/android/window-management) . Los usuarios pueden cambiar el tamaño de la ventana de la aplicación para una experiencia óptima en cualquier factor de forma, ya sea que prefieran trabajar en modo de pantalla completa o abrir y usar otra aplicación junto a ella. Los desarrolladores también agregaron la capacidad de los usuarios de arrastrar y soltar imágenes externas en la aplicación.
 
 ![Vista del tablero de arte del pintor infinito](gs://stories/infinite-painter/infinitepainter-artboards)
 
@@ -59,4 +59,4 @@ Después de optimizar para pantallas más anchas en Chrome OS, las instalaciones
 
 ## Empezar
 
-Aprenda como [optimizar su aplicación para Chrome OS](/{{locale.code}}/android/optimizing) de la mejor manera.
+Aprenda como [optimizar su aplicación para Chrome OS](/%7B%7Blocale.code%7D%7D/android/optimizing) de la mejor manera.

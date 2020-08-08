@@ -193,6 +193,6 @@ Como puede implicar agregar arrastrar y soltar, le recomendamos que consulte la 
 
 ## Más información
 
-Hemos cubierto mucho terreno en este artículo y revisado la mayoría de las cosas clave que debe hacer para que su aplicación funcione en pantallas más grandes. Obtenga más información en la [guía plegable de desarrolladores de Android](https://developer.android.com/guide/topics/ui/foldables) o [comience a crear aplicaciones para ChromeOS](/{{locale.code}}/android) .
+Hemos cubierto mucho terreno en este artículo y revisado la mayoría de las cosas clave que debe hacer para que su aplicación funcione en pantallas más grandes. Obtenga más información en la [guía plegable de desarrolladores de Android](https://developer.android.com/guide/topics/ui/foldables) o [comience a crear aplicaciones para ChromeOS](/%7B%7Blocale.code%7D%7D/android) .
 
 Para obtener más información, sintonice el episodio del [podcast de aplicaciones, juegos e ideas](https://developer.android.com/podcasts/apps-games-insights) [_Construir para pantallas más grandes y mejores experiencias de juego_](http://appsgamesinsights.googledevelopers.libsynpro.com/building-for-larger-screens-and-better-game-experiences-episode-7?linkId=86702316) con las ideas del desarrollador de juegos Gameloft.

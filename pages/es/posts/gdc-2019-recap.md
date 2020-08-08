@@ -258,7 +258,7 @@ Mira cómo lo hicieron:
 
 @ [youtube](https://www.youtube.com/watch?v=ZfBeab5u534)
 
-Google también trabajó con Gameloft para optimizar el predecesor de Asphalt 9, Asphalt 8: Revolution, para Chrome OS y dispositivos plegables. Lee más [aquí](/{{locale.code}}/stories/asphalt-8) .
+Google también trabajó con Gameloft para optimizar el predecesor de Asphalt 9, Asphalt 8: Revolution, para Chrome OS y dispositivos plegables. Lee más [aquí](/%7B%7Blocale.code%7D%7D/stories/asphalt-8) .
 
 ## Construye para el futuro de los juegos móviles
 

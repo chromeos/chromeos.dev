@@ -253,7 +253,7 @@ Una vez registrados, los usuarios pueden seleccionar esa aplicación para que se
 
 Para probar si una aplicación responde correctamente a los intentos de tomar notas sin un lápiz óptico activo, use el siguiente método para mostrar las opciones de toma de notas:
 
-1. [Cambie al modo de desarrollo y haga que el dispositivo sea grabable](/{{locale.code}}/android/sideload)
+1. [Cambie al modo de desarrollo y haga que el dispositivo sea grabable](/%7B%7Blocale.code%7D%7D/android/sideload)
 2. Presione [[Ctrl]] + [[Alt]] + [[F2]] para abrir un terminal
 3. Ejecute el comando `sudo vi /etc/chrome_dev.conf`
 4. Presione [[i]] para editar y agregar `--ash-enable-palette` a una nueva línea al final del archivo
@@ -268,7 +268,7 @@ Ahora debería haber un menú de stylus en el estante:
 
 ## Gamepads
 
-Consulte nuestra página [Soporte de entrada](/{{locale.code}}/games/optimizing-games-inputs#game-controllers) en Juegos para obtener detalles sobre el soporte del controlador.
+Consulte nuestra página [Soporte de entrada](/%7B%7Blocale.code%7D%7D/games/optimizing-games-inputs#game-controllers) en Juegos para obtener detalles sobre el soporte del controlador.
 
 ## Modo de traducción de entrada
 

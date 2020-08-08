@@ -12,7 +12,7 @@ A menudo, durante el desarrollo, necesitará acceder a computadoras remotas para
 
 ## SSH
 
-Las conexiones Secure Shell, SSH para abreviar, es un protocolo seguro común utilizado para acceder a dispositivos a través de una red. Con [Linux](/{{locale.code}}/linux) disponible en Chrome OS, tiene acceso a una gran selección de herramientas nativas de Linux para trabajar con SSH. Google también ofrece una [extensión Secure Shell Chrome](https://chrome.google.com/webstore/detail/secure-shell/iodihamcpbpeioajjeobimgagajmlibd) que proporciona soporte SSH y SFTP. Una vez instalada la extensión, puede abrirla buscando "Aplicación Secure Shell" en su lanzador.
+Las conexiones Secure Shell, SSH para abreviar, es un protocolo seguro común utilizado para acceder a dispositivos a través de una red. Con [Linux](/%7B%7Blocale.code%7D%7D/linux) disponible en Chrome OS, tiene acceso a una gran selección de herramientas nativas de Linux para trabajar con SSH. Google también ofrece una [extensión Secure Shell Chrome](https://chrome.google.com/webstore/detail/secure-shell/iodihamcpbpeioajjeobimgagajmlibd) que proporciona soporte SSH y SFTP. Una vez instalada la extensión, puede abrirla buscando "Aplicación Secure Shell" en su lanzador.
 
 ## Escritorio remoto de Chrome
 

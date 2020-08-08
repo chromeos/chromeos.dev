@@ -37,7 +37,7 @@ Los diferentes dispositivos de hardware vienen equipados con diferentes conjunto
 
 Nota: Si no necesita un sensor en particular para su aplicación, pero aún utiliza mediciones del sensor cuando está disponible, asegúrese de verificar dinámicamente la disponibilidad del sensor antes de intentar recopilar información de él en su aplicación.
 
-Algunas funciones de software no son compatibles con las Chromebooks. Por ejemplo, las aplicaciones que proporcionan IME personalizados, widgets de aplicaciones, fondos de pantalla en vivo e iniciadores de aplicaciones no son compatibles y no estarán disponibles para su instalación en Chromebooks. Para obtener una lista completa de las funciones de software que actualmente no son compatibles con las Chromebook, consulte [las funciones de software incompatibles](/{{locale.code}}/android/manifest#software-features) .
+Algunas funciones de software no son compatibles con las Chromebooks. Por ejemplo, las aplicaciones que proporcionan IME personalizados, widgets de aplicaciones, fondos de pantalla en vivo e iniciadores de aplicaciones no son compatibles y no estarán disponibles para su instalación en Chromebooks. Para obtener una lista completa de las funciones de software que actualmente no son compatibles con las Chromebook, consulte [las funciones de software incompatibles](/%7B%7Blocale.code%7D%7D/android/manifest#software-features) .
 
 ## Actualiza la version SDK preferida
 
@@ -73,7 +73,7 @@ Si está interesado en el manejo de dispositivos de entrada específicos para ca
 
 Si está utilizando algún tipo de red, asegúrese de que la aplicación pueda volver a conectarse a la red después de que se resuelva un problema de conexión o que el dispositivo salga del modo de suspensión.
 
-Google recomienda verificar los [Casos de prueba para aplicaciones de Android en Chrome OS](/{{locale.code}}/android/tests) , que puede usar en su propio plan de prueba. Los casos de prueba cubren una amplia gama de escenarios comunes para los que las aplicaciones de Android deberían estar preparadas si se espera que se ejecuten en dispositivos Chrome OS.
+Google recomienda verificar los [Casos de prueba para aplicaciones de Android en Chrome OS](/%7B%7Blocale.code%7D%7D/android/tests) , que puede usar en su propio plan de prueba. Los casos de prueba cubren una amplia gama de escenarios comunes para los que las aplicaciones de Android deberían estar preparadas si se espera que se ejecuten en dispositivos Chrome OS.
 
 ### Ventana múltiple y cambios de orientación
 

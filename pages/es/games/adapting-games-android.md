@@ -11,10 +11,10 @@ Las pantallas grandes y un sistema operativo con ventana brindan muchas oportuni
 
 ## Comience con estos temas
 
-- [Soporte de entrada](/{{locale.code}}/games/optimizing-games-inputs) para aprender sobre el teclado, mouse, controlador, manejo de entrada de lápiz.
-- [Las pantallas grandes](/{{locale.code}}/games/optimizing-games-windowing) tienen información sobre la gestión de ventanas.
-- [La optimización del tamaño de la pantalla](/{{locale.code}}/games/optimizing-games-display) explica cómo determinar la resolución de la pantalla para el renderizado.
-- [Consideraciones de publicación](/{{locale.code}}/games/optimizing-games-publishing) para obtener información sobre el soporte x86 / arm, incluido el empaquetado adecuado del soporte de 32/64 bits para lograr un alto rendimiento.
-- [Redes multijugador](/{{locale.code}}/games/optimizing-games-networking) para aprender sobre el soporte de red para jugadores múltiples.
-- [Perfiles de rendimiento](/{{locale.code}}/games/optimizing-games-profiling) para aprender a perfilar y encontrar cuellos de botella de rendimiento en su juego.
-- [Motores de juegos](/{{locale.code}}/games/optimizing-games-engines) para obtener recursos y consejos para usar motores de juegos comunes (Unity, Unreal, Cocos2d).
+- [Soporte de entrada](/%7B%7Blocale.code%7D%7D/games/optimizing-games-inputs) para aprender sobre el teclado, mouse, controlador, manejo de entrada de lápiz.
+- [Las pantallas grandes](/%7B%7Blocale.code%7D%7D/games/optimizing-games-windowing) tienen información sobre la gestión de ventanas.
+- [La optimización del tamaño de la pantalla](/%7B%7Blocale.code%7D%7D/games/optimizing-games-display) explica cómo determinar la resolución de la pantalla para el renderizado.
+- [Consideraciones de publicación](/%7B%7Blocale.code%7D%7D/games/optimizing-games-publishing) para obtener información sobre el soporte x86 / arm, incluido el empaquetado adecuado del soporte de 32/64 bits para lograr un alto rendimiento.
+- [Redes multijugador](/%7B%7Blocale.code%7D%7D/games/optimizing-games-networking) para aprender sobre el soporte de red para jugadores múltiples.
+- [Perfiles de rendimiento](/%7B%7Blocale.code%7D%7D/games/optimizing-games-profiling) para aprender a perfilar y encontrar cuellos de botella de rendimiento en su juego.
+- [Motores de juegos](/%7B%7Blocale.code%7D%7D/games/optimizing-games-engines) para obtener recursos y consejos para usar motores de juegos comunes (Unity, Unreal, Cocos2d).

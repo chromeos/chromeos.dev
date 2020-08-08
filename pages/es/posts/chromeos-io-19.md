@@ -53,7 +53,7 @@ Debido a que millones de aplicaciones de Android ya se ejecutan en Chrome OS, pu
 
 ## Desarrollador destacado: Concepts y BandLab
 
-A medida que las personas usan las aplicaciones de maneras más impredecibles e inspiradoras, los desarrolladores ven una participación aún mayor después de la optimización para pantallas más grandes. Mire el video a continuación para ver cómo [Concepts](/{{locale.code}}/stories/concepts) creó un lienzo más grande y más receptivo para los aspirantes a diseñadores digitales y cómo BandLab les dio a los músicos una plataforma más inmersiva para explorar y componer nueva música.
+A medida que las personas usan las aplicaciones de maneras más impredecibles e inspiradoras, los desarrolladores ven una participación aún mayor después de la optimización para pantallas más grandes. Mire el video a continuación para ver cómo [Concepts](/%7B%7Blocale.code%7D%7D/stories/concepts) creó un lienzo más grande y más receptivo para los aspirantes a diseñadores digitales y cómo BandLab les dio a los músicos una plataforma más inmersiva para explorar y componer nueva música.
 
 @ [youtube](https://www.youtube.com/watch?v=ypTbEKzwMEo)
 

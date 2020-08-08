@@ -51,7 +51,7 @@ Para algunos dispositivos, es posible que deba cambiar al [canal de desarrollo](
 
 ## ¿Estoy ejecutando Linux en Chrome OS?
 
-Si está utilizando la aplicación o los programas de [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app) en el contenedor predeterminado que proporcionamos, incluidos nuestros programas para facilitar la integración (por ejemplo, [Sommelier](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/) ), entonces sí.
+Si está utilizando la aplicación o los programas de [Terminal](/%7B%7Blocale.code%7D%7D/linux/linux-on-chromeos-glossary#term--terminal-app) en el contenedor predeterminado que proporcionamos, incluidos nuestros programas para facilitar la integración (por ejemplo, [Sommelier](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/) ), entonces sí.
 
 Si está ejecutando su propio contenedor o [VM](https://en.wikipedia.org/wiki/Virtual_machine) , entonces no.
 
@@ -122,22 +122,22 @@ No! Ver las preguntas anteriores.
 
 ¡Por supuesto! Hay algunas formas de hacer esto.
 
-- [environment.d ](https://www.freedesktop.org/software/systemd/man/environment.d.html) le permite establecer variables de entorno para su sesión `systemd --user` , que incluye el [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app) y todas las aplicaciones GUI. Es posible que necesite un contenedor más nuevo, [Debian](https://www.debian.org/) 10 "buster", para utilizar este método.
-- Si desea variables de entorno en su [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app), las puede establerce en los archivos de configuración del shell, como por ejemplo `~/.bashrc` o `~/.zshrc`.
+- [environment.d ](https://www.freedesktop.org/software/systemd/man/environment.d.html) le permite establecer variables de entorno para su sesión `systemd --user` , que incluye el [Terminal](/%7B%7Blocale.code%7D%7D/linux/linux-on-chromeos-glossary#term--terminal-app) y todas las aplicaciones GUI. Es posible que necesite un contenedor más nuevo, [Debian](https://www.debian.org/) 10 "buster", para utilizar este método.
+- Si desea variables de entorno en su [Terminal](/%7B%7Blocale.code%7D%7D/linux/linux-on-chromeos-glossary#term--terminal-app), las puede establerce en los archivos de configuración del shell, como por ejemplo `~/.bashrc` o `~/.zshrc`.
 
 Los cambios en las variables de entorno solo tienen efecto para los programas recién iniciados. También es posible que deba reiniciar los programas o todo el contenedor para que los cambios surtan efecto.
 
 ## ¿Se admite perfiles múltiples?
 
-No, [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app) solo se admite en el perfil primario (\*). Nuestro objetivo es tener una experiencia totalmente funcional y fluida para el perfil primario, y no bloquear o causar problemas en los perfiles secundarios. No planeamos hacer que los perfiles secundarios más funcionales.
+No, [Terminal](/%7B%7Blocale.code%7D%7D/linux/linux-on-chromeos-glossary#term--terminal-app) solo se admite en el perfil primario (\*). Nuestro objetivo es tener una experiencia totalmente funcional y fluida para el perfil primario, y no bloquear o causar problemas en los perfiles secundarios. No planeamos hacer que los perfiles secundarios más funcionales.
 
 Si no está familiarizado con [pérfiles múltiples](https://support.google.com/chromebook/answer/6088201) , visite la [documentación general de pérfiles múltiples](https://support.google.com/chromebook/answer/6088201) para más detalles.
 
-(\*): La aplicación [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app) está deshabilitada en todos los perfiles secundarios. Las personas pueden iniciar [máquinas virtuales](https://en.wikipedia.org/wiki/Virtual_machine) manualmente a través de [crosh](https://chromium.googlesource.com/chromiumos/platform2/+/master/crosh/) y contenedores, pero la aplicación de interfaz de usuario y archivos probablemente no funcionará automáticamente.
+(\*): La aplicación [Terminal](/%7B%7Blocale.code%7D%7D/linux/linux-on-chromeos-glossary#term--terminal-app) está deshabilitada en todos los perfiles secundarios. Las personas pueden iniciar [máquinas virtuales](https://en.wikipedia.org/wiki/Virtual_machine) manualmente a través de [crosh](https://chromium.googlesource.com/chromiumos/platform2/+/master/crosh/) y contenedores, pero la aplicación de interfaz de usuario y archivos probablemente no funcionará automáticamente.
 
 ## ¿Se admiten cuentas secundarias?
 
-No, [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app) no es compatible con [cuentas secundarias](https://support.google.com/families/answer/7680868) . No tenemos planes de poner esto a disposición de dichas cuentas.
+No, [Terminal](/%7B%7Blocale.code%7D%7D/linux/linux-on-chromeos-glossary#term--terminal-app) no es compatible con [cuentas secundarias](https://support.google.com/families/answer/7680868) . No tenemos planes de poner esto a disposición de dichas cuentas.
 
 Si no está familiarizado con [cuentas secundarias](https://support.google.com/families/answer/7680868), visite la documentación general sobre [cuentas secundarias](https://support.google.com/families/answer/7680868) para más detalles.
 

@@ -28,7 +28,7 @@ El tiempo total dedicado a las aplicaciones de Android en Chrome OS también ha 
 
 [^ 1]: Datos internos de Google, marzo de 2018 a marzo de 2019. [^ 2]: The NPD Group, Inc., Servicio de seguimiento minorista, EE. UU., Computadoras portátiles, Chrome OS, basado en unidades, 8 de octubre de 2017 a enero .6, 2018 vs. 7 de octubre, 2018 - 5 de enero, 2019
 
-Brindar una experiencia óptima en Chrome OS solo requiere algunos ajustes, pero tienen un gran impacto. Después de que Gameloft y TopHatch optimizaran sus aplicaciones para pantallas más grandes, [Asphalt 8](/{{locale.code}}/stories/asphalt-8) : Airborne de Gameloft generó 6 veces más usuarios de aplicaciones diarias y 9 veces más ingresos en dispositivos Chrome OS, mientras que TopHatch ha visto el doble de conversiones pagas en Chromebooks y 20 veces más tiempo en Pixelbooks para su aplicación [Concepts](/{{locale.code}}/stories/concepts) .
+Brindar una experiencia óptima en Chrome OS solo requiere algunos ajustes, pero tienen un gran impacto. Después de que Gameloft y TopHatch optimizaran sus aplicaciones para pantallas más grandes, [Asphalt 8](/%7B%7Blocale.code%7D%7D/stories/asphalt-8) : Airborne de Gameloft generó 6 veces más usuarios de aplicaciones diarias y 9 veces más ingresos en dispositivos Chrome OS, mientras que TopHatch ha visto el doble de conversiones pagas en Chromebooks y 20 veces más tiempo en Pixelbooks para su aplicación [Concepts](/%7B%7Blocale.code%7D%7D/stories/concepts) .
 
 [En I/O este año](https://www.youtube.com/watch?v=06xJOOs_KvQ&list=PLNYkxOF6rcIBqW90ghQOTs9MqN5KxqESw) , presentamos algunos pasos útiles para garantizar que su aplicación se vea y funcione de manera excelente en una variedad de dispositivos y tamaños de pantalla. Consulte los aspectos más destacados a continuación junto con un par de nuevas y emocionantes actualizaciones para desarrolladores de Android en Chrome OS.
 
@@ -90,7 +90,7 @@ Cuando alguien usa varios monitores, generalmente habrá una diferencia de densi
 
 ## Nuevas actualizaciones para desarrollar en Chromebooks
 
-En I/O, también [anunciamos más formas en](/{{locale.code}}/posts/chromeos-io-19) que hemos hecho que Chrome OS sea un entorno más rápido, más simple y más seguro para desarrolladores web y Android, que incluyen:
+En I/O, también [anunciamos más formas en](/%7B%7Blocale.code%7D%7D/posts/chromeos-io-19) que hemos hecho que Chrome OS sea un entorno más rápido, más simple y más seguro para desarrolladores web y Android, que incluyen:
 
 ### Instalación con un clic para Android Studio
 

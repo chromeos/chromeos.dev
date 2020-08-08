@@ -10,4 +10,4 @@ examples:
         - Lorem ipsum dolor sit amet consectetur, adipisicing elit.Consequatur tempore quidem tenetur atque.
 ---
 
-Este componente despliega notas al pie de página en páginas que no son generadas por Markdown como las páginas principales. Cada nota tiene un ID único como: `fn{{index}}`, este Id us utilizado como referencia en el componente [footnote](/{{locale.code}}/style-guide/components/footnote)
+Este componente despliega notas al pie de página en páginas que no son generadas por Markdown como las páginas principales. Cada nota tiene un ID único como: `fn{{index}}`, este Id us utilizado como referencia en el componente [footnote](/%7B%7Blocale.code%7D%7D/style-guide/components/footnote)

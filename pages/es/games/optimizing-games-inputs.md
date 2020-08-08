@@ -7,9 +7,9 @@ weight: -8
 
 Si bien muchos dispositivos Chrome OS tienen pantallas táctiles, para los juegos, la mejor experiencia de interacción en estos dispositivos de pantalla grande a menudo se entrega a través del mouse, el teclado y el gamepad. El mundo de los juegos móviles a menudo se centra en el tacto y se debe pensar en cómo proporcionar la mejor experiencia para los usuarios que no usan el tacto.
 
-Comience por consultar las mejores prácticas para agregar soporte para [teclado](/{{locale.code}}/android/input-compatibility#keyboard) , [mouse](/{{locale.code}}/android/input-compatibility#mouse-and-touchpad-support) y [gamepad](/{{locale.code}}/android/input-compatibility#gamepads) . Deberá prestar especial atención al caso en el que los usuarios mantienen presionadas las teclas o pueden presionar varias teclas.
+Comience por consultar las mejores prácticas para agregar soporte para [teclado](/%7B%7Blocale.code%7D%7D/android/input-compatibility#keyboard) , [mouse](/%7B%7Blocale.code%7D%7D/android/input-compatibility#mouse-and-touchpad-support) y [gamepad](/%7B%7Blocale.code%7D%7D/android/input-compatibility#gamepads) . Deberá prestar especial atención al caso en el que los usuarios mantienen presionadas las teclas o pueden presionar varias teclas.
 
-Las acciones táctiles están bien para Chromebooks con pantallas táctiles, pero es importante incluir también controles físicos bien pensados para una buena experiencia. Por ejemplo, la entrada del mouse es excelente para ajustar la vista o apuntar, pero no debería ser necesaria para realizar acciones, si un juego móvil tiene un menú en pantalla que permite al usuario usar una antorcha, una espada o un escudo presionando un botón con su pulgar, que requiere que hagan clic en estos botones con el mouse, proporcionará una experiencia deficiente. En cambio, las teclas del teclado deben designarse para activar cada acción anulando `onKeyUp` o `onKeyDown` . Consulte la [página de compatibilidad de entrada](/{{locale.code}}/android/input-compatibility) para obtener detalles y código.
+Las acciones táctiles están bien para Chromebooks con pantallas táctiles, pero es importante incluir también controles físicos bien pensados para una buena experiencia. Por ejemplo, la entrada del mouse es excelente para ajustar la vista o apuntar, pero no debería ser necesaria para realizar acciones, si un juego móvil tiene un menú en pantalla que permite al usuario usar una antorcha, una espada o un escudo presionando un botón con su pulgar, que requiere que hagan clic en estos botones con el mouse, proporcionará una experiencia deficiente. En cambio, las teclas del teclado deben designarse para activar cada acción anulando `onKeyUp` o `onKeyDown` . Consulte la [página de compatibilidad de entrada](/%7B%7Blocale.code%7D%7D/android/input-compatibility) para obtener detalles y código.
 
 ## Captura de ratón
 
@@ -108,11 +108,11 @@ override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
 }
 ```
 
-Visite la [documentación del teclado](/{{locale.code}}/android/input-compatibility#keyboard) en la página de compatibilidad de Android.
+Visite la [documentación del teclado](/%7B%7Blocale.code%7D%7D/android/input-compatibility#keyboard) en la página de compatibilidad de Android.
 
 ## Soporte de lápiz
 
-Las aplicaciones de dibujo y juegos centrados en movimientos de deslizamiento pueden beneficiarse de la entrada de un lápiz óptico en dispositivos de . Visite la página [de entrada con lápiz óptico](/{{locale.code}}/android/input-compatibility#stylus) para más detalles.
+Las aplicaciones de dibujo y juegos centrados en movimientos de deslizamiento pueden beneficiarse de la entrada de un lápiz óptico en dispositivos de . Visite la página [de entrada con lápiz óptico](/%7B%7Blocale.code%7D%7D/android/input-compatibility#stylus) para más detalles.
 
 ## Controladores de juegos
 

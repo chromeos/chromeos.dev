@@ -13,7 +13,7 @@ Los motores de juegos con un objetivo de Android deberían producir compilacione
 
 ## Sobre escribir eventos de entrada con Unity
 
-El motor de Unity interpreta los eventos de entrada de Android y los traduce al sistema de entrada de Unity. Si necesita interceptar los eventos sin procesar de Android, por ejemplo, para implementar la [captura del mouse](/{{locale.code}}/games/optimizing-games-inputs#mouse-capture) , puede hacerlo eligiendo "Exportar" en el Editor de Unity en la configuración de compilación de Android y eligiendo un directorio de destino.
+El motor de Unity interpreta los eventos de entrada de Android y los traduce al sistema de entrada de Unity. Si necesita interceptar los eventos sin procesar de Android, por ejemplo, para implementar la [captura del mouse](/%7B%7Blocale.code%7D%7D/games/optimizing-games-inputs#mouse-capture) , puede hacerlo eligiendo "Exportar" en el Editor de Unity en la configuración de compilación de Android y eligiendo un directorio de destino.
 
 Después de exportar, podrá importar el directorio de destino en Android Studio. Esto le permitirá depurar, perfilar, etc. desde Android Studio.
 
