@@ -37,4 +37,4 @@ Cuando Roblox anunció por primera vez y lanzó el soporte para Chrome OS, hubo 
 
 ## Empezar
 
-Aprenda como [optimizar su aplicación para Chrome OS](/%7B%7Blocale.code%7D%7D/android/optimizing) de la mejor manera.
+Aprenda como [optimizar su aplicación para Chrome OS](/{{locale.code}}/android/optimizing) de la mejor manera.
