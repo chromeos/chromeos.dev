@@ -9,14 +9,14 @@ tags:
 
 Mientras prepara su aplicación de Android para que se ejecute en Chromebooks, debe considerar las características del dispositivo que utiliza su aplicación. Las Chromebook no son compatibles con todas las funciones de hardware y software que están disponibles en otros dispositivos con Android. Si su aplicación requiere funciones específicas que no son compatibles con Chromebooks, no estará disponible para su instalación en Chromebooks.
 
-Usted declara los requisitos de su aplicación para las funciones de hardware y ciertas funciones de software en el [archivo de manifiesto](https://developer.android.com//guide/topics/manifest/manifest-intro) . Este documento describe las declaraciones de características del manifiesto de la aplicación que no son compatibles con Chromebooks.
+Usted declara los requisitos de su aplicación para las funciones de hardware y ciertas funciones de software en el [archivo de manifiesto](https://developer.android.com//guide/topics/manifest/manifest-intro?hl=es) . Este documento describe las declaraciones de características del manifiesto de la aplicación que no son compatibles con Chromebooks.
 
 ## Entradas de manifiesto incompatibles
 
-Las entradas de manifiesto enumeradas en esta sección no son actualmente compatibles con Chromebooks. Si su aplicación usa alguna de estas entradas, considere eliminarlas o incluir el valor de atributo `required="false"` con ellas para que su aplicación pueda instalarse en Chromebooks. Para obtener más información sobre cómo declarar el uso de funciones sin requerir que la función esté disponible en el dispositivo, consulte la guía para el elemento manifiesto [`<uses-feature>`](https://developer.android.com//guide/topics/manifest/uses-feature-element.html#market-feature-filtering) .
+Las entradas de manifiesto enumeradas en esta sección no son actualmente compatibles con Chromebooks. Si su aplicación usa alguna de estas entradas, considere eliminarlas o incluir el valor de atributo `required="false"` con ellas para que su aplicación pueda instalarse en Chromebooks. Para obtener más información sobre cómo declarar el uso de funciones sin requerir que la función esté disponible en el dispositivo, consulte la guía para el elemento manifiesto [`<uses-feature>`](https://developer.android.com//guide/topics/manifest/uses-feature-element.html?hl=es#market-feature-filtering) .
 
 !!! aside.message--note
-**Nota:** Consulte la [referencia de Características](https://developer.android.com//guide/topics/manifest/uses-feature-element#features-reference) para obtener una lista completa de las características y descripciones del manifiesto de la aplicación.
+**Nota:** Consulte la [referencia de Características](https://developer.android.com//guide/topics/manifest/uses-feature-element?hl=es#features-reference) para obtener una lista completa de las características y descripciones del manifiesto de la aplicación.
 !!!
 
 ### Características de hardware

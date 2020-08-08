@@ -14,7 +14,7 @@ En los dispositivos con Chrome OS, muchos usuarios interactúan con aplicaciones
 
 Los desarrolladores que deseen que su aplicación funcione bien con entradas en Chrome OS y otros dispositivos compatibles con Android de pantalla grande, deben seguir los siguientes pasos:
 
-1. Agregue y compruebe soporte básico para **&nbsp;navegar usando el teclado** usando las teclas [[←]][[↑]][[→]][[↓]] y [[Tab]] , La tecla [[Enter]] para confirmar entrada de texto, [[Space]] para reproducir/pausar medios, etc.
+1. Agregue y compruebe soporte básico para **navegar usando el teclado** usando las teclas [[←]][[↑]][[→]][[↓]] y [[Tab]] , La tecla [[Enter]] para confirmar entrada de texto, [[Space]] para reproducir/pausar medios, etc.
 2. Agregue los **atajos** basados en [[Ctrl]] / [[Shift]] / [[Alt]] dependiendo de la funcionalidad de la aplicación: [[Ctrl]] + [[Z]] para deshacer, [[Ctrl]] + [[S ]] para guardar, etc.
 3. Compruebe interacciones **básicas con el ratón**: clic derecho pare menús de contexto, cambie íconos cuando se desplace sobre ellos, desplazamiento usando la rueda del ratón/trackpad, etc.
 4. Compruebe métodos de entrada utilizados **en su app en específico**: stylus para aplicaciones de dibujo, gamepads para juegos, controladores MIDI para aplicaciones de música, etc.
