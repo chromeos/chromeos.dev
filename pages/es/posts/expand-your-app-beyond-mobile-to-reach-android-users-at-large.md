@@ -20,7 +20,7 @@ Desde el primer día, diseñamos Android para que sea una plataforma flexible y 
 
 La mayoría de las personas cuando piensan en Android imaginan un teléfono inteligente. Sin embargo Android también es el cerebro de un gran número de dispositivos con pantallas grandes. De hecho, existen más de **175 milliones** de tabletas Android con Google Play,[^1] estoy hace que las tablates Android sean un factor de forma vital para Google y nuestros socios OEM (fabricantes originales de equipos por sus siglas en inglés) hoy en día. Las aplicaciones de Android también corren en [Chrome OS laptops](/{{locale.code}}/posts/chromeos-io-19), y el número de usuarios activos mensualmente que habilitaron las aplicaciones de Android creció un 250% solamente el año pasado.[^2]
 
-[^1]: la cantidad de tabletas solo representa los dispositivos que tienen Google Play Store instalado (por ejemplo, esto excluye las tabletas en China); El número real de tabletas capaces de ejecutar aplicaciones de Android es mucho mayor. 
+[^1]: la cantidad de tabletas solo representa los dispositivos que tienen Google Play Store instalado (por ejemplo, esto excluye las tabletas en China); El número real de tabletas capaces de ejecutar aplicaciones de Android es mucho mayor.
 [^2]: Datos internos de Google, marzo de 2018 a marzo de 2019.
 
 Aquí en Google, estamos entusiasmados de ver cómo puede aprovechar los formatos de pantalla grande, incluido el nuevo [Galaxy Tab S6 de](https://www.samsung.com/us/mobile/tablets/tab-s6/) Samsung, el próximo Lenovo ™ Smart Tab M8 con Google Assistant, el próximo Samsung Galaxy Fold y otros dispositivos que lanzarán este semana en [IFA](https://b2b.ifa-berlin.com/) . Nuestros socios OEM están creando experiencias que ayudan a los usuarios todos los días:
