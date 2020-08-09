@@ -8,15 +8,15 @@ date: 2020-05-01
 Este es un proceso avanzado que no recomendamos para nuevos usuarios de Linux.
 !!!
 
-Chrome OS admite la ejecución de código arbitrario dentro de [máquinas virtuales](https://en.wikipedia.org/wiki/Virtual_machine) . Esta es la documentación detallada sobre ese soporte; Para una vista más fácil de usar, vea los [otros contenedores de Linux]({{page.url}}../container-manipulation#using-another-linux-distribution) en la documentación de manipulación de contenedores.
+Chrome OS permite la ejecución de código arbitrario dentro de [máquinas virtuales](https://en.wikipedia.org/wiki/Virtual_machine) . Esta es la documentación detallada sobre ese soporte; Para una vista más fácil de usar, vea los [otros contenedores de Linux]({{page.url}}../container-manipulation#using-another-linux-distribution) en la documentación de manipulación de contenedores.
 
 ## Prerrequisitos
 
 - Asegúrese de que su dispositivo Chrome OS sea [compatible con Linux en Chrome OS](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-linux)
 - Asegúrese de estar ejecutando Chrome OS versión 72 (M72 +) o superior (lanzado en febrero de 2019).
-  - Inicie una [actualización del sistema](https://support.google.com/chromebook/answer/177889) si es necesario y reinicie.
-  - Esto debería funcionar en el [canal estable](https://support.google.com/chromebook/answer/1086915) .
-  - **No es** necesario ponerlo en modo de desarrollador.
+  - Inicie una [actualización del sistema](https://support.google.com/chromebook/answer/177889?hl={{locale.code}}) si es necesario y reinicie.
+  - Esto debería funcionar en el [canal estable](https://support.google.com/chromebook/answer/1086915?hl={{locale.code}}) .
+  - **No** es necesario ponerlo en modo de desarrollador.
 - [Habilite el contenedor de Linux]({{page.url}}../#enabling-the-linux-container)
 
 ## Características de tiempo de ejecución
@@ -30,7 +30,7 @@ Debería esperar que las siguientes características funcionen al ejecutar su co
 - Programas [X](https://en.wikipedia.org/wiki/X_Window_System) (compatibilidad a través de [Sommelier](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/) y [XWayland](https://wayland.freedesktop.org/xserver.html) ).
 - Salida de audio en M74 + y [captura / micrófono](https://crbug.com/932268) experimental en imágenes R79 +.
 
-### Funciones faltantes
+### Funciones que faltan
 
 Hay muchas frutas bajas en las que estamos trabajando para desarrollar. Un par de ejemplos claros son:
 
@@ -41,7 +41,7 @@ Si bien se están considerando más cosas, el equipo de Chrome OS adopta un enfo
 
 ## Seguridad
 
-Si bien la ejecución de código arbitrario es normalmente un riesgo de seguridad, el equipo de Chrome OS cree que el modelo de tiempo de ejecución empleado por Linux en el contenedor de Chrome OS mitiga y contiene suficientemente ese riesgo de seguridad. La [máquina virtual](https://en.wikipedia.org/wiki/Virtual_machine) (VM) es el límite de seguridad, y todo lo que se encuentra dentro de ella se considera no confiable. La imagen de invitado de VM actual también está ejecutando un núcleo reforzado a medida para mejorar aún más la seguridad de los contenedores, pero se considera que es una buena característica en lugar de confiar en ella para garantizar la seguridad general del sistema.
+Si bien la ejecución de código arbitrario es normalmente un riesgo de seguridad, el equipo de Chrome OS cree que el modelo de tiempo de ejecución empleado por Linux en el contenedor de Chrome OS mitiga y contiene suficientemente ese riesgo de seguridad. La [máquina virtual](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) (VM) es el límite de seguridad, y todo lo que se encuentra dentro de ella se considera no confiable. La imagen de invitado de VM actual también está ejecutando un núcleo reforzado a medida para mejorar aún más la seguridad de los contenedores, pero se considera que es una buena característica en lugar de confiar en ella para garantizar la seguridad general del sistema.
 
 En este modelo, el resto del sistema Chrome OS debe permanecer protegido del código arbitrario (malicioso o accidental) que se ejecuta dentro de los contenedores dentro de la VM.
 
@@ -57,7 +57,7 @@ Los procesos en máquinas virtuales y contenedores no sobreviven al cierre de se
 
 ### Código ejecutable y grabable
 
-La imagen de disco de [Termina](https://chromium.googlesource.com/chromiumos/overlays/board-overlays/+/master/project-termina/) VM se descarga en la partición con estado de escritura como otros [componentes de Chrome](https://chromium.googlesource.com/chromium/src/+/lkgr/components/component_updater/README.md) . Para asegurarse de que el contenido no se modifique, se utiliza [dm-verity](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMVerity) . Esto también significa que solo se pueden cargar imágenes firmadas por Google, y la imagen siempre es de solo lectura.
+La imagen de disco de [Termina](https://chromium.googlesource.com/chromiumos/overlays/board-overlays/+/master/project-termina/) VM se descarga en la partición con estado de escritura como otros [componentes de Chrome](https://chromium.googlesource.com/chromium/src/+/lkgr/components/component_updater/README.md) . Para asegurarse de que el contenido no se modifique, se utiliza [dm-verity](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMVerity). Esto también significa que solo se pueden cargar imágenes firmadas por Google, y la imagen siempre es de solo lectura.
 
 ### Ataques de hardware
 
@@ -99,13 +99,13 @@ Las Chromebook que usan BayTrail de Intel no incluyen VT-x. Si bien esta CPU nor
 
 Puede buscar si se admite una tarjeta buscando en nuestra [lista de dispositivos](http://dev.chromium.org/chromium-os/developer-information-for-chrome-os-devices) públicos `BayTrail` en la columna `Platform` .
 
-### Núcleos viejos
+### Núcleos anteriores
 
 **No hay planes para admitir Linux 3.14 o anterior.** Estos requieren migraciones de nuevas características que son extensas y a menudo invasivas. Por ejemplo:
 
 - [vsock](https://crbug.com/763970)
 - [aarch64 kvm](https://crbug.com/846515)
-- [Sombra / L1TF](https://crbug.com/875512)
+- [Sombra/L1TF](https://crbug.com/875512)
 
 Puede buscar si una tarjeta es compatible buscando en nuestra [lista de dispositivos](http://dev.chromium.org/chromium-os/developer-information-for-chrome-os-devices) públicos números de versión inferiores a 3.14 en la columna `Kernel` .
 

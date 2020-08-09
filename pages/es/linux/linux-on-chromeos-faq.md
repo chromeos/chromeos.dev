@@ -7,7 +7,7 @@ weight: 10
 
 ## ¿Dónde puedo chatear con los desarrolladores?
 
-Todas las discusiones de desarrollo de Chromium OS ocurren en nuestra [Comunidad de ayuda de Chromebook](https://support.google.com/chromebook/community) . No dude en preguntar cualquier cosa, pero asegúrese de buscar para ver si su pregunta ya se ha abordado primero.
+Todas las discusiones de desarrollo de Chromium OS ocurren en nuestra [Comunidad de ayuda de Chromebook](https://support.google.com/chromebook/community?hl={{locale.code}}) . No dude en preguntar cualquier cosa, pero asegúrese de buscar para ver si su pregunta ya se ha abordado primero.
 
 ## ¿Dónde puedo presentar solicitudes de nueva funcionalidad?
 
@@ -299,7 +299,7 @@ Para obtener más detalles, consulte el proyecto [crosvm](https://chromium.googl
 
 ## ¿Las máquinas virtuales no hacen todo más lento?
 
-Ciertamente es cierto que las [máquinas virtuales](https://en.wikipedia.org/wiki/Virtual_machine) agregan gastos generales en comparación con la ejecución solo en un contenedor o directamente en el sistema. Sin embargo, en nuestras pruebas, los gastos generales son insignificantes para la experiencia del usuario, y bien valen las fuertes ganancias en seguridad del sistema.
+Ciertamente es cierto que las [máquinas virtuales](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) agregan gastos generales en comparación con la ejecución solo en un contenedor o directamente en el sistema. Sin embargo, en nuestras pruebas, los gastos generales son insignificantes para la experiencia del usuario, y bien valen las fuertes ganancias en seguridad del sistema.
 
 Para obtener más detalles, consulte la sección [Seguridad](https://chromium.googlesource.com/chromiumos/docs/+/1792b43fc9fd32b4e9e4aa03ad20a6c24f511d84/containers_and_vms.md#security) de los documentos oficiales de Chromium OS.
 

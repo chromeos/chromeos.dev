@@ -9,7 +9,7 @@ En Chrome OS es [es posible utilizar la](https://chrome.googleblog.com/2016/05/t
 
 ## Facturación de Google Play
 
-Si cobra dinero por su aplicación / juego, también puede usar las API de Play Billing para compras y suscripciones en la aplicación. Puede [agregar la facturación de Play a su aplicación](https://developer.android.com/google/play/billing/getting-ready?hl=es) y ofrecer [suscripciones](https://developer.android.com/google-play/guides/subscriptions?hl=es) . Los desarrolladores de juegos que usan Unity pueden usar la [Biblioteca de facturación de Google Play con Unity](https://developer.android.com/google/play/billing/unity?hl=es) .
+Si cobra dinero por su aplicación / juego, también puede usar las API de Play Billing para compras y suscripciones en la aplicación. Puede [agregar la facturación de Play a su aplicación](https://developer.android.com/google/play/billing/getting-ready?hl={{locale.code}}) y ofrecer [suscripciones](https://developer.android.com/google-play/guides/subscriptions?hl={{locale.code}}) . Los desarrolladores de juegos que usan Unity pueden usar la [Biblioteca de facturación de Google Play con Unity](https://developer.android.com/google/play/billing/unity?hl={{locale.code}}) .
 
 ## Inicio rápido
 

@@ -9,7 +9,7 @@ La web es una plataforma increíble. Su modelo de seguridad centrado en el usuar
 
 ## Chrome, en el corazón
 
-[Google Chrome](https://www.google.com/chrome/?hl=es) potencia Chrome OS, con el sistema operativo actualizado con las últimas versiones de Chrome a medida que ocurren. Esto significa que las aplicaciones web tienen lo último en velocidad y seguridad que Chrome tiene para ofrecer. Debido a que Chrome OS se actualiza con la misma frecuencia que Chrome, cuando se envían nuevas capacidades, las aplicaciones web obtienen acceso a ellas de inmediato. Todo lo que sabes y amas de Chrome está aquí, esperando para ayudar a potenciar tu gran aplicación.
+[Google Chrome](https://www.google.com/chrome/?hl={{locale.code}}) potencia Chrome OS, con el sistema operativo actualizado con las últimas versiones de Chrome a medida que ocurren. Esto significa que las aplicaciones web tienen lo último en velocidad y seguridad que Chrome tiene para ofrecer. Debido a que Chrome OS se actualiza con la misma frecuencia que Chrome, cuando se envían nuevas capacidades, las aplicaciones web obtienen acceso a ellas de inmediato. Todo lo que sabes y amas de Chrome está aquí, esperando para ayudar a potenciar tu gran aplicación.
 
 Sin embargo, las aplicaciones web no son la única ventaja de desarrollo en Chrome. [Las extensiones de Chrome](https://developer.chrome.com/extensions) son tan integrales a la experiencia web en Chrome OS como lo son en otras plataformas. Casi cualquier extensión se puede construir y ejecutar en Chrome OS. Cree una extensión independiente o cree una para mejorar su aplicación web.
 

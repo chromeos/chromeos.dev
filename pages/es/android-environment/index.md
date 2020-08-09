@@ -5,7 +5,7 @@ date: 2020-06-08
 weight: -7
 tools:
   - name: Puente de depuración de Android (ADB)
-    url: https://developer.android.com/studio/command-line/adb?hl=es
+    url: https://developer.android.com/studio/command-line/adb?hl={{locale.code}}
     versions:
       min: cualquiera
 ---
@@ -14,7 +14,7 @@ Los dispositivos Chrome OS brindan el beneficio único de que puede crear aplica
 
 ### Instalar Android Studio en Chrome OS
 
-Android Studio ha estado oficialmente disponible en Chrome OS desde [la versión 3.5](https://developer.android.com/studio/releases#chrome-os-support?hl=es). Para instalar Android Studio siga las instrucciones [para instalar Android Studio en Chrome OS](https://developer.android.com/studio/install?hl=es#chrome-os).
+Android Studio ha estado oficialmente disponible en Chrome OS desde [la versión 3.5](https://developer.android.com/studio/releases#chrome-os-support?hl={{locale.code}}). Para instalar Android Studio siga las instrucciones [para instalar Android Studio en Chrome OS](https://developer.android.com/studio/install?hl={{locale.code}}#chrome-os).
 
 #### Requisitos del sistema para Android Studio
 

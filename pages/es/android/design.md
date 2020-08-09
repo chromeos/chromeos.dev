@@ -20,7 +20,7 @@ Si desarrolló su aplicación para teléfonos y ahora desea mejorar su diseño e
 
 Aquí hay algunas sugerencias:
 
-- Proporcione diseños personalizados para estas pantallas más grandes. Puede hacerlo utilizando la [dimensión más corta de](https://developer.android.com/guide/practices/screens_support?hl=es#NewQualifiers) la pantalla o el [ancho y la altura mínimos disponibles](https://developer.android.com/guide/practices/screens_support?hl=es#NewQualifiers) .
+- Proporcione diseños personalizados para estas pantallas más grandes. Puede hacerlo utilizando la [dimensión más corta de](https://developer.android.com/guide/practices/screens_support?hl={{locale.code}}#NewQualifiers) la pantalla o el [ancho y la altura mínimos disponibles](https://developer.android.com/guide/practices/screens_support?hl={{locale.code}}#NewQualifiers) .
 
 - Imagine cómo funcionan su UX y sus diseños en un entorno donde la configuración horizontal es más común como Chrome OS. Adapte sus diseños para que se vean y funcionen bien en estas orientaciones basadas en el tamaño de la ventana o proporcione diseños horizontales específicos utilizando el "land resource qualifier". Puede obtener más información sobre el cambio de tamaño dinámico de la ventana y otras consideraciones para pantallas grandes en [la página de administración de ventanas](/{{locale.code}}/android/window-management) .
 
@@ -66,12 +66,12 @@ Para obtener más información sobre VectorDrawables y los activos de vectores e
 
 ## Ajustar tamaños de fuente y objetivos táctiles
 
-Para asegurarse de que su aplicación sea fácil de usar en Chrome OS y pantallas de mayor densidad, ajuste los tamaños de fuente y los objetivos táctiles en su interfaz de usuario, para todas las configuraciones de pantalla a las que se dirige. Puede ajustar los tamaños de fuente a través de [atributos con estilo](https://developer.android.com/guide/topics/ui/themes?hl=es) o [recursos de dimensión](https://developer.android.com/guide/topics/resources/more-resources?hl=es#Dimension) , y puede ajustar los objetivos táctiles a través de diseños y dibujos de bitmaps, como se discutió anteriormente.
+Para asegurarse de que su aplicación sea fácil de usar en Chrome OS y pantallas de mayor densidad, ajuste los tamaños de fuente y los objetivos táctiles en su interfaz de usuario, para todas las configuraciones de pantalla a las que se dirige. Puede ajustar los tamaños de fuente a través de [atributos con estilo](https://developer.android.com/guide/topics/ui/themes?hl={{locale.code}}) o [recursos de dimensión](https://developer.android.com/guide/topics/resources/more-resources?hl={{locale.code}}#Dimension) , y puede ajustar los objetivos táctiles a través de diseños y dibujos de bitmaps, como se discutió anteriormente.
 
 Aquí hay algunas consideraciones:
 
 - El texto no debe ser excesivamente grande o pequeño en pantallas y densidades más grandes. Asegúrese de que las etiquetas tengan el tamaño adecuado para los elementos de la IU a las que corresponden y asegúrese de que no haya saltos de línea inadecuados en las etiquetas, títulos y otros elementos.
 
-- El tamaño recomendado para un objetivo con el que el usuario interactuará en la pantalla es 48dp — puede que se necesiten algunos ajustes en su UI para pantallas más grandes. Lea más sobre [Spacing Methods](https://material.io/design/layout/spacing-methods.html#) para aprender sobre objetivos en la pantalla y como agregar espacio entre elementos conforme el tamaño de la pantalla cambia. Estas recomendaciones también cumplen con las [guías de accesibilidad](https://developer.android.com/guide/topics/ui/accessibility/apps?hl=es) básicas.
+- El tamaño recomendado para un objetivo con el que el usuario interactuará en la pantalla es 48dp — puede que se necesiten algunos ajustes en su UI para pantallas más grandes. Lea más sobre [Spacing Methods](https://material.io/design/layout/spacing-methods.html#) para aprender sobre objetivos en la pantalla y como agregar espacio entre elementos conforme el tamaño de la pantalla cambia. Estas recomendaciones también cumplen con las [guías de accesibilidad](https://developer.android.com/guide/topics/ui/accessibility/apps?hl={{locale.code}}) básicas.
 
-- Cuando sea posible, para íconos más pequeños, expanda el área táctil a más de 48dp usando [TouchDelegate](https://developer.android.com/reference/android/view/TouchDelegate?hl=es) o simplemente centrando el ícono dentro del botón transparente.
+- Cuando sea posible, para íconos más pequeños, expanda el área táctil a más de 48dp usando [TouchDelegate](https://developer.android.com/reference/android/view/TouchDelegate?hl={{locale.code}}) o simplemente centrando el ícono dentro del botón transparente.

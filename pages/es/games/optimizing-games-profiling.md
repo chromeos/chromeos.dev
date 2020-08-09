@@ -29,7 +29,7 @@ Si bien es posible determinar los cuellos de botella por su cuenta, contar con l
 
 ### Android Studio Profiler
 
-La forma más fácil de crear un perfil de rendimiento para cualquier aplicación de Android es con el [perfilador integrado de Android Studio](https://developer.android.com/studio/profile/android-profiler?hl=es) . Desde Android Studio, en vez de hacer clic en “Correr”, simplemente elija “Perfil” para correr su aplicación y para obtener información en tiempo real sobre el CPU, memoria y uso de la red. Las trazas de CPU simples pueden ser una forma rápida de aislar áreas de código para observar.
+La forma más fácil de crear un perfil de rendimiento para cualquier aplicación de Android es con el [perfilador integrado de Android Studio](https://developer.android.com/studio/profile/android-profiler?hl={{locale.code}}) . Desde Android Studio, en vez de hacer clic en “Correr”, simplemente elija “Perfil” para correr su aplicación y para obtener información en tiempo real sobre el CPU, memoria y uso de la red. Las trazas de CPU simples pueden ser una forma rápida de aislar áreas de código para observar.
 
 Esta herramienta no garantiza una visión real del uso de la GPU ni de lo que sucede entre cada sincronización de cuadros, por lo que, aunque es una buena herramienta para tener en la caja de herramientas, es probable que no sea suficiente para que su juego funcione con el máximo rendimiento.
 
