@@ -11,7 +11,7 @@ Puede configurar opciones adicionales para desarrolladores de Android:
 2. Vaya a **Aplicaciones** y seleccione **Google Play Store** .
 3. Haga clic en **Administrar preferencias de Android** para que aparezca la configuración de Android. Es posible que desee hacer clic derecho en el icono de configuración de Android en el estante y fijarlo allí para obtener un acceso más rápido en el futuro.
 
-![Los íconos de configuración de Chrome OS y Android se ven muy similares, pero para la configuración de Android, el equipo es un poco más grande y el color de fondo es verde.](/images/develop/android/android_settings.png)
+![Los íconos de configuración de Chrome OS y Android se ven muy similares, pero para la configuración de Android, el ícono es un poco más grande y el color de fondo es verde.](/images/develop/android/android_settings.png)
 
 1. Vaya a **Sistema** , debería ver el menú de **opciones de Desarrollador** . Si no lo hace, haga lo siguiente:
    - Haz clic en **Acerca del dispositivo** .

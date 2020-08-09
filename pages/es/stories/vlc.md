@@ -43,7 +43,7 @@ Y ahora con [Linux (Beta) en Chrome OS](/{{locale.code}}/linux) , los desarrolla
 
 Lo mejor de todo es que el equipo hizo todo el trabajo en [Kotlin](https://developer.android.com/kotlin) , un poderoso lenguaje de programación que los ayudó a mejorar la productividad al escribir en un código más seguro y conciso. Al reducir la base de código de la aplicación, pudieron pasar menos tiempo resolviendo problemas y más tiempo optimizando el diseño y la funcionalidad de la aplicación.
 
-"Por lo general, somos reacios a reestructurar o reescribir nuestro código principalmente porque corremos el riesgo de perder la funcionalidad", dijo Geoffrey Métais, desarrollador líder de Android de VideoLAN. "Nos complació encontrar que la transición de Java a Kotlin fue realmente fluida, gracias a la herramienta de migración integrada de Android Studio, y el [marco de las corutinas](https://developer.android.com/kotlin/coroutines) de Kotlin nos ayudó a mejorar el rendimiento".
+"Por lo general, somos reacios a reestructurar o reescribir nuestro código principalmente porque corremos el riesgo de perder la funcionalidad", dijo Geoffrey Métais, desarrollador líder de Android de VideoLAN. "Nos complació encontrar que la transición de Java a Kotlin fue realmente fluida, gracias a la herramienta de migración integrada de Android Studio, y el [framework de co-rutinas](https://developer.android.com/kotlin/coroutines) de Kotlin nos ayudó a mejorar el rendimiento".
 
 ## Resultados
 

@@ -7,7 +7,7 @@ weight: 10
 
 ## ¿Dónde puedo chatear con los desarrolladores?
 
-Todas las discusiones de desarrollo de Chromium OS ocurren en nuestra [Comunidad de ayuda de Chromebook](https://support.google.com/chromebook/community) . No dude en preguntar cualquier cosa, pero asegúrese de buscar para ver si su pregunta ya se ha abordado primero.
+Todas las discusiones de desarrollo de Chromium OS ocurren en nuestra [Comunidad de ayuda de Chromebook](https://support.google.com/chromebook/community?hl={{locale.code}}) . No dude en preguntar cualquier cosa, pero asegúrese de buscar para ver si su pregunta ya se ha abordado primero.
 
 ## ¿Dónde puedo presentar solicitudes de nueva funcionalidad?
 
@@ -122,7 +122,7 @@ No! Ver las preguntas anteriores.
 
 ¡Por supuesto! Hay algunas formas de hacer esto.
 
-- [environment.d ](https://www.freedesktop.org/software/systemd/man/environment.d.html) le permite establecer variables de entorno para su sesión `systemd --user` , que incluye el [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app) y todas las aplicaciones GUI. Es posible que necesite un contenedor más nuevo, [Debian](https://www.debian.org/) 10 "buster", para utilizar este método.
+- [environment.d](https://www.freedesktop.org/software/systemd/man/environment.d.html) le permite establecer variables de entorno para su sesión `systemd --user` , que incluye el [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app) y todas las aplicaciones GUI. Es posible que necesite un contenedor más nuevo, [Debian](https://www.debian.org/) 10 "buster", para utilizar este método.
 - Si desea variables de entorno en su [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app), las puede establerce en los archivos de configuración del shell, como por ejemplo `~/.bashrc` o `~/.zshrc`.
 
 Los cambios en las variables de entorno solo tienen efecto para los programas recién iniciados. También es posible que deba reiniciar los programas o todo el contenedor para que los cambios surtan efecto.
@@ -299,7 +299,7 @@ Para obtener más detalles, consulte el proyecto [crosvm](https://chromium.googl
 
 ## ¿Las máquinas virtuales no hacen todo más lento?
 
-Ciertamente es cierto que las [máquinas virtuales](https://en.wikipedia.org/wiki/Virtual_machine) agregan gastos generales en comparación con la ejecución solo en un contenedor o directamente en el sistema. Sin embargo, en nuestras pruebas, los gastos generales son insignificantes para la experiencia del usuario, y bien valen las fuertes ganancias en seguridad del sistema.
+Ciertamente es cierto que las [máquinas virtuales](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) agregan gastos generales en comparación con la ejecución solo en un contenedor o directamente en el sistema. Sin embargo, en nuestras pruebas, los gastos generales son insignificantes para la experiencia del usuario, y bien valen las fuertes ganancias en seguridad del sistema.
 
 Para obtener más detalles, consulte la sección [Seguridad](https://chromium.googlesource.com/chromiumos/docs/+/1792b43fc9fd32b4e9e4aa03ad20a6c24f511d84/containers_and_vms.md#security) de los documentos oficiales de Chromium OS.
 
@@ -339,7 +339,7 @@ Claro, siéntase libre de eliminar lo que quiera. El comando `vmc destroy` puede
 
 ## ¿Puedo desactivar estas funciones?
 
-Los administradores pueden controlar el acceso a contenedores / [VMs ](https://en.wikipedia.org/wiki/Virtual_machine) a través de la consola de administración, por lo que las organizaciones empresariales / educativas que desean limitar esto pueden hacerlo.
+Los administradores pueden controlar el acceso a contenedores / [VMs](https://en.wikipedia.org/wiki/Virtual_machine) a través de la consola de administración, por lo que las organizaciones empresariales / educativas que desean limitar esto pueden hacerlo.
 
 Inicialmente hay una opción "Linux (Beta)" en la configuración estándar de Chrome OS, pero el plan a largo plazo es eliminar este botón para que todo funcione a pedido. En ese momento, no habrá perilla para dispositivos no administrados.
 

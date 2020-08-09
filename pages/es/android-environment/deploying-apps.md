@@ -54,7 +54,7 @@ El Chromebook aparecerá como una opción en el menú desplegable del dispositiv
 
 Simplemente presione correr como en cualquier otro dispositivo Android, verá el cuadro de diálogo de autorización y una ventana con su aplicación en ejecución se iniciará automáticamente después de otorgar la autenticación.
 
-![Implemente su aplicación directamente en Chrome OS](/images/android/deploy/run_app.gif)
+![Instale su aplicación directamente en Chrome OS](/images/android/deploy/run_app.gif)
 
 Eso es todo, ahora puede implementar la aplicación en el Chromebook, probar y depurar _sin_ la molestia de estar en modo desarrollador.
 
@@ -82,13 +82,13 @@ Instala tu aplicación desde la terminal:
 adb install [path to your APK]
 ```
 
-![Conéctese al dispositivo a través de ADB en el terminal](/images/android/deploy/adb_connect.gif)
+![Conéctese al dispositivo a través de ADB en Terminal](/images/android/deploy/adb_connect.gif)
 
 ## Instalar desde otro dispositivo
 
 Si no puede usar el método descrito anteriormente y necesita enviar su aplicación desde otro dispositivo, tiene un par de opciones: puede usar [USB](#connect-to-adb-over-usb) o una [dirección de red](#connect-to-adb-over-a-network) para conectar su dispositivo a ADB.
 
-Para enviar su APK desde otro dispositivo al Chromebook, debe iniciar su Chrome OS en [modo desarrollador](https://www.chromium.org/chromium-os/poking-around-your-chrome-os-device) para que pueda configurar el Chromebook y enviar aplicaciones desde la máquina host. Siga estos pasos para ingresar al [modo desarrollador](%7B%7Blocale.code%7D%7D/productivity/experimental-features#developer-mode)
+Para enviar su APK desde otro dispositivo al Chromebook, debe iniciar su Chrome OS en [modo desarrollador](https://www.chromium.org/chromium-os/poking-around-your-chrome-os-device) para que pueda configurar el Chromebook y enviar aplicaciones desde la máquina host. Siga estos pasos para ingresar al [modo desarrollador]({{locale.code}}/productivity/experimental-features#developer-mode)
 
 !!! aside.message--warning
 **Precaución:** después de cambiar su dispositivo Chrome OS al modo desarrollador, se reinicia y borra todos los datos existentes en el dispositivo. El nivel de seguridad del dispositivo también se reduce significativamente.

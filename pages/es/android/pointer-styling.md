@@ -68,8 +68,8 @@ Para ver los diferentes cambios de puntero en acción, consulte este [ejemplo de
 ### Lectura adicional
 
 - [Muestra de puntero de GitHub](https://github.com/chromeos/pointer-icon-sample)
-- [Documentación de la clase de Android PointerIcon](https://developer.android.com/reference/android/view/PointerIcon)
-- [Optimización de aplicaciones para Chrome OS: cursores personalizados](https://developer.android.com/topic/arc/optimizing#custom-cursors)
+- [Documentación de la clase de Android PointerIcon](https://developer.android.com/reference/android/view/PointerIcon?hl={{locale.code}})
+- [Optimización de aplicaciones para Chrome OS: cursores personalizados](https://developer.android.com/topic/arc/optimizing?hl={{locale.code}}#custom-cursors)
 
 ### Cursores predeterminados del sistema
 

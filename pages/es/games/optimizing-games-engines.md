@@ -22,4 +22,5 @@ También puede editar la `UnityPlayerActivity` para interceptar eventos de entra
 Consulte también la [documentación del proceso de compilación de Unity para Android](https://docs.unity3d.com/Manual/android-BuildProcess.html) .
 
 !!! aside.message--note
-Nota: el comando "Exportar" en el Editor de Unity es como un paso de compilación en lo que respecta al editor. El flujo de desarrollador unidireccional debe ir: Editar en Unity -> Exportar -> Editar en Android Studio -> Compilar desde Android Studio / Gradle. ¡Los cambios realizados en Android Studio no se importarán de nuevo al Unity Editor!!!
+Nota: el comando "Exportar" en el Editor de Unity es como un paso de compilación en lo que respecta al editor. El flujo de desarrollador unidireccional debe ir: Editar en Unity -> Exportar -> Editar en Android Studio -> Compilar desde Android Studio / Gradle. ¡Los cambios realizados en Android Studio no se importarán de nuevo al Unity Editor
+!!!

@@ -45,7 +45,7 @@ Los desarrolladores ya tenían soporte para la entrada de lápiz y dedo para usu
 
 Finalmente, el equipo [optimizó la aplicación para admitir diferentes tamaños de ventana](/{{locale.code}}/android/window-management) . Los usuarios pueden cambiar el tamaño de la ventana de la aplicación para una experiencia óptima en cualquier factor de forma, ya sea que prefieran trabajar en modo de pantalla completa o abrir y usar otra aplicación junto a ella. Los desarrolladores también agregaron la capacidad de los usuarios de arrastrar y soltar imágenes externas en la aplicación.
 
-![Vista del tablero de arte del pintor infinito](gs://stories/infinite-painter/infinitepainter-artboards)
+![Vista del tablero de arte de Infinite Painter](gs://stories/infinite-painter/infinitepainter-artboards)
 
 ## Resultados
 
