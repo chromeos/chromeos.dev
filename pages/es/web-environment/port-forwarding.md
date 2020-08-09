@@ -5,7 +5,7 @@ date: 2020-06-01
 weight: -7
 ---
 
-Si bien la mayoría de sus actividades de desarrollo funcionarán de forma inmediata en Chrome OS. Es posible que sea necesario configurar algunas de las opciones de reenvío de puertos más avanzadas. Esta guía te ayuda a hacerlo.
+Al desarrollar aplicaciones web, las pruebas en varios dispositivos son fundamentales para garantizar que lo que está creando funcionará para sus usuarios. El reenvío de puertos integrado de Chrome OS le permite abrir el puerto a su servidor de desarrollo local, lo que permite el acceso desde teléfonos u otras computadoras.
 
 !!! aside.message--warning
 **Advertencia:** los controles integrados para administrar el reenvío de puertos son una característica nueva que aún se encuentra en desarrollo, por lo que la interfaz de usuario puede cambiar y opción puede dejar de funcionar hasta que sea estable. Deberá ejecutar Chrome OS versión 84 o superior y habilitar el indicador de _reenvío de puertos Crostini_ (`chrome://flags/#crostini-port-forwarding`).
@@ -19,7 +19,7 @@ Esto abrirá la pantalla de reenvío de puertos. Cuando configure puertos para r
 
 ![Página de configuración de reenvío de puerto vacío.](/images/develop/web/port-forward-empty.jpg)
 
-Al reenviar un puerto, tiene tres opciones: el número de puerto a reenviar, el tipo de conexión, ya sea [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) (predeterminado) o [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol) , y si desea etiquetar el puerto.
+Al reenviar un puerto, tiene tres opciones: el número de puerto a reenviar, el tipo de conexión, ya sea [TCP](https://es.wikipedia.org/wiki/Protocolo_de_control_de_transmisi%C3%B3n) (predeterminado) o [UDP](https://es.wikipedia.org/wiki/Protocolo_de_datagramas_de_usuario), y si desea etiquetar el puerto.
 
 ![Configuración del reenvío de puertos para reenviar el puerto 3000 utilizando TCP con una etiqueta](/images/develop/web/port-forward-configure.jpg)
 

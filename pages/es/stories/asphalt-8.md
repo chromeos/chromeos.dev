@@ -30,7 +30,7 @@ Gameloft estaba familiarizado con el desarrollo de juegos para diferentes dispos
 
 Aprovechando los controles ininterrumpidos y la potencia general del Chromebook, Gameloft identificó varias oportunidades para mejorar la experiencia de los jugadores de Chromebook. Gameloft pudo ejecutar paquetes de aplicaciones de Android a niveles de rendimiento aún más altos que las aplicaciones nativas, lo que le permitió mantener los impresionantes gráficos y velocidades vertiginosas de la serie en Chrome OS. Gameloft también agregó controles de teclado que se activaron cuando el juego detectó que los usuarios estaban jugando en un Chromebook.
 
-![A close up of a laptop with a car racing gameplay.](gs://stories/asphalt-8/asphalt8-gameplay)
+![Toma en primer plano de un juego con un auto de carreras.](gs://stories/asphalt-8/asphalt8-gameplay)
 
 #[La interfaz de usuario del juego cambia automáticamente al cambiar entre la pantalla táctil y los controles del teclado.](gs://stories/asphalt-8/asphalt8-controls [Botones de comando de control del juego Asphalt 8.])
 
