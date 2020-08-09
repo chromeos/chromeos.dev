@@ -98,7 +98,6 @@ jobs:
         with:
           urls: |
             https://cros-staging.web.app/en
-            https://cros-staging.web.app/es
             ${{ steps.deploy.outputs.url }}/en
             ${{ steps.deploy.outputs.url }}/es
           configPath: ./.lighthouserc.yml
