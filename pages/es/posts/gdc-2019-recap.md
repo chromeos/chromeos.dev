@@ -75,7 +75,7 @@ public void onConfigurationChanged(Configuration newConfig) {
 
 ### Cambio de tamaño dinámico
 
-También es importante recordar que cada vez que cambie el tamaño de la pantalla, las áreas de entrada también cambiarán. Si su juego siempre está destinado a ejecutarse en pantalla completa, o si necesita evitar rápidamente los problemas de cambio de configuración mientras soluciona los errores, simplemente puede configurar [`resizableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) en false en su manifiesto. Esto evitará el cambio de tamaño dinámico, pero también evitará las vistas de pantalla dividida, así que úselo con moderación para evitar limitar la experiencia del usuario.
+También es importante recordar que cada vez que cambie el tamaño de la pantalla, las áreas de entrada también cambiarán. Si su juego siempre está destinado a ejecutarse en pantalla completa, o si necesita evitar rápidamente los problemas de cambio de configuración mientras soluciona los errores, simplemente puede configurar [`resizableActivity`](https://developer.android.com/guide/topics/manifest/activity-element?hl=es#resizeableActivity) en false en su manifiesto. Esto evitará el cambio de tamaño dinámico, pero también evitará las vistas de pantalla dividida, así que úselo con moderación para evitar limitar la experiencia del usuario.
 
 ```xml
 <activity android:name=".MyActivity"
@@ -225,7 +225,7 @@ A continuación se define un estilo que puede usar para aplicar el atributo `LAY
 </style>
 ```
 
-[Haga clic aquí](https://developer.android.com/guide/topics/display-cutout) para leer más prácticas recomendadas al codificar el recorte de la pantalla.
+[Haga clic aquí](https://developer.android.com/guide/topics/display-cutout?hl=es) para leer más prácticas recomendadas al codificar el recorte de la pantalla.
 
 ### Continuidad del juego
 

@@ -18,13 +18,13 @@ _Este artículo apareció originalmente en el Blog de desarrolladores de Android
 
 Android alimenta las aplicaciones móviles en dispositivos que van mucho más allá de su típico teléfono inteligente de pantalla pequeña, desde nuevos Chromebooks como el ligero y de alto rendimiento [Google Pixelbook Go](https://store.google.com/us/product/pixelbook_go) hasta dispositivos de pantallas múltiples y teléfonos plegables como el [Samsung Galaxy Fold](https://www.samsung.com/us/mobile/galaxy-fold/) . Sin mencionar las [más de 175 millones de tabletas Android](/{{locale.code}}/posts/expand-your-app-beyond-mobile-to-reach-android-users-at-large) que tienen instalada la tienda Google Play. [^ 1]
 
-[^ 1]: la cantidad de tabletas solo representa los dispositivos que tienen Google Play Store instalado (por ejemplo, excluyendo tabletas en China); El número real de tabletas capaces de ejecutar aplicaciones de Android es mucho mayor.
+[^1]: La cantidad de tabletas solo representa los dispositivos que tienen Google Play Store instalado (por ejemplo, excluyendo tabletas en China); El número real de tabletas capaces de ejecutar aplicaciones de Android es mucho mayor.
 
-Estos dispositivos de pantalla grande preparan el escenario para experiencias más atractivas y visualmente inmersivas, ya sea [creando un lienzo más grande para la creatividad](/{{locale.code}}/stories/concepts) o brindando a los usuarios [formas más rápidas y flexibles de trabajar](/{{locale.code}}/stories/infinite-painter) . A medida que continuamos dando prioridad a los dispositivos de pantalla grande con socios OEM (fabricantes originales de equipos por sus siglas en inglés), como Samsung, Asus y Lenovo, hemos podido ampliar nuestro alcance a una nueva audiencia enorme de usuarios.
+Estos dispositivos de pantalla grande preparan el escenario para experiencias más atractivas y visualmente inmersivas, ya sea [creando un lienzo más grande para la creatividad](/{{locale.code}}/stories/concepts) o brindando a los usuarios [formas más rápidas y flexibles de trabajar](/{{locale.code}}/stories/infinite-painter). A medida que continuamos dando prioridad a los dispositivos de pantalla grande con socios OEM (fabricantes originales de equipos por sus siglas en inglés), como Samsung, Asus y Lenovo, hemos podido ampliar nuestro alcance a una nueva audiencia enorme de usuarios.
 
 Durante la semana de Viernes Negro en 2018, 1 en 3 computadoras notebooks vendido en U.S. fueron Chromebooks.[^2] Chromebook las unidades de ventas de Chromebooks aumentaron 22% YoY, mientras el resto de la categoría de notebooks disminuyó -6.1%.[^3] Y no solamente estamos alcanzado más usuarios — estamos alcanzo más usuarios _comprometidos_ . De hecho, solamenete en el último año, el total de tiempo que los usuarion usan aplicaciones Android en Chrome OS creció 4X.[^4]
 
-[^ 2]: The NPD Group, Inc., Servicio de seguimiento minorista, EE. UU., Computadoras portátiles, Chrome OS, basado en unidades, 18 de noviembre de 2018 a noviembre. 24, 2018 vs.19 de noviembre de 2017 – nov. 25, 2017. [^ 3]: The NPD Group, Inc., Servicio de seguimiento minorista de EE. UU., Computadoras portátiles, basadas en unidades, septiembre de 2018 a agosto. 2019. Las ventas se ajustan por 5 semanas en enero de 2018 frente a 4 semanas en enero de 2019. [^ 4]: Datos internos de Google, marzo de 2018 – marzo de 2019.
+[^2]: The NPD Group, Inc., Servicio de seguimiento minorista, EE. UU., Computadoras portátiles, Chrome OS, basado en unidades, 18 de noviembre de 2018 a noviembre. 24, 2018 vs.19 de noviembre de 2017 – nov. 25, 2017. [^3]: The NPD Group, Inc., Servicio de seguimiento minorista de EE. UU., Computadoras portátiles, basadas en unidades, septiembre de 2018 a agosto. 2019. Las ventas se ajustan por 5 semanas en enero de 2018 frente a 4 semanas en enero de 2019. [^4]: Datos internos de Google, marzo de 2018 – marzo de 2019.
 
 ![Ventas anuales de portátiles en los EE. UU.](/images/posts/high-engagement-larger-screens-how/yoy-notebook-sales.gif)
 
@@ -42,7 +42,7 @@ Más de 100,000 jugadores ya han jugado War Robots en Chrome OS desde que Pixoni
 
 ## ¿Está su aplicación optimizada para dispositivos de pantalla grande? Aquí hay algunas cosas para considerar
 
-### 1) Modo portátil y tableta
+### 1) Modo portátil y mode tableta
 
 Pruebe las funciones principales de su aplicación para asegurarse de que todo funcione sin problemas y sin bloquearse a medida que los usuarios cambian entre los diferentes modos.
 
@@ -56,7 +56,7 @@ Admite el modo de múltiples ventanas y el cambio de tamaño de la ventana de fo
 
 Asegúrese de que su aplicación sea completamente funcional sin entrada táctil y agregue soporte para teclados, ratones y controladores de juegos (si corresponde).
 
-### 4) soporte de hardware
+### 4) Disponibildad de hardware
 
 Si está utilizando NDK, asegúrese de admitir ABI x86 (32 y 64 bits) para garantizar el mayor rendimiento posible.
 
