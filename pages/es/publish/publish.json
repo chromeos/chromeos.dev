@@ -1,8 +1,8 @@
 {
   "layout": "tech-detail",
-  "tags": ["publish"],
+  "tags": ["publicar"],
   "section": "publish",
-  "eyebrow": "Publishing",
+  "eyebrow": "Publicar",
   "resources": [
     {
       "title": "Google Play",

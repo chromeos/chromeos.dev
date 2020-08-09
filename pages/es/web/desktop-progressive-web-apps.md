@@ -15,18 +15,18 @@ resources:
 ---
 
 <!-- prettier-ignore -->
-* [PWAs]: aplicaciones web progresivas 
-* [PWA]: aplicación web progresiva 
-* [OTs]: pruebas de origen 
-* [OT]: prueba de origen
+*[PWAs]: aplicaciones web progresivas 
+*[PWA]: aplicación web progresiva 
+*[OTs]: pruebas de origen 
+*[OT]: prueba de origen
 
-[Las aplicaciones web progresivas de](https://web.dev/what-are-pwas/) escritorio (PWA) son una excelente forma multiplataforma y de varios navegadores para crear aplicaciones con un modelo de seguridad que centra la seguridad y la privacidad del usuario y permite compartir de forma integrada con la vinculación inherente de la web. Cree nuevas aplicaciones o mejore su aplicación web existente con APIs modernas para darles capacidades, confiabilidad e instalabilidad similares a las nativas. Las PWAs son la mejor manera de entregar su aplicación web para Chrome OS.
+[Las aplicaciones web progresivas de](https://web.dev/what-are-pwas/) escritorio (PWA) son una excelente forma multiplataforma y de varios navegadores para crear aplicaciones con un modelo de seguridad que centra la seguridad y la privacidad del usuario y permite compartir de forma integrada con la vinculación inherente de la web. Cree nuevas aplicaciones o mejore su aplicación web existente con APIs modernas para darles capacidades, confiabilidad e instalabilidad similares a las aplicaciones nativas. Las PWAs son la mejor manera de presentar su aplicación web para Chrome OS.
 
 En Chrome OS, el poder de la plataforma web es fundamental; Las aplicaciones web son ciudadanos de primera clase. Las PWA instaladas se muestran en el iniciador de Chrome OS, se pueden fijar al estante e integrarse profundamente con el resto del sistema operativo.
 
 Comience por revisar la [Lista de verificación de PWA](https://web.dev/pwa-checklist/) y asegúrese de que su aplicación web pase la lista de verificación principal de PWA. Puede usar [PWABuilder](https://www.pwabuilder.com/) para ayudarlo a proporcionar una página sin conexión personalizada y hacer que su aplicación sea instalable. Luego, use estas recomendaciones para que su PWA brille en Chrome OS.
 
-## Hazlo instalable
+## Hazla instalable
 
 Una de las grandes ventajas de las PWAs sobre las aplicaciones web normales es la posibilidad de que se instalen, al igual que las aplicaciones nativas. La sección Progressive Web App en web.dev tiene una sección dedicada a [hacer que su PWA sea instalable](https://web.dev/progressive-web-apps/#installable) ; utilízalo para comenzar. Para que una PWA se identifique como instalable en Chrome OS, se deben cumplir los siguientes criterios; use la [auditoría instalable de Lighthouse](https://web.dev/lighthouse-pwa/#installable) para verificar su trabajo a medida que avanza:
 
@@ -44,9 +44,9 @@ Hay muchas ventajas de de descubrimiento, usabilidad y capacidades simplemente h
 
 Puede crear una página simple fuera de línea durante el evento de `install` del trabajador de servicio (service worker) al precachear la página deseada para su uso posterior y responder con ella si un usuario está fuera de línea. Puede seguir nuestro [ejemplo de página sin conexión personalizada](https://googlechrome.github.io/samples/service-worker/custom-offline-page/) para ver un ejemplo de esto en acción y aprender cómo implementarlo usted mismo.
 
-Si desea proporcionar una experiencia más sólida, además de la [API de almacenamiento en caché](https://web.dev/service-workers-cache-storage/) , puede usar funciones como [IndexedDB](https://developers.google.com/web/ilt/pwa/working-with-indexeddb) para el almacenamiento NoSQL en el navegador y [la sincronización de fondo](https://developers.google.com/web/updates/2015/12/background-sync) para permitir a los usuarios realizar acciones mientras están fuera de línea y diferir la comunicación del servidor hasta que el usuario tenga conexión estable de nuevo. También puede implementar patrones como [sesiones seguras y duraderas](https://developers.google.com/web/updates/2016/06/2-cookie-handoff) para mantener a los usuarios autenticados y [pantallas simplificadas (skeleton screen)](https://uxdesign.cc/what-you-should-know-about-skeleton-screens-a820c45a571a) para que los usuarios sepan rápidamente que está cargando contenido que puede recurrir al contenido en caché o un indicador fuera de línea si es necesario.
+Si desea proporcionar una experiencia más sólida, además de la [API de almacenamiento en caché](https://web.dev/service-workers-cache-storage/) , puede usar funciones como [IndexedDB](https://developers.google.com/web/ilt/pwa/working-with-indexeddb) para el almacenamiento NoSQL en el navegador y [la sincronización de fondo](https://developers.google.com/web/updates/2015/12/background-sync) para permitir a los usuarios realizar acciones mientras están fuera de línea y diferir la comunicación del servidor hasta que el usuario tenga conexión estable de nuevo. También puede implementar patrones como [sesiones seguras y duraderas](https://developers.google.com/web/updates/2016/06/2-cookie-handoff) para mantener a los usuarios autenticados y [plantillas de pantallas (skeleton screens)](https://uxdesign.cc/what-you-should-know-about-skeleton-screens-a820c45a571a) para que los usuarios sepan rápidamente que está cargando contenido que puede recurrir al contenido en caché o un indicador fuera de línea si es necesario.
 
-## Hazlo tocable
+## Habilita functionalidad táctil
 
 Casi todos los dispositivos Chrome OS son compatibles con el tacto y muchos compatibles con stylus, por lo que debe asegurarse de que su aplicación funcione sin problemas con ambas entradas, además del teclado y el mouse normales. ¡La [API de eventos de puntero](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events) está diseñada específicamente para manejar esto! Algunos eventos fundamentales relacionados con el puntero que probablemente no tendrá que cambiar, como los eventos de `click` . Otros eventos, como `mouseup` o `touchstart` , deben migrarse a sus contrapartes de eventos de puntero para que funcionen sin problemas en cualquier tipo de puntero. Incluso puede administrar [diferentes tipos de entrada por](https://developers.google.com/web/updates/2016/10/pointer-events#different_input_types) separado si lo desea. Para las aplicaciones y los juegos que dependen en gran medida de la entrada táctil del usuario, pasar a la API de eventos de puntero marcará una gran diferencia en los dispositivos Chrome OS.
 
@@ -103,16 +103,19 @@ Iniciado: El desarrollo ha comenzado, pero actualmente no existe una API utiliza
 
 En consideración: API en las que los usuarios han expresado interés, pero la implementación aún no ha comenzado. Si aún no se ha iniciado una API, agréguela a la estrella o agregue sus casos de uso a su problema para ayudar al equipo de Chromium a priorizarla.
 
-### Que esperar
+### Qué esperar
 
 Con tantas capacidades nuevas que se avecinan, es difícil reducir una lista de lo que tendrá el mayor impacto en la creación de aplicaciones web en Chrome OS. Estas son algunas API clave que ampliarán qué tipos de aplicaciones se pueden construir en la web y, a su vez, para Chrome OS.
 
 #### Prueba de origen
 
-Native File System API: las aplicaciones web de [Native File System API](https://web.dev/native-file-system/) ( [spec](https://wicg.github.io/native-file-system/) ) que interactúan con archivos en el dispositivo local del usuario, como editores de fotos, videos y texto. Después de que un usuario concede acceso, esta API permite que las aplicaciones web lean o guarden cambios directamente en archivos y carpetas en el dispositivo del usuario.
+Native File System API: las aplicaciones web de [Native File System API](https://web.dev/native-file-system/) ([spec](https://wicg.github.io/native-file-system/) ) que interactúan con archivos en el dispositivo local del usuario, como editores de fotos, videos y texto. Después de que un usuario concede acceso, esta API permite que las aplicaciones web lean o guarden cambios directamente en archivos y carpetas en el dispositivo del usuario.
 
 #### Prueba de desarrollador
 
 Enumeración de pantalla y colocación de ventana: [la API de enumeración de pantalla](https://github.com/webscreens/screen-enumeration/blob/master/EXPLAINER.md) y la [API de colocación de ventana](https://github.com/webscreens/window-placement/blob/master/EXPLAINER.md) son dos API complementarias que, cuando se usan juntas, permiten que las aplicaciones web comprendan qué pantallas están disponibles y se abran y coloquen ventanas mediante programación en esas pantallas. Con estas API, las aplicaciones web como presentaciones con notas de oradores, paneles de varias ventanas o lienzos con barras de herramientas.
 
 Manejo de archivos: La [API de manejo de archivos](https://github.com/WICG/file-handling/blob/master/explainer.md) permite a las PWA instaladas registrar su capacidad para manejar (leer, transmitir, editar) archivos con tipos MIME y / o extensiones de archivo. Esta API permite que los PWA instalados aparezcan en los cuadros de diálogo "abrir con ..." de los sistemas de archivos nativos al abrir un archivo, y permite a los usuarios configurar el PWA como la aplicación predeterminada para los tipos de archivos compatibles.
+
+Modo de aplicación con pestañas
+: [Modo de aplicación con pestañas](https://github.com/w3c/manifest/issues/737) permite a los desarrolladores especificar que su PWA debe dividir su ventana en pestañas, similar a un navegador web con pestañas, excepto que todas las pestañas pertenecen a la aplicación (y no tienen una barra de URL).
