@@ -36,7 +36,7 @@ Una de las grandes ventajas de las PWAs sobre las aplicaciones web normales es l
 
 No hay un tamaño o forma estándar para los íconos en Chrome OS, así que haga que su ícono sea tan interesante y único como desee, ¡incluida la transparencia! Como los PWA tienen una base de código compartida en todas las plataformas, también debe asegurarse de tener disponible un [icono enmascarable](https://web.dev/maskable-icon/) .
 
-Con su PWA instalable, ahora se mostrará en Chrome OS, desde el iniciador hasta el estante. Tener su PWA instalado también abre algunas [capacidades](#make-it-capable) adicionales para que su aplicación realmente brille.
+Con su PWA instalable, ahora se mostrará en Chrome OS, desde el iniciador hasta el estante. Tener su PWA instalado también abre algunas [capacidades](#aprovecha-las-capacidades) adicionales para que su aplicación realmente brille.
 
 ### Una nota sobre trabajar sin conexión
 
@@ -77,7 +77,7 @@ Es importante tener en cuenta el soporte táctil y el lápiz al diseñar sus apl
 - Considere el desplazamiento como [mejora progresiva](https://alistapart.com/article/understandingprogressiveenhancement/) y asegúrese de que la interacción se pueda lograr a través de otros medios para el tacto y el lápiz (una pulsación larga o un toque, por ejemplo).
 - Los usuarios táctiles esperan poder interactuar directamente con los elementos en pantalla, por ejemplo, pellizcar para hacer zoom en los mapas en lugar de usar los botones para acercar / alejar. Agregar [gestos táctiles comunes](https://www.lukew.com/ff/entry.asp?1071) , cuando corresponda, puede hacer mucho para que su aplicación se sienta natural.
 
-## Hazlo capaz
+## Aprovecha las capacidades
 
 Mientras algunas de las capacidades de PWA son ampliamente conocidas, como la [API de Notificaciones](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API) que permite a las aplicaciones web recibir y publicar notificaciones nativas, también hay una serie de capacidades nuevas en camino a la web para darle a sus aplicaciones superpoderes. El proyecto de Chromium de [Capacidades Web](https://www.chromium.org/teams/web-capabilities-fugu), también conocido como Proyecto Fugu 🐡, es un esfuerzo para proveer nuevos estándares web poderosos, manteniendo lo que hace a la web única: su seguridad centrada en el usuario, su baja fricción y su compatibilidad multiplataforma.
 

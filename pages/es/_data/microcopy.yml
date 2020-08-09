@@ -5,6 +5,11 @@ posted: Posted by ((t))
 datePosted: Fecha de publicación
 more: Leer más
 recommended: Recomendaciones
+skip:
+  content: Adelante al contenido
+  toc: Salte la table de contenido
+landing:
+  chapters: Temas en esta sección
 featured:
   eyebrow: Historia destacada
 resources:

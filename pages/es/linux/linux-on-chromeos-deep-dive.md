@@ -32,7 +32,7 @@ Debería esperar que las siguientes características funcionen al ejecutar su co
 
 ### Funciones que faltan
 
-Hay muchas frutas bajas en las que estamos trabajando para desarrollar. Un par de ejemplos claros son:
+Hay muchas funcionalidades básicas en  las que estamos trabajando para desarrollar. Un par de ejemplos claros son:
 
 - Decodificación de hardware de video.
 - [IME](https://crbug.com/826614)

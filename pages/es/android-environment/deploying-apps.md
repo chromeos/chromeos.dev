@@ -94,7 +94,7 @@ Para enviar su APK desde otro dispositivo al Chromebook, debe iniciar su Chrome 
 **Precaución:** después de cambiar su dispositivo Chrome OS al modo desarrollador, se reinicia y borra todos los datos existentes en el dispositivo. El nivel de seguridad del dispositivo también se reduce significativamente.
 !!!
 
-### Conéctese a ADB por USB
+### Conéctese a ADB por USB {#adb-usb}
 
 1. Asegúrese de haber [habilitado la depuración de ADB.](/{{locale.code}}/develop/deploying-apps#enable-adb-debugging)
 
