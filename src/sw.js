@@ -17,7 +17,7 @@
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { CacheFirst, StaleWhileRevalidate, NetworkFirst } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
-import { precacheAndRoute, matchPrecache } from 'workbox-precaching';
+import { precacheAndRoute } from 'workbox-precaching';
 import { registerRoute, setCatchHandler } from 'workbox-routing';
 import { BroadcastUpdatePlugin } from 'workbox-broadcast-update';
 import * as googleAnalytics from 'workbox-google-analytics';
@@ -112,15 +112,13 @@ registerRoute(
   }),
 );
 
-setCatchHandler(async ({ event }) => {
-  const dest = event.request.destination;
-
-  if (dest === 'document') {
-    const lang = await preferences.get('lang');
-    return matchPrecache(`/${lang}/404/index.html`);
+setCatchHandler(({ event }) => {
+  switch (event.request.destination) {
+    case 'document':
+      return Response.redirect('/en/404', 302);
+    default:
+      return Response.error();
   }
-
-  return Response.error();
 });
 
 addEventListener('message', event => {
