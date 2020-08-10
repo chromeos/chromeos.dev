@@ -39,15 +39,13 @@ To ensure that your Android app works well on a variety of Chromebook devices an
 - A convertible device; that is, one that can change between a laptop and a tablet
 - A device with a stylus
 
-To view the full list of supported devices, see the [Chrome OS device support for apps](/{{locale.code}}/android/device-support) page.
-
 ## Deploy from Chrome OS
 
-After enabling ADB debugging, you can load an Android app directly onto your Chrome OS device using one [Android Studio](/{{locale.code}}/develop/deploying-apps#deploy-with-android-studio) or if you have an APK you can [load it using the Terminal.](/{{locale.code}}/develop/deploying-apps#deploy-with-terminal)
+After enabling ADB debugging, you can load an Android app directly onto your Chrome OS device using one [Android Studio](#deploy-with-android-studio) or if you have an APK you can [load it using the Terminal.](#deploy-with-terminal)
 
 ### Deploy with Android Studio
 
-With [Android Studio setup](/{{locale.code}}/en/linux/android/android-studio) and the
+With [Android Studio setup](/{{locale.code}}/android-environment) and the
 ADB setup above developers can push their apps to the Chromebook's Android container directly from Android Studio.  
 The Chromebook will appear as an option in the device drop down:
 
@@ -90,7 +88,7 @@ adb install [path to your APK]
 If you can't use the method described above and need to push your app from another device, you have a couple of options: you can use [USB](#connect-to-adb-over-usb) or a [network address](#connect-to-adb-over-a-network) to connect
 your device to ADB.
 
-To push your APK from another device into the Chromebook, you must start your Chrome OS in [developer mode](https://www.chromium.org/chromium-os/poking-around-your-chrome-os-device) so that you can configure the Chromebook and push apps from the host machine. Follow this steps to get into [developer mode]({{locale.code}}/productivity/experimental-features#developer-mode)
+To push your APK from another device into the Chromebook, you must start your Chrome OS in [developer mode](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md) so that you can configure the Chromebook and push apps from the host machine. Follow this steps to get into [developer mode](/{{locale.code}}/productivity/experimental-features#developer-mode)
 
 !!! aside.message--warning
 **Caution:** After switching your Chrome OS device to developer mode, it restarts
@@ -100,7 +98,7 @@ also significantly reduced.
 
 ### Connect to ADB over USB
 
-1. Make sure you [enabled ADB debugging.](/{{locale.code}}/develop/deploying-apps#enable-adb-debugging)
+1. Make sure you [enabled ADB debugging.](#enable-adb-debug)
 1. Determine if your device [supports USB debugging](https://www.chromium.org/chromium-os/chrome-os-systems-supporting-adb-debugging-over-usb)
 1. Press [[Control]]+[[Alt]]+[[T]] to start the Chrome OS terminal.
 1. Type `shell` to get to the bash command shell:
@@ -131,7 +129,7 @@ Use this command each time you disconnect and reconnect a USB cable. To ensure y
 
 ### Connect to ADB over a network { #adb-ip}
 
-1. Make sure you [enabled ADB debugging.](/{{locale.code}}/develop/deploying-apps#enable-adb-debugging)
+1. Make sure you [enabled ADB debugging.](#enable-adb-debug)
 
 In order to debug over a network, you must configure the Chrome OS firewall to allow incoming ADB connections:
 
@@ -143,7 +141,7 @@ In order to debug over a network, you must configure the Chrome OS firewall to a
     chronos@localhost / $
     ```
 
-1.  Type the following commands to set up developer features and enable disk-write access for the firewall settings changes. If you need to enter a sudo password for the `chronos` user, you can (re)set one by running `chromeos-setdevpassword` at the [VT-2 prompt](https://www.chromium.org/chromium-os/poking-around-your-chrome-os-device#TOC-Get-the-command-prompt-through-VT-2) ([[Control]]+[[Alt]]+[[→]]); you'll need your root password.
+1.  Type the following commands to set up developer features and enable disk-write access for the firewall settings changes. If you need to enter a sudo password for the `chronos` user, you can (re)set one by running `chromeos-setdevpassword` at the [VT-2 prompt](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md#vt2) ([[Control]]+[[Alt]]+[[→]]); you'll need your root password.
 
     ```bash
     $ sudo crossystem dev_boot_signed_only=0

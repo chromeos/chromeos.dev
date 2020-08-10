@@ -1,6 +1,9 @@
 ---
 title: Web development
 metadesc: How to set up your Chrome OS device for developing web apps and how to configure port forwarding to access them on other devices
+hero:
+  image: /images/landings/web-environment.svg
+  alt: Illustration of a Chrome OS device deploying a web app.
 date: 2020-06-01
 weight: -8
 ---
@@ -18,7 +21,7 @@ Any code editor or IDE that will run on Linux will run on Chrome OS. [Linux on C
 
 ## Languages and tools
 
-No matter if your stack is JAM or LAMP or if you’re a Python or a Gopher, if it’ll run on Linux, you can run it on Chrome OS. When installing languages and tools, we recommend using language version managers to both simplify the install and upgrade process and allow you to swap between multiple versions of the language for each project you work on. [RVM](https://rvm.io/), the Ruby version manager, is one of the oldest and best examples of a language version manager, allowing you to manage both Ruby and dependencies (called gems) for multiple versions of Ruby. Most other languages have similar version managers. This site, built on Node.js, supports [Volta](https://volta.sh/) and [NVM](http://nvm.sh/) for Node version management. If you prefer your language and tool management via Docker, [you can do that, too](/{{locale.code}}/linux/docker).
+No matter if your stack is JAM or LAMP or if you’re a Python or a Gopher, if it’ll run on Linux, you can run it on Chrome OS. When installing languages and tools, we recommend using language version managers to both simplify the install and upgrade process and allow you to swap between multiple versions of the language for each project you work on. [RVM](https://rvm.io/), the Ruby version manager, is one of the oldest and best examples of a language version manager, allowing you to manage both Ruby and dependencies (called gems) for multiple versions of Ruby. Most other languages have similar version managers. This site, built on Node.js, supports [Volta](https://volta.sh/) and [NVM](http://nvm.sh/) for Node version management. If you prefer your language and tool management via Docker you can do that, too.
 
 ## Localhost tunneling and port forwarding
 

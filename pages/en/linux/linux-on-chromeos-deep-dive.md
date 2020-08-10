@@ -8,7 +8,7 @@ date: 2020-05-01
 This is an advanced process that we don’t recommend for new Linux users.
 !!!
 
-Chrome OS supports running arbitrary code inside of [VMs](https://en.wikipedia.org/wiki/Virtual_machine). This is the low-level documentation on that support; for a more user-friendly view, see the [other Linux containers walkthrough]({{page.url}}../container-manipulation#using-another-linux-distribution) in the container manipulation documentation.
+Chrome OS supports running arbitrary code inside of [VMs](https://en.wikipedia.org/wiki/Virtual_machine). This is the low-level documentation on that support; for a more user-friendly view, see the [faq](/{{locale.code}}/linux/linux-on-chromeos-faq)
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ Chrome OS supports running arbitrary code inside of [VMs](https://en.wikipedia.o
   - Start a [system update](https://support.google.com/chromebook/answer/177889) if need be and reboot.
   - This should work in the [stable channel](https://support.google.com/chromebook/answer/1086915).
   - You do **not** need to put it into developer mode.
-- [Enable the Linux container]({{page.url}}../#enabling-the-linux-container)
+- [Enable the Linux container](/{{locale.code}}/linux/setup)
 
 ## Runtime features
 
@@ -37,7 +37,7 @@ There‘s a lot of low-hanging fruit we’re working on fleshing out. A couple o
 - Video hardware decoding.
 - [IMEs](https://crbug.com/826614).
 
-While there are more things being considered, the Chrome OS team takes a measured approach to rolling out new features in order to ensure overall system security isn't compromised. See the [Crostini FAQ]({{page.url}}../crostini-faq) for more detailed information that cover most topics around Linux on Chrome OS development.
+While there are more things being considered, the Chrome OS team takes a measured approach to rolling out new features in order to ensure overall system security isn't compromised. See the [Crostini FAQ]({{page.url}}../linux-on-chromeos-faq) for more detailed information that cover most topics around Linux on Chrome OS development.
 
 ## Security
 
@@ -65,13 +65,13 @@ The Meltdown/Spectre vulnerabilities have implications for safely using VMs. We�
 
 ## Lifecycles
 
-Once you've [enabled the Linux container]({{page.url}}../#enabling-the-linux-container) (which takes care of installing all the other necessary components like Termina), the system is ready to use.
+Once you've [enabled the Linux container](/{{locale.code}}/linux/setup) (which takes care of installing all the other necessary components like Termina), the system is ready to use.
 
 While these components may be installed, nothing starts running right away. When you log out, everything is shut down and killed, and when you log in, nothing is automatically restarted.
 
 When you run the Terminal app, or any other Linux app that starts the container, and its parent container isn't running yet, the Termina VM will be started automatically, and the default Linux on Chrome OS container (also known as Crostini) will be started in that. This allows you to connect to the container via SSH or SFTP (via the Files app).
 
-When you close all visible applications, the VM/containers are not shut down. If you want to, you can [manually stop and start them]({{page.url}}../container-manipulation#manually-starting-the-container), as well as spawn more containers than just the default one.
+When you close all visible applications, the VM/containers are not shut down. If you want to, you can manually [stop and start them](/{{locale.cod}}/linux/setup#restarting-the-linux-contatiner), as well as spawn more containers than just the default one.
 
 ### Data persistence
 

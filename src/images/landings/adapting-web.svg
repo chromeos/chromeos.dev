@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="350px" height="217px" viewBox="0 0 350 217" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>02 Adapting Web</title>
+    <defs>
+        <filter x="-3.1%" y="-5.8%" width="106.3%" height="111.5%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="0" y="0.944363572" width="264" height="150"></rect>
+        <polygon id="path-4" points="0 0.944363572 158 1 0 150.944364"></polygon>
+        <linearGradient x1="50.000162%" y1="110.674732%" x2="50.000162%" y2="29.3312445%" id="linearGradient-6">
+            <stop stop-color="#BDC1C6" offset="0%"></stop>
+            <stop stop-color="#E8EAED" offset="100%"></stop>
+        </linearGradient>
+        <path d="M20,3.33333333 C10.8166667,3.33333333 3.33333333,10.8166667 3.33333333,20 C3.33333333,29.1833333 10.8166667,36.6666667 20,36.6666667 C29.1833333,36.6666667 36.6666667,29.1833333 36.6666667,20 C36.6666667,10.8166667 29.1833333,3.33333333 20,3.33333333 Z M20,33.3333333 C12.65,33.3333333 6.66666667,27.35 6.66666667,20 C6.66666667,12.65 12.65,6.66666667 20,6.66666667 C27.35,6.66666667 33.3333333,12.65 33.3333333,20 C33.3333333,27.35 27.35,33.3333333 20,33.3333333 Z M24.3166667,14.3166667 L26.6666667,16.6666667 L20,23.3333333 L13.3333333,16.6666667 L15.6833333,14.3166667 L18.3333333,16.95 L18.3333333,10 L21.6666667,10 L21.6666667,16.95 L24.3166667,14.3166667 Z M28.3333333,28.3333333 L11.6666667,28.3333333 L11.6666667,25 L28.3333333,25 L28.3333333,28.3333333 Z" id="path-7"></path>
+        <filter x="-3.9%" y="-5.5%" width="107.7%" height="109.9%" filterUnits="objectBoundingBox" id="filter-9">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.212385271 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-10" x="0" y="0" width="227" height="128" rx="4"></rect>
+        <polygon id="path-12" points="8 2.66666667 7.06 3.60666667 10.78 7.33333333 2.66666667 7.33333333 2.66666667 8.66666667 10.78 8.66666667 7.06 12.3933333 8 13.3333333 13.3333333 8"></polygon>
+        <polygon id="path-14" points="13.3333333 7.33333333 5.22 7.33333333 8.94666667 3.60666667 8 2.66666667 2.66666667 8 8 13.3333333 8.94 12.3933333 5.22 8.66666667 13.3333333 8.66666667"></polygon>
+        <path d="M8.66666667,6 L8.66666667,7.33333333 L13.3333333,7.33333333 L13.3333333,2.66666667 L12,2.66666667 L12,4.49333333 C11.02,3.38 9.6,2.66666667 8,2.66666667 C6.52666667,2.66666667 5.19333333,3.26666667 4.22666667,4.22666667 C3.26,5.18666667 2.66666667,6.52666667 2.66666667,8 C2.66666667,10.9466667 5.05333333,13.3333333 8,13.3333333 C9.47333333,13.3333333 10.8066667,12.7333333 11.7733333,11.7733333 L10.8266667,10.8266667 C10.1,11.5533333 9.1,12 8,12 C5.79333333,12 4,10.2066667 4,8 C4,6.9 4.44666667,5.9 5.17333333,5.17333333 C5.9,4.44666667 6.9,4 8,4 C9.47333333,4 10.7666667,4.80666667 11.46,6 L8.66666667,6 Z" id="path-16"></path>
+        <path d="M13.66,12.6666667 L9.84,8.84666667 C10.3533333,8.13333333 10.6666667,7.27333333 10.6666667,6.33333333 C10.6666667,3.94 8.72666667,2 6.33333333,2 C3.94,2 2,3.94 2,6.33333333 C2,8.72666667 3.94,10.6666667 6.33333333,10.6666667 C7.27333333,10.6666667 8.13333333,10.3533333 8.84666667,9.84 L12.6666667,13.66 L13.66,12.6666667 Z M3.33333333,6.33333333 C3.33333333,4.67333333 4.67333333,3.33333333 6.33333333,3.33333333 C7.99333333,3.33333333 9.33333333,4.67333333 9.33333333,6.33333333 C9.33333333,7.99333333 7.99333333,9.33333333 6.33333333,9.33333333 C4.67333333,9.33333333 3.33333333,7.99333333 3.33333333,6.33333333 Z" id="path-18"></path>
+    </defs>
+    <g id="Illustrations" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Adapting-Web" transform="translate(-337.000000, -29.000000)">
+            <g id="02-Adapting-Web" transform="translate(345.000000, 37.000000)">
+                <g id="Laptop-Frame" filter="url(#filter-1)">
+                    <path d="M300.703586,0 L29.2964142,0 C26.9235702,0 25,1.92986653 25,4.31047754 L25,175 L305,175 L305,4.31047754 C305,1.92986653 303.07643,0 300.703586,0 Z M296.8977,162.279103 L32.8976996,162.279103 L32.8976996,13.4352351 L296.8977,13.4352351 L296.8977,162.279103 Z" id="frame-bottom" fill="#E8EAED" fill-rule="nonzero"></path>
+                    <g id="DESIGN-HERE" transform="translate(33.000000, 12.000000)">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <use id="Mask" fill="#FCC934" xlink:href="#path-2"></use>
+                        <mask id="mask-5" fill="white">
+                            <use xlink:href="#path-4"></use>
+                        </mask>
+                        <use id="Mask-Copy" fill="#FDD663" xlink:href="#path-4"></use>
+                    </g>
+                    <g id="frame-top" transform="translate(0.000000, 2.000000)" fill-rule="nonzero">
+                        <path d="M299.676082,0 L30.323918,0 C27.935884,0 26,1.92225192 26,4.29346983 L26,173 L304,173 L304,4.29257536 C304,1.92170677 302.063764,0 299.676082,0 Z M297,161 L33,161 L33,12 L297,12 L297,161 Z" id="top" fill="url(#linearGradient-6)"></path>
+                        <g id="base" transform="translate(0.000000, 172.845272)">
+                            <path d="M2.84217094e-14,0 L2.84217094e-14,4.66285032 C2.84217094e-14,5.04484063 0.153659341,5.41042446 0.4219137,5.67917506 C0.690168059,5.94792566 1.05293477,6.09782764 1.43040685,6.09590327 L132.459251,5.91496224 C132.459251,5.91496224 135.204738,5.41194618 135.795675,5.41194618 L196.000605,5.41194618 C196.000605,5.41194618 199.543544,5.32147566 200.960541,5.97376807 L332.569593,6.15472779 C333.355292,6.15871729 333.995568,5.51766154 334,4.72256086 L334,0 L2.84217094e-14,0 Z" id="laptop-bottom" fill="#DADCE0"></path>
+                            <rect id="shadow" fill="#BDC1C6" x="2.84217094e-14" y="-1.42108547e-14" width="334" height="1.02578797"></rect>
+                            <path d="M132.204917,6.15472779 L132.165644,0.955142994 C132.165644,0.955142994 132.823471,0.512893983 134.754109,0.512893983 L197.250366,0.512893983 C197.250366,0.512893983 199.431817,0.642861039 199.785276,0.980414366 L199.785276,5.96970525 C199.785276,5.96970525 197.989417,5.66464369 196.467578,5.67998702 L136.680284,5.75399604 C136.680284,5.75399604 135.589559,5.66374114 135.240562,5.69352525 L132.204917,6.15472779 Z" id="bezel" fill="#E8EAED"></path>
+                        </g>
+                    </g>
+                </g>
+                <g id="icons" transform="translate(0.000000, 61.000000)">
+                    <circle id="Oval-Copy-2" fill="#1A73E8" cx="30" cy="30" r="30"></circle>
+                    <g id="file/download_for_offline_24px" transform="translate(10.000000, 10.000000)">
+                        <mask id="mask-8" fill="white">
+                            <use xlink:href="#path-7"></use>
+                        </mask>
+                        <g id="ic_download_for_offline_24px" fill-rule="nonzero"></g>
+                        <g id="Group" mask="url(#mask-8)" fill="#FFFFFF" fill-rule="nonzero">
+                            <g id="↪︎-Icon-color">
+                                <rect id="_Color/01_Grey/000-White" x="0" y="0" width="40" height="40"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="browser-windows" filter="url(#filter-9)" transform="translate(71.000000, 21.000000)">
+                    <rect id="browser-3" stroke="#FFFFFF" stroke-width="2" fill="#34A853" x="-1" y="-1" width="229" height="130" rx="4"></rect>
+                    <rect id="browser-2" stroke="#FFFFFF" stroke-width="2" fill="#EA4335" x="15" y="7" width="229" height="130" rx="4"></rect>
+                    <g id="browser-1" transform="translate(32.000000, 16.000000)">
+                        <rect id="background" stroke="#FFFFFF" stroke-width="2" fill="#1A73E8" x="-1" y="-1" width="229" height="130" rx="4"></rect>
+                        <mask id="mask-11" fill="white">
+                            <use xlink:href="#path-10"></use>
+                        </mask>
+                        <g id="mask"></g>
+                        <rect id="Rectangle" fill="#669DF6" mask="url(#mask-11)" x="0" y="24" width="227" height="106"></rect>
+                        <g id="content" mask="url(#mask-11)" fill="#1A73E8">
+                            <g transform="translate(8.000000, 32.000000)">
+                                <rect id="Rectangle-Copy-5" x="0" y="71" width="211" height="63"></rect>
+                                <rect id="Rectangle" x="108" y="0" width="103" height="63"></rect>
+                                <rect id="Rectangle-Copy" x="0" y="0" width="102" height="9" rx="4.5"></rect>
+                                <rect id="Rectangle-Copy-2" x="0" y="18" width="102" height="9" rx="4.5"></rect>
+                                <rect id="Rectangle-Copy-3" x="0" y="36" width="102" height="9" rx="4.5"></rect>
+                                <rect id="Rectangle-Copy-4" x="0" y="54" width="102" height="9" rx="4.5"></rect>
+                            </g>
+                        </g>
+                        <g id="nav-bar" mask="url(#mask-11)">
+                            <g transform="translate(4.000000, 4.000000)">
+                                <rect id="Rectangle" fill="#FFFFFF" x="60" y="2" width="139" height="12" rx="6"></rect>
+                                <g id="Group" stroke-width="1" fill="none" transform="translate(20.000000, 0.000000)">
+                                    <g id="navigation/arrow_forward_24px">
+                                        <mask id="mask-13" fill="white">
+                                            <use xlink:href="#path-12"></use>
+                                        </mask>
+                                        <g id="ic_arrow_forward_24px" fill-rule="nonzero"></g>
+                                        <g id="Group" mask="url(#mask-13)" fill="#FFFFFF" fill-rule="nonzero">
+                                            <g id="↪︎-Icon-color">
+                                                <rect id="_Color/01_Grey/000-White" x="0" y="0" width="16" height="16"></rect>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                                <g id="Group" stroke-width="1" fill="none">
+                                    <g id="navigation/arrow_back_24px">
+                                        <mask id="mask-15" fill="white">
+                                            <use xlink:href="#path-14"></use>
+                                        </mask>
+                                        <g id="ic_arrow_back_24px" fill-rule="nonzero"></g>
+                                        <g id="Group" mask="url(#mask-15)" fill="#FFFFFF" fill-rule="nonzero">
+                                            <g id="↪︎-Icon-color">
+                                                <rect id="_Color/01_Grey/000-White" x="0" y="0" width="16" height="16"></rect>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                                <g id="Group" stroke-width="1" fill="none" transform="translate(40.000000, 0.000000)">
+                                    <g id="navigation/refresh_24px">
+                                        <mask id="mask-17" fill="white">
+                                            <use xlink:href="#path-16"></use>
+                                        </mask>
+                                        <g id="ic_refresh_24px" fill-rule="nonzero"></g>
+                                        <g id="Group" mask="url(#mask-17)" fill="#FFFFFF" fill-rule="nonzero">
+                                            <g id="↪︎-Icon-color">
+                                                <rect id="_Color/01_Grey/000-White" x="0" y="0" width="16" height="16"></rect>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                                <g id="Group" stroke-width="1" fill="none" transform="translate(203.000000, 0.000000)">
+                                    <g id="navigation/refresh_24px-copy">
+                                        <mask id="mask-19" fill="white">
+                                            <use xlink:href="#path-18"></use>
+                                        </mask>
+                                        <g id="ic_search_24px" fill-rule="nonzero"></g>
+                                        <g id="Group" mask="url(#mask-19)" fill="#FFFFFF" fill-rule="nonzero">
+                                            <g id="↪︎-Icon-color">
+                                                <rect id="_Color/01_Grey/000-White" x="0" y="0" width="16" height="16"></rect>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
