@@ -11,7 +11,7 @@ tags:
 
 Los usuarios de Android acceden a su aplicación desde todos los diferentes tipos de dispositivos, es decir, teléfonos, tabletas, plegables y Chromebooks. Al interactuar con su aplicación, especialmente en pantallas más grandes, los usuarios también pueden usar algún tipo de dispositivo señalador como un mouse de tres botones. Las aplicaciones de Android tienen soporte para aplicar diferentes estilos al puntero del mouse para ayudar a esos usuarios a tener una indicación visual de que pueden interactuar con un objeto.
 
-## Usando los cursores predeterminados del sistema
+## Usando los cursores predeterminados del sistema { #system-default-cursors}
 
 Los usuarios están familiarizados con diferentes convenciones para interactuar con diferentes tipos de objetos en dispositivos de pantalla grande. Android, sin necesidad de agregar ningún cambio, ofrece a los desarrolladores algunos de los iconos de cursor más comunes con los que los usuarios están familiarizados. Agregar algunos de estos iconos de cursor predeterminados del sistema es fácil. Echemos un vistazo al siguiente fragmento de Kotlin:
 
