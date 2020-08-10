@@ -55,7 +55,7 @@ The [Android GPU Inspector](https://gpuinspector.dev/) is a new tool developed b
 
 Chrome OS has a built-in graphics profiler that helps you understand how your Android game is interacting with the desktop compositor. It can help you get a global view of the operating system and see if glitches are occurring because your game is not producing frames fast enough or if other pieces of the system are utilizing the CPU. You can include custom tracing tags in your app to narrow down which parts of your code are responsible for missing rendering windows.
 
-Start the tracing tool by navigating to `chrome://arc-graphics-tracing` in the browser on Chrome OS. Detailed usage instructions can be found on [debugging animation jank](/{{locale.code}}/develop/animation).
+Start the tracing tool by navigating to `chrome://arc-graphics-tracing` in the browser on Chrome OS. Detailed usage instructions can be found on [debugging animation jank](/{{locale.code}}/android-environment/animation).
 
 ## Next steps
 
