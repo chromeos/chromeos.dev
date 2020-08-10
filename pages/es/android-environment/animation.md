@@ -1,6 +1,6 @@
 ---
 title: Depuración de distorción en animación
-metadesc: Uso del trazador de gráficos ARC para garantizar animaciones suaves, sin fallas y sin distorciones para las aplicaciones.
+metadesc: Uso del trazador de gráficos ARC para garantizar animaciones fluidas, sin fallas y sin distorciones para las aplicaciones.
 date: 2020-05-01
 weight: -5
 tools:
@@ -27,24 +27,24 @@ Cuando el sistema operativo está trabajando muy duro, la GPU se puede comprimir
 
 Chrome OS tiene una herramienta de creación de perfiles que muestra cómo los búferes se filtran a través del sistema, cuándo se producen intercambios de memoria, qué tan ocupada está la CPU / GPU y qué está haciendo su aplicación en un momento dado:
 
-![Jank Profiler, con la aplicación ARC ++ ejecutándose a la izquierda y la información de CPU, memoria, gráficos de Chrome y gráficos de Android a la derecha.](/images/android/animation/jank-profiler.png)
+![Ejemplo del perfilador, con la aplicación ARC ++ ejecutándose a la izquierda y la información de CPU, memoria, gráficos de Chrome y gráficos de Android a la derecha.](/images/android/animation/jank-profiler.png)
 
 ### Configurar el perfilador
 
 Para usar el generador de perfiles, debe ejecutar M75 o posterior. Para obtener los mejores resultados, recomendamos usar un dispositivo Intel.
 
-Antes de usar el generador de perfiles, debe colocar trazas en su aplicación. Agregar `Trace.traceCounter(Trace.TRACE_TAG_GRAPHICS, "Event", <number>);` a su código donde quiera incluir un rastro. El `Event` que use debe comenzar con el prefijo `customTrace.` . El prefijo no aparecerá en el mensaje de rastreo.
+Antes de usar el generador de perfiles, debe colocar trazas en su aplicación. Agregar `Trace.traceCounter(Trace.TRACE_TAG_GRAPHICS, "Event", <numero>);` a su código donde quiera incluir un rastro. El `Event` que use debe comenzar con el prefijo `customTrace.` . El prefijo no aparecerá en el mensaje de rastreo.
 
 Para configurar el generador de perfiles, siga estos pasos:
 
-1. Activa el modo desarrollador.
-2. Active la configuración de Chrome y habilite la **herramienta de visualización de búferes gráficos ARC** .
+1. Active el modo desarrollador.
+2. Active la configuración de Chrome y habilite la **herramienta de visualización de búferes gráficos ARC**.
 3. Navegue a `chrome://arc-graphics-tracing` .
 
-### Ejecutando el perfilador
+### Ejecutar el perfilador
 
 1. Verifique la **parada en "jank"** .
 2. Ejecute la aplicación de Android.
-3. Cuando la aplicación de Android está activa y tiene el foco, presione [[Ctrl]] + [[Shift]] + [[G]].
+3. Cuando la aplicación de Android está activa y esta enfocada, presione [[Ctrl]] + [[Shift]] + [[G]].
 
-Cuando ocurre algún "jank", aparecerá la ventana del navegador. Use las teclas [[w]] y [[s]] para hacer zoom y reducir la línea de tiempo.
+Cuando ocurre algua distorción ("jank"), aparecerá la ventana del navegador. Use las teclas [[w]] y [[s]] para hacer zoom y reducir la línea de tiempo.

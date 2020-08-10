@@ -11,7 +11,7 @@ Los desarrolladores deben asegurarse de verificar sus aplicaciones en diferentes
 
 Si los desarrolladores están implementando su aplicación de Android directamente desde Chrome OS (usando Android Studio en su Chromebook) o desde otro dispositivo, los desarrolladores pueden usar [ADB](https://developer.android.com/studio/command-line/adb) para implementar sus aplicaciones y depurar diferentes interacciones con las Chromebooks. Para obtener más detalles, consulte los pasos a continuación.
 
-## Habilitar depuración de ADB
+## Habilitar depuración de ADB { #habilitar-adb}
 
 Anteriormente, el uso de ADB en su Chromebook solo era posible mientras estaba en modo desarrollador, lo que requiere devolver el dispositivo a la configuración de fábrica y puede reducir la seguridad. Afortunadamente, desde Chrome 81, los desarrolladores pueden mantener sus dispositivos fuera del modo de desarrollador y aún implementar aplicaciones desarrolladas directamente en Chrome OS, con solo presionar un interruptor. Aquí es cómo:
 
@@ -39,26 +39,24 @@ Para garantizar que su aplicación de Android funcione bien en una variedad de d
 - Un dispositivo convertible; es decir, uno que puede cambiar entre una computadora portátil y una tableta
 - Un dispositivo con un lápiz
 
-Para ver la lista completa de dispositivos compatibles, consulte la página de [soporte de dispositivos Chrome OS para aplicaciones](/{{locale.code}}/android/device-support) .
-
 ## Implementar desde Chrome OS
 
-Después de habilitar la depuración de ADB, puede instalar una aplicación de Android directamente en su dispositivo Chrome OS usando un [Android Studio](/{{locale.code}}/develop/deploying-apps#deploy-with-android-studio) o si tiene un APK puede [instalarlo usando la Terminal.](/{{locale.code}}/develop/deploying-apps#deploy-with-terminal)
+Después de habilitar la depuración de ADB, puede instalar una aplicación de Android directamente en su dispositivo Chrome OS usando un [Android Studio](#implementar-con-android-studio) o si tiene un APK puede [instalarlo usando la Terminal.](#implementar-con-terminal)
 
 ### Implementar con Android Studio
 
-Con la [configuración de Android Studio](/{{locale.code}}/en/linux/android/android-studio) y la configuración ADB anterior, los desarrolladores pueden enviar sus aplicaciones al contenedor de Android del Chromebook directamente desde Android Studio.
+Con la [configuración de Android Studio](/{{locale.code}}/android-environment) y la configuración ADB anterior, los desarrolladores pueden enviar sus aplicaciones al contenedor de Android del Chromebook directamente desde Android Studio.
 El Chromebook aparecerá como una opción en el menú desplegable del dispositivo:
 
 ![Menú desplegable de dispositivos Android Studio](/images/android/deploy/as_devices.png)
 
 Simplemente presione correr como en cualquier otro dispositivo Android, verá el cuadro de diálogo de autorización y una ventana con su aplicación en ejecución se iniciará automáticamente después de otorgar la autenticación.
 
-![Implemente su aplicación directamente en Chrome OS](/images/android/deploy/run_app.gif)
+![Instale su aplicación directamente en Chrome OS](/images/android/deploy/run_app.gif)
 
 Eso es todo, ahora puede implementar la aplicación en el Chromebook, probar y depurar _sin_ la molestia de estar en modo desarrollador.
 
-### Instalar con Terminal
+### Implementar con Terminal
 
 Si no lo ha hecho, instale ADB:
 
@@ -82,21 +80,21 @@ Instala tu aplicación desde la terminal:
 adb install [path to your APK]
 ```
 
-![Conéctese al dispositivo a través de ADB en el terminal](/images/android/deploy/adb_connect.gif)
+![Conéctese al dispositivo a través de ADB en Terminal](/images/android/deploy/adb_connect.gif)
 
 ## Instalar desde otro dispositivo
 
-Si no puede usar el método descrito anteriormente y necesita enviar su aplicación desde otro dispositivo, tiene un par de opciones: puede usar [USB](#connect-to-adb-over-usb) o una [dirección de red](#connect-to-adb-over-a-network) para conectar su dispositivo a ADB.
+Si no puede usar el método descrito anteriormente y necesita enviar su aplicación desde otro dispositivo, tiene un par de opciones: puede usar [USB](#adb-usb) o una [dirección de red](#adb-ip) para conectar su dispositivo a ADB.
 
-Para enviar su APK desde otro dispositivo al Chromebook, debe iniciar su Chrome OS en [modo desarrollador](https://www.chromium.org/chromium-os/poking-around-your-chrome-os-device) para que pueda configurar el Chromebook y enviar aplicaciones desde la máquina host. Siga estos pasos para ingresar al [modo desarrollador](%7B%7Blocale.code%7D%7D/productivity/experimental-features#developer-mode)
+Para enviar su APK desde otro dispositivo al Chromebook, debe iniciar su Chrome OS en [modo desarrollador](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md) para que pueda configurar el Chromebook y enviar aplicaciones desde la máquina host. Siga estos pasos para ingresar al [modo desarrollador](/{{locale.code}}/productivity/experimental-features#modo-desarrollador)
 
 !!! aside.message--warning
 **Precaución:** después de cambiar su dispositivo Chrome OS al modo desarrollador, se reinicia y borra todos los datos existentes en el dispositivo. El nivel de seguridad del dispositivo también se reduce significativamente.
 !!!
 
-### Conéctese a ADB por USB
+### Conéctese a ADB por USB { #adb-usb}
 
-1. Asegúrese de haber [habilitado la depuración de ADB.](/{{locale.code}}/develop/deploying-apps#enable-adb-debugging)
+1. Asegúrese de haber [habilitado la depuración de ADB.](#habilitar-depuracion-de-adb)
 
 2. Determine si su dispositivo [admite la depuración de USB](https://www.chromium.org/chromium-os/chrome-os-systems-supporting-adb-debugging-over-usb)
 
@@ -130,7 +128,7 @@ Use este comando cada vez que desconecte y vuelva a conectar un cable USB. Para 
 
 ### Conéctese a ADB a través de una red { #adb-ip}
 
-1. Asegúrese de haber [habilitado la depuración de ADB.](/{{locale.code}}/develop/deploying-apps#enable-adb-debugging)
+1. Asegúrese de haber [habilitado la depuración de ADB.](#habilitar-depuración-de-adb)
 
 Para depurar a través de una red, debe configurar el firewall de Chrome OS para permitir conexiones ADB entrantes:
 
@@ -143,7 +141,7 @@ Para depurar a través de una red, debe configurar el firewall de Chrome OS para
    chronos@localhost / $
    ```
 
-3. Escriba los siguientes comandos para configurar las características del desarrollador y habilitar el acceso de escritura en disco para los cambios en la configuración del firewall. Si necesita ingresar una contraseña de sudo para el usuario de `chronos` , puede (re) establecer una ejecutando `chromeos-setdevpassword` en el [indicador VT-2](https://www.chromium.org/chromium-os/poking-around-your-chrome-os-device#TOC-Get-the-command-prompt-through-VT-2) ([[Control]] + [[Alt]] + [[→]]) ; Necesitarás tu contraseña de root.
+3. Escriba los siguientes comandos para configurar las características del desarrollador y habilitar el acceso de escritura en disco para los cambios en la configuración del firewall. Si necesita ingresar una contraseña de sudo para el usuario de `chronos` , puede (re) establecer una ejecutando `chromeos-setdevpassword` en el [indicador VT-2](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md#vt2) ([[Control]] + [[Alt]] + [[→]]) ; Necesitarás tu contraseña de root.
 
    ```bash
    $ sudo crossystem dev_boot_signed_only=0

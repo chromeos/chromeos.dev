@@ -25,9 +25,9 @@ Support for hardware features varies on Chromebooks. Some features aren't suppor
 
 ### Special features
 
-The following list includes features which got added for better hardware support on Chromebooks:
+The following list includes features that were implemented to better support Chromebook hardware:
 
-- `android.hardware.type.pc` - Disabling input emulation for mouse and touchpad. Note that you must indicate `required="false"` to prevent that you can only run on Chromebooks.
+- `android.hardware.type.pc` - This disables the input emulation and allows you to develop custom behavior for mouse and touchpad. Note that you must indicate `required="false"` to prevent that you can only run on Chromebooks.
 
 #### Unsupported hardware features
 

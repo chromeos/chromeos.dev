@@ -7,11 +7,11 @@ weight: -7
 
 Es fácil configurar Linux (Beta), también conocido como Crostini, en Chrome OS. Primero, vaya a Configuración de Chrome y "encienda" Linux:
 
-# 1 [Habilite Linux desde la configuración de Chrome.](/images/linux/getting-started/enable-linux.png)
+#1[Habilite Linux desde la configuración de Chrome.](/images/linux/getting-started/enable-linux.png)
 
 Chrome OS descargará automáticamente los archivos necesarios y configurará su contenedor de Linux. Cuando termine, verá una nueva aplicación de Terminal y una ventana de terminal abierta. Recomendamos fijar la aplicación a su estante como una forma práctica de acceder a su contenedor Linux en el futuro. Haga clic derecho en el icono de la aplicación Terminal y elija "Anclar".
 
-# 2 [Anclar la aplicación Terminal al estante.](/images/linux/getting-started/pin-to-shelf.png)
+#2[Anclar la aplicación Terminal al estante.](/images/linux/getting-started/pin-to-shelf.png)
 
 ¡Ahora su instalación de Debian Linux está lista para comenzar! Lo primero que debe hacer es actualizar el índice del repositorio [APT](https://wiki.debian.org/Apt) e instalarlo. APT es un administrador de paquetes de línea de comandos para Debian, y mantenerlo actualizado asegurará que siempre esté instalando las últimas versiones de herramientas en su repositorio:
 
@@ -43,9 +43,9 @@ Si no desea hacer una copia, puede compartir directorios, como una carpeta de pr
 
 ## Instalar aplicaciones y paquetes de Linux
 
-Ahora que Linux está configurado, ¡es hora de instalar tus primeras aplicaciones! Si bien siempre puede instalar aplicaciones y herramientas en el terminal a través de `sudo apt install` , Linux en Chrome OS admite hacer doble clic para instalar archivos `.deb` (paquete de software Debian) en la aplicación Archivos, lo que le permite descargar e instalar aplicaciones como está acostumbrado. Visual Studio Code, por ejemplo, ofrece un paquete <a data-md-type="link" href="https://code.visualstudio.com/download">`.deb`</a> , con el que puede probar esto. Una vez descargado y doble clic, verá un mensaje con información sobre la aplicación que desea instalar, ¡junto con la opción de instalar la aplicación!
+Ahora que Linux está configurado, ¡es hora de instalar tus primeras aplicaciones! Si bien siempre puede instalar aplicaciones y herramientas en el terminal a través de `sudo apt install` , Linux en Chrome OS admite hacer doble clic para instalar archivos `.deb` (paquete de software Debian) en la aplicación Archivos, lo que le permite descargar e instalar aplicaciones como está acostumbrado. Visual Studio Code, por ejemplo, ofrece un paquete [`.deb`](https://code.visualstudio.com/download), con el que puede probar esto. Una vez descargado y doble clic, verá un mensaje con información sobre la aplicación que desea instalar, ¡junto con la opción de instalar la aplicación!
 
-# 3 [Solicitud de instalación para VS Code.](/images/linux/getting-started/deb-install.jpg)
+#3[Solicitud de instalación para VS Code.](/images/linux/getting-started/deb-install.jpg)
 
 ### Gestión visual de paquetes
 
@@ -58,28 +58,28 @@ sudo apt update
 
 La instalación de estos agregará dos nuevas aplicaciones, [Software](#figure-4) , que proporciona una interfaz similar a la tienda de aplicaciones para encontrar aplicaciones que se pueden instalar desde múltiples fuentes, y [Package](#figure-5) and Package Update, que se puede usar para buscar y actualizar aplicaciones, herramientas, fuentes y muchos otros paquetes.
 
-# 4 [Software que se ejecuta en Chrome OS.](/images/linux/getting-started/software.png)
+#4[Software que se ejecuta en Chrome OS.](/images/linux/getting-started/software.png)
 
-# 5 [Paquete que se ejecuta en Chrome OS.](/images/linux/getting-started/package.png)
+#5[Paquete que se ejecuta en Chrome OS.](/images/linux/getting-started/package.png)
 
 ### Reiniciar el contenedor de Linux
 
 Si está solucionando un problema con Linux, puede ser útil reiniciar el contenedor sin reiniciar su Chromebook completo. Para hacerlo, haga clic derecho en la aplicación Terminal en su estante y haga clic en "Apagar Linux (Beta)".
 
-# 6 [Cerrar el contenedor de Linux.](/images/linux/getting-started/shut-down.png)
+#6[Cerrar el contenedor de Linux.](/images/linux/getting-started/shut-down.png)
 
 Una vez que se apaga, las aplicaciones deberían aparecer en el iniciador, y al elegir una, se iniciará nuevamente el contenedor de Linux.
 
 ## Seguridad y permisos
 
-Linux en Chrome OS se ejecuta dentro de un contenedor, [protegiéndolo](https://support.google.com/chromebook/answer/3438631#sandboxing) de otras páginas web, aplicaciones y el propio sistema operativo. Sin embargo, todas las aplicaciones instaladas en el contenedor de Linux _comparten_ el mismo entorno limitado, lo que significa que comparten los permisos del contenedor de Linux y pueden afectarse entre sí.
+Linux en Chrome OS se ejecuta dentro de un contenedor, [protegiéndolo](https://support.google.com/chromebook/answer/3438631?hl={{es}}#sandboxing) de otras páginas web, aplicaciones y el propio sistema operativo. Sin embargo, todas las aplicaciones instaladas en el contenedor de Linux _comparten_ el mismo entorno limitado, lo que significa que comparten los permisos del contenedor de Linux y pueden afectarse entre sí.
 
-Por razones de seguridad, muchos permisos, como acceso a USB o al microfono, no se comportan automáticamente. Para asegurarse que tiene los permisos adecuados habilitados, debe ir a configuración y habilitarlos. Como siempre tome precauciones con los permisos y nunca habilite más de lo que necesita. Cuando interáctue con Linux (Beta) en Chrome OS, preste particular atención a los [datos del usuario en el contenedor](/{{locale.code}}/linux/linux-on-chromeos-deep-dive#user-data-in-the-container).
+Por razones de seguridad, muchos permisos, como acceso a USB o al microfono, no se comportan automáticamente. Para asegurarse que tiene los permisos adecuados habilitados, debe ir a configuración y habilitarlos. Como siempre tome precauciones con los permisos y nunca habilite más de lo que necesita. Cuando interáctue con Linux (Beta) en Chrome OS, preste particular atención a los [datos del usuario en el contenedor](/{{locale.code}}/linux/linux-on-chromeos-deep-dive#datos-de-usuario-en-el-contenedor).
 
 ## Copia de seguridad y restauración
 
-Debido a que Linux en Chrome OS se ejecuta dentro de un contenedor, puede hacer una copia de seguridad de su entorno y restaurarlo; archivos, aplicaciones y todo. ¡Esto le permite configurar su entorno Linux una vez y luego llevarlo consigo sin necesidad de reconfigurarlo nuevamente! Para obtener instrucciones detalladas sobre cómo hacerlo, consulte la página de ayuda de Chromebook sobre cómo realizar [copias de seguridad y restaurar su contenedor Linux](https://support.google.com/chromebook/answer/9592813)
+Debido a que Linux en Chrome OS se ejecuta dentro de un contenedor, puede hacer una copia de seguridad de su entorno y restaurarlo; archivos, aplicaciones y todo. ¡Esto le permite configurar su entorno Linux una vez y luego llevarlo consigo sin necesidad de reconfigurarlo nuevamente! Para obtener instrucciones detalladas sobre cómo hacerlo, consulte la página de ayuda de Chromebook sobre cómo realizar [copias de seguridad y restaurar su contenedor Linux](https://support.google.com/chromebook/answer/9592813?hl={{es}})
 
 ## Solución de problemas
 
-Para obtener más ayuda para habilitar o solucionar problemas, lea la página de ayuda de Chromebook sobre [cómo configurar el contenedor de Linux](https://support.google.com/chromebook/answer/9145439?hl=%7B%7Blocale.code%7D%7D) .
+Para obtener más ayuda para habilitar o solucionar problemas, lea la página de ayuda de Chromebook sobre [cómo configurar el contenedor de Linux](https://support.google.com/chromebook/answer/9145439?hl={{locale.code}}) .

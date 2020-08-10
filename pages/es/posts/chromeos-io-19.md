@@ -19,17 +19,17 @@ Solo en el último año, el ecosistema de Chrome OS ha crecido a un ritmo incre�
 
 En I/O este año, mostramos a los desarrolladores web y de Android algunas de las mejoras más interesantes que han hecho que Chrome OS sea un entorno aún más rápido, simple y seguro que nunca. Veamos algunos de los aspectos más destacados:
 
-### Compartir archivos
+## Compartir archivos
 
 Hoy anunciamos que es mucho más fácil compartir archivos entre Linux, Android y Chrome OS. Ahora se puede usar el administrador de archivos para mover sus archivos de manera segura a través de Chrome OS, Google Drive, Android y Linux.
 
 ![El administrador de archivos le permite compartir archivos en Chrome OS, Google Drive, Android y Linux.](/images/posts/chromeos-io-19/file-sharing.gif)
 
-### Reenvío de puertos
+## Reenvío de puertos
 
 También hemos realizado mejoras en el reenvío de puertos en Chrome OS, lo que facilita la conexión de servicios de red entre Linux y Chrome OS. De esa manera, puede ejecutar un servidor web dentro del contenedor Linux mientras se depura en la misma máquina.
 
-### Instalación de Android Studio con un solo clic y depuración integrada
+## Instalación de Android Studio con un solo clic y depuración integrada
 
 Instalar Android Studio en Chrome OS solía ser un proceso algo largo. Ahora, se necesita un simple doble clic. No es necesario usar una terminal para descargar, mover y descomprimir el archivo, simplemente descárguelo, haga clic e instálelo.
 

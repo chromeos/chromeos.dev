@@ -12,7 +12,7 @@ Chrome OS [supports](https://chrome.googleblog.com/2016/05/the-google-play-store
 
 ## Google Play Billing
 
-If you charge money for your app/game you can also use the Play Billing APIs for in-app purchases and subscriptions. You can [add Play billing to your app](https://developer.android.com/google/play/billing/getting-ready) and offer [subscriptions](https://developer.android.com/google-play/guides/subscriptions). Games developers using Unity can use the [Google Play Billing Library with Unity](https://developer.android.com/google/play/billing/unity?authuser=1).
+If you charge money for your app/game you can also use the Play Billing APIs for in-app purchases and subscriptions. You can [add Play billing to your app](https://developer.android.com/google/play/billing/getting-ready) and offer [subscriptions](https://developer.android.com/google-play/guides/subscriptions). Games developers using Unity can use the [Google Play Billing Library with Unity](https://developer.android.com/google/play/billing/unity).
 
 ## Quickstart
 

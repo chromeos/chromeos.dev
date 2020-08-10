@@ -16,13 +16,13 @@ tools:
 date: 2020-05-01
 ---
 
-Los dispositivos Chrome OS, como los Chromebook, ahora son compatibles con Google Play Store y las aplicaciones de Android. Este artículo asume que tiene una aplicación de Android existente diseñada para teléfonos o tabletas que desea optimizar para Chromebooks. Para conocer los conceptos básicos de la creación de aplicaciones de Android, consulte [Crear su primera aplicación.](https://developer.android.com/training/basics/firstapp/index)
+Los dispositivos Chrome OS, como los Chromebook, ahora son compatibles con Google Play Store y las aplicaciones de Android. Este artículo asume que tiene una aplicación de Android existente diseñada para teléfonos o tabletas que desea optimizar para Chromebooks. Para conocer los conceptos básicos de la creación de aplicaciones de Android, consulte [Crear su primera aplicación.](https://developer.android.com/training/basics/firstapp/index?hl={{locale.code}})
 
-## Actualiza el archivo de manifiesto de tu aplicación
+## Actualiza el archivo AndroidManifest.xml de tu aplicación
 
 Para comenzar, actualice su archivo de manifiesto para tener en cuenta algunas diferencias clave de hardware y software entre las Chromebooks y otros dispositivos con Android.
 
-A partir de Chrome OS versión M53, todas las aplicaciones de Android que no requieren explícitamente la función [`android.hardware.touchscreen`](https://developer.android.com/guide/topics/manifest/uses-feature-element.html#touchscreen-hw-features) también funcionarán en dispositivos Chrome OS que admitan la función `android.hardware.faketouch` . Sin embargo, para garantizar que su aplicación funcione en todas las Chromebooks, vaya a su archivo de manifiesto y ajuste la configuración para que no se requiera la función `android.hardware.touchscreen` , como se muestra en el siguiente ejemplo. Eliminar el requisito de entrada táctil significa que también debe revisar el soporte de su aplicación para las [interacciones de mouse y teclado](https://developer.android.com/training/gestures/movement) .
+A partir de Chrome OS versión M53, todas las aplicaciones de Android que no requieren explícitamente la función [`android.hardware.touchscreen`](https://developer.android.com/guide/topics/manifest/uses-feature-element.html?hl={{locale.code}}#touchscreen-hw-features) también funcionarán en dispositivos Chrome OS que admitan la función `android.hardware.faketouch` . Sin embargo, para garantizar que su aplicación funcione en todas las Chromebooks, vaya a su archivo de manifiesto y ajuste la configuración para que no se requiera la función `android.hardware.touchscreen` , como se muestra en el siguiente ejemplo. Eliminar el requisito de entrada táctil significa que también debe revisar el soporte de su aplicación para las [interacciones de mouse y teclado](https://developer.android.com/training/gestures/movement?hl={{locale.code}}) .
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" ... >
@@ -37,7 +37,7 @@ Los diferentes dispositivos de hardware vienen equipados con diferentes conjunto
 
 Nota: Si no necesita un sensor en particular para su aplicación, pero aún utiliza mediciones del sensor cuando está disponible, asegúrese de verificar dinámicamente la disponibilidad del sensor antes de intentar recopilar información de él en su aplicación.
 
-Algunas funciones de software no son compatibles con las Chromebooks. Por ejemplo, las aplicaciones que proporcionan IME personalizados, widgets de aplicaciones, fondos de pantalla en vivo e iniciadores de aplicaciones no son compatibles y no estarán disponibles para su instalación en Chromebooks. Para obtener una lista completa de las funciones de software que actualmente no son compatibles con las Chromebook, consulte [las funciones de software incompatibles](/{{locale.code}}/android/manifest#software-features) .
+Algunas funciones de software no son compatibles con las Chromebooks. Por ejemplo, las aplicaciones que proporcionan IME personalizados, widgets de aplicaciones, fondos de pantalla en vivo e iniciadores de aplicaciones no son compatibles y no estarán disponibles para su instalación en Chromebooks. Para obtener una lista completa de las funciones de software que actualmente no son compatibles con las Chromebook, consulte [las funciones de software incompatibles](/{{locale.code}}/android/manifest#funciones-de-software).
 
 ## Actualiza la version SDK preferida
 
@@ -47,7 +47,7 @@ Al actualizar el atributo [`targetSdkVersion`](https://developer.android.com/ref
 
 Las Chromebook ejecutan todo el sistema operativo Android en un contenedor, similar a Docker o LXC. Esto significa que Android no tendrá acceso directo a la interfaz LAN del sistema. En cambio, el tráfico IPv4 pasará a través de una capa interna de traducción de direcciones de red (NAT), y el tráfico de unidifusión IPv6 se enrutará a través de un salto adicional. Las conexiones de unidifusión salientes de una aplicación de Android a Internet deberían funcionar principalmente tal cual; pero en general, las conexiones entrantes están bloqueadas. Los paquetes de multidifusión o difusión de Android no se enviarán a la LAN a través del firewall.
 
-Como una excepción especial a la restricción de multidifusión, Chrome OS ejecuta un servicio que reenvía el tráfico mDNS entre Android y la interfaz LAN, por lo que las API de [descubrimiento de servicios de red](https://developer.android.com/training/connect-devices-wirelessly/nsd) estándar son la forma recomendada para descubrir otros dispositivos en el segmento LAN. Después de encontrar un dispositivo en la LAN, una aplicación de Android puede usar enchufes de unidifusión TCP o UDP estándar para comunicarse con él.
+Como una excepción especial a la restricción de multidifusión, Chrome OS ejecuta un servicio que reenvía el tráfico mDNS entre Android y la interfaz LAN, por lo que las API de [descubrimiento de servicios de red](https://developer.android.com/training/connect-devices-wirelessly/nsd?hl={{locale.code}}) estándar son la forma recomendada para descubrir otros dispositivos en el segmento LAN. Después de encontrar un dispositivo en la LAN, una aplicación de Android puede usar enchufes de unidifusión TCP o UDP estándar para comunicarse con él.
 
 Las conexiones IPv4 que se originan en Android utilizarán la dirección IPv4 del host del sistema operativo Chrome. Internamente, la aplicación de Android verá una dirección IPv4 privada asignada a la interfaz de red. Las conexiones IPv6 que se originan en Android usarán una dirección diferente del host de Chrome OS, ya que el contenedor de Android tendrá una dirección IPv6 pública dedicada.
 
@@ -63,11 +63,11 @@ Las Chromebooks también se pueden compartir entre un gran número de personas, 
 
 Si su aplicación usa las bibliotecas NDK de Android y su versión SDK de destino es 23 o superior, asegúrese de que las reubicaciones de texto se eliminen de las versiones ARM y x86 de sus bibliotecas NDK, ya que no son compatibles con Android 6.0 (API nivel 23 ) y más alto. Al dejar las reubicaciones de texto en sus bibliotecas NDK, también puede causar errores de incompatibilidad con Chromebooks, especialmente cuando se ejecuta en un dispositivo que utiliza una arquitectura x86.
 
-Nota: Para obtener más detalles sobre la acutalización apropiada de las librerías de NDK , visite la sección [Runtime](https://developer.android.com/about/versions/marshmallow/android-6.0-changes#behavior-runtime) del documento de cambios de Android 6.0.
+Nota: Para obtener más detalles sobre la acutalización apropiada de las librerías de NDK , visite la sección [Runtime](https://developer.android.com/about/versions/marshmallow/android-6.0-changes?hl={{locale.code}}#behavior-runtime) del documento de cambios de Android 6.0.
 
 ## Desarrolle nuevos casos de prueba para su aplicación
 
-Primero asegúrese que las configuraciones adecuadas están especificadas en el manifiesto. Estas configuraciones incluyen la orientación predilecta, lo mejor es darle un valor de `unspecified` a [`screenOrientation`](https://developer.android.com/reference/android/R.attr#screenOrientation) . Si usted especifíca una orientación como `landscape`, considere mejor utilizar `sensorLandscape` para asegurarse que la experiencia en tabletas sea óptima. Si usted utiliza un tamaño especial o solicitudes de orientación también debería considerar agregar las nuevas meta etiquetas como indicios de orientación o tamaño —lo cual también afecta entornos de escritorio. Si usted desea el cambio también en teléfonos, usted debe especificar los valores [`defaultHeight`](https://developer.android.com/reference/android/R.attr.html#defaultHeight), [`defaultWidth`](https://developer.android.com/reference/android/R.attr.html#defaultWidth), o [`minHeight`](https://developer.android.com/reference/android/R.attr.html#minHeight) .
+Primero asegúrese que las configuraciones adecuadas están especificadas en el manifiesto. Estas configuraciones incluyen la orientación predilecta, lo mejor es darle un valor de `unspecified` a [`screenOrientation`](https://developer.android.com/reference/android/R.attr?hl={{locale.code}}#screenOrientation) . Si usted especifíca una orientación como `landscape`, considere mejor utilizar `sensorLandscape` para asegurarse que la experiencia en tabletas sea óptima. Si usted utiliza un tamaño especial o solicitudes de orientación también debería considerar agregar las nuevas meta etiquetas como indicios de orientación o tamaño —lo cual también afecta entornos de escritorio. Si usted desea el cambio también en teléfonos, usted debe especificar los valores [`defaultHeight`](https://developer.android.com/reference/android/R.attr.html?hl={{locale.code}}#defaultHeight), [`defaultWidth`](https://developer.android.com/reference/android/R.attr.html?hl={{locale.code}}#defaultWidth), o [`minHeight`](https://developer.android.com/reference/android/R.attr.html?hl={{locale.code}}#minHeight) .
 
 Si está interesado en el manejo de dispositivos de entrada específicos para categorías de dispositivos específicas, debe especificar `android.hardware.type.pc` para deshabilitar el modo de compatibilidad de entrada.
 
@@ -77,7 +77,7 @@ Google recomienda verificar los [Casos de prueba para aplicaciones de Android en
 
 ### Ventana múltiple y cambios de orientación
 
-El entorno de múltiples ventanas de Chrome OS puede hacer que la persistencia del estado y los problemas de recuperación sean más obvios. Debe usar [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) para guardar y restaurar su estado cuando sea apropiado.
+El entorno de múltiples ventanas de Chrome OS puede hacer que la persistencia del estado y los problemas de recuperación sean más obvios. Debe usar [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel?hl={{locale.code}}) para guardar y restaurar su estado cuando sea apropiado.
 
 Para probar la persistencia del estado, debe minimizar su aplicación durante algún tiempo, iniciar otro proceso de uso intensivo de recursos y luego restaurar su aplicación para validar que vuelva al estado en que la dejó.
 

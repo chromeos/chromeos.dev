@@ -29,7 +29,7 @@ Si bien es posible determinar los cuellos de botella por su cuenta, contar con l
 
 ### Android Studio Profiler
 
-La forma más fácil de crear un perfil de rendimiento para cualquier aplicación de Android es con el [perfilador integrado de Android Studio](https://developer.android.com/studio/profile/android-profiler) . Desde Android Studio, en vez de hacer clic en “Correr”, simplemente elija “Perfil” para correr su aplicación y para obtener información en tiempo real sobre el CPU, memoria y uso de la red. Las trazas de CPU simples pueden ser una forma rápida de aislar áreas de código para observar.
+La forma más fácil de crear un perfil de rendimiento para cualquier aplicación de Android es con el [perfilador integrado de Android Studio](https://developer.android.com/studio/profile/android-profiler?hl={{locale.code}}) . Desde Android Studio, en vez de hacer clic en “Correr”, simplemente elija “Perfil” para correr su aplicación y para obtener información en tiempo real sobre el CPU, memoria y uso de la red. Las trazas de CPU simples pueden ser una forma rápida de aislar áreas de código para observar.
 
 Esta herramienta no garantiza una visión real del uso de la GPU ni de lo que sucede entre cada sincronización de cuadros, por lo que, aunque es una buena herramienta para tener en la caja de herramientas, es probable que no sea suficiente para que su juego funcione con el máximo rendimiento.
 
@@ -45,7 +45,7 @@ Consulte la [documentación oficial de uso](https://developer.qualcomm.com/softw
 
 ### ARM Mobile Studio
 
-Otro perfilador útil de dispositivos ARM es [ARM Mobile Studio](https://developer.arm.com/tools-and-software/graphics-and-gaming/arm-mobile-studio). Algunos desarrolladores pueden preferirlo al Snapdragon Profiler, pero puede usarse de manera similar. Consulte [la documentación oficial ](https://developer.arm.com/tools-and-software/graphics-and-gaming/arm-mobile-studio/learn/get-started).
+Otro perfilador útil de dispositivos ARM es [ARM Mobile Studio](https://developer.arm.com/tools-and-software/graphics-and-gaming/arm-mobile-studio). Algunos desarrolladores pueden preferirlo al Snapdragon Profiler, pero puede usarse de manera similar. Consulte [la documentación oficial](https://developer.arm.com/tools-and-software/graphics-and-gaming/arm-mobile-studio/learn/get-started).
 
 ### Inspector de GPU de Android
 
@@ -55,7 +55,7 @@ Otro perfilador útil de dispositivos ARM es [ARM Mobile Studio](https://develop
 
 Chrome OS tiene un generador de perfiles de gráficos incorporado que te ayuda a comprender cómo interactúa tu juego de Android con el compositor de escritorio. Puede ayudarlo a obtener una vista global del sistema operativo y ver si se producen fallas debido a que su juego no está produciendo fotogramas lo suficientemente rápido o si otras partes del sistema están utilizando la CPU. Puede incluir etiquetas de rastreo personalizadas en su aplicación para reducir qué partes de su código son responsables de las ventanas de representación faltantes.
 
-Inicie la herramienta de rastreo navegando a `chrome://arc-graphics-tracing` en el navegador en Chrome OS. Las instrucciones de uso detalladas se pueden encontrar en [depuración de animación jank](/{{locale.code}}/develop/animation) .
+Inicie la herramienta de rastreo navegando a `chrome://arc-graphics-tracing` en el navegador en Chrome OS. Las instrucciones de uso detalladas se pueden encontrar en [depuración de animación jank](/{{locale.code}}/android-environment/animation) .
 
 ## Próximos pasos
 
@@ -69,12 +69,12 @@ Recuerde perfilar temprano y perfilar con frecuencia, especialmente si está apu
 
 ### Unity
 
-Además de sus propias [recomendaciones generales](https://docs.unity3d.com/Manual/MobileOptimizationPracticalGuide.html) , Unity proporciona guías de práctica. Echa un vistazo a sus tutoriales detallados sobre la optimización de [gráficos](https://docs.unity3d.com/Manual/MobileOptimizationGraphicsMethods.html) , [jugabilidad](https://docs.unity3d.com/Manual/MobileOptimizationScriptingMethods.html) , [renderización](https://docs.unity3d.com/Manual/MobileOptimizationPracticalRenderingOptimizations.html) y [secuencias de comandos](https://docs.unity3d.com/Manual/MobileOptimizationPracticalScriptingOptimizations.html) .
+Además de sus propias [recomendaciones generales](https://docs.unity3d.com/Manual/MobileOptimizationPracticalGuide.html) , Unity proporciona guías de práctica. Echa un vistazo a sus tutoriales detallados sobre la optimización de [gráficos](https://docs.unity3d.com/Manual/MobileOptimizationGraphicsMethods.html), [jugabilidad](https://docs.unity3d.com/Manual/MobileOptimizationScriptingMethods.html) , [renderización](https://docs.unity3d.com/Manual/MobileOptimizationPracticalRenderingOptimizations.html) y [secuencias de comandos](https://docs.unity3d.com/Manual/MobileOptimizationPracticalScriptingOptimizations.html).
 
 Considere leer la guía de ARM sobre creación de [perfiles y optimización de juegos de Unity](https://developer.arm.com/docs/100140/0402/performance-analysis/profiling-a-unity-game-example) y sus mejores prácticas asociadas. Esto lo guiará a través del proceso de creación de perfiles de un juego de ejemplo en Unity con la herramienta Streamline, una faceta de [ARM Mobile Studio](#arm-mobile-studio).
 
 ### Unreal
 
-Unreal ha escrito sus propias [pautas de rendimiento ](https://docs.unrealengine.com/en-US/Platforms/Mobile/Performance/index.html) y [sugerencias y consejos ](https://docs.unrealengine.com/en-US/Platforms/Mobile/Performance/TipsAndTricks/index.html)que le enseñan cómo aprovechar mejor muchas de las opciones y configuraciones que proporciona el motor. Aquí encontrará cosas como trucos de nivel de detalle, cómo aprovechar al máximo la iluminación, guías paso a paso sobre configuraciones de calidad del material y sombreadores, entre otras sugerencias.
+Unreal ha escrito sus propias [pautas de rendimiento](https://docs.unrealengine.com/en-US/Platforms/Mobile/Performance/index.html) y [sugerencias y consejos](https://docs.unrealengine.com/en-US/Platforms/Mobile/Performance/TipsAndTricks/index.html)que le enseñan cómo aprovechar mejor muchas de las opciones y configuraciones que proporciona el motor. Aquí encontrará cosas como trucos de nivel de detalle, cómo aprovechar al máximo la iluminación, guías paso a paso sobre configuraciones de calidad del material y sombreadores, entre otras sugerencias.
 
 Para obtener más optimizaciones basadas en gráficos, ARM ha escrito una [guía](https://developer.arm.com/docs/100959/0101/optimizations-and-optimization-techniques/unreal-engine-best-practices) para optimizar los juegos móviles. Aquí se pueden encontrar consejos generales de optimización, así como consideraciones de gráficos específicos de Unreal.

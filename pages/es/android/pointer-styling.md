@@ -11,7 +11,7 @@ tags:
 
 Los usuarios de Android acceden a su aplicación desde todos los diferentes tipos de dispositivos, es decir, teléfonos, tabletas, plegables y Chromebooks. Al interactuar con su aplicación, especialmente en pantallas más grandes, los usuarios también pueden usar algún tipo de dispositivo señalador como un mouse de tres botones. Las aplicaciones de Android tienen soporte para aplicar diferentes estilos al puntero del mouse para ayudar a esos usuarios a tener una indicación visual de que pueden interactuar con un objeto.
 
-## Usando los cursores predeterminados del sistema
+## Usando los cursores predeterminados del sistema { #system-default-cursors}
 
 Los usuarios están familiarizados con diferentes convenciones para interactuar con diferentes tipos de objetos en dispositivos de pantalla grande. Android, sin necesidad de agregar ningún cambio, ofrece a los desarrolladores algunos de los iconos de cursor más comunes con los que los usuarios están familiarizados. Agregar algunos de estos iconos de cursor predeterminados del sistema es fácil. Echemos un vistazo al siguiente fragmento de Kotlin:
 
@@ -54,22 +54,24 @@ Agregar iconos de puntero a su aplicación es una excelente manera de ayudar a q
 
 - **Arrastrar y soltar:** si su aplicación admite arrastrar desde otra aplicación y soltar en su aplicación, podría implementar el ícono `TYPE_NO_DROP` . Esto daría una indicación visual de que su aplicación no es compatible con el tipo MIME que está tratando de caer en su aplicación.
 - **Mapas -** Si su aplicación contiene mapas y le gustaría mostrar a sus usuarios que pueden desplazar el mapa puede utiizar el ícono `TYPE_GRAB` cuando el puntero del mouse se deslice sobre el mapa y cuando el usuario hace clic, actualizar el ícono a arrastrar para demostrar el efecto de desplazamiento del mapa.
-- **Edición de fotos - ** A los usuarios de edición de fotos les gusta tener controles que les permitan seleccionar una lupa para acercarla. Puede cambiar el cursor a una lupa con el ícono `TYPE_ZOOM_IN` cuando se selecciona el modo acercar.
+- **Edición de fotos -** A los usuarios de edición de fotos les gusta tener controles que les permitan seleccionar una lupa para acercarla. Puede cambiar el cursor a una lupa con el ícono `TYPE_ZOOM_IN` cuando se selecciona el modo acercar.
 - **Y muchas más oportunidades**
 
 !!! aside.message--tip
 Para ver los diferentes cambios de puntero en acción, consulte este [ejemplo de puntero de GitHub](https://github.com/chromeos/pointer-icon-sample)
-!!!
 
-<video controls="" width="900" height="1900" autoplay="" muted=""></video><source src="/videos/android/pointer-styling/pointer-icon.mp4" type="video/mp4"> !!!</source>
+<video controls width="900" height="1900" autoplay muted>
+  <source src="/videos/android/pointer-styling/pointer-icon.mp4" type="video/mp4">
+</video>
+!!!
 
 ## Apéndice
 
 ### Lectura adicional
 
 - [Muestra de puntero de GitHub](https://github.com/chromeos/pointer-icon-sample)
-- [Documentación de la clase de Android PointerIcon](https://developer.android.com/reference/android/view/PointerIcon)
-- [Optimización de aplicaciones para Chrome OS: cursores personalizados](https://developer.android.com/topic/arc/optimizing#custom-cursors)
+- [Documentación de la clase de Android PointerIcon](https://developer.android.com/reference/android/view/PointerIcon?hl={{locale.code}})
+- [Optimización de aplicaciones para Chrome OS: cursores personalizados](https://developer.android.com/topic/arc/optimizing?hl={{locale.code}}#custom-cursors)
 
 ### Cursores predeterminados del sistema
 

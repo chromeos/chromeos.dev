@@ -13,11 +13,11 @@ Estar a la vanguardia le permite probar nuevas funciones antes de que estén lis
 
 ## Cambiar el canal de Chrome OS
 
-Su dispositivo Chrome OS normalmente está en un canal estable. El canal **estable** está completamente probado y respaldado por Google, y es el mejor para evitar bloqueos u otros problemas con su sistema operativo. Hay otros dos canales: **beta** y **desarrollador** . El canal **beta le** permite ver qué sigue con un riesgo mínimo, aunque Google no lo admite por completo. Por lo general, se actualiza cada semana. El canal de **desarrollador** se actualiza varias veces por semana, se envía con el código que esté disponible actualmente.
+Su dispositivo Chrome OS normalmente está en un canal estable. El canal **estable** está completamente probado y respaldado por Google, y es el mejor para evitar bloqueos u otros problemas con su sistema operativo. Hay otros dos canales: **beta** y **desarrollador** . El canal **beta** le permite ver qué sigue con un riesgo mínimo, aunque Google no lo admite por completo. Por lo general, se actualiza cada semana. El canal de **desarrollador** se actualiza varias veces por semana, se envía con el código que esté disponible actualmente.
 
 Para cambiar en qué canal estás, abre "Configuración" -> "Acerca de Chrome OS" -> "Detalles adicionales" y haz clic en el botón "Cambiar canal". Esto le mostrará un cuadro de diálogo donde puede cambiar su canal de Chrome OS. El cambio de canales requerirá una descarga de la nueva información del canal y un reinicio para poder aplicar.
 
-# 1 [cuadro de diálogo de selección de canal de Chrome OS](/images/productivity/change-channels.png)
+#1[cuadro de diálogo para selección de canal de Chrome OS](/images/productivity/change-channels.png)
 
 ## Banderas de funciones experimentales
 
@@ -29,7 +29,7 @@ Las banderas de funciones de Chrome son funciones experimentales que se envían 
 
 Si desea habilitar las banderas de funciones en su máquina, navegue a `chrome://flags` en el omnibox de su navegador Chrome; Una lista de banderas estará disponible en el estado "Predeterminado", "Habilitado" o "Deshabilitado". Encuentre el indicador de función que le interesa y cambie el estado para que surta efecto.
 
-## modo desarrollador
+## Modo desarrollador
 
 El modo de desarrollador en Chrome OS desbloquea un acceso más profundo al sistema operativo que el que tiene en un modo estable normal al eliminar algunas protecciones y mostrar algunas funcionalidades que de otro modo estarían habilitadas u ocultas para garantizar una experiencia segura y estable. De esta manera, es diferente al canal de desarrollador, que es una versión actualizada del sistema operativo que, de lo contrario, se ejecuta en modo estable. El modo de desarrollador te da más poder, pero con un gran poder viene una gran responsabilidad; solo debe habilitarlo si se siente cómodo con los riesgos asociados con hacerlo.
 
@@ -48,7 +48,7 @@ Para ingresar al modo desarrollador, complete estos pasos:
 
 Si ve una de las pantallas de la [Figura 2](#figure-2) cuando enciende su dispositivo, ha entrado con éxito en el modo desarrollador.
 
-# 2 [Pantallas de confirmación del modo desarrollador.](/images/android/dev-mode/verification.jpg)
+#2[Pantallas de confirmación del modo desarrollador.](/images/android/dev-mode/verification.jpg)
 
 !!! aside.message--note
 **Nota** : Para omitir la pantalla de carga del sistema operativo, espere 30 segundos o presione [[Control]] + [[D]], y su Chromebook continuará iniciando.

@@ -85,7 +85,7 @@ Mientras tanto, vale la pena echarle un vistazo a los [Estudios de Material Desi
 
 Uno de los estudios es [Reply](https://material.io/design/material-studies/reply.html) , un cliente de correo electrónico creado con objetivos diseñados de claridad, legibilidad, intuición y facilidad de uso al proyectar amabilidad y competencia para su marca.
 
-![Aplicación de respuesta en varios tamaños de pantalla.](/images/posts/android-at-large/reply-various-screen-sizes.jpg)
+![Aplicación Reply en varios tamaños de pantalla.](/images/posts/android-at-large/reply-various-screen-sizes.jpg)
 
 En este estudio, el contenido del mensaje no cambia significativamente entre los distintos tamaños de pantalla. Sin embargo, la navegación cambia de una navegación inferior en el diseño del teléfono inteligente a un cajón de navegación en pantallas más grandes, que aparece de forma predeterminada en las pantallas más grandes.
 
@@ -93,7 +93,7 @@ Este ejemplo muestra cómo el espacio extra en pantallas más grandes no necesit
 
 Otro estudio es [Rally](https://material.io/design/material-studies/rally.html) , una aplicación financiera, que está diseñada para mostrar la mayor cantidad de información posible para que los usuarios puedan ver rápidamente lo que necesitan para tomar decisiones sobre sus finanzas, y luego salir y seguir con su vida.
 
-![Aplicación de rally en varios tamaños de pantalla.](/images/posts/android-at-large/rally-various-screen-sizes.jpg)
+![Aplicación Rally en varios tamaños de pantalla.](/images/posts/android-at-large/rally-various-screen-sizes.jpg)
 
 ### Patrones de entrada
 
@@ -142,7 +142,7 @@ El indicador [`resizeableActivity`](https://developer.android.com/guide/topics/m
 
 Pero, si tiene una actividad configurada para que no se pueda cambiar su tamaño y su orientación esté bloqueada, el nuevo modo de compatibilidad en Android 10 ayuda a garantizar que su aplicación no tendrá un cambio de configuración cuando se despliegue un dispositivo.
 
-![Actividad que se ejecuta en modo compat en dispositivo plegable cuando se despliega](/images/posts/android-at-large/folded-to-unfolded.jpg)
+![Actividad que se ejecuta en modo compatibilidad en dispositivo plegable cuando se despliega](/images/posts/android-at-large/folded-to-unfolded.jpg)
 
 En el modo de compatibilidad, en la esquina inferior derecha, hay un botón de reinicio de actividad o aplicación para que el usuario reinicie la aplicación. Este botón permite que su aplicación obtenga la nueva configuración global y dibuje en la pantalla disponible.
 

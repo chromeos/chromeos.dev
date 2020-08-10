@@ -1,13 +1,18 @@
 {
-  "title": "Search results",
+  "title": "Resultados de búsqueda",
   "description": "Search results page description.",
-  "placeholder": "Search",
-  "error": "There is an error with search, try again later",
-  "results": "((d)) results for ((t))",
+  "placeholder": "Buscar",
+  "error": "Ha ocurrido un error con la búsqueda, por favor inténtelo más tarde",
+  "results": "((d)) resultados para ((t))",
   "offline": {
-    "enable": "Enable offline search",
-    "warning": "This will download a large amount of data",
-    "unavailable": "Search is currently unavailable, please go online",
-    "result": "Not available offline"
+    "enable": "Habilitar búsqueda sin conexión",
+    "warning": "Esta opción necesita descargar una gran cantidad de datos",
+    "unavailable": "La búsqueda no se encuentra disponible, por favor intente cuando se encuentre en línea",
+    "result": "No disponible sin conexión"
+  },
+  "pagination": {
+    "prev": "Página previa",
+    "next": "Página siguiente",
+    "page": "Página ((n))"
   }
 }
