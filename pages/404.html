@@ -1,8 +1,27 @@
----
-layout: _wrapper
-title: Not Found
----
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; URL='/en'" />
+    <style>
+      body,
+      a {
+        color: transparent;
+        animation: 0.25s ease-in 3s forwards show;
+      }
 
-{% for locale in l10n %} {% if locale['404'].title %}
-<h1>{{locale['404'].title}}</h1>
-{% endif %} {% endfor %}
+      a {
+        --color: blue;
+      }
+      @keyframes show {
+        0% {
+          color: transparent;
+        }
+        100% {
+          color: var(--color, black);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Redirecting to <a href="/en/404">page not found</a></h1>
+  </body>
+</html>

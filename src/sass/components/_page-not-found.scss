@@ -1,0 +1,17 @@
+// 404 pages
+.page-not-found {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+
+  &__title {
+    margin-top: 1rem;
+  }
+
+  &__search {
+    margin-top: 2rem;
+    width: 50%;
+  }
+}
