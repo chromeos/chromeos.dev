@@ -147,7 +147,6 @@ Ultimately, you're responsible for any data going into the containers. To easily
 
 ## How can I backup a VM?
 
-If you want to back up an individual container, you can use the standard [LXC](https://linuxcontainers.org/lxc/introduction/) commands.
 
 The simplest approach is to use the new backup functionality built into Chrome OS itself. To do so go to Settings and select “Linux (Beta)" from the left-side nav. Then navigate into “Linux”. You’ll find “Backup & restore”. If you navigate into this menu, you’ll find a “Backup” button that saves a `.tini` file for you.
 If you want to back up an individual container, another approach is to use the standard [LXC](https://linuxcontainers.org/lxc/introduction/) commands.
