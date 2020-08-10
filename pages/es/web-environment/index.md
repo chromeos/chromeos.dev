@@ -26,7 +26,7 @@ Ya que Linux en Chrome OS corre dentro de una máquina virtual, los servidores q
 
 ## El Chrome que amas
 
-Todas las herramientas de desarrollo que conoce y ama de Chrome también están en Chrome OS. Debido a que [los puertos de Linux se reenvían a Chrome](#tuneles-en-localhost-y-reenvío-de-puertos) , puede usar todo el poder de [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools?hl={{locale.code}}) , incluido [Lighthouse](https://developers.google.com/web/tools/lighthouse/hl={{locale.code}}) para desarrollar sus aplicaciones, junto con excelentes extensiones de Chrome, como [Accessibility Insights of Web](https://accessibilityinsights.io/docs/en/web/overview). Para hacerlo, inicie su servidor web y navegue a `localhost:PUERTO` (reemplazando `PUERTO` con el número de puerto de su servidor) en su navegador Chrome principal. Puede usar `penguin.linux.test` como reemplazo para localhost si es necesario.
+Todas las herramientas de desarrollo que conoce y ama de Chrome también están en Chrome OS. Debido a que [los puertos de Linux se reenvían a Chrome](#tuneles-en-localhost-y-reenvío-de-puertos) , puede usar todo el poder de [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools?hl={{locale.code}}) , incluido [Lighthouse](https://developers.google.com/web/tools/lighthouse/) para desarrollar sus aplicaciones, junto con excelentes extensiones de Chrome, como [Accessibility Insights of Web](https://accessibilityinsights.io/docs/en/web/overview). Para hacerlo, inicie su servidor web y navegue a `localhost:PUERTO` (reemplazando `PUERTO` con el número de puerto de su servidor) en su navegador Chrome principal. Puede usar `penguin.linux.test` como reemplazo para localhost si es necesario.
 
 ### Más que Chrome
 

@@ -74,7 +74,7 @@ Una vez que se apaga, las aplicaciones deberían aparecer en el iniciador, y al 
 
 Linux en Chrome OS se ejecuta dentro de un contenedor, [protegiéndolo](https://support.google.com/chromebook/answer/3438631?hl={{es}}#sandboxing) de otras páginas web, aplicaciones y el propio sistema operativo. Sin embargo, todas las aplicaciones instaladas en el contenedor de Linux _comparten_ el mismo entorno limitado, lo que significa que comparten los permisos del contenedor de Linux y pueden afectarse entre sí.
 
-Por razones de seguridad, muchos permisos, como acceso a USB o al microfono, no se comportan automáticamente. Para asegurarse que tiene los permisos adecuados habilitados, debe ir a configuración y habilitarlos. Como siempre tome precauciones con los permisos y nunca habilite más de lo que necesita. Cuando interáctue con Linux (Beta) en Chrome OS, preste particular atención a los [datos del usuario en el contenedor](/{{locale.code}}/linux/linux-on-chromeos-deep-dive#user-data-in-the-container).
+Por razones de seguridad, muchos permisos, como acceso a USB o al microfono, no se comportan automáticamente. Para asegurarse que tiene los permisos adecuados habilitados, debe ir a configuración y habilitarlos. Como siempre tome precauciones con los permisos y nunca habilite más de lo que necesita. Cuando interáctue con Linux (Beta) en Chrome OS, preste particular atención a los [datos del usuario en el contenedor](/{{locale.code}}/linux/linux-on-chromeos-deep-dive#datos-de-usuario-en-el-contenedor).
 
 ## Copia de seguridad y restauración
 
