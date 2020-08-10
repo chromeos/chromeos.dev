@@ -11,7 +11,7 @@ Mientras prepara su aplicación de Android para que se ejecute en Chromebooks, d
 
 Usted declara los requisitos de su aplicación para las funciones de hardware y ciertas funciones de software en el [archivo AndroidManifest.xml](https://developer.android.com//guide/topics/manifest/manifest-intro?hl={{locale.code}}) . Este documento describe las declaraciones de características del manifiesto de la aplicación que no son compatibles con Chromebooks.
 
-## Entradas de incompatibles
+## Entradas incompatibles
 
 Las entradas de AndroidManifest.xml enumeradas en esta sección no son actualmente compatibles con Chromebooks. Si su aplicación usa alguna de estas entradas, considere eliminarlas o incluir el valor de atributo `required="false"` con ellas para que su aplicación pueda instalarse en Chromebooks. Para obtener más información sobre cómo declarar el uso de funciones sin requerir que la función esté disponible en el dispositivo, consulte la guía para los elementos en el AndroidManifest.xml [`<uses-feature>`](https://developer.android.com//guide/topics/manifest/uses-feature-element.html?hl={{locale.code}}#market-feature-filtering) .
 
