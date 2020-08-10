@@ -254,7 +254,7 @@ Once registered, users can select that app to be the default note-taking app. Wh
 
 To test if an app responds correctly to note-taking intents without an active stylus, using the following method to show the note-taking options:
 
-1. [Switch to dev mode and make the device writable](/{{locale.code}}/android/sideload)
+1. [Switch to dev mode and make the device writable](/{{locale.code}}/android-environment/deploying-apps)
 2. Press [[Ctrl]]+[[Alt]]+[[F2]] to open a terminal
 3. Run the command `sudo vi /etc/chrome_dev.conf`
 4. Press [[i]] to edit and add `--ash-enable-palette` to a new line at the end of the file
