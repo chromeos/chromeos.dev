@@ -31,6 +31,7 @@ serviceWorker:
     - index.html
     - 404.html
     - '**/404/index.html'
+    - offline/**/index.html
 
 # Sass Config
 sass:

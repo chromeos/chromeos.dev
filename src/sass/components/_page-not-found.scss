@@ -8,10 +8,16 @@
 
   &__title {
     margin-top: 1rem;
+    max-width: 30ch;
+    text-align: center;
   }
 
   &__search {
     margin-top: 2rem;
     width: 50%;
+
+    &--hidden {
+      display: none;
+    }
   }
 }

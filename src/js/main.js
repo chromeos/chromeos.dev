@@ -34,6 +34,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const searchBox = document.querySelector('.search-box-header');
   const navPrimary = document.querySelector('.nav__primary');
   const home = document.querySelector('#home');
+  const offlineSearch = document.querySelector('[data-offline-search]');
 
   // Set default language if no language is set
   const language = await preferences.get('lang');
@@ -51,6 +52,10 @@ window.addEventListener('DOMContentLoaded', async () => {
   const logo = document.querySelector('.header__home');
   if (cookieDialog) {
     new CookieDisclaimer(cookieDialog, logo);
+  }
+
+  if (offlineSearch && (await preferences.get('offline-search'))) {
+    offlineSearch.style.display = 'block';
   }
 
   if (home) {

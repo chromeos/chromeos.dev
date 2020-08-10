@@ -13,3 +13,4 @@ serviceWorker:
     - main-*.js
     - 404.html
     - '**/404/index.html'
+    - offline/**/index.html

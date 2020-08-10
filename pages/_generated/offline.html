@@ -1,0 +1,20 @@
+---
+layout: _wrapper
+pagination:
+  data: site.l10n
+  size: 1
+  alias: l10n
+permalink: 'offline/{{ l10n.locale.code | slug }}/index.html'
+hideNewsletter: true
+---
+
+{% from 'search-box.html' import searchBox %}
+<div class="warpper wrapper--full-bleed wrapper--padded wrapper--padding wrapper--full-circles">
+  <div class="page-not-found">
+    <h1 class="type--h1">{{l10n.offline.title}}</h1>
+    <p class="type--h3 page-not-found__title">{{l10n.offline.desc}}</p>
+    <div class="page-not-found__search page-not-found__search--hidden" data-offline-search="true">
+      {{searchBox(l10n.search.placeholder, locale.code, {background: 'search-box__grey',extended:'search-box-extended', close:'search-box__close-hidden' })}}
+    </div>
+  </div>
+</div>
