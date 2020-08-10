@@ -85,9 +85,7 @@ jobs:
         id: deploy
         run: |
           CHANNEL=$(cat /proc/sys/kernel/random/uuid)
-          DEPLOYOUTPUT=$(firebase hosting:channel:deploy $CHANNEL --json)
-          echo $DEPLOYOUTPUT;
-          DEPLOY=$(firebase hosting:channel:list --token $FIREBASE_TOKEN --json | jq -r --arg CHANNEL "$CHANNEL" '.result.channels[] | select(.name | contains($CHANNEL))')
+          DEPLOY=$(firebase hosting:channel:deploy $CHANNEL --json | jq -r '.result["cros-staging"]')
           echo "::set-output name=url::$(echo $DEPLOY | jq -r '.url')"
           echo "::set-output name=sha::$GITHUB_SHA"
         env:
