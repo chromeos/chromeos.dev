@@ -17,7 +17,7 @@
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { CacheFirst, StaleWhileRevalidate, NetworkFirst } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
-import { precacheAndRoute } from 'workbox-precaching';
+import { precacheAndRoute, matchPrecache } from 'workbox-precaching';
 import { registerRoute, setCatchHandler } from 'workbox-routing';
 import { BroadcastUpdatePlugin } from 'workbox-broadcast-update';
 import * as googleAnalytics from 'workbox-google-analytics';
@@ -112,30 +112,15 @@ registerRoute(
   }),
 );
 
-setCatchHandler(({ event }) => {
-  // The FALLBACK_URL entries must be added to the cache ahead of time, either via runtime
-  // or precaching.
-  // If they are precached, then call matchPrecache(FALLBACK_URL).
-  //
-  // Use event, request, and url to figure out how to respond.
-  // One approach would be to use request.destination, see
-  // https://medium.com/dev-channel/service-worker-caching-strategies-based-on-request-types-57411dd7652c
-  switch (event.request.destination) {
-    case 'document':
-      return caches.match('/404/');
+setCatchHandler(async ({ event }) => {
+  const dest = event.request.destination;
 
-    // case 'image':
-    //   return matchPrecache(FALLBACK_IMAGE_URL);
-    // break;
-
-    // case 'font':
-    //   return matchPrecache(FALLBACK_FONT_URL);
-    // break;
-
-    default:
-      // If we don't have a fallback, just return an error response.
-      return Response.error();
+  if (dest === 'document') {
+    const lang = await preferences.get('lang');
+    return matchPrecache(`/${lang}/404/index.html`);
   }
+
+  return Response.error();
 });
 
 addEventListener('message', event => {

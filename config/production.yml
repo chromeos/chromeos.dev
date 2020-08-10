@@ -11,3 +11,5 @@ serviceWorker:
     - en/index.html
     - index.html
     - main-*.js
+    - 404/index.html
+    - '**/404/index.html'
