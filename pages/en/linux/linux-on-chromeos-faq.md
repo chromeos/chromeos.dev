@@ -143,16 +143,15 @@ If you're unfamiliar with [child accounts](https://support.google.com/families/a
 
 ## Are my VMs/containers/data synced/backed up?
 
-Currently, no, nothing is synced or backed up. You're responsible for any data going into the containers.
-
-We hope to improve this situation greatly.
+Ultimately, you're responsible for any data going into the containers. To easily sync data such as a project folder between machines, you can [share a folder in Drive with Linux](/{{locale.code}}/linux/setup#sharing-files-to-linux). Anything you add to that folder will be backed up to Drive and synced between your devices.
 
 ## How can I backup a VM?
 
-If you want to back up an individual container, you can use the standard [LXC](https://linuxcontainers.org/lxc/introduction/) commands. This is the preferred method for saving the state of Linux on Chrome OS.
+The simplest approach is to use the new backup functionality built into Chrome OS itself. To do so go to Settings and select “Linux (Beta)" from the left-side nav. Then navigate into “Linux”. You’ll find “Backup & restore”. If you navigate into this menu, you’ll find a “Backup” button that saves a `.tini` file for you.
+
+If you want to back up an individual container, another approach is to use the standard [LXC](https://linuxcontainers.org/lxc/introduction/) commands.
 
 The `vmc export` command can be used to export an entire VM manually. It will dump the qcow2 disk image to the Downloads folder by default. Note that there isn't yet a way to import a VM, so this is only useful for diagnostics or using another system to extract files.
-Another approach is to use the new backup functionality built into Chrome OS itself. To do so go to Settings and select “Linux (Beta)" from the left-side nav. Then navigate into “Linux”. You’ll find “Backup & restore”. If you navigate into this menu, you’ll find a “Backup” button that saves a `.tini` file for you.
 
 ## Can I access the VM/container files directly (e.g. via the Files app)?
 
@@ -252,7 +251,9 @@ This is now supported in the Chrome OS M84 release. To enable audio capture go t
 
 ## Can I access hardware (e.g. USB/Bluetooth/serial)?
 
-Chrome OS now allows you to enable this functionality for USB, and this is an area of active development. To enable USB access, go to Settings and select “Linux (Beta)" from the left-side nav. Then navigate into “Linux” and then into “USB preferences”. Here you can enable USB access on a case-by-case basis.
+Chrome OS now allows you to share certain devices through USB. To enable USB access, go to Settings and select “Linux (Beta)" from the left-side nav. Then navigate into “Linux” and then into “USB preferences”. Here you can enable USB access on a case-by-case basis.
+
+This is an area of active development for the team, and more devices will be supported over time.
 
 ## Can I run Wayland programs?
 
@@ -267,6 +268,8 @@ Yes, although you might run into some compatibility kinks, and it probably will 
 [Sommelier](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/) takes care of launching [XWayland](https://wayland.freedesktop.org/xserver.html), acting as the [WM](https://en.wikipedia.org/wiki/X_window_manager), and otherwise translating [X](https://en.wikipedia.org/wiki/X_Window_System) and [Wayland](https://wayland.freedesktop.org/) requests between Chrome and the [X](https://en.wikipedia.org/wiki/X_Window_System) programs.
 
 ## Why are windows sometimes tiny/fuzzy?
+
+Linux apps that are visible in the launcher shelf should have an option to use either high or low density. If you find that the resolution isn't working as desired, right-click on the icon to reveal the ability to toggle between high and low density.
 
 While Chrome supports [high DPI](https://en.wikipedia.org/wiki/HiDPI) displays, many Linux applications don‘t. When a program doesn’t properly support [DPI](https://en.wikipedia.org/wiki/Dots_per_inch#Computer_monitor_DPI_standards) scaling, poor results follow.
 
