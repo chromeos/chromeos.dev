@@ -29,7 +29,7 @@ serviceWorker:
     - images/icons/sprite.svg
     - en/index.html
     - index.html
-    - 404/index.html
+    - 404.html
     - '**/404/index.html'
 
 # Sass Config

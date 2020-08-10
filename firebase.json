@@ -12,11 +12,6 @@
         "source": "/",
         "destination": "/en",
         "type": 301
-      },
-      {
-        "source": "/404",
-        "destination": "/en/404",
-        "type": 301
       }
     ],
     "public": "public",
