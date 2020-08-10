@@ -7,7 +7,7 @@ weight: 10
 
 ## ¿Dónde puedo chatear con los desarrolladores?
 
-Todas las discusiones de desarrollo de Chromium OS ocurren en nuestra [Comunidad de ayuda de Chromebook](https://support.google.com/chromebook/community) . No dude en preguntar cualquier cosa, pero asegúrese de buscar para ver si su pregunta ya se ha abordado primero.
+Todas las discusiones de desarrollo de Chromium OS ocurren en nuestra [Comunidad de ayuda de Chromebook](https://support.google.com/chromebook/community?hl={{locale.code}}) . No dude en preguntar cualquier cosa, pero asegúrese de buscar para ver si su pregunta ya se ha abordado primero.
 
 ## ¿Dónde puedo presentar solicitudes de nueva funcionalidad?
 
@@ -17,7 +17,7 @@ Mientras tanto, siéntase libre de chatear / preguntar en la lista de correo ant
 
 Una vez que estemos en un lugar más estable, puede usar nuestro rastreador de problemas. Vea la siguiente pregunta para más detalles.
 
-## ¿Dónde puedo archivar errores?
+## ¿Dónde puedo reportar errores?
 
 Primero asegúrese de estar utilizando el último canal de desarrollo. Aún queda mucho trabajo por hacer.
 
@@ -29,13 +29,13 @@ Si aún desea presentar un error con los desarrolladores, use [este enlace](http
 
 ## ¿Por qué el nombre Crostini?
 
-Es un juego de palabras a partir de [crouton](https://github.com/dnschneid/crouton) que es un proyecto para crear fácilmente entornos completos de Linux (incluidas las herramientas de desarrollo) para los usuarios que activaron el modo de desarrollador. Crostini (Linux en Chrome OS) tiene como objetivo satisfacer la mayoría de los casos de uso cubiertos por [crutón](https://github.com/dnschneid/crouton) , y es un bocadillo más grande y sabroso que un crutón, de ahí su nombre.
+Es un juego de palabras a partir de [crouton](https://github.com/dnschneid/crouton) que es un proyecto para crear fácilmente entornos completos de Linux (incluidas las herramientas de desarrollo) para los usuarios que activaron el modo de desarrollador. Crostini (Linux en Chrome OS) tiene como objetivo satisfacer la mayoría de los casos de uso cubiertos por [cruton](https://github.com/dnschneid/crouton) , y es un bocadillo más grande y sabroso que un crutón, de ahí su nombre.
 
 ## ¿Cómo se relaciona Crostini (Linux en Chrome OS) con Crouton?
 
 [crouton](https://github.com/dnschneid/crouton) ayudó a definir muchos de los casos de uso que los desarrolladores querían con Chrome OS, por lo que ayudó a guiar Linux en Chrome OS desde una perspectiva de requisitos. Queríamos asegurarnos de que la mayoría de los usuarios de [crouton](https://github.com/dnschneid/crouton) pudieran usar Linux en Chrome OS para sus necesidades, pero en un entorno seguro.
 
-Así que [Crouton](https://github.com/dnschneid/crouton) ayudó a inspirar la dirección de Linux en Chrome OS, pero ningún código ha sido compartido o reutilizado entre los dos. No es que [crouton](https://github.com/dnschneid/crouton) sea malo, es simplemente un modelo completamente diferente.
+Así que [crouton](https://github.com/dnschneid/crouton) ayudó a inspirar la dirección de Linux en Chrome OS, pero ningún código ha sido compartido o reutilizado entre los dos. No es que [crouton](https://github.com/dnschneid/crouton) sea malo, es simplemente un modelo completamente diferente.
 
 ## ¿Cuándo será compatible mi dispositivo?
 
@@ -47,19 +47,19 @@ Por lo tanto, no nos solicite planes de soporte de dispositivos, ya que no las t
 
 No es necesario habilitar el modo de desarrollador (donde ve la pantalla que asusta en el arranque sobre la verificación del sistema operativo desactivada). Todas estas características están diseñadas para ejecutarse de manera segura mientras su sistema se ejecuta en modo normal / verificado.
 
-Para algunos dispositivos, es posible que deba cambiar al [canal de desarrollo](https://support.google.com/chromebook/answer/1086915) , pero eso no tiene ninguna relación con el modo desarrollador.
+Para algunos dispositivos, es posible que deba cambiar al [canal de desarrollo](https://support.google.com/chromebook/answer/1086915?hl={{locale.code}}) , pero eso no tiene ninguna relación con el modo desarrollador.
 
 ## ¿Estoy ejecutando Linux en Chrome OS?
 
-Si está utilizando la aplicación o los programas de [Terminal](/%7B%7Blocale.code%7D%7D/linux/linux-on-chromeos-glossary#term--terminal-app) en el contenedor predeterminado que proporcionamos, incluidos nuestros programas para facilitar la integración (por ejemplo, [Sommelier](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/) ), entonces sí.
+Si está utilizando la aplicación o los programas de [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app) en el contenedor predeterminado que proporcionamos, incluidos nuestros programas para facilitar la integración (por ejemplo, [Sommelier](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/) ), entonces sí.
 
-Si está ejecutando su propio contenedor o [VM](https://en.wikipedia.org/wiki/Virtual_machine) , entonces no.
+Si está ejecutando su propio contenedor o [VM](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) , entonces no.
 
 ## ¿Por qué ejecutar máquinas virtuales? ¿No son seguros los contenedores?
 
 Si bien los contenedores a menudo se aíslan (a través de [namespaces](http://man7.org/linux/man-pages/man7/namespaces.7.html) en Linux), no aíslan el núcleo o recursos similares del sistema. Eso significa que solo se necesita un solo error en el núcleo para explotar completamente el sistema y robar sus datos.
 
-Eso no es lo suficientemente bueno para Chrome OS, por lo tanto, colocamos todo dentro de una [VM](https://en.wikipedia.org/wiki/Virtual_machine) . Ahora tiene que explotar [crosvm a](https://chromium.googlesource.com/chromiumos/platform/crosvm/) través de sus interacciones limitadas con el secundario, y [crosvm en](https://chromium.googlesource.com/chromiumos/platform/crosvm/) sí está fuertemente aislado.
+Eso no es lo suficientemente bueno para Chrome OS, por lo tanto, colocamos todo dentro de una [VM](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) . Ahora tiene que explotar [crosvm a](https://chromium.googlesource.com/chromiumos/platform/crosvm/) través de sus interacciones limitadas con el secundario, y [crosvm en](https://chromium.googlesource.com/chromiumos/platform/crosvm/) sí está fuertemente aislado.
 
 Para obtener más detalles, consulte la sección [Seguridad](https://chromium.googlesource.com/chromiumos/docs/+/1792b43fc9fd32b4e9e4aa03ad20a6c24f511d84/containers_and_vms.md#security) de los documentos oficiales de Chromium OS.
 
@@ -102,7 +102,7 @@ Actualmente no hay soporte integrado para ejecutar, por ejemplo, código ARM en 
 
 ## ¿Puedo ejecutar programas que siguen ejecutándose después de cerrar sesión?
 
-No! Todas las [máquinas virtuales](https://en.wikipedia.org/wiki/Virtual_machine) (y sus contenedores) están vinculadas a su sesión de inicio de sesión. Tan pronto como cierre la sesión, todos los programas se cerrarán / eliminarán por diseño.
+No! Todas las [máquinas virtuales](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) (y sus contenedores) están vinculadas a su sesión de inicio de sesión. Tan pronto como cierre la sesión, todos los programas se cerrarán / eliminarán por diseño.
 
 Dado que todos sus datos viven en su hogar encriptado, no nos gustaría que eso se filtre cuando cierre la sesión.
 
@@ -110,7 +110,7 @@ Para obtener más detalles, consulte la sección [Seguridad](https://chromium.go
 
 ## ¿Puedo ejecutar programas automáticamente cuando inicio sesión?
 
-No! Todas las [máquinas virtuales](https://en.wikipedia.org/wiki/Virtual_machine) (y sus contenedores) deben relanzarse manualmente. Esto ayuda a prevenir ataques persistentes.
+No! Todas las [máquinas virtuales](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) (y sus contenedores) deben relanzarse manualmente. Esto ayuda a prevenir ataques persistentes.
 
 Para obtener más detalles, consulte la sección [Seguridad](https://chromium.googlesource.com/chromiumos/docs/+/1792b43fc9fd32b4e9e4aa03ad20a6c24f511d84/containers_and_vms.md#security) de los documentos oficiales de Chromium OS.
 
@@ -122,24 +122,24 @@ No! Ver las preguntas anteriores.
 
 ¡Por supuesto! Hay algunas formas de hacer esto.
 
-- [environment.d ](https://www.freedesktop.org/software/systemd/man/environment.d.html) le permite establecer variables de entorno para su sesión `systemd --user` , que incluye el [Terminal](/%7B%7Blocale.code%7D%7D/linux/linux-on-chromeos-glossary#term--terminal-app) y todas las aplicaciones GUI. Es posible que necesite un contenedor más nuevo, [Debian](https://www.debian.org/) 10 "buster", para utilizar este método.
-- Si desea variables de entorno en su [Terminal](/%7B%7Blocale.code%7D%7D/linux/linux-on-chromeos-glossary#term--terminal-app), las puede establerce en los archivos de configuración del shell, como por ejemplo `~/.bashrc` o `~/.zshrc`.
+- [environment.d](https://www.freedesktop.org/software/systemd/man/environment.d.html) le permite establecer variables de entorno para su sesión `systemd --user` , que incluye el [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app) y todas las aplicaciones GUI. Es posible que necesite un contenedor más nuevo, [Debian](https://www.debian.org/) 10 "buster", para utilizar este método.
+- Si desea variables de entorno en su [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app), las puede establerce en los archivos de configuración del shell, como por ejemplo `~/.bashrc` o `~/.zshrc`.
 
 Los cambios en las variables de entorno solo tienen efecto para los programas recién iniciados. También es posible que deba reiniciar los programas o todo el contenedor para que los cambios surtan efecto.
 
 ## ¿Se admite perfiles múltiples?
 
-No, [Terminal](/%7B%7Blocale.code%7D%7D/linux/linux-on-chromeos-glossary#term--terminal-app) solo se admite en el perfil primario (\*). Nuestro objetivo es tener una experiencia totalmente funcional y fluida para el perfil primario, y no bloquear o causar problemas en los perfiles secundarios. No planeamos hacer que los perfiles secundarios más funcionales.
+No, [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app) solo se admite en el perfil primario (\*). Nuestro objetivo es tener una experiencia totalmente funcional y fluida para el perfil primario, y no bloquear o causar problemas en los perfiles secundarios. No planeamos hacer que los perfiles secundarios más funcionales.
 
-Si no está familiarizado con [pérfiles múltiples](https://support.google.com/chromebook/answer/6088201) , visite la [documentación general de pérfiles múltiples](https://support.google.com/chromebook/answer/6088201) para más detalles.
+Si no está familiarizado con [pérfiles múltiples](https://support.google.com/chromebook/answer/6088201) , visite la [documentación general de pérfiles múltiples](https://support.google.com/chromebook/answer/6088201?hl={{locale.code}}) para más detalles.
 
-(\*): La aplicación [Terminal](/%7B%7Blocale.code%7D%7D/linux/linux-on-chromeos-glossary#term--terminal-app) está deshabilitada en todos los perfiles secundarios. Las personas pueden iniciar [máquinas virtuales](https://en.wikipedia.org/wiki/Virtual_machine) manualmente a través de [crosh](https://chromium.googlesource.com/chromiumos/platform2/+/master/crosh/) y contenedores, pero la aplicación de interfaz de usuario y archivos probablemente no funcionará automáticamente.
+(\*): La aplicación [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app) está deshabilitada en todos los perfiles secundarios. Las personas pueden iniciar [máquinas virtuales](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) manualmente a través de [crosh](https://chromium.googlesource.com/chromiumos/platform2/+/master/crosh/) y contenedores, pero la aplicación de interfaz de usuario y archivos probablemente no funcionará automáticamente.
 
 ## ¿Se admiten cuentas secundarias?
 
-No, [Terminal](/%7B%7Blocale.code%7D%7D/linux/linux-on-chromeos-glossary#term--terminal-app) no es compatible con [cuentas secundarias](https://support.google.com/families/answer/7680868) . No tenemos planes de poner esto a disposición de dichas cuentas.
+No, [Terminal](/{{locale.code}}/linux/linux-on-chromeos-glossary#term--terminal-app) no es compatible con [cuentas secundarias](https://support.google.com/families/answer/7680868?hl={{locale.code}}) . No tenemos planes de poner esto a disposición de dichas cuentas.
 
-Si no está familiarizado con [cuentas secundarias](https://support.google.com/families/answer/7680868), visite la documentación general sobre [cuentas secundarias](https://support.google.com/families/answer/7680868) para más detalles.
+Si no está familiarizado con [cuentas secundarias](https://support.google.com/families/answer/7680868), visite la documentación general sobre [cuentas secundarias](https://support.google.com/families/answer/7680868?hl={{locale.code}}) para más detalles.
 
 ## ¿Mis máquinas virtuales / contenedores / datos están sincronizados / respaldados?
 
@@ -155,17 +155,17 @@ El comando de `vmc export` se puede usar para exportar una máquina virtual comp
 
 ## ¿Puedo acceder a los archivos VM / contenedor directamente (por ejemplo, a través de la aplicación Archivos)?
 
-Actualmente, no, no hay forma de acceder a los archivos de imagen utilizados por la [VM](https://en.wikipedia.org/wiki/Virtual_machine) . No hay planes para cambiar esto.
+Actualmente, no, no hay forma de acceder a los archivos de imagen utilizados por la [VM](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) . No hay planes para cambiar esto.
 
 Si desea respaldar las cosas, deberá hacerlo a mano.
 
 ## ¿Por qué el tiempo dentro de la VM / contenedor no está sincronizado?
 
-El reloj dentro de la [VM](https://en.wikipedia.org/wiki/Virtual_machine) (y, por extensión, los contenedores) se mantiene sincronizado automáticamente con el reloj de Chrome OS. Por lo tanto, no tiene que ejecutar los servicios de mantenimiento de tiempo usted mismo (por ejemplo, ntp). Ese reloj se basa en [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) .
+El reloj dentro de la [VM](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) (y, por extensión, los contenedores) se mantiene sincronizado automáticamente con el reloj de Chrome OS. Por lo tanto, no tiene que ejecutar los servicios de mantenimiento de tiempo usted mismo (por ejemplo, ntp). Ese reloj se basa en [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) .
 
 Comenzando con R75, intentamos sincronizar los datos de la zona horaria en el contenedor a través de [timedatectl](https://www.freedesktop.org/software/systemd/man/timedatectl.html) . Si eso no funciona, recurrimos a la exportación de la variable de entorno `TZ` .
 
-Actualmente no actualizamos los detalles de la zona horaria dentro de la propia [máquina virtual](https://en.wikipedia.org/wiki/Virtual_machine) . Tampoco intentamos actualizar ninguna otra configuración de zona horaria, ya que no son estándar en todas las distribuciones. Por lo tanto, puede parecer que el tiempo es incorrecto de un vistazo en esos entornos, o se vence si se usa la variable de entorno `TZ` .
+Actualmente no actualizamos los detalles de la zona horaria dentro de la propia [máquina virtual](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) . Tampoco intentamos actualizar ninguna otra configuración de zona horaria, ya que no son estándar en todas las distribuciones. Por lo tanto, puede parecer que el tiempo es incorrecto de un vistazo en esos entornos, o se vence si se usa la variable de entorno `TZ` .
 
 Consulte [https://crbug.com/829934](https://crbug.com/829934) para obtener más detalles técnicos. ¡Es más complicado de lo que parece!
 
@@ -195,13 +195,13 @@ Si usa las herramientas `xclip` o [X](https://en.wikipedia.org/wiki/X_Window_Sys
 
 No! [Termina](https://chromium.googlesource.com/chromiumos/overlays/board-overlays/+/master/project-termina/) [VM](https://en.wikipedia.org/wiki/Virtual_machine) es un [componente](https://chromium.googlesource.com/chromium/src/+/lkgr/components/component_updater/README.md) que se actualiza automáticamente.
 
-Tenga en cuenta que la [VM](https://en.wikipedia.org/wiki/Virtual_machine) está separada del contenedor.
+Tenga en cuenta que la [VM](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) está separada del contenedor.
 
 ## ¿Cómo verifico la versión de Termina?
 
 Dado que [Termina](https://chromium.googlesource.com/chromiumos/overlays/board-overlays/+/master/project-termina/) es un componente descargado, puede visitar chrome: // components en una nueva pestaña y buscar `cros-termina` .
 
-También puede conectarse a una [máquina virtual a](https://en.wikipedia.org/wiki/Virtual_machine) través de [vsh](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/vsh/) y ejecutar `cat /etc/lsb-release` .
+También puede conectarse a una [máquina virtual a](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) través de [vsh](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/vsh/) y ejecutar `cat /etc/lsb-release` .
 
 ## ¿Tengo que administrar las actualizaciones de contenedores?
 
@@ -215,7 +215,7 @@ Puede ejecutar `sudo apt-get update && sudo apt-get dist-upgrade` .
 
 Sí, comenzando con R81. Se admiten redes de doble pila y solo IPv6.
 
-Chrome OS solo es compatible con SLAAC; Lea más en la página de soporte para [soporte de IPv6 en Chrome OS](https://support.google.com/chrome/a/answer/9211990) .
+Chrome OS solo es compatible con SLAAC; Lea más en la página de soporte para [soporte de IPv6 en Chrome OS](https://support.google.com/chrome/a/answer/9211990?hl={{locale.code}}) .
 
 ## ¿Puedo acceder a la red de capa 2?
 
@@ -229,7 +229,7 @@ Actualmente no. Puede seleccionar [https://crbug.com/834585](https://crbug.com/8
 
 ## ¿Se admite la salida de audio?
 
-Sí, comenzando con R74 ( [Termina](https://chromium.googlesource.com/chromiumos/overlays/board-overlays/+/master/project-termina/) versión 11707.0.0+).
+Sí, comenzando con R74 ([Termina](https://chromium.googlesource.com/chromiumos/overlays/board-overlays/+/master/project-termina/) versión 11707.0.0+).
 
 Si configuró su contenedor antes de que se implementara el soporte de audio, es posible que no esté configurado correctamente (ya que el valor predeterminado anterior era la salida al dispositivo nulo). Puede probar estos pasos para recuperarlo:
 
@@ -299,7 +299,7 @@ Para obtener más detalles, consulte el proyecto [crosvm](https://chromium.googl
 
 ## ¿Las máquinas virtuales no hacen todo más lento?
 
-Ciertamente es cierto que las [máquinas virtuales](https://en.wikipedia.org/wiki/Virtual_machine) agregan gastos generales en comparación con la ejecución solo en un contenedor o directamente en el sistema. Sin embargo, en nuestras pruebas, los gastos generales son insignificantes para la experiencia del usuario, y bien valen las fuertes ganancias en seguridad del sistema.
+Ciertamente es cierto que las [máquinas virtuales](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) agregan gastos generales en comparación con la ejecución solo en un contenedor o directamente en el sistema. Sin embargo, en nuestras pruebas, los gastos generales son insignificantes para la experiencia del usuario, y bien valen las fuertes ganancias en seguridad del sistema.
 
 Para obtener más detalles, consulte la sección [Seguridad](https://chromium.googlesource.com/chromiumos/docs/+/1792b43fc9fd32b4e9e4aa03ad20a6c24f511d84/containers_and_vms.md#security) de los documentos oficiales de Chromium OS.
 
@@ -339,7 +339,7 @@ Claro, siéntase libre de eliminar lo que quiera. El comando `vmc destroy` puede
 
 ## ¿Puedo desactivar estas funciones?
 
-Los administradores pueden controlar el acceso a contenedores / [VMs ](https://en.wikipedia.org/wiki/Virtual_machine) a través de la consola de administración, por lo que las organizaciones empresariales / educativas que desean limitar esto pueden hacerlo.
+Los administradores pueden controlar el acceso a contenedores / [VMs](https://en.wikipedia.org/wiki/Virtual_machine) a través de la consola de administración, por lo que las organizaciones empresariales / educativas que desean limitar esto pueden hacerlo.
 
 Inicialmente hay una opción "Linux (Beta)" en la configuración estándar de Chrome OS, pero el plan a largo plazo es eliminar este botón para que todo funcione a pedido. En ese momento, no habrá perilla para dispositivos no administrados.
 
@@ -365,7 +365,7 @@ Puede generar tantos como su sistema pueda manejar (RAM / CPU). Todos son indepe
 
 ## ¿Cuántos contenedores puedo ejecutar?
 
-Puede generar tantos como su sistema pueda manejar (RAM / CPU). Cada instancia de [VM](https://en.wikipedia.org/wiki/Virtual_machine) puede alojar múltiples contenedores.
+Puede generar tantos como su sistema pueda manejar (RAM / CPU). Cada instancia de [VM](https://es.wikipedia.org/wiki/M%C3%A1quina_virtual) puede alojar múltiples contenedores.
 
 ## ¿Qué formatos de contenedor son compatibles?
 

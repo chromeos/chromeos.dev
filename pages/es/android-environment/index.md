@@ -5,16 +5,16 @@ date: 2020-06-08
 weight: -7
 tools:
   - name: Puente de depuración de Android (ADB)
-    url: https://developer.android.com/studio/command-line/adb
+    url: https://developer.android.com/studio/command-line/adb?hl={{locale.code}}
     versions:
-      min: alguna
+      min: cualquiera
 ---
 
-Los dispositivos Chrome OS brindan el beneficio único de que puede crear aplicaciones de Android en ellos, y también puede ejecutar aplicaciones de Android en dispositivos Chrome. Puede implementar directamente en el dispositivo en el que está codificando, lo que puede facilitar la creación y las pruebas. Probar su aplicación en Chrome OS lo ayuda a comprender mejor la experiencia del usuario y cómo optimizar la experiencia de su aplicación para [pantallas grandes](/%7B%7Blocale.code%7D%7D/android/design#layouts-for-larger-screens) y [soporte de entrada](/%7B%7Blocale.code%7D%7D/android/input-compatibility) . Además, podrá implementar y probar su aplicación desde su dispositivo Chrome OS en un teléfono, tableta u otro dispositivo Chrome OS.
+Los dispositivos Chrome OS brindan el beneficio único de que puede crear aplicaciones de Android en ellos, y también puede ejecutar aplicaciones de Android en dispositivos Chrome. Puede implementar directamente en el dispositivo en el que está codificando, lo que puede facilitar la creación y las pruebas. Probar su aplicación en Chrome OS lo ayuda a comprender mejor la experiencia del usuario y cómo optimizar la experiencia de su aplicación para [pantallas grandes](/{{locale.code}}/android/design#layouts-for-larger-screens) y [soporte de entrada](/{{locale.code}}/android/input-compatibility). Además, podrá implementar y probar su aplicación desde su dispositivo Chrome OS en un teléfono, tableta u otro dispositivo Chrome OS.
 
 ### Instalar Android Studio en Chrome OS
 
-Android Studio ha estado oficialmente disponible en Chrome OS desde [la versión 3.5](https://developer.android.com/studio/releases#chrome-os-support). Para instalar Android Studio siga las instrucciones [para instalar Android Studio en Chrome OS](https://developer.android.com/studio/install#chrome-os).
+Android Studio ha estado oficialmente disponible en Chrome OS desde [la versión 3.5](https://developer.android.com/studio/releases#chrome-os-support?hl={{locale.code}}). Para instalar Android Studio siga las instrucciones [para instalar Android Studio en Chrome OS](https://developer.android.com/studio/install?hl={{locale.code}}#chrome-os).
 
 #### Requisitos del sistema para Android Studio
 
@@ -37,9 +37,9 @@ Android Studio ha estado oficialmente disponible en Chrome OS desde [la versión
 
 Junto con el uso de Android Studio en su Chromebook, es posible que también desee usar Flutter para ayudarlo a crear experiencias hermosas y rápidas en sus aplicaciones de Android y Chrome OS. Flutter proporciona soporte adicional y herramientas diseñadas específicamente para la entrada de teclado y mouse y la administración de ventanas, que son importantes para admitir al adaptar su aplicación de una experiencia de teléfono Android tradicional a una experiencia de Chromebook.
 
-Descubre más sobre por qué [Flutter y Chrome OS son mejores juntos](/%7B%7Blocale.code%7D%7D/posts/flutter-and-chromeos-better-together) . Para comenzar a usar Flutter en Chrome OS, siga las [instrucciones de instalación de Chrome OS](https://flutter.dev/docs/get-started/install/chromeos) en el sitio de Flutter.
+Descubre más sobre por qué [Flutter y Chrome OS son mejores juntos](/{{locale.code}}/posts/flutter-and-chromeos-better-together) . Para comenzar a usar Flutter en Chrome OS, siga las [instrucciones de instalación de Chrome OS](https://flutter.dev/docs/get-started/install/chromeos) en el sitio de Flutter.
 
-### Soporte de emulador de Android
+### Soporte para emulador de Android
 
 Las Chromebooks compatibles ahora pueden ejecutar una versión completa del emulador de Android, que permite a los desarrolladores probar aplicaciones en cualquier versión y dispositivo Android sin necesidad del hardware real. Los desarrolladores de aplicaciones de Android pueden simular ubicaciones de mapas y otros datos de sensores para probar cómo funciona una aplicación con diversos movimientos, orientación y condiciones ambientales. Con el soporte de Android Emulator en Chrome OS, los desarrolladores pueden optimizar para diferentes versiones y dispositivos de Android, incluidas tabletas y teléfonos inteligentes plegables, directamente desde su Chromebook.
 

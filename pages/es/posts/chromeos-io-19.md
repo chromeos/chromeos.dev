@@ -19,17 +19,17 @@ Solo en el último año, el ecosistema de Chrome OS ha crecido a un ritmo incre�
 
 En I/O este año, mostramos a los desarrolladores web y de Android algunas de las mejoras más interesantes que han hecho que Chrome OS sea un entorno aún más rápido, simple y seguro que nunca. Veamos algunos de los aspectos más destacados:
 
-### Compartir archivos
+## Compartir archivos
 
 Hoy anunciamos que es mucho más fácil compartir archivos entre Linux, Android y Chrome OS. Ahora se puede usar el administrador de archivos para mover sus archivos de manera segura a través de Chrome OS, Google Drive, Android y Linux.
 
 ![El administrador de archivos le permite compartir archivos en Chrome OS, Google Drive, Android y Linux.](/images/posts/chromeos-io-19/file-sharing.gif)
 
-### Reenvío de puertos
+## Reenvío de puertos
 
 También hemos realizado mejoras en el reenvío de puertos en Chrome OS, lo que facilita la conexión de servicios de red entre Linux y Chrome OS. De esa manera, puede ejecutar un servidor web dentro del contenedor Linux mientras se depura en la misma máquina.
 
-### Instalación de Android Studio con un solo clic y depuración integrada
+## Instalación de Android Studio con un solo clic y depuración integrada
 
 Instalar Android Studio en Chrome OS solía ser un proceso algo largo. Ahora, se necesita un simple doble clic. No es necesario usar una terminal para descargar, mover y descomprimir el archivo, simplemente descárguelo, haga clic e instálelo.
 
@@ -53,7 +53,7 @@ Debido a que millones de aplicaciones de Android ya se ejecutan en Chrome OS, pu
 
 ## Desarrollador destacado: Concepts y BandLab
 
-A medida que las personas usan las aplicaciones de maneras más impredecibles e inspiradoras, los desarrolladores ven una participación aún mayor después de la optimización para pantallas más grandes. Mire el video a continuación para ver cómo [Concepts](/%7B%7Blocale.code%7D%7D/stories/concepts) creó un lienzo más grande y más receptivo para los aspirantes a diseñadores digitales y cómo BandLab les dio a los músicos una plataforma más inmersiva para explorar y componer nueva música.
+A medida que las personas usan las aplicaciones de maneras más impredecibles e inspiradoras, los desarrolladores ven una participación aún mayor después de la optimización para pantallas más grandes. Mire el video a continuación para ver cómo [Concepts](/{{locale.code}}/stories/concepts) creó un lienzo más grande y más receptivo para los aspirantes a diseñadores digitales y cómo BandLab les dio a los músicos una plataforma más inmersiva para explorar y componer nueva música.
 
 @ [youtube](https://www.youtube.com/watch?v=ypTbEKzwMEo)
 

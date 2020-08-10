@@ -1,16 +1,16 @@
 {
   "layout": "tech-detail",
-  "tags": ["publish"],
+  "tags": ["publicar"],
   "section": "publish",
-  "eyebrow": "Publishing",
+  "eyebrow": "Publicar",
   "resources": [
     {
       "title": "Google Play",
-      "url": "https://developer.android.com/distribute/"
+      "url": "https://developer.android.com/distribute/?hl=es"
     },
     {
       "title": "Play Console Help",
-      "url": "https://support.google.com/googleplay/android-developer/?hl=en#topic=3450769"
+      "url": "https://support.google.com/googleplay/android-developer/?hl=es#topic=3450769"
     }
   ]
 }

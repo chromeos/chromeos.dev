@@ -9,9 +9,9 @@ Chrome OS viene con atajos de teclado incorporados y gestos de panel táctil par
 
 ## Atajos de teclado
 
-Los atajos de teclado lo ayudan a realizar tareas rápidamente sin necesidad de buscar acciones en el menú de una aplicación o con el mouse. Se encuentra disponible [una lista completa de métodos abreviados de teclado](https://support.google.com/chromebook/answer/183101) , a continuación se encuentran los métodos abreviados de teclado comunes de Chrome OS que pueden ayudarlo a ser más productivo:
+Los atajos de teclado lo ayudan a realizar tareas rápidamente sin necesidad de buscar acciones en el menú de una aplicación o con el mouse. Se encuentra disponible [una lista completa de métodos abreviados de teclado](https://support.google.com/chromebook/answer/183101?hl={{locale.code}}), a continuación se encuentran los métodos abreviados de teclado comunes de Chrome OS que pueden ayudarlo a ser más productivo:
 
-- **Pantalla de bloqueo** : [[buscar]] + [[l]]
+- **Bloquear la pantalla** : [[buscar]] + [[l]]
 - **Aplicación de archivos** : [[shift]] + [[alt]] + [[m]]
 - **Abra la nueva terminal de crosh shell** : [[ctrl]] + [[alt]] + [[t]]
 - **Acople la ventana actual a la izquierda o derecha** : [[alt]] + [[[]] o [[alt]] + [[]]]
@@ -25,7 +25,7 @@ Los atajos de teclado lo ayudan a realizar tareas rápidamente sin necesidad de 
 - **Ver todos los atajos de teclado** : [[ctrl]] + [[alt]] + [[/]]
 - **Manual de ayuda de Chromebook** : [[ctrl]] + [[/]]
 
-También hay una serie de [teclas únicas](https://support.google.com/chromebook/answer/1047364) en el teclado de su Chromebook que puede usar para mejorar aún más su experiencia.
+También hay una serie de [teclas únicas](https://support.google.com/chromebook/answer/1047364?hl={{locale.code}}) en el teclado de su Chromebook que puede usar para mejorar aún más su experiencia.
 
 ### Cambio de combinaciones de teclas
 
@@ -35,7 +35,7 @@ Muchas de las combinaciones de teclas predeterminadas en su dispositivo Chrome O
 
 ## Gestos del panel táctil
 
-El panel táctil o el panel táctil son útiles para conocer las funciones de deslizar y tocar:
+El panel táctil(trackpad) son útiles para conocer las funciones de deslizar y tocar:
 
 - **Ver todas las ventanas** : desliza tres dedos hacia arriba
 - **Ir hacia atrás / adelante en un navegador** : deslizar hacia la izquierda / derecha con dos dedos
@@ -47,4 +47,4 @@ Algunos usuarios que vienen de otras plataformas a Chrome OS pueden notar que el
 
 ![Menú de opciones de configuración del panel táctil.](/images/productivity/touchpad-settings.png)
 
-Si quiere saber más, visite para aprender que otras maneras puede utilizar el [ touchpad de Chromebook](https://support.google.com/chromebook/answer/1047367)
+Si quiere saber más, visite para aprender que otras maneras puede utilizar el [touchpad de Chromebook](https://support.google.com/chromebook/answer/1047367?hl={{locale.code}})

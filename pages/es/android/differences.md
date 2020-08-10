@@ -9,7 +9,7 @@ Debido a que las aplicaciones de Android se ejecutan en una ventana en Chrome OS
 
 ## Tareas, ventanas y transparencia.
 
-Una [tarea](https://developer.android.com/guide/components/activities/tasks-and-back-stack) consiste en una pila de actividades con las que el usuario interactúa cuando ejecuta una aplicación. Las tareas se presentan en Chrome OS como una ventana con una barra de título, con las aplicaciones superpuestas. Cada actividad puede estar parcialmente translúcida, permitiendo que las capas inferiores se vean.
+Una [tarea](https://developer.android.com/guide/components/activities/tasks-and-back-stack?hl={{locale.code}}) consiste en una pila de actividades con las que el usuario interactúa cuando ejecuta una aplicación. Las tareas se presentan en Chrome OS como una ventana con una barra de título, con las aplicaciones superpuestas. Cada actividad puede estar parcialmente translúcida, permitiendo que las capas inferiores se vean.
 
 En una aplicación de Android convencional, la tarea anterior o el escritorio se muestran debajo de la tarea. De esta manera, siempre hay algo visible debajo de una tarea translúcida.
 

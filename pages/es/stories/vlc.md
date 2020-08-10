@@ -35,7 +35,7 @@ VideoLAN diseñó varias versiones del diseño para permitir a los usuarios esca
 
 Anteriormente, el equipo necesitaba usar emuladores individuales o dispositivos separados para probar cada diseño. Pero, con el soporte de Android para Chrome OS, el equipo pudo probar el diseño de la interfaz de usuario para computadoras de escritorio, tabletas y dispositivos móviles de una sola vez, en el mismo dispositivo y sin tener que usar un emulador. Esto aceleró sustancialmente el diseño y los tiempos de prueba.
 
-Y ahora con [Linux (Beta) en Chrome OS](/%7B%7Blocale.code%7D%7D/linux) , los desarrolladores pueden usar Android Studio para crear y probar aplicaciones de Android de forma nativa, lo que hace que los dispositivos Chromebook estén listos para el desarrollo.
+Y ahora con [Linux (Beta) en Chrome OS](/{{locale.code}}/linux) , los desarrolladores pueden usar Android Studio para crear y probar aplicaciones de Android de forma nativa, lo que hace que los dispositivos Chromebook estén listos para el desarrollo.
 
 ![Imagen que muestra varias versiones de diseño, ejemplos de cambio de tamaño dinámico en dispositivos móviles, tabletas y computadoras portátiles.](gs://stories/vlc/vlc-1)
 
@@ -43,7 +43,7 @@ Y ahora con [Linux (Beta) en Chrome OS](/%7B%7Blocale.code%7D%7D/linux) , los de
 
 Lo mejor de todo es que el equipo hizo todo el trabajo en [Kotlin](https://developer.android.com/kotlin) , un poderoso lenguaje de programación que los ayudó a mejorar la productividad al escribir en un código más seguro y conciso. Al reducir la base de código de la aplicación, pudieron pasar menos tiempo resolviendo problemas y más tiempo optimizando el diseño y la funcionalidad de la aplicación.
 
-"Por lo general, somos reacios a reestructurar o reescribir nuestro código principalmente porque corremos el riesgo de perder la funcionalidad", dijo Geoffrey Métais, desarrollador líder de Android de VideoLAN. "Nos complació encontrar que la transición de Java a Kotlin fue realmente fluida, gracias a la herramienta de migración integrada de Android Studio, y el [marco de las corutinas](https://developer.android.com/kotlin/coroutines) de Kotlin nos ayudó a mejorar el rendimiento".
+"Por lo general, somos reacios a reestructurar o reescribir nuestro código principalmente porque corremos el riesgo de perder la funcionalidad", dijo Geoffrey Métais, desarrollador líder de Android de VideoLAN. "Nos complació encontrar que la transición de Java a Kotlin fue realmente fluida, gracias a la herramienta de migración integrada de Android Studio, y el [framework de co-rutinas](https://developer.android.com/kotlin/coroutines) de Kotlin nos ayudó a mejorar el rendimiento".
 
 ## Resultados
 
@@ -57,4 +57,4 @@ VideoLAN usó el mismo APK para dispositivos móviles, Chrome OS y Android TV, p
 
 ## Empezar
 
-Consulte algunas de las mejores prácticas para [optimizar sus aplicaciones para Chrome OS](/%7B%7Blocale.code%7D%7D/android/optimizing) .
+Consulte algunas de las mejores prácticas para [optimizar sus aplicaciones para Chrome OS](/{{locale.code}}/android/optimizing) .

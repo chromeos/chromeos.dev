@@ -24,11 +24,12 @@ Android soporta una creciente variedad de dispositivos de pantalla grande, desde
 
 > Los desarrolladores pueden tomar su un único APK de Android y escalarlo para que funcione en cualquier dispositivo Chrome OS, lo que permite experiencias aún más inmersivas y atractivas en dispositivos con pantallas más grandes.
 
-El tiempo total dedicado a las aplicaciones de Android en Chrome OS también ha crecido 4 veces en el último año, [^ 1] y en el cuarto trimestre de 2018, el 21% de las computadoras portátiles vendidas en los EE. UU. Eran Chromebooks, un crecimiento anual del 23%. [^ 2]
+El tiempo total dedicado a las aplicaciones de Android en Chrome OS también ha crecido 4 veces en el último año, [^1] y en el cuarto trimestre de 2018, el 21% de las computadoras portátiles vendidas en los EE. UU. Eran Chromebooks, un crecimiento anual del 23%. [^2]
 
-[^ 1]: Datos internos de Google, marzo de 2018 a marzo de 2019. [^ 2]: The NPD Group, Inc., Servicio de seguimiento minorista, EE. UU., Computadoras portátiles, Chrome OS, basado en unidades, 8 de octubre de 2017 a enero .6, 2018 vs. 7 de octubre, 2018 - 5 de enero, 2019
+[^1]: Datos internos de Google, marzo de 2018 a marzo de 2019.
+[^2]: The NPD Group, Inc., Servicio de seguimiento minorista, EE. UU., Computadoras portátiles, Chrome OS, basado en unidades, 8 de octubre de 2017 a enero .6, 2018 vs. 7 de octubre, 2018 - 5 de enero, 2019
 
-Brindar una experiencia óptima en Chrome OS solo requiere algunos ajustes, pero tienen un gran impacto. Después de que Gameloft y TopHatch optimizaran sus aplicaciones para pantallas más grandes, [Asphalt 8](/%7B%7Blocale.code%7D%7D/stories/asphalt-8) : Airborne de Gameloft generó 6 veces más usuarios de aplicaciones diarias y 9 veces más ingresos en dispositivos Chrome OS, mientras que TopHatch ha visto el doble de conversiones pagas en Chromebooks y 20 veces más tiempo en Pixelbooks para su aplicación [Concepts](/%7B%7Blocale.code%7D%7D/stories/concepts) .
+Brindar una experiencia óptima en Chrome OS solo requiere algunos ajustes, pero tienen un gran impacto. Después de que Gameloft y TopHatch optimizaran sus aplicaciones para pantallas más grandes, [Asphalt 8](/{{locale.code}}/stories/asphalt-8) : Airborne de Gameloft generó 6 veces más usuarios de aplicaciones diarias y 9 veces más ingresos en dispositivos Chrome OS, mientras que TopHatch ha visto el doble de conversiones pagas en Chromebooks y 20 veces más tiempo en Pixelbooks para su aplicación [Concepts](/{{locale.code}}/stories/concepts) .
 
 [En I/O este año](https://www.youtube.com/watch?v=06xJOOs_KvQ&list=PLNYkxOF6rcIBqW90ghQOTs9MqN5KxqESw) , presentamos algunos pasos útiles para garantizar que su aplicación se vea y funcione de manera excelente en una variedad de dispositivos y tamaños de pantalla. Consulte los aspectos más destacados a continuación junto con un par de nuevas y emocionantes actualizaciones para desarrolladores de Android en Chrome OS.
 
@@ -66,7 +67,7 @@ Para aplicaciones que requieren eventos de movimiento táctil más avanzados, pu
 
 ### NDK
 
-Juegos y aplicaciones en Chrome OS automáticamente reciben traducción de ARM a x86. Pero si el rendimiento es su prioridad, es esencial implementar soporte para x86. [ La mayoría de dispositivos de Chrome OS ](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices) tienen chipsets 64-bit x86 y más están siendo desarrollados. Para proveer el mejor desempeño y soporte a través de todos los dispositivos, asegúrese de proveer archivos para ARM, ARM64, x86, and x86_64 si su aplicación tiene código nativo.
+Juegos y aplicaciones en Chrome OS automáticamente reciben traducción de ARM a x86. Pero si el rendimiento es su prioridad, es esencial implementar soporte para x86. [ La mayoría de dispositivos de Chrome OS](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices) tienen chipsets 64-bit x86 y más están siendo desarrollados. Para proveer el mejor desempeño y soporte a través de todos los dispositivos, asegúrese de proveer archivos para ARM, ARM64, x86, and x86_64 si su aplicación tiene código nativo.
 
 Android Studio simplifica el soporte: al usar paquetes de aplicaciones de Android, empaqueta todos los objetivos de compilación listos para Play Store, que luego solo envía los objetivos de compilación que los usuarios de su aplicación necesitan para mantener los tamaños de descarga al mínimo.
 
@@ -90,7 +91,7 @@ Cuando alguien usa varios monitores, generalmente habrá una diferencia de densi
 
 ## Nuevas actualizaciones para desarrollar en Chromebooks
 
-En I/O, también [anunciamos más formas en](/%7B%7Blocale.code%7D%7D/posts/chromeos-io-19) que hemos hecho que Chrome OS sea un entorno más rápido, más simple y más seguro para desarrolladores web y Android, que incluyen:
+En I/O, también [anunciamos más formas en](/{{locale.code}}/posts/chromeos-io-19) que hemos hecho que Chrome OS sea un entorno más rápido, más simple y más seguro para desarrolladores web y Android, que incluyen:
 
 ### Instalación con un clic para Android Studio
 
@@ -114,7 +115,7 @@ Una bandera en M76, nuestro canal estable actual, permite encender un escritorio
 
 ### Soporte para múltiples monitores / HDCP completo
 
-Proyecta y mira contenido de video protegido con DRM en monitores externos. \*_ Use `SurfaceView.setSecure()` para aprovechar esta característica_
+Proyecta y mira contenido de video protegido con DRM en monitores externos. _\*Use `SurfaceView.setSecure()` para aprovechar esta característica_
 
 ### Integración ARCore
 
@@ -122,7 +123,7 @@ ARCore está disponible para aplicaciones con una cámara orientada al mundo.
 
 ### Soporte instantáneo de aplicaciones
 
-Los usuarios de dispositivos Android P ahora pueden [probar una aplicación o un juego sin instalarlo primero](https://developer.android.com/topic/google-play-instant) .
+Los usuarios de dispositivos Android P ahora pueden [probar una aplicación o un juego sin instalarlo primero](https://developer.android.com/topic/google-play-instant).
 
 ### Almacenamiento externo para aplicaciones de Android
 

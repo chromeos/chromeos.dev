@@ -18,4 +18,4 @@ published: 18 de mayo de 2020
 
 ## Específico para `chroemOS.dev`
 
-- [Componentes de autoría](%7B%7Bpage.url%7D%7Dcomponents)
+- [Componentes de autoría]({{page.url}}components)

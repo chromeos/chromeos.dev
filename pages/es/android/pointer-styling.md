@@ -23,7 +23,7 @@ myView.setOnHoverListener { view, _ ->
 }
 ```
 
-`myView` es la vista que será asociada con cierto ícono de puntero bajo ciertas circumstancias. La condición utilizada para demostrar en este escenario es el estado al desplazarse sobre la vista (hover) . (En otros escenarios, puede ser recomendable tener un ícono de espera mientras la aplicación esté haciendo una tarea de procesamiento o un punto de mira en el caso de juegos). Aquí se utiliza `setOnHoverListener` para escuchar cuando el puntero se desliza sobre la vista y entonces actuar en ese evento. Dentro del método que escucha por el evento , se llama a `view.pointerIcon` para actualizar el ícono para esa vista en particular. Un ícono existente del sistema se utiliza para este caso. En Android existen varios íconos del sistema ya integrados y se puede encontrar una lista completa [al final de esta página](/%7B%7Blocale.code%7D%7D/android/pointer-styling#system-default-cursors). En el ejemplo se uso el icono `TYPE_HAND` que muestra una mano cerrada con el dedo indice extendido.
+`myView` es la vista que será asociada con cierto ícono de puntero bajo ciertas circumstancias. La condición utilizada para demostrar en este escenario es el estado al desplazarse sobre la vista (hover) . (En otros escenarios, puede ser recomendable tener un ícono de espera mientras la aplicación esté haciendo una tarea de procesamiento o un punto de mira en el caso de juegos). Aquí se utiliza `setOnHoverListener` para escuchar cuando el puntero se desliza sobre la vista y entonces actuar en ese evento. Dentro del método que escucha por el evento , se llama a `view.pointerIcon` para actualizar el ícono para esa vista en particular. Un ícono existente del sistema se utiliza para este caso. En Android existen varios íconos del sistema ya integrados y se puede encontrar una lista completa [al final de esta página](/{{locale.code}}/android/pointer-styling#system-default-cursors). En el ejemplo se uso el icono `TYPE_HAND` que muestra una mano cerrada con el dedo indice extendido.
 
 ## Usando tu propio cursor especial
 
@@ -50,26 +50,28 @@ Nota: La ubicación del punto de acceso depende de su caso de uso. Por ejemplo, 
 
 ## Ejemplos
 
-Agregar iconos de puntero a su aplicación es una excelente manera de ayudar a que sus usuarios tengan experiencias más intuitivas en los diferentes factores de forma de dispositivo que usan. Hay muchos [íconos de sistema predeterminados](/%7B%7Blocale.code%7D%7D/android/pointer-styling#system-default-cursors) disponibles y si no se ajustan a sus necesidades, siempre puede cargar o crear los suyos propios.
+Agregar iconos de puntero a su aplicación es una excelente manera de ayudar a que sus usuarios tengan experiencias más intuitivas en los diferentes factores de forma de dispositivo que usan. Hay muchos [íconos de sistema predeterminados](/{{locale.code}}/android/pointer-styling#system-default-cursors) disponibles y si no se ajustan a sus necesidades, siempre puede cargar o crear los suyos propios.
 
 - **Arrastrar y soltar:** si su aplicación admite arrastrar desde otra aplicación y soltar en su aplicación, podría implementar el ícono `TYPE_NO_DROP` . Esto daría una indicación visual de que su aplicación no es compatible con el tipo MIME que está tratando de caer en su aplicación.
 - **Mapas -** Si su aplicación contiene mapas y le gustaría mostrar a sus usuarios que pueden desplazar el mapa puede utiizar el ícono `TYPE_GRAB` cuando el puntero del mouse se deslice sobre el mapa y cuando el usuario hace clic, actualizar el ícono a arrastrar para demostrar el efecto de desplazamiento del mapa.
-- **Edición de fotos - ** A los usuarios de edición de fotos les gusta tener controles que les permitan seleccionar una lupa para acercarla. Puede cambiar el cursor a una lupa con el ícono `TYPE_ZOOM_IN` cuando se selecciona el modo acercar.
+- **Edición de fotos -** A los usuarios de edición de fotos les gusta tener controles que les permitan seleccionar una lupa para acercarla. Puede cambiar el cursor a una lupa con el ícono `TYPE_ZOOM_IN` cuando se selecciona el modo acercar.
 - **Y muchas más oportunidades**
 
 !!! aside.message--tip
 Para ver los diferentes cambios de puntero en acción, consulte este [ejemplo de puntero de GitHub](https://github.com/chromeos/pointer-icon-sample)
-!!!
 
-<video controls="" width="900" height="1900" autoplay="" muted=""></video><source src="/videos/android/pointer-styling/pointer-icon.mp4" type="video/mp4"> !!!</source>
+<video controls width="900" height="1900" autoplay muted>
+  <source src="/videos/android/pointer-styling/pointer-icon.mp4" type="video/mp4">
+</video>
+!!!
 
 ## Apéndice
 
 ### Lectura adicional
 
 - [Muestra de puntero de GitHub](https://github.com/chromeos/pointer-icon-sample)
-- [Documentación de la clase de Android PointerIcon](https://developer.android.com/reference/android/view/PointerIcon)
-- [Optimización de aplicaciones para Chrome OS: cursores personalizados](https://developer.android.com/topic/arc/optimizing#custom-cursors)
+- [Documentación de la clase de Android PointerIcon](https://developer.android.com/reference/android/view/PointerIcon?hl={{locale.code}})
+- [Optimización de aplicaciones para Chrome OS: cursores personalizados](https://developer.android.com/topic/arc/optimizing?hl={{locale.code}}#custom-cursors)
 
 ### Cursores predeterminados del sistema
 

@@ -21,13 +21,13 @@ externalNativeBuild {
 
 ## Tamaño de APK
 
-Cada ABI adicional aumentará el tamaño del archivo para un APK monolítico. Esto puede tener implicaciones importantes para el uso del disco de sus usuarios, el tamaño de la descarga y puede aumentar los límites de tamaño de Play Store. La mejor manera de abordar esto es con los [paquetes de aplicaciones de Android](https://developer.android.com/guide/app-bundle) (AAB). Los AAB le permiten agrupar fácilmente las 4 ABI desde Android Studio, pero no aumenta el tamaño de descarga para sus usuarios. También facilita el aprovechamiento de [Dynamic Delivery](https://developer.android.com/guide/app-bundle/dynamic-delivery) para permitir a los usuarios descargar contenido de juegos de gran tamaño solo cuando lo soliciten. Si las AAB no son una posibilidad para usted, puede usar la solución más antigua de [múltiples APK](https://developer.android.com/google/play/publishing/multiple-apks) para lograr parte de este comportamiento.
+Cada ABI adicional aumentará el tamaño del archivo para un APK monolítico. Esto puede tener implicaciones importantes para el uso del disco de sus usuarios, el tamaño de la descarga y puede aumentar los límites de tamaño de Play Store. La mejor manera de abordar esto es con los [paquetes de aplicaciones de Android (Android App Bundle)](https://developer.android.com/guide/app-bundle?hl={{locale.code}}) (AAB). Los AAB le permiten agrupar fácilmente las 4 ABI desde Android Studio, pero no aumenta el tamaño de descarga para sus usuarios. También facilita el aprovechamiento de [Dynamic Delivery](https://developer.android.com/guide/app-bundle/dynamic-delivery) para permitir a los usuarios descargar contenido de juegos de gran tamaño solo cuando lo soliciten. Si las AAB no son una posibilidad para usted, puede usar la solución más antigua de [múltiples APK](https://developer.android.com/google/play/publishing/multiple-apks) para lograr parte de este comportamiento.
 
-## 32 contra 64 bits
+## 32 vs 64 bits
 
-Todas las aplicaciones de Android deben proporcionar una versión de 64 bits de las arquitecturas que admitan; consulte la documentación de [Android de 64 bits](https://developer.android.com/distribute/best-practices/develop/64-bit) para obtener más información. Esto significa que si admite dispositivos ARM, su AAB debe tener solo arm64 o binarios arm32 y arm64. Lo mismo es cierto para x86.
+Todas las aplicaciones de Android deben proporcionar una versión de 64 bits de las arquitecturas que admitan; consulte la documentación de [Android de 64 bits](https://developer.android.com/distribute/best-practices/develop/64-bit?hl={{locale.code}}) para obtener más información. Esto significa que si admite dispositivos ARM, su AAB debe tener solo arm64 o binarios arm32 y arm64. Lo mismo es cierto para x86.
 
-- **Soporta ARM?** arm64 o arm32 / arm64
+- **¿Soporta ARM?** arm64 o arm32 / arm64
 - **¿Soporta x86?** x86_64 o x86_32 / x86_64
 
 Si bien solo proporcionar compilaciones de 64 bits reduce la cantidad de objetivos de compilación necesarios y su superficie de prueba, reducirá la cantidad de dispositivos disponibles en los que su juego puede ejecutarse. Por ejemplo, muchas Chromebooks antiguas solo pueden ejecutar aplicaciones de Android de 32 bits, a pesar de tener CPU de 64 bits, debido a otras limitaciones de hardware. Para garantizar que su aplicación pueda ejecutarse en estos dispositivos, incluya compatibilidad con 32 y 64 bits.

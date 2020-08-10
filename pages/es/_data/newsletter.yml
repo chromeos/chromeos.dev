@@ -2,77 +2,77 @@ settings:
   name: newsletter-sign-up
   endpoint: https://services.google.com/fb/submissions/chromeos-newsletter/
 content:
-  title: Get Chrome OS developer news and updates direct to you
-  copy: Sign up for the latest news, tips, releases, updates, and more on Chrome OS.
+  title: Reciba noticias y actualizaciones para desarrolladores de Chrome OS directamente
+  copy: Regístrese para recibir las últimas noticias, consejos, lanzamientos, actualizaciones y más sobre Chrome OS.
   disclaimer: |-
-    Privacy policy: By using this service, you agree to be bound by our Google Terms of Service located at [https://policies.google.com/terms](https://policies.google.com/terms). I acknowledge that the information provided in this form will be subject to Google's privacy policy located at [https://policies.google.com/privacy](https://policies.google.com/privacy).
-  required: Required
+    Política de privacidad: al utilizar este servicio, acepta estar sujeto a nuestras Condiciones de servicio de Google que se encuentran en [https://policies.google.com/terms](https://policies.google.com/terms?hl=es). Reconozco que la información proporcionada en este formulario estará sujeta a la política de privacidad de Google ubicada en [https://policies.google.com/privacy](https://policies.google.com/privacy?hl=es).
+  required: Requerido
   errors:
     - type: server
-      text: Something went wrong on our end. Please try again later.
+      text: Algo salió mal por nuestra parte. Por favor, inténtelo de nuevo más tarde.
     - type: offline
-      text: Looks like you’re offline. Please try again when you’re back online.
+      text: Parece que estás sin conexión. Vuelve a intentarlo cuando esté en línea.
 fields:
   - type: email
     name: EmailAddress
-    label: Email
+    label: Correo electrónico
     required: true
-    error: Please enter a valid email.
+    error: Ingrese un correo electrónico válido.
   - type: text
     name: FirstName
-    label: First name
+    label: Nombre
     required: true
-    error: Please enter a name.
+    error: Ingrese un nombre.
   - type: text
     name: LastName
-    label: Last name
+    label: Apellido
   - type: country
     name: Country
-    label: Country
+    label: País
     required: true
-    error: Please enter a country.
+    error: Ingrese un país.
   - type: select
     name: JobRole
-    label: Job role
+    label: Ocupación
     options:
-      - text: Academic Researcher / Educator / Scientist
-      - text: Analytics / Business Intelligence / Data Science
-      - text: Business Development
-      - text: Business Management
-      - text: Customer Support
-      - text: Design / Art / Animation
-      - text: Engineering Management
+      - text: Investigador académico / Educador / Científico
+      - text: Análisis / Inteligencia empresarial / Ciencia de datos
+      - text: Desarrollo empresarial
+      - text: Gestión empresarial
+      - text: Atención al cliente
+      - text: Diseño / Arte / Animación
+      - text: Gestión de Ingeniería
       - text: Marketing
-      - text: Product Management
-      - text: Production
-      - text: Programming / Coding / Software Development
-      - text: Public Relations
-      - text: Sales
-      - text: Site Reliability / Developer Operations
-      - text: Strategy / Operations / Planning
-      - text: System Administration / System Integration
+      - text: Gestión de productos
+      - text: Producción
+      - text: Programación / Codificación / Desarrollo de software
+      - text: Relaciones públicas
+      - text: Ventas
+      - text: Fiabilidad del sitio / Operaciones del desarrollador
+      - text: Estrategia / Operaciones / Planificación
+      - text: Sistema Administración / Integración de sistemas
       - text: QA / Testing
       - text: UI / UX Design / UX Research
-      - text: Other
+      - text: Otro
   - type: checkbox
     name: ChromeosDevelopersUpdates
-    label: Add me to the mailing list.
+    label: Agregueme a la lista de correos.
     required: true
-    error: Please check the box.
+    error: Por favor seleccione la casilla.
   - type: hidden
     name: LanguagePreference
-    value: en-US
+    value: es-US
   - type: submit
-    value: Subscribe
+    value: Subscribir
 thankYou:
-  title: You’re in!
-  message: Chrome Os developer news coming your way.
-  redirect: Hold tight. You're being redirected back to where you started.
-  inline: You're in! Chrome OS developer news coming your way. [[Return to where you were]].
+  title: Listo!
+  message: Noticias de desarrolladores de Chrome OS en camino.
+  redirect: Espera un momento. Estas siendo redireccionado a la página de donde partiste.
+  inline: Listo! Noticias de desarrolladores de Chrome OS en camino. [[Volver a la página donde estabas]].
 subscribe:
   content:
-    title: Chrome OS developer news and updates straight to your inbox
-    body: Find the latest news, tips, releases, updates, and more on Chrome OS.
+    title: Noticias y actualizaciones para desarrolladores de Chrome OS directamente en su bandeja de entrada.
+    body: Encuentre las últimas noticias, sugerencias, lanzamientos, actualizaciones y más sobre Chrome OS.
   cta:
-    text: Subscribe
-    url: /en/subscribe
+    text: Suscribir
+    url: /es/subscribe

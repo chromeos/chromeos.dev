@@ -75,7 +75,7 @@ public void onConfigurationChanged(Configuration newConfig) {
 
 ### Cambio de tamaño dinámico
 
-También es importante recordar que cada vez que cambie el tamaño de la pantalla, las áreas de entrada también cambiarán. Si su juego siempre está destinado a ejecutarse en pantalla completa, o si necesita evitar rápidamente los problemas de cambio de configuración mientras soluciona los errores, simplemente puede configurar [`resizableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) en false en su manifiesto. Esto evitará el cambio de tamaño dinámico, pero también evitará las vistas de pantalla dividida, así que úselo con moderación para evitar limitar la experiencia del usuario.
+También es importante recordar que cada vez que cambie el tamaño de la pantalla, las áreas de entrada también cambiarán. Si su juego siempre está destinado a ejecutarse en pantalla completa, o si necesita evitar rápidamente los problemas de cambio de configuración mientras soluciona los errores, simplemente puede configurar [`resizableActivity`](https://developer.android.com/guide/topics/manifest/activity-element?hl={{locale.code}}#resizeableActivity) en false en su manifiesto. Esto evitará el cambio de tamaño dinámico, pero también evitará las vistas de pantalla dividida, así que úselo con moderación para evitar limitar la experiencia del usuario.
 
 ```xml
 <activity android:name=".MyActivity"
@@ -225,7 +225,7 @@ A continuación se define un estilo que puede usar para aplicar el atributo `LAY
 </style>
 ```
 
-[Haga clic aquí](https://developer.android.com/guide/topics/display-cutout) para leer más prácticas recomendadas al codificar el recorte de la pantalla.
+[Haga clic aquí](https://developer.android.com/guide/topics/display-cutout?hl={{locale.code}}) para leer más prácticas recomendadas al codificar el recorte de la pantalla.
 
 ### Continuidad del juego
 
@@ -258,7 +258,7 @@ Mira cómo lo hicieron:
 
 @ [youtube](https://www.youtube.com/watch?v=ZfBeab5u534)
 
-Google también trabajó con Gameloft para optimizar el predecesor de Asphalt 9, Asphalt 8: Revolution, para Chrome OS y dispositivos plegables. Lee más [aquí](/%7B%7Blocale.code%7D%7D/stories/asphalt-8) .
+Google también trabajó con Gameloft para optimizar el predecesor de Asphalt 9, Asphalt 8: Revolution, para Chrome OS y dispositivos plegables. Lee más [aquí](/{{locale.code}}/stories/asphalt-8) .
 
 ## Construye para el futuro de los juegos móviles
 

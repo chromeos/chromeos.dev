@@ -13,7 +13,7 @@ Los motores de juegos con un objetivo de Android deberían producir compilacione
 
 ## Sobre escribir eventos de entrada con Unity
 
-El motor de Unity interpreta los eventos de entrada de Android y los traduce al sistema de entrada de Unity. Si necesita interceptar los eventos sin procesar de Android, por ejemplo, para implementar la [captura del mouse](/%7B%7Blocale.code%7D%7D/games/optimizing-games-inputs#mouse-capture) , puede hacerlo eligiendo "Exportar" en el Editor de Unity en la configuración de compilación de Android y eligiendo un directorio de destino.
+El motor de Unity interpreta los eventos de entrada de Android y los traduce al sistema de entrada de Unity. Si necesita interceptar los eventos sin procesar de Android, por ejemplo, para implementar la [captura del mouse](/{{locale.code}}/games/optimizing-games-inputs#mouse-capture) , puede hacerlo eligiendo "Exportar" en el Editor de Unity en la configuración de compilación de Android y eligiendo un directorio de destino.
 
 Después de exportar, podrá importar el directorio de destino en Android Studio. Esto le permitirá depurar, perfilar, etc. desde Android Studio.
 
@@ -22,4 +22,5 @@ También puede editar la `UnityPlayerActivity` para interceptar eventos de entra
 Consulte también la [documentación del proceso de compilación de Unity para Android](https://docs.unity3d.com/Manual/android-BuildProcess.html) .
 
 !!! aside.message--note
-Nota: el comando "Exportar" en el Editor de Unity es como un paso de compilación en lo que respecta al editor. El flujo de desarrollador unidireccional debe ir: Editar en Unity -> Exportar -> Editar en Android Studio -> Compilar desde Android Studio / Gradle. ¡Los cambios realizados en Android Studio no se importarán de nuevo al Unity Editor!!!
+Nota: el comando "Exportar" en el Editor de Unity es como un paso de compilación en lo que respecta al editor. El flujo de desarrollador unidireccional debe ir: Editar en Unity -> Exportar -> Editar en Android Studio -> Compilar desde Android Studio / Gradle. ¡Los cambios realizados en Android Studio no se importarán de nuevo al Unity Editor
+!!!

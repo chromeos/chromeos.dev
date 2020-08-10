@@ -18,9 +18,9 @@
   sections:
     - title: Linux (Beta)
       url: linux
-    - title: Configuración para Android
+    - title: Entorno para Android
       url: android-environment
-    - title: Configuración para Web
+    - title: Entorno para Web
       url: web-environment
     - title: Productividad
       url: productivity

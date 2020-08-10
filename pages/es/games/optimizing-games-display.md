@@ -7,7 +7,7 @@ weight: -6
 
 En la herramienta de configuración de Chrome OS, los usuarios pueden cambiar la configuración de pantalla. Para pantallas integradas, generalmente no es posible ajustar la resolución de salida. En cambio, el usuario ajusta el tamaño relativo de los elementos en la pantalla utilizando el control deslizante "Tamaño de pantalla". El valor que se muestra en "Parece" está en [píxeles independientes del dispositivo](https://en.wikipedia.org/wiki/Device-independent_pixel) y no en valores de píxeles sin formato.
 
-![](/images/games/optimizing-games-display/display-size-slider.jpg)
+![Control para "tamaño de pantalla" en la configuración](/images/games/optimizing-games-display/display-size-slider.jpg)
 
 Para pantallas externas, los usuarios tendrán más opciones, normalmente podrán ajustar tanto la resolución de salida como el tamaño de los elementos en la pantalla.
 
@@ -25,4 +25,4 @@ Es probable que los juegos produzcan muchos más píxeles en dispositivos con Ch
 
 - Tener un límite de resolución de juego predeterminado, quizás 1024 de ancho o 1/2 de resolución devuelta por la API de Android, lo que sea más alto, con una configuración que permita al usuario aumentar o disminuir la resolución en el juego.
 - Considere ajustar la velocidad de fotogramas: tener una configuración configurable de 30 fps / 60 fps y / o heurística dinámica en el juego que ajuste la velocidad de fotogramas en función del rendimiento real actual.
-- Consulte el [perfil de rendimiento](/%7B%7Blocale.code%7D%7D/games/optimizing-games-profiling) para obtener más consejos.
+- Consulte el [perfil de rendimiento](/{{locale.code}}/games/optimizing-games-profiling) para obtener más consejos.
