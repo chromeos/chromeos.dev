@@ -9,11 +9,11 @@ tags:
 
 Mientras prepara su aplicación de Android para que se ejecute en Chromebooks, debe considerar las características del dispositivo que utiliza su aplicación. Las Chromebook no son compatibles con todas las funciones de hardware y software que están disponibles en otros dispositivos con Android. Si su aplicación requiere funciones específicas que no son compatibles con Chromebooks, no estará disponible para su instalación en Chromebooks.
 
-Usted declara los requisitos de su aplicación para las funciones de hardware y ciertas funciones de software en el [archivo de manifiesto](https://developer.android.com//guide/topics/manifest/manifest-intro?hl={{locale.code}}) . Este documento describe las declaraciones de características del manifiesto de la aplicación que no son compatibles con Chromebooks.
+Usted declara los requisitos de su aplicación para las funciones de hardware y ciertas funciones de software en el [archivo AndroidManifest.xml](https://developer.android.com//guide/topics/manifest/manifest-intro?hl={{locale.code}}) . Este documento describe las declaraciones de características del manifiesto de la aplicación que no son compatibles con Chromebooks.
 
-## Entradas de manifiesto incompatibles
+## Entradas de incompatibles
 
-Las entradas de manifiesto enumeradas en esta sección no son actualmente compatibles con Chromebooks. Si su aplicación usa alguna de estas entradas, considere eliminarlas o incluir el valor de atributo `required="false"` con ellas para que su aplicación pueda instalarse en Chromebooks. Para obtener más información sobre cómo declarar el uso de funciones sin requerir que la función esté disponible en el dispositivo, consulte la guía para el elemento manifiesto [`<uses-feature>`](https://developer.android.com//guide/topics/manifest/uses-feature-element.html?hl={{locale.code}}#market-feature-filtering) .
+Las entradas de AndroidManifest.xml enumeradas en esta sección no son actualmente compatibles con Chromebooks. Si su aplicación usa alguna de estas entradas, considere eliminarlas o incluir el valor de atributo `required="false"` con ellas para que su aplicación pueda instalarse en Chromebooks. Para obtener más información sobre cómo declarar el uso de funciones sin requerir que la función esté disponible en el dispositivo, consulte la guía para los elementos en el AndroidManifest.xml [`<uses-feature>`](https://developer.android.com//guide/topics/manifest/uses-feature-element.html?hl={{locale.code}}#market-feature-filtering) .
 
 !!! aside.message--note
 **Nota:** Consulte la [referencia de Características](https://developer.android.com//guide/topics/manifest/uses-feature-element?hl={{locale.code}}#features-reference) para obtener una lista completa de las características y descripciones del manifiesto de la aplicación.
@@ -72,7 +72,7 @@ A partir de la versión M53 de Chrome OS, todas las aplicaciones de Android que 
 Si no desea que su aplicación se instale en dispositivos que tienen interfaces táctiles falsas pero no pantallas táctiles, puede completar una de las siguientes acciones:
 
 - Excluir dispositivos específicos en la [consola Google Play.](https://play.google.com/apps/publish)
-- Filtre dispositivos sin hardware de pantalla táctil al declarar explícitamente [`android.hardware.touchscreen`](https://developer.android.com//guide/topics/manifest/uses-feature-element#touchscreen-hw-features) como necesarios para instalar su aplicación.
+- Filtre dispositivos sin hardware de pantalla táctil al declarar explícitamente [`android.hardware.touchscreen`](https://developer.android.com//guide/topics/manifest/uses-feature-element?hl={{locale.code}}#touchscreen-hw-features) como necesarios para instalar su aplicación.
 
 ### Funciones de software
 
@@ -90,7 +90,7 @@ La siguiente lista incluye las funciones de software que actualmente no son comp
 - `android.software.sip` : servicio de protocolo de inicio de sesión (SIP), que admite videoconferencia y mensajería instantánea
 - `android.software.sip.voip` : servicio de Voz sobre Protocolo de Internet (VoIP) basado en SIP, que admite videoconferencia bidireccional
 
-## Permisos que implican requisitos de características
+## Permisos que implican requisitos de funciones
 
 Algunos permisos que solicita en sus archivos de manifiesto pueden crear solicitudes implícitas de funciones de hardware y software. Al solicitar estos permisos, evitará que su aplicación se instale en Chromebooks.
 

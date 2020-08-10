@@ -69,7 +69,7 @@ Recuerde perfilar temprano y perfilar con frecuencia, especialmente si está apu
 
 ### Unity
 
-Además de sus propias [recomendaciones generales](https://docs.unity3d.com/Manual/MobileOptimizationPracticalGuide.html) , Unity proporciona guías de práctica. Echa un vistazo a sus tutoriales detallados sobre la optimización de [gráficos](https://docs.unity3d.com/Manual/MobileOptimizationGraphicsMethods.html) , [jugabilidad](https://docs.unity3d.com/Manual/MobileOptimizationScriptingMethods.html) , [renderización](https://docs.unity3d.com/Manual/MobileOptimizationPracticalRenderingOptimizations.html) y [secuencias de comandos](https://docs.unity3d.com/Manual/MobileOptimizationPracticalScriptingOptimizations.html) .
+Además de sus propias [recomendaciones generales](https://docs.unity3d.com/Manual/MobileOptimizationPracticalGuide.html) , Unity proporciona guías de práctica. Echa un vistazo a sus tutoriales detallados sobre la optimización de [gráficos](https://docs.unity3d.com/Manual/MobileOptimizationGraphicsMethods.html), [jugabilidad](https://docs.unity3d.com/Manual/MobileOptimizationScriptingMethods.html) , [renderización](https://docs.unity3d.com/Manual/MobileOptimizationPracticalRenderingOptimizations.html) y [secuencias de comandos](https://docs.unity3d.com/Manual/MobileOptimizationPracticalScriptingOptimizations.html).
 
 Considere leer la guía de ARM sobre creación de [perfiles y optimización de juegos de Unity](https://developer.arm.com/docs/100140/0402/performance-analysis/profiling-a-unity-game-example) y sus mejores prácticas asociadas. Esto lo guiará a través del proceso de creación de perfiles de un juego de ejemplo en Unity con la herramienta Streamline, una faceta de [ARM Mobile Studio](#arm-mobile-studio).
 

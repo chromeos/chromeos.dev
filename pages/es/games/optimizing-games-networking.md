@@ -37,6 +37,6 @@ fun readInput(inputStream: InputStream) : String {
 }
 ```
 
-El tráfico enviado a esta dirección IPv4 en la red local se reenviará a la aplicación de Android, sin la necesidad de "crear ningún agujero" NAT adicional. Para obtener más información sobre esta solución de IPv4, consulte [este problema de cromo](https://bugs.chromium.org/p/chromium/issues/detail?id=1041716) .
+El tráfico enviado a esta dirección IPv4 en la red local se reenviará a la aplicación de Android, sin la necesidad de "crear ningún agujero" NAT adicional. Para obtener más información sobre esta solución de IPv4, consulte [este problema de chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1041716) .
 
 En las redes IPv6, Android recibe su propia dirección de red separada del sistema operativo Chrome y se espera que las conexiones directas en la red IPv6 local a y desde esta dirección funcionen como si Android estuviera directamente conectado a la red IPv6 local.

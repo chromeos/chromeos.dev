@@ -54,7 +54,7 @@ Aquí hay algunas recomendaciones para su aplicación:
 
 - Su marca dictará la dirección que debe seguir al pensar en los diferentes tamaños de pantalla. Decidir las cosas para priorizar y mostrar al usuario depende de la forma que el usuario use el app y las características más utilizadas. Para obtener inspiración sobre cómo es posible atacar esto, consulte los [Material Studies](https://materia.io/design/material-studies) y observe cómo cada producto diferente responde de manera diferente cuando llega a una pantalla más grande.
 
-- Piense en cómo debería comportarse el diseño de su aplicación utilizando un [sistema de cuadrícula sensible](https://material.io/design/layout/responsive-layout-grid.html#) y cómo debería moverse el contenido / navegación / opciones a medida que aumenta el espacio en la pantalla.
+- Piense en cómo debería comportarse el diseño de su aplicación utilizando un [sistema de cuadrícula adaptable](https://material.io/design/layout/responsive-layout-grid.html#) y cómo debería moverse el contenido / navegación / opciones a medida que aumenta el espacio en la pantalla.
 
 - Decida en qué tamaños de pantalla usará un diseño diferente, luego proporcione los diferentes diseños en los intervalos de tamaño de ventana apropiados (como grande / xlarge) o anchos mínimos de ventana (como sw600dp / sw720). Recuerde que a medida que llega a estos diseños, el contexto general en el que se encontraba el usuario no debe cambiar, y debe intentar retener todo el estado del usuario mientras realiza la transición entre diseños (posición de desplazamiento, texto escrito, etc.)
 
@@ -62,7 +62,7 @@ Aquí hay algunas recomendaciones para su aplicación:
 
 Para garantizar que su aplicación se vea mejor, proporcione íconos y otros recursos para cada densidad en el rango comúnmente admitido por Chrome OS. Específicamente, debe diseñar sus iconos para la barra de acción, las notificaciones y el iniciador de acuerdo con las [pautas de iconografía](https://material.io/design/iconography/#design-principles) y proporcionarlos en formatos vectoriales para que puedan escalar con gracia con las diferentes pantallas en las que encontrará su aplicación.
 
-Para obtener más información sobre VectorDrawables y los activos de vectores en Android, consulte esta [ publicación](https://medium.com/androiddevelopers/understanding-androids-vector-image-format-vectordrawable-ab09e41d5c68) de [Nick Butcher](https://twitter.com/crafty).
+Para obtener más información sobre VectorDrawables y los activos de vectores en Android, consulte esta [publicación](https://medium.com/androiddevelopers/understanding-androids-vector-image-format-vectordrawable-ab09e41d5c68) de [Nick Butcher](https://twitter.com/crafty).
 
 ## Ajustar tamaños de fuente y objetivos táctiles
 
