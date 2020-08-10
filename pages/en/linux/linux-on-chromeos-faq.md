@@ -143,7 +143,7 @@ If you're unfamiliar with [child accounts](https://support.google.com/families/a
 
 ## Are my VMs/containers/data synced/backed up?
 
-To sync data such as a project folder between machines, you can [share a folder in Drive with Linux](/{{locale.code}}/linux/setup#sharing-files-to-linux). Anything you add to that folder will be backed up to Drive and synced between your devices.
+Ultimately, you're responsible for any data going into the containers. To easily sync data such as a project folder between machines, you can [share a folder in Drive with Linux](/{{locale.code}}/linux/setup#sharing-files-to-linux). Anything you add to that folder will be backed up to Drive and synced between your devices.
 
 ## How can I backup a VM?
 
