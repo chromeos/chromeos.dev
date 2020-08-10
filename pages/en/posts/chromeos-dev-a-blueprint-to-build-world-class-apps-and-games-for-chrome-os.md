@@ -1,6 +1,6 @@
 ---
 title: ChromeOS.dev — A blueprint to build world-class apps and games for Chrome OS
-metadesc: New features in Chrome OS for a more streamlined developer experience.
+metadesc: ChromeOS.dev is officially launched; an open-source, multilingual blueprint to build world-class apps and game for, and on, Chrome OS. Plus, new Chrome OS features.
 hero:
   image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/hero.png
   alt: An illustration of a Chromebook and new Chrome OS features.
