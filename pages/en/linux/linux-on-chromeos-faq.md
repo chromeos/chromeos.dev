@@ -147,8 +147,8 @@ Ultimately, you're responsible for any data going into the containers. To easily
 
 ## How can I backup a VM?
 
-
 The simplest approach is to use the new backup functionality built into Chrome OS itself. To do so go to Settings and select “Linux (Beta)" from the left-side nav. Then navigate into “Linux”. You’ll find “Backup & restore”. If you navigate into this menu, you’ll find a “Backup” button that saves a `.tini` file for you.
+
 If you want to back up an individual container, another approach is to use the standard [LXC](https://linuxcontainers.org/lxc/introduction/) commands.
 
 The `vmc export` command can be used to export an entire VM manually. It will dump the qcow2 disk image to the Downloads folder by default. Note that there isn't yet a way to import a VM, so this is only useful for diagnostics or using another system to extract files.
