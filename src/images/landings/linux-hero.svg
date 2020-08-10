@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="350px" height="198px" viewBox="0 0 350 198" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>05 Linux</title>
+    <defs>
+        <filter x="-3.1%" y="-5.8%" width="106.3%" height="111.5%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="0" y="0.944363572" width="264" height="150"></rect>
+        <linearGradient x1="50.000162%" y1="110.674732%" x2="50.000162%" y2="29.3312445%" id="linearGradient-4">
+            <stop stop-color="#BDC1C6" offset="0%"></stop>
+            <stop stop-color="#E8EAED" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-8.4%" y="-12.9%" width="116.8%" height="125.7%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-6" x="0" y="0" width="161" height="105" rx="4"></rect>
+        <filter x="-7.4%" y="-11.3%" width="114.8%" height="122.6%" filterUnits="objectBoundingBox" id="filter-8">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-9" x="0" y="0" width="162" height="106" rx="4"></rect>
+    </defs>
+    <g id="Illustrations" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Linux-(Beta)-Copy" transform="translate(-337.000000, -28.000000)">
+            <g id="05-Linux" transform="translate(345.000000, 36.000000)">
+                <g id="Laptop-Frame" filter="url(#filter-1)">
+                    <path d="M300.703586,0 L29.2964142,0 C26.9235702,0 25,1.92986653 25,4.31047754 L25,175 L305,175 L305,4.31047754 C305,1.92986653 303.07643,0 300.703586,0 Z M296.8977,162.279103 L32.8976996,162.279103 L32.8976996,13.4352351 L296.8977,13.4352351 L296.8977,162.279103 Z" id="frame-bottom" fill="#E8EAED" fill-rule="nonzero"></path>
+                    <g id="DESIGN-HERE" transform="translate(33.000000, 12.000000)">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <use id="Mask" fill="#F8F9FA" xlink:href="#path-2"></use>
+                    </g>
+                    <g id="frame-top" transform="translate(0.000000, 2.000000)" fill-rule="nonzero">
+                        <path d="M299.676082,0 L30.323918,0 C27.935884,0 26,1.92225192 26,4.29346983 L26,173 L304,173 L304,4.29257536 C304,1.92170677 302.063764,0 299.676082,0 Z M297,161 L33,161 L33,12 L297,12 L297,161 Z" id="top" fill="url(#linearGradient-4)"></path>
+                        <g id="base" transform="translate(0.000000, 172.845272)">
+                            <path d="M2.84217094e-14,0 L2.84217094e-14,4.66285032 C2.84217094e-14,5.04484063 0.153659341,5.41042446 0.4219137,5.67917506 C0.690168059,5.94792566 1.05293477,6.09782764 1.43040685,6.09590327 L132.459251,5.91496224 C132.459251,5.91496224 135.204738,5.41194618 135.795675,5.41194618 L196.000605,5.41194618 C196.000605,5.41194618 199.543544,5.32147566 200.960541,5.97376807 L332.569593,6.15472779 C333.355292,6.15871729 333.995568,5.51766154 334,4.72256086 L334,0 L2.84217094e-14,0 Z" id="laptop-bottom" fill="#DADCE0"></path>
+                            <rect id="shadow" fill="#BDC1C6" x="2.84217094e-14" y="-1.42108547e-14" width="334" height="1.02578797"></rect>
+                            <path d="M132.204917,6.15472779 L132.165644,0.955142994 C132.165644,0.955142994 132.823471,0.512893983 134.754109,0.512893983 L197.250366,0.512893983 C197.250366,0.512893983 199.431817,0.642861039 199.785276,0.980414366 L199.785276,5.96970525 C199.785276,5.96970525 197.989417,5.66464369 196.467578,5.67998702 L136.680284,5.75399604 C136.680284,5.75399604 135.589559,5.66374114 135.240562,5.69352525 L132.204917,6.15472779 Z" id="bezel" fill="#E8EAED"></path>
+                        </g>
+                    </g>
+                </g>
+                <g id="Terminal-Copy" transform="translate(45.000000, 20.000000)" filter="url(#filter-5)">
+                    <mask id="mask-7" fill="white">
+                        <use xlink:href="#path-6"></use>
+                    </mask>
+                    <use id="Rectangle" fill="#80868B" xlink:href="#path-6"></use>
+                    <rect id="Rectangle" fill="#5BB974" mask="url(#mask-7)" x="44.275" y="67.7848101" width="50.9833333" height="43.8607595"></rect>
+                    <rect id="Rectangle-Copy-17" fill="#EA4335" mask="url(#mask-7)" x="103.979167" y="67.7848101" width="50.9833333" height="43.8607595"></rect>
+                    <rect id="Rectangle-Copy-18" fill="#FBBC04" mask="url(#mask-7)" x="103.979167" y="21.2658228" width="50.9833333" height="39.2088608"></rect>
+                    <rect id="Rectangle-Copy-16" fill="#4285F4" mask="url(#mask-7)" x="44.275" y="21.2658228" width="50.9833333" height="34.556962"></rect>
+                    <rect id="Rectangle-Copy-20" fill="#FCC934" mask="url(#mask-7)" x="106.6625" y="23.9240506" width="45.6166667" height="33.2278481"></rect>
+                    <rect id="Rectangle-Copy-19" fill="#81C995" mask="url(#mask-7)" x="46.9583333" y="70.443038" width="45.6166667" height="34.556962"></rect>
+                    <rect id="Rectangle-Copy-21" fill="#EE675C" mask="url(#mask-7)" x="106.6625" y="70.443038" width="45.6166667" height="34.556962"></rect>
+                    <rect id="Rectangle-Copy-20" fill="#669DF6" mask="url(#mask-7)" x="46.9583333" y="23.9240506" width="45.6166667" height="33.2278481"></rect>
+                    <rect id="Rectangle-Copy-3" fill="#5F6368" mask="url(#mask-7)" x="97.2708333" y="5.98101266" width="4.025" height="99.0189873"></rect>
+                    <rect id="Rectangle-Copy-14" fill="#5F6368" mask="url(#mask-7)" x="37.5666667" y="5.98101266" width="4.025" height="99.0189873"></rect>
+                    <rect id="Rectangle-Copy-15" fill="#5F6368" mask="url(#mask-7)" x="156.975" y="5.98101266" width="4.025" height="99.0189873"></rect>
+                    <rect id="Rectangle-Copy" fill="#5F6368" mask="url(#mask-7)" x="37.5666667" y="55.1582278" width="123.433333" height="7.31012658"></rect>
+                    <rect id="Rectangle" fill="#5F6368" mask="url(#mask-7)" x="-4.025" y="1.32911392" width="41.5916667" height="109.651899"></rect>
+                    <line x1="38.2375" y1="12.2943038" x2="38.2375" y2="105.996835" id="Line" stroke="#9AA0A6" stroke-width="2" stroke-linecap="square" mask="url(#mask-7)"></line>
+                    <line x1="80.1708597" y1="-64.8856853" x2="81.4999736" y2="96.7847838" id="Line-Copy" stroke="#9AA0A6" stroke-width="2" stroke-linecap="square" mask="url(#mask-7)" transform="translate(80.835417, 15.949367) rotate(-90.000000) translate(-80.835417, -15.949367) "></line>
+                    <rect id="Rectangle-Copy-3" fill="#FFFFFF" mask="url(#mask-7)" x="2.68333333" y="22.5949367" width="29.5166667" height="2.65822785" rx="1.32911392"></rect>
+                    <rect id="Rectangle-Copy-4" fill="#FFFFFF" mask="url(#mask-7)" x="2.68333333" y="27.9113924" width="21.4666667" height="2.65822785" rx="1.32911392"></rect>
+                    <rect id="Rectangle-Copy-5" fill="#FFFFFF" mask="url(#mask-7)" x="2.68333333" y="33.2278481" width="29.5166667" height="2.65822785" rx="1.32911392"></rect>
+                    <rect id="Rectangle-Copy-12" fill="#FFFFFF" mask="url(#mask-7)" x="2.68333333" y="38.5443038" width="21.4666667" height="2.65822785" rx="1.32911392"></rect>
+                    <rect id="Rectangle-Copy-29" fill="#FFFFFF" mask="url(#mask-7)" x="2.68333333" y="49.1772152" width="21.4666667" height="2.65822785" rx="1.32911392"></rect>
+                    <rect id="Rectangle-Copy-13" fill="#FFFFFF" mask="url(#mask-7)" x="2.68333333" y="43.8607595" width="29.5166667" height="2.65822785" rx="1.32911392"></rect>
+                    <g id="nav-bar" mask="url(#mask-7)">
+                        <g transform="translate(-6.708333, -0.664557)">
+                            <rect id="Rectangle" fill="#DADCE0" x="0" y="0" width="173.075" height="9.30379747"></rect>
+                            <rect id="minimize" fill="#5F6368" x="144.9" y="5.98101266" width="4.025" height="1"></rect>
+                            <g id="maximize" stroke-width="1" fill="none" transform="translate(150.826780, 3.322785)">
+                                <rect id="Rectangle-Copy-6" fill="#5F6368" x="0.781553398" y="2.65822785" width="4.025" height="1"></rect>
+                                <rect id="Rectangle-Copy-9" fill="#5F6368" x="0.781553398" y="0" width="4.025" height="1"></rect>
+                                <polygon id="Rectangle-Copy-10" fill="#5F6368" transform="translate(1.116970, 1.661392) rotate(90.000000) translate(-1.116970, -1.661392) " points="-0.54442234 1.32597574 2.77836247 1.32597574 2.77836247 1.99680907 -0.54442234 1.99680907"></polygon>
+                                <polygon id="Rectangle-Copy-11" fill="#5F6368" transform="translate(4.471137, 1.661392) rotate(90.000000) translate(-4.471137, -1.661392) " points="2.80974433 1.32597574 6.13252914 1.32597574 6.13252914 1.99680907 2.80974433 1.99680907"></polygon>
+                            </g>
+                            <g id="close" stroke-width="1" fill="none" transform="translate(158.316667, 2.545007)">
+                                <polygon id="Rectangle-Copy-7" fill="#5F6368" transform="translate(2.012500, 2.439170) rotate(45.000000) translate(-2.012500, -2.439170) " points="0.0109836498 2.11473717 4.01715454 2.09590805 4.01401635 2.7636032 0.00784546413 2.78243231"></polygon>
+                                <polygon id="Rectangle-Copy-8" fill="#5F6368" transform="translate(2.012500, 2.439170) rotate(-4545.000000) translate(-2.012500, -2.439170) " points="0.00784546414 2.09590805 4.01401635 2.11473717 4.01715454 2.78243231 0.0109836498 2.7636032"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                    <rect id="Rectangle-Copy-2" fill="#5F6368" mask="url(#mask-7)" x="0" y="8.63924051" width="161" height="7.31012658"></rect>
+                    <rect id="Rectangle-Copy-22" fill="#FFFFFF" mask="url(#mask-7)" x="4.025" y="10.6329114" width="8.72083333" height="2.65822785" rx="1.32911392"></rect>
+                    <rect id="Rectangle-Copy-23" fill="#FFFFFF" mask="url(#mask-7)" x="15.4291667" y="10.6329114" width="8.72083333" height="2.65822785" rx="1.32911392"></rect>
+                    <rect id="Rectangle-Copy-24" fill="#FFFFFF" mask="url(#mask-7)" x="26.8333333" y="10.6329114" width="8.72083333" height="2.65822785" rx="1.32911392"></rect>
+                    <rect id="Rectangle-Copy-25" fill="#FFFFFF" mask="url(#mask-7)" x="38.2375" y="10.6329114" width="8.72083333" height="2.65822785" rx="1.32911392"></rect>
+                    <rect id="Rectangle-Copy-26" fill="#FFFFFF" mask="url(#mask-7)" x="49.6416667" y="10.6329114" width="8.72083333" height="2.65822785" rx="1.32911392"></rect>
+                    <rect id="Rectangle-Copy-27" fill="#FFFFFF" mask="url(#mask-7)" x="61.0458333" y="10.6329114" width="8.72083333" height="2.65822785" rx="1.32911392"></rect>
+                    <rect id="Rectangle-Copy-28" fill="#FFFFFF" mask="url(#mask-7)" x="72.45" y="10.6329114" width="8.72083333" height="2.65822785" rx="1.32911392"></rect>
+                </g>
+                <g id="Terminal" filter="url(#filter-8)" transform="translate(127.000000, 50.000000)">
+                    <mask id="mask-10" fill="white">
+                        <use xlink:href="#path-9"></use>
+                    </mask>
+                    <use id="Rectangle" fill="#202124" xlink:href="#path-9"></use>
+                    <g id="code" mask="url(#mask-10)">
+                        <g transform="translate(8.000000, 20.000000)">
+                            <rect id="Rectangle" fill="#EE675C" x="-3.48165941e-13" y="-8.2600593e-14" width="60" height="5" rx="2.5"></rect>
+                            <rect id="Rectangle-Copy-4" fill="#4285F4" x="-3.48165941e-13" y="20" width="60" height="5" rx="2.5"></rect>
+                            <rect id="Rectangle-Copy" fill="#34A853" x="-1.36779477e-13" y="10" width="24" height="5" rx="2.5"></rect>
+                            <rect id="Rectangle-Copy-14" fill="#34A853" x="-1.36779477e-13" y="50" width="24" height="5" rx="2.5"></rect>
+                            <rect id="Rectangle-Copy-2" fill="#FCC934" x="28" y="10" width="24" height="5" rx="2.5"></rect>
+                            <rect id="Rectangle-Copy-15" fill="#FCC934" x="28" y="50" width="24" height="5" rx="2.5"></rect>
+                            <rect id="Rectangle-Copy-3" fill="#FFFFFF" x="58" y="10" width="48" height="5" rx="2.5"></rect>
+                            <rect id="Rectangle-Copy-16" fill="#FFFFFF" x="58" y="50" width="36" height="5" rx="2.5"></rect>
+                            <rect id="Rectangle-Copy-5" fill="#FFFFFF" x="-2.73558953e-13" y="30" width="48" height="5" rx="2.5"></rect>
+                        </g>
+                    </g>
+                    <g id="nav-bar" mask="url(#mask-10)">
+                        <g transform="translate(-7.000000, -1.000000)">
+                            <rect id="Rectangle" fill="#DADCE0" x="0" y="0" width="175" height="9"></rect>
+                            <rect id="minimize" fill="#5F6368" x="146.511628" y="5.78571429" width="4.06976744" height="1"></rect>
+                            <g id="maximize" stroke-width="1" fill="none" transform="translate(152.509820, 3.214286)">
+                                <rect id="Rectangle-Copy-6" fill="#5F6368" x="0.784753363" y="2.57142857" width="4.06976744" height="1"></rect>
+                                <rect id="Rectangle-Copy-9" fill="#5F6368" x="0.784753363" y="0" width="4.06976744" height="1"></rect>
+                                <polygon id="Rectangle-Copy-10" fill="#5F6368" transform="translate(1.123901, 1.607143) rotate(90.000000) translate(-1.123901, -1.607143) " points="-0.483242207 1.26799557 2.73104351 1.26799557 2.73104351 1.94629014 -0.483242207 1.94629014"></polygon>
+                                <polygon id="Rectangle-Copy-11" fill="#5F6368" transform="translate(4.515374, 1.607143) rotate(90.000000) translate(-4.515374, -1.607143) " points="2.90823066 1.26799557 6.12251638 1.26799557 6.12251638 1.94629014 2.90823066 1.94629014"></polygon>
+                            </g>
+                            <g id="close" stroke-width="1" fill="none" transform="translate(160.077519, 2.464286)">
+                                <polygon id="Rectangle-Copy-7" fill="#5F6368" transform="translate(2.034884, 2.357143) rotate(45.000000) translate(-2.034884, -2.357143) " points="0.0620155039 2.08001107 4.02547065 1.97369878 4.00775194 2.63427464 0.0442967885 2.74058693"></polygon>
+                                <polygon id="Rectangle-Copy-8" fill="#5F6368" transform="translate(2.034884, 2.357143) rotate(-4545.000000) translate(-2.034884, -2.357143) " points="0.0442967885 1.97369878 4.00775194 2.08001107 4.02547065 2.74058693 0.0620155039 2.63427464"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
