@@ -67,7 +67,7 @@ Dado que las Chromebook tienen teclados físicios, su aplicación debería inclu
 
 #5[tabulación transversal](/images/android/optimizing/transversal-tabbing.png)
 
-#6[Reemplazar un gesto de deslizar con un control que aparece al flotar el mouse](/images/android/optimizing/hover-controls.png)
+#6[Reemplazar un gesto de deslizar con un control que aparece al flotar el puntero del mouse sobre elementos](/images/android/optimizing/hover-controls.png)
 
 También debe asegurarse de implementar alternativas de teclado o mouse a las funciones principales ocultas bajo interacciones específicas del tacto, como pulsaciones prolongadas, deslizamientos u otros gestos multitáctiles. Una solución de ejemplo sería proporcionar botones que aparecen en una superficie al pasar el mouse.
 
