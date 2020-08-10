@@ -77,13 +77,12 @@ optimize:
   src:
     - '**/*.html'
     - '**/*.txt'
-  critical:
-    inline: true
-    minify: true
   htmlmin:
     collapseWhitespace: true
     sortAttributes: true
     sortClassNames: true
+    minifyCSS: true
+    minifyJS: true
 
 # Configure Eleventy Plugin Safe External Links
 externalLinks:
