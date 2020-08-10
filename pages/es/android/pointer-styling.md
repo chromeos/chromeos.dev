@@ -54,14 +54,16 @@ Agregar iconos de puntero a su aplicación es una excelente manera de ayudar a q
 
 - **Arrastrar y soltar:** si su aplicación admite arrastrar desde otra aplicación y soltar en su aplicación, podría implementar el ícono `TYPE_NO_DROP` . Esto daría una indicación visual de que su aplicación no es compatible con el tipo MIME que está tratando de caer en su aplicación.
 - **Mapas -** Si su aplicación contiene mapas y le gustaría mostrar a sus usuarios que pueden desplazar el mapa puede utiizar el ícono `TYPE_GRAB` cuando el puntero del mouse se deslice sobre el mapa y cuando el usuario hace clic, actualizar el ícono a arrastrar para demostrar el efecto de desplazamiento del mapa.
-- **Edición de fotos - ** A los usuarios de edición de fotos les gusta tener controles que les permitan seleccionar una lupa para acercarla. Puede cambiar el cursor a una lupa con el ícono `TYPE_ZOOM_IN` cuando se selecciona el modo acercar.
+- **Edición de fotos -** A los usuarios de edición de fotos les gusta tener controles que les permitan seleccionar una lupa para acercarla. Puede cambiar el cursor a una lupa con el ícono `TYPE_ZOOM_IN` cuando se selecciona el modo acercar.
 - **Y muchas más oportunidades**
 
 !!! aside.message--tip
 Para ver los diferentes cambios de puntero en acción, consulte este [ejemplo de puntero de GitHub](https://github.com/chromeos/pointer-icon-sample)
-!!!
 
-<video controls="" width="900" height="1900" autoplay="" muted=""></video><source src="/videos/android/pointer-styling/pointer-icon.mp4" type="video/mp4"> !!!</source>
+<video controls width="900" height="1900" autoplay muted>
+  <source src="/videos/android/pointer-styling/pointer-icon.mp4" type="video/mp4">
+</video>
+!!!
 
 ## Apéndice
 

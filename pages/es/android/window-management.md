@@ -10,11 +10,11 @@ tags:
 
 La implementación de aplicaciones de Android en Chrome OS incluye soporte básico de múltiples ventanas. En lugar de ocupar siempre la pantalla completa, Android presenta las aplicaciones en Chrome OS en contenedores de ventana de forma libre que son apropiados para las dimensiones del dispositivo, como se muestra en la [Figura 1](#figure-1) .
 
-# 1 [Una aplicación en diferentes tamaños de ventana](/images/android/optimizing/fullscreen-and-windows.png)
+#1[Una aplicación en diferentes tamaños de ventana](/images/android/optimizing/fullscreen-and-windows.png)
 
 Los usuarios pueden cambiar el tamaño de la ventana que aloja su aplicación de Android, como se muestra en la [Figura 2](#figure-2) . Para asegurarse de que sus ventanas de formato libre cambien de tamaño sin problemas y puedan mostrar todo su contenido al usuario, lea las pautas y las cosas a tener en cuenta a continuación.
 
-# 2 [Una ventana de aplicación redimensionable](/images/android/optimizing/resizable.png)
+#2[Una ventana de aplicación redimensionable](/images/android/optimizing/resizable.png)
 
 Esto plantea algunos desafíos del ciclo de vida y cosas nuevas a considerar con un entorno de tamaño libre. El entorno de tamaño libre permite una mayor probabilidad de que su aplicación sea visible pero no la aplicación activa o que tenga múltiples aplicaciones que compiten por recursos exclusivos como la cámara o el micrófono. ¡Mira los [documentos de ventanas múltiples](https://developer.android.com/guide/topics/ui/multi-window?hl={{locale.code}}) aquí para obtener más información sobre estos y cómo manejarlos mejor!
 
@@ -79,7 +79,7 @@ El modo del dispositivo tiene un efecto aquí: en el modo tableta, la orientaci�
 
 La orientación más común es el retrato, ya que los teléfonos se sostienen principalmente de esta manera. Este modo es bueno para los teléfonos, pero terrible para las computadoras portátiles. Por otro lado, el modo horizontal es bueno para computadoras portátiles y para tabletas. Para obtener los mejores resultados para su aplicación con un administrador de ventanas, debe considerar admitir ambas orientaciones.
 
-Algunas aplicaciones de Android suponen que cuando un dispositivo se mantiene en modo vertical, el valor de rotación siempre es [`Surface.ROTATION_0`](https://developer.android.com/reference/android/view/Surface#ROTATION_0) . Esto puede ser cierto para la mayoría de los dispositivos Android. Sin embargo, cuando la aplicación está en un cierto modo [ARC](https://developer.chrome.com/apps/getstarted_arc) , el valor de rotación para la orientación vertical puede no ser [`Surface.ROTATION_0`](https://developer.android.com/reference/android/view/Surface#ROTATION_0) .
+Algunas aplicaciones de Android suponen que cuando un dispositivo se mantiene en modo vertical, el valor de rotación siempre es [`Surface.ROTATION_0`](https://developer.android.com/reference/android/view/Surface#ROTATION_0) . Esto puede ser cierto para la mayoría de los dispositivos Android. Sin embargo, cuando la aplicación está en un cierto modo [ARC](https://developer.chrome.com/apps/getstarted_arc) , el valor de rotación para la orientación vertical puede no ser [`Surface.ROTATION_0`](https://developer.android.com/reference/android/view/Surface#ROTATION_0).
 
 Para obtener un valor de rotación preciso mientras lee el acelerómetro o sensores similares, use el método [`Display.getRotation()`](<https://developer.android.com/reference/android/view/Display.html#getRotation()>) e intercambie el eje en consecuencia.
 

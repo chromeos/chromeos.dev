@@ -6,9 +6,9 @@ weight: -8
 ---
 
 <!-- prettier-ignore -->
-* [IDE]: entorno de desarrollo integrado 
-* [LAMP]: abreviatura de una pila de desarrollo PHP común 
-* [JAM]: abreviatura de una pila de desarrollo Node.js común
+*[IDE]: entorno de desarrollo integrado 
+*[LAMP]: abreviatura de una pila de desarrollo PHP común
+*[JAM]: abreviatura de una pila de desarrollo Node.js común
 
 Desarrollar aplicaciones web en Chrome OS es casi lo mismo que desarrollar aplicaciones web en cualquier otro sistema operativo. Cualquier editor de código, IDE, herramienta o lenguaje que se ejecute en Linux se ejecuta en Chrome OS. Chrome OS incluso tiene características específicamente diseñadas para ayudar en el desarrollo web, también.
 

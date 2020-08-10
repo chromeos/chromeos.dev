@@ -10,7 +10,7 @@ tools:
       min: cualquiera
 ---
 
-Los dispositivos Chrome OS brindan el beneficio único de que puede crear aplicaciones de Android en ellos, y también puede ejecutar aplicaciones de Android en dispositivos Chrome. Puede implementar directamente en el dispositivo en el que está codificando, lo que puede facilitar la creación y las pruebas. Probar su aplicación en Chrome OS lo ayuda a comprender mejor la experiencia del usuario y cómo optimizar la experiencia de su aplicación para [pantallas grandes](/{{locale.code}}/android/design#layouts-for-larger-screens) y [soporte de entrada](/{{locale.code}}/android/input-compatibility) . Además, podrá implementar y probar su aplicación desde su dispositivo Chrome OS en un teléfono, tableta u otro dispositivo Chrome OS.
+Los dispositivos Chrome OS brindan el beneficio único de que puede crear aplicaciones de Android en ellos, y también puede ejecutar aplicaciones de Android en dispositivos Chrome. Puede implementar directamente en el dispositivo en el que está codificando, lo que puede facilitar la creación y las pruebas. Probar su aplicación en Chrome OS lo ayuda a comprender mejor la experiencia del usuario y cómo optimizar la experiencia de su aplicación para [pantallas grandes](/{{locale.code}}/android/design#layouts-for-larger-screens) y [soporte de entrada](/{{locale.code}}/android/input-compatibility). Además, podrá implementar y probar su aplicación desde su dispositivo Chrome OS en un teléfono, tableta u otro dispositivo Chrome OS.
 
 ### Instalar Android Studio en Chrome OS
 
@@ -39,7 +39,7 @@ Junto con el uso de Android Studio en su Chromebook, es posible que también des
 
 Descubre más sobre por qué [Flutter y Chrome OS son mejores juntos](/{{locale.code}}/posts/flutter-and-chromeos-better-together) . Para comenzar a usar Flutter en Chrome OS, siga las [instrucciones de instalación de Chrome OS](https://flutter.dev/docs/get-started/install/chromeos) en el sitio de Flutter.
 
-### Soporte de emulador de Android
+### Soporte para emulador de Android
 
 Las Chromebooks compatibles ahora pueden ejecutar una versión completa del emulador de Android, que permite a los desarrolladores probar aplicaciones en cualquier versión y dispositivo Android sin necesidad del hardware real. Los desarrolladores de aplicaciones de Android pueden simular ubicaciones de mapas y otros datos de sensores para probar cómo funciona una aplicación con diversos movimientos, orientación y condiciones ambientales. Con el soporte de Android Emulator en Chrome OS, los desarrolladores pueden optimizar para diferentes versiones y dispositivos de Android, incluidas tabletas y teléfonos inteligentes plegables, directamente desde su Chromebook.
 

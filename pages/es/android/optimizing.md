@@ -17,7 +17,7 @@ Las aplicaciones de Android tienen un papel importante que desempeñar en la red
 
 Los usuarios pueden cambiar el tamaño de la ventana que aloja su aplicación de Android, como se muestra en la [Figura 1](#figure-1) . Para asegurarse de que sus ventanas de forma libre cambien de tamaño sin problemas y puedan mostrar todo su contenido al usuario, lea las pautas y las cosas que debe tener en cuenta en la [Administración de ventanas](/{{locale.code}}/android/window-management) .
 
-# 1 [Una ventana de aplicación redimensionable](/images/android/optimizing/resizable.png)
+#1[Una ventana de aplicación redimensionable](/images/android/optimizing/resizable.png)
 
 Puede mejorar la experiencia del usuario cuando su aplicación se ejecuta en Chrome OS siguiendo estas prácticas recomendadas:
 
@@ -26,7 +26,7 @@ Puede mejorar la experiencia del usuario cuando su aplicación se ejecuta en Chr
 - Personalice las dimensiones iniciales de la ventana de la aplicación especificando su [tamaño de inicio](/{{locale.code}}/android/window-management#launch-size) .
 - La orientación de la actividad raíz de la aplicación afecta a todas sus ventanas. Tenga en cuenta las [reglas de actividad raíz](/{{locale.code}}/android/window-management#the-root-activity-rules) .
 
-Para obtener más información, lea sobre la [administración de ventanas](/{{locale.code}}/android/window-management) .
+Para obtener más información, lea sobre la [administración de ventanas](/{{locale.code}}/android/window-management).
 
 ## Personaliza el color de la barra superior
 
@@ -42,9 +42,9 @@ Todas las aplicaciones para Chrome OS deben ser compatibles con mouse, trackpad 
 - Todas las superficies de desplazamiento táctil se desplazan en los eventos de la rueda del mouse ( [Figura 3](#figure-3) )
 - Los estados de desplazamiento (hover) ( [Figura 4](#figure-4) ) se implementan con la intención y el mejor criterio para mejorar el descubrimiento de la interfaz de usuario sin abrumar al usuario.
 
-# 3 [Desplazarse con la rueda del mouse](/images/android/optimizing/scroll-on-mousewheel.png)
+#3[Desplazarse con la rueda del mouse](/images/android/optimizing/scroll-on-mousewheel.png)
 
-# 4 [estados de desplazamiento del botón](/images/android/optimizing/hover-states.png)
+#4[Estados de flotar el puntero del ratón sobre elementos](/images/android/optimizing/hover-states.png)
 
 Cuando corresponda, debe diferenciar entre el mouse y las entradas táctiles. Por ejemplo, tocar un elemento podría desencadenar una IU de selección múltiple, mientras que hacer clic en el mismo elemento podría desencadenar una sola selección.
 
@@ -65,9 +65,9 @@ La clase `PointerIcon` proporciona [constantes](https://developer.android.com/re
 
 Dado que las Chromebook tienen teclados físicios, su aplicación debería incluir atajos para incrementar la productividad del usuario. Por ejemplo si es posible imprimir desde su aplicación, se podría usar `Control+P` para abrir un dialog de imprimir. También todos los elementos cruciales en la UI deben ser manejados a través [navegación con tab](https://developer.android.com/training/keyboard-input/navigation?hl={{locale.code}}#Tab) ([Figura 5](#figure-5)). Esto es especialmente importante para accesibilidad. Sin embargo, para cumplir con estandares de accesibilidad, todas las superficies en la UI deben tener estados al enfocar visibles y que sean accesibles ([Figura 6](#figure-6)).
 
-# 5 [tabulación transversal](/images/android/optimizing/transversal-tabbing.png)
+#5[tabulación transversal](/images/android/optimizing/transversal-tabbing.png)
 
-# 6 [Reemplazar un gesto de deslizar con un control que aparece al pasar el mouse](/images/android/optimizing/hover-controls.png)
+#6[Reemplazar un gesto de deslizar con un control que aparece al flotar el puntero del mouse sobre elementos](/images/android/optimizing/hover-controls.png)
 
 También debe asegurarse de implementar alternativas de teclado o mouse a las funciones principales ocultas bajo interacciones específicas del tacto, como pulsaciones prolongadas, deslizamientos u otros gestos multitáctiles. Una solución de ejemplo sería proporcionar botones que aparecen en una superficie al pasar el mouse.
 
@@ -77,7 +77,7 @@ Para lograr la funcionalidad de escritorio para su aplicación, considere estas 
 
 ### Menús contextuales
 
-![Un meno contextual que aparece al hacer clic derecho](/images/android/optimizing/contextual-menu.png)
+![Un menú contextual que aparece al hacer clic derecho](/images/android/optimizing/contextual-menu.png)
 
 Los menús contextuales de Android, que son otro acelerador para llevar a los usuarios a las funciones de su aplicación, pueden activarse haciendo clic con el botón secundario de un mouse o trackpad, o presionando una pantalla táctil.
 

@@ -43,7 +43,7 @@ Si no desea hacer una copia, puede compartir directorios, como una carpeta de pr
 
 ## Instalar aplicaciones y paquetes de Linux
 
-Ahora que Linux está configurado, ¡es hora de instalar tus primeras aplicaciones! Si bien siempre puede instalar aplicaciones y herramientas en el terminal a través de `sudo apt install` , Linux en Chrome OS admite hacer doble clic para instalar archivos `.deb` (paquete de software Debian) en la aplicación Archivos, lo que le permite descargar e instalar aplicaciones como está acostumbrado. Visual Studio Code, por ejemplo, ofrece un paquete <a data-md-type="link" href="https://code.visualstudio.com/download">`.deb`</a> , con el que puede probar esto. Una vez descargado y doble clic, verá un mensaje con información sobre la aplicación que desea instalar, ¡junto con la opción de instalar la aplicación!
+Ahora que Linux está configurado, ¡es hora de instalar tus primeras aplicaciones! Si bien siempre puede instalar aplicaciones y herramientas en el terminal a través de `sudo apt install` , Linux en Chrome OS admite hacer doble clic para instalar archivos `.deb` (paquete de software Debian) en la aplicación Archivos, lo que le permite descargar e instalar aplicaciones como está acostumbrado. Visual Studio Code, por ejemplo, ofrece un paquete [`.deb`](https://code.visualstudio.com/download), con el que puede probar esto. Una vez descargado y doble clic, verá un mensaje con información sobre la aplicación que desea instalar, ¡junto con la opción de instalar la aplicación!
 
 #3[Solicitud de instalación para VS Code.](/images/linux/getting-started/deb-install.jpg)
 
@@ -72,13 +72,13 @@ Una vez que se apaga, las aplicaciones deberían aparecer en el iniciador, y al 
 
 ## Seguridad y permisos
 
-Linux en Chrome OS se ejecuta dentro de un contenedor, [protegiéndolo](https://support.google.com/chromebook/answer/3438631#sandboxing) de otras páginas web, aplicaciones y el propio sistema operativo. Sin embargo, todas las aplicaciones instaladas en el contenedor de Linux _comparten_ el mismo entorno limitado, lo que significa que comparten los permisos del contenedor de Linux y pueden afectarse entre sí.
+Linux en Chrome OS se ejecuta dentro de un contenedor, [protegiéndolo](https://support.google.com/chromebook/answer/3438631?hl={{es}}#sandboxing) de otras páginas web, aplicaciones y el propio sistema operativo. Sin embargo, todas las aplicaciones instaladas en el contenedor de Linux _comparten_ el mismo entorno limitado, lo que significa que comparten los permisos del contenedor de Linux y pueden afectarse entre sí.
 
 Por razones de seguridad, muchos permisos, como acceso a USB o al microfono, no se comportan automáticamente. Para asegurarse que tiene los permisos adecuados habilitados, debe ir a configuración y habilitarlos. Como siempre tome precauciones con los permisos y nunca habilite más de lo que necesita. Cuando interáctue con Linux (Beta) en Chrome OS, preste particular atención a los [datos del usuario en el contenedor](/{{locale.code}}/linux/linux-on-chromeos-deep-dive#user-data-in-the-container).
 
 ## Copia de seguridad y restauración
 
-Debido a que Linux en Chrome OS se ejecuta dentro de un contenedor, puede hacer una copia de seguridad de su entorno y restaurarlo; archivos, aplicaciones y todo. ¡Esto le permite configurar su entorno Linux una vez y luego llevarlo consigo sin necesidad de reconfigurarlo nuevamente! Para obtener instrucciones detalladas sobre cómo hacerlo, consulte la página de ayuda de Chromebook sobre cómo realizar [copias de seguridad y restaurar su contenedor Linux](https://support.google.com/chromebook/answer/9592813)
+Debido a que Linux en Chrome OS se ejecuta dentro de un contenedor, puede hacer una copia de seguridad de su entorno y restaurarlo; archivos, aplicaciones y todo. ¡Esto le permite configurar su entorno Linux una vez y luego llevarlo consigo sin necesidad de reconfigurarlo nuevamente! Para obtener instrucciones detalladas sobre cómo hacerlo, consulte la página de ayuda de Chromebook sobre cómo realizar [copias de seguridad y restaurar su contenedor Linux](https://support.google.com/chromebook/answer/9592813?hl={{es}})
 
 ## Solución de problemas
 

@@ -18,7 +18,7 @@ date: 2020-05-01
 
 Los dispositivos Chrome OS, como los Chromebook, ahora son compatibles con Google Play Store y las aplicaciones de Android. Este artículo asume que tiene una aplicación de Android existente diseñada para teléfonos o tabletas que desea optimizar para Chromebooks. Para conocer los conceptos básicos de la creación de aplicaciones de Android, consulte [Crear su primera aplicación.](https://developer.android.com/training/basics/firstapp/index?hl={{locale.code}})
 
-## Actualiza el archivo de manifiesto de tu aplicación
+## Actualiza el archivo AndroidManifest.xml de tu aplicación
 
 Para comenzar, actualice su archivo de manifiesto para tener en cuenta algunas diferencias clave de hardware y software entre las Chromebooks y otros dispositivos con Android.
 

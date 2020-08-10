@@ -14,7 +14,7 @@ weight: 12
 ARC
 : App Runtime for Chrome; the old/deprecated method of running Android apps in a Chrome [NaCl](https://developer.chrome.com/native-client) (Native Client) sandbox. Had random compatibility issues.
 
-ARC++
+ARC ++
 : Android Runtime for Chrome [plus plus]; the current method for booting Android in a container under Chrome OS.
 
 [Cicerone](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/cicerone/)
