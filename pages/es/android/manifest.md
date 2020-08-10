@@ -94,7 +94,7 @@ La siguiente lista incluye las funciones de software que actualmente no son comp
 
 Algunos permisos que solicita en sus archivos de manifiesto pueden crear solicitudes implícitas de funciones de hardware y software. Al solicitar estos permisos, evitará que su aplicación se instale en Chromebooks.
 
-Para obtener detalles sobre cómo evitar que las solicitudes de permisos hagan que su aplicación no esté disponible en Chromebooks, consulte la sección [Entradas de manifiesto incompatibles](#incompatible-manifest-entries) de esta página.
+Para obtener detalles sobre cómo evitar que las solicitudes de permisos hagan que su aplicación no esté disponible en Chromebooks, consulte la sección [Entradas de manifiesto incompatibles](#entradas-incompatibles) de esta página.
 
 La siguiente tabla muestra los permisos que implican ciertos requisitos de características que hacen que una aplicación sea incompatible con Chromebooks:
 

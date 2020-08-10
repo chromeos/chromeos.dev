@@ -65,7 +65,7 @@ Una vez que la aplicación se está ejecutando, debe escuchar los eventos `onCon
 
 Tenga en cuenta que con un cambio de tamaño, una aplicación debe cambiar el tamaño o volver a cargar diseños, ilustraciones y actualizar áreas de entrada.
 
-## Las reglas de la actividad principal
+## Las reglas de la actividad principal { #the-root-activity-rules}
 
 Una ventana en Chromebooks consiste en una pila de ventanas de actividad. Cada ventana en esta pila tiene el mismo tamaño y orientación.
 
@@ -85,7 +85,7 @@ Para obtener un valor de rotación preciso mientras lee el acelerómetro o senso
 
 Si solo admite uno, agregue la información al manifiesto para que el administrador de ventanas sepa sobre esto antes de iniciar la aplicación. Cuando especifique una orientación, asegúrese de especificar las orientaciones de los sensores cuando sea posible, ya que las Chromebooks a menudo son convertibles y las aplicaciones al revés son molestas. Siga con una orientación seleccionada, y lo más importante de todo: evite solicitar una orientación en el manifiesto y luego configure otra mediante programación más adelante. Si cambia la orientación en función del tamaño de la ventana, es posible que se quede atascado en una pequeña ventana de tamaño vertical y el usuario no pueda volver a una gran ventana horizontal.
 
-## Tamaño de lanzamiento
+## Tamaño de lanzamiento { #launch-size}
 
 Las aplicaciones pueden cambiar su tamaño de lanzamiento mediante una de las siguientes formas:
 

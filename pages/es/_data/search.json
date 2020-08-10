@@ -9,5 +9,10 @@
     "warning": "Esta opción necesita descargar una gran cantidad de datos",
     "unavailable": "La búsqueda no se encuentra disponible, por favor intente cuando se encuentre en línea",
     "result": "No disponible sin conexión"
+  },
+  "pagination": {
+    "prev": "Página previa",
+    "next": "Página siguiente",
+    "page": "Página ((n))"
   }
 }
