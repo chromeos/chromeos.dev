@@ -22,7 +22,7 @@ Los dispositivos Chrome OS, como los Chromebook, ahora son compatibles con Googl
 
 Para comenzar, actualice su archivo de manifiesto para tener en cuenta algunas diferencias clave de hardware y software entre las Chromebooks y otros dispositivos con Android.
 
-A partir de Chrome OS versión M53, todas las aplicaciones de Android que no requieren explícitamente la función [`android.hardware.touchscreen`](https://developer.android.com/guide/topics/manifest/uses-feature-element.html#touchscreen-hw-features?hl={{locale.code}}) también funcionarán en dispositivos Chrome OS que admitan la función `android.hardware.faketouch` . Sin embargo, para garantizar que su aplicación funcione en todas las Chromebooks, vaya a su archivo de manifiesto y ajuste la configuración para que no se requiera la función `android.hardware.touchscreen` , como se muestra en el siguiente ejemplo. Eliminar el requisito de entrada táctil significa que también debe revisar el soporte de su aplicación para las [interacciones de mouse y teclado](https://developer.android.com/training/gestures/movement?hl={{locale.code}}) .
+A partir de Chrome OS versión M53, todas las aplicaciones de Android que no requieren explícitamente la función [`android.hardware.touchscreen`](https://developer.android.com/guide/topics/manifest/uses-feature-element.html?hl={{locale.code}}#touchscreen-hw-features) también funcionarán en dispositivos Chrome OS que admitan la función `android.hardware.faketouch` . Sin embargo, para garantizar que su aplicación funcione en todas las Chromebooks, vaya a su archivo de manifiesto y ajuste la configuración para que no se requiera la función `android.hardware.touchscreen` , como se muestra en el siguiente ejemplo. Eliminar el requisito de entrada táctil significa que también debe revisar el soporte de su aplicación para las [interacciones de mouse y teclado](https://developer.android.com/training/gestures/movement?hl={{locale.code}}) .
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" ... >
@@ -37,7 +37,7 @@ Los diferentes dispositivos de hardware vienen equipados con diferentes conjunto
 
 Nota: Si no necesita un sensor en particular para su aplicación, pero aún utiliza mediciones del sensor cuando está disponible, asegúrese de verificar dinámicamente la disponibilidad del sensor antes de intentar recopilar información de él en su aplicación.
 
-Algunas funciones de software no son compatibles con las Chromebooks. Por ejemplo, las aplicaciones que proporcionan IME personalizados, widgets de aplicaciones, fondos de pantalla en vivo e iniciadores de aplicaciones no son compatibles y no estarán disponibles para su instalación en Chromebooks. Para obtener una lista completa de las funciones de software que actualmente no son compatibles con las Chromebook, consulte [las funciones de software incompatibles](/{{locale.code}}/android/manifest#software-features) .
+Algunas funciones de software no son compatibles con las Chromebooks. Por ejemplo, las aplicaciones que proporcionan IME personalizados, widgets de aplicaciones, fondos de pantalla en vivo e iniciadores de aplicaciones no son compatibles y no estarán disponibles para su instalación en Chromebooks. Para obtener una lista completa de las funciones de software que actualmente no son compatibles con las Chromebook, consulte [las funciones de software incompatibles](/{{locale.code}}/android/manifest#funciones-de-software).
 
 ## Actualiza la version SDK preferida
 

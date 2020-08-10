@@ -22,7 +22,7 @@ Los desarrolladores que deseen que su aplicación funcione bien con entradas en 
 
 ## Teclado
 
-El manejo correcto de la entrada del teclado es esencial para proporcionar una buena experiencia de escritorio. Esto se puede dividir en tres categorías: [navegación](#navigation) , [pulsaciones de teclas](#keystrokes) y [atajos](#shortcuts) .
+El manejo correcto de la entrada del teclado es esencial para proporcionar una buena experiencia de escritorio. Esto se puede dividir en tres categorías: [navegación](#navegación) , [pulsaciones de teclas](#teclado) y [atajos](#atajos) .
 
 ### Navegación
 
@@ -147,9 +147,9 @@ override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
 
 ## Soporte para mouse y touchpad
 
-Chrome OS maneja automáticamente la mayoría de los eventos de mouse y trackpad para que actúen como eventos táctiles en un teléfono Android. Esto incluye el desplazamiento con dos dedos del panel táctil / rueda del mouse. La mayoría de las aplicaciones generalmente solo necesitan pensar en 3 eventos centrados en el escritorio: [clic derecho](#right-click) , [desplazamiento](#hover) y [arrastrar y soltar](#drag-and-drop) .
+Chrome OS maneja automáticamente la mayoría de los eventos de mouse y trackpad para que actúen como eventos táctiles en un teléfono Android. Esto incluye el desplazamiento con dos dedos del panel táctil / rueda del mouse. La mayoría de las aplicaciones generalmente solo necesitan pensar en 3 eventos centrados en el escritorio: [clic derecho](#clic-derecho) , [flotar con el puntero del ratón](#flotar) y [arrastrar y soltar](#arrastrar-y-soltar) .
 
-### Botón derecho del ratón
+### Clic derecho
 
 Cualquier acción que haga que una aplicación muestre un menú contextual, como presionar prolongadamente un elemento de la lista, también debe reaccionar a los eventos de clic derecho. Para manejar eventos de clic derecho, las aplicaciones deben registrar un [`View.OnContextClickListener`](https://developer.android.com/reference/android/view/View.OnContextClickListener) . Para obtener detalles sobre cómo construir un menú contextual, consulte la [documentación del menú contextual de](https://developer.android.com/guide/topics/ui/menus#context-menu) Android
 
@@ -207,7 +207,7 @@ Examine el `MotionEvent` para implementar el comportamiento requerido.
 - Los botones generan eventos `ACTION_BUTTON_PRESS` y `ACTION_BUTTON_RELEASE` . También puede verificar el estado actual de todos los botones del mouse / trackpad usando `getButtonState()` .
 - El desplazamiento de la rueda del mouse genera eventos `ACTION_SCROLL`
 
-## Lápiz óptico
+## Lápiz óptico { #stylus}
 
 Muchas Chromebooks vienen con un lápiz óptico o pueden funcionar con una tableta de dibujo bluetooth externa como la [Wacom Intuos](https://www.wacom.com/en-us/products/pen-tablets/wacom-intuos) . (Nota: actualmente, los dispositivos solo USB no son compatibles)
 
@@ -253,7 +253,7 @@ Una vez registrados, los usuarios pueden seleccionar esa aplicación para que se
 
 Para probar si una aplicación responde correctamente a los intentos de tomar notas sin un lápiz óptico activo, use el siguiente método para mostrar las opciones de toma de notas:
 
-1. [Cambie al modo de desarrollo y haga que el dispositivo sea grabable](/{{locale.code}}/android/sideload)
+1. [Cambie al modo de desarrollo y haga que el dispositivo sea grabable](/{{locale.code}}/android-environment/deploying-apps)
 2. Presione [[Ctrl]] + [[Alt]] + [[F2]] para abrir un terminal
 3. Ejecute el comando `sudo vi /etc/chrome_dev.conf`
 4. Presione [[i]] para editar y agregar `--ash-enable-palette` a una nueva línea al final del archivo
@@ -268,7 +268,7 @@ Ahora debería haber un menú de stylus en el estante:
 
 ## Gamepads
 
-Consulte nuestra página [Soporte de entrada](/{{locale.code}}/games/optimizing-games-inputs#game-controllers) en Juegos para obtener detalles sobre el soporte del controlador.
+Consulte nuestra página [Soporte de entrada](/{{locale.code}}/games/optimizing-games-inputs#controladores-de-juegos) en Juegos para obtener detalles sobre el soporte del controlador.
 
 ## Modo de traducción de entrada
 
