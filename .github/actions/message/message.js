@@ -63,7 +63,7 @@ async function postMessage(event) {
   if (message) {
     const pastResults = /(\#\# <img src="(.*)?> Lighthouse Results[\s\S]*)/gm;
 
-    message = `${buildHeader(input)}\n${pastResults.exec(message)[1]}\n${buildLighthouseResults(input)}`;
+    message = `${buildHeader(input)}\n${pastResults.exec(message.body)[1]}\n${buildLighthouseResults(input)}`;
   } else {
     message = `${buildHeader(input)}\n## <img src="https://developers.google.com/web/tools/lighthouse/images/lighthouse-logo.svg" height="26" alt="Lighthouse logo"> Lighthouse Results
     
