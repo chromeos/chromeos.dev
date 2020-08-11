@@ -21,63 +21,99 @@ const { Octokit } = require('@octokit/rest');
 if (process.env.GITHUB_EVENT_NAME === 'pull_request') {
   const event = JSON.parse(readFileSync(process.env.GITHUB_EVENT_PATH, 'utf-8'));
 
-  const repo = event.repository.full_name;
+  postMessage(event);
+}
+
+/**
+ *
+ * @param {object} event - GitHub Event object
+ */
+async function postMessage(event) {
+  // Clean input
+  const input = ['url', 'sha', 'links', 'results']
+    .map(i => {
+      const input = core.getInput(i, { required: true });
+      try {
+        return { [i]: JSON.parse(input) };
+      } catch (e) {
+        return { [i]: input };
+      }
+    })
+    .reduce((acc, cur) => Object.assign(acc, cur), {});
+
+  // Check to see if there's an existing message
+  const repo = event.repository.name;
+  const owner = event.repository.owner.login;
   const pr = event.number;
 
   const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN,
   });
 
-  console.log(event);
-  console.log(repo);
-  console.log(pr);
-}
+  const comments = await octokit.issues.listComments({
+    owner,
+    repo,
+    issue_number: pr,
+  });
 
-/**
- * Builds a message and sets it as the output
- */
-const input = ['url', 'sha', 'links', 'results']
-  .map(i => {
-    const input = core.getInput(i, { required: true });
-    try {
-      return { [i]: JSON.parse(input) };
-    } catch (e) {
-      return { [i]: input };
-    }
-  })
-  .reduce((acc, cur) => Object.assign(acc, cur), {});
+  const anchorTest = /^<input\stype="hidden"\sname="preview-anchor"\sid="(.*)?">/gm;
 
-const lh = {};
+  let message = comments.map(c => c.body).find(c => anchorTest.test(c));
+  const date = new Date().toLocaleDateString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
 
-for (const [key, value] of Object.entries(input.links)) {
-  lh[key] = {
-    report: value,
-    results: [],
-  };
-}
+  if (message) {
+    // DO SOMETHING
+  } else {
+    const idTest = /https:\/\/cros-staging--(([\d|\w]){8}-([\d|\w]){4}-([\d|\w]){4}-([\d|\w]){4}-([\d|\w]){12})/g;
+    const id = idTest.exec(input.url)[1];
 
-for (const result of input.results) {
-  lh[result.url].results.push(result);
-}
+    message = `<input type="hidden" name="preview-anchor" id="${id}">
+    
+    ## <img src="https://firebase.google.com/downloads/brand-guidelines/SVG/logo-logomark.svg" height="26" alt="Firebase"> Deploy Preview
+    
+    | url          | commit       | deployed |
+    | ------------ | ------------ | -------- |
+    | ${input.url} | ${input.sha} | ${date} |
+    
+    ## <img src="https://developers.google.com/web/tools/lighthouse/images/lighthouse-logo.svg" height="26" alt="Lighthouse logo"> Lighthouse Results
+    
+    ${buildLighthousResults(input)}`;
 
-let message = `## <img src="https://firebase.google.com/downloads/brand-guidelines/SVG/logo-logomark.svg" height="26" alt="Firebase"> Deploy Preview
-|   |   |
-| :---: | --- |
-| url    | ${input.url} |
-| commit | ${input.sha} |
-
-## <img src="https://developers.google.com/web/tools/lighthouse/images/lighthouse-logo.svg" height="26" alt="Lighthouse logo"> Lighthouse Results
-`;
-
-for (const [key, value] of Object.entries(lh)) {
-  message += `### [\`${key.replace(input.url, '')}\` Report](${value.report})\n`;
-  if (value.results.length) {
-    message += `**Errors**\n|audit|high|expected|values|\n| :---: | :---: | :---: | :---: |\n`;
-    for (const result of value.results) {
-      message += `|${result.auditProperty}|${result.actual * 100}|${result.expected * 100}|${result.values.map(i => i * 100).join(', ')}|\n`;
-    }
-    message += '\n';
+    core.setOutput('message', message);
   }
 }
 
-core.setOutput('message', message);
+/**
+ *
+ * @param {object} input - Action input
+ * @return {string}
+ */
+function buildLighthousResults(input) {
+  const lh = {};
+
+  for (const [key, value] of Object.entries(input.links)) {
+    lh[key] = {
+      report: value,
+      results: [],
+    };
+  }
+
+  for (const result of input.results) {
+    lh[result.url].results.push(result);
+  }
+
+  let message = '';
+
+  for (const [key, value] of Object.entries(lh)) {
+    message += `### Commit ${input.sha}\n`;
+    if (value.results.length) {
+      message += `[\`${key.replace(input.url, '')}\` Report](${value.report})\n|audit|high|expected|values|\n| :---: | :---: | :---: | :---: |\n`;
+      for (const result of value.results) {
+        message += `|${result.auditProperty}|${result.actual * 100}|${result.expected * 100}|${result.values.map(i => i * 100).join(', ')}|\n`;
+      }
+      message += '\n';
+    }
+  }
+
+  return message;
+}
