@@ -49,11 +49,15 @@ async function generateID(event) {
 
   const message = comments.data.map(c => ({ id: c.id, body: c.body })).find(c => anchorTest.test(c.body));
 
+  console.log(message);
+
   if (message) {
     const id = anchorTest.exec(message.body)[1];
+    console.log(id);
     return core.setOutput('channel', id);
   } else {
     const id = uuid();
+    console.log('New ID');
     return core.setOutput('channel', id);
   }
 }
