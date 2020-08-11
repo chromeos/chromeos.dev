@@ -1,6 +1,6 @@
 ---
 title: Performance profiling
-metadesc: Performance profiling on Chrome OS
+metadesc: Performance profiling on Chrome OS.
 date: 2020-06-16
 weight: -3
 ---

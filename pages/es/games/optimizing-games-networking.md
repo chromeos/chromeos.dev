@@ -1,6 +1,6 @@
 ---
 title: Redes para multijugador
-metadesc: Optimización de redes multijugador en Chrome OS
+metadesc: Optimización de redes multijugador en Chrome OS.
 date: 2020-06-16
 weight: -4
 ---

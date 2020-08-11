@@ -1,6 +1,6 @@
 ---
 title: Perfiles de rendimiento
-metadesc: Perfiles de rendimiento en Chrome OS
+metadesc: Perfiles de rendimiento en Chrome OS.
 date: 2020-06-16
 weight: -3
 ---
