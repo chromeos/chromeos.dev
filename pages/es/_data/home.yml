@@ -2,7 +2,7 @@
 hero:
   heading:
     - Su aplicación + Chrome OS.
-    - Mira las posibilidades
+    - Descubra las posibilidades
   cta:
     text: Comience a crear
     url: '#home__subnav'
