@@ -11,7 +11,8 @@
   ],
   "license": "Apache-2.0",
   "dependencies": {
-    "@actions/core": "^1.2.4"
+    "@actions/core": "^1.2.4",
+    "@octokit/rest": "^18.0.3"
   },
   "private": true,
   "volta": {

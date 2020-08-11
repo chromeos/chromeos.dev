@@ -112,6 +112,8 @@ jobs:
           sha: ${{ steps.deploy.outputs.sha }}
           links: ${{ steps.lighthouse.outputs.links }}
           results: ${{ steps.lighthouse.outputs.assertionResults }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Leave preview comment
         if: github.event_name == 'pull_request' && (success() || failure())
         uses: unsplash/comment-on-pr@v1.2.0

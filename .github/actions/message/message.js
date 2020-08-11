@@ -15,6 +15,23 @@
  */
 /* eslint-env node */
 const core = require('@actions/core');
+const { readFileSync } = require('fs');
+const { Octokit } = require('@octokit/rest');
+
+if (process.env.GITHUB_EVENT_NAME === 'pull_request') {
+  const event = JSON.parse(readFileSync(process.env.GITHUB_EVENT_PATH, 'utf-8'));
+
+  const repo = event.repository.full_name;
+  const pr = event.number;
+
+  const octokit = new Octokit({
+    auth: process.env.GITHUB_TOKEN,
+  });
+
+  console.log(event);
+  console.log(repo);
+  console.log(pr);
+}
 
 /**
  * Builds a message and sets it as the output
