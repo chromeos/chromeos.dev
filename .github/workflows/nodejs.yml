@@ -81,9 +81,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install jq
           npm --prefix .github/actions/message install
-      - name: Find Deploy ID
+      - name: Find Channel ID
         id: id
-        uses: ./.github/actions/uuid
+        uses: ./.github/actions/channel
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy preview

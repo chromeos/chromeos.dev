@@ -2,7 +2,7 @@
   "name": "actions",
   "version": "1.0.0",
   "description": "",
-  "main": "uuid.js",
+  "main": "channel.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
