@@ -26,7 +26,7 @@ Mientras las personas pasan más tiempo en casa que fuera de ella, dependen cada
 
 Esta tendencia fue clara de marzo a junio de 2020: las ventas de unidades de Chromebook crecieron un 127% interanual, mientras que el resto de la categoría de portátiles de EE. UU. Aumentó un 40% interanual.1 [^1] Las computadoras portátiles se han vuelto cruciales para las personas en casa que quieren usar sus aplicaciones y juegos favoritos, como [Star Trek™ Fleet Command](https://play.google.com/store/apps/details?id=com.scopely.startrek) y [Reigns: Game of Thrones](https://play.google.com/store/apps/details?id=com.devolver.reignsGot) para disfrutar de aventuras llenas de acción, [Calm](https://play.google.com/store/apps/details?id=com.calm.android) manejar el estrés, o [Disney+](https://play.google.com/store/apps/details?id=com.disney.disneyplus) para manterner a toda la familia entretenida.
 
-![Chromebook sales have increased 127% year over year from March-June 2020 as compared to 40% for other notebooks.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/yoy-sales.gif)
+![Las ventas de Chromebooks han aumentado  127%  interanual de marzo - junio 2020 comparado con 40% para otros notebooks.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/yoy-sales.gif)
 
 Para brindar experiencias de aplicaciones que realmente mejoren la vida de las personas, los desarrolladores deben estar equipados con las herramientas, los recursos y las mejores prácticas adecuadas. Es por eso que nos complace presentar [ChromeOS.dev](/{{locale.code}}), un recurso dedicado para desarrolladores técnicos, diseñadores, gerentes de productos y líderes comerciales.
 
