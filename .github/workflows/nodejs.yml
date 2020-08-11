@@ -103,7 +103,7 @@ jobs:
           temporaryPublicStorage: true
           uploadArtifacts: true
           runs: 3
-      - name: Build message
+      - name: Post message
         if: github.event_name == 'pull_request' && (success() || failure())
         id: message
         uses: ./.github/actions/message
@@ -112,15 +112,6 @@ jobs:
           sha: ${{ steps.deploy.outputs.sha }}
           links: ${{ steps.lighthouse.outputs.links }}
           results: ${{ steps.lighthouse.outputs.assertionResults }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Leave preview comment
-        if: github.event_name == 'pull_request' && (success() || failure())
-        uses: unsplash/comment-on-pr@v1.2.0
-        with:
-          msg: |
-            ${{ steps.message.outputs.message }}
-          check_for_duplicate_msg: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

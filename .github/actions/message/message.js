@@ -57,28 +57,6 @@ async function postMessage(event) {
   });
 
   const anchorTest = /^<input\stype="hidden"\sname="preview-anchor"\sid="(.*)?">/gm;
-
-  let message = comments.data.map(c => ({ id: c.id, body: c.body })).find(c => anchorTest.test(c.body));
-
-  if (message) {
-    const pastResults = /(\#\# <img src="(.*)?> Lighthouse Results[\s\S]*)/gm;
-
-    message = `${buildHeader(input)}\n${pastResults.exec(message.body)[1]}\n${buildLighthouseResults(input)}`;
-  } else {
-    message = `${buildHeader(input)}\n## <img src="https://developers.google.com/web/tools/lighthouse/images/lighthouse-logo.svg" height="26" alt="Lighthouse logo"> Lighthouse Results
-    
-${buildLighthouseResults(input)}`;
-  }
-
-  core.setOutput('message', message);
-}
-
-/**
- *
- * @param {object} input
- * @return {string}
- */
-function buildHeader(input) {
   const date = new Date().toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
@@ -89,6 +67,40 @@ function buildHeader(input) {
     timeZoneName: 'short',
   });
 
+  const message = comments.data.map(c => ({ id: c.id, body: c.body })).find(c => anchorTest.test(c.body));
+
+  if (message) {
+    const pastResults = /(\#\# <img src="(.*)?> Lighthouse Results[\s\S]*)/gm;
+
+    const body = `${buildHeader(input, date)}\n${pastResults.exec(message.body)[1]}\n${buildLighthouseResults(input, date)}`;
+
+    return await octokit.issues.updateComment({
+      owner,
+      repo,
+      comment_id: message.id,
+      body,
+    });
+  }
+
+  const body = `${buildHeader(input, date)}\n## <img src="https://developers.google.com/web/tools/lighthouse/images/lighthouse-logo.svg" height="26" alt="Lighthouse logo"> Lighthouse Results
+    
+${buildLighthouseResults(input, date)}`;
+
+  return await octokit.issues.createComment({
+    owner,
+    repo,
+    issue_number: pr,
+    body,
+  });
+}
+
+/**
+ *
+ * @param {object} input
+ * @param {string} date
+ * @return {string}
+ */
+function buildHeader(input, date) {
   const idTest = /https:\/\/cros-staging--(([\d|\w]){8}-([\d|\w]){4}-([\d|\w]){4}-([\d|\w]){4}-([\d|\w]){12})/g;
   const id = idTest.exec(input.url)[1];
 
@@ -106,9 +118,10 @@ function buildHeader(input) {
 /**
  *
  * @param {object} input - Action input
+ * @param {string} date
  * @return {string}
  */
-function buildLighthouseResults(input) {
+function buildLighthouseResults(input, date) {
   const lh = {};
 
   for (const [key, value] of Object.entries(input.links)) {
@@ -122,7 +135,7 @@ function buildLighthouseResults(input) {
     lh[result.url].results.push(result);
   }
 
-  let message = `### Commit ${input.sha}\n`;
+  let message = `### Commit ${input.sha} - ${date}\n`;
 
   for (const [key, value] of Object.entries(lh)) {
     if (value.results.length) {
