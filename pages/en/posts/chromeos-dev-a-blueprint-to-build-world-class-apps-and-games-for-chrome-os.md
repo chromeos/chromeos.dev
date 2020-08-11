@@ -5,11 +5,17 @@ hero:
   image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/hero.png
   alt: An illustration of a Chromebook and new Chrome OS features.
 featured:
+  title: ChromeOS.dev
+  desc: A blueprint to build world-class apps and games for Chrome OS
   images:
     - image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/featured.png
       alt: An illustration of a Chromebook and new Chrome OS features.
 tags:
   - product news
+  - large screens
+  - android studio
+  - linux
+  - optimization
 authors:
   - ieinvaldez
 date: 2020-08-12
