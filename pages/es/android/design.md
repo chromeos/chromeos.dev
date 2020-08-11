@@ -1,6 +1,6 @@
 ---
 title: Recomendaciones de diseño
-metadesc: Cómo admitir todos los diferentes tipos de entrada que están disponibles para Chromebooks.
+metadesc: Cómo optimizar sus diseños, componentes de interfaz de usuario para diferentes tamaños y configuraciones de pantalla.
 date: 2020-05-01
 weight: -6
 tags:
@@ -14,7 +14,7 @@ Android facilita el desarrollo de una aplicación que funciona bien en una ampli
 
 ## Diseños para pantallas más grandes
 
-Si desarrolló su aplicación para teléfonos y ahora desea mejorar su diseño en Chrome OS y otros factores de forma de pantalla grande, puede comenzar haciendo pequeños ajustes en sus diseños, fuentes y espacios. En algunos casos, como para tabletas de 7 pulgadas o un juego con un lienzo grande, estos ajustes pueden ser todo lo que necesita para que su aplicación se vea genial. En otros casos, como para pantallas más grandes, puede rediseñar partes de su interfaz de usuario para reemplazar una "interfaz de usuario extendida" con una interfaz de usuario eficiente de múltiples paneles, navegación más fácil y contenido adicional. Pruebe visitar los ["Material Studies"](https://material.io/design/material-studies/) (recursos en inglés) realizados por el equipo de Material Design para ver ejemplos de cómo se vería esto para diferentes productos. A continuación puede ver cómo se ve la aplicación["Reply"](https://material.io/design/material-studies/reply.html) para diferentes tamaños de pantalla.
+Si desarrolló su aplicación para teléfonos y ahora desea mejorar su diseño en Chrome OS y otros factores de forma de pantalla grande, puede comenzar haciendo pequeños ajustes en sus diseños, fuentes y espacios. En algunos casos, como para tabletas de 7 pulgadas o un juego con un lienzo grande, estos ajustes pueden ser todo lo que necesita para que su aplicación se vea genial. En otros casos, como para pantallas más grandes, puede rediseñar partes de su interfaz de usuario para reemplazar una "interfaz de usuario extendida" con una interfaz de usuario eficiente de múltiples paneles, navegación más fácil y contenido adicional. Pruebe visitar los ["Material Studies"](https://material.io/design/material-studies/) (recursos en inglés) realizados por el equipo de Material Design para ver ejemplos de cómo se vería esto para diferentes productos. A continuación puede ver cómo se ve la aplicación ["Reply"](https://material.io/design/material-studies/reply.html) para diferentes tamaños de pantalla.
 
 ![Material Study: Reply](/images/android/design/reply.png)
 
