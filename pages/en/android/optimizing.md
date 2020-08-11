@@ -36,7 +36,7 @@ Chrome OS uses the app theme to color the top bar displayed on top of the app, w
 
 All Chromebooks have a physical keyboard and a trackpad, and some have a touchscreen as well. Some devices can even convert from laptop to tablet form.
 
-All apps for Chrome OS should support mouse, trackpad and keyboard and be usable without a touchscreen. Many apps already support mouse and trackpad with no extra work required. However, it's always best to customize your app's behavior appropriately for mouse, and you should support and distinguish between mouse and touch inputs. Read more about mouse support in [Input compatibility for Chromebooks](/{{locale.code}}/android/input-compatibility#input-device-support).
+All apps for Chrome OS should support mouse, trackpad and keyboard and be usable without a touchscreen. Many apps already support mouse and trackpad with no extra work required. However, it's always best to customize your app's behavior appropriately for mouse, and you should support and distinguish between mouse and touch inputs. Read more about mouse support in [Input compatibility for Chromebooks](/{{locale.code}}/android/input-compatibility#mouse-and-touchpad-support).
 You should ensure that:
 
 - All targets are clickable with mouse
@@ -90,7 +90,7 @@ Building drag and drop interactions can bring efficient, intuitive productivity 
 
 ### Stylus support
 
-Stylus support is crucial for drawing and note taking apps. Provide enhanced support for stylus-equipped Chromebooks and tablets by implementing interactions tailored to the usage of stylus input. Be considerate of the potential variations in different stylus hardware when designing your stylus interactions. See [Input compatibility for Chromebooks](/{{locale.code}}/android/input-compatibility) for an outline of the stylus APIs.
+Stylus support is crucial for drawing and note taking apps. Provide enhanced support for stylus-equipped Chromebooks and tablets by implementing interactions tailored to the usage of stylus input. Be considerate of the potential variations in different stylus hardware when designing your stylus interactions. See [Stylus documentation for Chromebooks](/{{locale.code}}/android/input-compatibility#stylus) for an outline of the stylus APIs.
 
 ## Make your layouts responsive
 
@@ -112,7 +112,7 @@ Resolve issues with camera preview images
 
 Camera problems can arise when the app can only run in portrait orientation but the user runs it on a landscape screen. In this case, the preview, or the captured result, could be incorrectly rotated.
 
-[Compatibility mode](/{{locale.code}}/android/input-compatibility#compatibility-mode) changes how the system handles events, such as orientation changes, in Chrome OS. This helps to prevent issues when the camera is used in the wrong orientation mode. To enable compatibility mode:
+[Compatibility mode](/{{locale.code}}/android/input-compatibility) changes how the system handles events, such as orientation changes, in Chrome OS. This helps to prevent issues when the camera is used in the wrong orientation mode. To enable compatibility mode:
 
 - Target at least Android 7.0 (API level 24). You can still pick a lower mininum SDK level.
 - Allow your app to be resizable.

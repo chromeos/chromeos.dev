@@ -145,7 +145,7 @@ override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
 }
 ```
 
-## Soporte para mouse y touchpad
+## Soporte para mouse y touchpad { #mouse-y-touchpad}
 
 Chrome OS maneja automáticamente la mayoría de los eventos de mouse y trackpad para que actúen como eventos táctiles en un teléfono Android. Esto incluye el desplazamiento con dos dedos del panel táctil / rueda del mouse. La mayoría de las aplicaciones generalmente solo necesitan pensar en 3 eventos centrados en el escritorio: [clic derecho](#clic-derecho) , [flotar con el puntero del ratón](#flotar) y [arrastrar y soltar](#arrastrar-y-soltar) .
 
