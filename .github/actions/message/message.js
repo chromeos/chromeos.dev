@@ -71,8 +71,15 @@ async function postMessage(event) {
 
   if (message) {
     const pastResults = /(\#\# <img src="(.*)?> Lighthouse Results[\s\S]*)/gm;
+    const pastResultsBody = pastResults
+      .exec(message.body)[1]
+      .replace(/(\#\# <img src="(.*)?> Lighthouse Results)(\s*)?/, '')
+      .replace('<details>', '')
+      .replace('</details>', '')
+      .replace('<summary>Previous results</summary>', '')
+      .trim();
 
-    const body = `${buildHeader(input, date)}\n${pastResults.exec(message.body)[1]}\n${buildLighthouseResults(input, date)}`;
+    const body = `${buildHeader(input, date)}\n${buildLighthouseResults(input, date)}\n<details>\n<summary>Previous results</summary>\n\n${pastResultsBody}\n\n</details>`;
 
     return await octokit.issues.updateComment({
       owner,
@@ -139,7 +146,7 @@ function buildLighthouseResults(input, date) {
 
   for (const [key, value] of Object.entries(lh)) {
     if (value.results.length) {
-      message += `[\`${key.replace(input.url, '')}\` Report](${value.report})\n|audit|high|expected|values|\n| :---: | :---: | :---: | :---: |\n`;
+      message += `[${key.replace(input.url, '')} report](${value.report})\n|audit|high|expected|values|\n| :---: | :---: | :---: | :---: |\n`;
       for (const result of value.results) {
         message += `|${result.auditProperty}|${result.actual * 100}|${result.expected * 100}|${result.values.map(i => i * 100).join(', ')}|\n`;
       }
