@@ -59,6 +59,26 @@ async function postMessage(event) {
   const anchorTest = /^<input\stype="hidden"\sname="preview-anchor"\sid="(.*)?">/gm;
 
   let message = comments.data.map(c => ({ id: c.id, body: c.body })).find(c => anchorTest.test(c.body));
+
+  if (message) {
+    const pastResults = /(\#\# <img src="(.*)?> Lighthouse Results[\s\S]*)/gm;
+
+    message = `${buildHeader(input)}\n${pastResults.exec(message)[1]}\n${buildLighthouseResults(input)}`;
+  } else {
+    message = `${buildHeader(input)}\n## <img src="https://developers.google.com/web/tools/lighthouse/images/lighthouse-logo.svg" height="26" alt="Lighthouse logo"> Lighthouse Results
+    
+${buildLighthouseResults(input)}`;
+  }
+
+  core.setOutput('message', message);
+}
+
+/**
+ *
+ * @param {object} input
+ * @return {string}
+ */
+function buildHeader(input) {
   const date = new Date().toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
@@ -69,26 +89,18 @@ async function postMessage(event) {
     timeZoneName: 'short',
   });
 
-  // if (message) {
-  // DO SOMETHING
-  // } else {
   const idTest = /https:\/\/cros-staging--(([\d|\w]){8}-([\d|\w]){4}-([\d|\w]){4}-([\d|\w]){4}-([\d|\w]){12})/g;
   const id = idTest.exec(input.url)[1];
 
-  message = `<input type="hidden" name="preview-anchor" id="${id}">
+  const message = `<input type="hidden" name="preview-anchor" id="${id}">
     
 ## <img src="https://firebase.google.com/downloads/brand-guidelines/SVG/logo-logomark.svg" height="26" alt="Firebase"> Deploy Preview
-    
+      
 | url          | commit       | deployed |
 | ------------ | ------------ | -------- |
-| [Staging Link](${input.url}) | ${input.sha} | ${date} |
-    
-## <img src="https://developers.google.com/web/tools/lighthouse/images/lighthouse-logo.svg" height="26" alt="Lighthouse logo"> Lighthouse Results
-    
-${buildLighthousResults(input)}`;
+| [Staging Link](${input.url}) | ${input.sha} | ${date} |\n`;
 
-  core.setOutput('message', message);
-  // }
+  return message;
 }
 
 /**
@@ -96,7 +108,7 @@ ${buildLighthousResults(input)}`;
  * @param {object} input - Action input
  * @return {string}
  */
-function buildLighthousResults(input) {
+function buildLighthouseResults(input) {
   const lh = {};
 
   for (const [key, value] of Object.entries(input.links)) {
