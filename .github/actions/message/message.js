@@ -59,28 +59,36 @@ async function postMessage(event) {
   const anchorTest = /^<input\stype="hidden"\sname="preview-anchor"\sid="(.*)?">/gm;
 
   let message = comments.data.map(c => ({ id: c.id, body: c.body })).find(c => anchorTest.test(c.body));
-  const date = new Date().toLocaleDateString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
+  const date = new Date().toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false,
+    timeZoneName: 'short',
+  });
 
-  if (message) {
-    // DO SOMETHING
-  } else {
-    const idTest = /https:\/\/cros-staging--(([\d|\w]){8}-([\d|\w]){4}-([\d|\w]){4}-([\d|\w]){4}-([\d|\w]){12})/g;
-    const id = idTest.exec(input.url)[1];
+  // if (message) {
+  // DO SOMETHING
+  // } else {
+  const idTest = /https:\/\/cros-staging--(([\d|\w]){8}-([\d|\w]){4}-([\d|\w]){4}-([\d|\w]){4}-([\d|\w]){12})/g;
+  const id = idTest.exec(input.url)[1];
 
-    message = `<input type="hidden" name="preview-anchor" id="${id}">
+  message = `<input type="hidden" name="preview-anchor" id="${id}">
     
-    ## <img src="https://firebase.google.com/downloads/brand-guidelines/SVG/logo-logomark.svg" height="26" alt="Firebase"> Deploy Preview
+## <img src="https://firebase.google.com/downloads/brand-guidelines/SVG/logo-logomark.svg" height="26" alt="Firebase"> Deploy Preview
     
-    | url          | commit       | deployed |
-    | ------------ | ------------ | -------- |
-    | ${input.url} | ${input.sha} | ${date} |
+| url          | commit       | deployed |
+| ------------ | ------------ | -------- |
+| [Staging Link](${input.url}) | ${input.sha} | ${date} |
     
-    ## <img src="https://developers.google.com/web/tools/lighthouse/images/lighthouse-logo.svg" height="26" alt="Lighthouse logo"> Lighthouse Results
+## <img src="https://developers.google.com/web/tools/lighthouse/images/lighthouse-logo.svg" height="26" alt="Lighthouse logo"> Lighthouse Results
     
-    ${buildLighthousResults(input)}`;
+${buildLighthousResults(input)}`;
 
-    core.setOutput('message', message);
-  }
+  core.setOutput('message', message);
+  // }
 }
 
 /**
@@ -102,10 +110,9 @@ function buildLighthousResults(input) {
     lh[result.url].results.push(result);
   }
 
-  let message = '';
+  let message = `### Commit ${input.sha}\n`;
 
   for (const [key, value] of Object.entries(lh)) {
-    message += `### Commit ${input.sha}\n`;
     if (value.results.length) {
       message += `[\`${key.replace(input.url, '')}\` Report](${value.report})\n|audit|high|expected|values|\n| :---: | :---: | :---: | :---: |\n`;
       for (const result of value.results) {
