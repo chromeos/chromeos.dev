@@ -56,6 +56,11 @@ async function postMessage(event) {
     issue_number: pr,
   });
 
+  console.log(owner);
+  console.log(repo);
+  console.log(pr);
+  console.log(comments);
+
   const anchorTest = /^<input\stype="hidden"\sname="preview-anchor"\sid="(.*)?">/gm;
 
   let message = comments.map(c => c.body).find(c => anchorTest.test(c));
