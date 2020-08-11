@@ -61,7 +61,7 @@ Building and testing Android apps on a single machine is simpler than ever. Now,
 
 ### Improved project wizard in Android Studio
 
-An updated [Primary/Detail Activity Template](https://developer.android.com/studio/projects/templates#MasterDetailFlow) in Android Studio offers complete support to build experiences for larger screens, including Chromebooks, tablets, and foldables. This updated option provides multiple layouts for both phones and larger-screen devices as well as better keyboard/mouse scaffolding. This feature is now available in Android Studio 4.2 Canary.
+An updated [Primary/Detail Activity Template](https://developer.android.com/studio/projects/templates#PrimaryDetailFlow) in Android Studio offers complete support to build experiences for larger screens, including Chromebooks, tablets, and foldables. This updated option provides multiple layouts for both phones and larger-screen devices as well as better keyboard/mouse scaffolding. This feature will be available in Android Studio 4.2 Canary 8.
 
 ### Updated support from Android lint checks
 
