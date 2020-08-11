@@ -1,0 +1,5 @@
+name: Deploy ID
+description: Determine if a deploy ID already exists, or generates a new one
+runs:
+  using: node12
+  main: message.js

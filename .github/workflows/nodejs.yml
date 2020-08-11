@@ -81,10 +81,15 @@ jobs:
           sudo apt-get update
           sudo apt-get install jq
           npm --prefix .github/actions/message install
+      - name: Find Deploy ID
+        id: id
+        uses: ./.github/actions/uuid
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy preview
         id: deploy
         run: |
-          CHANNEL=$(cat /proc/sys/kernel/random/uuid)
+          CHANNEL=$(echo "${{ steps.id.outputs.channel }}")
           DEPLOY=$(firebase hosting:channel:deploy $CHANNEL --json | jq -r '.result["cros-staging"]')
           echo "::set-output name=url::$(echo $DEPLOY | jq -r '.url')"
           echo "::set-output name=sha::$GITHUB_SHA"
