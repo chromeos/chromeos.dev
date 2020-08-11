@@ -1,6 +1,6 @@
 ---
 title: Design recommendations
-metadesc: How to optimize your layouts, UI components for different screens sizes and configurations.
+metadesc: How to optimize your layouts and UI components for different screens sizes and configurations.
 date: 2020-05-01
 weight: -6
 tags:
