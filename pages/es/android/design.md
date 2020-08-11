@@ -1,6 +1,6 @@
 ---
 title: Recomendaciones de diseño
-metadesc: Cómo optimizar sus diseños, componentes de interfaz de usuario para diferentes tamaños y configuraciones de pantalla.
+metadesc: Cómo optimizar sus diseños y componentes de interfaz de usuario para diferentes tamaños y configuraciones de pantalla.
 date: 2020-05-01
 weight: -6
 tags:
