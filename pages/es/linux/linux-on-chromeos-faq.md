@@ -143,15 +143,13 @@ Si no está familiarizado con [cuentas secundarias](https://support.google.com/f
 
 ## ¿Mis máquinas virtuales / contenedores / datos están sincronizados / respaldados?
 
-Actualmente, no, nada está sincronizado o respaldado. Usted es responsable de cualquier información que ingrese a los contenedores.
-
-Esperamos mejorar mucho esta situación.
+En última instancia, usted es responsable de los datos que ingresan a los contenedores. Para sincronizar fácilmente datos como una carpeta de proyecto entre máquinas, puede [compartir una carpeta en Drive con Linux](/{{locale.code}}/linux/setup#compartir-archivos-a-linux). Todo lo que agregue a esa carpeta se respaldará en Drive y se sincronizará entre sus dispositivos.
 
 ## ¿Cómo puedo hacer una copia de seguridad de una VM?
 
-Si desea hacer una copia de seguridad de un contenedor individual, puede usar los comandos [LXC](https://linuxcontainers.org/lxc/introduction/) estándar. Este es el método preferido para guardar el estado de Linux en Chrome OS.
+El enfoque más simple es utilizar la nueva función de copia de seguridad integrada en Chrome OS. Para hacerlo, vaya a Configuración y seleccione "Linux (Beta)" en el panel de navegación del lado izquierdo. Luego navegue a "Linux". Encontrará "Copia de seguridad y restauración". Si navega por este menú, encontrará un Botón "Copia de seguridad" que guarda un archivo `.tini`.
 
-El comando de `vmc export` se puede usar para exportar una máquina virtual completa manualmente. Volcará la imagen del disco qcow2 a la carpeta Descargas de forma predeterminada. Tenga en cuenta que todavía no hay una manera de importar una VM, por lo que esto solo es útil para el diagnóstico o el uso de otro sistema para extraer archivos. Otro enfoque es utilizar la nueva funcionalidad de copia de seguridad integrada en Chrome OS. Para hacerlo, vaya a Configuración y seleccione "Linux (Beta)" en el panel de navegación de la izquierda. Luego navegue a "Linux". Encontrará "Copia de seguridad y restauración". Si navega en este menú, encontrará un Botón "Copia de seguridad" que guarda un archivo `.tini` para usted.
+Si desea realizar una copia de seguridad de un contenedor individual, otro enfoque es utilizar los comandos estándar [LXC](https://linuxcontainers.org/lxc/introduction/).
 
 ## ¿Puedo acceder a los archivos VM / contenedor directamente (por ejemplo, a través de la aplicación Archivos)?
 
@@ -251,7 +249,9 @@ Esto ahora es compatible con la versión Chrome OS M84. Para habilitar la captur
 
 ## ¿Puedo acceder al hardware (p. Ej. USB / Bluetooth / serie)?
 
-Chrome OS ahora le permite habilitar esta funcionalidad para USB, y esta es un área de desarrollo activo. Para habilitar el acceso USB, vaya a Configuración y seleccione "Linux (Beta)" en la barra de navegación del lado izquierdo. Luego navegue a "Linux" y luego a "Preferencias USB". Aquí puede habilitar el acceso USB caso por caso base.
+Chrome OS ahora le permite compartir ciertos dispositivos a través de USB. Para habilitar el acceso USB, vaya a Configuración y seleccione "Linux (Beta)" en el panel de navegación del lado izquierdo. Luego navegue a "Linux" y luego a "Preferencias USB". Aquí puede habilitar el acceso USB para cada caso.
+
+Esta es un área de desarrollo activo para el equipo y, con el tiempo, se admitirán más dispositivos.
 
 ## ¿Puedo ejecutar programas Wayland?
 
@@ -266,6 +266,8 @@ Sí, aunque puede encontrar algunos problemas de compatibilidad, y probablemente
 [Sommelier](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/) se encarga de lanzar [XWayland](https://wayland.freedesktop.org/xserver.html) , actuar como [WM](https://en.wikipedia.org/wiki/X_window_manager) y, de lo contrario, traducir las solicitudes de [X](https://en.wikipedia.org/wiki/X_Window_System) y [Wayland](https://wayland.freedesktop.org/) entre Chrome y los programas [X.](https://en.wikipedia.org/wiki/X_Window_System)
 
 ## ¿Por qué las ventanas a veces son pequeñas / borrosas?
+
+Las aplicaciones de Linux que están visibles en el estante del lanzador deben tener la opción de usar alta o baja densidad. Si encuentra que la resolución no funciona como lo desea, haga clic con el botón derecho en el ícono para revelar la capacidad de alternar entre alta y baja densidad.
 
 Si bien Chrome admite pantallas de [alta DPI](https://en.wikipedia.org/wiki/HiDPI) , muchas aplicaciones de Linux no. Cuando un programa no admite correctamente el escalado de [DPI](https://en.wikipedia.org/wiki/Dots_per_inch#Computer_monitor_DPI_standards) , siguen resultados pobres.
 
