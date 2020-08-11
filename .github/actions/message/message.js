@@ -68,18 +68,19 @@ async function postMessage(event) {
   });
 
   const message = comments.data.map(c => ({ id: c.id, body: c.body })).find(c => anchorTest.test(c.body));
+  const lighthouseHeader = '## <img src="https://developers.google.com/web/tools/lighthouse/images/lighthouse-logo.svg" height="26" alt="Lighthouse logo"> Lighthouse Results';
 
   if (message) {
     const pastResults = /(\#\# <img src="(.*)?> Lighthouse Results[\s\S]*)/gm;
     const pastResultsBody = pastResults
       .exec(message.body)[1]
-      .replace(/(\#\# <img src="(.*)?> Lighthouse Results)(\s*)?/, '')
+      .replace(/(\#\# <img src="(.*)?> Lighthouse Results)(\s*)?/gm, '')
       .replace('<details>', '')
       .replace('</details>', '')
       .replace('<summary>Previous results</summary>', '')
       .trim();
 
-    const body = `${buildHeader(input, date)}\n${buildLighthouseResults(input, date)}\n<details>\n<summary>Previous results</summary>\n\n${pastResultsBody}\n\n</details>`;
+    const body = `${buildHeader(input, date)}\n${lighthouseHeader}\n\n${buildLighthouseResults(input, date)}\n<details>\n<summary>Previous results</summary>\n\n${pastResultsBody}\n\n</details>`;
 
     return await octokit.issues.updateComment({
       owner,
@@ -89,9 +90,7 @@ async function postMessage(event) {
     });
   }
 
-  const body = `${buildHeader(input, date)}\n## <img src="https://developers.google.com/web/tools/lighthouse/images/lighthouse-logo.svg" height="26" alt="Lighthouse logo"> Lighthouse Results
-    
-${buildLighthouseResults(input, date)}`;
+  const body = `${buildHeader(input, date)}\n${lighthouseHeader}\n\n${buildLighthouseResults(input, date)}`;
 
   return await octokit.issues.createComment({
     owner,
