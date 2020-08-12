@@ -16,8 +16,8 @@
     text: Chrome Developer Twitter Channel
 - logo: /images/landings/home/github-logo.png
   cta:
-    url: https://github.com/googlechrome
-    text: Chrome OS on github
+    url: https://github.com/chromeos
+    text: Chrome OS on GitHub
 - logo: /images/landings/home/codelabs-logo.png
   cta:
     url: https://developers.google.com/web/fundamentals/codelabs/
