@@ -28,7 +28,7 @@ Comience por revisar la [Lista de verificación de PWA](https://web.dev/pwa-chec
 
 ## Hazla instalable
 
-Una de las grandes ventajas de las PWAs sobre las aplicaciones web normales es la posibilidad de que se instalen, al igual que las aplicaciones nativas. La sección Progressive Web App en web.dev tiene una sección dedicada a [hacer que su PWA sea instalable](https://web.dev/progressive-web-apps/#installable) ; utilízalo para comenzar. Para que una PWA se identifique como instalable en Chrome OS, se deben cumplir los siguientes criterios; use la [auditoría instalable de Lighthouse](https://web.dev/lighthouse-pwa/#installable) para verificar su trabajo a medida que avanza:
+Una de las grandes ventajas de las PWAs sobre las aplicaciones web normales es la posibilidad de que se instalen, al igual que las aplicaciones nativas. La sección Progressive Web App en web.dev tiene una sección dedicada a [hacer que su PWA sea instalable](https://web.dev/progressive-web-apps/#installable) ; utilízalo para comenzar. Para que una PWA se identifique como instalable en Chrome OS, se deben cumplir los siguientes criterios; use la [auditoría instalable de Lighthouse](https://web.dev/lighthouse-pwa/#how-the-lighthouse-web-app-manifest-audit-fails) para verificar su trabajo a medida que avanza:
 
 - Debe tener un [manifiesto de aplicación web](https://web.dev/add-manifest/) válido
 - Debe cumplir con los [criterios de instalación](https://web.dev/install-criteria/) de Chrome
