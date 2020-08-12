@@ -41,7 +41,7 @@ To ensure that your Android app works well on a variety of Chromebook devices an
 
 ## Deploy from Chrome OS
 
-After enabling ADB debugging, you can load an Android app directly onto your Chrome OS device using one [Android Studio](#deploy-with-android-studio) or if you have an APK you can [load it using the Terminal.](#deploy-with-terminal)
+After enabling ADB debugging, you can load an Android app directly onto your Chrome OS device using [Android Studio](#deploy-with-android-studio) or if you have an APK you can [load it using the Terminal.](#deploy-with-terminal)
 
 ### Deploy with Android Studio
 
@@ -88,7 +88,7 @@ adb install [path to your APK]
 If you can't use the method described above and need to push your app from another device, you have a couple of options: you can use [USB](#connect-to-adb-over-usb) or a [network address](#connect-to-adb-over-a-network) to connect
 your device to ADB.
 
-To push your APK from another device into the Chromebook, you must start your Chrome OS in [developer mode](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md) so that you can configure the Chromebook and push apps from the host machine. Follow this steps to get into [developer mode](/{{locale.code}}/productivity/experimental-features#developer-mode)
+To push your APK from another device into the Chromebook, you must start your Chrome OS in [developer mode](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md) so that you can configure the Chromebook and push apps from the host machine. Follow this steps to get into [developer mode.](/{{locale.code}}/productivity/experimental-features#developer-mode)
 
 !!! aside.message--warning
 **Caution:** After switching your Chrome OS device to developer mode, it restarts
