@@ -10,22 +10,24 @@ tags:
 
 Chrome OS supports Android apps in multiple windows. The system renders apps
 into window containers whose size is determined by the form factor of the
-device, as shown in Figure 1.
+device.
 
-#1[An app window on different devices](/images/android/optimizing/fullscreen-and-windows.png)
+![An app window on different devices](/images/android/optimizing/fullscreen-and-windows.png)
 
 ## Resizing windows
 
 In Chrome OS users can resize an app's window in the usual way, by dragging
-the lower right corner, as shown in Figure 2.
+the lower right corner.
 
-#2[A resizable app window](/images/android/optimizing/resizable.png)
+![A resizable app window](/images/android/optimizing/resizable.png)
 
 There are two options for handling window resizing:
 
 - Respond to configuration changes dynamically by calling
-  `onConfigurationChanged(..)` and adding, for example,
-  `android:configChanges="screenSize|smallestScreenSize|orientation|screenLayout"`
+  `onConfigurationChanged(..)` and adding
+  ```xml
+  android:configChanges="screenSize|smallestScreenSize|orientation|screenLayout"
+  ```
   to the activity's manifest. Read
   [handling configuration change docs](https://developer.android.com/guide/topics/resources/runtime-changes)
   for more information about handling configuration changes.
@@ -63,6 +65,7 @@ val displayManager = getSystemService(Context.DISPLAY_SERVICE)
     as DisplayManager
 val display = displayManager.getDisplay(Display.DEFAULT_DISPLAY)
 val metrics = DisplayMetrics()
+
 display.getRealMetrics(metrics)
 Log.d(LOG_TAG, "DisplayMetrics - w: ${metrics.widthPixels},
     h: ${metrics.heightPixels}")
@@ -86,7 +89,7 @@ Apps can specify their initial launch size in the following ways:
   This helps the window manager to give you the proper bounds and
   orientation. To indicate a preferences when used in desktop mode, add
   the following meta tags inside the
-  [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element.html) tag:
+  [<activity>](https://developer.android.com/guide/topics/manifest/activity-element.html) tag:
 
 ```xml
 <meta-data android:name="WindowManagerPreference:FreeformWindowSize"
