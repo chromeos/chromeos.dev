@@ -1,6 +1,6 @@
 ---
 title: Desarrollo web
-metadesc: Cómo configurar su dispositivo Chrome OS para desarrollar aplicaciones web, cómo configurar el reenvío de puertos para acceder a ellos en otros dispositivos
+metadesc: Cómo configurar su dispositivo Chrome OS para desarrollar aplicaciones web, cómo configurar el reenvío de puertos para acceder a ellos en otros dispositivos.
 hero:
   image: /images/landings/web-environment.svg
   alt: Ilustración de un dispositivo de ChromeOS iniciando una aplicación web.

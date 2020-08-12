@@ -1,6 +1,6 @@
 ---
 title: Expanda su aplicación más allá del móvil para llegar a los usuarios de Android en pantallas grandes
-metadesc: Cree aplicaciones de Android para dispositivos que no sean móviles para llegar a más usuarios
+metadesc: Cree aplicaciones de Android para dispositivos que no sean móviles para llegar a más usuarios.
 tags:
   - tendencia
   - pantallas grandes

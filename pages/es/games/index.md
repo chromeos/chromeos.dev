@@ -1,6 +1,6 @@
 ---
 title: Juegos en Chrome OS
-metadesc: Crea juegos para Chrome OS
+metadesc: Crea juegos para Chrome OS.
 hero:
   image: /images/landings/games-hero.svg
   alt: Ilustración de varias entradas conectadas a un dispositivo Chrome OS.

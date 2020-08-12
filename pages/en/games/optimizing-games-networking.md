@@ -1,6 +1,6 @@
 ---
 title: Multiplayer networking
-metadesc: Optimizing multiplayer networking on Chrome OS
+metadesc: Optimizing multiplayer networking on Chrome OS.
 date: 2020-06-16
 weight: -4
 ---

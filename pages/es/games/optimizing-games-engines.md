@@ -1,6 +1,6 @@
 ---
 title: Motores de juego
-metadesc: Optimización del uso de motores de juegos para construir en Chrome OS
+metadesc: Optimización del uso de motores de juegos para construir en Chrome OS.
 date: 2020-06-16
 weight: -2
 ---

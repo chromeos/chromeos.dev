@@ -1,6 +1,6 @@
 ---
 title: Desktop Progressive Web Apps
-metadesc: How to take your current web site and enhance it to make it installable, work great with touch and stylus, and make it even more capable
+metadesc: How to take your current web site and enhance it to make it installable, work great with touch and stylus, and make it even more capable.
 date: 2020-05-29
 weight: -7
 resources:
