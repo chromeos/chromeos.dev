@@ -15,52 +15,143 @@
  */
 /* eslint-env node */
 const core = require('@actions/core');
+const { readFileSync } = require('fs');
+const { Octokit } = require('@octokit/rest');
+
+if (process.env.GITHUB_EVENT_NAME === 'pull_request') {
+  const event = JSON.parse(readFileSync(process.env.GITHUB_EVENT_PATH, 'utf-8'));
+
+  postMessage(event);
+}
 
 /**
- * Builds a message and sets it as the output
+ *
+ * @param {object} event - GitHub Event object
  */
-const input = ['url', 'sha', 'links', 'results']
-  .map(i => {
-    const input = core.getInput(i, { required: true });
-    try {
-      return { [i]: JSON.parse(input) };
-    } catch (e) {
-      return { [i]: input };
-    }
-  })
-  .reduce((acc, cur) => Object.assign(acc, cur), {});
+async function postMessage(event) {
+  // Clean input
+  const input = ['url', 'sha', 'links', 'results']
+    .map(i => {
+      const input = core.getInput(i, { required: true });
+      try {
+        return { [i]: JSON.parse(input) };
+      } catch (e) {
+        return { [i]: input };
+      }
+    })
+    .reduce((acc, cur) => Object.assign(acc, cur), {});
 
-const lh = {};
+  // Check to see if there's an existing message
+  const repo = event.repository.name;
+  const owner = event.repository.owner.login;
+  const pr = event.number;
 
-for (const [key, value] of Object.entries(input.links)) {
-  lh[key] = {
-    report: value,
-    results: [],
-  };
-}
+  const octokit = new Octokit({
+    auth: process.env.GITHUB_TOKEN,
+  });
 
-for (const result of input.results) {
-  lh[result.url].results.push(result);
-}
+  const comments = await octokit.issues.listComments({
+    owner,
+    repo,
+    issue_number: pr,
+  });
 
-let message = `## <img src="https://firebase.google.com/downloads/brand-guidelines/SVG/logo-logomark.svg" height="26" alt="Firebase"> Deploy Preview
-|   |   |
-| :---: | --- |
-| url    | ${input.url} |
-| commit | ${input.sha} |
+  const anchorTest = /^<input\stype="hidden"\sname="preview-anchor"\sid="(.*)?">/gm;
+  const date = new Date().toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false,
+    timeZoneName: 'short',
+  });
 
-## <img src="https://developers.google.com/web/tools/lighthouse/images/lighthouse-logo.svg" height="26" alt="Lighthouse logo"> Lighthouse Results
-`;
+  const message = comments.data.map(c => ({ id: c.id, body: c.body })).find(c => anchorTest.test(c.body));
+  const lighthouseHeader = '## <img src="https://developers.google.com/web/tools/lighthouse/images/lighthouse-logo.svg" height="26" alt="Lighthouse logo"> Lighthouse Results';
 
-for (const [key, value] of Object.entries(lh)) {
-  message += `### [\`${key.replace(input.url, '')}\` Report](${value.report})\n`;
-  if (value.results.length) {
-    message += `**Errors**\n|audit|high|expected|values|\n| :---: | :---: | :---: | :---: |\n`;
-    for (const result of value.results) {
-      message += `|${result.auditProperty}|${result.actual * 100}|${result.expected * 100}|${result.values.map(i => i * 100).join(', ')}|\n`;
-    }
-    message += '\n';
+  if (message) {
+    const pastResults = /(\#\# <img src="(.*)?> Lighthouse Results[\s\S]*)/gm;
+    const pastResultsBody = pastResults
+      .exec(message.body)[1]
+      .replace(/(\#\# <img src="(.*)?> Lighthouse Results)(\s*)?/gm, '')
+      .replace('<details>', '')
+      .replace('</details>', '')
+      .replace('<summary>Previous results</summary>', '')
+      .trim();
+
+    const body = `${buildHeader(input, date)}\n${lighthouseHeader}\n\n${buildLighthouseResults(input, date)}\n<details>\n<summary>Previous results</summary>\n\n${pastResultsBody}\n\n</details>`;
+
+    return await octokit.issues.updateComment({
+      owner,
+      repo,
+      comment_id: message.id,
+      body,
+    });
   }
+
+  const body = `${buildHeader(input, date)}\n${lighthouseHeader}\n\n${buildLighthouseResults(input, date)}`;
+
+  return await octokit.issues.createComment({
+    owner,
+    repo,
+    issue_number: pr,
+    body,
+  });
 }
 
-core.setOutput('message', message);
+/**
+ *
+ * @param {object} input
+ * @param {string} date
+ * @return {string}
+ */
+function buildHeader(input, date) {
+  const idTest = /https:\/\/cros-staging--(([\d|\w]){8}-([\d|\w]){4}-([\d|\w]){4}-([\d|\w]){4}-([\d|\w]){12})/g;
+  const id = idTest.exec(input.url)[1];
+
+  const message = `<input type="hidden" name="preview-anchor" id="${id}">
+    
+## <img src="https://firebase.google.com/downloads/brand-guidelines/SVG/logo-logomark.svg" height="26" alt="Firebase"> Deploy Preview
+      
+| url          | commit       | deployed |
+| ------------ | ------------ | -------- |
+| [Staging Link](${input.url}) | ${input.sha} | ${date} |\n`;
+
+  return message;
+}
+
+/**
+ *
+ * @param {object} input - Action input
+ * @param {string} date
+ * @return {string}
+ */
+function buildLighthouseResults(input, date) {
+  const lh = {};
+
+  for (const [key, value] of Object.entries(input.links)) {
+    lh[key] = {
+      report: value,
+      results: [],
+    };
+  }
+
+  for (const result of input.results) {
+    lh[result.url].results.push(result);
+  }
+
+  let message = `### Commit ${input.sha} - ${date}\n`;
+
+  for (const [key, value] of Object.entries(lh)) {
+    if (value.results.length) {
+      message += `[${key.replace(input.url, '')} report](${value.report})\n|audit|high|expected|values|\n| :---: | :---: | :---: | :---: |\n`;
+      for (const result of value.results) {
+        message += `|${result.auditProperty}|${result.actual * 100}|${result.expected * 100}|${result.values.map(i => i * 100).join(', ')}|\n`;
+      }
+      message += '\n';
+    }
+  }
+
+  return message;
+}

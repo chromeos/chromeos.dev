@@ -1,0 +1,5 @@
+name: Channel
+description: Determine deploy channel or create a new one
+runs:
+  using: node12
+  main: channel.js

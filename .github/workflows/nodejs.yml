@@ -81,10 +81,16 @@ jobs:
           sudo apt-get update
           sudo apt-get install jq
           npm --prefix .github/actions/message install
+          npm --prefix .github/actions/channel install
+      - name: Find Channel ID
+        id: id
+        uses: ./.github/actions/channel
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy preview
         id: deploy
         run: |
-          CHANNEL=$(cat /proc/sys/kernel/random/uuid)
+          CHANNEL=$(echo "${{ steps.id.outputs.channel }}")
           DEPLOY=$(firebase hosting:channel:deploy $CHANNEL --json | jq -r '.result["cros-staging"]')
           echo "::set-output name=url::$(echo $DEPLOY | jq -r '.url')"
           echo "::set-output name=sha::$GITHUB_SHA"
@@ -103,7 +109,7 @@ jobs:
           temporaryPublicStorage: true
           uploadArtifacts: true
           runs: 3
-      - name: Build message
+      - name: Post message
         if: github.event_name == 'pull_request' && (success() || failure())
         id: message
         uses: ./.github/actions/message
@@ -112,13 +118,6 @@ jobs:
           sha: ${{ steps.deploy.outputs.sha }}
           links: ${{ steps.lighthouse.outputs.links }}
           results: ${{ steps.lighthouse.outputs.assertionResults }}
-      - name: Leave preview comment
-        if: github.event_name == 'pull_request' && (success() || failure())
-        uses: unsplash/comment-on-pr@v1.2.0
-        with:
-          msg: |
-            ${{ steps.message.outputs.message }}
-          check_for_duplicate_msg: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
