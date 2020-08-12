@@ -282,14 +282,3 @@ If an app wishes to define custom input behaviour - for example defining a custo
   android:name="android.hardware.type.pc"
   android:required="false" />
 ```
-
-<!--- hadrosaur: commenting out the DecorCaptionView section, I believe it is not longer relevant. This should be tested before it is removed completely.
-## Beware the `DecorCaptionView`
-
-In free-form window mode, the apps caption bar is part of your view hierarchy and under your control. You generally do not have to be aware of this, but there are cases where you have to be careful:
-
-- Do not make modifications using `Window.getDecorView()`. If you want to add top-level views, add them to the view you have set as `Activity.setContentView()`.
-- Do not expect your `Activity.setContentView()` to be at `(0, 0)` of your app. That’s where the caption bar is.
-- If possible, avoid using `MotionEvent.getRawX()` or `MotionEvent.getRawY()`. If you do use them, use them in conjunction with
-  `View.getLocationOnScreen()` to transform coordinates to view-space coordinates.
---->
