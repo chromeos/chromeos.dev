@@ -35,7 +35,7 @@ Escuche a nuestros expertos en Google y Chrome OS, así como a una variedad de d
 
 Aún mejor, como un destino de [código abierto](https://github.com/chromeos/chromeos.dev) en línea, ChromeOS.dev está diseñado considerando todos los principios y métodos para crear aplicaciones web progresivas (PWA) altamente capaces y confiables, lo que garantiza que los desarrolladores siempre tengan acceso rápido y fácil a la información que necesitan. incluso cuando están desconectados.
 
-![Captura de pantalla de la página de inicio de ChromeOS.dev](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/website.gif)
+![Vista previa animada de las secciones y páginas de ChromeOS.dev.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/website.gif)
 
 Echa un vistazo a algunas de las actualizaciones y mejoras más recientes a continuación, y asegúrate de instalar ChromeOS.dev PWA en tu dispositivo para estar al tanto de la información más reciente.
 
