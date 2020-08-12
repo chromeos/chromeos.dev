@@ -2,13 +2,13 @@
 title: ChromeOS.dev — A blueprint to build world-class apps and games for Chrome OS
 metadesc: ChromeOS.dev is officially launched; an open-source, multilingual blueprint to build world-class apps and game for, and on, Chrome OS. Plus, new Chrome OS features.
 hero:
-  image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/hero.png
+  image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/hero.svg
   alt: An illustration of a Chromebook and new Chrome OS features.
 featured:
   title: ChromeOS.dev
   desc: A blueprint to build world-class apps and games for Chrome OS
   images:
-    - image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/featured.png
+    - image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/featured.svg
       alt: An illustration of a Chromebook and new Chrome OS features.
 tags:
   - product news
@@ -35,7 +35,7 @@ Hear from our experts at Google and Chrome OS, as well as a variety of developer
 
 Even better, as a [fully open-source](https://github.com/chromeos/chromeos.dev) online destination, ChromeOS.dev is designed considering all the principles and methods for creating highly capable and reliable Progressive Web Apps (PWAs), ensuring developers always have quick, easy access to the information they need — even when they’re offline.
 
-![Screenshot of ChromeOS.dev homepage.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/chromeosdev.png)
+![Animated preview of ChromeOS.dev sections and pages.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/website.gif)
 
 Check out a few of the newest updates and improvements below, and be sure to install the ChromeOS.dev PWA on your device to stay on top of the latest information.
 
@@ -51,7 +51,7 @@ The Linux (Beta) on Chrome OS Terminal now comes equipped with personalized feat
 
 - **Themes** - Customize your Terminal by selecting a theme to switch up the background, frame, font, and cursor color.
 
-  ![Changing Linux themes.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/linux-themes.gif)
+  ![Changing Linux themes.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/linux-updates.gif)
 
 - **Redesigned Terminal settings** - The settings tab has been reorganized to make it easier to customize all your Terminal options.
 
