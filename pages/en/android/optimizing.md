@@ -54,7 +54,7 @@ Where appropriate, you should differentiate between mouse and touch inputs. For 
 
 ### Custom cursors
 
-Apps should customize mouse cursors to indicate what element of their UI can be interacted with and how. You can set the [`PointerIcon`](https://developer.android.com/reference/android/view/PointerIcon.html) to use when users interact with a view by calling the [`setPointerIcon()`](<https://developer.android.com/reference/android/view/View.html#setPointerIcon(android.view.PointerIcon)>) method.
+Apps should customize mouse cursors to indicate what element of their UI can be interacted with and how. You can set the [`PointerIcon`](https://developer.android.com/reference/android/view/PointerIcon.html) to use when users interact with a view by calling the [`setPointerIcon()`](https://developer.android.com/reference/android/view/View.html#setPointerIcon(android.view.PointerIcon)) method.
 
 Apps should show:
 
@@ -120,8 +120,9 @@ As your app becomes increasingly customized for a laptop environment, consider m
 
 You can control whether or not your app displays a back button in its window by setting a preference inside the [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element.html) tag. A setting of **true** will hide the back button:
 
-<pre class="prettyprint lang-xml"><meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true" />
-</pre>
+```xml
+<meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true" />
+```
 
 ## Resolve issues with camera preview images
 
