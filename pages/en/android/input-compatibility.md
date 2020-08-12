@@ -21,7 +21,6 @@ following optimizations:
 - Add and test basic keyboard support, such as keyboard navigation via arrow and
   tab keys, Enter key for confirming text entry, and Space for play/pause in media
   apps.
-
 - Add standard keyboard shortcuts where applicable, for example [[Ctrl]]+[[Z]] for undo, [[Ctrl]]+[[S]] for save.
 - Test basic mouse interactions in the manner of right-click for context menu, icon changes on hover, and mouse wheel/trackpad scroll events on custom views.
 - Test app-specific input devices such as stylus for drawing apps, game controllers for games, and MIDI controllers for music apps.
@@ -45,7 +44,7 @@ mostly handled automatically by the Android framework. For example, a view of
 a `Button` is focusable by default, and keyboard navigation should generally
 work without any additional code. In order to enable keyboard navigation for
 views that are not focusable by default, developers should mark them as
-focusable. This can be done programatically or in XML, as shown below. See the
+focusable. This can be done programmatically or in XML, as shown below. See the
 [Focus Handling](https://developer.android.com/reference/android/view/View.html#FocusHandling)
 documentation for more information.
 
@@ -79,7 +78,9 @@ It is good practice to try to access every piece of your app's functionality
 before each release using the keyboard only. It should be easy to access the
 most common actions without mouse of touch input.
 
-!!! aside.message--note Remember, keyboard support might be essential for users with accessibility needs. !!!
+!!! aside.message--note
+Remember, keyboard support might be essential for users with accessibility needs.
+!!!
 
 ### Keystrokes
 
@@ -120,7 +121,7 @@ keys can look for the
 [onKeyDown](<https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyDown(int,%20android.view.KeyEvent)>)
 event.
 
-Note: depending on an app's needs, overriding `onKeyUp` for the entire Activity
+Depending on an app's needs, overriding `onKeyUp` for the entire Activity
 usually provides the needed behavior. If desired, an
 [onKeyListener](https://developer.android.com/reference/android/view/View.OnKeyListener) can be added to a
 specific view instead. For example an app may only listen for the Enter key in
@@ -236,7 +237,9 @@ yourView.setOnContextClickListener {
 }
 ```
 
-Note: any views that have been registered for a context menu using [Activity.registerForContextMenu()](<https://developer.android.com/reference/android/app/Activity#registerForContextMenu(android.view.View)>) should automatically work with both long-press and right-click without the need to register a context click listener.
+!!! aside.message--note
+**Note:** any views that have been registered for a context menu using [Activity.registerForContextMenu()](<https://developer.android.com/reference/android/app/Activity#registerForContextMenu(android.view.View)>) should automatically work with both long-press and right-click without the need to register a context click listener.
+!!!
 
 ### Hover
 
@@ -343,9 +346,11 @@ latency, but only commit them permanently to the canvas once the touch series is
 finished cleanly. If touch events are cancelled in the meantime, the temporary
 lines can be easily erased.
 
-Note: One way to reduce extraneous palm and finger events in drawing and writing
+!!! aside.message--note
+**Note:** One way to reduce extraneous palm and finger events in drawing and writing
 apps is to provide a UI setting that disables drawing via touch, and only uses
 stylus events for drawing when in this mode.
+!!!
 
 ### Note-taking apps
 

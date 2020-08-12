@@ -37,12 +37,14 @@ There are two options for handling window resizing:
 This page shows how to ensure your app's window launches correctly, resizes
 smoothly, and can display all of its contents when its size changes.
 
-Note: In addition to window management, Android apps that run on Chrome OS pose
+!!! aside.message--note
+**Note:** In addition to window management, Android apps that run on Chrome OS pose
 lifecycle management challenges. There are also other issues to consider, such
 as multiple apps competing for exclusive resources like camera or microphone,
 and the possibility that a visible app is not necessarily the active app. Read
 [Multi-window docs](https://developer.android.com/guide/topics/ui/multi-window) for information on how to
 handle these issues.
+!!!
 
 ## Window dimensions
 
@@ -196,9 +198,11 @@ Apps can specify their initial launch size in the following ways:
   `ActivityOptions.setLaunchBounds(Rect)` when creating a new activity. By
   specifying an empty rectangle, your app can be maximized.
 
+!!! aside.message--note
 Note: All these possibilities work only if the activity started is a root
 activity. You can also do this using springboard activity, that is, cleaning
 the activity stack in the task with a new start.
+!!!
 
 ## Other considerations
 
