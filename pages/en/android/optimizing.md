@@ -32,7 +32,7 @@ For more information, read about [window management](/{{locale.code}}/android/wi
 
 ## Customize the top bar color
 
-Chrome OS uses the app theme to color the top bar displayed on top of the app, which shows when users hold the window controls and the back button. To make your app look polished and customized for Chrome OS, define `[colorPrimary](/reference/android/R.attr.html#colorPrimary)` and (if possible) `[colorPrimaryDark](/reference/android/R.attr.html#colorPrimaryDark)` values in your app's theme. The latter is used to color the top bar. If only `colorPrimary` is defined, Chrome OS uses a darker version of it in the top bar. For more information, see [Using the material theme](https://developer.android.com/training/material/theme.html).
+Chrome OS uses the app theme to color the top bar displayed on top of the app, which shows when users hold the window controls and the back button. To make your app look polished and customized for Chrome OS, define `[colorPrimary](https://developer.android.com/reference/android/R.attr.html#colorPrimary)` and (if possible) `[colorPrimaryDark](https://developer.android.com/reference/android/R.attr.html#colorPrimaryDark)` values in your app's theme. The latter is used to color the top bar. If only `colorPrimary` is defined, Chrome OS uses a darker version of it in the top bar. For more information, see [Using the material theme](https://developer.android.com/training/material/theme.html).
 
 ## Support the keyboard, trackpad, and mouse
 
@@ -89,7 +89,7 @@ Android context menus, which are another accelerator for taking users to feature
 
 ![Drag and drop in a file tree interface](/images/android/optimizing/drag-and-drop.png)
 
-Building drag and drop interactions can bring efficient, intuitive productivity functionality to your app. For more information, see [Drag and drop](/guide/topics/ui/drag-drop.html).
+Building drag and drop interactions can bring efficient, intuitive productivity functionality to your app. For more information, see [Drag and drop](https://developer.android.com/guide/topics/ui/drag-drop.html).
 
 ### Stylus support
 
