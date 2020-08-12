@@ -1,6 +1,6 @@
 ---
 title: ¿Por qué su aplicación debe optimizarse para pantallas de todos los tamaños?
-metadesc: Vea cómo Gameloft, Evernote, Slack y 1Password se han optimizado para Chrome OS
+metadesc: Vea cómo Gameloft, Evernote, Slack y 1Password se han optimizado para Chrome OS.
 tags:
   - tendencia
   - historia exitosa

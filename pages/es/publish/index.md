@@ -1,6 +1,9 @@
 ---
 title: Publicación en Google Play
-metadesc: Cómo publicar, distribuir y monetizar su aplicación y juego en Chrome OS
+metadesc: Cómo publicar, distribuir y monetizar su aplicación y juego en Chrome OS.
+hero:
+  image: /images/landings/publish-hero.svg
+  alt: Ilustración de varios bloques de construcción en cola para un integrarse a un dispositivo de Chrome OS.
 date: 2020-05-18
 weight: -8
 ---

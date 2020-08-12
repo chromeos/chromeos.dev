@@ -1,6 +1,6 @@
 ---
 title: Port forwarding
-metadesc: How to configure port forwarding on your Chrome OS device to access local servers on other devices
+metadesc: How to configure port forwarding on your Chrome OS device to access local servers on other devices.
 date: 2020-06-01
 weight: -7
 ---

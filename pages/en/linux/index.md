@@ -1,6 +1,6 @@
 ---
 title: Overview
-metadesc: An introduction to Linux (Beta) on Chrome OS
+metadesc: An introduction to Linux (Beta) on Chrome OS.
 hero:
   image: /images/landings/linux-hero.svg
   alt: Illustration of a terminal application running on a Chrome OS device.

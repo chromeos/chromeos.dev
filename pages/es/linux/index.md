@@ -1,6 +1,9 @@
 ---
 title: Introducción
-metadesc: Una introducción a Linux (Beta) en Chrome OS
+metadesc: Una introducción a Linux (Beta) en Chrome OS.
+hero:
+  image: /images/landings/linux-hero.svg
+  alt: Ilustración de una aplicación de terminal que se ejecuta en un dispositivo Chrome OS.
 date: 2020-06-10
 weight: -8
 ---

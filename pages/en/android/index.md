@@ -1,6 +1,6 @@
 ---
 title: Android apps on Chrome OS
-metadesc: An introduction to the Play Store and Android Applications on Chrome OS
+metadesc: An introduction to the Play Store and Android Applications on Chrome OS.
 hero:
   image: /images/landings/adapting-android.svg
   alt: Illustration of an Android phone and Chrome OS device showing the same application running on both.

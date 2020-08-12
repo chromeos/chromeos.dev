@@ -94,7 +94,7 @@ Para enviar su APK desde otro dispositivo al Chromebook, debe iniciar su Chrome 
 
 ### Conéctese a ADB por USB { #adb-usb}
 
-1. Asegúrese de haber [habilitado la depuración de ADB.](#habilitar-depuracion-de-adb)
+1. Asegúrese de haber [habilitado la depuración de ADB.](#habilitar-adb)
 
 2. Determine si su dispositivo [admite la depuración de USB](https://www.chromium.org/chromium-os/chrome-os-systems-supporting-adb-debugging-over-usb)
 

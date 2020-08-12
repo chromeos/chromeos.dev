@@ -36,7 +36,7 @@ Chrome OS utiliza el tema de la aplicación para colorear la barra superior que 
 
 Todos los Chromebook tienen un teclado físico y trackpad, y algunos también tienen una pantalla táctil. Algunos dispositivos pueden incluso convertirse de una computadora portátil a una tableta.
 
-Todas las aplicaciones para Chrome OS deben ser compatibles con mouse, trackpad y teclado y deben poder usarse sin una pantalla táctil. Muchas aplicaciones ya admiten mouse y trackpad sin necesidad de trabajo adicional. Sin embargo, siempre es mejor personalizar el comportamiento de su aplicación de manera adecuada para el mouse, y debe admitir y distinguir entre el mouse y las entradas táctiles. Lea más sobre el soporte del mouse en [Compatibilidad de entrada para Chromebooks](/{{locale.code}}/android/input-compatibility#input-device-support) . Debe asegurarse de que:
+Todas las aplicaciones para Chrome OS deben ser compatibles con mouse, trackpad y teclado y deben poder usarse sin una pantalla táctil. Muchas aplicaciones ya admiten mouse y trackpad sin necesidad de trabajo adicional. Sin embargo, siempre es mejor personalizar el comportamiento de su aplicación de manera adecuada para el mouse, y debe admitir y distinguir entre el mouse y las entradas táctiles. Lea más sobre el soporte del mouse en [Compatibilidad de entrada para Chromebooks](/{{locale.code}}/android/input-compatibility#mouse-y-touchpad) . Debe asegurarse de que:
 
 - Se puede hacer clic en todos los objetivos con el mouse
 - Todas las superficies de desplazamiento táctil se desplazan en los eventos de la rueda del mouse ( [Figura 3](#figure-3) )
@@ -89,7 +89,7 @@ Construir interacciones de arrastrar y soltar puede brindar una funcionalidad de
 
 ### Soporte de lápiz
 
-El soporte de stylus es crucial para dibujar y tomar notas. Proporcione un soporte mejorado para Chromebooks y tabletas equipados con stylus mediante la implementación de interacciones adaptadas al uso de la entrada de stylus. Tenga en cuenta las posibles variaciones en diferentes hardware de lápiz al diseñar sus interacciones de lápiz. Consulte [Compatibilidad de entrada para Chromebooks](/{{locale.code}}/android/input-compatibility) para obtener un resumen de las API de stylus.
+El soporte de stylus es crucial para dibujar y tomar notas. Proporcione un soporte mejorado para Chromebooks y tabletas equipados con stylus mediante la implementación de interacciones adaptadas al uso de la entrada de stylus. Tenga en cuenta las posibles variaciones en diferentes hardware de lápiz al diseñar sus interacciones de lápiz. Consulte [Compatibilidad de entrada para Chromebooks](/{{locale.code}}/android/input-compatibility#stylus) para obtener un resumen de las API de stylus.
 
 ## Haz que tus diseños sean adaptables
 
@@ -111,7 +111,7 @@ Resolver problemas con las imágenes de vista previa de la cámara
 
 Los problemas de la cámara pueden surgir cuando la aplicación solo puede ejecutarse en orientación vertical, pero el usuario la ejecuta en una pantalla horizontal. En este caso, la vista previa, o el resultado capturado, podría rotarse incorrectamente.
 
-[El modo de compatibilidad](/{{locale.code}}/android/input-compatibility#compatibility-mode) cambia la forma en que el sistema maneja los eventos, como los cambios de orientación, en Chrome OS. Esto ayuda a evitar problemas cuando la cámara se usa en el modo de orientación incorrecto. Para habilitar el modo de compatibilidad:
+[El modo de compatibilidad](/{{locale.code}}/android/input-compatibility) cambia la forma en que el sistema maneja los eventos, como los cambios de orientación, en Chrome OS. Esto ayuda a evitar problemas cuando la cámara se usa en el modo de orientación incorrecto. Para habilitar el modo de compatibilidad:
 
 - Apunte al menos a Android 7.0 (nivel de API 24). Todavía puede elegir un nivel mínimo mínimo de SDK.
 - Permita que su aplicación sea redimensionable.

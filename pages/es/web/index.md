@@ -1,6 +1,9 @@
 ---
 title: Aplicaciones web en Chrome OS
 metadesc: Una introducción a la creación de PWAs de escritorio para Chrome OS.
+hero:
+  image: /images/landings/adapting-web.svg
+  alt: Ilustración de una aplicación web ejecutándose en un dispositivo Chrome OS.
 date: 2020-05-26
 weight: -10
 ---

@@ -1,8 +1,31 @@
 ---
-layout: _wrapper
-title: Not Found
+permalink: '404.html'
 ---
 
-{% for locale in l10n %} {% if locale['404'].title %}
-<h1>{{locale['404'].title}}</h1>
-{% endif %} {% endfor %}
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; URL='/en/404'" />
+    <style>
+      body,
+      a {
+        color: transparent;
+        animation: 0.25s ease-in 3s forwards show;
+      }
+
+      a {
+        --color: blue;
+      }
+      @keyframes show {
+        0% {
+          color: transparent;
+        }
+        100% {
+          color: var(--color, black);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Redirecting to <a href="/en/404">page not found</a></h1>
+  </body>
+</html>

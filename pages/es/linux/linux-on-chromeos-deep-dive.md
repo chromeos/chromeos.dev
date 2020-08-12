@@ -17,7 +17,7 @@ Chrome OS permite la ejecución de código arbitrario dentro de [máquinas virtu
   - Inicie una [actualización del sistema](https://support.google.com/chromebook/answer/177889?hl={{locale.code}}) si es necesario y reinicie.
   - Esto debería funcionar en el [canal estable](https://support.google.com/chromebook/answer/1086915?hl={{locale.code}}) .
   - **No** es necesario ponerlo en modo de desarrollador.
-- [Habilite el contenedor de Linux]({{locale.code}}/linux/setup)
+- [Habilite el contenedor de Linux](/{{locale.code}}/linux/setup)
 
 ## Características de tiempo de ejecución
 
