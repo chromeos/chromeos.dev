@@ -5,14 +5,14 @@
   column-gap: 2.75rem;
   display: grid;
   grid-row-gap: 2.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10ch, 1fr));
 
   @supports (column-gap: clamp(2.5rem, 1vw, 3rem)) {
     column-gap: clamp(2.5rem, 1vw, 3rem);
   }
 
-  @supports (grid-template-columns: repeat(auto-fit, minmax(clamp(20ch, 45vw, 60ch), 1fr))) {
-    grid-template-columns: repeat(auto-fit, minmax(clamp(20ch, 45vw, 60ch), 1fr));
+  @supports (grid-template-columns: repeat(auto-fit, minmax(clamp(10ch, 45vw, 30ch), 1fr))) {
+    grid-template-columns: repeat(auto-fit, minmax(clamp(10ch, 45vw, 30ch), 1fr));
   }
 
   &__eyebrow {

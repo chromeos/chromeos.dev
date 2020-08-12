@@ -9,13 +9,13 @@ title: News & Stories
 metadesc: Get the latest news, stories, resource articles, and case studies for Chrome OS.
 ---
 
-{% from 'item-grid.html' import itemGrid %}{% from 'hero-full-bleed.html' import heroFullBleed %}{% from 'featured-content.html' import featuredContent %}
+{% from 'item-grid.html' import itemGrid %}{% from 'hero.html' import hero %}{% from 'featured-content.html' import featuredContent %}
 
 <div class="wrapper--hidden-x">
   <!-- Featured Post -->
   {% if landingCollections.featured.post %}
-  <div class="wrapper wrapper--full-bleed wrapper--no-top" aria-label="{{l10n.news.hero.desc}}">
-    {{ heroFullBleed(landingCollections.featured.post) }}
+  <div class="wrapper wrapper--padded" aria-label="{{l10n.news.hero.desc}}">
+    {{ hero(landingCollections.featured.post) }}
   </div>
   {% endif %}
 
