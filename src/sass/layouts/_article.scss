@@ -111,7 +111,7 @@
 
     @include mq($bkpt-articles--3-cols) {
       grid-column: 3 / span 1;
-      padding-top: pxRem(60px);
+      padding-top: 2rem;
     }
   }
 
