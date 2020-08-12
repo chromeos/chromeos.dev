@@ -11,20 +11,22 @@ tags:
   - soporte para lápiz óptico
 ---
 
-Las aplicaciones de Android tienen un papel importante que desempeñar en la redefinición de cómo se ve la informática moderna en pantallas grandes. Dicho esto, simplemente portar la aplicación de tu teléfono a Chromebooks no brindará a tus usuarios la mejor experiencia. Esta página detalla algunas formas en que puede adaptar su experiencia a la computadora portátil y los factores de forma convertibles. También tenemos una [lista completa de pruebas](/{{locale.code}}/android/tests) que recomendamos usar para determinar dónde su aplicación puede estar fallando en estos dispositivos.
+Las aplicaciones de Android tienen un papel importante que desempeñar en la redefinición de cómo se ve la informática moderna en pantallas grandes. Dicho esto, simplemente ejecutar la aplicación de tu teléfono en Chromebooks no brindará a tus usuarios la mejor experiencia. Esta página detalla algunas formas en que puede adaptar su experiencia a la computadora portátil y los factores de forma convertibles. Visite nuestra [lista completa de pruebas](/{{locale.code}}/android/tests) para aprendar más sobre pruebas para su aplicación y compatibilitad con estos dispositivos.
 
 ## Aproveche el soporte para múltiples ventanas de forma libre
 
-Los usuarios pueden cambiar el tamaño de la ventana que aloja su aplicación de Android, como se muestra en la [Figura 1](#figure-1) . Para asegurarse de que sus ventanas de forma libre cambien de tamaño sin problemas y puedan mostrar todo su contenido al usuario, lea las pautas y las cosas que debe tener en cuenta en la [Administración de ventanas](/{{locale.code}}/android/window-management) .
+La implementación de aplicaciones de Android en Chrome OS incluye soporte básico para múltiples ventanas. En lugar de ocupar siempre la pantalla completa, Android procesa las aplicaciones en Chrome OS en contenedores de ventana de forma libre, lo que es más apropiado para estos dispositivos.
+
+Los usuarios pueden cambiar el tamaño de la ventana que contiene su aplicación de Android, como se muestra en la figura 1. Para asegurarse de que sus ventanas de formato libre cambien de tamaño sin problemas y puedan mostrar todo su contenido al usuario, lea las pautas en [Administración de ventanas](/{{locale.code}}/android/window-management).
 
 #1[Una ventana de aplicación redimensionable](/images/android/optimizing/resizable.png)
 
 Puede mejorar la experiencia del usuario cuando su aplicación se ejecuta en Chrome OS siguiendo estas prácticas recomendadas:
 
-- Segúrese de manejar el [ciclo de actividad](https://developer.android.com/guide/topics/ui/multi-window) correctamente en un ambiente multi ventanas y asegúrese de actualizar el UI continuamente mientras su aplicación no es la aplicación enfocada.
+- Segúrese de manejar el [ciclo de actividad](https://developer.android.com/guide/topics/ui/multi-window) correctamente en un modo multi ventanas y asegúrese de actualizar el UI continuamente aún cuando su aplicación no es la aplicación enfocada al frente.
 - Asegúrese de que su aplicación ajuste su diseño adecuadamente cada vez que el usuario cambie el tamaño de su ventana.
-- Personalice las dimensiones iniciales de la ventana de la aplicación especificando su [tamaño de inicio](/{{locale.code}}/android/window-management#launch-size) .
-- La orientación de la actividad raíz de la aplicación afecta a todas sus ventanas. Tenga en cuenta las [reglas de actividad raíz](/{{locale.code}}/android/window-management#the-root-activity-rules) .
+- Personalice las dimensiones iniciales de la ventana de la aplicación especificando su [tamaño de inicio](/{{locale.code}}/android/window-management#initial-launch-size) .
+- La orientación de la actividad raíz de la aplicación afecta a todas sus ventanas. Tenga en cuenta las [reglas de actividad raíz](/{{locale.code}}/android/window-management#the-root-activity-and-orientation) .
 
 Para obtener más información, lea sobre la [administración de ventanas](/{{locale.code}}/android/window-management).
 
@@ -36,17 +38,17 @@ Chrome OS utiliza el tema de la aplicación para colorear la barra superior que 
 
 Todos los Chromebook tienen un teclado físico y trackpad, y algunos también tienen una pantalla táctil. Algunos dispositivos pueden incluso convertirse de una computadora portátil a una tableta.
 
-Todas las aplicaciones para Chrome OS deben ser compatibles con mouse, trackpad y teclado y deben poder usarse sin una pantalla táctil. Muchas aplicaciones ya admiten mouse y trackpad sin necesidad de trabajo adicional. Sin embargo, siempre es mejor personalizar el comportamiento de su aplicación de manera adecuada para el mouse, y debe admitir y distinguir entre el mouse y las entradas táctiles. Lea más sobre el soporte del mouse en [Compatibilidad de entrada para Chromebooks](/{{locale.code}}/android/input-compatibility#mouse-y-touchpad) . Debe asegurarse de que:
+Todas las aplicaciones para Chrome OS deben ser compatibles con mouse, trackpad y teclado y deben poder usarse sin una pantalla táctil. Muchas aplicaciones ya admiten mouse y trackpad sin necesidad de trabajo adicional. Sin embargo, siempre es mejor personalizar el comportamiento de su aplicación de manera adecuada para el mouse, y debe admitir y distinguir entre el mouse y las entradas táctiles. Lea más sobre el soporte del mouse en [Compatibilidad de entrada para Chromebooks](/{{locale.code}}/android/input-compatibility) . Debe asegurarse de que:
 
 - Se puede hacer clic en todos los objetivos con el mouse
-- Todas las superficies de desplazamiento táctil se desplazan en los eventos de la rueda del mouse ( [Figura 3](#figure-3) )
-- Los estados de desplazamiento (hover) ( [Figura 4](#figure-4) ) se implementan con la intención y el mejor criterio para mejorar el descubrimiento de la interfaz de usuario sin abrumar al usuario.
+- Todas las superficies de desplazamiento táctil se desplazan en los eventos de la rueda del mouse
+- Los estados de desplazamiento (hover) se implementan con la intención y el mejor criterio para mejorar el descubrimiento de la interfaz de usuario sin abrumar al usuario.
 
-#3[Desplazarse con la rueda del mouse](/images/android/optimizing/scroll-on-mousewheel.png)
+#2[Desplazarse con la rueda del mouse](/images/android/optimizing/scroll-on-mousewheel.png)
 
-#4[Estados de flotar el puntero del ratón sobre elementos](/images/android/optimizing/hover-states.png)
+#3[Estados de flotar el puntero del ratón sobre elementos](/images/android/optimizing/hover-states.png)
 
-Cuando corresponda, debe diferenciar entre el mouse y las entradas táctiles. Por ejemplo, tocar un elemento podría desencadenar una IU de selección múltiple, mientras que hacer clic en el mismo elemento podría desencadenar una sola selección.
+Cuando corresponda, debe diferenciar entre el mouse y las entradas táctiles. Por ejemplo, mantener presionado un elemento podría desencadenar una IU de selección múltiple, mientras que hacer clic derecho en el mismo elemento podría desencadenar en cambio un menú de opciones.
 
 ### Cursores personalizados
 
@@ -63,11 +65,11 @@ La clase `PointerIcon` proporciona [constantes](https://developer.android.com/re
 
 ### Atajos de teclado y navegación
 
-Dado que las Chromebook tienen teclados físicios, su aplicación debería incluir atajos para incrementar la productividad del usuario. Por ejemplo si es posible imprimir desde su aplicación, se podría usar `Control+P` para abrir un dialog de imprimir. También todos los elementos cruciales en la UI deben ser manejados a través [navegación con tab](https://developer.android.com/training/keyboard-input/navigation?hl={{locale.code}}#Tab) ([Figura 5](#figure-5)). Esto es especialmente importante para accesibilidad. Sin embargo, para cumplir con estandares de accesibilidad, todas las superficies en la UI deben tener estados al enfocar visibles y que sean accesibles ([Figura 6](#figure-6)).
+Dado que las Chromebook tienen teclados físicios, su aplicación debería incluir atajos para incrementar la productividad del usuario. Por ejemplo si es posible imprimir desde su aplicación, se podría usar **Control+P** para abrir un dialog de imprimir. También todos los elementos cruciales en la UI deben ser manejados a través [navegación con tab](https://developer.android.com/training/keyboard-input/navigation?hl={{locale.code}}#Tab). Esto es especialmente importante para accesibilidad. Sin embargo, para cumplir con estandares de accesibilidad, todas las superficies en la UI deben tener estados al enfocar visibles y que sean accesibles.
 
-#5[tabulación transversal](/images/android/optimizing/transversal-tabbing.png)
+#4[tabulación transversal](/images/android/optimizing/transversal-tabbing.png)
 
-#6[Reemplazar un gesto de deslizar con un control que aparece al flotar el puntero del mouse sobre elementos](/images/android/optimizing/hover-controls.png)
+#5[Reemplazar un gesto de deslizar con un control que aparece al flotar el puntero del mouse sobre elementos](/images/android/optimizing/hover-controls.png)
 
 También debe asegurarse de implementar alternativas de teclado o mouse a las funciones principales ocultas bajo interacciones específicas del tacto, como pulsaciones prolongadas, deslizamientos u otros gestos multitáctiles. Una solución de ejemplo sería proporcionar botones que aparecen en una superficie al pasar el mouse.
 
@@ -95,25 +97,38 @@ El soporte de stylus es crucial para dibujar y tomar notas. Proporcione un sopor
 
 ![Diseño adaptable](/images/android/optimizing/responsive-layout.png)
 
-Su aplicación debe hacer un buen uso del espacio disponible en pantalla independientemente del estado visual (pantalla completa, retrato, paisaje, ventana). Para obtener orientación específica sobre cómo lograr esto en Chrome OS y otros dispositivos de pantalla más grande, consulte nuestras [Recomendaciones de diseño](/{{locale.code}}/android/design)
+Su aplicación debe hacer un buen uso del espacio de la pantalla disponible independientemente del estado visual (pantalla completa, retrato, paisaje, ventana). Algunos ejemplos de buen uso del espacio incluyen, entre otros, los siguientes:
+
+- Visualización de la arquitectura de la aplicación.
+- Limitar la longitud del texto y el tamaño de la imagen a un ancho máximo.
+- Hacer un mejor uso de los bienes raíces en la barra de herramientas de la aplicación.
+- Mejora de la ubicación de funcionalidad de la interfaz de usuario adaptándola al uso del mouse en lugar del uso del pulgar.
+- Optimización del tamaño para videos e imágenes, estableciendo un conjunto de ancho y alto máximo para todos los medios, y maximizando la legibilidad y la capacidad de escaneo.
+- Implementación de un sistema de columnas adaptable. Para obtener más información, consulte [Interfaz de usuario adaptable](https://material.io/guidelines/layout/responsive-ui.html).
+- Cambiar el tamaño y modificar la interfaz de usuario cuando sea necesario mediante el sistema de columnas y evitar abrir nuevas ventanas cuando sea posible.
+- Eliminar o reducir la importancia de los componentes de desplazamiento horizontal.
+- Evitar la interfaz de usuario modal de pantalla completa. Utilice la interfaz de usuario en línea, como indicadores de progreso y alertas, para todas las acciones no críticas
+- Uso de componentes mejorados de la interfaz de usuario, como el selector de fecha y hora, campos de texto y menús desplegables, diseñados para mouse, teclado y pantallas más grandes.
+- Uso de ediciones en línea, columna adicional o interfaz de usuario modal en lugar de una nueva actividad para la función de edición de pequeña a mediana.
+- Eliminar o modificar los botones de acción flotantes (FAB) para una mejor navegación con el teclado. De forma predeterminada, un FAB se coloca en último lugar en el orden de tabulación transversal. Debe hacerse primero porque es la acción principal o debe ser reemplazado por otra prestación de nivel superior.
 
 ## Cambiar patrones de navegación
 
 A medida que su aplicación se personaliza cada vez más para un entorno de computadora portátil, considere moverse hacia un patrón de navegación que destaque el botón de retroceso. La aplicación debería poder manejar su propia pila de historial al proporcionar botones de retroceso en la aplicación, rutas de exploración u otras rutas de escape como botones de cerrar o cancelar como parte de su interfaz de usuario de pantalla grande. Un botón de retroceso a nivel del sistema es un patrón que se transfiere desde las raíces portátiles de Android, uno que no encaja tan bien en un contexto de escritorio.
 
-Puede controlar si su aplicación muestra o no un botón de retroceso en su ventana configurando una preferencia dentro de la etiqueta [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element?hl={{locale.code}}) . Una configuración de `true` ocultará el botón Atrás:
+Puede controlar si su aplicación muestra o no un botón de retroceso en su ventana configurando una preferencia dentro de la etiqueta [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element?hl={{locale.code}}) . Una configuración de **true** ocultará el botón Atrás:
 
 ```xml
 <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true" />
 ```
 
-Resolver problemas con las imágenes de vista previa de la cámara
+## Resolver problemas con las imágenes de vista previa de la cámara
 
 Los problemas de la cámara pueden surgir cuando la aplicación solo puede ejecutarse en orientación vertical, pero el usuario la ejecuta en una pantalla horizontal. En este caso, la vista previa, o el resultado capturado, podría rotarse incorrectamente.
 
-[El modo de compatibilidad](/{{locale.code}}/android/input-compatibility) cambia la forma en que el sistema maneja los eventos, como los cambios de orientación, en Chrome OS. Esto ayuda a evitar problemas cuando la cámara se usa en el modo de orientación incorrecto. Para habilitar el modo de compatibilidad:
+El modo de compatibilidad cambia la forma en que el sistema maneja los eventos, como los cambios de orientación, en Chrome OS. Esto ayuda a evitar problemas cuando la cámara se usa en el modo de orientación incorrecto. Para habilitar el modo de compatibilidad:
 
-- Apunte al menos a Android 7.0 (nivel de API 24). Todavía puede elegir un nivel mínimo mínimo de SDK.
+- Apunte al menos a Android 7.0 (nivel de API 24). Todavía puede elegir un nivel mínimo de SDK.
 - Permita que su aplicación sea redimensionable.
 
 ## Manejar la configuración del dispositivo

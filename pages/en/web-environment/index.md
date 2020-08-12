@@ -29,7 +29,7 @@ While Linux for Chrome OS is running inside a VM, servers running in the Linux e
 
 ## The Chrome you love
 
-All of the development tools you know and love from Chrome are on Chrome OS, too. Because [Linux ports are forward to Chrome](#port-forwarding), you can use all of the power of [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools), including [Lighthouse](https://developers.google.com/web/tools/lighthouse/) to develop your apps with, along with great Chrome extensions, like [Accessibility Insights of Web](https://accessibilityinsights.io/docs/en/web/overview). To do so, start up your web server in the Linux environment and navigate to `localhost:PORT` (replacing `PORT` with your server’s port number) in your main Chrome browser. You can also use `penguin.linux.test` as a fallback for `localhost` if needed.
+All of the development tools you know and love from Chrome are on Chrome OS, too. Because [Linux ports are forward to Chrome](/{{locale.code}}/web-environment/port-forwarding), you can use all of the power of [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools), including [Lighthouse](https://developers.google.com/web/tools/lighthouse/) to develop your apps with, along with great Chrome extensions, like [Accessibility Insights of Web](https://accessibilityinsights.io/docs/en/web/overview). To do so, start up your web server in the Linux environment and navigate to `localhost:PORT` (replacing `PORT` with your server’s port number) in your main Chrome browser. You can also use `penguin.linux.test` as a fallback for `localhost` if needed.
 
 ### More than Chrome
 

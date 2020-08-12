@@ -43,7 +43,7 @@ From the start, Android was designed as a platform that could handle multiple sc
 
 - Now, in [Android 10](https://developer.android.com/about/versions/10), we’ve made even more enhancements for development on large screens. We’ve improved multi-window capabilities, making it easier to use multiple apps in parallel. We also continued improving multi-display support, enabling more multi-monitor use cases. And we made it easy for you to experiment and test new form factors by adding dedicated emulator for **foldables** as well as publishing a [foldables guide](https://developer.android.com/guide/topics/ui/foldables).
 
-By optimizing your app to take advantage of different form factors, developers have an opportunity to deliver richer, more engaging experiences to millions of users on larger screens. And if you don’t have access to physical devices, the Android Emulator supports all of the form factors mentioned above, from [Chrome OS](https://developer.android.com/topic/arc/emulator) to [phones and tablets](https://developer.android.com/studio/run/emulator).
+By optimizing your app to take advantage of different form factors, developers have an opportunity to deliver richer, more engaging experiences to millions of users on larger screens. And if you don’t have access to physical devices, the Android Emulator supports all of the form factors mentioned above, from [Chrome OS to phones and tablets](https://developer.android.com/studio/run/emulator).
 
 Developers of apps like [Mint](https://developer.android.com/stories/apps/intuit-mint), [Evernote](/{{locale.code}}/stories/evernote), and [Asphalt](/{{locale.code}}/stories/asphalt-8) are just a few who have seen success from taking their existing APK to larger screens.
 
