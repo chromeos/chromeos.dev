@@ -140,4 +140,4 @@ Chrome OS devices are _fixed volume_ devices. Apps that play sound should have t
 
 ### Change screen brightness
 
-You cannot adjust device brightness on Chrome OS. Calls to the `[system settings](https://developer.android.com/reference/android/provider/Settings.System.html)` and `[WindowManager.LayoutParams](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html)` are ignored.
+You cannot adjust device brightness on Chrome OS. Calls to the [`system settings`](https://developer.android.com/reference/android/provider/Settings.System.html) and [`WindowManager.LayoutParams`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html) are ignored.
