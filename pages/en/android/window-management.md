@@ -199,7 +199,7 @@ Apps can specify their initial launch size in the following ways:
   specifying an empty rectangle, your app can be maximized.
 
 !!! aside.message--note
-Note: All these possibilities work only if the activity started is a root
+**Note:** All these possibilities work only if the activity started is a root
 activity. You can also do this using springboard activity, that is, cleaning
 the activity stack in the task with a new start.
 !!!
