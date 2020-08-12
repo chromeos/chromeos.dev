@@ -43,7 +43,7 @@ Check out a few of the newest updates and improvements below, and be sure to ins
 
 Whether it’s developing Android, Linux, or web apps, every update on ChromeOS.dev is about making sure all developers can build better app experiences in a streamlined, easy-to-navigate environment.
 
-### Customizable Linux terminal
+### Customizable Linux Terminal
 
 The Linux (Beta) on Chrome OS Terminal now comes equipped with personalized features right out of the box, including:
 
@@ -57,13 +57,13 @@ The Linux (Beta) on Chrome OS Terminal now comes equipped with personalized feat
 
 Developers can now start using these and other customizable features in the Terminal app.
 
-### Android emulator support
+### Android Emulator support
 
-[Supported Chromebooks](https://chromeos.dev/en/android-environment) can now run a full version of the Android Emulator, which allows developers to test apps on any Android version and device without needing the actual hardware. Android app developers can simulate [map locations](https://developer.android.com/studio/run/emulator#extended) and other sensor data to test how an app performs with various motions, orientations, and environmental conditions. With the Android Emulator support in Chrome OS, developers can optimize for different Android versions and devices — including tablets and [foldable smartphones](https://developer.android.com/guide/topics/ui/foldables#emulators) — right from their Chromebook.
+[Supported Chromebooks](/{{locale.code}}/android-environment) can now run a full version of the Android Emulator, which allows developers to test apps on any Android version and device without needing the actual hardware. Android app developers can simulate [map locations](https://developer.android.com/studio/run/emulator#extended) and other sensor data to test how an app performs with various motions, orientations, and environmental conditions. With the Android Emulator support in Chrome OS, developers can optimize for different Android versions and devices — including tablets and [foldable smartphones](https://developer.android.com/guide/topics/ui/foldables#emulators) — right from their Chromebook.
 
 ### Deploy apps directly to Chrome OS
 
-Building and testing Android apps on a single machine is simpler than ever. Now, developers who are running Chrome OS M81 and higher can [deploy and test apps directly on their Chromebooks](https://chromeos.dev/en/android-environment/deploying-apps) — no need to use developer mode or to connect different devices physically via USB. Combined with Android Emulator support, Chrome OS is equipped to support full Android development.
+Building and testing Android apps on a single machine is simpler than ever. Now, developers who are running Chrome OS M81 and higher can [deploy and test apps directly on their Chromebooks](/{{locale.code}}/android-environment/deploying-apps) — no need to use developer mode or to connect different devices physically via USB. Combined with Android Emulator support, Chrome OS is equipped to support full Android development.
 
 ### Improved project wizard in Android Studio
 
@@ -71,7 +71,7 @@ An updated [Primary/Detail Activity Template](https://developer.android.com/stud
 
 ### Updated support from Android lint checks
 
-We’ve improved the default checks in [Android’s lint tool](https://developer.android.com/studio/write/lint) to help developers identify and correct common coding issues to improve their apps on larger screens, such as non-resizable and portrait-locked activities. This feature is currently available for testing in Canary.
+We’ve improved the default checks in [Android’s lint tool](https://developer.android.com/studio/write/lint) to help developers identify and correct common coding issues to improve their apps on larger screens, such as non-resizable and portrait-locked activities. This feature is currently available for testing in Canary channel.
 
 ## Unlock your app’s full potential with Chrome OS
 
