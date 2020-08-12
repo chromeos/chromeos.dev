@@ -28,7 +28,7 @@ Get started by reviewing the [PWA Checklist](https://web.dev/pwa-checklist/) and
 
 ## Make it installable
 
-One of the great advantages of PWAs over regular web apps is the ability for them to be installed, just like native apps. The Progressive Web App path on web.dev has a section dedicated to [making your PWA installable](https://web.dev/progressive-web-apps/#installable); use that to get started. In order for a PWA to be identified as installable on Chrome OS, the following criteria must be met, which can be checked using [Lighthouse’s installable audit](https://web.dev/lighthouse-pwa/#installable):
+One of the great advantages of PWAs over regular web apps is the ability for them to be installed, just like native apps. The Progressive Web App path on web.dev has a section dedicated to [making your PWA installable](https://web.dev/progressive-web-apps/#installable); use that to get started. In order for a PWA to be identified as installable on Chrome OS, the following criteria must be met, which can be checked using [Lighthouse’s installable audit](https://web.dev/installable-manifest/#how-the-lighthouse-web-app-manifest-audit-fails):
 
 - It must have a valid [web app manifest](https://web.dev/add-manifest/)
 - It must meet Chrome’s [install criteria](https://web.dev/install-criteria/)

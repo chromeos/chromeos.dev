@@ -7,7 +7,7 @@ weight: -9
 
 Android game developers who have previously focused on small-screen mobile devices and touch-centric input will have some considerations to take into account when adapting their game to Chrome OS.
 
-Large screens and a windowed operating system bring a lot of opportunities for enhancements, as well as responsibilities toward your users to meet expectations. Likewise, keyboard, mouse, trackpad, and gamepad support are a must for stand-out games in a desktop environment. Getting all these components working well together across the Android ecosystem may take some profiling and tuning. You will find some code snippets, pointers to documentation, and some Chrome OS specific tips and tricks here to help you get started:
+Large screens and a windowed operating system bring a lot of opportunities for enhancements, as well as responsibilities toward your users to meet expectations. Likewise, keyboard, mouse, trackpad, and gamepad support are a must for stand-out games in a desktop environment. Getting all these components working well together across the Android ecosystem may take some profiling and tuning. Here are some code snippets, pointers to documentation, and some Chrome OS specific tips and tricks here to help you get started:
 
 ## Get started on these topics
 
