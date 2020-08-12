@@ -96,7 +96,7 @@ media apps that start/stop playback with the space key, and games that control
 movement with the [[w]],[[a]],[[s]], and [[d]] keys.
 
 Most apps override the
-[onKeyUp](https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyUp(int,%20android.view.KeyEvent))
+[onKeyUp](<https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyUp(int,%20android.view.KeyEvent)>)
 event and add the expected behavior for each received keycode, as shown below.
 
 ```kotlin
@@ -118,7 +118,7 @@ override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
 Using `onKeyUp` prevents apps from receiving multiple events if a key is held
 down or released slowly. Games and apps that expect users to hold down keyboard
 keys can look for the
-[onKeyDown](https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyDown(int,%20android.view.KeyEvent))
+[onKeyDown](<https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyDown(int,%20android.view.KeyEvent)>)
 event.
 
 Depending on an app's needs, overriding `onKeyUp` for the entire Activity
@@ -145,13 +145,13 @@ list of
 [VLC Media Player shortcut keys](https://www.vlchelp.com/vlc-media-player-shortcuts/).
 
 Shortcuts can be implemented using
-[dispatchKeyShortcutEvent](https://developer.android.com/reference/android/view/Window.Callback.html#dispatchKeyShortcutEvent(android.view.KeyEvent)).
+[dispatchKeyShortcutEvent](<https://developer.android.com/reference/android/view/Window.Callback.html#dispatchKeyShortcutEvent(android.view.KeyEvent)>).
 This intercepts all meta-key combinations (Alt, Ctrl, and Shift) for a given
 keycode. To check for a specific meta-key, use
-[KeyEvent.isCtrlPressed()](https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed()),
-[KeyEvent.isShiftPressed()](https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed()),
-[KeyEvent.isAltPressed()](https://developer.android.com/reference/android/view/KeyEvent#isAltPressed()),
-or [KeyEvent.hasModifiers()](https://developer.android.com/reference/android/view/KeyEvent.html#hasModifiers(int)).
+[KeyEvent.isCtrlPressed()](<https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed()>),
+[KeyEvent.isShiftPressed()](<https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed()>),
+[KeyEvent.isAltPressed()](<https://developer.android.com/reference/android/view/KeyEvent#isAltPressed()>),
+or [KeyEvent.hasModifiers()](<https://developer.android.com/reference/android/view/KeyEvent.html#hasModifiers(int)>).
 
 Separating shortcut code from other keystroke handling (such as `onKeyUp` or
 `onKeyDown`) can make code maintenance easier and maintains the default acceptance
@@ -185,9 +185,9 @@ override fun dispatchKeyShortcutEvent(event: KeyEvent): Boolean {
 ```
 
 You can also implement shortcuts in `onKeyUp` by checking for
-[KeyEvent.isCtrlPressed()](https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed()),
-[KeyEvent.isShiftPressed()](https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed()),
-or [KeyEvent.isAltPressed()](https://developer.android.com/reference/android/view/KeyEvent#isAltPressed())
+[KeyEvent.isCtrlPressed()](<https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed()>),
+[KeyEvent.isShiftPressed()](<https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed()>),
+or [KeyEvent.isAltPressed()](<https://developer.android.com/reference/android/view/KeyEvent#isAltPressed()>)
 in the same manner as above. This can be easier to maintain if the meta-behavior
 is more of a modification to an app behavior than a shortcut. For example, when
 [[W]] means "walk forward" and [[Shift]]+[[W]] means "run forward".
@@ -238,7 +238,7 @@ yourView.setOnContextClickListener {
 ```
 
 !!! aside.message--note
-**Note:** any views that have been registered for a context menu using [Activity.registerForContextMenu()](https://developer.android.com/reference/android/app/Activity#registerForContextMenu(android.view.View)) should automatically work with both long-press and right-click without the need to register a context click listener.
+**Note:** any views that have been registered for a context menu using [Activity.registerForContextMenu()](<https://developer.android.com/reference/android/app/Activity#registerForContextMenu(android.view.View)>) should automatically work with both long-press and right-click without the need to register a context click listener.
 !!!
 
 ### Hover
@@ -288,9 +288,9 @@ at this
 
 Apps that do advanced handling of mouse and touchpad input should follow the
 Android documentation for
-[View.onGenericMotionEvent()](https://developer.android.com/reference/android/view/View#onGenericMotionEvent(android.view.MotionEvent))
+[View.onGenericMotionEvent()](<https://developer.android.com/reference/android/view/View#onGenericMotionEvent(android.view.MotionEvent)>)
 and use
-[`MotionEvent.getSource()`](https://developer.android.com/reference/android/view/MotionEvent#getSource())
+[`MotionEvent.getSource()`](<https://developer.android.com/reference/android/view/MotionEvent#getSource()>)
 to distinguish between
 [SOURCE_MOUSE](https://developer.android.com/reference/android/view/InputDevice#SOURCE_MOUSE) and
 [SOURCE_TOUCHSCREEN](https://developer.android.com/reference/android/view/InputDevice#SOURCE_TOUCHSCREEN).
@@ -309,16 +309,16 @@ Some devices might also have a USB or bluetooth drawing table, like the
 Android apps can receive bluetooth input, but won't work with USB input.
 
 A stylus event is reported as a touchscreen event via
-[View.onTouchEvent()](https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent))
-or [View.onGenericMotionEvent()](https://developer.android.com/reference/android/view/View#onGenericMotionEvent(android.view.MotionEvent)),
+[View.onTouchEvent()](<https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent)>)
+or [View.onGenericMotionEvent()](<https://developer.android.com/reference/android/view/View#onGenericMotionEvent(android.view.MotionEvent)>),
 and contains a
-[`MotionEvent.getSource()`](https://developer.android.com/reference/android/view/MotionEvent#getSource())
+[`MotionEvent.getSource()`](<https://developer.android.com/reference/android/view/MotionEvent#getSource()>)
 of type [SOURCE_STYLUS](https://developer.android.com/reference/android/view/InputDevice#SOURCE_STYLUS).
 The `MotionEvent` will also contain additional data:
 
-- [MotionEvent.getToolType()](https://developer.android.com/reference/android/view/MotionEvent#getToolType(int)) will return [TOOL_TYPE_FINGER](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_FINGER), [TOOL_TYPE_STYLUS](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_STYLUS), or [TOOL_TYPE_ERASER](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_ERASER) depending on the tool that made contact with the surface
-- [MotionEvent.getPressure()](https://developer.android.com/reference/android/view/MotionEvent#getPressure(int)) will report the physical pressure applied to the stylus pen, if supported
-- [MotionEvent.getAxisValue()](https://developer.android.com/reference/android/view/MotionEvent#getAxisValue(int,%20int)) with [MotionEvent.AXIS_TILT](https://developer.android.com/reference/android/view/MotionEvent#AXIS_TILT) and [MotionEvent.AXIS_ORIENTATION](https://developer.android.com/reference/android/view/MotionEvent#AXIS_ORIENTATION) which can be used to read the physical tilt and orientation of the stylus, if supported
+- [MotionEvent.getToolType()](<https://developer.android.com/reference/android/view/MotionEvent#getToolType(int)>) will return [TOOL_TYPE_FINGER](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_FINGER), [TOOL_TYPE_STYLUS](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_STYLUS), or [TOOL_TYPE_ERASER](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_ERASER) depending on the tool that made contact with the surface
+- [MotionEvent.getPressure()](<https://developer.android.com/reference/android/view/MotionEvent#getPressure(int)>) will report the physical pressure applied to the stylus pen, if supported
+- [MotionEvent.getAxisValue()](<https://developer.android.com/reference/android/view/MotionEvent#getAxisValue(int,%20int)>) with [MotionEvent.AXIS_TILT](https://developer.android.com/reference/android/view/MotionEvent#AXIS_TILT) and [MotionEvent.AXIS_ORIENTATION](https://developer.android.com/reference/android/view/MotionEvent#AXIS_ORIENTATION) which can be used to read the physical tilt and orientation of the stylus, if supported
 
 ### Historical points
 

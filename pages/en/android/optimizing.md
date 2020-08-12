@@ -54,7 +54,7 @@ Where appropriate, you should differentiate between mouse and touch inputs. For 
 
 ### Custom cursors
 
-Apps should customize mouse cursors to indicate what element of their UI can be interacted with and how. You can set the [`PointerIcon`](https://developer.android.com/reference/android/view/PointerIcon.html) to use when users interact with a view by calling the [`setPointerIcon()`](https://developer.android.com/reference/android/view/View.html#setPointerIcon(android.view.PointerIcon)) method.
+Apps should customize mouse cursors to indicate what element of their UI can be interacted with and how. You can set the [`PointerIcon`](https://developer.android.com/reference/android/view/PointerIcon.html) to use when users interact with a view by calling the [`setPointerIcon()`](<https://developer.android.com/reference/android/view/View.html#setPointerIcon(android.view.PointerIcon)>) method.
 
 Apps should show:
 

@@ -126,7 +126,7 @@ certain mode, the rotation value for the portrait orientation may not be
 [`Surface.ROTATION_0`](https://developer.android.com/reference/android/view/Surface.html#ROTATION_0).
 
 To get an accurate rotation value while reading the accelerometer or similar
-sensors, use the [`Display.getRotation()`](https://developer.android.com/reference/android/view/Display.html#getRotation())
+sensors, use the [`Display.getRotation()`](<https://developer.android.com/reference/android/view/Display.html#getRotation()>)
 method and swap the axis accordingly.
 
 ### The root activity and orientation
