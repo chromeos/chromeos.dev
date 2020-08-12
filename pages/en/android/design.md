@@ -57,7 +57,7 @@ Here are some recommendations for your app:
 - Your brand will dictate the direction that you should go when thinking about these different
   screen sizes. Deciding the things to prioritize and surface to the user is dependent on the type
   of user journey's that exist and the most commonly used features. For inspiration on how you may want
-  to attack this, check out the [Material Studies](https://materia.io/design/material-studies) and look at
+  to attack this, check out the [Material Studies](https://material.io/design/material-studies) and look at
   how each different product responds differently when you get to a larger screen.
 
 - Think about how your app’s design should behave using a [responsive grid system](https://material.io/design/layout/responsive-layout-grid.html#), and how content/navigation/options should move as you get larger screen real-estate.

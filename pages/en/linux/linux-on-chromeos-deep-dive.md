@@ -71,7 +71,7 @@ While these components may be installed, nothing starts running right away. When
 
 When you run the Terminal app, or any other Linux app that starts the container, and its parent container isn't running yet, the Termina VM will be started automatically, and the default Linux on Chrome OS container (also known as Crostini) will be started in that. This allows you to connect to the container via SSH or SFTP (via the Files app).
 
-When you close all visible applications, the VM/containers are not shut down. If you want to, you can manually [stop and start them](/{{locale.cod}}/linux/setup#restarting-the-linux-contatiner), as well as spawn more containers than just the default one.
+When you close all visible applications, the VM/containers are not shut down. If you want to, you can manually [stop and start them](/{{locale.code}}/linux/setup#restarting-the-linux-container), as well as spawn more containers than just the default one.
 
 ### Data persistence
 
