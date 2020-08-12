@@ -1,6 +1,5 @@
 ---
 title: ChromeOS.dev - Una guía para crear aplicaciones y juegos de clase mundial para elde Chrome OS
-
 metadesc: se lanza oficialmente ChromeOS.dev; un plan multilingüe de código abierto para crear aplicaciones y juegos de clase mundial para Chrome OS y sobre él. Y nueva funcionalidad de Chrome OS.
 hero:
   image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/hero.png
