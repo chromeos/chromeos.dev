@@ -59,13 +59,13 @@ and on every [configuration change](https://developer.android.com/guide/topics/r
 accordingly.
 
 ```kotlin
-fun getDisplayMetrics() {
-    val displayManager = getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
-    val display = displayManager.getDisplay(Display.DEFAULT_DISPLAY)
-    val metrics = DisplayMetrics()
-    display.getRealMetrics(metrics)
-    Log.d(LOG_TAG, "\nDisplayMetrics - w: ${metrics.widthPixels}, h: ${metrics.heightPixels}")
-}
+val displayManager = getSystemService(Context.DISPLAY_SERVICE)
+    as DisplayManager
+val display = displayManager.getDisplay(Display.DEFAULT_DISPLAY)
+val metrics = DisplayMetrics()
+display.getRealMetrics(metrics)
+Log.d(LOG_TAG, "DisplayMetrics - w: ${metrics.widthPixels},
+    h: ${metrics.heightPixels}")
 ```
 
 ## Orientation guidelines
@@ -89,26 +89,26 @@ Apps can specify their initial launch size in the following ways:
   [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element.html) tag:
 
 ```xml
-  <meta-data android:name="WindowManagerPreference:FreeformWindowSize"
-              android:value="[phone|tablet|maximize]" />
-  <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation"
-              android:value="[portrait|landscape]" />
+<meta-data android:name="WindowManagerPreference:FreeformWindowSize"
+  android:value="[phone|tablet|maximize]" />
+<meta-data android:name="WindowManagerPreference:FreeformWindowOrientation"
+  android:value="[portrait|landscape]" />
 ```
 
 - Use static launch bounds. Use `<layout>` inside the manifest entry of your
   activity to specify a "fixed" starting size. See this example:
 
 ```xml
-      <layout android:defaultHeight="500dp"
-              android:defaultWidth="600dp"
-              android:gravity="top|end"
-              android:minHeight="450dp"
-              android:minWidth="300dp" />
+<layout android:defaultHeight="500dp"
+  android:defaultWidth="600dp"
+  android:gravity="top|end"
+  android:minHeight="450dp"
+  android:minWidth="300dp" />
 ```
 
 - Use dynamic launch bounds. An activity can create and use
-  `ActivityOptions.setLaunchBounds(Rect)` when creating a new activity. By
-  specifying an empty rectangle, your app can be maximized.
+  [setLaunchBounds(Rect)](<https://developer.android.com/reference/android/app/ActivityOptions#setLaunchBounds(android.graphics.Rect)>)
+  when creating a new activity. By specifying an empty rectangle, your app can be maximized.
 
 !!! aside.message--note
 **Note:** All these possibilities only work if the activity started is a root
