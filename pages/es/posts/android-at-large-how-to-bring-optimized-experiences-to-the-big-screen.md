@@ -1,6 +1,6 @@
 ---
 title: 'Android en general: cómo llevar experiencias optimizadas a la pantalla grande'
-metadesc: 'Descubra cómo crear excelentes experiencias para los dispositivos con pantallas más grandes: tabletas, plegables, computadoras portátiles y dispositivos de escritorio'
+metadesc: 'Descubra cómo crear excelentes experiencias para los dispositivos con pantallas más grandes: tabletas, plegables, computadoras portátiles y dispositivos de escritorio.'
 tags:
   - técnico
   - tendencia

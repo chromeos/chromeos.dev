@@ -1,6 +1,6 @@
 ---
 title: Large screens and external displays
-metadesc: Window management for games on Chrome OS
+metadesc: Window management for games on Chrome OS.
 date: 2020-06-16
 weight: -7
 ---

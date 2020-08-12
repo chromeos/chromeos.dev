@@ -1,6 +1,6 @@
 ---
 title: Adaptar juegos web
-metadesc: Crear y optimizar juegos web para Chrome OS
+metadesc: Crear y optimizar juegos web para Chrome OS.
 date: 2020-06-16
 weight: -1
 ---
