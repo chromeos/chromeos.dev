@@ -25,14 +25,14 @@ You can improve the user experience when your app runs on Chrome OS by following
 
 - Handle the [activity lifecycle](https://developer.android.com/guide/topics/ui/multi-window) correctly in multi-window mode and make sure you're continuing to update the UI even when your app is not the topmost focused window.
 - Make sure that your app adjusts its layout appropriately whenever the user resizes its window.
-- Customize the initial dimensions of the app's window by specifying its [launch size](/{{locale.code}}/android/window-management#launch_size).
-- The orientation of the app's root activity affects all of its windows. Be aware of the [root activity rules](/{{locale.code}}/android/window-management#the_root_activity_rules).
+- Customize the initial dimensions of the app's window by specifying its [launch size](/{{locale.code}}/android/window-management#initial-launch-size).
+- The orientation of the app's root activity affects all of its windows. Be aware of the [root activity rules](/{{locale.code}}/android/window-management#the-root-activity-and-orientation).
 
 For more information, read about [window management](/{{locale.code}}/android/window-management).
 
 ## Customize the top bar color
 
-Chrome OS uses the app theme to color the top bar displayed on top of the app, which shows when users hold the window controls and the back button. To make your app look polished and customized for Chrome OS, define `[colorPrimary](https://developer.android.com/reference/android/R.attr.html#colorPrimary)` and (if possible) `[colorPrimaryDark](https://developer.android.com/reference/android/R.attr.html#colorPrimaryDark)` values in your app's theme. The latter is used to color the top bar. If only `colorPrimary` is defined, Chrome OS uses a darker version of it in the top bar. For more information, see [Using the material theme](https://developer.android.com/training/material/theme.html).
+Chrome OS uses the app theme to color the top bar displayed on top of the app, which shows when users hold the window controls and the back button. To make your app look polished and customized for Chrome OS, define [`colorPrimary`](https://developer.android.com/reference/android/R.attr.html#colorPrimary) and (if possible) [`colorPrimaryDark`](https://developer.android.com/reference/android/R.attr.html#colorPrimaryDark) values in your app's theme. The latter is used to color the top bar. If only `colorPrimary` is defined, Chrome OS uses a darker version of it in the top bar. For more information, see [Using the material theme](https://developer.android.com/training/material/theme.html).
 
 ## Support the keyboard, trackpad, and mouse
 
@@ -54,7 +54,7 @@ Where appropriate, you should differentiate between mouse and touch inputs. For 
 
 ### Custom cursors
 
-Apps should customize mouse cursors to indicate what element of their UI can be interacted with and how. You can set the `[PointerIcon](https://developer.android.com/reference/android/view/PointerIcon.html)` to use when users interact with a view by calling the `[setPointerIcon()](https://developer.android.com/reference/android/view/View.html#setPointerIcon(android.view.PointerIcon))` method.
+Apps should customize mouse cursors to indicate what element of their UI can be interacted with and how. You can set the [`PointerIcon`](https://developer.android.com/reference/android/view/PointerIcon.html) to use when users interact with a view by calling the [`setPointerIcon()`](<https://developer.android.com/reference/android/view/View.html#setPointerIcon(android.view.PointerIcon)>) method.
 
 Apps should show:
 
@@ -106,7 +106,7 @@ Your app should make good use of the screen real estate available regardless of 
 - Making better use of real estate in the app's toolbar.
 - Improving placement of UI affordances, by adapting it to mouse usage instead of thumb usage.
 - Optimizing the size for videos and images, establishing a set of max-width and height for all media, and maximizing readability and scannability.
-- Implementing a responsive column system. For more information, see [Responsive UI](https://material.io/guidelines/layout/responsive-ui.html#).
+- Implementing a responsive column system. For more information, see [Responsive UI](https://material.io/guidelines/layout/responsive-ui.html).
 - Resizing and modifying the UI when needed using the column system, and avoiding opening a new windows when possible.
 - Removing or reducing the importance of horizontal scrolling components.
 - Avoiding fullscreen modal UI. Use inline UI, such as progress indicators and alerts, for all non-critical actions
@@ -127,9 +127,9 @@ You can control whether or not your app displays a back button in its window by 
 
 Camera problems can arise when the app can only run in portrait orientation but the user runs it on a landscape screen. In this case, the preview, or the captured result, could be incorrectly rotated.
 
-[Compatibility mode](/{{locale.code}}/android/input-compatibility#compatibility_mode) changes how the system handles events, such as orientation changes, in Chrome OS. This helps to prevent issues when the camera is used in the wrong orientation mode. To enable compatibility mode:
+Compatibility mode changes how the system handles events, such as orientation changes, in Chrome OS. This helps to prevent issues when the camera is used in the wrong orientation mode. To enable compatibility mode:
 
-- Target at least Android 7.0 (API level 24). You can still pick a lower mininum SDK level.
+- Target at least Android 7.0 (API level 24). You can still pick a lower minimum SDK level.
 - Allow your app to be resizable.
 
 ## Handle device settings

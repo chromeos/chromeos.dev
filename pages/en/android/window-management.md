@@ -118,16 +118,13 @@ laptops and tablets, where landscape is preferred. To get
 the best results for your app consider supporting both orientations.
 
 Some Android apps assume that when a device is held in the portrait mode, the
-rotation value is always
-<code><a href="/reference/android/view/Surface.html#ROTATION_0">Surface.ROTATION_0</a></code>.
+rotation value is always [`Surface.ROTATION_0`](https://developer.android.com/reference/android/view/Surface.html#ROTATION_0).
 This may be true for most Android devices. However, when the app is in a
-certain
-<a class="external-link" href="https://developer.chrome.com/apps/getstarted_arc">ARC</a> mode,
-the rotation value for the portrait orientation may not be
-<code><a href="/reference/android/view/Surface.html#ROTATION_0">Surface.ROTATION_0</a></code>.
+certain mode, the rotation value for the portrait orientation may not be
+[`Surface.ROTATION_0`](https://developer.android.com/reference/android/view/Surface.html#ROTATION_0).
 
 To get an accurate rotation value while reading the accelerometer or similar
-sensors, use the <code><a href="/reference/android/view/Display.html#getRotation()">Display.getRotation()</a></code>
+sensors, use the [`Display.getRotation()`](<https://developer.android.com/reference/android/view/Display.html#getRotation()>)
 method and swap the axis accordingly.
 
 ### The root activity and orientation

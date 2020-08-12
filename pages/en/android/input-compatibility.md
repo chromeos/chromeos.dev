@@ -79,7 +79,7 @@ It is good practice to try to access every piece of your app's functionality
 before each release using the keyboard only. It should be easy to access the
 most common actions without mouse of touch input.
 
-Remember, keyboard support might be essential for users with accessibility needs.
+!!! aside.message--note Remember, keyboard support might be essential for users with accessibility needs. !!!
 
 ### Keystrokes
 
@@ -373,7 +373,7 @@ draw on the with a stylus.
 To test if an app responds correctly to note-taking intents without an active
 stylus, use the following method to display the note-taking options:
 
-1. [Switch to dev mode and make the device writable](https://developer.android.com/topic/arc/development-environment)
+1. [Switch to dev mode and make the device writable](https://chromium.googlesource.com/chromiumos/docs/+/refs/heads/master/developer_mode.md)
 2. Press Ctrl + Alt + F2 to open a terminal
 3. Run the command `sudo vi /etc/chrome_dev.conf`
 4. Press `i` to edit and add `--ash-enable-palette` to a new line at the end of the file
