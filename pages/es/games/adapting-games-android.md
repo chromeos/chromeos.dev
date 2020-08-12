@@ -7,7 +7,7 @@ weight: -9
 
 Los desarrolladores de juegos de Android que se han centrado anteriormente en dispositivos móviles de pantalla pequeña y en entradas centradas en el tacto tendrán que tener en cuenta algunas consideraciones al adaptar su juego al sistema operativo Chrome.
 
-Las pantallas grandes y un sistema operativo con ventana brindan muchas oportunidades de mejoras, así como responsabilidades hacia sus usuarios para cumplir con las expectativas. Del mismo modo, el soporte para teclado, mouse, trackpad y gamepad son imprescindibles para los juegos destacados en un entorno de escritorio. Hacer que todos estos componentes funcionen bien juntos en todo el ecosistema de Android puede requerir algunos perfiles y ajustes. Encontrará algunos fragmentos de código, punteros a la documentación y algunos consejos y trucos específicos de Chrome OS aquí para ayudarlo a comenzar.
+Las pantallas grandes y un sistema operativo con ventana brindan muchas oportunidades de mejoras, así como responsabilidades hacia sus usuarios para cumplir con las expectativas. Del mismo modo, el soporte para teclado, mouse, trackpad y gamepad son imprescindibles para los juegos destacados en un entorno de escritorio. Hacer que todos estos componentes funcionen bien juntos en todo el ecosistema de Android puede requerir algunos perfiles y ajustes. Encontrará algunos fragmentos de código, punteros a la documentación y algunos consejos y trucos específicos de Chrome OS aquí para ayudarlo a comenzar:
 
 ## Comience con estos temas
 

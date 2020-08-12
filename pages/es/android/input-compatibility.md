@@ -1,6 +1,6 @@
 ---
 title: Compatibilidad de entrada
-metadesc: Cómo admitir todos los diferentes tipos de entrada que están disponibles para Chromebooks.
+metadesc: Cómo admitir todos los diferentes tipos de entrada que están disponibles para los Chromebooks.
 date: 2020-05-01
 weight: -5
 tags:
@@ -10,60 +10,74 @@ tags:
   - soporte para trackpad
 ---
 
-En los dispositivos con Chrome OS, muchos usuarios interactúan con aplicaciones usando un teclado, mouse, trackpad, stylus o gamepad. Si bien estos dispositivos de entrada también se usan en teléfonos Android, no son tan comunes y los desarrolladores frecuentemente los pasan por alto.
+En los dispositivos Chrome OS, muchos usuarios interactúan con las aplicaciones utilizando un teclado, ratón, panel táctil, stylus o gamepad. Si bien estos dispositivos de entrada también se usan en teléfonos Android, no son tan comunes y los desarrolladores a menudo los pasan por alto.
 
-Los desarrolladores que deseen que su aplicación funcione bien con entradas en Chrome OS y otros dispositivos compatibles con Android de pantalla grande, deben seguir los siguientes pasos:
+Los desarrolladores que quieran que su aplicación funcione bien con los dispositivos de entrada en Chrome OS y otros dispositivos de pantalla grande con capacidad para Android, deben tener en cuenta las siguientes optimizaciones:
 
-1. Agregue y compruebe soporte básico para **navegar usando el teclado** usando las teclas [[←]][[↑]][[→]][[↓]] y [[Tab]] , La tecla [[Enter]] para confirmar entrada de texto, [[Space]] para reproducir/pausar medios, etc.
-2. Agregue los **atajos** basados en [[Ctrl]] / [[Shift]] / [[Alt]] dependiendo de la funcionalidad de la aplicación: [[Ctrl]] + [[Z]] para deshacer, [[Ctrl]] + [[S]] para guardar, etc.
-3. Compruebe interacciones **básicas con el ratón**: clic derecho pare menús de contexto, cambie íconos cuando se desplace sobre ellos, desplazamiento usando la rueda del ratón/trackpad, etc.
-4. Compruebe métodos de entrada utilizados **en su app en específico**: stylus para aplicaciones de dibujo, gamepads para juegos, controladores MIDI para aplicaciones de música, etc.
-5. Considere agregar **soporte avanzado para métodos de entrada** que podría hacer que su aplicación sobresalga en ambientes de escritorio: touchpad como un cross-fader para apliaciones de DJ , captura de ratón para juegos, atajos avanzados en teclados para usuarios avanzados, etc.
+- Agregar y probar la compatibilidad básica con el teclado, como la navegación del teclado mediante las teclas de flechas y la tecla tab, la tecla enter para confirmar la entrada de texto y espacio para reproducir / pausar en aplicaciones multimedia.
+- Agregue atajos de teclado estándar cuando corresponda, por ejemplo [[Ctrl]] + [[Z]] para deshacer, [[Ctrl]] + [[S]] para guardar.
+- Pruebe las interacciones básicas del mouse: que el clic derecho despliegue menús contextuales, los cambios de íconos al flotar el mouse sobre los elementos y los eventos de desplazamiento de la rueda del mouse/trackpad en las vistas personalizadas.
+- Pruebe los dispositivos de entrada específicos de la aplicación, como un lápiz óptico para aplicaciones de dibujo, controladores de juegos para juegos y controladores MIDI para aplicaciones de música.
+- Considere el soporte de entrada avanzado que podría hacer que la aplicación se destaque en entornos de escritorio: panel táctil como cross-fader para aplicaciones de DJ, captura de mouse para juegos y extensos atajos de teclado para usuarios avanzados.
 
 ## Teclado
 
-El manejo correcto de la entrada del teclado es esencial para proporcionar una buena experiencia de escritorio. Esto se puede dividir en tres categorías: [navegación](#navegación) , [pulsaciones de teclas](#teclado) y [atajos](#atajos) .
+La forma en que su aplicación responde a la entrada del teclado contribuye a una buena experiencia de escritorio. Hay tres tipos de entrada de teclado: [Navegación](#navegación],
+[Pulsaciones de teclas](#keystrokes) y [Atajos](#atajos).
 
 ### Navegación
 
-La navegación con teclado, aunque no siempre es evidente para las aplicaciones centradas en el tacto, es esperada por los usuarios que tienen sus manos en un teclado mientras interactúan con una aplicación. También puede ser esencial para usuarios con necesidades de accesibilidad tanto en teléfonos como en dispositivos de escritorio.
+La navegación por teclado rara vez se implementa en aplicaciones táctiles, pero los usuarios lo
+esperan cuando usan una aplicación y tienen las manos en el teclado.
+También puede ser esencial para usuarios con necesidades de accesibilidad tanto en teléfonos
+como en dispositivos de escritorio.
 
-Para muchas aplicaciones, las teclas [[←]] [[↑]] [[→]] [[↓]] y la navegación con la tecla[[Tab]] es todo lo que se necesita y el marco de Android lo maneja automáticamente. Por ejemplo, las vistas como [[Botones]] se pueden `enfocar` de manera predeterminada, y la navegación por teclado generalmente debería funcionar sin ningún código adicional. Para habilitar la navegación por teclado para vistas que no son enfocables de manera predeterminada, los desarrolladores deben marcarlas como `focusable` . Esto se puede hacer mediante programación o en XML. Consulte la documentación de [Manejo de enfoque](https://developer.android.com/reference/android/view/View.html?hl={{locale.code}}#FocusHandling) para obtener más información.
-
-Una buena práctica es: antes de cada lanzamiento, intente acceder a todas las funciones de la aplicación solo con el teclado (no se permite el mouse ni la entrada táctil). Las acciones más comunes deberían ser las más fáciles de acceder.
-
-!!! aside.message--note
-**Recuerde:** para usuarios con diferentes necesidades de accesibilidad, la compatibilidad con el teclado puede ser esencial para poder usar la aplicación de manera efectiva.
-!!!
+Para muchas aplicaciones, todo lo que se necesita es una simple navegación con teclas de flechas y navegación por pestañas, en su mayoría, el framework de Android lo maneja automáticamente. Por ejemplo, una vista de "Botón" se puede enfocar de forma predeterminada, y la navegación por teclado debería generalmente funcionarsin ningún código adicional. Para habilitar la navegación con el teclado para las vistas que no se pueden enfocar de forma predeterminada, los desarrolladores deben marcarlas como enfocables. Esto se puede hacer mediante programación o en XML, como se muestra a continuación. Consulte la documentación de [manejo de enfoque](https://developer.android.com/reference/android/view/View.html#FocusHandling) para obtener más información.
 
 ```kotlin
 yourView.isFocusable = true
 ```
 
+Alternativamente, puede establecer el atributo `focusable` su archivo de layout:
+
 ```xml
 android:focusable="true"
 ```
 
-Una vez habilitado, el marco de Android creará un mapeo de navegación para todas las vistas enfocables en función de su posición. Esto generalmente funciona como se esperaba y no se necesita más trabajo. En caso de que la asignación predeterminada no sea correcta para las necesidades de una aplicación, puede anularse manualmente de la siguiente manera:
+Una vez que el enfoque está habilitado, el marco de Android creará un mapa de navegación para todas las vistas enfocables en función de su posición. Por lo general, esto funciona como se espera y no se necesita más trabajo. Cuando el mapeo predeterminado no es correcto para las necesidades de una aplicación, se puede anular de la siguiente manera:
 
 ```kotlin
-// Arrow keys
+// Teclas de flechas
 yourView.nextFocusLeftId = R.id.view_to_left
 yourView.nextFocusRightId = R.id.view_to_right
 yourView.nextFocusTopId = R.id.view_above
 yourView.nextFocusBottomId = R.id.view_below
 
-// Tab key
+// Tecla Tab
 yourView.nextFocusForwardId = R.id.next_view
 ```
 
-### Pulsaciones de teclas
+Es una buena práctica intentar acceder a cada parte de la funcionalidad de su aplicación
+antes de cada lanzamiento usando solo el teclado. Debería ser fácil acceder a las acciones más comunes sin la entrada táctil o del mouse.
 
-Para el ingreso de texto que sería manejado por un teclado virtual en pantalla ( [IME](https://developer.android.com/guide/topics/text/creating-input-method) ) como con un `EditText` , las aplicaciones deben comportarse como se espera en Chrome OS sin trabajo adicional del desarrollador. Para las pulsaciones de teclas que el marco no puede anticipar, las aplicaciones deberán manejar el comportamiento por sí mismas. Esto es especialmente cierto para aplicaciones con vistas personalizadas.
+!!! aside.message--note
+Recuerde, la compatibilidad con el teclado puede ser esencial para los usuarios con necesidades de accesibilidad.
+!!!
 
-Algunos ejemplos comunes de esto son manejar la tecla [[Enter]] para aplicaciones con entrada de texto o funcionalidad de chat, la tecla [[Space]] para aplicaciones de medios y la [[W]] [[A]] [[S]] [[D]] teclas para movimiento en juegos.
+### Uso de teclas
 
-La [documentación para manejo del teclado](https://developer.android.com/training/keyboard-input/commands.html) de Android es la guía a seguir para esta implementación. Específicamente, la mayoría de las aplicaciones van a querer sobreescribir el evento [onKeyUp](<https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyUp(int,%20android.view.KeyEvent)>) y agregar el comportamiento esperado para el código de cada tecla.
+Para la entrada de texto que se manejaría con un teclado virtual en pantalla
+([IME](https://developer.android.com/guide/topics/text/creating-input-method)) como un `EditText`, las aplicaciones suelen comportarse como se espera en Chrome OS sin trabajo adicional por parte del
+desarrollador. Para el uso de teclas que el framework no puede anticipar, las aplicaciones
+deberán manejar el comportamiento por sí mismas. Esto es especialmente cierto para las aplicaciones
+con vistas personalizadas.
+
+Algunos ejemplos son las aplicaciones de chat que utilizan la tecla Enter para enviar un mensaje,
+las aplicaciones multimedia que inician o detienen la reproducción con la tecla de espacio y los juegos que controlan el movimiento con las teclas [[w]], [[a]], [[s] ] y [[d]].
+
+La mayoría de las aplicaciones anulan el
+[eventoonKeyUp](<https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyUp(int,%20android.view.KeyEvent)>))
+y agregan el comportamiento esperado para cada código clave recibido, como se muestra a continuación.
 
 ```kotlin
 override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
@@ -81,21 +95,36 @@ override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
 }
 ```
 
-El uso de `onKeyUp` evita que las aplicaciones reciban múltiples eventos si una tecla se mantiene presionada o se suelta lentamente. Los juegos y aplicaciones que esperan que los usuarios mantengan presionadas las teclas del teclado y necesiten reaccionar en consecuencia pueden buscar el evento [onKeyDown](<https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyDown(int,%20android.view.KeyEvent)>) .
+El uso de`onKeyUp` evita que las aplicaciones reciban múltiples eventos si una tecla se mantiene
+presionada o se suelta lentamente. Los juegos y aplicaciones que esperan que los usuarios mantengan presionadas las teclas pueden buscar el evento
+[onkeydown](https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyDown)
 
-!!! aside.message--note
-**Nota:** dependiendo de las necesidades de una aplicación, sobreescribir `onKeyUp` para toda la Actividad generalmente proporciona el comportamiento necesario. Si lo desea, se puede agregar un [onKeyListener](https://developer.android.com/reference/android/view/View.OnKeyListener) a una vista específica. Por ejemplo, una aplicación solo puede desear escuchar la tecla [[Enter]] en EditText específico, y no la Actividad, para implementar la funcionalidad de envío solo cuando el usuario está escribiendo en un cuadro de chat.
-!!!
+Dependiendo de las necesidades de una aplicación, sobreescribir `onKeyUp` para toda la Actividad
+generalmente proporciona el comportamiento necesario. Si lo desea,un
+[onKeyListener](https://developer.android.com/reference/android/view/View.OnKeyListener) se puede agregar) a una vista específica. Por ejemplo, una aplicación solo puede escuchar la tecla Enter en un
+EditText específico, y no la Actividad, para implementar la funcionalidad enviar solo cuando el usuario está escribiendo en un cuadro de chat.
+
+Cuando agregue compatibilidad con el teclado, siga la
+[documentación de manejo del teclado](https://developer.android.com/training/keyboard-input/commands) de Android.
 
 ### Atajos
 
-Se esperan atajos comunes [[Ctrl]] / [[Alt]] / [[Shift]] en entornos de escritorio. Si una aplicación no los implementa, la experiencia puede sentirse frustrante y rota para los usuarios. Además de los accesos directos comunes, los usuarios más avanzados apreciarán los accesos directos para las tareas específicas de la aplicación que se usan con frecuencia, lo que hace que la aplicación sea más fácil de usar y la diferencie de otras sin accesos directos convenientes.
+En los ambientes de escritorio se espera que atajos comunes como los basados en Ctrl, Alt, Shift. Si una aplicación no los implementa, la experiencia puede resultar frustrante y equivocada para los usuarios. Los usuarios avanzados también aprecian los accesos directos para las tareas específicas de la aplicación que se utilizan con frecuencia. Los accesos directos facilitan el uso de una
+aplicación y la diferencian de las aplicaciones que no tienen accesos directos.
 
-Algunos atajos comunes son [[Ctrl]]+[[S]](save), [[Ctrl]]+[[Z]](undo), y [[Ctrl]]+[[Shift]]+[[Z]](redo). Si desea ejemplos de atajos más avanzados, visite esta lista de [VLC Media Player atajos](https://www.vlchelp.com/vlc-media-player-shortcuts/).
+Algunos atajos comunes incluyen [[Ctrl]] + [[S]](guardar), [[Ctrl]] + [[Z]](deshacer) y
+[[Ctrl]] + [[Shift]] + [[Z]](rehacer). Para ver un ejemplo de algunos accesos directos más avanzados, consulte la lista de [teclas de acceso directo del VLC Media Player](https://www.vlchelp.com/vlc-media-player-shortcuts/).
 
-Los atajos se pueden implementar usando [dispatchKeyShortcutEvent](<https://developer.android.com/reference/android/view/Window.Callback.html#dispatchKeyShortcutEvent(android.view.KeyEvent)>). Este intercepta todas las combinaciones de una meta-tecla para un código de tecla determinado ([[Alt]]/[[Ctrl]]/[[Shift]]). Para chequear una meta-tecla en específico, use [KeyEvent.isCtrlPressed()](<https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed()>), [KeyEvent.isShiftPressed()](<https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed()>), [KeyEvent.isAltPressed()](<https://developer.android.com/reference/android/view/KeyEvent#isAltPressed()>), o [KeyEvent.hasModifiers()](<https://developer.android.com/reference/android/view/KeyEvent.html#hasModifiers(int)>).
+Los accesos directos se pueden implementar usando
+[dispatchKeyShortcutEvent](https://developer.android.com/reference/android/view/Window.Callback.html#dispatchKeyShortcutEvent(android.view.KeyEvent).
+Esto intercepta todas las combinaciones de meta-teclas (Alt, Ctrl y Shift) para undeterminado
+código de tecla. Para verificar una meta-clave específica, use
+[KeyEvent.isCtrlPressed](https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed),
+[KeyEvent.isShiftPressed](https://developer.android.com/reference/android/viewKeyEvent#isShiftPressed),
+[KeyEvent.isAltPressed] (https://developer.android.com/reference/android/view/KeyEvent# isAltPressed)
+o [KeyEvent.hasModifiers](https://developer.android.com/reference/android/view/KeyEvent.html#hasModifiers.
 
-Separar el código de los atajos del manejo de otras teclas (`onKeyUp` o `onKeyDown`) puede hacer el mantenimiento del código más fácil y permite aceptar todas las meta-teclas sin tener que implementar el chequeo de las meta-teclas repetitivamente. Permitir todas las combinaciones de meta-teclas puede ser más conveniente para algunos usuarios que pueden estar acostumbrados a diferentes configuraciones de teclado o sistemas operativos.
+La separación de código de acceso directo desde otras manipulaciones de pulsaciones de teclas (como `onKeyUp` o`onKeyDown`) puede hacer más fácil el mantenimiento del código y mantiene la aceptación por defecto de las meta-teclas sin tener que implementar manualmente los controles clave meta-en todos los casos. Permitir todas las combinaciones de meta-teclas también puede ser más conveniente para los usuarios que están acostumbrados a diferentes diseños de teclado y sistemas operativos.
 
 ```kotlin
 override fun dispatchKeyShortcutEvent(event: KeyEvent): Boolean {
@@ -122,7 +151,12 @@ override fun dispatchKeyShortcutEvent(event: KeyEvent): Boolean {
 }
 ```
 
-Si lo desea, los accesos directos también se pueden implementar en `onKeyUp` al verificar [KeyEvent.isCtrlPressed ()](<https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed()>) , [KeyEvent.isShiftPressed ()](<https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed()>) o [KeyEvent.isAltPressed ()](<https://developer.android.com/reference/android/view/KeyEvent#isAltPressed()>) de la misma manera que anteriormente. Esto puede ser más fácil de mantener si el meta-comportamiento es más una modificación del comportamiento de una aplicación que un acceso directo. Por ejemplo: si [[W]] significa "caminar hacia adelante" y [[Shift]] + [[W]] significa "correr hacia adelante".
+También puede implementar accesos directos en `onKeyUp` comprobando
+[KeyEvent.isCtrlPressed](https://developer.android.com/reference/android/view/KeyEvent #isCtrlPressed),
+[KeyEvent.isShiftPressed](https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed)
+o [KeyEvent.isAltPressed](https://developer.android.com/reference/android/view/KeyEvent#isAltPressed)
+de la misma manera que arriba. Esto puede ser más fácil de mantener si el meta-comportamiento
+es más una modificación del comportamiento de una aplicación que un acceso directo. Por ejemplo, cuando [[W]] significa "caminar hacia adelante" y [[Shift]] + [[W]] significa "correr hacia adelante".
 
 ```kotlin
 override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
@@ -145,15 +179,14 @@ override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
 }
 ```
 
-## Soporte para mouse y touchpad { #mouse-y-touchpad}
+## Compatibilidad con mouse y panel táctil {: #mouse-touchpad}
 
-Chrome OS maneja automáticamente la mayoría de los eventos de mouse y trackpad para que actúen como eventos táctiles en un teléfono Android. Esto incluye el desplazamiento con dos dedos del panel táctil / rueda del mouse. La mayoría de las aplicaciones generalmente solo necesitan pensar en 3 eventos centrados en el escritorio: [clic derecho](#clic-derecho) , [flotar con el puntero del ratón](#flotar) y [arrastrar y soltar](#arrastrar-y-soltar) .
+Chrome OS maneja automáticamente la mayoría de los eventos del mouse y del panel táctil para que actúen como eventos táctiles en un teléfono Android. Esto incluye el mouse/panel táctil con dos dedos y desplazamiento de la rueda del mouse. La mayoría de las aplicaciones solo necesitan manejar tres eventos centrados en el escritorio: [clic derecho](#clic-derecho), [Flotar sobre elementos](#hover) y [Arrastrar y soltar](#arrastrar-y-soltar).
 
 ### Clic derecho
 
-Cualquier acción que haga que una aplicación muestre un menú contextual, como presionar prolongadamente un elemento de la lista, también debe reaccionar a los eventos de clic derecho. Para manejar eventos de clic derecho, las aplicaciones deben registrar un [`View.OnContextClickListener`](https://developer.android.com/reference/android/view/View.OnContextClickListener) . Para obtener detalles sobre cómo construir un menú contextual, consulte la [documentación del menú contextual de](https://developer.android.com/guide/topics/ui/menus#context-menu) Android
-
-Kotlin:
+Cualquier acción que cause que una aplicación muestre un menú contextual, como una pulsación larga en un elemento de la lista, también debería reaccionar a los eventos de clic derecho. Para manejar eventos de clic derecho las aplicaciones deben registrar un
+[`View.OnContextClickListener`](https://developer.android.com/reference/android/view/View.OnContextClickListener). Para obtener detalles sobre la construcción de un menú contextual, consulte la [documentación del menú contextual](https://developer.android.com/guide/topics/ui/menus#context-menu) de Android.
 
 ```kotlin
 yourView.setOnContextClickListener {
@@ -162,14 +195,16 @@ yourView.setOnContextClickListener {
 }
 ```
 
-**Nota** : cualquier vista que se haya registrado para un menú contextual usando [Activity.registerForContextMenu ()](<https://developer.android.com/reference/android/app/Activity#registerForContextMenu(android.view.View)>) debería funcionar automáticamente con una pulsación larga y un clic derecho sin la necesidad de registrar un escucha de clic contextual.
+!!! aside.message--note
+**Nota:** cualquier vista que se haya registrado para un menú contextual usando [Activity.registerForContextMenu](https://developer.android.com/reference/android/app/Activity# registerForContextMenu) debería funcionar automáticamente con la pulsación larga y el clic derecho sin la necesidad de registrar un listener de clic de contexto.
+!!!
 
-### Flotar
+### Flotar sobre elementos {" #hover}
 
-Los desarrolladores pueden hacer que sus diseños de aplicaciones se sientan pulidos y más fáciles de usar al manejar eventos de desplazamiento (hover). Esto es especialmente cierto para las vistas personalizadas. Los dos ejemplos más comunes de esto son:
+Los desarrolladores pueden hacer que los diseños de sus aplicaciones se sientan pulidos y más fáciles de usar manejando eventos de "hover" (flotar sobre elementos). Esto es especialmente cierto para las vistas personalizadas. Los dos ejemplos más comunes son:
 
-- Indicar a los usuarios si se puede hacer clic, editar, etc. en un elemento cambiando el ícono del puntero del mouse
-- Agregar comentarios visuales a los elementos en una lista o cuadrícula grande cuando el puntero se encuentra sobre ellos
+- Indicar a los usuarios si un elemento tiene un comportamiento interactivo, como ser seleccionable o editable, cambiando el ícono del puntero del mouse
+- Agregar comentarios visuales a los elementos en una lista o cuadrícula grande cuando el puntero se desplaza sobre ellos
 
 ```kotlin
 // Change the icon to a "hand" pointer on hover,
@@ -185,60 +220,90 @@ yourView.setOnHoverListener { view, _ ->
 
 ### Arrastrar y soltar
 
-En un entorno de ventanas múltiples, los usuarios esperan poder arrastrar y soltar elementos entre aplicaciones. Esto es cierto para dispositivos Chrome OS, así como tabletas / teléfonos / plegables en modo de pantalla dividida.
+En un entorno de múltiples ventanas, los usuarios esperan poder arrastrar y soltar elementos
+entre aplicaciones. Esto es cierto para los dispositivos Chrome OS, así como para dispositivos
+tabletas, teléfonos y plegables en modo de pantalla dividida.
 
-Los desarrolladores deben considerar si es probable que los usuarios arrastren elementos a su aplicación. Algunos ejemplos comunes incluyen: los editores de fotos deben esperar recibir fotos, los reproductores de audio deben esperar recibir archivos de audio y los programas de dibujo deben esperar recibir fotos.
+Los desarrolladores deben considerar si es probable que los usuarios arrastren elementos a su
+aplicación. Algunos ejemplos comunes incluyen: los editores de fotos deben esperar recibir
+fotos, los reproductores de audio deben esperar recibir archivos de audio y los programas de dibujo
+deben esperar recibir fotos.
 
-Para agregar soporte de arrastrar y soltar, siga la documentación de Android de [arrastrar y soltar](https://developer.android.com/guide/topics/ui/drag-drop.html) y eche un vistazo a esta [publicación de blog específica de Chrome OS](https://medium.com/androiddevelopers/android-on-chrome-os-implementing-drag-drop-2cc2bdcdc621) .
+Para agregar soporte para arrastrar y soltar, siga la [documentación dearrastrar y soltar](https://developer.android.com/guide/topics/ui/drag-drop.html) de Android y eche un vistazo
+a esta [Entrada de blog de Chrome OS](https://medium.com/androiddevelopers/android-on-chrome-os-implementing-drag-drop-2cc2bdcdc621).
 
 **Consideraciones especiales para Chrome OS**
 
-- Para manejar archivos desde la aplicación Archivos de Chrome OS, busque el tipo MIME: application / x-arc-uri-list
-- Recuerde solicitar permiso a través de requestDragAndDropPermissions para acceder a elementos arrastrados desde fuera de la aplicación
-- Un elemento debe tener el indicador View.DRAG_FLAG_GLOBAL para poder arrastrarlo a otras aplicaciones.
+- Para el manejo de archivos desde la aplicación de Chrome OS Archivos, busque el tipo MIME `application/x-arco-uri-list`
+- Recuerde que pedir permiso a través de `requestDragAndDropPermissions` para acceder a los elementos arrastrado desde fuera de la aplicación
+- Un elemento debe tener la bandera `View.DRAG_FLAG_GLOBAL` para poder arrastrarlo a otras aplicaciones.
 
-### Soporte avanzado de puntero
+### Implemetación avanzada para punteros
 
-Las aplicaciones que deseen hacer un manejo avanzado de la entrada de mouse y touchpad deben seguir la documentación de Android para [View.onGenericMotionEvent ()](<https://developer.android.com/reference/android/view/View#onGenericMotionEvent(android.view.MotionEvent)>) y usar [`MotionEvent.getSource()`](<https://developer.android.com/reference/android/view/MotionEvent#getSource()>) para distinguir entre [SOURCE_MOUSE](https://developer.android.com/reference/android/view/InputDevice#SOURCE_MOUSE) y [SOURCE_TOUCHSCREEN](https://developer.android.com/reference/android/view/InputDevice#SOURCE_TOUCHSCREEN) .
+Las aplicaciones que realizan un manejo avanzado de la entrada del mouse y del panel táctil deben seguir la documentación de Android para
+[View.onGenericMotionEvent](https://developer.android.com/reference/android/view/View#onGenericMotionEvent)
+y use [`MotionEvent.getSource()`](https://developer.android.com/reference/android/view/MotionEvent#getSource)
+para distinguir entre
+[SOURCE_MOUSE](https://developer.android.com/reference/android/view/InputDevice#SOURCE_MOUSE) y
+[SOURCE_TOUCHSCREEN](https://developer.android.com/reference/android/view/InputDevice#SOURCE_TOUCHSCREEN).
 
-Examine el `MotionEvent` para implementar el comportamiento requerido.
+Examine el `MotionEvent` para implementar el comportamiento requerido:
 
-- El movimiento genera eventos `ACTION_HOVER_MOVE`
-- Los botones generan eventos `ACTION_BUTTON_PRESS` y `ACTION_BUTTON_RELEASE` . También puede verificar el estado actual de todos los botones del mouse / trackpad usando `getButtonState()` .
-- El desplazamiento de la rueda del mouse genera eventos `ACTION_SCROLL`
+- Movimiento genera eventos `ACTION_HOVER_MOVE`
+- Botones generan eventos `ACTION_BUTTON_PRESS` y `ACTION_BUTTON_RELEASE`. También puede verificar el estado actual de todos los botones del mouse/trackpad usando `getButtonState ()`.
+- El desplazamiento de la rueda del mouse genera eventos `ACTION_SCROLL`.
 
-## Lápiz óptico { #stylus}
+## Lápiz óptico {: #stylus}
 
-Muchas Chromebooks vienen con un lápiz óptico o pueden funcionar con una tableta de dibujo bluetooth externa como la [Wacom Intuos](https://www.wacom.com/en-us/products/pen-tablets/wacom-intuos) . (Nota: actualmente, los dispositivos solo USB no son compatibles)
+Muchos Chromebooks están equipados con un stylus, y las aplicaciones de Android lo manejan como entrada de pantalla táctil.
+Algunos dispositivos también pueden tener una mesa de dibujo USB o bluetooth, como la
+[Wacom Intuos](https://www.wacom.com/en-us/products/pen-tablets/wacom-intuos).
+Las aplicaciones de Android pueden recibir entrada bluetooth, pero no funcionan con entrada USB.
 
-Se informará un evento de lápiz similar a un evento de pantalla táctil a través de [View.onTouchEvent ()](<https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent)>) o [View.onGenericMotionEvent ()](<https://developer.android.com/reference/android/view/View#onGenericMotionEvent(android.view.MotionEvent)>) , y contiene un tipo [`MotionEvent.getSource()`](<https://developer.android.com/reference/android/view/MotionEvent#getSource()>) de [SOURCE_STYLUS](https://developer.android.com/reference/android/view/InputDevice#SOURCE_STYLUS) . `MotionEvent` también contendrá datos adicionales:
+Un evento de lápiz se informa como un evento de pantalla táctil a través de
+[View.onTouchEvent](https://developer.android.com/reference/android/view/View#onTouchEvent)
+o [View.onGenericMotionEvent](https://developer.android.com/reference/android/view/View#onGenericMotionEvent
+y contiene un
+[MotionEvent.getSource](https://developer.android.com/reference/android/view/MotionEvent#getSource)
+de tipo [SOURCE_STYLUS](https://developer.android.com/reference/android/view/InputDevice#SOURCE_STYLUS).
+El `MotionEvent` también contendrá datos adicionales:
 
-- [MotionEvent.getToolType ()](<https://developer.android.com/reference/android/view/MotionEvent#getToolType(int)>) devolverá [TOOL_TYPE_FINGER](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_FINGER) , [TOOL_TYPE_STYLUS](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_STYLUS) o [TOOL_TYPE_ERASER](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_ERASER) dependiendo de la herramienta que hizo contacto con la superficie
-- [MotionEvent.getPressure ()](<https://developer.android.com/reference/android/view/MotionEvent#getPressure(int)>) informará la presión física aplicada al lápiz óptico, si es compatible
-- [MotionEvent.getAxisValue ()](<https://developer.android.com/reference/android/view/MotionEvent#getAxisValue(int,%20int)>) con [MotionEvent.AXIS_TILT](https://developer.android.com/reference/android/view/MotionEvent#AXIS_TILT) y [MotionEvent.AXIS_ORIENTATION](https://developer.android.com/reference/android/view/MotionEvent#AXIS_ORIENTATION) que se pueden usar para leer la inclinación física y la orientación del lápiz, si es compatible
+- [MotionEvent.getToolType](https://developer.android.com/reference/android/view/MotionEvent#getToolType) devolverá [TOOL_TYPE_FINGER](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_FINGER), [TOOL_TYPE_STYLUS](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_STYLUS) o [TOOL_TYPE_ERASER](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_ERASER) según la herramienta que hizo contacto con la superficie
+- [MotionEvent.getPressure](https://developer.android.com/reference/android/view/MotionEvent#getPressure) informará la presión física aplicada al lápiz óptico, si es compatible
+- [MotionEvent.getAxisValue] (https://developer.android.com/reference/android/view/MotionEvent #getAxisValue) con [MotionEvent.AXIS_TILT](https://developer.android.com/reference/android/view/MotionEvent#AXIS_TILT) y [MotionEvent.AXIS_ORIENTATION](https://developer.android.com/reference/android/view/MotionEvent#AXIS_ORIENTATION) que se puede utilizar para leer la inclinación física y la orientación del lápiz, si es compatible
 
 ### Puntos históricos
 
-Android procesa eventos de entrada que se entregarán una vez por cuadro. Un lápiz óptico puede informar eventos a frecuencias mucho más altas que la pantalla. Al crear aplicaciones de dibujo, es importante verificar los eventos que pueden estar en el pasado reciente utilizando las API `getHistorical` :
+Android recolecta los eventos de entrada en grupos y los entrega una vez por cuadro. Un lápiz óptico puede informar eventos a frecuencias mucho más altas que la pantalla. Al crear
+aplicaciones de dibujo, es importante comprobar si hay eventos que puedan estar en el pasado reciente
+mediante el uso de las `getHistorical` API:
 
 - `MotionEvent.getHistoricalX()`
 - `MotionEvent.getHistoricalY()`
 - `MotionEvent.getHistoricalPressure()`
 - `MotionEvent.getHistoricalAxisValue()`
 
-### Rechazo de palma
+### Rechazo de la palma
 
-Chrome OS intenta reconocer cuando la palma de un usuario descansa sobre una pantalla táctil. Sin embargo, esto no siempre es posible. A veces, se puede informar un evento táctil a la aplicación antes de que el sistema operativo lo reconozca como una palma. En ese caso, los toques se cancelarán al informar un evento `ACTION_CANCEL` .
+Chrome OS intenta reconocer cuando la palma de un usuario está apoyada en la
+pantalla táctil. Sin embargo, esto no siempre es posible. A veces, un evento táctil se
+puede informar a la aplicación antes de que el sistema operativo lo reconozca como una palma. En ese caso, los toques se cancelarán al informar un evento `ACTION_CANCEL`.
 
-Este evento le dice a la aplicación que ciertos toques no son válidos y que debe deshacer todas las interacciones causadas por esos toques. Por ejemplo, una aplicación de dibujo podría dibujar temporalmente nuevas líneas tan pronto como se reciban para proporcionar la latencia más baja, pero solo las comprometerá permanentemente en el lienzo una vez que la serie táctil haya terminado limpiamente. Si los eventos táctiles se cancelan mientras tanto, las líneas temporales se pueden borrar fácilmente.
+Este evento le dice a la aplicación que ciertos toques no son válidos y debería deshacer todas las
+interacciones causadas por esos toques. Por ejemplo, una aplicación de dibujo puede
+dibujar temporalmente nuevas líneas tan pronto como se reciben para proporcionar la más baja
+latencia, pero solo las envía permanentemente al lienzo una vez que la serie táctil se
+termina limpiamente. Si los eventos táctiles se cancelan mientras tanto, las líneas temporales se pueden borrar fácilmente.
 
 !!! aside.message--note
-**Nota:** Una forma de reducir los eventos extraños de palma / dedo en las aplicaciones de dibujo / escritura es proporcionar una configuración de interfaz de usuario fácil para deshabilitar el dibujo a través del tacto, y solo usar eventos de lápiz para dibujar cuando esté en este modo.
+**Nota:** Una forma de reducir los eventos extraños de la palma y de los dedos en las aplicaciones de dibujo y de escritura es proporcionar una configuración de interfaz de usuario que deshabilite el dibujo a través del tacto y solo use eventos de lápiz óptico para dibujar cuando está en este modo.
 !!!
 
 ### Aplicaciones para tomar notas
 
-Chrome OS tiene una intención especial que muestra a los usuarios aplicaciones registradas para tomar notas. Para registrar una aplicación como una aplicación para tomar notas, agregue lo siguiente al manifiesto de Android:
+Chrome OS tiene un intent especial que muestra las aplicaciones registradas para tomar notas a los
+usuarios. Para registrar una aplicación como aplicación para tomar notas, agregue lo siguiente al
+AndroidManifest.xml:
 
 ```xml
   <intent-filter>
@@ -247,48 +312,49 @@ Chrome OS tiene una intención especial que muestra a los usuarios aplicaciones 
   </intent-filter>
 ```
 
-Una vez registrados, los usuarios pueden seleccionar esa aplicación para que sea la aplicación predeterminada para tomar notas. Cuando se solicita una nueva nota, la aplicación debe crear una nota vacía lista para la entrada del lápiz. Cuando el usuario desea anotar una imagen (por ejemplo, una captura de pantalla o una imagen descargada), la aplicación se iniciará con `ClipData` contiene uno o más elementos con contenido: // URI. La aplicación debe crear una nota que use la primera imagen adjunta como imagen de fondo en un modo en el que el usuario pueda dibujar con un lápiz óptico.
+Cuando se registra una aplicación, el usuario puede seleccionarla como la aplicación predeterminada para tomar notas. Cuando se solicita una nueva nota, la aplicación debe crear una nota vacía lista
+para la entrada con lápiz. Cuando el usuario desea anotar una imagen (como una captura de pantalla o una imagen descargada), la aplicación se inicia con `ClipData` que contiene uno
+o más elementos con `content://` URI. La aplicación debe crear una nota que use la
+primera imagen adjunta como imagen de fondo y entrar en un modo en el que el usuario pueda
+dibujar con un lápiz.
 
-#### Prueba de intentos de tomar notas sin un lápiz
+#### Hacer prueba de intents para tomar notas sin lápiz óptico
 
-Para probar si una aplicación responde correctamente a los intentos de tomar notas sin un lápiz óptico activo, use el siguiente método para mostrar las opciones de toma de notas:
+Para probar si una aplicación responde correctamente a los intents de tomar notas sin un
+lápiz óptico activo, use el siguiente método para mostrar las opciones de tomar de notas:
 
-1. [Cambie al modo de desarrollo y haga que el dispositivo sea grabable](/{{locale.code}}/android-environment/deploying-apps)
-2. Presione [[Ctrl]] + [[Alt]] + [[F2]] para abrir un terminal
-3. Ejecute el comando `sudo vi /etc/chrome_dev.conf`
-4. Presione [[i]] para editar y agregar `--ash-enable-palette` a una nueva línea al final del archivo
-5. Guarde presionando [[Esc]] y luego escribiendo [[:]] [[w]] [[q]] y presionando [[Enter]]
-6. Presione [[Ctrl]] + [[Alt]] + [[F1]] para volver a la interfaz de usuario normal de Chrome OS
+1. [Cambie al modo de desarrollo y haga el dispositivo se puede escribir](https://chromium.googlesource.com/chromiumos/docs/+/refs/heads/master/developer_mode.md)
+2. Presione Ctrl + Alt + F2 para abrir una terminal
+3. Ejecute el comando `sudo vi / etc / chrome_dev.conf`
+4. Presione `i` para editar y agregar`--ash-enable-palette` a una nueva línea al final del archivo
+5. Guarde presionando Esc y luego escribiendo:, w, q y presionando Enter
+6. Presione Ctrl + Alt + F1 para volver a la interfaz de usuario normal de Chrome OS
 7. Cerrar sesión y volver a ingresar
 
-Ahora debería haber un menú de stylus en el estante:
+Ahora debería haber un menú de lápiz en el estante:
 
-- Toque el botón del lápiz en el estante y elija "Nueva nota". Esto debería abrir una nota de dibujo en blanco
-- Tome una captura de pantalla (del estante: `stylus button > Capture screen` ) o descargue una imagen, debe haber la opción "Anotar imagen" en la notificación. Esto debería la aplicación con la imagen lista para ser anotada
+- Toque el botón del lápiz en el estante y elija **Nota nueva**. Esto debería abrir una nota de dibujo en blanco
+- Tome una captura de pantalla. Desde el estante, seleccione **botón del lápiz óptico > Capturar pantalla** o descargue una imagen. Debería haber la opción de "Anotar imagen" en la notificación. Esto debería iniciar la aplicación con la imagen lista para ser anotada.
 
-## Gamepads
+## Controladores de juegos
 
-Consulte nuestra página [Soporte de entrada](/{{locale.code}}/games/optimizing-games-inputs#controladores-de-juegos) en Juegos para obtener detalles sobre el soporte del controlador.
+Los Chromebook admiten hasta cuatro controladores de juegos. Los desarrolladores deben usar
+las [API estándar de Android para controladores de juegos](https://developer.android.com/training/game-controllers) para manejarlos.
+
+Los botones se asignan a valores comunes siguiendo un
+[mapeo común](https://developer.android.com/training/game-controllers/controller-input#button).
+Desafortunadamente, no todos los fabricantes de controladores de juegos siguen las mismas
+convenciones de mapeo. Puede proporcionar una experiencia mucho mejor si permite a los usuarios
+seleccionar diferentes asignaciones de controladores populares.
 
 ## Modo de traducción de entrada
 
-Chrome OS habilita un modo de traducción de entrada de forma predeterminada. Para la mayoría de las aplicaciones de Android, este modo ayudará a las aplicaciones a "simplemente funcionar" como se espera en un entorno de escritorio. Algunos ejemplos incluyen habilitar automáticamente el desplazamiento con dos dedos en el panel táctil, el desplazamiento de la rueda del mouse y el mapeo de las coordenadas de visualización sin formato a las coordenadas de la ventana. En general, los desarrolladores de aplicaciones no necesitan implementar ninguno de estos comportamientos.
+Chrome OS habilita un modo de traducción de entrada de forma predeterminada. Para la mayoría de las aplicaciones de Android, este modo ayuda a que las aplicaciones funcionen como se espera en un entorno de escritorio. Algunos ejemplos incluyen la habilitación automática del desplazamiento con dos dedos en el panel táctil, el desplazamiento de la rueda del mouse y la asignación de coordenadas de pantalla sin procesar a coordenadas de ventana. Generalmente, los desarrolladores de aplicaciones no necesitan implementar ninguno de estos comportamientos por sí mismos.
 
-Si una aplicación desea definir un comportamiento de entrada personalizado, por ejemplo, definir una acción de pellizco del panel táctil personalizado con dos dedos, o estas traducciones de entrada no proporcionan los eventos de entrada esperados por la aplicación, este modo se puede deshabilitar agregando la siguiente etiqueta al Manifiesto de Android:
+Si una aplicación implementa un comportamiento de entrada personalizado, por ejemplo, la definición de una acción de pellizco (pinch) con dos dedos del panel táctil o estas traducciones de entrada no proporcionan los eventos de entrada que espera la aplicación, puede deshabilitar el modo de traducción de entrada agregando la siguiente etiqueta a AndroidManifest.xml:
 
 ```xml
 <uses-feature
   android:name="android.hardware.type.pc"
   android:required="false" />
 ```
-
-<!--- hadrosaur: commenting out the DecorCaptionView section, I believe it is not longer relevant. This should be tested before it is removed completely.
-## Beware the `DecorCaptionView`
-
-In free-form window mode, the apps caption bar is part of your view hierarchy and under your control. You generally do not have to be aware of this, but there are cases where you have to be careful:
-
-- Do not make modifications using `Window.getDecorView()`. If you want to add top-level views, add them to the view you have set as `Activity.setContentView()`.
-- Do not expect your `Activity.setContentView()` to be at `(0, 0)` of your app. That’s where the caption bar is.
-- If possible, avoid using `MotionEvent.getRawX()` or `MotionEvent.getRawY()`. If you do use them, use them in conjunction with
-  `View.getLocationOnScreen()` to transform coordinates to view-space coordinates.
---->

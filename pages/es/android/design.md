@@ -52,7 +52,7 @@ Un buen lugar para comenzar es ver las cosas que pueden estar ocultas para el us
 
 Aquí hay algunas recomendaciones para su aplicación:
 
-- Su marca dictará la dirección que debe seguir al pensar en los diferentes tamaños de pantalla. Decidir las cosas para priorizar y mostrar al usuario depende de la forma que el usuario use el app y las características más utilizadas. Para obtener inspiración sobre cómo es posible atacar esto, consulte los [Material Studies](https://materia.io/design/material-studies) y observe cómo cada producto diferente responde de manera diferente cuando llega a una pantalla más grande.
+- Su marca dictará la dirección que debe seguir al pensar en los diferentes tamaños de pantalla. Decidir las cosas para priorizar y mostrar al usuario depende de la forma que el usuario use el app y las características más utilizadas. Para obtener inspiración sobre cómo es posible atacar esto, consulte los [Material Studies](https://material.io/design/material-studies) y observe cómo cada producto diferente responde de manera diferente cuando llega a una pantalla más grande.
 
 - Piense en cómo debería comportarse el diseño de su aplicación utilizando un [sistema de cuadrícula adaptable](https://material.io/design/layout/responsive-layout-grid.html#) y cómo debería moverse el contenido / navegación / opciones a medida que aumenta el espacio en la pantalla.
 
