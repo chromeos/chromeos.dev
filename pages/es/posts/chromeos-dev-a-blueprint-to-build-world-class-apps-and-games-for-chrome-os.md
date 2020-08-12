@@ -72,7 +72,7 @@ Una [plantilla de actividad principal/detallada](https://developer.android.com/s
 
 ### Soporte actualizado de las comprobaciones de errores de Android
 
-Hemos mejorado las comprobaciones predeterminadas en [la herramienta de errores de Android](https://developer.android.com/studio/write/lint) para ayudar a los desarrolladores a identificar y corregir problemas de código comunes para mejorar sus aplicaciones en pantallas más grandes, como las actividades no redimensionables y con bloqueo vertical. Esta función está disponible actualmente para probar en Canary.
+Hemos mejorado las comprobaciones predeterminadas en [la herramienta de errores de Android](https://developer.android.com/studio/write/lint) para ayudar a los desarrolladores a identificar y corregir problemas de código comunes para mejorar sus aplicaciones en pantallas más grandes, como las actividades no redimensionables y con bloqueo vertical. Esta función está disponible actualmente para probar en la versión "canary".
 
 ## Descubra todo el potencial de su aplicación con Chrome OS
 
