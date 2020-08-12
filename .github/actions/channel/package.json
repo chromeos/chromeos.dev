@@ -2,7 +2,7 @@
   "name": "actions",
   "version": "1.0.0",
   "description": "",
-  "main": "message.js",
+  "main": "channel.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,7 +12,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@actions/core": "^1.2.4",
-    "@octokit/rest": "^18.0.3"
+    "@octokit/rest": "^18.0.3",
+    "uuid": "^8.3.0"
   },
   "private": true,
   "volta": {
