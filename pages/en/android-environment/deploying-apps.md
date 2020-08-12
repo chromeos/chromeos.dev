@@ -89,7 +89,7 @@ adb install [path to your APK]
 
 If you can't use the method described above and need to push your app from another device, you can connect the device to ADB using [USB](#connect-to-adb-over-usb) or a [network address](#connect-to-adb-over-a-network).
 
-To push your APK from another device into the Chromebook, you must start your Chrome OS in [developer mode](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md) so that you can configure the Chromebook and push apps from the host machine. Follow this steps to get into [developer mode](/{{locale.code}}/productivity/experimental-features#developer-mode)
+To push your APK from another device into the Chromebook, you must start your Chrome OS in [developer mode](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md) so that you can configure the Chromebook and push apps from the host machine. Follow this steps to get into [developer mode](/{{locale.code}}/productivity/experimental-features#developer-mode).
 
 !!! aside.message--warning
 **Caution:** After switching your Chrome OS device to developer mode, it restarts
