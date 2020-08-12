@@ -1,6 +1,6 @@
 ---
 title: 'Reenvío de puertos en Chrome OS'
-metadesc: 'Cómo configurar el reenvío de puertos en su dispositivo Chrome OS para acceder a puertos en otros dispositivos'
+metadesc: 'Cómo configurar el reenvío de puertos en su dispositivo Chrome OS para acceder a puertos en otros dispositivos.'
 date: 2020-06-01
 weight: -7
 ---

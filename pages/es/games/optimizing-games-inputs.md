@@ -1,6 +1,6 @@
 ---
 title: Soporte de entrada
-metadesc: Aprenda sobre el manejo de entrada de teclado, mouse, controlador y lápiz óptico
+metadesc: Aprenda sobre el manejo de entrada de teclado, mouse, controlador y lápiz óptico.
 date: 2020-06-16
 weight: -8
 ---

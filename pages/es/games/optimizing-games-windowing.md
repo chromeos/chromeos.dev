@@ -1,6 +1,6 @@
 ---
 title: Pantallas grandes y pantallas externas.
-metadesc: Gestión de ventanas para juegos en Chrome OS
+metadesc: Gestión de ventanas para juegos en Chrome OS.
 date: 2020-06-16
 weight: -7
 ---

@@ -1,6 +1,6 @@
 ---
 title: Why your app should be optimized for screens of all sizes
-metadesc: See how Gameloft, Evernote, Slack, and 1Password have optimized for Chrome OS
+metadesc: See how Gameloft, Evernote, Slack, and 1Password have optimized for Chrome OS.
 tags:
   - trend
   - success story
