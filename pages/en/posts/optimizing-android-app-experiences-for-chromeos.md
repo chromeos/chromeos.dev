@@ -1,6 +1,6 @@
 ---
 title: Optimizing Android app experiences for Chrome OS
-metadesc: Learn about ways to optimize your Android app for a richer user experience on Chrome OS
+metadesc: Learn about ways to optimize your Android app for a richer user experience on Chrome OS.
 tags:
   - technical
   - trend

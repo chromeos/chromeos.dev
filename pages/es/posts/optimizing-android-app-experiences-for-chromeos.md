@@ -1,6 +1,6 @@
 ---
 title: Optimización de experiencias de aplicaciones de Android para Chrome OS
-metadesc: Obtenga información sobre formas de optimizar su aplicación de Android para una mejor experiencia de usuario en Chrome OS
+metadesc: Obtenga información sobre formas de optimizar su aplicación de Android para una mejor experiencia de usuario en Chrome OS.
 tags:
   - técnico
   - tendencia

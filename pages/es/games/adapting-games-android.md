@@ -1,6 +1,6 @@
 ---
 title: Adaptando juegos de Android
-metadesc: Aprende a adaptar tu juego de Android para Chrome OS
+metadesc: Aprende a adaptar tu juego de Android para Chrome OS.
 date: 2020-06-16
 weight: -9
 ---

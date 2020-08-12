@@ -59,9 +59,8 @@ Adding pointer icons to your application is a great way to help enable your user
 !!! aside.message--tip
 To see different pointer changes in action check out this [GitHub Pointer Sample](https://github.com/chromeos/pointer-icon-sample)
 
-<video controls width="900" height="1900" autoplay muted>
-  <source src="/videos/android/pointer-styling/pointer-icon.mp4" type="video/mp4">
-</video>
+![Custom pointer icons in an Android app.](/images/android/pointer-styling/pointer-icon.gif)
+
 !!!
 
 ## Appendix

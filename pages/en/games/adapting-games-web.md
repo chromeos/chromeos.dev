@@ -1,6 +1,6 @@
 ---
 title: Adapting web games
-metadesc: Creating and optimizing web games for Chrome OS
+metadesc: Creating and optimizing web games for Chrome OS.
 date: 2020-06-16
 weight: -1
 ---

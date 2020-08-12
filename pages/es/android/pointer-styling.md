@@ -60,9 +60,8 @@ Agregar iconos de puntero a su aplicación es una excelente manera de ayudar a q
 !!! aside.message--tip
 Para ver los diferentes cambios de puntero en acción, consulte este [ejemplo de puntero de GitHub](https://github.com/chromeos/pointer-icon-sample)
 
-<video controls width="900" height="1900" autoplay muted>
-  <source src="/videos/android/pointer-styling/pointer-icon.mp4" type="video/mp4">
-</video>
+![Iconos para punteros personalizados en una aplicación de Android.](/images/android/pointer-styling/pointer-icon.gif)
+
 !!!
 
 ## Apéndice

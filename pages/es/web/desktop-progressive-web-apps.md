@@ -1,6 +1,6 @@
 ---
 title: Aplicaciones web progresivas de escritorio
-metadesc: Cómo aprovechar su sitio web actual y mejorarlo para que sea instalable, funcionar de maravilla con el tacto y el lápiz óptico, y hacerlo aún más capaz
+metadesc: Cómo aprovechar su sitio web actual y mejorarlo para que sea instalable, funcionar de maravilla con el tacto y el lápiz óptico, y hacerlo aún más capaz.
 date: 2020-05-29
 weight: -7
 resources:

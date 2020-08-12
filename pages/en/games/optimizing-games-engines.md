@@ -1,6 +1,6 @@
 ---
 title: Game engines
-metadesc: Optimizing usage of game engines for building on Chrome OS
+metadesc: Optimizing usage of game engines for building on Chrome OS.
 date: 2020-06-16
 weight: -2
 ---
