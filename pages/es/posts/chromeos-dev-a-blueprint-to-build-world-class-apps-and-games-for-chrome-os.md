@@ -52,7 +52,7 @@ Terminal de Linux (Beta) en Chrome OS ahora viene equipado con funciones persona
 
 - **Temas** - La pestaña de configuración se ha reorganizado para facilitar la personalización de todas las opciones de Terminal.
 
-  ![Escoger un tema en Linux.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/linux-themes.gif)
+  ![Escoger un tema en Linux.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/linux-updates.gif)
 
 - **Configuración de terminal rediseñada** - The settings tab has been reorganized to make it easier to customize all your Terminal options.
 
