@@ -19,7 +19,6 @@ import { CacheFirst, StaleWhileRevalidate, NetworkFirst } from 'workbox-strategi
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, matchPrecache } from 'workbox-precaching';
 import { registerRoute, setCatchHandler } from 'workbox-routing';
-import { BroadcastUpdatePlugin } from 'workbox-broadcast-update';
 import * as googleAnalytics from 'workbox-google-analytics';
 import { i18nHandler } from 'service-worker-i18n-redirect';
 import { preferences } from 'service-worker-i18n-redirect/preferences';
@@ -39,7 +38,6 @@ const htmlCachingStrategy = new StaleWhileRevalidate({
     new CacheableResponsePlugin({
       statuses: [200],
     }),
-    new BroadcastUpdatePlugin(),
   ],
 });
 
