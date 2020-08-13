@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 import dynamicImportPolyfill from 'dynamic-import-polyfill';
-import { getData } from './lib/data';
 import { preferences } from 'service-worker-i18n-redirect/preferences';
 import { MainNavigation } from './components/nav';
 import { CookieDisclaimer } from './components/cookie-disclaimer';
@@ -148,25 +147,6 @@ if ('serviceWorker' in navigator) {
     } catch (e) {
       // log('Registration failed 😫');
       // log(e);
-    }
-  });
-
-  navigator.serviceWorker.addEventListener('message', async e => {
-    if (e.data.meta === 'workbox-broadcast-update') {
-      const { cacheName, updatedURL } = e.data.payload;
-      const location = window.location.pathname.replace(/\/$/, '');
-      if (cacheName === 'pages-cache' && new URL(updatedURL).pathname === location) {
-        const language = await preferences.get('lang');
-        const microcopy = await getData('microcopy', language);
-        const { SnackbarArea } = await import('./components/snackbar.js');
-        const snackbar = new SnackbarArea();
-        snackbar.add(microcopy.sw.page, {
-          text: microcopy.sw.refresh,
-          cb() {
-            window.location.reload();
-          },
-        });
-      }
     }
   });
 }
