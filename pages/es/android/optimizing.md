@@ -52,7 +52,7 @@ Cuando corresponda, debe diferenciar entre el mouse y las entradas táctiles. Po
 
 ### Cursores personalizados
 
-Las aplicaciones deben personalizar los cursores del mouse para indicar con qué elemento de su interfaz de usuario se puede interactuar y cómo. Puede configurar el [`PointerIcon`](https://developer.android.com/reference/android/view/PointerIcon?hl={{locale.code}}) para usar cuando los usuarios interactúan con una vista llamando al [`setPointerIcon()`](https://developer.android.com/reference/android/view/View?hl={{locale.code}}#setPointerIcon) ( `android.view.PointerIcon` ).
+Las aplicaciones deben personalizar los cursores del mouse para indicar con qué elemento de su interfaz de usuario se puede interactuar y cómo. Puede configurar el [`PointerIcon`](https://developer.android.com/reference/android/view/PointerIcon?hl={{locale.code}}) para usar cuando los usuarios interactúan con una vista llamando al [`setPointerIcon()`](https://developer.android.com/reference/android/view/View?#setPointerIcon) ( `android.view.PointerIcon` ).
 
 Las aplicaciones deberían mostrar:
 
