@@ -35,25 +35,25 @@ fields:
     name: JobRole
     label: Ocupación
     options:
-      - text: Investigador académico / Educador / Científico
-      - text: Análisis / Inteligencia empresarial / Ciencia de datos
-      - text: Desarrollo empresarial
-      - text: Gestión empresarial
-      - text: Atención al cliente
-      - text: Diseño / Arte / Animación
-      - text: Gestión de Ingeniería
+      - text: Academic Researcher / Educator / Scientist
+      - text: Analytics / Business Intelligence / Data Science
+      - text: Business Development
+      - text: Business Management
+      - text: Customer Support
+      - text: Design / Art / Animation
+      - text: Engineering Management
       - text: Marketing
-      - text: Gestión de productos
-      - text: Producción
-      - text: Programación / Codificación / Desarrollo de software
-      - text: Relaciones públicas
-      - text: Ventas
-      - text: Fiabilidad del sitio / Operaciones del desarrollador
-      - text: Estrategia / Operaciones / Planificación
-      - text: Sistema Administración / Integración de sistemas
+      - text: Product Management
+      - text: Production
+      - text: Programming / Coding / Software Development
+      - text: Public Relations
+      - text: Sales
+      - text: Site Reliability / Developer Operations
+      - text: Strategy / Operations / Planning
+      - text: System Administration / System Integration
       - text: QA / Testing
       - text: UI / UX Design / UX Research
-      - text: Otro
+      - text: Other
   - type: checkbox
     name: ChromeosDevelopersUpdates
     label: Agregueme a la lista de correos.
