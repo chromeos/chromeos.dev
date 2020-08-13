@@ -90,9 +90,14 @@
   &__eyebrow-wrapper {
     background-color: var(--white);
     border-top: 0.5rem solid var(--blue-600);
-    padding-left: $spacing;
-    padding-right: $spacing;
+    padding-left: $inline-padding;
+    padding-right: $block-padding;
     padding-top: 2rem;
+
+    @include mq($bkpt-tech-details--2-cols) {
+      padding-left: $spacing;
+      padding-right: $spacing;
+    }
   }
 
   &__header {
