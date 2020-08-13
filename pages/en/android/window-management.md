@@ -8,68 +8,98 @@ tags:
   - device configuration
 ---
 
-Chrome OS supports Android apps in multiple windows. The system renders apps
-into window containers whose size is determined by the form factor of the
-device.
+Chrome OS runs Android apps in individual windows. These windows can be resized
+or maximized, and will be resized accordingly when a tablet or convertible device is rotated.
 
 ![An app window on different devices](/images/android/optimizing/fullscreen-and-windows.png)
 
 ## Resizing windows
 
-In Chrome OS users can resize an app's window in the usual way, by dragging
-the lower right corner.
+Users can resize app windows by clicking and dragging the window borders. This brings additional considerations for
+Android apps that may have been designed for phones.
 
 ![A resizable app window](/images/android/optimizing/resizable.png)
 
-There are two options for handling window resizing:
+In the [Android lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle),
+when an app is resized or its orientation changes, in addition to other
+[runtime configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes),
+the Activity's UI is torn down and rebuilt. Specifically, [onPause()](<https://developer.android.com/reference/android/app/Activity#onPause()>),
+[onStop()](<https://developer.android.com/reference/android/app/Activity#onStop()>), and
+[onDestroy()](<https://developer.android.com/reference/android/app/Activity#onDestroy()>) will be
+called to clean up the old UI, followed by [onCreate()](<https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)>),
+[onStart()](<https://developer.android.com/reference/android/app/Activity#onStart()>), and [onResume()](<https://developer.android.com/reference/android/app/Activity#onResume()>)
+to rebuild it.
 
-- Respond to configuration changes dynamically by calling
-  `onConfigurationChanged(..)` and adding
-  ```xml
-  android:configChanges="screenSize|smallestScreenSize|orientation|screenLayout"
-  ```
-  to the activity's manifest. Read
-  [handling configuration change docs](https://developer.android.com/guide/topics/resources/runtime-changes)
-  for more information about handling configuration changes.
-- Let the system restart the activity. In this case you should implement
-  `onSaveInstanceState` and use the [ViewModel architecture
-  component](https://developer.android.com/topic/libraries/architecture/viewmodel) to restore the previous
-  saved state.
+Although it may seem heavy-handed to tear down and rebuild the UI on every configuration change, it is part of what makes it possible for Android apps to run well
+on so many devices and in any shape of window, while looking great with quality graphics and an optimized layout.
 
-This page shows how to ensure your app's window launches correctly, resizes
-smoothly, and can display all of its contents when its size changes.
+Apps developed for mobile phones may not be expecting to receive these type of configuration changes
+very frequently. In particular, some apps do intensive processing or disk/network fetches in their `onCreate` method
+which can cause performance issues or crashes on window resizing. In addition, state can be lost during these
+lifecycle events which can cause inconvenience or data loss for users.
+
+Mobile apps that rely on forcing a portrait or landscape layout and disallowing rotation in order to avoid
+these lifecycle events, will not behave correctly when they are resized in a windowed environment.
+
+There are two options for handling window resizing. Most apps should implement the first one, and it is good
+practice across all Android devices, even if you are not targetting Chrome OS.
+
+1. All UI state should be maintained in a [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) and
+   other data should be handled with Lifecycle aware components. See [Jetpack's guide to app architecture](https://developer.android.com/jetpack/guide)
+   for a list of components that can make this robust and easy to implement. This will ensure an app's UI is decoupled
+   from user data and expensive data operations. Resizing can then happen quickly and fluidly. Other mobile devices,
+   tablets, and foldables will benefit from this implementation by handling configuration changes well.
+
+2. You can also handle configuration changes yourself. This requires careful attention and can lead to poor
+   behaviour if you receive unexpected configuration changes - for example if screen density changes when
+   a user plugs in an external monitor. However, some apps, games, and games engines may wish to handle these
+   changes themselves. To handle configuration changes yourself, add the following line to the `<Activity>` tag in your `AndroidManifest.xml` file:
+
+```xml
+android:configChanges="screenSize|smallestScreenSize|orientation|screenLayout"
+```
+
+and then override the `onConfigurationChanged` method in your main activity. See [handling configuration changes yourself](https://developer.android.com/guide/topics/resources/runtime-changes#HandlingTheChange)
+for more information and other possible configuration change events.
 
 !!! aside.message--note
-**Note:** In addition to window management, Android apps that run on Chrome OS
-should consider multiple apps competing for exclusive resources like camera or microphone,
-and the possibility that a visible app is not necessarily the active app. Read
-[Multi-window docs](https://developer.android.com/guide/topics/ui/multi-window) for more information on how to
-handle these issues.
+**Note:** In addition to window management, apps that access exclusive hardware resources like a camera or microphone
+should be aware that there may be other apps competing for the same resource. In a multi-window
+environment, it is possible that more than one of these apps will be visible, but only one will be active. See the
+[multi-window](https://developer.android.com/guide/topics/ui/multi-window) documentation for more information on how to handle this.
 !!!
 
 ## Window dimensions
 
-In windowed environments, an activity can be resized. When possible, apps should
-implement a [fluid layout](https://developer.android.com/training/multiscreen/screensizes#flexible-layout)
-using [ConstraintLayout](https://developer.android.com/training/multiscreen/screensizes#ConstraintLayout). Apps should consider
+In windowed environments, Activities can be resized. When possible, apps should
+implement [fluid layouts](https://developer.android.com/training/multiscreen/screensizes#flexible-layout)
+using [ConstraintLayout](https://developer.android.com/training/multiscreen/screensizes#ConstraintLayout). Apps also should consider
 adding [alternative screen layouts](https://developer.android.com/training/multiscreen/screensizes#alternative-layouts)
-based on window dimenstions. Further advice for thinking through your layout is offered in [Design Recommendations](/{{locale.code}}/android/design).
+based on window dimenstions to provide the best use of space and an optimal UI. Further advice for thinking through your layout architecture is found on the [Design Recommendations](/{{locale.code}}/android/design) page.
 
-If your app needs to manually calculate layout dimensions at runtime, check the current dimensions in
-[onCreate](<https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)>)
-and on every [configuration change](https://developer.android.com/guide/topics/resources/runtime-changes) and adjust
-accordingly.
+If your app needs to manually calculate layout dimensions at runtime, get the current window dimensions using `DisplayManager` and [getSize](<https://developer.android.com/reference/android/view/Display#getSize(android.graphics.Point)>)
+as demonstrated below.
+Be sure to check for new window dimensions in every
+[onCreate](<https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)>) call
+or on every [configuration change](https://developer.android.com/guide/topics/resources/runtime-changes) if you are handling configurations changes
+yourself.
 
 ```kotlin
 val displayManager = getSystemService(Context.DISPLAY_SERVICE)
     as DisplayManager
 val display = displayManager.getDisplay(Display.DEFAULT_DISPLAY)
-val metrics = DisplayMetrics()
 
-display.getRealMetrics(metrics)
-Log.d(LOG_TAG, "DisplayMetrics - w: ${metrics.widthPixels},
-    h: ${metrics.heightPixels}")
+val windowSize = Point(0, 0)
+display.getSize(windowSize)
+
+Log.d(LOG_TAG, "Window Size - w: ${windowSize.x},
+    h: ${windowSize.y}")
 ```
+
+!!! aside.message--note
+**Note:** [getSize](<https://developer.android.com/reference/android/view/Display#getSize(android.graphics.Point)>) is deprecated in Android 11 (SDK 30) in favour
+of [WindowMetrics.getBounds](<https://developer.android.com/reference/android/view/WindowMetrics#getBounds()>).
+!!!
 
 ## Orientation guidelines
 
@@ -77,19 +107,19 @@ Apps designed for large screens should support both large landscape and portrait
 Apps that are forced to run in a single orientation will provide a poor experience for users.
 
 If your app is designed for portrait devices and providing a optimal landscape layout is not
-possible, consider adding a graphically pleasing, contextual background to the app to prevent
+possible, consider adding a graphically pleasing, contextual, landscape background to the app to prevent
 black bars appearing on the sides. See also [Orientation and Configuration Changes](/{{locale.code}}/games/optimizing-games-windowing#orientation-and-configuration-changes)
-in [Games on Chrome OS](/{{locale.code}}/games/).
+on the [Games on Chrome OS](/{{locale.code}}/games/) page for more information.
 
 ## Initial launch size
 
 Apps can specify their initial launch size in the following ways:
 
-- Use a launch size only in desktop environments.
-  This helps the window manager to give you the proper bounds and
-  orientation. To indicate a preferences when used in desktop mode, add
-  the following meta tags inside the
-  [<activity>](https://developer.android.com/guide/topics/manifest/activity-element.html) tag:
+1. Use a specific launch size only in windowed environments.
+   This helps the Chrome OS window manager give the desired launch bounds and
+   orientation to an app and should not effect mobile behaviour. To indicate launch preferences, add
+   the following Chrome OS specific meta tags inside the
+   [Activity](https://developer.android.com/guide/topics/manifest/activity-element.html) element of the `AndroidManifest.xml` file:
 
 ```xml
 <meta-data android:name="WindowManagerPreference:FreeformWindowSize"
@@ -98,8 +128,7 @@ Apps can specify their initial launch size in the following ways:
   android:value="[portrait|landscape]" />
 ```
 
-- Use static launch bounds. Use `<layout>` inside the manifest entry of your
-  activity to specify a "fixed" starting size. See this example:
+2. Use static launch bounds. Use a `<layout>` tag inside `AndroidManifest.xml` file to specify an initial window size:
 
 ```xml
 <layout android:defaultHeight="500dp"
@@ -109,11 +138,11 @@ Apps can specify their initial launch size in the following ways:
   android:minWidth="300dp" />
 ```
 
-- Use dynamic launch bounds. An activity can create and use
-  [setLaunchBounds(Rect)](<https://developer.android.com/reference/android/app/ActivityOptions#setLaunchBounds(android.graphics.Rect)>)
-  when creating a new activity. By specifying an empty rectangle, your app can be maximized.
+3. Use dynamic launch bounds. An app can use
+   [setLaunchBounds(Rect)](<https://developer.android.com/reference/android/app/ActivityOptions#setLaunchBounds(android.graphics.Rect)>)
+   when creating a new Activity. If an empty rectangle is specified, the Activity will be started in a maximized state.
 
 !!! aside.message--note
-**Note:** All these possibilities only work if the activity started is a root
-activity or when launched from a clean activity stack.
+**Note:** All these possibilities require that an activity be started as a root
+activity or be launched from a clean activity stack.
 !!!
