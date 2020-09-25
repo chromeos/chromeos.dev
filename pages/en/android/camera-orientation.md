@@ -8,10 +8,7 @@ tags:
   - camera preview
   - camera viewfinder
   - JPEG orientation
-  - natural orientation
-  - sensor orientation
-  - display rotation
-  - display orientation
+  - large screens
 resources:
   - title: CameraX Preview Documentation
     url: https://developer.android.com/reference/androidx/camera/core/Preview
