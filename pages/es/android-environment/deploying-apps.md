@@ -45,7 +45,7 @@ Después de habilitar la depuración de ADB, puede instalar una aplicación de A
 
 ### Implementar con Android Studio
 
-Con la [configuración de Android Studio](/{{locale.code}}/android-environment) y la configuración ADB anterior, los desarrolladores pueden enviar sus aplicaciones al contenedor de Android del Chromebook directamente desde Android Studio.
+Con la [configuración de Android Studio](https://developer.android.com/studio/install#chrome-os) y la configuración ADB anterior, los desarrolladores pueden enviar sus aplicaciones al contenedor de Android del Chromebook directamente desde Android Studio.
 El Chromebook aparecerá como una opción en el menú desplegable del dispositivo:
 
 ![Menú desplegable de dispositivos Android Studio](/images/android/deploy/as_devices.png)

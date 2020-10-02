@@ -64,7 +64,7 @@ antes de cada lanzamiento usando solo el teclado. Debería ser fácil acceder a 
 Recuerde, la compatibilidad con el teclado puede ser esencial para los usuarios con necesidades de accesibilidad.
 !!!
 
-### Uso de teclas
+### Uso de teclas {: #keystrokes}
 
 Para la entrada de texto que se manejaría con un teclado virtual en pantalla
 ([IME](https://developer.android.com/guide/topics/text/creating-input-method)) como un `EditText`, las aplicaciones suelen comportarse como se espera en Chrome OS sin trabajo adicional por parte del
@@ -75,8 +75,8 @@ con vistas personalizadas.
 Algunos ejemplos son las aplicaciones de chat que utilizan la tecla Enter para enviar un mensaje,
 las aplicaciones multimedia que inician o detienen la reproducción con la tecla de espacio y los juegos que controlan el movimiento con las teclas [[w]], [[a]], [[s] ] y [[d]].
 
-La mayoría de las aplicaciones anulan el
-[eventoonKeyUp](https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyUp)
+La mayoría de las aplicaciones anulan el evento
+[onKeyUp](<https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyUp(int,%20android.view.KeyEvent)>)
 y agregan el comportamiento esperado para cada código clave recibido, como se muestra a continuación.
 
 ```kotlin
@@ -97,7 +97,7 @@ override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
 
 El uso de`onKeyUp` evita que las aplicaciones reciban múltiples eventos si una tecla se mantiene
 presionada o se suelta lentamente. Los juegos y aplicaciones que esperan que los usuarios mantengan presionadas las teclas pueden buscar el evento
-[onkeydown](https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyDown)
+[onkeydown](<https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyDown(int,%20android.view.KeyEvent)>)
 
 Dependiendo de las necesidades de una aplicación, sobreescribir `onKeyUp` para toda la Actividad
 generalmente proporciona el comportamiento necesario. Si lo desea,un
@@ -116,12 +116,12 @@ Algunos atajos comunes incluyen [[Ctrl]] + [[S]](guardar), [[Ctrl]] + [[Z]](desh
 [[Ctrl]] + [[Shift]] + [[Z]](rehacer). Para ver un ejemplo de algunos accesos directos más avanzados, consulte la lista de [teclas de acceso directo del VLC Media Player](https://www.vlchelp.com/vlc-media-player-shortcuts/).
 
 Los accesos directos se pueden implementar usando
-[dispatchKeyShortcutEvent](https://developer.android.com/reference/android/view/WindowCallback#dispatchKeyShortcutEvent).
+[dispatchKeyShortcutEvent](<https://developer.android.com/reference/android/view/Window.Callback.html#dispatchKeyShortcutEvent(android.view.KeyEvent)>).
 Esto intercepta todas las combinaciones de meta-teclas (Alt, Ctrl y Shift) para undeterminado
 código de tecla. Para verificar una meta-clave específica, use
-[KeyEvent.isCtrlPressed](https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed), [KeyEvent.isShiftPressed](https://developer.android.com/reference/android/viewKeyEvent#isShiftPressed),
-[KeyEvent.isAltPressed](https://developer.android.com/reference/android/view/KeyEvent#isAltPressed)
-o [KeyEvent.hasModifiers](https://developer.android.com/reference/android/view/KeyEvent#hasModifiers).
+[KeyEvent.isCtrlPressed](<https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed()>), [KeyEvent.isShiftPressed](<https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed()>),
+[KeyEvent.isAltPressed](<https://developer.android.com/reference/android/view/KeyEvent#isAltPressed()>)
+o [KeyEvent.hasModifiers](<https://developer.android.com/reference/android/view/KeyEvent.html#hasModifiers(int)>).
 
 La separación de código de acceso directo desde otras manipulaciones de pulsaciones de teclas (como `onKeyUp` o`onKeyDown`) puede hacer más fácil el mantenimiento del código y mantiene la aceptación por defecto de las meta-teclas sin tener que implementar manualmente los controles clave meta-en todos los casos. Permitir todas las combinaciones de meta-teclas también puede ser más conveniente para los usuarios que están acostumbrados a diferentes diseños de teclado y sistemas operativos.
 
@@ -151,9 +151,9 @@ override fun dispatchKeyShortcutEvent(event: KeyEvent): Boolean {
 ```
 
 También puede implementar accesos directos en `onKeyUp` comprobando
-[KeyEvent.isCtrlPressed](https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed),
-[KeyEvent.isShiftPressed](https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed)
-o [KeyEvent.isAltPressed](https://developer.android.com/reference/android/view/KeyEvent#isAltPressed)
+[KeyEvent.isCtrlPressed](<https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed()>),
+[KeyEvent.isShiftPressed](<https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed()>)
+o [KeyEvent.isAltPressed](<https://developer.android.com/reference/android/view/KeyEvent#isAltPressed()>)
 de la misma manera que arriba. Esto puede ser más fácil de mantener si el meta-comportamiento
 es más una modificación del comportamiento de una aplicación que un acceso directo. Por ejemplo, cuando [[W]] significa "caminar hacia adelante" y [[Shift]] + [[W]] significa "correr hacia adelante".
 
@@ -195,7 +195,7 @@ yourView.setOnContextClickListener {
 ```
 
 !!! aside.message--note
-**Nota:** cualquier vista que se haya registrado para un menú contextual usando [Activity.registerForContextMenu](https://developer.android.com/reference/android/app/Activity# registerForContextMenu) debería funcionar automáticamente con la pulsación larga y el clic derecho sin la necesidad de registrar un listener de clic de contexto.
+**Nota:** cualquier vista que se haya registrado para un menú contextual usando [Activity.registerForContextMenu](<https://developer.android.com/reference/android/app/Activity#registerForContextMenu(android.view.View)>) debería funcionar automáticamente con la pulsación larga y el clic derecho sin la necesidad de registrar un listener de clic de contexto.
 !!!
 
 ### Flotar sobre elementos {" #hover}
@@ -240,8 +240,8 @@ a esta [Entrada de blog de Chrome OS](https://medium.com/androiddevelopers/andro
 ### Implemetación avanzada para punteros
 
 Las aplicaciones que realizan un manejo avanzado de la entrada del mouse y del panel táctil deben seguir la documentación de Android para
-[View.onGenericMotionEvent](https://developer.android.com/reference/android/view/View#onGenericMotionEvent)
-y use [`MotionEvent.getSource()`](https://developer.android.com/reference/android/view/MotionEvent#getSource)
+[View.onGenericMotionEvent](<https://developer.android.com/reference/android/view/View#onGenericMotionEvent(android.view.MotionEvent)>)
+y use [`MotionEvent.getSource()`](<https://developer.android.com/reference/android/view/MotionEvent#getSource()>)
 para distinguir entre
 [SOURCE_MOUSE](https://developer.android.com/reference/android/view/InputDevice#SOURCE_MOUSE) y
 [SOURCE_TOUCHSCREEN](https://developer.android.com/reference/android/view/InputDevice#SOURCE_TOUCHSCREEN).
@@ -260,16 +260,16 @@ Algunos dispositivos también pueden tener una mesa de dibujo USB o bluetooth, c
 Las aplicaciones de Android pueden recibir entrada bluetooth, pero no funcionan con entrada USB.
 
 Un evento de lápiz se informa como un evento de pantalla táctil a través de
-[View.onTouchEvent](https://developer.android.com/reference/android/view/View#onTouchEvent)
-o [View.onGenericMotionEvent](https://developer.android.com/reference/android/view/View#onGenericMotionEvent)
+[View.onTouchEvent()](<https://developer.android.com/reference/android/view/View#onTouchEvent(android.view.MotionEvent)>)
+o [View.onGenericMotionEvent()](<https://developer.android.com/reference/android/view/View#onGenericMotionEvent(android.view.MotionEvent)>)
 y contiene un
-[MotionEvent.getSource](https://developer.android.com/reference/android/view/MotionEvent#getSource)
+[MotionEvent.getSource()](<https://developer.android.com/reference/android/view/MotionEvent#getSource()>)
 de tipo [SOURCE_STYLUS](https://developer.android.com/reference/android/view/InputDevice#SOURCE_STYLUS).
 El `MotionEvent` también contendrá datos adicionales:
 
-- [MotionEvent.getToolType](https://developer.android.com/reference/android/view/MotionEvent#getToolType) devolverá [TOOL_TYPE_FINGER](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_FINGER), [TOOL_TYPE_STYLUS](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_STYLUS) o [TOOL_TYPE_ERASER](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_ERASER) según la herramienta que hizo contacto con la superficie
-- [MotionEvent.getPressure](https://developer.android.com/reference/android/view/MotionEvent#getPressure) informará la presión física aplicada al lápiz óptico, si es compatible
-- [MotionEvent.getAxisValue](https://developer.android.com/reference/android/view/MotionEvent#getAxisValue) con [MotionEvent.AXIS_TILT](https://developer.android.com/reference/android/view/MotionEvent#AXIS_TILT) y [MotionEvent.AXIS_ORIENTATION](https://developer.android.com/reference/android/view/MotionEvent#AXIS_ORIENTATION) que se puede utilizar para leer la inclinación física y la orientación del lápiz, si es compatible
+- [MotionEvent.getToolType()](<https://developer.android.com/reference/android/view/MotionEvent#getToolType(int)>) devolverá [TOOL_TYPE_FINGER](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_FINGER), [TOOL_TYPE_STYLUS](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_STYLUS) o [TOOL_TYPE_ERASER](https://developer.android.com/reference/android/view/MotionEvent#TOOL_TYPE_ERASER) según la herramienta que hizo contacto con la superficie
+- [MotionEvent.getPressure()](<https://developer.android.com/reference/android/view/MotionEvent#getPressure(int)>) informará la presión física aplicada al lápiz óptico, si es compatible
+- [MotionEvent.getAxisValue()](<https://developer.android.com/reference/android/view/MotionEvent#getAxisValue(int,%20int)>) con [MotionEvent.AXIS_TILT](https://developer.android.com/reference/android/view/MotionEvent#AXIS_TILT) y [MotionEvent.AXIS_ORIENTATION](https://developer.android.com/reference/android/view/MotionEvent#AXIS_ORIENTATION) que se puede utilizar para leer la inclinación física y la orientación del lápiz, si es compatible
 
 ### Puntos históricos
 
@@ -335,7 +335,7 @@ Ahora debería haber un menú de lápiz en el estante:
 - Toque el botón del lápiz en el estante y elija **Nota nueva**. Esto debería abrir una nota de dibujo en blanco
 - Tome una captura de pantalla. Desde el estante, seleccione **botón del lápiz óptico > Capturar pantalla** o descargue una imagen. Debería haber la opción de "Anotar imagen" en la notificación. Esto debería iniciar la aplicación con la imagen lista para ser anotada.
 
-## Controladores de juegos
+## Controladores de juegos {: game-controllers}
 
 Los Chromebook admiten hasta cuatro controladores de juegos. Los desarrolladores deben usar
 las [API estándar de Android para controladores de juegos](https://developer.android.com/training/game-controllers) para manejarlos.

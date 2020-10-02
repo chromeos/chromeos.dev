@@ -102,7 +102,7 @@ valor de rotación es siempre [`Surface.ROTATION_0`](https://developer.android.c
 Esto puede ser cierto para la mayoría de los dispositivos Android. Sin embargo, cuando la aplicación está en un modo determinado, es posible que el valor de rotación para la orientación vertical no sea
 [`Surface.ROTATION_0`](https://developer.android.com/reference/android/view/Surface.html#ROTATION_0).
 
-Para obtener un valor de rotación preciso mientras lee el acelerómetro o sensores similares, use [`Display.getRotation()`](https://developer.android.com/reference/android/view/Display.html#getRotation y cambie el eje en consecuencia.
+Para obtener un valor de rotación preciso mientras lee el acelerómetro o sensores similares, use [`Display.getRotation()`](<https://developer.android.com/reference/android/view/Display.html#getRotation()>) y cambie el eje en consecuencia.
 
 ### La actividad raíz y la orientación {: #the-root-activity-and-orientation}
 
@@ -131,7 +131,7 @@ Siga estas pautas para manejar la orientación:
   en tiempo de ejecución, esto provoca un cambio de tamaño de ventana innecesario, lo cual es molesto para el usuario y posiblemente reinicie la aplicación si no puede manejarlo. Es mejor establecer la orientación una vez, por ejemplo, en el AndroidManifest.xml, y solo cambiarla
   si es necesario.
 
-## Tamaño de lanzamiento inicial
+## Tamaño de lanzamiento inicial {: #initial-launch-size}
 
 Las aplicaciones pueden especificar su tamaño de lanzamiento inicial de las siguientes formas:
 
