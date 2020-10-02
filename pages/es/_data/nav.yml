@@ -11,7 +11,7 @@
 - title: Publicar
   desc: Obtén información sobre cómo publicar tus aplicaciones en Google Play Store e involucra a millones de usuarios en Chromebooks.
   url: publish
-  icon: game-controller
+  icon: publish
   alt: publish
 - title: Desarrollo
   desc: Utilice Chrome OS para desarrollar aplicaciones en un entorno rápido, seguro y sin complicaciones.
