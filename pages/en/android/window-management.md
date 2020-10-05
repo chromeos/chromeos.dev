@@ -28,9 +28,9 @@ Mobile apps that rely on forcing a portrait or landscape layout and disallowing 
 
 There are two options for handling window resizing. Most apps should implement the first one, and it is good practice across all Android devices, even if you are not targeting Chrome OS.
 
-1. All UI state should be maintained in a [ViewModel⁠](https://developer.android.com/topic/libraries/architecture/viewmodel) combined with the [SavedState module](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate) or an [onSavedInstanceState](<https://developer.android.com/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle)>) implementation. Other data should be handled with Lifecycle aware components. See [Jetpack’s guide to app architecture⁠](https://developer.android.com/jetpack/guide) for a list of components that can make this robust and easy to implement.
+1. All UI state should be maintained in a [ViewModel⁠](https://developer.android.com/topic/libraries/architecture/viewmodel) combined with the [SavedState module](https://developer.android.com/topic/libraries/architecture/viewmodel-savedstate) or an [onSavedInstanceState](<https://developer.android.com/reference/android/app/Activity#onSaveInstanceState(android.os.Bundle)>) implementation. Other data should be handled with Lifecycle aware components. See [Jetpack’s guide to app architecture⁠](https://developer.android.com/jetpack/guide) for a list of components that can make this robust and straightforward to implement.
 
-This will ensure an app’s UI is decoupled from user data and expensive data operations. Resizing can then happen quickly and fluidly. Other mobile devices, tablets, and foldables will benefit from this implementation by handling configuration changes well. This isn’t the only way to achieve this behavior, but it is the recommended way going forward.
+This will ensure an app’s UI is decoupled from user data and expensive data operations. Resizing can then happen quickly and fluidly. Other mobile devices, tablets, and foldables will also benefit from this implementation by handling configuration changes well. This is not the only way to achieve this behavior, but it is the recommended way.
 
 2. You can also handle configuration changes yourself. This requires careful attention and can lead to poor behavior if you receive unexpected configuration changes - for example if screen density changes when a user plugs in an external monitor. However, some apps, games, and games engines may wish to handle configuration changes caused by window resizing manually. To do this, add the following line to the `<Activity>` tag in your `AndroidManifest.xml` file:
 
@@ -89,7 +89,7 @@ If your app is designed for portrait devices and providing an optimal landscape 
 
 Apps can specify their initial launch size in the following ways:
 
-1. Use a specific launch size only in windowed environments. This helps the Chrome OS window manager give the desired launch bounds and orientation to an app and will not affect mobile behaviour. To indicate launch preferences, add the following Chrome OS specific meta tags inside the [Activity⁠](https://developer.android.com/guide/topics/manifest/activity-element.html) element of the `AndroidManifest.xml` file:
+1. Use a specific launch size only in windowed environments: This helps the Chrome OS window manager give the desired launch bounds and orientation to an app and will not affect behaviour on mobile devices. To indicate launch preferences, add the following Chrome OS specific meta tags inside the [Activity⁠](https://developer.android.com/guide/topics/manifest/activity-element.html) element of the `AndroidManifest.xml` file:
 
 ```xml {title=AndroidManifest.xml}
 <meta-data android:name="WindowManagerPreference:FreeformWindowSize"
@@ -99,7 +99,7 @@ Apps can specify their initial launch size in the following ways:
 
 ```
 
-2. Use static launch bounds. Include a `<layout>` tag inside `AndroidManifest.xml` file to specify an initial window size:
+2. Use static launch bounds: Include a `<layout>` tag inside `AndroidManifest.xml` file to specify an initial window size:
 
 ```xml {title=AndroidManifest.xml}
 <layout android:defaultHeight="500dp"
@@ -110,7 +110,7 @@ Apps can specify their initial launch size in the following ways:
 
 ```
 
-3. Use dynamic launch bounds. An app can use [setLaunchBounds(Rect)⁠](<https://developer.android.com/reference/android/app/ActivityOptions#setLaunchBounds(android.graphics.Rect)>) when creating a new Activity. If an empty rectangle is specified, the Activity will be started in a maximized state.
+3. Use dynamic launch bounds: An app can use [setLaunchBounds(Rect)⁠](<https://developer.android.com/reference/android/app/ActivityOptions#setLaunchBounds(android.graphics.Rect)>) when creating a new Activity. If an empty rectangle is specified, the Activity will be started in a maximized state.
 
 !!! aside.message--note
 **Note:** All these possibilities require that an activity be started as a root activity or be launched from a clean activity stack.
