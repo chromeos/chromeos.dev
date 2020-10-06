@@ -20,7 +20,7 @@ If you developed your app for handsets and now want to improve your design on Ch
 
 Here are some suggestions:
 
-- Provide custom layouts for these larger screens. You can do this by using the screen's [shortest dimension](https://developer.android.com/guide/practices/screens_support#NewQualifiers) or the [minimum available width and height](https://developer.android.com/guide/practices/screens_support#NewQualifiers).
+- Provide custom layouts for these larger screens. You can do this by using the screen's [shortest dimension](https://developer.android.com/guide/practices/screens_support#sizes) or the minimum available width and height.
 
 - Imagine how your UX and layouts work in a landscape first environment such as Chrome OS. Either adapt your layouts to look and perform well when in these orientations based on window size or provide specific landscape layouts by using the land resource qualifier. You can learn more about dynamic window resizing and other considerations for large screens on [the Window management page](/{{locale.code}}/android/window-management).
 

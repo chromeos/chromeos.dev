@@ -20,7 +20,7 @@ Si desarrolló su aplicación para teléfonos y ahora desea mejorar su diseño e
 
 Aquí hay algunas sugerencias:
 
-- Proporcione diseños personalizados para estas pantallas más grandes. Puede hacerlo utilizando la [dimensión más corta de](https://developer.android.com/guide/practices/screens_support?hl={{locale.code}}#NewQualifiers) la pantalla o el [ancho y la altura mínimos disponibles](https://developer.android.com/guide/practices/screens_support?hl={{locale.code}}#NewQualifiers) .
+- Proporcione diseños personalizados para estas pantallas más grandes. Puede hacerlo utilizando la [dimensión más corta de](https://developer.android.com/guide/practices/screens_support#sizes) la pantalla o el ancho y la altura mínimos disponibles .
 
 - Imagine cómo funcionan su UX y sus diseños en un entorno donde la configuración horizontal es más común como Chrome OS. Adapte sus diseños para que se vean y funcionen bien en estas orientaciones basadas en el tamaño de la ventana o proporcione diseños horizontales específicos utilizando el "land resource qualifier". Puede obtener más información sobre el cambio de tamaño dinámico de la ventana y otras consideraciones para pantallas grandes en [la página de administración de ventanas](/{{locale.code}}/android/window-management) .
 

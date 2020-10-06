@@ -45,7 +45,7 @@ After enabling ADB debugging, you can load an Android app directly onto your Chr
 
 ### Deploy with Android Studio
 
-After you have set up [Android Studio](/{{locale.code}}/android-environment) and the
+After you have set up [Android Studio](https://developer.android.com/studio/install#chrome-os) and the
 ADB as described above, you can push your apps to the Chromebook's Android container directly from Android Studio.
 
 The Chromebook will appear as an option in the device drop down:
