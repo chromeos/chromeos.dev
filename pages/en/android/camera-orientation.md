@@ -37,7 +37,7 @@ Natural orientation is defined as the display orientation when the device is in 
 
 ### Sensor Orientation
 
-Formally speaking, sensor orientation is measured by the degrees an output image from the sensor needs to be rotated clockwise to match the natural orientation of the device. Put differently, sensor orientation is the number of degrees a sensor is rotated counterclockwise before being mounted on the device. When looking at the screen, the rotation seems to be in the counterclockwise direction, this is because the rear-camera sensor is installed on the “back” side of the device.
+Formally speaking, sensor orientation is measured by the degrees an output image from the sensor needs to be rotated clockwise to match the natural orientation of the device. Put differently, sensor orientation is the number of degrees a sensor is rotated counterclockwise before being mounted on the device. When looking at the screen, the rotation seems to be in the clockwise direction, this is because the rear-camera sensor is installed on the “back” side of the device.
 
 According to [Android 10 Compatibility Definition 7.5.5 Camera Orientation](https://source.android.com/compatibility/android-cdd#7_5_5_camera_orientation), front and rear-facing cameras “MUST be oriented so that the long dimension of the camera aligns with the screen’s long dimension.”.
 
@@ -67,7 +67,7 @@ Because sensor orientation is usually 90 or 270 degrees on phones, without accou
 
 Suppose the counterclockwise sensor orientation is stored in the variable sensorOrientation. To compensate for sensor orientation, you need to **rotate the output buffers by `sensorOrientation` clockwise** to bring the orientation back in alignment with the natural orientation of the device.
 
-In Android, apps can use TextureView or SurfaceView to display their camera preview. Both can handle sensor orientation correctly if apps use them right. We’ll detail how you should account for sensor orientation in the following sections.
+In Android, apps can use TextureView or SurfaceView to display their camera preview. Both can handle sensor orientation if apps use them correctly. We’ll detail how you should account for sensor orientation in the following sections.
 
 ### Display Rotation
 
