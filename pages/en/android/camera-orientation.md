@@ -266,7 +266,7 @@ Now the TextureView may not match the dimensions of the source. In the case of p
 
 ![Image illustration of a portrait-shaped preview stretched to fit inside a TextureView of the same size of the preview size chosen](/images/android/camera-orientation/texture_view_step_1_identical_size.png)
 
-##### 2. Scale the potentially stretched TextureView back to the original dimensions of the preview
+**2. Scale the potentially stretched TextureView back to the original dimensions of the preview**
 
 Consider the following to scale the stretched preview back to the dimensions of the source.
 
@@ -282,7 +282,7 @@ Fix stretching by utilizing [View#setScaleX(float)](<https://developer.android.c
 
 ![Image illustration showing the procedure of the stretched preview being scaled back to its original dimensions](/images/android/camera-orientation/texture_view_step_2_scale_back.png)
 
-##### 3. Rotate the preview by `displayRotation` counterclockwise
+**3. Rotate the preview by `displayRotation` counterclockwise**
 
 As previously mentioned, you should rotate the preview by `displayRotation` counterclockwise to compensate for display rotation.
 
