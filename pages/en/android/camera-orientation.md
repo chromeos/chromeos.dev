@@ -175,9 +175,9 @@ As you can see, SurfaceView already handles some of the tricky things for us. Bu
 
 ![Image illustration showing a stretched bugdroid as a result of fitting a portrait-shaped preview into a landscape-shaped viewfinder](/images/android/camera-orientation/surface_view_stretched_scene.png)
 
-You generally want **the aspect ratio (i.e., width/height) of the viewfinder to be identical to the aspect ratio of the source**. If you don’t want to clip the image in the viewfinder - cutting off some of the pixels to fix the display, there are 2 cases to consider:
+You generally want **the aspect ratio (i.e., width/height) of the viewfinder to be identical to the aspect ratio of the source**. If you don’t want to clip the image in the viewfinder - cutting off some of the pixels to fix the display, there are 2 cases to consider, when `aspectRatioActivity` is greater than `aspectRatioSource` and when it's less than or equal to `aspectRatioSource`
 
-##### 1. `aspectRatioActivity > aspectRatioSource`
+##### `aspectRatioActivity > aspectRatioSource`
 
 You can think of the case as the activity being “wider”. Below we consider an example where you have a 16:9 activity and a 4:3 source.
 
