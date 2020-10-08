@@ -17,11 +17,11 @@ If your Android app uses cameras, there are some special considerations when han
 
 Handling orientations in Android camera apps is tricky and needs to take the following factors into consideration:
 
-* Natural orientation: The display orientation when the device is in the “normal” position for the device design - usually portrait orientation for mobile phones and landscape orientation for laptops.
-* Sensor orientation: The orientation of the sensor physically mounted on the device.
-* Display rotation: How much the device is physically rotated from the natural orientation.
-* Viewfinder size: The size of the viewfinder used for displaying the camera preview.
-* Image size output by the camera.
+- Natural orientation: The display orientation when the device is in the “normal” position for the device design - usually portrait orientation for mobile phones and landscape orientation for laptops.
+- Sensor orientation: The orientation of the sensor physically mounted on the device.
+- Display rotation: How much the device is physically rotated from the natural orientation.
+- Viewfinder size: The size of the viewfinder used for displaying the camera preview.
+- Image size output by the camera.
 
 These factors combined introduce a large number of possible UI and preview configurations for camera apps. This document is meant to demonstrate how developers can navigate these and correctly handle camera orientations in Android apps.
 
