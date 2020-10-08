@@ -197,7 +197,7 @@ viewfinderHeight = activityHeight;
 viewfinderWidth = activityHeight * aspectRatioSource;
 ```
 
-##### 2. `aspectRatioActivity ≤ aspectRatioSource`
+##### `aspectRatioActivity ≤ aspectRatioSource`
 
 The other case, as you may have figured, is when the activity is “narrower” or “taller”. Let’s reuse the example above, except that in the example below you rotate the device by 90 degrees, making the activity 9:16 and the source 3:4.
 
