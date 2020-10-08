@@ -296,6 +296,6 @@ You can do this by [View#setRotation(float)](<https://developer.android.com/refe
 
 - [PreviewView](https://developer.android.com/reference/androidx/camera/view/PreviewView) from [camerax](https://developer.android.com/training/camerax) in [Jetpack](https://developer.android.com/android/jetpack) handles TextureView layout as described above. It configures the transformation with [PreviewCorrector](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-master-dev:camera/camera-view/src/main/java/androidx/camera/view/preview/transform/PreviewCorrector.java).
 
-##### Note
-
-If you have previously used transformation matrix for TextureView in your code, the preview may not look right on a naturally-landscape device like Chromebooks. Likely your transformation matrix incorrectly assumes the sensor orientation to be 90 or 270 degrees. You may refer to this [commit](https://github.com/android/camera-samples/commit/3d1a254eb018a51ff39ae78d39a9e9e7942a027b) on GitHub for a workaround, but we highly recommend that you migrate your app to use the method described here instead.
+!!! aside.message--note
+**Note:** If you have previously used transformation matrix for TextureView in your code, the preview may not look right on a naturally-landscape device like Chromebooks. Likely your transformation matrix incorrectly assumes the sensor orientation to be 90 or 270 degrees. You may refer to this [commit](https://github.com/android/camera-samples/commit/3d1a254eb018a51ff39ae78d39a9e9e7942a027b) on GitHub for a workaround, but we highly recommend that you migrate your app to use the method described here instead.
+!!!
