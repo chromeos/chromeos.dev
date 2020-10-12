@@ -4,8 +4,7 @@ metadesc: An in-depth guide on how to handle orientations in Android camera apps
 date: 2020-09-23
 weight: 1
 tags:
-  - camera orientation
-  - large screens
+  - camera
 resources:
   - title: CameraX Preview Documentation
     url: https://developer.android.com/reference/androidx/camera/core/Preview
