@@ -5,6 +5,7 @@ date: 2020-09-23
 weight: 1
 tags:
   - camera
+  - device configuration
 resources:
   - title: CameraX Preview Documentation
     url: https://developer.android.com/reference/androidx/camera/core/Preview
