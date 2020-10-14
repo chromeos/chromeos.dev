@@ -13,11 +13,11 @@ Go to the Chrome OS settings and in the “Linux (Beta)” section, “Turn on�
 
 When you first start up the Terminal, you’ll notice that the window now opens immediately and displays the progress of starting up the Linux container.
 
-![Terminal startup progress.](/images/productivity/terminal_startup.png)
+![Terminal startup progress.](/images/productivity/terminal-startup.gif)
 
 You can make the Terminal your own by changing the settings. Right-click the Terminal icon and select “Settings” from the menu.
 
-![Access Terminal settings by right-clicking the Terminal icon.](/images/productivity/terminal_settings.png)
+![Access Terminal settings by right-clicking the Terminal icon.](/images/productivity/terminal-settings.png)
 
 ### Appearance and themes
 
@@ -28,6 +28,8 @@ You can customize the way the Terminal looks to fit your needs and preferences. 
 - cursor shape, color, blinking
 
 Any changes you make to each theme will be saved and remembered. If you want to reset a theme, click on it and you should see “Reset” appear. Click on it again and confirm that you would like to reset the theme to its original settings.
+
+![Edit the appearance for the Terminal and see the changes in real time. Reset to original theme.](/images/productivity/terminal-change-appearance.gif)
 
 ### Keyboard, mouse, and additional behaviors
 
@@ -46,3 +48,5 @@ The “Behavior” section of the settings has a couple more functionalities you
 ## Multi-tabs and multi-window
 
 The Terminal now has tab and multi-window support so you can multitask on different projects. Quickly create new tabs and windows via mouse or keyboard shortcuts. Organize your work across multiple windows by seamlessly dragging tabs between windows.
+
+![Create new tabs and windows and drag tabs between windows.](/images/productivity/terminal-multitabs.gif)
