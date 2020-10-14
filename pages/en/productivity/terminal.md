@@ -11,9 +11,15 @@ The Terminal is the main entry point into Linux (Beta) on Chrome OS and the main
 
 Go to the Chrome OS settings and in the “Linux (Beta)” section, “Turn on” Linux. This will bring up a window with a series of prompts. Choose your preferred username and disk size and click “Install”. When the installation is complete, a Terminal window will open.
 
-When you first start up the Terminal, you’ll notice that the window now opens immediately and displays the progress of starting up the Linux container. You can make the Terminal your own by changing the settings. Right-click the Terminal icon and select “Settings” from the menu.
+When you first start up the Terminal, you’ll notice that the window now opens immediately and displays the progress of starting up the Linux container.
 
-## Appearance and themes
+![Terminal startup progress.](/images/productivity/terminal_startup.png)
+
+You can make the Terminal your own by changing the settings. Right-click the Terminal icon and select “Settings” from the menu.
+
+![Access Terminal settings by right-clicking the Terminal icon.](/images/productivity/terminal_settings.png)
+
+### Appearance and themes
 
 You can customize the way the Terminal looks to fit your needs and preferences. Upon opening the Terminal settings, you’ll see customizations for “Appearance”. Here you can choose from preset themes or edit them by changing the following:
 
@@ -23,7 +29,7 @@ You can customize the way the Terminal looks to fit your needs and preferences. 
 
 Any changes you make to each theme will be saved and remembered. If you want to reset a theme, click on it and you should see “Reset” appear. Click on it again and confirm that you would like to reset the theme to its original settings.
 
-## Keyboard, mouse, and additional behaviors
+### Keyboard, mouse, and additional behaviors
 
 In the Terminal Settings, go to “Keyboard & mouse” to enable various keyboard and mouse shortcuts you are familiar with. Some shortcuts you may want to enable:
 
@@ -33,7 +39,7 @@ In the Terminal Settings, go to “Keyboard & mouse” to enable various keyboar
 - [[Ctrl]] + [[V]] paste behavior
 - Scroll to bottom after keystroke
 
-You can also enable or disable copy and paste functionalities such as “Automatically copy selected content” and “Mouse right clicks paste content”. 
+You can also enable or disable copy and paste functionalities such as “Automatically copy selected content” and “Mouse right clicks paste content”.
 
 The “Behavior” section of the settings has a couple more functionalities you can toggle. If you are unsure what a toggling a setting will do, you can always hover your cursor over it for additional details. This also works on all other Terminal settings options.
 
