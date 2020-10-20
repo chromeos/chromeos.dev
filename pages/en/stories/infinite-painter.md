@@ -53,7 +53,7 @@ Finally, the team [optimized the app to support varying window sizes](/{{locale.
 
 Sean Brakefield, creator of Infinite Painter {.cite}
 
-After optimizing for wider screens on Chrome OS, active installations of Infinite Painter have grown by 55%, and overall activity in the app has nearly doubled. Sean Brakefield, the creator of Infinite Painter, couldn't be happier with his team's decision: "Between users' growing demand for touch-centric experiences and the range of stylus-based Chromebooks being released, we knew it made perfect sense to optimize for Chrome OS," he concluded. "Best of all, nearly all of the migration was already done for us when Google added support for Android apps on Chromebooks."
+After optimizing for wider screens on Chrome OS, active installations of Infinite Painter have grown by 55%, and overall activity in the app has nearly doubled. Sean Brakefield, the creator of Infinite Painter, couldn't be happier with his team's decision: "Between users' growing demand for touch-centric experiences and the range of stylus-based Chromebooks being released, we knew it made perfect sense to optimize for Chrome OS," Sean concluded. "Best of all, nearly all of the migration was already done for us when Google added support for Android apps on Chromebooks."
 
 %[(55%, Growth in active installations), (2x, Growth in overall activity in app)]
 

@@ -73,7 +73,7 @@ Left-side navigation is also a paradigm people are used to from web pages.
 
 ### Layouts
 
-The photo viewer example shows that when you simply reuse a smartphone layout on wide screens, lists of items leave a lot of whitespace. Making better use of the space doesn’t mean applying a master-detail pattern and adding in as much content on the screen as possible. You should think about ways to surface more information or make tasks more efficient.
+The photo viewer example shows that when you simply reuse a smartphone layout on wide screens, lists of items leave a lot of whitespace. Making better use of the space doesn’t mean applying a main-detail pattern and adding in as much content on the screen as possible. You should think about ways to surface more information or make tasks more efficient.
 
 For example, option items in an overflow menu could be pulled out. So, instead of having to make three taps to edit, people can select that option directly now that there’s room to place it there.
 

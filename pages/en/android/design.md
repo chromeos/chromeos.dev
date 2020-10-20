@@ -50,7 +50,7 @@ Chrome OS devices provide significantly more screen real estate to your app. As 
 
 ![Rally Material Study](/images/android/design/rally.png)
 
-A good place to start is by looking at things that may be hidden to the user, and how you can pull them out and make them visible. Whether that is showing more information about an item, making menu's visible that may be hidden behind a right-click or long-press, or showing different or deeper navigation options now that you have a larger left-side navigation area. These are small wins that can improve your UX and give a more native feel, without a complete re-design and overhaul of the current experience.
+A good place to start is by looking at things that may be hidden to the user, and how you can pull them out and make them visible. Whether that is showing more information about an item, making menu's visible that may be hidden behind a right-click or long-press, or showing different or deeper navigation options now that you have a larger left-side navigation area. These are small wins that can improve your UX and give a more polished feel, without a complete re-design and overhaul of the current experience.
 
 Here are some recommendations for your app:
 

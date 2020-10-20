@@ -20,15 +20,15 @@ resources:
 *[OTs]: Origin Trials
 *[OT]: Origin Trial
 
-Desktop [Progressive Web Apps](https://web.dev/what-are-pwas/) (PWAs) are a great cross-platform, cross-browser way to build apps with a security model that centers user safety and privacy and get built-in sharing with the web’s inherent linkability. Build new or enhance your existing web app with modern APIs to give them native-like capabilities, reliability, and installability. PWAs are the best way to deliver your web app for Chrome OS.
+Desktop [Progressive Web Apps](https://web.dev/what-are-pwas/) (PWAs) are a great cross-platform, cross-browser way to build apps with a security model that centers user safety and privacy and get built-in sharing with the web’s inherent linkability. Build new or enhance your existing web app with modern APIs to give them compiled app-like capabilities, reliability, and installability. PWAs are the best way to deliver your web app for Chrome OS.
 
-On Chrome OS, the power of the web platform is front and center; web apps are first-class citizens. Installed PWAs show up in the Chrome OS launcher, can be pinned to the shelf, and integrate deeply with the rest of the OS.
+On Chrome OS, the power of the web platform is front and center; web apps are a core platform feature. Installed PWAs show up in the Chrome OS launcher, can be pinned to the shelf, and integrate deeply with the rest of the OS.
 
 Get started by reviewing the [PWA Checklist](https://web.dev/pwa-checklist/) and making sure your web app passes the core PWA checklist. You can use [PWABuilder](https://www.pwabuilder.com/) to help you provide a custom offline page and make your app installable. Then, use these recommendations to make your PWA shine on Chrome OS.
 
 ## Make it installable
 
-One of the great advantages of PWAs over regular web apps is the ability for them to be installed, just like native apps. The Progressive Web App path on web.dev has a section dedicated to [making your PWA installable](https://web.dev/progressive-web-apps/#installable); use that to get started. In order for a PWA to be identified as installable on Chrome OS, the following criteria must be met, which can be checked using [Lighthouse’s installable audit](https://web.dev/installable-manifest/#how-the-lighthouse-web-app-manifest-audit-fails):
+One of the great advantages of PWAs over regular web apps is the ability for them to be installed, just like compiled apps. The Progressive Web App path on web.dev has a section dedicated to [making your PWA installable](https://web.dev/progressive-web-apps/#installable); use that to get started. In order for a PWA to be identified as installable on Chrome OS, the following criteria must be met, which can be checked using [Lighthouse’s installable audit](https://web.dev/installable-manifest/#how-the-lighthouse-web-app-manifest-audit-fails):
 
 - It must have a valid [web app manifest](https://web.dev/add-manifest/)
 - It must meet Chrome’s [install criteria](https://web.dev/install-criteria/)
@@ -40,7 +40,7 @@ With your PWA installable, it’ll now show up across Chrome OS, from the launch
 
 ### A note on working offline
 
-There are plenty of discoverability, usability, and capability advantages simply by making your app installable. Making your PWA installable does _not_ mean your whole experience must work offline. In order for an installed app to feel native, though, it should have some form of offline functionality. A basic custom offline page is enough to get started; users expect that installed apps don’t crash when connection status changes. Just as a native app never shows a blank page when it is offline, PWAs should never show the browser default offline page. Custom offline pages can range from a message letting the user know they need a connection to a game to let them pass the time until they’re connected again. Providing this custom offline experience for uncached pages or features that require a connection helps to bridge the native-web user experience app gap.
+There are plenty of discoverability, usability, and capability advantages simply by making your app installable. Making your PWA installable does _not_ mean your whole experience must work offline. In order for an installed app to feel like a compiled app, though, it should have some form of offline functionality. A basic custom offline page is enough to get started; users expect that installed apps don’t crash when connection status changes. Just as a compiled app never shows a blank page when it is offline, PWAs should never show the browser default offline page. Custom offline pages can range from a message letting the user know they need a connection to a game to let them pass the time until they’re connected again. Providing this custom offline experience for uncached pages or features that require a connection helps to bridge the compiled-web user experience app gap.
 
 You can create a simple offline page during a service worker’s `install` event by precaching the desired page for later use and responding with it if a user is offline. You can follow our [custom offline page sample](https://googlechrome.github.io/samples/service-worker/custom-offline-page/) to see an example of this in action and learn how to implement it yourself.
 
@@ -79,17 +79,17 @@ It is important to take touch and stylus support into consideration when designi
 
 ## Make it capable
 
-While some PWA capabilities are commonly known, like the [Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API) that lets a web app receive and publish native notifications, there are a number of new and upcoming features that are coming to the web to superpower your apps. The Chromium [Web Capabilities project](https://www.chromium.org/teams/web-capabilities-fugu), also known as Project Fugu 🐡, is an effort to enable new, powerful web standards preserving what makes the web unique: it’s user-centric security, low-friction, and cross-platform compatibility.
+While some PWA capabilities are commonly known, like the [Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API) that lets a web app receive and publish platform notifications, there are a number of new and upcoming features that are coming to the web to superpower your apps. The Chromium [Web Capabilities project](https://www.chromium.org/teams/web-capabilities-fugu), also known as Project Fugu 🐡, is an effort to enable new, powerful web standards preserving what makes the web unique: it’s user-centric security, low-friction, and cross-platform compatibility.
 
 !!! aside.message--note
 **Note:** These capabilities are in various states of completeness, ranging from under consideration to shipped, and they may only be targeted for desktop or mobile devices, not both. While Chrome OS users are likely to get desktop targeted features as they become available, cross-platform support, even stable support in Chrome OS, can sometimes be a multi-year process.
 !!!
 
-### Bridging the native app gap
+### Bridging the compiled app gap
 
 @[youtube](https://www.youtube.com/watch?v=JKVZMqpiY7w)
 
-Most of these capabilities are built around bridging the gap between native apps and web apps, with the first major capabilities to ship allowing web apps to access native [contact pickers](https://web.dev/contact-picker/) and [share capabilities](https://web.dev/web-share/), and installed PWAs to register as a [native share target](https://web.dev/web-share-target/) and [show icon badges](https://web.dev/badging-api/), [to name a few](https://goo.gle/fugu-api-tracker).
+Most of these capabilities are built around bridging the gap between compiled app and web apps, with the first major capabilities to ship allowing web apps to access the platform's [contact pickers](https://web.dev/contact-picker/) and [share capabilities](https://web.dev/web-share/), and installed PWAs to register as a [platform share target](https://web.dev/web-share-target/) and [show icon badges](https://web.dev/badging-api/), [to name a few](https://goo.gle/fugu-api-tracker).
 
 Each capability goes through an [extensive standardization process](https://developers.google.com/web/updates/capabilities) to solicit community feedback to help shape the API and ensure the final design is secure, private, and trustworthy. New capabilities are tracked in an [open tracker](https://goo.gle/fugu-api-tracker) and can divided into one of five categories:
 
@@ -114,8 +114,8 @@ With so many new capabilities coming up, it is hard to narrow down a list of wha
 
 #### Origin Trial
 
-Native File System API
-: The [Native File System API](https://web.dev/native-file-system/) ([spec](https://wicg.github.io/native-file-system/)) web apps that interact with files on the user’s local device, like photo, video, and text editors. After a user grants access, this API allows web apps to read or save changes directly to files and folders on the user’s device.
+File System Access API
+: The [File System Access](https://web.dev/file-system-access/) ([spec](https://wicg.github.io/file-system-access/)) web apps that interact with files on the user’s local device, like photo, video, and text editors. After a user grants access, this API allows web apps to read or save changes directly to files and folders on the user’s device.
 
 #### Developer Trial
 
@@ -123,7 +123,7 @@ Screen Enumeration and Window Placement
 : The [Screen Enumeration API](https://github.com/webscreens/screen-enumeration/blob/master/EXPLAINER.md) and the [Window Placement API](https://github.com/webscreens/window-placement/blob/master/EXPLAINER.md) are two complimentary APIs that, when used together, allow web apps to understand what displays are available and open and position windows programmatically across those screens. With these APIs, web apps like presentations with speaker notes, multi-window dashboards, or canvases with toolbars.
 
 File Handling
-: The [File Handling API](https://github.com/WICG/file-handling/blob/master/explainer.md) allows installed PWAs to register their ability to handle (read, stream, edit) files with given MIME types and/or file extensions. This API allows installed PWAs to show up in native file systems’ “open with…” dialogs when opening a file, and allow users to set the PWA as the default application for supported file types.
+: The [File Handling API](https://github.com/WICG/file-handling/blob/master/explainer.md) allows installed PWAs to register their ability to handle (read, stream, edit) files with given MIME types and/or file extensions. This API allows installed PWAs to show up in a platform's file system's “open with…” dialogs when opening a file, and allow users to set the PWA as the default application for supported file types.
 
 Tabbed Application Mode
 : [Tabbed application mode](https://github.com/w3c/manifest/issues/737) allows developers to specify that their PWA should divide its window into tabs, similar to a tabbed web browser, except that all of the tabs belong to the app (and don’t have a URL bar).

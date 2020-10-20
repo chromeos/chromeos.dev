@@ -28,7 +28,7 @@ Since its inception, [Flutter](https://flutter.dev/) has shared many of the same
 
 Flutter initially focused on providing a UI toolkit for building apps for mobile devices, which typically feature touch input and small screens. However, we’ve been building keyboard and mouse support into Flutter since before our 1.0 release last December. And today, we’re pleased to announce that Flutter for Chrome OS is now stronger with scroll wheel support, hover management, and better keyboard event support. In addition, Flutter has always been great at allowing you to build apps that run at any size (large screen or small), with seamless resizing, as shown in the [Flutter Gallery](https://github.com/flutter/gallery/).
 
-The Gallery is an app designed to be a collection of Material Design & Cupertino widgets, behaviors, and vignettes implemented with Flutter. The app showcases responsive design as well as having keyboard navigation support throughout the app. This is a great place to look at how a well designed app handles resizing windows and switching between different layouts, while also showcasing the native support for keyboard and focus navigation in the toolkit out of the box.
+The Gallery is an app designed to be a collection of Material Design & Cupertino widgets, behaviors, and vignettes implemented with Flutter. The app showcases responsive design as well as having keyboard navigation support throughout the app. This is a great place to look at how a well designed app handles resizing windows and switching between different layouts, while also showcasing the built-in support for keyboard and focus navigation in the toolkit out of the box.
 
 Because Chrome OS runs Android apps, targeting Android is the way to build Chrome OS apps. However, while building Chrome OS apps on Android has always been possible, as described in [these guidelines](/{{locale.code}}/android), it’s often difficult to know whether your Android app is going to run well on Chrome OS. To help with that problem, today we are adding a new set of lint rules to the Flutter tooling to catch violations of the most important of the Chrome OS best practice guidelines:
 
@@ -40,7 +40,7 @@ But all of that is just the beginning -- the Flutter tools allow you to develop 
 
 ## Chrome OS is a great developer platform to build Flutter apps
 
-No matter what platform you're targeting, Flutter has support for rich IDEs and programming tools like Android Studio and Visual Studio Code. Over the last year, Chrome OS has been building support for running the Linux version of these tools with the beta of [Linux on Chrome OS](/{{locale.code}}/linux) (aka Crostini). And, because Chrome OS also supports Android natively, you can configure the Flutter tooling to run your Android apps directly without an emulator involved.
+No matter what platform you're targeting, Flutter has support for rich IDEs and programming tools like Android Studio and Visual Studio Code. Over the last year, Chrome OS has been building support for running the Linux version of these tools with the beta of [Linux on Chrome OS](/{{locale.code}}/linux) (aka Crostini). And, because Chrome OS also supports Android, you can configure the Flutter tooling to run your Android apps directly without an emulator involved.
 
 #[The Flutter development tools running on Chrome OS](/images/posts/flutter-and-chromeos-better-together/flutter-on-chromeos.gif)
 

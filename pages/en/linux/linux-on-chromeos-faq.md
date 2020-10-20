@@ -85,7 +85,7 @@ Yes! You'll probably need to install the relevant packages first for whatever co
 
 ## What architecture works on my system?
 
-Since everything is all native code execution, it depends on the device you have.
+Since everything is all machine code execution, it depends on the device you have.
 
 If you don't know what device you have, you can find this out in two different ways:
 
@@ -273,7 +273,7 @@ Linux apps that are visible in the launcher shelf should have an option to use e
 
 While Chrome supports [high DPI](https://en.wikipedia.org/wiki/HiDPI) displays, many Linux applications don‘t. When a program doesn’t properly support [DPI](https://en.wikipedia.org/wiki/Dots_per_inch#Computer_monitor_DPI_standards) scaling, poor results follow.
 
-Currently we expose the native resolution and [DPI](https://en.wikipedia.org/wiki/Dots_per_inch#Computer_monitor_DPI_standards) directly to applications. If they show up tiny or fuzzy, it‘s because they don’t support scaling properly. You should report these issues to the respective upstream projects so that, hopefully someday, it'll “just work”.
+Currently we expose the built-in resolution and [DPI](https://en.wikipedia.org/wiki/Dots_per_inch#Computer_monitor_DPI_standards) directly to applications. If they show up tiny or fuzzy, it‘s because they don’t support scaling properly. You should report these issues to the respective upstream projects so that, hopefully someday, it'll “just work”.
 
 In the meantime, [Sommelier](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/) exposes some runtime settings so you can set the scale factor on a per-program basis to work around the misbehavior. Check out [Sommelier](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/)'s documentation for more details.
 

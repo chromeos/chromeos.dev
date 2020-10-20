@@ -5,9 +5,9 @@ date: 2020-06-16
 weight: -5
 ---
 
-Most Android phones have ARM chipsets. However, many Chrome OS devices use x86 chips. The difference is not important for basic apps written in Kotlin or Java. However, for apps written in native code, including those created with game engines, the chipset in the device can be an important concern.
+Most Android phones have ARM chipsets. However, many Chrome OS devices use x86 chips. The difference is not important for basic apps written in Kotlin or Java. However, for apps written in Android NDK, including those created with game engines, the chipset in the device can be an important concern.
 
-Ideally, all apps with native code should ship with all [four major Android ABIs (Application Binary Interfaces)](https://developer.android.com/ndk/guides/abis): armeabi-v7a (arm32), arm64-v8a (arm64), x86 (x86_32), and x86_64.
+Ideally, all apps with Android NDK code should ship with all [four major Android ABIs (Application Binary Interfaces)](https://developer.android.com/ndk/guides/abis): armeabi-v7a (arm32), arm64-v8a (arm64), x86 (x86_32), and x86_64.
 
 This provides the best performance and lowest battery consumption for each device. For example, a cmake-based `build.gradle` file may contain:
 
