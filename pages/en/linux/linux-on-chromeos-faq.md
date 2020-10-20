@@ -23,7 +23,7 @@ Please first make sure you're using the latest dev channel. A lot of work is sti
 
 Next, please make sure the issue isn't already known or fixed. You can check the [existing bug list](https://bugs.chromium.org/p/chromium/issues/list?can=1&q=component:OS%3ESystems%3EContainers).
 
-If you still want to send feedback, you can [file a feedback report](https://support.google.com/chromebook/answer/2982029) and include `#crostini` (another name for Linux on Chrome OS) in the description. Feedback about any part of Chrome OS can be filed with “Alt-Shift-i”.
+If you still want to send feedback, you can [file a feedback report](https://support.google.com/chromebook/answer/2982029) and include `#crostini` (another name for Linux on Chrome OS) in the description. Feedback about any part of Chrome OS can be filed with [[Alt]]+[[Shift]]+[[i]].
 
 If you still want to file a bug with the developers, use [this link](https://bugs.chromium.org/p/chromium/issues/entry?comment=Chrome%20version%3A%20%28copy%20from%20chrome%3A%2F%2Fversion%29%0AOS%3A%20Chrome%0A%0ARepro%20steps%3A%0A1.%20%0A2.%20%0A3.%20%0A%0AExpected%3A%20%0AActual%3A%20&status=Untriaged&labels=Pri-2%2COS-Chrome%2CType-Bug%2CProj-Containers&components=OS%3ESystems%3EContainers) to route to the right people.
 
@@ -241,7 +241,7 @@ $ sudo apt-get dist-upgrade
 # Clear out existing pulse settings.
 $ rm -rf ~/.config/pulse
 
-# Turn it off & on again via crosh (Ctrl+Alt+T).
+# Turn it off & on again via crosh ([Ctrl]+[[Alt]]+[[T]]).
 crosh> vmc stop termina
 ```
 

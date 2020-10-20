@@ -45,12 +45,12 @@ To enter developer mode, complete these steps:
 **Note:** On most devices, both the _recovery_ button and the _dev-switch_ button are virtualized. If these instructions don't work for you, see the [specific instructions for your device](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices).
 !!!
 
-2.  When the _Recovery_ screen appears, press [[Control]] + [[D]]. There's no prompt for this action, so you must simply complete it. Afterwards, you are prompted to confirm and reboot into developer mode.
+2.  When the _Recovery_ screen appears, press [[Control]]+[[D]]. There's no prompt for this action, so you must simply complete it. Afterwards, you are prompted to confirm and reboot into developer mode.
 
 If you see one of the screens from [Figure 2](#figure-2) when you turn on your device, you've successfully entered developer mode.
 
 #2[Developer mode confirmation screens.](/images/android/dev-mode/verification.jpg)
 
 !!! aside.message--note
-**Note**: To skip the OS loading screen, either wait 30 seconds or press [[Control]] + [[D]], and your Chromebook will continue starting.
+**Note**: To skip the OS loading screen, either wait 30 seconds or press [[Control]]+[[D]], and your Chromebook will continue starting.
 !!!

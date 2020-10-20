@@ -98,7 +98,7 @@ Para enviar su APK desde otro dispositivo al Chromebook, debe iniciar su Chrome 
 
 2. Determine si su dispositivo [admite la depuración de USB](https://www.chromium.org/chromium-os/chrome-os-systems-supporting-adb-debugging-over-usb)
 
-3. Presione [[Control]] + [[Alt]] + [[T]] para iniciar el terminal Chrome OS.
+3. Presione [[Control]]+[[Alt]]+[[T]] para iniciar el terminal Chrome OS.
 
 4. Escriba `shell` para llegar al comando bash shell:
 
@@ -132,7 +132,7 @@ Use este comando cada vez que desconecte y vuelva a conectar un cable USB. Para 
 
 Para depurar a través de una red, debe configurar el firewall de Chrome OS para permitir conexiones ADB entrantes:
 
-1. Presione [[Control]] + [[Alt]] + [[T]] para iniciar el terminal Chrome OS.
+1. Presione [[Control]]+[[Alt]]+[[T]] para iniciar el terminal Chrome OS.
 
 2. Escriba `shell` para llegar al comando bash shell:
 
@@ -141,7 +141,7 @@ Para depurar a través de una red, debe configurar el firewall de Chrome OS para
    chronos@localhost / $
    ```
 
-3. Escriba los siguientes comandos para configurar las características del desarrollador y habilitar el acceso de escritura en disco para los cambios en la configuración del firewall. Si necesita ingresar una contraseña de sudo para el usuario de `chronos` , puede (re) establecer una ejecutando `chromeos-setdevpassword` en el [indicador VT-2](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md#vt2) ([[Control]] + [[Alt]] + [[→]]) ; Necesitarás tu contraseña de root.
+3. Escriba los siguientes comandos para configurar las características del desarrollador y habilitar el acceso de escritura en disco para los cambios en la configuración del firewall. Si necesita ingresar una contraseña de sudo para el usuario de `chronos` , puede (re) establecer una ejecutando `chromeos-setdevpassword` en el [indicador VT-2](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md#vt2) ([[Control]]+[[Alt]]+[[→]]) ; Necesitarás tu contraseña de root.
 
    ```bash
    $ sudo crossystem dev_boot_signed_only=0

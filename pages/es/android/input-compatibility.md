@@ -15,7 +15,7 @@ En los dispositivos Chrome OS, muchos usuarios interactúan con las aplicaciones
 Los desarrolladores que quieran que su aplicación funcione bien con los dispositivos de entrada en Chrome OS y otros dispositivos de pantalla grande con capacidad para Android, deben tener en cuenta las siguientes optimizaciones:
 
 - Agregar y probar la compatibilidad básica con el teclado, como la navegación del teclado mediante las teclas de flechas y la tecla tab, la tecla enter para confirmar la entrada de texto y espacio para reproducir / pausar en aplicaciones multimedia.
-- Agregue atajos de teclado estándar cuando corresponda, por ejemplo [[Ctrl]] + [[Z]] para deshacer, [[Ctrl]] + [[S]] para guardar.
+- Agregue atajos de teclado estándar cuando corresponda, por ejemplo [[Ctrl]]+[[Z]] para deshacer, [[Ctrl]]+[[S]] para guardar.
 - Pruebe las interacciones básicas del mouse: que el clic derecho despliegue menús contextuales, los cambios de íconos al flotar el mouse sobre los elementos y los eventos de desplazamiento de la rueda del mouse/trackpad en las vistas personalizadas.
 - Pruebe los dispositivos de entrada específicos de la aplicación, como un lápiz óptico para aplicaciones de dibujo, controladores de juegos para juegos y controladores MIDI para aplicaciones de música.
 - Considere el soporte de entrada avanzado que podría hacer que la aplicación se destaque en entornos de escritorio: panel táctil como cross-fader para aplicaciones de DJ, captura de mouse para juegos y extensos atajos de teclado para usuarios avanzados.
@@ -112,12 +112,12 @@ Cuando agregue compatibilidad con el teclado, siga la
 En los ambientes de escritorio se espera que atajos comunes como los basados en Ctrl, Alt, Shift. Si una aplicación no los implementa, la experiencia puede resultar frustrante y equivocada para los usuarios. Los usuarios avanzados también aprecian los accesos directos para las tareas específicas de la aplicación que se utilizan con frecuencia. Los accesos directos facilitan el uso de una
 aplicación y la diferencian de las aplicaciones que no tienen accesos directos.
 
-Algunos atajos comunes incluyen [[Ctrl]] + [[S]](guardar), [[Ctrl]] + [[Z]](deshacer) y
-[[Ctrl]] + [[Shift]] + [[Z]](rehacer). Para ver un ejemplo de algunos accesos directos más avanzados, consulte la lista de [teclas de acceso directo del VLC Media Player](https://www.vlchelp.com/vlc-media-player-shortcuts/).
+Algunos atajos comunes incluyen guardar ([[Ctrl]]+[[S]]), deshacer ([[Ctrl]]+[[Z]]) y
+rehacer [[Ctrl]]+[[Shift]]+[[Z]]. Para ver un ejemplo de algunos accesos directos más avanzados, consulte la lista de [teclas de acceso directo del VLC Media Player](https://www.vlchelp.com/vlc-media-player-shortcuts/).
 
 Los accesos directos se pueden implementar usando
 [dispatchKeyShortcutEvent](<https://developer.android.com/reference/android/view/Window.Callback.html#dispatchKeyShortcutEvent(android.view.KeyEvent)>).
-Esto intercepta todas las combinaciones de meta-teclas (Alt, Ctrl y Shift) para undeterminado
+Esto intercepta todas las combinaciones de meta-teclas ([[Alt]], [[Ctrl]] y [[Shift]]) para undeterminado
 código de tecla. Para verificar una meta-clave específica, use
 [KeyEvent.isCtrlPressed](<https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed()>), [KeyEvent.isShiftPressed](<https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed()>),
 [KeyEvent.isAltPressed](<https://developer.android.com/reference/android/view/KeyEvent#isAltPressed()>)
@@ -155,7 +155,7 @@ También puede implementar accesos directos en `onKeyUp` comprobando
 [KeyEvent.isShiftPressed](<https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed()>)
 o [KeyEvent.isAltPressed](<https://developer.android.com/reference/android/view/KeyEvent#isAltPressed()>)
 de la misma manera que arriba. Esto puede ser más fácil de mantener si el meta-comportamiento
-es más una modificación del comportamiento de una aplicación que un acceso directo. Por ejemplo, cuando [[W]] significa "caminar hacia adelante" y [[Shift]] + [[W]] significa "correr hacia adelante".
+es más una modificación del comportamiento de una aplicación que un acceso directo. Por ejemplo, cuando [[W]] significa "caminar hacia adelante" y [[Shift]]+[[W]] significa "correr hacia adelante".
 
 ```kotlin
 override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
@@ -323,11 +323,11 @@ Para probar si una aplicación responde correctamente a los intents de tomar not
 lápiz óptico activo, use el siguiente método para mostrar las opciones de tomar de notas:
 
 1. [Cambie al modo de desarrollo y haga el dispositivo se puede escribir](https://chromium.googlesource.com/chromiumos/docs/+/refs/heads/master/developer_mode.md)
-2. Presione Ctrl + Alt + F2 para abrir una terminal
+2. Presione [[Ctrl]]+[[Alt]]+[[F2]] para abrir una terminal
 3. Ejecute el comando `sudo vi / etc / chrome_dev.conf`
 4. Presione `i` para editar y agregar`--ash-enable-palette` a una nueva línea al final del archivo
 5. Guarde presionando Esc y luego escribiendo:, w, q y presionando Enter
-6. Presione Ctrl + Alt + F1 para volver a la interfaz de usuario normal de Chrome OS
+6. Presione [[Ctrl]]+[[Alt]]+[[F1]] para volver a la interfaz de usuario normal de Chrome OS
 7. Cerrar sesión y volver a ingresar
 
 Ahora debería haber un menú de lápiz en el estante:

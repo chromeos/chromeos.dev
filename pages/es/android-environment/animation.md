@@ -45,6 +45,6 @@ Para configurar el generador de perfiles, siga estos pasos:
 
 1. Verifique la **parada en "jank"** .
 2. Ejecute la aplicación de Android.
-3. Cuando la aplicación de Android está activa y esta enfocada, presione [[Ctrl]] + [[Shift]] + [[G]].
+3. Cuando la aplicación de Android está activa y esta enfocada, presione [[Ctrl]]+[[Shift]]+[[G]].
 
 Cuando ocurre algua distorción ("jank"), aparecerá la ventana del navegador. Use las teclas [[w]] y [[s]] para hacer zoom y reducir la línea de tiempo.
