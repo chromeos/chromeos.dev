@@ -119,10 +119,10 @@ Add an embedded video from YouTube.
 
 Display a keyboard key. Whenever you are talking about a specific key on a keyboard, such as providing a key sequence for a keyboard shortcut, each individual key should be inclosed as follows. Additionally, when providing a key sequence, each key should be separated by a `+` \_with\_\_ spaces around it.
 
-[[CTRL]] + [[C]]
+[[CTRL]]+[[C]]
 
 ```markdown
-[[CTRL]] + [[C]]
+[[CTRL]]+[[C]]
 ```
 
 ### Statistics

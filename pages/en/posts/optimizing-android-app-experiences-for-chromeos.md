@@ -67,7 +67,7 @@ For apps that require more advanced touch motion events, you can use `ignore Mot
 
 ### NDK
 
-Games and apps on Chrome OS automatically receive ARM to x86 translation. But if performance is your priority, it’s essential to support x86. [Most of the top Chrome OS devices](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices) have 64-bit x86 chipsets and more are on the horizon. To provide the best performance and support across all devices, be sure to provide ARM, ARM64, x86, and x86_64 build targets if you have native code.
+Games and apps on Chrome OS automatically receive ARM to x86 translation. But if performance is your priority, it’s essential to support x86. [Most of the top Chrome OS devices](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices) have 64-bit x86 chipsets and more are on the horizon. To provide the best performance and support across all devices, be sure to provide ARM, ARM64, x86, and x86_64 build targets if you have Android NDK code.
 
 Android Studio makes supporting this simple: Using Android app bundles, it packages all your build targets up ready for the Play Store, which then only sends the build targets your app users need to keep download sizes at a minimum.
 
@@ -144,6 +144,6 @@ An integrated profiling tool allows devs to monitor system status over time — 
 
 ## Deliver an optimal experience on every screen
 
-The app experience has expanded far beyond mobile. In an era of versatile devices and variable form factors, users will expect a well-designed, user-friendly experience every time they open your app. Take advantage of the opportunity to support various input methods, optimize your layout and navigation for a variety of screen sizes, utilize extra screen real estate, and support x86 with native code.
+The app experience has expanded far beyond mobile. In an era of versatile devices and variable form factors, users will expect a well-designed, user-friendly experience every time they open your app. Take advantage of the opportunity to support various input methods, optimize your layout and navigation for a variety of screen sizes, utilize extra screen real estate, and support x86 with Android NDK code.
 
 If you’d like to hear more about building Android apps for Chrome OS, [check out our full session](https://www.youtube.com/watch?v=06xJOOs_KvQ&list=PLNYkxOF6rcIBqW90ghQOTs9MqN5KxqESw) from I/0 2019.

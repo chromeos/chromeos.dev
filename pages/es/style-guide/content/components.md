@@ -115,10 +115,10 @@ Agregue un video incrustado de YouTube.
 
 Mostrar una tecla del teclado. Siempre que esté hablando de una tecla específica en un teclado, como proporcionar una secuencia de teclas para un atajo de teclado, cada tecla individual debe incluirse de la siguiente manera. Además, al proporcionar una secuencia de teclas, cada tecla debe estar separada por espacios `+` \_with\_\_ a su alrededor.
 
-[[CTRL]] + [[C]]
+[[CTRL]]+[[C]]
 
 ```markdown
-[[CTRL]] + [[C]]
+[[CTRL]]+[[C]]
 ```
 
 ### Estadísticas

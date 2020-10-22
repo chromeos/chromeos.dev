@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* global gtag */
 import dynamicImportPolyfill from 'dynamic-import-polyfill';
 import { preferences } from 'service-worker-i18n-redirect/preferences';
 import { MainNavigation } from './components/nav';
@@ -128,25 +129,28 @@ window.addEventListener('load', async () => {
       new ResponsiveTable(table);
     }
   }
+
+  const { Tracking } = await import('./lib/tracking');
+  new Tracking(gtag);
 });
 
 // Manage Service Worker
 // eslint-disable-next-line no-constant-condition
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', async () => {
-    try {
-      const registration = await navigator.serviceWorker.register('/sw.js');
-      // log('Service Worker registered! 😎');
-      // log(registration);
+// if ('serviceWorker' in navigator) {
+//   window.addEventListener('load', async () => {
+//     try {
+//       const registration = await navigator.serviceWorker.register('/sw.js');
+//       // log('Service Worker registered! 😎');
+//       // log(registration);
 
-      // Only offer reloads if there is already an active Service Worker
-      if (registration.active) {
-        const { offerServiceWorkerReload } = await import('./lib/offer-service-worker-reload');
-        offerServiceWorkerReload(registration);
-      }
-    } catch (e) {
-      // log('Registration failed 😫');
-      // log(e);
-    }
-  });
-}
+//       // Only offer reloads if there is already an active Service Worker
+//       if (registration.active) {
+//         const { offerServiceWorkerReload } = await import('./lib/offer-service-worker-reload');
+//         offerServiceWorkerReload(registration);
+//       }
+//     } catch (e) {
+//       // log('Registration failed 😫');
+//       // log(e);
+//     }
+//   });
+// }

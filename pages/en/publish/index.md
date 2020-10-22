@@ -18,6 +18,6 @@ If you charge money for your app/game you can also use the Play Billing APIs for
 
 - Follow the [Google Play Launch Checklist](https://developer.android.com/distribute/best-practices/launch/launch-checklist).
 - Review your [app's device compatibility](https://support.google.com/googleplay/android-developer/answer/7353455) to ensure it's installable on all Chromebooks.
-- If you are using native code (NDK) review [publishing considerations](/{{locale.code}}/games/optimizing-games-publishing) for best performance.
+- If you are using the Android NDK, review [publishing considerations](/{{locale.code}}/games/optimizing-games-publishing) for best performance.
 - Test before launch using [testing tracks](https://developer.android.com/distribute/best-practices/launch/test-tracks).
 - Learn how to [Grow your audience by optimizing your app for Chrome OS](https://playacademy.exceedlms.com/student/activity/19745-grow-your-audience-by-optimizing-your-app-for-chrome-os).

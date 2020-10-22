@@ -20,7 +20,32 @@ exports.plugins = [
   require('remark-lint'),
   require('remark-frontmatter', ['yaml']),
 
+  // 3rd Party
+  // prettier-ignore
+  [require('remark-lint-prohibited-strings'), [2, [
+    { no: 'master' },
+    { no: 'slave' },
+    { no: 'native' },
+    { no: 'first(-|\s)?class' },
+    { no: 'dummy' },
+    { no: 'sane' },
+    { no: 'crazy' },
+    { no: 'insane' },
+    { no: 'cripple' },
+    { no: 'sanity(-|\s)check' },
+    { no: 'grandfathered' },
+    { no: 's?he' },
+    { no: '^h(is|er(s?))$' },
+    { no: 'man-in-the-middle' },
+    { no: 'mitm' },
+    { no: 'redline' },
+    { no: '(black|white|gray|grey)(-|\s)?(hat|list|glove|label)' },
+    { no: 'rtfm' },
+    { no: 'wtf' }],
+    { no: 'post mortem' }
+  ]],
+
   // Custom
-  require('./lib/linting/content-models.js'),
-  require('./lib/linting/md-name-lint'),
+  [require('./lib/linting/content-models.js'), [2]],
+  [require('./lib/linting/md-name-lint'), [2]],
 ];

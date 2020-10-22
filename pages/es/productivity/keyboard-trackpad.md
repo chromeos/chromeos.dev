@@ -11,19 +11,19 @@ Chrome OS viene con atajos de teclado incorporados y gestos de panel táctil par
 
 Los atajos de teclado lo ayudan a realizar tareas rápidamente sin necesidad de buscar acciones en el menú de una aplicación o con el mouse. Se encuentra disponible [una lista completa de métodos abreviados de teclado](https://support.google.com/chromebook/answer/183101?hl={{locale.code}}), a continuación se encuentran los métodos abreviados de teclado comunes de Chrome OS que pueden ayudarlo a ser más productivo:
 
-- **Bloquear la pantalla** : [[buscar]] + [[l]]
-- **Aplicación de archivos** : [[shift]] + [[alt]] + [[m]]
-- **Abra la nueva terminal de crosh shell** : [[ctrl]] + [[alt]] + [[t]]
-- **Acople la ventana actual a la izquierda o derecha** : [[alt]] + [[[]] o [[alt]] + [[]]]
+- **Bloquear la pantalla** : [[buscar]]+[[l]]
+- **Aplicación de archivos** : [[shift]]+[[alt]]+[[m]]
+- **Abra la nueva terminal de crosh shell** : [[ctrl]]+[[alt]]+[[t]]
+- **Acople la ventana actual a la izquierda o derecha** : [[alt]]+[[[]] o [[alt]]+[[]]]
 - **Captura de pantalla completa** : [[ctrl]] + **Mostrar ventanas** [[[] ||]]
-- **Captura de pantalla parcial** : [[ctrl]] + [[shift]] + **Mostrar ventanas** [[[] ||]]
-- **Bloqueo de mayúsculas** : [[alt]] + [[buscar]]
-- **Administrador de tareas** : [[búsqueda]] + [[esc]]
-- **Nueva pestaña** : [[ctrl]] + [[t]]
-- **Cerrar pestaña actual** : [[ctrl]] + [[w]]
-- **Vuelva a abrir la última pestaña cerrada** : [[ctrl]] + [[shift]] + [[t]]
-- **Ver todos los atajos de teclado** : [[ctrl]] + [[alt]] + [[/]]
-- **Manual de ayuda de Chromebook** : [[ctrl]] + [[/]]
+- **Captura de pantalla parcial** : [[ctrl]]+[[shift]] + **Mostrar ventanas** [[[] ||]]
+- **Bloqueo de mayúsculas** : [[alt]]+[[buscar]]
+- **Administrador de tareas** : [[búsqueda]]+[[esc]]
+- **Nueva pestaña** : [[ctrl]]+[[t]]
+- **Cerrar pestaña actual** : [[ctrl]]+[[w]]
+- **Vuelva a abrir la última pestaña cerrada** : [[ctrl]]+[[shift]]+[[t]]
+- **Ver todos los atajos de teclado** : [[ctrl]]+[[alt]]+[[/]]
+- **Manual de ayuda de Chromebook** : [[ctrl]]+[[/]]
 
 También hay una serie de [teclas únicas](https://support.google.com/chromebook/answer/1047364?hl={{locale.code}}) en el teclado de su Chromebook que puede usar para mejorar aún más su experiencia.
 

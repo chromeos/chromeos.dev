@@ -8,7 +8,7 @@ date: 2020-05-26
 weight: -10
 ---
 
-The web is an incredible platform. Its user-centered security model, inherent linkability providing built-in sharing, and independent specification makes the web a unique platform to develop software on. With Chrome OS, the power of this platform is front and center; web apps are first class citizens throughout the operating system: they can be installed, they can be pinned to the shelf, and they can be found from the launcher. Built on an always up-to-date Chrome, you can confidently build evergreen web applications that are rich and reliable. On Chrome OS, web apps _are_ native.
+The web is an incredible platform. Its user-centered security model, inherent linkability providing built-in sharing, and independent specification makes the web a unique platform to develop software on. With Chrome OS, the power of this platform is front and center; web apps are a core feature throughout the operating system: they can be installed, they can be pinned to the shelf, and they can be found from the launcher. Built on an always up-to-date Chrome, you can confidently build evergreen web applications that are rich and reliable.
 
 ## Chrome, at its heart
 
@@ -20,7 +20,7 @@ With Chrome at the heart of Chrome OS, your web apps and extensions run on an al
 
 ## Powerful desktop Progressive Web Apps
 
-Built and enhanced with modern APIs to deliver native-like capabilities, reliability, and installability, desktop [Progressive Web Apps](https://web.dev/what-are-pwas/) (PWAs) are the best way to deliver your web app for Chrome OS. Building a PWA allows Chrome OS users to install your app and have it show up in the launcher, pin it to the shelf, even use it to open files directly from the Files app. Almost all Chrome OS devices support touch and many support styluses, giving you even more powerful capabilities to explore.
+Built and enhanced with modern APIs to deliver desktop-app like capabilities, reliability, and installability, desktop [Progressive Web Apps](https://web.dev/what-are-pwas/) (PWAs) are the best way to deliver your web app for Chrome OS. Building a PWA allows Chrome OS users to install your app and have it show up in the launcher, pin it to the shelf, even use it to open files directly from the Files app. Almost all Chrome OS devices support touch and many support styluses, giving you even more powerful capabilities to explore.
 
 The [PWA Checklist](https://web.dev/pwa-checklist/) is a good place to get started. In fact, the site you're on right now is a PWA! It's also [fully open sourced](https://github.com/chromeos/chromeos.dev) to share tools and best practices you can use when building a Progressive Web App.
 
