@@ -85,9 +85,7 @@ Yes! You'll probably need to install the relevant packages first for whatever co
 
 ## What architecture works on my system?
 
-Since everything is all machine code execution, it depends on the device you have.
-
-If you don't know what device you have, you can find this out in two different ways:
+The Linux container architecture will match the architecture of the device you have. You can find out what that is in two different ways:
 
 - In a new tab, navigate to: chrome://settings/help/details and look at the Platform, then match the board name with our public [device list](http://dev.chromium.org/chromium-os/developer-information-for-chrome-os-devices). Look at the “User ABI” field to see what kind of CPU you have.
 - Open up [crosh](https://chromium.googlesource.com/chromiumos/platform2/+/master/crosh/) and run `uname -m`. This will print the architecture of your current device.
