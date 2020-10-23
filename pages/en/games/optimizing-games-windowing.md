@@ -21,13 +21,13 @@ When possible, allow your users to use your app in both orientations, where scre
 
 ### Example 1
 
-![Reply Material Study](/images/games/optimizing-games-windowing/puzzle-example.jpg)
+![Puzzle example](/images/games/optimizing-games-windowing/puzzle-example.jpg)
 
 A puzzle game is a mature Android game that was designed for portrait phones. On large, landscape screens, it runs with black bars on the side. Because the game had a large, active user base and the developer is focusing on their next title, they chose to add a soft-focus image to the background for each level and menu in order to frame the game, without requiring a UI rewrite. Because they are in active development for the next game, the developer is including landscape support in the new title.
 
 ### Example 2
 
-![Reply Material Study](/images/games/optimizing-games-windowing/racing-example.jpg)
+![Racing example](/images/games/optimizing-games-windowing/racing-example.jpg)
 
 A car racing game designed for mobile is locked to landscape mode, to optimize screen real-estate for phones. Lately, tablet and Chrome OS users have been complaining that it is hard to play and asking for portrait support. The developer includes a screen-size check in their code, and if the screen is large enough, portrait mode is permitted. To still allow for the wide-angle view required for the game, the content is placed in the middle of the screen while an additional car-stereo UI bar appears along the bottom of the screen allowing users to easily change the radio station, and map and race statistics are moved up to the top of the screen, freeing the windshield view and improving game play.
 
