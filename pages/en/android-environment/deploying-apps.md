@@ -1,5 +1,5 @@
 ---
-title: Deploying Android apps to Chromebooks
+title: ADB and testing Android apps
 metadesc: Walkthrough the different ways developers can deploy their apps to Chromebooks, in order to debug and verify their app performance in the Chrome OS form factors.
 date: 2020-06-06
 weight: -6

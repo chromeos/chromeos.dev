@@ -77,7 +77,7 @@ Currently, no, [Termina](https://chromium.googlesource.com/chromiumos/overlays/b
 
 ## Can I run a VM inside the VM?
 
-Currently, no, nested [KVM](https://www.linux-kvm.org/) is not supported. You could run qemu-system to emulate the hardware and boot whatever OS you want inside of that. Unfortunately, it‘ll be quite slow as [QEMU](https://www.qemu.org/) won’t be able to utilize [KVM](https://www.linux-kvm.org/) for hardware acceleration.
+Nested virtualization is supported on [some Chrome OS devices](/{{locale.code}}/android-environment#supported-devices-for-the-android-emulator) to allow for Android Emulator support. Additionally, you could run qemu-system to emulate the hardware and boot whatever OS you want inside of that. Unfortunately, it‘ll be quite slow as [QEMU](https://www.qemu.org/) won’t be able to utilize [KVM](https://www.linux-kvm.org/) for hardware acceleration.
 
 ## Can I run a Docker container or other container inside Chrome OS’s Linux container?
 
