@@ -27,7 +27,7 @@ A puzzle game is a mature Android game that was designed for portrait phones. On
 
 ### Example 2
 
-![Racing example](/images/games/optimizing-games-windowing/racing-example.jpg)
+![(Left) A car racing game optimizing screen space in landscape mode. (Right) The same car racing game optimized for large screen portrait mode.](/images/games/optimizing-games-windowing/racing-example.jpg)
 
 A car racing game designed for mobile is locked to landscape mode, to optimize screen real-estate for phones. Lately, tablet and Chrome OS users have been complaining that it is hard to play and asking for portrait support. The developer includes a screen-size check in their code, and if the screen is large enough, portrait mode is permitted. To still allow for the wide-angle view required for the game, the content is placed in the middle of the screen while an additional car-stereo UI bar appears along the bottom of the screen allowing users to easily change the radio station, and map and race statistics are moved up to the top of the screen, freeing the windshield view and improving game play.
 
