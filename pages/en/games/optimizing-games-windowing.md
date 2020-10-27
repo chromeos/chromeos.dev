@@ -21,7 +21,7 @@ When possible, allow your users to use your app in both orientations, where scre
 
 ### Example 1
 
-![Puzzle example](/images/games/optimizing-games-windowing/puzzle-example.jpg)
+![(Left) An example puzzle game with black bars on a landscape screen. (Right) The same puzzle game now with an image background to replace the black bars.](/images/games/optimizing-games-windowing/puzzle-example.jpg)
 
 A puzzle game is a mature Android game that was designed for portrait phones. On large, landscape screens, it runs with black bars on the side. Because the game had a large, active user base and the developer is focusing on their next title, they chose to add a soft-focus image to the background for each level and menu in order to frame the game, without requiring a UI rewrite. Because they are in active development for the next game, the developer is including landscape support in the new title.
 
