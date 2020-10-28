@@ -3,6 +3,8 @@ title: ADB and testing Android apps
 metadesc: Walkthrough the different ways developers can deploy their apps to Chromebooks, in order to debug and verify their app performance in the Chrome OS form factors.
 date: 2020-06-06
 weight: -6
+tags:
+  - android studio
 ---
 
 Being able to run Android apps on a Chromebook is great, it gives users access to the vast Android ecosystem offerings and it gives Android developers the opportunity to reach Chrome OS users.

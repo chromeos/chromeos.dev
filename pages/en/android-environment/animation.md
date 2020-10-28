@@ -9,6 +9,9 @@ tools:
     versions:
       min: 75
       max: current
+tags:
+  - high-performance graphics
+  - developer tools
 ---
 
 One of the most difficult problems for app developers is ensuring smooth, glitchless, and jank-free animation. This is especially hard to debug when the system is also performing resource-intensive background tasks. There is no easy way to determine if some jank is caused by your app or the system. However, there is a profiler tool which can help you identify the possible source of the bad behavior.

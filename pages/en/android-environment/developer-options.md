@@ -3,6 +3,9 @@ title: More tools for Android developers
 metadesc: Learn about additional tools useful for Android development.
 date: 2020-07-15
 weight: -4
+tags:
+  - developer tools
+  - flutter
 ---
 
 There are many additional tips and tools available to Android developers to debug and build apps for Chrome OS devices.
