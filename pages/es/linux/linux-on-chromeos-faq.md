@@ -23,7 +23,7 @@ Primero asegúrese de estar utilizando el último canal de desarrollo. Aún qued
 
 A continuación, asegúrese de que el problema no sea ya conocido o solucionado. Puede consultar la [lista de errores existente](https://bugs.chromium.org/p/chromium/issues/list?can=1&q=component:OS%3ESystems%3EContainers) .
 
-Si aún desea enviar comentarios, puede [presentar un informe de comentarios](https://support.google.com/chromebook/answer/2982029) e incluir `#crostini` (otro nombre para Linux en Chrome OS) en la descripción. Los comentarios sobre cualquier parte de Chrome OS se pueden presentar con "Alt-Shift-i".
+Si aún desea enviar comentarios, puede [presentar un informe de comentarios](https://support.google.com/chromebook/answer/2982029) e incluir `#crostini` (otro nombre para Linux en Chrome OS) en la descripción. Los comentarios sobre cualquier parte de Chrome OS se pueden presentar con [[Alt]]+[[Shift]]+[[i]].
 
 Si aún desea presentar un error con los desarrolladores, use [este enlace](https://bugs.chromium.org/p/chromium/issues/entry?comment=Chrome%20version%3A%20%28copy%20from%20chrome%3A%2F%2Fversion%29%0AOS%3A%20Chrome%0A%0ARepro%20steps%3A%0A1.%20%0A2.%20%0A3.%20%0A%0AExpected%3A%20%0AActual%3A%20&status=Untriaged&labels=Pri-2%2COS-Chrome%2CType-Bug%2CProj-Containers&components=OS%3ESystems%3EContainers) para enrutar a las personas adecuadas.
 
@@ -183,7 +183,7 @@ Actualmente no.
 
 Desde el punto de vista de la seguridad, no queremos que el código inseguro o que extraiga automáticamente lo que el usuario haya copiado. Quizás la sesión de su navegador esté copiando datos personales o contraseñas. Es el mismo problema con el que se encuentra la [plataforma web](https://developers.google.com/web/updates/2018/03/clipboardapi#security_and_permissions) .
 
-Esto no es lo mismo que los usuarios pegan datos manualmente (por ejemplo, [[Ctrl]] + [[V]]). Esto es solo sobre lectura programática.
+Esto no es lo mismo que los usuarios pegan datos manualmente (por ejemplo, [[Ctrl]]+[[V]]). Esto es solo sobre lectura programática.
 
 No esperamos que se mantenga así para siempre. Una vez que tengamos un modelo de permisos y una interfaz de usuario para administrar estas cosas, podemos considerar permitir que los usuarios otorguen este permiso.
 
@@ -239,7 +239,7 @@ $ sudo apt-get dist-upgrade
 # Clear out existing pulse settings.
 $ rm -rf ~/.config/pulse
 
-# Turn it off & on again via crosh (Ctrl+Alt+T).
+# Turn it off & on again via crosh ([[Ctrl]]+[[Alt]]+[[T]]).
 crosh> vmc stop termina
 ```
 

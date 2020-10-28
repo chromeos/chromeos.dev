@@ -9,7 +9,7 @@ Los motores de juegos con un objetivo de Android deberían producir compilacione
 
 - Cree binarios x86_32, x86_64, ARM32 y ARM64 para proporcionar el mejor rendimiento y duración de la batería para sus usuarios
 - Haga pruebas exhaustivas para la entrada y cambiar el tamaño de la ventana
-- Informe problemas con las compilaciones al creador del motor del juego. Si parece que también hay un problema relacionado con el sistema operativo, además del informe del motor del juego, envíe sus comentarios al sistema operativo Chrome escribiendo [[alt]] + [[shift]] + [[i]] en un Chromebook o en [Problemas de Chromium](https://bugs.chromium.org/p/chromium/issues/list).
+- Informe problemas con las compilaciones al creador del motor del juego. Si parece que también hay un problema relacionado con el sistema operativo, además del informe del motor del juego, envíe sus comentarios al sistema operativo Chrome escribiendo [[alt]]+[[shift]]+[[i]] en un Chromebook o en [Problemas de Chromium](https://bugs.chromium.org/p/chromium/issues/list).
 
 ## Sobre escribir eventos de entrada con Unity
 

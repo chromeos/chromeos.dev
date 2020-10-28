@@ -132,6 +132,7 @@
     "remark-cli": "^8.0.0",
     "remark-frontmatter": "^2.0.0",
     "remark-lint": "^7.0.0",
+    "remark-lint-prohibited-strings": "^1.5.2",
     "replaceall": "^0.1.6",
     "rollup": "^1.31.1",
     "sass-toolkit": "^2.10.2",

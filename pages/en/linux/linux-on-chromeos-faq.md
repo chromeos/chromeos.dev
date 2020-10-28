@@ -23,7 +23,7 @@ Please first make sure you're using the latest dev channel. A lot of work is sti
 
 Next, please make sure the issue isn't already known or fixed. You can check the [existing bug list](https://bugs.chromium.org/p/chromium/issues/list?can=1&q=component:OS%3ESystems%3EContainers).
 
-If you still want to send feedback, you can [file a feedback report](https://support.google.com/chromebook/answer/2982029) and include `#crostini` (another name for Linux on Chrome OS) in the description. Feedback about any part of Chrome OS can be filed with “Alt-Shift-i”.
+If you still want to send feedback, you can [file a feedback report](https://support.google.com/chromebook/answer/2982029) and include `#crostini` (another name for Linux on Chrome OS) in the description. Feedback about any part of Chrome OS can be filed with [[Alt]]+[[Shift]]+[[i]].
 
 If you still want to file a bug with the developers, use [this link](https://bugs.chromium.org/p/chromium/issues/entry?comment=Chrome%20version%3A%20%28copy%20from%20chrome%3A%2F%2Fversion%29%0AOS%3A%20Chrome%0A%0ARepro%20steps%3A%0A1.%20%0A2.%20%0A3.%20%0A%0AExpected%3A%20%0AActual%3A%20&status=Untriaged&labels=Pri-2%2COS-Chrome%2CType-Bug%2CProj-Containers&components=OS%3ESystems%3EContainers) to route to the right people.
 
@@ -77,7 +77,7 @@ Currently, no, [Termina](https://chromium.googlesource.com/chromiumos/overlays/b
 
 ## Can I run a VM inside the VM?
 
-Currently, no, nested [KVM](https://www.linux-kvm.org/) is not supported. You could run qemu-system to emulate the hardware and boot whatever OS you want inside of that. Unfortunately, it‘ll be quite slow as [QEMU](https://www.qemu.org/) won’t be able to utilize [KVM](https://www.linux-kvm.org/) for hardware acceleration.
+Nested virtualization is supported on [some Chrome OS devices](/{{locale.code}}/android-environment#supported-devices-for-the-android-emulator) to allow for Android Emulator support. Additionally, you could run qemu-system to emulate the hardware and boot whatever OS you want inside of that. Unfortunately, it‘ll be quite slow as [QEMU](https://www.qemu.org/) won’t be able to utilize [KVM](https://www.linux-kvm.org/) for hardware acceleration.
 
 ## Can I run a Docker container or other container inside Chrome OS’s Linux container?
 
@@ -85,9 +85,7 @@ Yes! You'll probably need to install the relevant packages first for whatever co
 
 ## What architecture works on my system?
 
-Since everything is all native code execution, it depends on the device you have.
-
-If you don't know what device you have, you can find this out in two different ways:
+The Linux container architecture will match the architecture of the device you have. You can find out what that is in two different ways:
 
 - In a new tab, navigate to: chrome://settings/help/details and look at the Platform, then match the board name with our public [device list](http://dev.chromium.org/chromium-os/developer-information-for-chrome-os-devices). Look at the “User ABI” field to see what kind of CPU you have.
 - Open up [crosh](https://chromium.googlesource.com/chromiumos/platform2/+/master/crosh/) and run `uname -m`. This will print the architecture of your current device.
@@ -241,7 +239,7 @@ $ sudo apt-get dist-upgrade
 # Clear out existing pulse settings.
 $ rm -rf ~/.config/pulse
 
-# Turn it off & on again via crosh (Ctrl+Alt+T).
+# Turn it off & on again via crosh ([Ctrl]+[[Alt]]+[[T]]).
 crosh> vmc stop termina
 ```
 
@@ -273,7 +271,7 @@ Linux apps that are visible in the launcher shelf should have an option to use e
 
 While Chrome supports [high DPI](https://en.wikipedia.org/wiki/HiDPI) displays, many Linux applications don‘t. When a program doesn’t properly support [DPI](https://en.wikipedia.org/wiki/Dots_per_inch#Computer_monitor_DPI_standards) scaling, poor results follow.
 
-Currently we expose the native resolution and [DPI](https://en.wikipedia.org/wiki/Dots_per_inch#Computer_monitor_DPI_standards) directly to applications. If they show up tiny or fuzzy, it‘s because they don’t support scaling properly. You should report these issues to the respective upstream projects so that, hopefully someday, it'll “just work”.
+Currently we expose the built-in resolution and [DPI](https://en.wikipedia.org/wiki/Dots_per_inch#Computer_monitor_DPI_standards) directly to applications. If they show up tiny or fuzzy, it‘s because they don’t support scaling properly. You should report these issues to the respective upstream projects so that, hopefully someday, it'll “just work”.
 
 In the meantime, [Sommelier](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/) exposes some runtime settings so you can set the scale factor on a per-program basis to work around the misbehavior. Check out [Sommelier](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/)'s documentation for more details.
 

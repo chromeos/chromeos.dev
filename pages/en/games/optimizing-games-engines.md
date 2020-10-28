@@ -9,7 +9,7 @@ Games engines with an Android target should produce builds that run well on Chro
 
 - Create x86_32, x86_64, ARM32, and ARM64 binaries to provide the best performance and battery life for your users
 - Test input and window resizing thoroughly
-- Report issues with builds to the game engine creator. If there appears to be an OS side issue as well, in addition to the game engine report, please file feedback with Chrome OS by typing [[alt]] + [[shift]] + [[i]] on a Chromebook or at [Chromium issues](https://bugs.chromium.org/p/chromium/issues/list).
+- Report issues with builds to the game engine creator. If there appears to be an OS side issue as well, in addition to the game engine report, please file feedback with Chrome OS by typing [[alt]]+[[shift]]+[[i]] on a Chromebook or at [Chromium issues](https://bugs.chromium.org/p/chromium/issues/list).
 
 ## Overriding input events with Unity
 

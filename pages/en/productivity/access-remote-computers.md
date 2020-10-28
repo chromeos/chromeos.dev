@@ -12,7 +12,7 @@ Often while developing you'll need to access remote computers to perform tasks, 
 
 ## SSH
 
-Secure Shell connections, SSH for short, is a common secure protocol used for accessing devices over a network. With [Linux](/{{locale.code}}/linux) available in Chrome OS, you have access to a large selection of Linux-native tools for working with SSH. Google also offers a [Secure Shell Chrome extension](https://chrome.google.com/webstore/detail/secure-shell/iodihamcpbpeioajjeobimgagajmlibd) that provides SSH and SFTP support. Once the extension is installed, you can open it by searching for "Secure Shell App" in your launcher.
+Secure Shell connections, SSH for short, is a common secure protocol used for accessing devices over a network. With [Linux](/{{locale.code}}/linux) available in Chrome OS, you have access to a large selection of Linux tools for working with SSH. Google also offers a [Secure Shell Chrome extension](https://chrome.google.com/webstore/detail/secure-shell/iodihamcpbpeioajjeobimgagajmlibd) that provides SSH and SFTP support. Once the extension is installed, you can open it by searching for "Secure Shell App" in your launcher.
 
 ## Chrome Remote Desktop
 

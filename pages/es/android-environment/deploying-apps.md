@@ -17,17 +17,17 @@ Anteriormente, el uso de ADB en su Chromebook solo era posible mientras estaba e
 
 Primero, asegúrese de que el Chromebook no esté en [modo desarrollador](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md) . Luego vaya a configuración y [encienda Linux](/{{locale.code}}/linux) (si no lo ha hecho antes).
 
-![Encienda Linux en Chrome OS](/images/android/deploy/turnon_linux.gif)
+![Encienda Linux en Chrome OS](/images/develop/android/deploy/turnon_linux.gif)
 
 Una vez que Linux esté disponible, abra la configuración de Linux y encontrará una nueva opción 'Desarrollar aplicaciones de Android', abra esa opción.
 
 Active la depuración ADB y la computadora se reiniciará.
 
-![Habilite la configuración de depuración ADB de Chrome OS](/images/android/deploy/debug_settings.gif)
+![Habilite la configuración de depuración ADB de Chrome OS](/images/develop/android/deploy/debug_settings.gif)
 
 Cuando la computadora se reinicie, verá un mensaje que le informa que puede haber aplicaciones que no se descargaron de la tienda de aplicaciones en el dispositivo.
 
-![Este dispositivo puede contener aplicaciones que Google no haya verificado.](/images/android/deploy/login_notice.jpg)
+![Este dispositivo puede contener aplicaciones que Google no haya verificado.](/images/develop/android/deploy/login_notice.jpg)
 
 ADB ahora está disponible para implementar aplicaciones en su Chromebook, ejecutar comandos de depuración e interactuar directamente con el dispositivo.
 
@@ -48,11 +48,11 @@ Después de habilitar la depuración de ADB, puede instalar una aplicación de A
 Con la [configuración de Android Studio](https://developer.android.com/studio/install#chrome-os) y la configuración ADB anterior, los desarrolladores pueden enviar sus aplicaciones al contenedor de Android del Chromebook directamente desde Android Studio.
 El Chromebook aparecerá como una opción en el menú desplegable del dispositivo:
 
-![Menú desplegable de dispositivos Android Studio](/images/android/deploy/as_devices.png)
+![Menú desplegable de dispositivos Android Studio](/images/develop/android/deploy/as_devices.png)
 
 Simplemente presione correr como en cualquier otro dispositivo Android, verá el cuadro de diálogo de autorización y una ventana con su aplicación en ejecución se iniciará automáticamente después de otorgar la autenticación.
 
-![Instale su aplicación directamente en Chrome OS](/images/android/deploy/run_app.gif)
+![Instale su aplicación directamente en Chrome OS](/images/develop/android/deploy/run_app.gif)
 
 Eso es todo, ahora puede implementar la aplicación en el Chromebook, probar y depurar _sin_ la molestia de estar en modo desarrollador.
 
@@ -72,7 +72,7 @@ adb connect arc
 
 Aparecerá una ventana emergente pidiendo autorización para la depuración de USB, concédelo.
 
-![Autorización para conectarse al dispositivo](/images/android/deploy/usb_dialog.png)
+![Autorización para conectarse al dispositivo](/images/develop/android/deploy/usb_dialog.png)
 
 Instala tu aplicación desde la terminal:
 
@@ -80,7 +80,7 @@ Instala tu aplicación desde la terminal:
 adb install [path to your APK]
 ```
 
-![Conéctese al dispositivo a través de ADB en Terminal](/images/android/deploy/adb_connect.gif)
+![Conéctese al dispositivo a través de ADB en Terminal](/images/develop/android/deploy/adb_connect.gif)
 
 ## Instalar desde otro dispositivo
 
@@ -98,7 +98,7 @@ Para enviar su APK desde otro dispositivo al Chromebook, debe iniciar su Chrome 
 
 2. Determine si su dispositivo [admite la depuración de USB](https://www.chromium.org/chromium-os/chrome-os-systems-supporting-adb-debugging-over-usb)
 
-3. Presione [[Control]] + [[Alt]] + [[T]] para iniciar el terminal Chrome OS.
+3. Presione [[Control]]+[[Alt]]+[[T]] para iniciar el terminal Chrome OS.
 
 4. Escriba `shell` para llegar al comando bash shell:
 
@@ -132,7 +132,7 @@ Use este comando cada vez que desconecte y vuelva a conectar un cable USB. Para 
 
 Para depurar a través de una red, debe configurar el firewall de Chrome OS para permitir conexiones ADB entrantes:
 
-1. Presione [[Control]] + [[Alt]] + [[T]] para iniciar el terminal Chrome OS.
+1. Presione [[Control]]+[[Alt]]+[[T]] para iniciar el terminal Chrome OS.
 
 2. Escriba `shell` para llegar al comando bash shell:
 
@@ -141,7 +141,7 @@ Para depurar a través de una red, debe configurar el firewall de Chrome OS para
    chronos@localhost / $
    ```
 
-3. Escriba los siguientes comandos para configurar las características del desarrollador y habilitar el acceso de escritura en disco para los cambios en la configuración del firewall. Si necesita ingresar una contraseña de sudo para el usuario de `chronos` , puede (re) establecer una ejecutando `chromeos-setdevpassword` en el [indicador VT-2](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md#vt2) ([[Control]] + [[Alt]] + [[→]]) ; Necesitarás tu contraseña de root.
+3. Escriba los siguientes comandos para configurar las características del desarrollador y habilitar el acceso de escritura en disco para los cambios en la configuración del firewall. Si necesita ingresar una contraseña de sudo para el usuario de `chronos` , puede (re) establecer una ejecutando `chromeos-setdevpassword` en el [indicador VT-2](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md#vt2) ([[Control]]+[[Alt]]+[[→]]) ; Necesitarás tu contraseña de root.
 
    ```bash
    $ sudo crossystem dev_boot_signed_only=0

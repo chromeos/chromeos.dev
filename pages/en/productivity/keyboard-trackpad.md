@@ -11,19 +11,19 @@ Chrome OS comes with built-in keyboard shortcuts and touchpad gestures to help y
 
 Keyboard shortcuts help you perform tasks quickly without needing to find actions in an app's menu or using your mouse. A [full list of keyboard shortcuts](https://support.google.com/chromebook/answer/183101) is available, below are common Chrome OS keyboard shortcuts that can help you be more productive:
 
-- **Lock screen**: [[search]] + [[l]]
-- **Files app**: [[shift]] + [[alt]] + [[m]]
-- **Open new crosh shell terminal**: [[ctrl]] + [[alt]] + [[t]]
-- **Dock current window on the left or right**: [[alt]] + [[&#91;]] or [[alt]] + [[&#93;]]
+- **Lock screen**: [[search]]+[[l]]
+- **Files app**: [[shift]]+[[alt]]+[[m]]
+- **Open new crosh shell terminal**: [[ctrl]]+[[alt]]+[[t]]
+- **Dock current window on the left or right**: [[alt]]+[[&#91;]] or [[alt]]+[[&#93;]]
 - **Full screen screenshot**: [[ctrl]] + **Show windows** [[&#91;&#93;||]]
-- **Partial screenshot**: [[ctrl]] + [[shift]] + **Show windows** [[&#91;&#93;||]]
-- **Caps lock**: [[alt]] + [[search]]
-- **Task manager**: [[search]] + [[esc]]
-- **New tab**: [[ctrl]] + [[t]]
-- **Close current tab**: [[ctrl]] + [[w]]
-- **Reopen last closed tab**: [[ctrl]] + [[shift]] + [[t]]
-- **See all keyboard shortcuts**: [[ctrl]] + [[alt]] + [[/]]
-- **Chromebook help manual**: [[ctrl]] + [[/]]
+- **Partial screenshot**: [[ctrl]]+[[shift]] + **Show windows** [[&#91;&#93;||]]
+- **Caps lock**: [[alt]]+[[search]]
+- **Task manager**: [[search]]+[[esc]]
+- **New tab**: [[ctrl]]+[[t]]
+- **Close current tab**: [[ctrl]]+[[w]]
+- **Reopen last closed tab**: [[ctrl]]+[[shift]]+[[t]]
+- **See all keyboard shortcuts**: [[ctrl]]+[[alt]]+[[/]]
+- **Chromebook help manual**: [[ctrl]]+[[/]]
 
 There are also a number of [unique keys](https://support.google.com/chromebook/answer/1047364) on your Chromebook keyboard that you can use to make your experience even better.
 
