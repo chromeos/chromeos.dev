@@ -5,7 +5,7 @@ tags:
   - trend
   - success story
   - large screens
-  - device mode
+  - device configuration
   - window management
   - keyboard support
   - mouse support

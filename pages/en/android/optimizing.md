@@ -9,6 +9,7 @@ tags:
   - mouse support
   - trackpad support
   - stylus support
+  - camera
 ---
 
 Android apps have an important role to play in redefining what modern computing looks like on large screens. That said, simply running your phone app on a Chromebook won’t give your users the best experience. This page details some ways that you can tailor your experience towards laptop and convertible form factors. See our [comprehensive list of tests](/{{locale.code}}/android/tests) to learn more about testing your app for compatibility on these devices.

@@ -5,6 +5,7 @@ date: 2020-05-01
 weight: -1
 tags:
   - touchscreen support
+  - camera
 ---
 
 As you prepare your Android app to run on Chromebooks, you should consider the device features that your app uses. Chromebooks don't support all of the hardware and software features that are available on other devices running Android. If your app requires specific features that aren't supported on Chromebooks, it won't be available for installation on Chromebooks.

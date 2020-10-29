@@ -4,11 +4,15 @@ metadesc: This table outlines tests the Chrome OS team has used to evaluate Andr
 date: 2020-05-01
 weight: 1
 tags:
+  - large screens
   - window management
+  - device configuration
   - mouse support
   - trackpad support
   - stylus support
   - keyboard support
+  - touchscreen support
+  - camera
   - input devices
 ---
 

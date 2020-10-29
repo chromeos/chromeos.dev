@@ -3,6 +3,8 @@ title: Port forwarding
 metadesc: How to configure port forwarding on your Chrome OS device to access local servers on other devices.
 date: 2020-06-01
 weight: -7
+tags:
+  - developer tools
 ---
 
 When developing web apps, testing across multiple devices is vital to ensure that what you’re building will work for you users. Chrome OS’s built-in port forwarding allows you to open the port to your local development server, allowing access from phones or other computers.

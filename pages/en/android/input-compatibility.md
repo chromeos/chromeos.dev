@@ -7,7 +7,9 @@ tags:
   - input devices
   - keyboard support
   - stylus support
+  - mouse support
   - trackpad support
+  - touchscreen support
 ---
 
 On Chrome OS devices, many users interact with apps using a keyboard, mouse,

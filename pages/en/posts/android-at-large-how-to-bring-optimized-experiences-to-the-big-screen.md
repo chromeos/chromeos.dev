@@ -7,7 +7,7 @@ tags:
   - large screen
   - window management
   - input devices
-  - device mode
+  - device configuration
   - mouse support
   - android
   - android studio
