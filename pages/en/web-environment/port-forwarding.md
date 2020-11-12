@@ -27,4 +27,4 @@ Once added, your ports will show up in the Port forwarding list, where you can t
 
 ![Port forwarding settings page with a configured port of 3000 using TCP labeled "Server".](/images/develop/web/port-forward-configured.jpg)
 
-In order to get the IP address to use with that port, in your Terminal app, run `hostname -I`. This IP address, combined with the port you’re forwarding, will allow any device on the network access to the server on the port you’ve forwarded.
+The last thing you'll need is the IP address of your host Chrome OS device. In "Settings", go to "Network" and select the network your device is on. You'll be able to see the IP address. This IP address, combined with the port you forwarded, will allow any device on the same network to connect to the server on that port. On your other device, you can access the server at this address: `<host device IP address>:<port>`.
