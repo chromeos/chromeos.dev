@@ -3,6 +3,8 @@ title: Publishing considerations
 metadesc: Architecture considerations like x86/arm support to take into account when publishing your game.
 date: 2020-06-16
 weight: -5
+tags:
+  - publishing
 ---
 
 Most Android phones have ARM chipsets. However, many Chrome OS devices use x86 chips. The difference is not important for apps written in Kotlin or Java. However, for apps written in the Android NDK, including those created with game engines, the chipset in the device can be an important concern.

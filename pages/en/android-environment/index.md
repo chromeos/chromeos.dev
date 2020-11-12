@@ -11,6 +11,9 @@ tools:
     url: https://developer.android.com/studio/command-line/adb
     versions:
       min: any
+tags:
+  - android studio
+  - developer tools
 ---
 
 Chrome OS devices bring the unique benefit that you can build Android apps on them, and you can run Android apps on Chrome devices as well. You can deploy directly to the device you are coding on, which can make building and testing easier.

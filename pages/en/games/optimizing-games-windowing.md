@@ -3,6 +3,10 @@ title: Large screens and external displays
 metadesc: Window management for games on Chrome OS.
 date: 2020-06-16
 weight: -7
+tags:
+  - window management
+  - device configuration
+  - large screens
 ---
 
 One of the most obvious advantages of Chrome OS devices is their big beautiful screens and the ease with which you can use external monitors. So much screen real-estate offers a lot of potential for games, but using it well can require some extra thought and design work.
