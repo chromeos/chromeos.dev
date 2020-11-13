@@ -286,6 +286,11 @@ at this
 - Remember to request permission via `requestDragAndDropPermissions` to access items dragged in from outside the app
 - An item must have the `View.DRAG_FLAG_GLOBAL` flag in order to be dragged out to other applications
 
+### Multi-select support
+
+If your app contains lists or grids, consider whether your users would benefit from support for multi-select. A high-quality multi-select experience with mouse and trackpad often includes features such as band selection. Implementing this on your own can be challenging, but you can leverage [the Recyclerview Selection library](https://developer.android.com/reference/androidx/recyclerview/selection/package-summary).
+![An example of band multi-select with a mouse and pointer](/images/android/input-compatibility/RecyclerView-Selection-Demo.gif)
+
 ### Advanced pointer support
 
 Apps that do advanced handling of mouse and touchpad input should follow the
