@@ -1,4 +1,6 @@
 # Put production config here, but don't delete!
+javascript:
+  chunkFileNames: '[name]-[hash].js'
 # Service Worker Config
 serviceWorker:
   src: sw.js

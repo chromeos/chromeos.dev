@@ -15,10 +15,14 @@
  */
 /* eslint-env node */
 const { default: scaffold } = require('static-site-scaffold/lib/rollup.config');
+const { javascript } = require('config');
+
 import commonjs from '@rollup/plugin-commonjs';
 
 scaffold[0].output.dynamicImportFunction = '__import__';
 
 scaffold[0].plugins.push(commonjs());
+
+scaffold[0].output.chunkFileNames = javascript.chunkFileNames;
 
 export default scaffold;
