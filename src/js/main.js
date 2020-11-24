@@ -35,6 +35,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const navPrimary = document.querySelector('.nav__primary');
   const home = document.querySelector('#home');
   const offlineSearch = document.querySelector('[data-offline-search]');
+  const powerfulPWAs = document.querySelector('[data-pwa-checklist]');
 
   // Set default language if no language is set
   const language = await preferences.get('lang');
@@ -91,6 +92,11 @@ window.addEventListener('DOMContentLoaded', async () => {
   if (toc) {
     const { TableOfContents } = await import('./components/toc');
     new TableOfContents(toc);
+  }
+
+  if (powerfulPWAs) {
+    const { PWAChecklist } = await import('./components/pwa-checklist');
+    new PWAChecklist(powerfulPWAs, document.querySelectorAll('.api'), language);
   }
 });
 
