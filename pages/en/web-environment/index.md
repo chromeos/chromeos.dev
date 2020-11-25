@@ -6,6 +6,8 @@ hero:
   alt: Illustration of a Chrome OS device deploying a web app.
 date: 2020-06-01
 weight: -8
+tags:
+  - developer tools
 ---
 
 <!-- prettier-ignore -->

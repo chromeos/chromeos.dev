@@ -14,6 +14,9 @@ tools:
       min: 3.0
       max: latest
 date: 2020-05-01
+tags:
+  - device configuration
+  - window management
 ---
 
 Chrome OS devices, such as Chromebooks, now support the Google Play Store and Android apps. This article assumes you have an existing Android app designed for phones or tablets that you want to optimize for Chromebooks. To learn the basics of building Android apps, see [Build your first app.](https://developer.android.com/training/basics/firstapp/index)

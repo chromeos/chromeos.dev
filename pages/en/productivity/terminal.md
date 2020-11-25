@@ -3,6 +3,8 @@ title: Terminal
 metadesc: Learn how to customize the Terminal settings and multitask with multi-tab support.
 date: 2020-10-12
 weight: -1
+tags:
+  - developer tools
 ---
 
 The Terminal is the main entry point into Linux (Beta) on Chrome OS and the main way for you to interact with the development environment by running command line tools. We understand that the Terminal is a crucial tool for developers and are committed to improving developer experiences on Chrome OS. For this reason, as part of the M84 release, a newly redesigned Terminal launched with a brand new look as well as additional customizable themes and features. These new features make it more accessible and comfortable, and let you personalize the Terminal to feel uniquely your own.

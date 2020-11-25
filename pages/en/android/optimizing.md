@@ -9,6 +9,7 @@ tags:
   - mouse support
   - trackpad support
   - stylus support
+  - camera
 ---
 
 Android apps have an important role to play in redefining what modern computing looks like on large screens. That said, simply running your phone app on a Chromebook won’t give your users the best experience. This page details some ways that you can tailor your experience towards laptop and convertible form factors. See our [comprehensive list of tests](/{{locale.code}}/android/tests) to learn more about testing your app for compatibility on these devices.
@@ -19,7 +20,7 @@ The implementation of Android apps on Chrome OS includes basic multi-window supp
 
 Users can resize the window that contains your Android app, as shown in figure 1. To ensure that your free-form windows resize smoothly and are able to display their entire contents to the user, read the guidelines in [Window Management](/{{locale.code}}/android/window-management).
 
-#1[A resizable app window](/images/android/optimizing/resizable.png)
+#1[A resizable app window](/images/android/window-management/resizable.png)
 
 You can improve the user experience when your app runs on Chrome OS by following these best practices:
 

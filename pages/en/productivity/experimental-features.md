@@ -3,6 +3,8 @@ title: Experimental features
 metadesc: Enable experimental features in Chrome OS by changing releases, toggling flags, or enabling developer mode.
 date: 2020-05-01
 weight: 3
+tags:
+  - developer tools
 ---
 
 Being on the cutting edge allows you to try out new features before they're ready, letting you provide feedback to Google or modify your operating system more deeply than what's otherwise available in the normal, stable Chrome OS release.

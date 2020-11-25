@@ -10,13 +10,13 @@ tags:
 
 Chrome OS runs Android apps in individual windows. These windows can be resized or maximized, and will be resized accordingly when a tablet or convertible device is rotated.
 
-![An app window on different devices](/images/android/optimizing/fullscreen-and-windows.png)
+![An app window on different devices](/images/android/window-management/fullscreen-and-windows.png)
 
 ## Resizing windows
 
 Users can resize app windows by clicking and dragging the window borders. This brings additional considerations for Android apps that may have been designed for phones.
 
-![A resizable app window](/images/android/optimizing/resizable.png)
+![A resizable app window](/images/android/window-management/resizable.png)
 
 In the [Android lifecycle⁠](https://developer.android.com/guide/components/activities/activity-lifecycle), when an app is resized or its orientation changes, in addition to other [runtime configuration changes⁠](https://developer.android.com/guide/topics/resources/runtime-changes), the Activity’s UI is torn down and rebuilt. Specifically, [onPause()⁠](<https://developer.android.com/reference/android/app/Activity#onPause()>), [onStop()⁠](<https://developer.android.com/reference/android/app/Activity#onStop()>), and [onDestroy()⁠](<https://developer.android.com/reference/android/app/Activity#onDestroy()>) will be called to clean up the old UI, followed by [onCreate()⁠](<https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)>), [onStart()⁠](<https://developer.android.com/reference/android/app/Activity#onStart()>), and [onResume()⁠](<https://developer.android.com/reference/android/app/Activity#onResume()>)to rebuild it.
 
