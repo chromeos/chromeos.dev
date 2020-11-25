@@ -12,6 +12,9 @@ resources:
     url: https://www.pwabuilder.com
   - title: New capabilities tracker
     url: https://goo.gle/fugu-api-tracker
+tags:
+  - touchscreen support
+  - stylus support
 ---
 
 <!-- prettier-ignore -->

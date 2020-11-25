@@ -9,6 +9,9 @@ tools:
     versions:
       min: 75
       max: current
+tags:
+  - high-performance graphics
+  - developer tools
 ---
 
 One of the most difficult problems for app developers is ensuring smooth, glitchless, and jank-free animation. This is especially hard to debug when the system is also performing resource-intensive background tasks. There is no easy way to determine if some jank is caused by your app or the system. However, there is a profiler tool which can help you identify the possible source of the bad behavior.
@@ -27,7 +30,7 @@ When the OS is working very hard, the GPU might get squeezed. There can be an ad
 
 Chrome OS has a profiling tool that shows how the buffers are percolating through the system, when memory swaps occur, how busy the CPU/GPU is, and what your application is doing at a given time:
 
-![Jank Profiler, with ARC++ app running on the left and CPU, Memory, Chrome Graphics, and Android Graphics information to the right.](/images/android/animation/jank-profiler.png)
+![Jank Profiler, with ARC++ app running on the left and CPU, Memory, Chrome Graphics, and Android Graphics information to the right.](/images/develop/android/animation/jank-profiler.png)
 
 ### Setting up the profiler
 

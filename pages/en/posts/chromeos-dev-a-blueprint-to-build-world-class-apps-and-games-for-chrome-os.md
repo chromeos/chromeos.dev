@@ -15,7 +15,10 @@ tags:
   - large screens
   - android studio
   - linux
+  - android
+  - web
   - optimization
+  - developer tools
 authors:
   - ieinvaldez
 date: 2020-08-12

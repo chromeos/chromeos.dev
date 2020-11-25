@@ -6,6 +6,8 @@ hero:
   alt: Illustration of a terminal application running on a Chrome OS device.
 date: 2020-06-10
 weight: -8
+tags:
+  - developer tools
 ---
 
 Linux (Beta) on Chrome OS, sometimes called Crostini, allows you to run Linux apps for development alongside your usual Chrome OS desktop & apps. Linux (Beta) on Chromebooks offers developers the best of both worlds. Built and designed with Chrome OS’ principles of simplicity and security, Linux on Chromebooks gives devs the freedom to safely run their favorite editors, IDEs, and thousands of world-class dev tools in one container.

@@ -19,7 +19,7 @@ La implementación de aplicaciones de Android en Chrome OS incluye soporte bási
 
 Los usuarios pueden cambiar el tamaño de la ventana que contiene su aplicación de Android, como se muestra en la figura 1. Para asegurarse de que sus ventanas de formato libre cambien de tamaño sin problemas y puedan mostrar todo su contenido al usuario, lea las pautas en [Administración de ventanas](/{{locale.code}}/android/window-management).
 
-#1[Una ventana de aplicación redimensionable](/images/android/optimizing/resizable.png)
+#1[Una ventana de aplicación redimensionable](/images/android/window-management/resizable.png)
 
 Puede mejorar la experiencia del usuario cuando su aplicación se ejecuta en Chrome OS siguiendo estas prácticas recomendadas:
 

@@ -1,10 +1,15 @@
 {
   "hosting": {
     "trailingSlash": false,
+    "appAssociation": "AUTO",
     "rewrites": [
       {
         "source": "/search",
         "function": "search"
+      },
+      {
+        "source": "/l/**",
+        "dynamicLinks": true
       }
     ],
     "redirects": [

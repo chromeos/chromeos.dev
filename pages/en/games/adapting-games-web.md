@@ -3,6 +3,11 @@ title: Adapting web games
 metadesc: Creating and optimizing web games for Chrome OS.
 date: 2020-06-16
 weight: -1
+tags:
+  - web
+  - touchscreen support
+  - stylus support
+  - input devices
 ---
 
 Web games look and work great on Chrome OS. You can reach more users and provide a nicer integration by packing your app as a PWA. Read up on PWAs with the following links:

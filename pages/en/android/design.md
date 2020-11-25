@@ -4,10 +4,9 @@ metadesc: How to optimize your layouts and UI components for different screens s
 date: 2020-05-01
 weight: -6
 tags:
-  - input devices
-  - keyboard support
-  - stylus support
-  - trackpad support
+  - large screens
+  - device configuration
+  - window management
 ---
 
 Android makes it easy to develop an app that runs well on a wide range of device screen sizes and form factors. This broad compatibility works in your favor since it helps you design a single app that you can distribute widely to all of your targeted devices. However, to give your users the best possible experience on each screen configuration you need to optimize your layouts and other UI components for the different sizes and configurations you will encounter. On Chrome OS, optimizing your UI lets you take full advantage of the additional screen space available and offer new features, present new content, or enhance the experience in other ways to deepen user engagement.

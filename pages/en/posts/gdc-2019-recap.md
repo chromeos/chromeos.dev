@@ -9,7 +9,7 @@ tags:
   - large screens
   - high-performance graphics
   - android
-  - device mode
+  - device configuration
   - window management
   - input devices
   - keyboard support
