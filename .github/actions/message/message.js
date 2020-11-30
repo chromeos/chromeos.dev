@@ -145,9 +145,12 @@ function buildLighthouseResults(input, date) {
 
   for (const [key, value] of Object.entries(lh)) {
     if (value.results.length) {
-      message += `[${key.replace(input.url, '')} report](${value.report})\n|audit|high|expected|values|\n| :---: | :---: | :---: | :---: |\n`;
-      for (const result of value.results) {
-        message += `|${result.auditProperty}|${result.actual * 100}|${result.expected * 100}|${result.values.map(i => i * 100).join(', ')}|\n`;
+      message += `[${key.replace(input.url, '')} report](${value.report})`;
+      if (value.results.length) {
+        message += '\n|audit|high|expected|values|\n| :---: | :---: | :---: | :---: |\n';
+        for (const result of value.results) {
+          message += `|${result.auditProperty}|${result.actual * 100}|${result.expected * 100}|${result.values.map(i => i * 100).join(', ')}|\n`;
+        }
       }
       message += '\n';
     }

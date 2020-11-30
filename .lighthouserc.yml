@@ -5,7 +5,7 @@ ci:
     assertions:
       categories:performance:
         - error
-        - minScore: 0.9
+        - minScore: 0.8
       categories:accessibility:
         - error
         - minScore: 0.9
@@ -14,8 +14,7 @@ ci:
         - minScore: 0.9
       categories:seo:
         - error
-        # TODO: Set back to 85 for launch. Issue #281
-        - minScore: 0.80
+        - minScore: 0.9
       categories:pwa:
         - error
         - minScore: 0.9

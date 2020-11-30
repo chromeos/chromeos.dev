@@ -99,12 +99,13 @@ jobs:
       - name: Lighthouse Audit
         id: lighthouse
         uses: treosh/lighthouse-ci-action@v3
-        continue-on-error: true
         with:
           urls: |
-            https://cros-staging.web.app/en
             ${{ steps.deploy.outputs.url }}/en
             ${{ steps.deploy.outputs.url }}/es
+            ${{ steps.deploy.outputs.url }}/en/linux
+            ${{ steps.deploy.outputs.url }}/en/news
+            ${{ steps.deploy.outputs.url }}/en/android/design
           configPath: ./.lighthouserc.yml
           temporaryPublicStorage: true
           uploadArtifacts: true
