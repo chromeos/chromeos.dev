@@ -17,6 +17,7 @@ javascript:
     js/worklets/circles: js/worklets/circles.js
   iife:
     js/search-worker.js: js/search-worker
+  chunkFileNames: '[name].js'
 
 # Service Worker Config
 serviceWorker:
