@@ -33,7 +33,7 @@ While some PWA capabilities are commonly known, like the [Notifications API](htt
 
 Most of these capabilities are built around bridging the gap between traditional desktop or mobile apps and web apps, with the first major capabilities to ship allowing web apps to access the platform's [contact pickers](https://web.dev/contact-picker/) and [share capabilities](https://web.dev/web-share/), and installed PWAs to register as a [platform share target](https://web.dev/web-share-target/) and [show icon badges](https://web.dev/badging-api/), [to name a few](https://goo.gle/fugu-api-tracker).
 
-Each capability goes through an [extensive standardization process](https://developers.google.com/web/updates/capabilities) to solicit community feedback to help shape the API and ensure the final design is secure, private, and trustworthy. New capabilities are tracked in an [open tracker](https://goo.gle/fugu-api-tracker) and can divided into one of five categories:
+Each capability goes through an [extensive standardization process](https://developers.google.com/web/updates/capabilities) to solicit community feedback to help shape the API and ensure the final design is secure, private, and trustworthy. New capabilities are tracked in an [open tracker](https://goo.gle/fugu-api-tracker) and can be divided into one of five categories:
 
 Shipped
 : Available for use in the latest stable version of Chrome. Can be reliably used provided its use is properly feature detected.
