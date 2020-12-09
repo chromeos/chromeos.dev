@@ -21,6 +21,9 @@ Now that Progressive Web Apps (PWAs) can be listed in Google Play, we’re excit
 
 Since their release, [Chromebooks and Chrome OS](https://chromeos.dev/en) have proven that a device built around the web can make computing easier, faster, and more secure. Last year, we expanded high-quality app experiences beyond mobile by [adding support for PWAs on Chrome OS](https://www.youtube.com/watch?v=2KhRmFHLuhE). And that’s clearly resonated with users — in the past year, Chromebook unit sales have grown 85% year over year (YOY),[^1] and PWA installs more than doubled.[^2]
 
+[^1]: The NPD Group, Inc., U.S. Retail Tracking Service, Notebook Computers, based on unit sales, Jan.–Aug. 2020.
+[^2]: Chrome usage metrics, Dec. 2019–Dec. 2020.
+
 ![Chromebook sales have increased 85% year over year and PWA installs have increased 175% year over year.](/images/posts/easy-to-build-monetize-and-discover-list-your-web-app-on-google-play/yoy_growth.png)
 
 With all the new capabilities being added to web apps — from saving to the local file system to device communication — we saw an opportunity to highlight the best experiences for Chromebook users.
@@ -29,7 +32,9 @@ Search continues to be a quick and easy way to discover new web apps, but many p
 
 Brands like [Kapwing](https://www.kapwing.com/), an online image, video, and GIF editing platform, have already seen impressive results after launching their PWA on the Play Store:
 
-![Quote from Julia Enthoven, CEO of Kapwing: "In the first five weeks of launching our PWA-ified website, the number of people creating videos through the PWA grew 36%. This growth in usage outpaced overall growth on the website, indicating higher retention among creators who installed the PWA."](/images/posts/easy-to-build-monetize-and-discover-list-your-web-app-on-google-play/kapwing_quote.png)
+> In the first five weeks of launching our PWA-ified website, the number of people creating videos through the PWA grew 36%. This growth in usage outpaced overall growth on the website, indicating higher retention among creators who installed the PWA.
+
+Julia Enthoven, CEO of Kapwing {.cite}
 
 ## Streamlined secure payments
 
@@ -44,6 +49,3 @@ These APIs allow you to offer in-app payments and subscriptions with a single cl
 We’ve already seen [great responses to PWAs on Chromebooks](https://blog.google/products/chromebooks/whats-new-chrome-os/dec2020/) — users enjoying the advanced graphics on [Adobe Spark](https://spark.adobe.com/) and [Corel’s Gravit Designer](http://web.dev/gravit-designer), sharper video editing with [Clipchamp](http://web.dev/clipchamp), and more powerful viewing experiences on [YouTube TV](https://tv.youtube.com/). We’re excited to share that all of these experiences will arrive in the Play Store as soon as the Digital Goods API arrives in Chrome OS 89.
 
 It’s incredible to see the journey of developers as they build their web apps for larger screens. We can’t wait to showcase amazing web apps like these on Google Play — and we hope to see yours there soon!
-
-[^1]: The NPD Group, Inc., U.S. Retail Tracking Service, Notebook Computers, based on unit sales, Jan.–Aug. 2020.
-[^2]: Chrome usage metrics, Dec. 2019–Dec. 2020.
