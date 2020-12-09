@@ -30,7 +30,7 @@ With all the new capabilities being added to web apps — from saving to the loc
 
 Search continues to be a quick and easy way to discover new web apps, but many people are also turning to app stores to find the best software for their device in one place. That’s why we gave developers the ability to list their PWA in Google Play on Chrome OS using [Trusted Web Activity](https://developers.google.com/web/android/trusted-web-activity). Now, users can discover web apps by browsing through collections and curated recommendations in the Play Store. And once they install it, they’ll be able to enjoy the full-screen app experience they love, powered by Chrome.
 
-Brands like [Kapwing](https://www.kapwing.com/), an online image, video, and GIF editing platform, have already seen impressive results after launching their PWA on the Play Store:
+Brands like [Kapwing](https://www.kapwing.com/), an online image, video, and GIF editing platform, have already seen impressive results after launching their PWA:
 
 > In the first five weeks of launching our PWA-ified website, the number of people creating videos through the PWA grew 36%. This growth in usage outpaced overall growth on the website, indicating higher retention among creators who installed the PWA.
 
