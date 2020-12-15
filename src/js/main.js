@@ -142,10 +142,10 @@ window.addEventListener('load', async () => {
 
 // Manage Service Worker
 // eslint-disable-next-line no-constant-condition
-// if ('serviceWorker' in navigator) {
-//   window.addEventListener('load', async () => {
-//     try {
-//       const registration = await navigator.serviceWorker.register('/sw.js');
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', async () => {
+    try {
+      await navigator.serviceWorker.register('/sw.js');
 //       // log('Service Worker registered! 😎');
 //       // log(registration);
 
@@ -154,9 +154,9 @@ window.addEventListener('load', async () => {
 //         const { offerServiceWorkerReload } = await import('./lib/offer-service-worker-reload');
 //         offerServiceWorkerReload(registration);
 //       }
-//     } catch (e) {
-//       // log('Registration failed 😫');
-//       // log(e);
-//     }
-//   });
-// }
+    } catch (e) {
+      // log('Registration failed 😫');
+      // log(e);
+    }
+  });
+}
