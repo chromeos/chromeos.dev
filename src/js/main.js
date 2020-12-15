@@ -146,14 +146,14 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
       await navigator.serviceWorker.register('/sw.js');
-//       // log('Service Worker registered! 😎');
-//       // log(registration);
+      //       // log('Service Worker registered! 😎');
+      //       // log(registration);
 
-//       // Only offer reloads if there is already an active Service Worker
-//       if (registration.active) {
-//         const { offerServiceWorkerReload } = await import('./lib/offer-service-worker-reload');
-//         offerServiceWorkerReload(registration);
-//       }
+      //       // Only offer reloads if there is already an active Service Worker
+      //       if (registration.active) {
+      //         const { offerServiceWorkerReload } = await import('./lib/offer-service-worker-reload');
+      //         offerServiceWorkerReload(registration);
+      //       }
     } catch (e) {
       // log('Registration failed 😫');
       // log(e);
