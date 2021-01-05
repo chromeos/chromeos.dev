@@ -27,6 +27,10 @@ When forwarding a port, you have three options: the port number to forward, the 
 
 Once added, your ports will show up in the Port forwarding list, where you can toggle them on or off or remove them entirely.
 
+!!! aside.message--tip
+If you're unable to toggle a port, make sure you have Linux (Beta) running by simply opening the Terminal app. Feel free to close the Terminal app once Linux (Beta) is up and running. It will continue to run in the background unless you shut it down (right-click Terminal icon and select "Shut down Linux (Beta)".)
+!!!
+
 ![Port forwarding settings page with a configured port of 3000 using TCP labeled "Server".](/images/develop/web/port-forward-configured.jpg)
 
 The last thing you'll need is the IP address of your host Chrome OS device. In "Settings", go to "Network" and select the network your device is on. You'll be able to see the IP address here. This IP address, combined with the port you forwarded, will allow any device on the same network to connect to the server on that port. On your other device, you can access the server at this address: `<host device IP address>:<port>`.
