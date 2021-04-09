@@ -31,6 +31,10 @@ All Android apps must provide a 64-bit build version. A 32-bit build is optional
 
 While only providing 64-bit builds reduces the number of build targets needed and your testing surface, it also limits the kinds of devices that can run your game. For example, due to other hardware limitations many older Chromebooks can only run 32-bit Android apps, despite having 64-bit CPUs. To ensure your app can run on these devices, include both 32 and 64-bit support.
 
+!!! aside.message--note
+As you may know, since August 2019, all new and updated apps have been required to include a 64bit app version. Starting in August 2021 this year, [the Play Store will stop serving 32bit apps to devices that are capable of handling 64bit](https://developer.android.com/distribute/best-practices/develop/64-bit). Many Chromebooks will have 64bit support and we recommend updating your app as soon as possible to include a 64bit version to ensure continuity for your app's users on Chrome OS
+!!!
+
 ## ARM translation
 
 x86 Chromebooks try to translate ARM code whenever possible. However, translation slows performance and increases battery usage. Even simple games should consider providing x86 builds for the best user experience. If you can't provide x86 builds note that some x86 Chromebooks can't translate arm64 code. In this case you should include both arm32 and arm64 ABIs in your builds.
