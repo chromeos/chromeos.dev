@@ -29,6 +29,7 @@ Starting today, any developer can begin building for Chrome OS with Unity using 
 #[Unity's Player Settings with x86 and x86_64 options](/images/posts/x86-ways-unity-is-supporting-chromeos/unity-x86-support.png)
 
 Here are some highlights that we're particularly excited about:
+
 - x86 and x86_64 build support
 - Improved input support for keyboards and mice
 - Window management fixes and improvements
