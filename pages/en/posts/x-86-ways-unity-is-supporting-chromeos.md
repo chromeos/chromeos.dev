@@ -2,8 +2,9 @@
 title: 'x86 ways Unity is supporting Chrome OS'
 metadesc: Google is partnering with Unity to bring x86 build support and tons of input and windowing improvements.
 tags:
-  - unity
+  - product news
   - gaming
+  - unity
   - x86
   - keyboard support
   - mouse support
@@ -26,7 +27,7 @@ Using a game engine is a great choice for enabling game development, and we see 
 
 Starting today, any developer can begin building for Chrome OS with Unity using the 2021.2 Alpha. When selecting the Android build target, developers can choose to also build for Chrome OS through the Player Settings.
 
-#[Unity's Player Settings with x86 and x86_64 options](/images/posts/x86-ways-unity-is-supporting-chromeos/unity-x86-support.png)
+#[Unity's Player Settings with x86 and x86_64 options](/images/posts/x-86-ways-unity-is-supporting-chromeos/unity-x86-support.png)
 
 Here are some highlights that we're particularly excited about:
 
