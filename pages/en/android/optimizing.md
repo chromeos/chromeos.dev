@@ -107,7 +107,7 @@ Your app should make good use of the screen real estate available regardless of 
 - Making better use of real estate in the app's toolbar.
 - Improving placement of UI affordances, by adapting it to mouse usage instead of thumb usage.
 - Optimizing the size for videos and images, establishing a set of max-width and height for all media, and maximizing readability and scannability.
-- Implementing a responsive column system. For more information, see [Responsive UI](https://material.io/guidelines/layout/responsive-ui.html).
+- Implementing a responsive column system. For more information, see [Responsive UI](https://material.io/design/layout/responsive-layout-grid.html).
 - Resizing and modifying the UI when needed using the column system, and avoiding opening a new windows when possible.
 - Removing or reducing the importance of horizontal scrolling components.
 - Avoiding fullscreen modal UI. Use inline UI, such as progress indicators and alerts, for all non-critical actions
