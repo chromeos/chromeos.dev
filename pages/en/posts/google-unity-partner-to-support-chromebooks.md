@@ -28,7 +28,7 @@ hero:
 date: 2021-04-21
 ---
 
-Chrome OS users like to play Android games of all sorts, from card games to fully immersive open world RPGs. In the past year alone, time spent playing Android games on Chromebooks tripled. In order to bring the widest variety of games to our users, we enabled ARM games to run on Chrome OS [with Houdini](https://chromeos.dev/en/games/optimizing-games-publishing) and continue to invest heavily in Android gaming performance improvements. Our ultimate goal is to ensure that developers have the tools they need to build great games and empower them to bring incredible experiences to the platform.
+Chrome OS users like to play Android games of all sorts, from card games to fully immersive open world RPGs. In the past year alone, time spent playing Android games on Chromebooks tripled. In order to bring the widest variety of games to our users, we enabled ARM games to run on Chrome OS [with Houdini](/{{locale.code}}/games/optimizing-games-publishing) and continue to invest heavily in Android gaming performance improvements. Our ultimate goal is to ensure that developers have the tools they need to build great games and empower them to bring incredible experiences to the platform.
 
 [Unity](https://unity.com/) is the most widely used game engine for developing Android games. To bring more popular and new games to our users, we’re excited to announce that Google has partnered with Unity to optimize their game engine for Chrome OS!
 
