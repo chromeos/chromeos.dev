@@ -19,10 +19,10 @@ featured:
   title: Google & Unity
   desc: We've partnered with Unity to support building games for Chromebooks
   images:
-    - image: /images/posts/google-&-unity-partner-to-support-chromebooks/featured.png
+    - image: /images/posts/google-unity-partner-to-support-chromebooks/featured.png
       alt: Chrome OS gaming banner
 hero:
-  image: /images/posts/google-&-unity-partner-to-support-chromebooks/hero.png
+  image: /images/posts/google-unity-partner-to-support-chromebooks/hero.png
   alt: Chrome OS gaming banner
   position: center
 date: 2021-04-21
@@ -36,7 +36,7 @@ Chrome OS users like to play Android games of all sorts, from card games to full
 
 Starting today with the alpha release of Unity 2021.2.0a14, any developer can begin building for Chrome OS. After selecting Android as the build target, developers can choose to also build for Chrome OS through the Player Settings. Allowing a Chrome OS artifact to be built from the same project and build target is convenient as it reduces duplicate code and streamlines the publishing pipeline. Additionally, by the end of 2021, the same features and toolset found in Unity's Android environment will be available for Chrome OS.
 
-#[Unity's Player Settings with x86 and x86_64 options](/images/posts/google-&-unity-partner-to-support-chromebooks/unity-x86-support.png)
+#[Unity's Player Settings with x86 and x86_64 options](/images/posts/google-unity-partner-to-support-chromebooks/unity-x86-support.png)
 
 Here are a couple of highlights that we're particularly excited about:
 
