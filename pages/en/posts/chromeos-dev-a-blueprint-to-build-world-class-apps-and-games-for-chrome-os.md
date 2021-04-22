@@ -4,12 +4,6 @@ metadesc: ChromeOS.dev is officially launched; an open-source, multilingual blue
 hero:
   image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/hero.svg
   alt: An illustration of a Chromebook and new Chrome OS features.
-featured:
-  title: ChromeOS.dev
-  desc: A blueprint to build world-class apps and games for Chrome OS
-  images:
-    - image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/featured.svg
-      alt: An illustration of a Chromebook and new Chrome OS features.
 tags:
   - product news
   - large screens
