@@ -15,7 +15,7 @@ The Google Play Developer API has two components: the [Subscriptions and In-app 
 - [`purchases.products`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products): in-app products purchase status
 - [`purchases.subscriptions`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions): subscriptions purchase status and management
 
-You can use the Google Play Developer API directly as a REST API, but the [client libraries](https://developers.google.com/android-publisher/libraries) make it easy to quickly start developing. The client libraries for all supported languages can be found [here](https://developers.google.com/api-client-library). Follow the [Getting Started guide](https://developers.google.com/android-publisher/getting_started) for the Google Play Developer API to link your API project and set up API access clients.
+You can use the Google Play Developer API directly as a REST API, but the [client libraries](https://developers.google.com/android-publisher/libraries) make it easier to quickly start developing. The client libraries for all supported languages can be found [here](https://developers.google.com/api-client-library). Follow the [Getting Started guide](https://developers.google.com/android-publisher/getting_started) for the Google Play Developer API to link your API project and set up API access clients.
 
 ## List all in-app products
 
@@ -23,7 +23,7 @@ When querying for available product details on the frontend (on your Android app
 
 ## Verify purchases before granting entitlements
 
-A crucial part of implementing Play Billing in your Android app or Progressive Web App, is ensuring you are verifying purchases before granting entitlement to the user. When you grant a user an entitlement, you are giving access to the benefits or content associated with the item they purchased. Because this requires handling sensitive data, it should be handled on the backend server.
+A crucial part of implementing Play Billing in your Android app or Progressive Web App is ensuring you are verifying purchases before granting entitlement to the user. When you grant a user an entitlement, you are giving access to the benefits or content associated with the item they purchased. Because this requires handling sensitive data, it should be handled on the backend server.
 
 The Google Play Developer API provides the [`purchases.products:get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/get) and [`purchases.subscriptions:get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/get) methods. Use these with purchase tokens retrieved in-app or stored on your back-end server to verify a purchase is legitimate. You should keep track of purchase tokens on your back-end server for additional purchases and user entitlements verification. Check the [Google Play Billing documentation](https://developer.android.com/google/play/billing/security#verify) on verifying purchases for more details about the steps you should take.
 
@@ -31,11 +31,11 @@ The Google Play Developer API provides the [`purchases.products:get`](https://de
 
 After receiving the purchase token from the client, your backend should call Google Play Developer API and validate that it has not been consumed already. A valid purchase’s `purchaseState` field is 1.
 
-If the purchase is valid, the client should acknowledge purchase and grant the entitlement after receiving the response from the server.
+If the purchase is valid, the client should acknowledge the purchase and grant the entitlement after receiving the response from the server.
 
 ### Subscription purchases
 
-Similar to one-time purchases, your back-end server should call the Google Play Developer API after receiving the purchase token from the client, and validate that the subscription is still valid.
+Similar to verifying in-app purchases, your back-end server should call the Google Play Developer API after receiving the purchase token from the client, and validate that the subscription is still valid.
 
 Your client should grant the entitlement if the subscription’s `expiryTimeMillis` field is greater than the current time.
 
@@ -67,7 +67,7 @@ For a detailed discussion of `linkedPurchaseToken` implementation, visit [Implem
 
 The [`purchases.subscriptions:get`](https://developers.google.com/android-publisher/api-ref/purchases/subscriptions/get) method of the Google Play Developer API is the source of truth for managing user subscriptions. If you manage the state of your subscribers on a secure backend server, you should keep its state in sync with Google servers. However, frequent polling of Google Play Developer API can lead to hitting the API quota restrictions and delays in receiving notifications for important user actions (like cancelling or upgrading of a subscription).
 
-[Real-Time Developer Notifications (RTDN)](https://developer.android.com/google/play/billing/getting-ready#configure-rtdn) is a Google Play Billing feature that sends your server an instant notification when a subscriber entitlement state changes (e.g., subscription purchased, subscription cancelled, subscription on hold). With RTDN, you can keep your subscriber database in sync only by responding to these notifications, instead of polling the Google Play Developer API regularly.
+[Real-Time Developer Notifications (RTDN)](https://developer.android.com/google/play/billing/getting-ready#configure-rtdn) is a Google Play Billing feature that sends your server an instant notification when a subscriber entitlement state changes (e.g. subscription purchased, subscription cancelled, subscription on hold). With RTDN, you can keep your subscriber database in sync only by responding to these notifications, instead of polling the Google Play Developer API regularly.
 
 Your back-end server will receive a [`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference#sub) for events affecting subscription state such as renewals and cancellations. Then, call the Google Play Developer API with the purchase token in the notification to get the complete status and update your own backend state.
 

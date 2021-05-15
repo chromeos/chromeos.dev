@@ -51,7 +51,9 @@ Promotion name
 
 Start date and time
 : Choose on what day and at what time you would like the promotion to start.
-End date and time: Choose on what day and at what time you would like the promotion to end. Note promotions can last up to one year.
+
+End date and time
+: Choose on what day and at what time you would like the promotion to end. Note that promotions can last up to one year.
 
 Promotion type
 : Choose what kind of promotion you want to create.

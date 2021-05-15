@@ -5,7 +5,7 @@ date: 2021-05-14
 weight: -5
 ---
 
-By listing your PWA on the Google Play store, it becomes discoverable in the world’s largest app store. Google Play also offers app ratings and reviews, giving users insight into your PWA before installing it. Finally, when you list your app in Google Play, you also get the power of Google Play billing, giving users a familiar payment platform to work with while supporting payments from multiple countries.
+By listing your PWA on the Google Play store, it becomes discoverable in the world’s largest app store. Google Play also offers app ratings and reviews, giving users insight into your PWA before installing it. Finally, when you list your app in Google Play, you also get the power of Google Play Billing, giving users a familiar payment platform to work with while supporting payments from multiple countries.
 
 ## Bubblewrap
 
@@ -17,10 +17,10 @@ To get started, install Bubblewrap from NPM:
 $ npm install -g @bubblewrap/cli
 ```
 
-To initialize your project, pass in your PWA’s [web app manifest](https://web.dev/add-manifest/) as input and Bubblewrap will generate an Android project to build your PWA app bundle from.
+To initialize your project, pass in your PWA’s [web app manifest](https://web.dev/add-manifest/) as input and Bubblewrap will generate an Android project to build your PWA Play package from.
 
 ```bash
-$ bubblewrap init --manifest=”<web-manifest-url>”
+$ bubblewrap init --manifest="<web-manifest-url>"
 ```
 
 Then build the project and Bubblewrap will create the packages (APK or AAB) that can be uploaded to the Play Store to be distributed.
@@ -36,7 +36,7 @@ Check the [official CLI documentation](https://github.com/GoogleChromeLabs/bubbl
 If you already have a platform specific Android app, or do not wish to have a mobile experience, you can make your application available only on Chrome OS by adding the `--chromeosonly` flag in the init command:
 
 ```bash
-bubblewrap init --manifest="<web-manifest-url>" --chromeosonly
+$ bubblewrap init --manifest="<web-manifest-url>" --chromeosonly
 ```
 
 If you have already initialized your application, you can change this configuration by setting the `isChromeOSOnly` flag to `true` in the `twa-manifest.json` file and running Bubblewrap’s `update` command.
@@ -52,12 +52,12 @@ Setting up Digital Asset Links requires multiple steps: you need to gather infor
 @[youtube](https://www.youtube.com/watch?v=3bAQPnxLd4c)
 
 !!! aside.message--warning
-Since the time of publishing this video, Bubblewrap no longer generates the digital asset links file for you anymore. This functionality has moved to the [`fingerprint`](https://github.com/GoogleChromeLabs/bubblewrap/tree/main/packages/cli#fingerprint) command in the tool.
+Since the time of publishing this video, Bubblewrap no longer generates the Digital Asset Links file for you anymore. Check out the [`fingerprint`](https://github.com/GoogleChromeLabs/bubblewrap/tree/main/packages/cli#fingerprint) command in the tool instead.
 !!!
 
-## Publishing your Android App Bundle
+## Publishing your app to Google Play
 
-When you’re ready to publish your Android App Bundle to Google Play, do the following:
+When you’re ready to publish your app to Google Play, do the following:
 
 - Make sure your [Google Play Developer account is set up](https://support.google.com/googleplay/android-developer/answer/6112435?authuser=1).
 - Check that your [developer account details](https://support.google.com/googleplay/android-developer/answer/139626?authuser=1) are accurate.
@@ -67,7 +67,7 @@ When you’re ready to publish your Android App Bundle to Google Play, do the fo
 You can now release your app to the Play Store! We recommend first releasing to a [testing track](https://support.google.com/googleplay/android-developer/answer/9845334?authuser=1&authuser=1&visit_id=637556446686565231-2880420394&rd=1) with a trusted testers list to validate the app works as expected.
 
 !!! aside.message--note
-**Note:** We do not recommend the paid app option for PWAs published on Google Play Store. The installed PWA needs to be accessible from the user’s browser and the only means for determining if a navigation comes from a Play installed app are reliant on client-side checks and may not fire for every navigation. Because of this, there’s no secure way of limiting access in the same way that other paid apps can, so we instead recommend monetizing through in-app purchases and/or subscriptions.
+**Note:** We do not recommend the paid app option for PWAs published on Google Play. The installed PWA needs to be accessible from the user’s browser and the only means for determining if a navigation comes from a Play installed app are reliant on client-side checks and may not fire for every navigation. Because of this, there’s no secure way of limiting access in the same way that other paid apps can, so we instead recommend [monetizing through in-app purchases and/or subscriptions](/{{locale.code}}/publish/pwa-play-billing).
 !!!
 
 ### List a PWA for Chrome OS and a platform specific Android app under one listing
@@ -77,7 +77,7 @@ If you already have a well established Android presence with a platform specific
 !!! aside.message--warning
 **Warning:** Uploading a mobile Android app with a higher version number than your Chrome OS only app _will replace your Chrome OS only app_ if the Android app is also compatible with Chromebooks! As a best practice, set the Chrome OS app several versions higher than your mobile Android app. For instance 1000 for Chrome OS if the Android version is 1. Then as you create new releases for each, you can increment the version numbers accordingly as long as the Chrome OS version is always larger. When Play distributes your app, it uses the highest version available that is compatible with the given device.
 
-When creating the Chrome OS release, make sure to include the latest Android app bundle. In the “Previous release” section, find the APK or AAB that corresponds to the latest Android mobile version and select “Include”.
+When creating the Chrome OS release, make sure to include the latest Android App Bundle. In the “Previous release” section, find the APK or AAB that corresponds to the latest Android mobile version and select “Include”.
 
 ![When you create a new release in the Play Console, you can include APKs or AABs from previous releases.](/images/publish/pwa-in-play/play-console-include.png)
 
@@ -86,13 +86,13 @@ If the latest mobile package is not included in the Chrome OS release, users on 
 
 ### Complying with Google Play payment policies
 
-If your PWA sells digital goods that fall under the [Play payments policy](https://support.google.com/googleplay/android-developer/answer/9858738#gbwa:~:text=Play%2Ddistributed%20apps%20must%20use%20Google%20Play's,app%20functionality%2C%20digital%20content%20or%20goods.), you must integrate Play billing into your app before it can be launched. Learn more on integrating Google Play Billing with your web app.
+If your PWA sells digital goods that fall under the [Play payments policy](https://support.google.com/googleplay/android-developer/answer/9858738#gbwa:~:text=Play%2Ddistributed%20apps%20must%20use%20Google%20Play's,app%20functionality%2C%20digital%20content%20or%20goods.), you must integrate Play billing into your app before it can be launched. Learn more on [integrating Google Play Billing with your web app](/{{locale.code}}/publish/pwa-play-billing).
 
-### Updating your PWA App Bundle
+### Updating your PWA in Play
 
-Because users are using your live web app after installing your PWA App Bundle,, there are only a few scenarios when you’ll need to update your deployed app bundle. These include:
+Because users are using your live web app after installing your PWA through Google Play, there are only a few scenarios when you’ll need to update your deployed app. These include:
 
-- If the app is over a year old. In this case, you should update in order to ensure that your app works with the latest Android SDK
-- If you have separate mobile and Chrome OS only packages under the same listing and the platform specific android version number exceeds your PWA App Bundle version. In this case, you need to bump the PWA App Bundle version and redeploy the app while retaining your platform specific Android app release.
+- If the app is over a year old. In this case, you should update in order to ensure that your app works with the latest Android SDK.
+- If you have separate mobile and Chrome OS-only packages under the same listing, and the platform specific Android version number exceeds your Chrome OS-only PWA version. In this case, you need to bump the PWA version and redeploy the app while retaining your platform specific Android app release.
 - If there are new features you would like to take advantage of.
-- If you have changed your web app manifest, for instance updating icons or the theme color, and want those changes applied to your PWA App Bundle. In this case, you should recompile your PWA App Bundle and redeploy the app.
+- If you have changed your web app manifest, for instance updating icons or the theme color, and want those changes applied to your PWA in Play. In this case, you should recompile your Bubblewrap project and redeploy the app.
