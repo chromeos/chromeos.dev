@@ -11,7 +11,7 @@ In the left-hand menu for your app, there should be a “Monetize” section. Ex
 
 ![To set up in-app products, subscriptions, and promo codes, expand the "Monetize" section of the menu.](/images/publish/play-console-setup-for-billing/play-console-monetize-menu.gif)
 
-Before setting up your in-app products and subscriptions, first make sure that you’ve uploaded your APK or Android App Bundle (AAB) to a production or testing track. You will also need to add the `BILLING` permission to your app. For an Android app, follow the steps to [enable billing-related features](https://developer.android.com/google/play/billing/getting-ready) in the Google Play Console. If you have a Progressive Web App, [Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap/tree/main/packages/cli) lets you enable support for Play Billing in one of the prompts during the `init` setup.
+Before setting up your in-app products and subscriptions, first make sure that you’ve uploaded your APK or Android App Bundle (AAB) to a production or testing track. You will also need to add the `BILLING` permission to your app. For an Android app, follow the steps to [enable billing-related features](https://developer.android.com/google/play/billing/getting-ready#enable) in the Google Play Console. If you have a Progressive Web App, [Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap/tree/main/packages/cli) lets you enable support for Play Billing in one of the prompts during the `init` setup.
 
 ## In-app products
 
@@ -76,6 +76,6 @@ Promo codes
 
 ## Payments profile
 
-Lastly, you’ll want to access your revenue. If you haven’t set up your [payments profile](https://play.google.com/console/developers/paymentssettings) and merchant account before, in the main Play Console menu (not the one for your app), under “Settings” and “Developer account”, go to “Payment settings”. Fill in your business information to set up your payments profile which will then be automatically linked to your Play Console and developer account. Then in the “Payment settings” menu add a payment method to receive your earnings.
+Lastly, you’ll want to access your revenue. If you haven’t set up your [payments profile](https://play.google.com/console/developers/paymentssettings) and merchant account before, in the main Play Console menu (not the one for your app), under “Settings” and “Developer account”, go to “Payments profile”. Fill in your business information to set up your payments profile which will then be automatically linked to your Play Console and developer account. Then in the “Payments profile” menu add a payment method to receive your earnings.
 
 You can see more about your app’s financial data by going to the app’s menu and going to “Monetize” then “Financial reports”. There you can see various breakdowns of your revenue by your items, subscriptions, and buyers.

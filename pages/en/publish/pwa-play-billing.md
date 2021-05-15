@@ -111,6 +111,7 @@ After validating the purchase, call `complete()` on the payment response to fini
 
 ```js
 const {purchaseToken} = paymentResponse.details;
+
 let paymentComplete;
 if (validatePurchaseOnBackend(purchaseToken)) {
 	paymentComplete = await paymentResponse.complete(‘success’);
@@ -138,7 +139,7 @@ This purchase flow is the same for both in-app products and subscription purchas
 | `’deferred’`                                  | The subscription is upgraded or downgraded only when the subscription renews. This is useful for downgrades especially.                                                                                                                |
 | `’unknownSubscriptionUpgradeDowngradePolicy’` | No set policy. This is not recommended.                                                                                                                                                                                                |
 
-Learn more about the different proration modes in the Google Play Billing Library [reference documentation](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.ProrationMode). Check out the Android developer docs for more on [subscription upgrade and downgrades](https://developer.android.com/google/play/billing/subscriptions) and [proration mode recommendations](https://developer.android.com/google/play/billing/subscriptions#proration-recommendations).
+Learn more about the different proration modes in the Google Play Billing Library [reference documentation](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.ProrationMode). Check out the Android developer docs for more on [subscription upgrade and downgrades](https://developer.android.com/google/play/billing/subscriptions#change) and [proration mode recommendations](https://developer.android.com/google/play/billing/subscriptions#proration-recommendations).
 
 The usage of these additional fields will look something like this:
 

@@ -13,7 +13,7 @@ The Google Play Developer API has two components: the [Subscriptions and In-app 
 
 - [`inappproducts`](https://developers.google.com/android-publisher/api-ref/rest/v3/inappproducts): in-app products and subscriptions catalog management
 - [`purchases.products`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products): in-app products purchase status
-- [`purchases.subscriptions`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions): subscriptions purchase status
+- [`purchases.subscriptions`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions): subscriptions purchase status and management
 
 You can use the Google Play Developer API directly as a REST API, but the [client libraries](https://developers.google.com/android-publisher/libraries) make it easy to quickly start developing. The client libraries for all supported languages can be found [here](https://developers.google.com/api-client-library). Follow the [Getting Started guide](https://developers.google.com/android-publisher/getting_started) for the Google Play Developer API to link your API project and set up API access clients.
 
@@ -29,13 +29,13 @@ The Google Play Developer API provides the [`purchases.products:get`](https://de
 
 ### In-app purchases
 
-After receiving the purchaseToken from the client, your backend should call Google Play Developer API and validate that it has not been consumed already. A valid purchase’s `purchaseState` field is 1.
+After receiving the purchase token from the client, your backend should call Google Play Developer API and validate that it has not been consumed already. A valid purchase’s `purchaseState` field is 1.
 
 If the purchase is valid, the client should acknowledge purchase and grant the entitlement after receiving the response from the server.
 
 ### Subscription purchases
 
-Similar to one-time purchases, your back-end server should call the Google Play Developer API after receiving the purchaseToken from the client, and validate that the subscription is still valid.
+Similar to one-time purchases, your back-end server should call the Google Play Developer API after receiving the purchase token from the client, and validate that the subscription is still valid.
 
 Your client should grant the entitlement if the subscription’s `expiryTimeMillis` field is greater than the current time.
 
@@ -69,7 +69,7 @@ The [`purchases.subscriptions:get`](https://developers.google.com/android-publis
 
 [Real-Time Developer Notifications (RTDN)](https://developer.android.com/google/play/billing/getting-ready#configure-rtdn) is a Google Play Billing feature that sends your server an instant notification when a subscriber entitlement state changes (e.g., subscription purchased, subscription cancelled, subscription on hold). With RTDN, you can keep your subscriber database in sync only by responding to these notifications, instead of polling the Google Play Developer API regularly.
 
-Your back-end server will receive a [`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference#sub) for events affecting subscription state such as renewals and cancellations. Then, call the Google Play Developer API with the purchaseToken in the notification to get the complete status and update your own backend state.
+Your back-end server will receive a [`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference#sub) for events affecting subscription state such as renewals and cancellations. Then, call the Google Play Developer API with the purchase token in the notification to get the complete status and update your own backend state.
 
 You can configure RTDN for your app by following [these instructions](https://developer.android.com/google/play/billing/getting-ready#configure-rtdn). Then you should set up your back-end server to consume these messages.
 
