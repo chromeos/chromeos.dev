@@ -25,7 +25,9 @@
     position: relative;
     z-index: 2;
 
-    picture:not(:first-of-type) {
+    picture:not(:first-child),
+    video:not(:first-child),
+    img:not(:first-child) {
       left: 0;
       position: absolute;
       top: 0;
