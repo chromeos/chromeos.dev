@@ -15,7 +15,7 @@ The Google Play Developer API has two components: the [Subscriptions and In-app 
 - [`purchases.products`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products): in-app products purchase status
 - [`purchases.subscriptions`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions): subscriptions purchase status and management
 
-You can use the Google Play Developer API directly as a REST API, but the [client libraries](https://developers.google.com/android-publisher/libraries) make it easier to quickly start developing. The client libraries for all supported languages can be found [here](https://developers.google.com/api-client-library). Follow the [Getting Started guide](https://developers.google.com/android-publisher/getting_started) for the Google Play Developer API to link your API project and set up API access clients.
+You can use the Google Play Developer API directly as a REST API, or the [client libraries](https://developers.google.com/android-publisher/libraries) can help you quickly start developing. The client libraries for all supported languages can be found [here](https://developers.google.com/api-client-library). Follow the [Getting Started guide](https://developers.google.com/android-publisher/getting_started) for the Google Play Developer API to link your API project and set up API access clients.
 
 ## List all in-app products
 
