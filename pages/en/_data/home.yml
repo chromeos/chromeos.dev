@@ -56,16 +56,16 @@ onAndWith:
       modifiers:
         offset: true
     - images:
+        - src: /images/landings/home/io-laptop.png
+          alt: Google I/O 2021
         - src: /images/landings/home/cds-laptop.png
           alt: Pixelbook laptop.
-        - src: /images/landings/home/cds-text.png
-          alt: Chrome Dev Summit 2020.
       content:
-        title: Chrome Dev Summit 2020
-        copy: Chrome Developer Summit is all virtual this year! Join us December 9-10 from wherever you are for sessions, live Q&A, workshops, and office hours. Sessions are open to all, and you can request an invite for limited-capacity and exclusive experience you can join, too. Looking forward to seeing you there!
+        title: Google I/O 2021
+        copy: I/O is back, May 18-20, online and free for everyone.
       cta:
-        url: https://developer.chrome.com/devsummit/?utm_source=chromeosdevhp&utm_medium=website
-        text: Learn more
+        url: https://events.google.com/io
+        text: Join us live
       modifiers:
         offset: true
 posts:
