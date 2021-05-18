@@ -2,7 +2,7 @@
 title: Adapting Android games
 metadesc: Learn how to adapt your Android game for Chrome OS.
 date: 2020-06-16
-weight: -9
+weight: -10
 tags:
   - android
 ---
