@@ -5,7 +5,7 @@ hero:
   image: /images/landings/games-hero.svg
   alt: Illustration of a several inputs connected to a Chrome OS device.
 date: 2020-06-16
-weight: -10
+weight: -11
 ---
 
 Chrome OS devices have large screens and often have built in mice and keyboards, this makes them great gaming devices, for both web and Android games.
