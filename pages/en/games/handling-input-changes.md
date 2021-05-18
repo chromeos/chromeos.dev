@@ -106,12 +106,70 @@ You would like to add keyboard and bluetooth game controller support. Where do y
 
 Begin by identifying all of the **input states** your game might be running in and then listing all the parameters that you would like to change in each state.
 
+<<<<<<< HEAD
 |                        | Touch                                  | Keyboard/Mouse                                   | Game Controller                      |
 | ---------------------- | -------------------------------------- | ------------------------------------------------ | ------------------------------------ |
 | **Reacts to**          | All input                              | All input                                        | All input                            |
 | **On-screen controls** | - On-screen joystick<br>- Nitro button | - No joystick<br>- No nitro button               | - No joystick<br>- No nitro button   |
 | **Text**               | Tap for Nitro!                         | Press “N” for Nitro!                             | Press “A” for Nitro!                 |
 | **Tutorial**           | Image of joystick for speed/direction  | Image of arrow keys and WASD for speed/direction | Image of gamepad for speed/direction |
+=======
+<table>
+  <tr>
+   <td>
+   </td>
+   <td><strong>Touch</strong>
+   </td>
+   <td><strong>Keyboard/Mouse</strong>
+   </td>
+   <td><strong>Game Controller</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Reacts to</strong>
+   </td>
+   <td>All input
+   </td>
+   <td>All input
+   </td>
+   <td>All input
+   </td>
+  </tr>
+  <tr>
+   <td><strong>On-screen controls</strong>
+   </td>
+   <td>- On-screen joystick<br/>
+- Nitro button
+   </td>
+   <td>- No joystick<br/>
+- No nitro button
+   </td>
+   <td>- No joystick<br/>
+- No nitro button
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Text</strong>
+   </td>
+   <td>Tap for Nitro!
+   </td>
+   <td>Press “N” for Nitro!
+   </td>
+   <td>Press “A” for Nitro!
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Tutorial mode</strong>
+   </td>
+   <td>Image of joystick for speed/direction
+   </td>
+   <td>Image of arrow keys and WASD for speed/direction
+   </td>
+   <td>Image of gamepad for speed/direction
+   </td>
+  </tr>
+</table>
+>>>>>>> 0934d39bf97d820baa5f6625e33d7a6984990623
 
 Keep track of the "active input" state, and then update the UI as needed, based on that state.
 
@@ -135,11 +193,66 @@ Below is a state diagram and a transition table for the example. Adapt the idea 
 
 ![Prioritized state machine - touchscreen, keyboard/mouse, game controller](/images/games/optimizing-games-input/input-state-machine.png)
 
+<<<<<<< HEAD
 |                | #1 Touchscreen                                                                   | #2 Keyboard                                                                       | #3 Gamepad                                                              |
 | -------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | **Move to #1** | N/A                                                                              | - Touch input received<br>- Move immediately to Touch input state                 | - Touch input received<br>- Move immediately to Touch input state       |
 | **Move to #2** | - No touch for 5s<br>- Keyboard input received<br>- Move to Keyboard input state | N/A                                                                               | - Keyboard input received<br>(move immediately to Keyboard input state) |
 | **Move to #3** | - No touch for 5s<br>- No keyboard for 5s                                        | - No keyboard for 5s<br>- Gamepad input received<br>- Move to Gamepad input state | N/A                                                                     |
+=======
+<table>
+  <tr>
+   <td>
+   </td>
+   <td><strong>1. Touchscreen</strong>
+   </td>
+   <td><strong>2. Keyboard</strong>
+   </td>
+   <td><strong>3. Gamepad</strong>
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Move to #1</strong>
+   </td>
+   <td>N/A
+   </td>
+   <td>- Touch input received<br/>
+- Move immediately to Touch input state
+   </td>
+   <td>- Touch input received<br/>
+- Move immediately to Touch input state
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Move to #2</strong>
+   </td>
+   <td>- No touch for 5s<br/>
+- Keyboard input received<br/>
+- Move to Keyboard input state
+   </td>
+   <td>N/A
+   </td>
+   <td>- Keyboard input received<br/>
+(move immediately to Keyboard input state)
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Move to #3</strong>
+   </td>
+   <td>- No touch for 5s<br/>
+- No keyboard for 5s<br/>
+- Gamepad input received<br/>
+- Move to Gamepad input state
+   </td>
+   <td>- No keyboard for 5s<br/>
+- Gamepad input received<br/>
+- Move to Gamepad input state
+   </td>
+   <td>N/A
+   </td>
+  </tr>
+</table>
+>>>>>>> 0934d39bf97d820baa5f6625e33d7a6984990623
 
 !!! aside.message--note
 Notice how prioritization helps make it clear which type of input should be dominant. Input state **instantly** moves “up” in priority:
@@ -198,9 +311,15 @@ override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
 ```
 
 !!! aside.message--note
+<<<<<<< HEAD
 **Note**: for KeyEvents, you can choose to use either [`onKeyDown()`](<https://developer.android.com/reference/android/app/Activity#onKeyDown(int,%20android.view.KeyEvent)>) or [`onKeyUp()`](<https://developer.android.com/reference/android/app/Activity#onKeyUp(int,%20android.view.KeyEvent)>). Here, [`onKeyDown()`](<https://developer.android.com/reference/android/app/Activity#onKeyDown(int,%20android.view.KeyEvent)>) is used for controlling the state machine whereas [`onKeyUp()`](<https://developer.android.com/reference/android/app/Activity#onKeyUp(int,%20android.view.KeyEvent)>) is used for triggering game events.
 
 If a user presses and holds a button, [`onKeyUp()`](<https://developer.android.com/reference/android/app/Activity#onKeyUp(int,%20android.view.KeyEvent)>) will only be triggered once per keypress whereas [`onKeyDown()`](<https://developer.android.com/reference/android/app/Activity#onKeyDown(int,%20android.view.KeyEvent)>) will be called multiple times. If want to react to the down press, you should handle game events in [`onKeyDown()`](<https://developer.android.com/reference/android/app/Activity#onKeyDown(int,%20android.view.KeyEvent)>) and implement logic to address the repeated events. See [Handling Keyboard Actions](https://developer.android.com/training/keyboard-input/commands#SingleKey) documentation for more info.
+=======
+**Note**: for KeyEvents, you can choose to use either [onKeyDown()](<https://developer.android.com/reference/android/app/Activity#onKeyDown(int,%20android.view.KeyEvent)>) or [onKeyUp()](<https://developer.android.com/reference/android/app/Activity#onKeyUp(int,%20android.view.KeyEvent)>). Here, [onKeyDown()](<https://developer.android.com/reference/android/app/Activity#onKeyDown(int,%20android.view.KeyEvent)>) is used for controlling the state machine whereas [onKeyUp()](<https://developer.android.com/reference/android/app/Activity#onKeyUp(int,%20android.view.KeyEvent)>) is used for triggering game events.
+
+If a user presses and holds a button, [onKeyUp()](<https://developer.android.com/reference/android/app/Activity#onKeyUp(int,%20android.view.KeyEvent)>) will only be triggered once per keypress whereas [onKeyDown()](<https://developer.android.com/reference/android/app/Activity#onKeyDown(int,%20android.view.KeyEvent)>) will be called multiple times. If want to react to the down press, you should handle game events in [onKeyDown()](<https://developer.android.com/reference/android/app/Activity#onKeyDown(int,%20android.view.KeyEvent)>) and implement logic to address the repeated events. See [Handling Keyboard Actions](https://developer.android.com/training/keyboard-input/commands#SingleKey) documentation for more info.
+>>>>>>> 0934d39bf97d820baa5f6625e33d7a6984990623
 !!!
 
 #### Touch and Stylus
