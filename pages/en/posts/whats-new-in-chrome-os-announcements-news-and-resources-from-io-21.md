@@ -62,7 +62,7 @@ Throughout this year, we’ll update all Chromebooks to run Android 11. We’re 
 
 To help developers improve their experience on Chrome OS and across other form factors, we shared an overview during our session “[Optimize your Android games and apps to run on Chrome OS](https://youtu.be/23EnVczS0Ik).” New runtime improvements now support better app resizing, scaling, and app rendering, which developers can test on any Chromebook running Android 11.
 
-For more guidance on practical, large-screen design, check out “[5 things you can do right now to prepare your app for large screens](https://youtu.be/BOAp3XcaYE8)” as well as the session on “[What’s new in foldables, tablets, and large screens](https://youtu.be/Qkiz3QIPJzk).”
+For more guidance on practical, large-screen design, check out “[5 things you can do right now to prepare your app for large screens](https://youtu.be/UNDZn9GKJGo)” as well as the session on “[What’s new in foldables, tablets, and large screens](https://youtu.be/Qkiz3QIPJzk).”
 
 ## Gaming and adapting for new inputs
 
