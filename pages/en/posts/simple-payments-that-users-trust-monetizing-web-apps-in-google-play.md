@@ -11,7 +11,7 @@ authors:
   - pjmclachlan
   - tbuckley
 hero:
-  image: /images/posts/simple-payments-that-users-trust-monetizing-web-apps-in-google-play/hero.svg
+  image: /images/posts/simple-payments-that-users-trust-monetizing-web-apps-in-google-play/hero.png
   alt: Chrome OS Google Play monetization banner
   position: center
 date: 2021-05-19
@@ -21,7 +21,7 @@ Getting your app discovered and streamlining payments go hand in hand to success
 
 Since we introduced [Google Play to Chrome OS](https://blog.google/products/chromebooks/the-google-play-store-coming-to/) in 2016, it’s become a destination for users to find the best apps and software for their devices. In the past year, Chromebook sales have grown by 85% while app usage on Chromebooks has increased by 190%.
 
-![Growth of Chrome OS sales and app usage](/images/posts/simple-payments-that-users-trust-monetizing-web-apps-in-google-play/growth.svg)
+![Growth of Chrome OS sales and app usage](/images/posts/simple-payments-that-users-trust-monetizing-web-apps-in-google-play/growth.png)
 
 Now, PWA developers can use [Trusted Web Activity](https://developers.google.com/web/android/trusted-web-activity) to reach this growing audience. By showing up in curated collections and recommendations on Google Play, PWAs are easier to discover on a wider variety of devices and users get to enjoy the app experience they love, powered by Chrome.
 
