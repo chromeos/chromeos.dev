@@ -1,16 +1,24 @@
 ---
 title: 'What’s new in Chrome OS: Announcements, news, and resources from I/O ‘21'
 metadesc: Learn about the latest for Chrome OS from I/O '21
+tags:
+  - events
+  - success story
+  - web
+  - android
+  - gaming
+  - input devices
+  - publishing
 authors:
   - pfuentes
 featured:
-  title: 'What’s new in Chrome OS: Announcements, news, and resources from I/O ‘21'
-  desc: Learn about the latest for Chrome OS from I/O '21
+  title: What’s new in Chrome OS
+  desc: Learn about the latest announcements, news, and resources for Chrome OS from Google I/O '21
   images:
-    - image: /images/posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/hero.svg
+    - image: /images/posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/hero.png
       alt: Chrome OS I/O '21 banner
 hero:
-  image: /images/posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/hero.svg
+  image: /images/posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/hero.png
   alt: Chrome OS I/O '21 banner
   position: center
 date: 2021-05-19
