@@ -1,5 +1,5 @@
 ---
-title: Simple payments that users trust: Monetizing web apps in Google Play
+title: "Simple payments that users trust: Monetizing web apps in Google Play"
 metadesc: Learn about how to monetize your web app published in Google Play
 tags:
   - product news
