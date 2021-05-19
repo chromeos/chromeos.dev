@@ -111,7 +111,7 @@ const contributors = {
   },
   pjmclachlan: {
     name: {
-      given: 'PJ',
+      given: 'Penny',
       family: 'McLachlan',
     },
     work: {
