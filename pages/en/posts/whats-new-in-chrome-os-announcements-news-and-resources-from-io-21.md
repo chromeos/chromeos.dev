@@ -30,7 +30,7 @@ In just the last year, Chrome OS grew 92% — five times the rate of the PC mark
 
 ![](/images/posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/growth.png)
 
-From the classroom to the boardroom, Chrome OS devices are making work simpler and more seamless. More than 40 million students and educators around the world are using Chromebooks today, and we’ve seen 83% growth in Enterprise shipments in the last year. That’s just scratching the surface. Check out our session “[What’s new in Chrome OS](https://youtu.be/o7PfWV6lelM)” from I/O to hear more about our growing ecosystem.
+From the classroom to the boardroom, Chrome OS devices are making work simpler and more seamless. More than 40 million students and educators around the world are using Chromebooks today, and we’ve seen 83% growth in Enterprise shipments in the last year. That’s just scratching the surface. Check out our session “[What’s new in Chrome OS](https://youtu.be/a8kkzdOfAgU)” from I/O to hear more about our growing ecosystem.
 
 None of this incredible growth would be possible without developers creating powerful apps for Chromebooks.
 
@@ -46,11 +46,11 @@ We’re also spotlighting the best Chromebook-optimized apps by surfacing them a
 
 ![Content-forward listings in Google Play that spotlight the best Chromebook-optimized apps.](/images/posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/google-play.png)
 
-To make sure billions of users on Chrome OS can find and enjoy your web app, we recommend starting with our session on [how to list your PWA in Google Play)[https://youtu.be/ddbHp8tGBwQ]. Check out [in-depth guidance for Web developers on ChromeOS.dev)[https://chromeos.dev/en/publish/pwa-in-play] for more tips and coding samples.
+To make sure billions of users on Chrome OS can find and enjoy your web app, we recommend starting with our session on [how to list your PWA in Google Play](https://youtu.be/ddbHp8tGBwQ). Check out [in-depth guidance for Web developers on ChromeOS.dev](https://chromeos.dev/en/publish/pwa-in-play) for more tips and coding samples.
 
-To seamlessly accept payments and subscriptions in Google Play, use the Digital Goods API. If your app is set up to process digital payments, check out [our session on using the Digital Goods API)[https://youtu.be/Ge7VkPC2eM0] as well as our [associated content on ChromeOS.dev)[https://chromeos.dev/en/publish/play-console-setup-for-billing].
+To seamlessly accept payments and subscriptions in Google Play, use the Digital Goods API. If your app is set up to process digital payments, check out [our session on using the Digital Goods API](https://youtu.be/Ge7VkPC2eM0) as well as our [associated content on ChromeOS.dev](https://chromeos.dev/en/publish/play-console-setup-for-billing).
 
-We’re always working to make the web more powerful and capable for developers with [an evolving list of new APIs)[https://fugu-tracker.web.app/]. To see a great example of the latest web app capabilities on desktops, check out “[Excalidraw and Fugu: Improving core user journeys)[https://youtu.be/EK1AkxgQwro].” You can also stay up to date with new APIs at [web.dev/tags/capabilities)[https://web.dev/tags/capabilities/] — we’ll roll out 20 new APIs by the end of this year.
+We’re always working to make the web more powerful and capable for developers with [an evolving list of new APIs](https://fugu-tracker.web.app/). To see a great example of the latest web app capabilities on desktops, check out “[Excalidraw and Fugu: Improving core user journeys](https://youtu.be/EK1AkxgQwro).” You can also stay up to date with new APIs at [web.dev/tags/capabilities](https://web.dev/tags/capabilities/) — we’ll roll out 20 new APIs by the end of this year.
 
 ## Updates for Android developers
 
