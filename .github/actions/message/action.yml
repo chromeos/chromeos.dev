@@ -5,10 +5,10 @@ inputs:
     description: Deploy URL
   sha:
     description: Deploy SHA
-  links:
-    description: Lighthouse links
-  results:
-    description: Lighthouse assertion results
+  # links:
+  #   description: Lighthouse links
+  # results:
+  #   description: Lighthouse assertion results
 runs:
   using: node12
   main: message.js
