@@ -59,7 +59,7 @@ jobs:
   #########################
   ## Preview Deploy & Lighthouse Testing
   #########################
-  lighthouse:
+  preview:
     needs: build-test
     runs-on: ubuntu-latest
     steps:
