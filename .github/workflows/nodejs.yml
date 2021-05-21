@@ -96,19 +96,19 @@ jobs:
           echo "::set-output name=sha::$GITHUB_SHA"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-      - name: Lighthouse Audit
-        id: lighthouse
-        uses: treosh/lighthouse-ci-action@v3
-        continue-on-error: true
-        with:
-          urls: |
-            https://cros-staging.web.app/en
-            ${{ steps.deploy.outputs.url }}/en
-            ${{ steps.deploy.outputs.url }}/es
-          configPath: ./.lighthouserc.yml
-          temporaryPublicStorage: true
-          uploadArtifacts: true
-          runs: 3
+      # - name: Lighthouse Audit
+      #   id: lighthouse
+      #   uses: treosh/lighthouse-ci-action@v3
+      #   continue-on-error: true
+      #   with:
+      #     urls: |
+      #       https://cros-staging.web.app/en
+      #       ${{ steps.deploy.outputs.url }}/en
+      #       ${{ steps.deploy.outputs.url }}/es
+      #     configPath: ./.lighthouserc.yml
+      #     temporaryPublicStorage: true
+      #     uploadArtifacts: true
+      #     runs: 3
       - name: Post message
         if: github.event_name == 'pull_request' && (success() || failure())
         id: message
@@ -116,8 +116,8 @@ jobs:
         with:
           url: ${{ steps.deploy.outputs.url }}
           sha: ${{ steps.deploy.outputs.sha }}
-          links: ${{ steps.lighthouse.outputs.links }}
-          results: ${{ steps.lighthouse.outputs.assertionResults }}
+          # links: ${{ steps.lighthouse.outputs.links }}
+          # results: ${{ steps.lighthouse.outputs.assertionResults }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
