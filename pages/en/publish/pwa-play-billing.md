@@ -7,6 +7,8 @@ weight: -4
 
 If your PWA is listed in Google Play and you want to monetize it by selling in-app products or subscriptions, [Play policy](https://support.google.com/googleplay/android-developer/answer/9858738#gbwa:~:text=Play%2Ddistributed%20apps%20must%20use%20Google%20Play's,app%20functionality%2C%20digital%20content%20or%20goods.) will require you to implement Play Billing. There are two APIs that you will need to implement in your PWA: the [Digital Goods API](https://github.com/WICG/digital-goods/blob/main/explainer.md) and the [Payment Request API](https://www.w3.org/TR/payment-request/).
 
+@[youtube](https://www.youtube.com/watch?v=Ge7VkPC2eM0)
+
 ## Digital Goods API
 
 The [Digital Goods API](https://github.com/WICG/digital-goods/blob/main/explainer.md) is an interface between your app and Google Play. It allows you to retrieve the digital products and details you’ve entered for your in-app products and subscriptions in the Play Console as well as retrieve existing purchases a user has made. If you haven’t added in-app products or subscriptions in the Play Console yet, make sure to follow the [Play Console setup for Play Billing](/{{locale.code}}/publish/play-console-setup-for-billing).
