@@ -215,6 +215,14 @@ for (const purchase of existingPurchases) {
 
 To protect your app from potential bad actors, you should not rely only on the client side to get purchases. Learn more about how to [verify purchases on your back-end server before granting entitlements](/{{locale.code}}/publish/play-billing-backend#verify-purchases-before-granting-entitlements).
 
+## Let users manage subscriptions
+
+For a good user experience, it is important to provide a way for users to manage and cancel their subscriptions in-app. We recommend creating a deep link, on a settings page or menu, that will redirect the user to the Play Store's subscription management page for your app. Replace the following URL with your appropriate "sub-product-id" and "app-package-name":
+
+```
+https://play.google.com/store/account/subscriptions?sku=sub-product-id&package=app-package-name
+```
+
 ## Next steps
 
 These user flows and code snippets are a basic implementation to demonstrate how to use the DIgital Goods API and Payment Request API in your PWA to implement Play Billing. You should utilize the APIs as it makes sense in your app’s context and use cases. For an example of an end-to-end implementation, check out our [open-source sample](https://github.com/chromeos/pwa-play-billing).
