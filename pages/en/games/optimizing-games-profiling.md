@@ -57,6 +57,12 @@ Chrome OS has a built-in graphics profiler that helps you understand how your An
 
 Start the tracing tool by navigating to `chrome://arc-graphics-tracing` in the browser on Chrome OS. Detailed usage instructions can be found on [debugging animation jank](/{{locale.code}}/android-environment/animation).
 
+### ARC Overview Tracing
+
+There's also a more generalized tool - ARC Overview Tracing - that works similarly to the above ARC Graphics Tracing tool. This tracer will provide major metrics about an app and Chrome OS performance. Read outs will show you FPS of the app and of Chrome itself, as well as CPU usage, GPU usage, and power consumption. You can run the tool multiple times and see graphs for each run overlaid together with colors to differentiate them. Each tracing model will be saved to your Downloads folder and can be reimported for future comparisons. For general app health checks, ARC Overview Tracing is a good place to start.
+
+Visit `chrome://arc-overview-tracing` in the browser on Chrome OS to access this tool.
+
 ## Next steps
 
 So maybe you've found some bottlenecks but are not sure what to do about them. Or you've found and addressed them, but you're not sure where to go next. Below, we've compiled a list of general Android and engine specific tips and resources for you.
