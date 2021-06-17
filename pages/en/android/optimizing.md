@@ -14,6 +14,8 @@ tags:
 
 Android apps have an important role to play in redefining what modern computing looks like on large screens. That said, simply running your phone app on a Chromebook won’t give your users the best experience. This page details some ways that you can tailor your experience towards laptop and convertible form factors. See our [comprehensive list of tests](/{{locale.code}}/android/tests) to learn more about testing your app for compatibility on these devices.
 
+@[youtube](https://youtu.be/23EnVczS0Ik)
+
 ## Leverage support for free-form multi-window
 
 The implementation of Android apps on Chrome OS includes basic multi-window support. Instead of always taking up the full screen, Android renders apps on Chrome OS into free-form window containers which is more appropriate for these devices.
