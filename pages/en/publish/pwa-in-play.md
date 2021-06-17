@@ -7,6 +7,8 @@ weight: -5
 
 By listing your PWA on Google Play, it becomes discoverable in the world’s largest app store. Google Play also offers app ratings and reviews, giving users insight into your PWA before installing it. Finally, when you list your app in Google Play, you also get the power of Google Play Billing, giving users a familiar payment platform to work with while supporting payments from multiple countries.
 
+@[youtube](https://www.youtube.com/watch?v=ddbHp8tGBwQ)
+
 ## Bubblewrap
 
 [Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap) is a CLI to take your Progressive Web App and wrap it in an Android App Bundle for distribution through app stores, like Play on Chrome OS and Android, all without requiring Android app development knowledge.
