@@ -132,13 +132,13 @@ This purchase flow is the same for both in-app products and subscription purchas
 - `purchaseToken`: This is the purchase token for the user’s current subscription. Like it was noted earlier, it’s a good idea to keep track of the purchase tokens in your backend. And for this scenario and others, you should associate a user to their current purchases and purchase tokens as well.
 - `prorationMode`: This is how the new subscription will be charged when it replaces the user’s current subscription.
 
-| Proration Mode                            | Description                                                                                                                                                                                                                            |
-| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| immediateAndChargeProratedPrice           | The subscription is upgraded immediately, and the billing cycle remains the same. The price difference for the remaining period is then charged to the user.                                                                           |
-| immediateWithoutProration                 | The subscription is upgraded or downgraded immediately, and the new price is charged when the subscription renews. The billing cycle remains the same.                                                                                 |
-| immediateWithTimeProration                | The subscription is upgraded or downgraded immediately. Any time remaining is adjusted based on the price difference, and credited toward the new subscription by pushing forward the next billing date. This is the default behavior. |
-| deferred                                  | The subscription is upgraded or downgraded only when the subscription renews. This is useful for downgrades especially.                                                                                                                |
-| unknownSubscriptionUpgradeDowngradePolicy | No set policy. This is not recommended.                                                                                                                                                                                                |
+| Proration Mode                            | Description                                                                                                                                                                                                                                                         |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| immediateAndChargeProratedPrice           | The subscription is upgraded immediately, and the billing cycle remains the same. The price difference for the remaining period is then charged to the user.                                                                                                        |
+| immediateWithoutProration                 | **TEMPORARILY DISABLED** There is a potential fraud path with this proration mode where users could get an upgraded subscription without extra payment for one billing cycle. Please be aware that we have temporarily disabled this mode while we work on the fix. |
+| immediateWithTimeProration                | The subscription is upgraded or downgraded immediately. Any time remaining is adjusted based on the price difference, and credited toward the new subscription by pushing forward the next billing date. This is the default behavior.                              |
+| deferred                                  | The subscription is upgraded or downgraded only when the subscription renews. This is useful for downgrades especially.                                                                                                                                             |
+| unknownSubscriptionUpgradeDowngradePolicy | No set policy. This is not recommended.                                                                                                                                                                                                                             |
 
 Learn more about the different proration modes in the Google Play Billing Library [reference documentation](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.ProrationMode). Check out the Android developer docs for more on [subscription upgrade and downgrades](https://developer.android.com/google/play/billing/subscriptions#change) and [proration mode recommendations](https://developer.android.com/google/play/billing/subscriptions#proration-recommendations).
 
@@ -216,6 +216,14 @@ for (const purchase of existingPurchases) {
 ```
 
 To protect your app from potential bad actors, you should not rely only on the client side to get purchases. Learn more about how to [verify purchases on your back-end server before granting entitlements](/{{locale.code}}/publish/play-billing-backend#verify-purchases-before-granting-entitlements).
+
+## Let users manage subscriptions
+
+For a good user experience, it is important to provide a way for users to manage and cancel their subscriptions in-app. We recommend creating a deep link, on a settings page or menu, that will redirect the user to the Play Store's subscription management page for your app. Replace the following URL with your appropriate "sub-product-id" and "app-package-name":
+
+```
+https://play.google.com/store/account/subscriptions?sku=sub-product-id&package=app-package-name
+```
 
 ## Next steps
 
