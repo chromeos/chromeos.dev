@@ -45,7 +45,11 @@ If you have already initialized your application, you can change this configurat
 
 ### Signing Key
 
-Your signing key designates you as the original author of the app and any updates that are made to that app need to use the original signing key used. Protect this key as if this key is lost, it may make it impossible to update to your application in Google Play. When initializing your project, Bubblewrap will ask for your existing key or create a new key for you.
+Your signing key designates you as the original author of the app and any updates that are made to that app need to use the original signing key. When initializing your project, Bubblewrap will ask for your existing key or create a new key for you.
+
+!!! aside.message--warning
+It is very important to protect and not lose this key. If this key is lost, it may make it very difficult to update to your application in Google Play.
+!!!
 
 ### Digital Asset Links
 
