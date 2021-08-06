@@ -3,11 +3,13 @@ title: Publishing considerations
 metadesc: Architecture considerations like x86/arm support to take into account when publishing your game.
 date: 2020-06-16
 weight: -5
+tags:
+  - publishing
 ---
 
-Most Android phones have ARM chipsets. However, many Chrome OS devices use x86 chips. The difference is not important for basic apps written in Kotlin or Java. However, for apps written in native code, including those created with game engines, the chipset in the device can be an important concern.
+Most Android phones have ARM chipsets. However, many Chrome OS devices use x86 chips. The difference is not important for apps written in Kotlin or Java. However, for apps written in the Android NDK, including those created with game engines, the chipset in the device can be an important concern.
 
-Ideally, all apps with native code should ship with all [four major Android ABIs (Application Binary Interfaces)](https://developer.android.com/ndk/guides/abis): armeabi-v7a (arm32), arm64-v8a (arm64), x86 (x86_32), and x86_64.
+Ideally, all apps with the Android NDK code should ship with all [four major Android ABIs (Application Binary Interfaces)](https://developer.android.com/ndk/guides/abis): armeabi-v7a (arm32), arm64-v8a (arm64), x86 (x86_32), and x86_64.
 
 This provides the best performance and lowest battery consumption for each device. For example, a cmake-based `build.gradle` file may contain:
 
@@ -28,6 +30,10 @@ Each ABI in a monolithic APK increases its size. This can affect your users’ d
 All Android apps must provide a 64-bit build version. A 32-bit build is optional for both ARM and x86 devices. See [Android 64-bit documentation⁠](https://developer.android.com/distribute/best-practices/develop/64-bit) for more information.
 
 While only providing 64-bit builds reduces the number of build targets needed and your testing surface, it also limits the kinds of devices that can run your game. For example, due to other hardware limitations many older Chromebooks can only run 32-bit Android apps, despite having 64-bit CPUs. To ensure your app can run on these devices, include both 32 and 64-bit support.
+
+!!! aside.message--note
+As you may know, since August 2019, all new and updated apps have been required to include a 64-bit app version. Starting in August 2021 this year, [the Play Store will stop serving 32bit apps to devices that are capable of handling 64-bit](https://developer.android.com/distribute/best-practices/develop/64-bit). Many Chromebooks will have 64-bit support and we recommend updating your app as soon as possible to include a 64-bit version to ensure continuity for your app's users on Chrome OS
+!!!
 
 ## ARM translation
 

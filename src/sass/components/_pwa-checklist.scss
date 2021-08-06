@@ -1,0 +1,68 @@
+.pwa-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__checks {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &--reset {
+    align-self: flex-end;
+  }
+
+  &--item {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    margin: 0.5rem !important; // sass-lint:disable-line no-important
+    position: relative;
+  }
+
+  &--available {
+    background-color: var(--grey-100);
+    border-radius: 1rem;
+    padding: 0 0.75rem;
+  }
+
+  &--api {
+    color: currentColor;
+  }
+
+  &--action {
+    align-items: center;
+    background-color: var(--grey-700);
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    height: 1.15em;
+    justify-content: center;
+    padding: 0;
+    width: 1.15em;
+
+    .icon {
+      fill: var(--grey-100);
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &--label {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  &--add {
+    margin-inline-start: 0.5rem;
+    margin-top: 0 !important; // sass-lint:disable-line no-important
+  }
+}

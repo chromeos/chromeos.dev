@@ -7,7 +7,9 @@ tags:
   - input devices
   - keyboard support
   - stylus support
+  - mouse support
   - trackpad support
+  - touchscreen support
 ---
 
 On Chrome OS devices, many users interact with apps using a keyboard, mouse,
@@ -25,6 +27,8 @@ following optimizations:
 - Test basic mouse interactions in the manner of right-click for context menu, icon changes on hover, and mouse wheel/trackpad scroll events on custom views.
 - Test app-specific input devices such as stylus for drawing apps, game controllers for games, and MIDI controllers for music apps.
 - Consider advanced input support that could make the app stand-out in desktop environments: touchpad as a cross-fader for DJ apps, mouse capture for games, and extensive keyboard shortcuts for power users.
+
+@[youtube](https://youtu.be/FPuaaYpUd5s)
 
 ## Keyboard
 
@@ -133,20 +137,20 @@ When you add keyboard support, follow the Android
 
 ### Shortcuts
 
-Common Ctrl, Alt, and Shift-based shortcuts are expected in desktop
+Common [[Ctrl]], [[Alt]], and [[Shift]]-based shortcuts are expected in desktop
 environments. If an app does not implement them, the experience can feel
 frustrating and broken to users. Advanced users also
 appreciate shortcuts for frequently used app-specific tasks. Shortcuts make an
 app easier to use and differentiate it from apps that don't have shortcuts.
 
-Some common shortcuts include [[Ctrl]]+[[S]](save), [[Ctrl]]+[[Z]](undo), and
-[[Ctrl]]+[[Shift]]+[[Z]](redo). For an example of some more advanced shortcuts, see the
+Some common shortcuts include save ([[Ctrl]]+[[S]]), undo ([[Ctrl]]+[[Z]]), and
+redo ([[Ctrl]]+[[Shift]]+[[Z]]). For an example of some more advanced shortcuts, see the
 list of
 [VLC Media Player shortcut keys](https://www.vlchelp.com/vlc-media-player-shortcuts/).
 
 Shortcuts can be implemented using
 [dispatchKeyShortcutEvent](<https://developer.android.com/reference/android/view/Window.Callback.html#dispatchKeyShortcutEvent(android.view.KeyEvent)>).
-This intercepts all meta-key combinations (Alt, Ctrl, and Shift) for a given
+This intercepts all meta-key combinations ([[Alt]], [[Ctrl]], and [[Shift]]) for a given
 keycode. To check for a specific meta-key, use
 [KeyEvent.isCtrlPressed()](<https://developer.android.com/reference/android/view/KeyEvent#isCtrlPressed()>),
 [KeyEvent.isShiftPressed()](<https://developer.android.com/reference/android/view/KeyEvent#isShiftPressed()>),
@@ -284,6 +288,11 @@ at this
 - Remember to request permission via `requestDragAndDropPermissions` to access items dragged in from outside the app
 - An item must have the `View.DRAG_FLAG_GLOBAL` flag in order to be dragged out to other applications
 
+### Multi-select support
+
+If your app contains lists or grids, consider whether your users would benefit from support for multi-select. A high-quality multi-select experience with mouse and trackpad often includes features such as band selection. Implementing this on your own can be challenging, but you can leverage [the Recyclerview Selection library](https://developer.android.com/reference/androidx/recyclerview/selection/package-summary).
+![An example of band multi-select with a mouse and pointer](/images/android/input-compatibility/RecyclerView-Selection-Demo.gif)
+
 ### Advanced pointer support
 
 Apps that do advanced handling of mouse and touchpad input should follow the
@@ -379,11 +388,11 @@ To test if an app responds correctly to note-taking intents without an active
 stylus, use the following method to display the note-taking options:
 
 1. [Switch to dev mode and make the device writable](https://chromium.googlesource.com/chromiumos/docs/+/refs/heads/master/developer_mode.md)
-2. Press Ctrl + Alt + F2 to open a terminal
+2. Press [[Ctrl]]+[[Alt]]+[[F2]] to open a terminal
 3. Run the command `sudo vi /etc/chrome_dev.conf`
 4. Press `i` to edit and add `--ash-enable-palette` to a new line at the end of the file
 5. Save by pressing Esc and then typing :, w, q and pressing Enter
-6. Press Ctrl + Alt + F1 to return to the regular Chrome OS UI
+6. Press [[Ctrl]]+[[Alt]]+[[F1]] to return to the regular Chrome OS UI
 7. Log out and back in
 
 There should now be a stylus menu in the shelf:

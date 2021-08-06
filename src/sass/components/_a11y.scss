@@ -1,4 +1,8 @@
 .a11y {
+  &--hidden {
+    display: none;
+  }
+
   &--skip-link {
     @include visuallyHidden;
     background: var(--white);

@@ -4,10 +4,9 @@ metadesc: How to optimize your layouts and UI components for different screens s
 date: 2020-05-01
 weight: -6
 tags:
-  - input devices
-  - keyboard support
-  - stylus support
-  - trackpad support
+  - large screens
+  - device configuration
+  - window management
 ---
 
 Android makes it easy to develop an app that runs well on a wide range of device screen sizes and form factors. This broad compatibility works in your favor since it helps you design a single app that you can distribute widely to all of your targeted devices. However, to give your users the best possible experience on each screen configuration you need to optimize your layouts and other UI components for the different sizes and configurations you will encounter. On Chrome OS, optimizing your UI lets you take full advantage of the additional screen space available and offer new features, present new content, or enhance the experience in other ways to deepen user engagement.
@@ -50,7 +49,7 @@ Chrome OS devices provide significantly more screen real estate to your app. As 
 
 ![Rally Material Study](/images/android/design/rally.png)
 
-A good place to start is by looking at things that may be hidden to the user, and how you can pull them out and make them visible. Whether that is showing more information about an item, making menu's visible that may be hidden behind a right-click or long-press, or showing different or deeper navigation options now that you have a larger left-side navigation area. These are small wins that can improve your UX and give a more native feel, without a complete re-design and overhaul of the current experience.
+A good place to start is by looking at things that may be hidden to the user, and how you can pull them out and make them visible. Whether that is showing more information about an item, making menu's visible that may be hidden behind a right-click or long-press, or showing different or deeper navigation options now that you have a larger left-side navigation area. These are big usability wins that can improve your UX and give a more desktop-like feel to your app, without a complete re-design and overhaul of the current experience.
 
 Here are some recommendations for your app:
 

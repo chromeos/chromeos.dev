@@ -11,6 +11,9 @@ tools:
     url: https://developer.android.com/studio/command-line/adb
     versions:
       min: any
+tags:
+  - android studio
+  - developer tools
 ---
 
 Chrome OS devices bring the unique benefit that you can build Android apps on them, and you can run Android apps on Chrome devices as well. You can deploy directly to the device you are coding on, which can make building and testing easier.
@@ -36,12 +39,6 @@ Android Studio has been officially supported on Chrome OS since [version 3.5](ht
 - **HP:** Chromebook x360 14, Chromebox G2, Chromebook x360 14c
 - **Lenovo:** Yoga C630 Chromebook, Flex 5 Chromebook
 - **ViewSonic:** NMP660 Chromebox
-
-### Install Flutter on Chrome OS
-
-Along with using Android Studio on your Chromebook, you may also want to use Flutter to help you build beautiful and fast experiences into your Android and Chrome OS apps. Flutter provides additional support and tooling tailored specifically for keyboard and mouse input and window management which are important to support when adapting your app from a traditional Android phone experience to a Chromebook experience.
-
-Find out more about why [Flutter and Chrome OS are better together](/{{locale.code}}/posts/flutter-and-chromeos-better-together). To start using Flutter on Chrome OS, follow the [Chrome OS install instructions](https://flutter.dev/docs/get-started/install/chromeos) on the Flutter site.
 
 ### Android Emulator support
 

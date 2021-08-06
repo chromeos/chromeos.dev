@@ -28,7 +28,7 @@ Gameloft was familiar with developing games for different devices, but translati
 
 ## What they did
 
-Taking advantage of the Chromebook’s seamless controls and overall power, Gameloft identified several opportunities to improve the experience for Chromebook gamers. Gameloft was able to run Android application packages at even higher performance levels than native apps, allowing it to maintain the series’ breathtaking graphics and breakneck speeds on Chrome OS. Gameloft also added in keyboard controls that were activated when the game detected users were playing on a Chromebook.
+Taking advantage of the Chromebook’s seamless controls and overall power, Gameloft identified several opportunities to improve the experience for Chromebook gamers. Gameloft was able to run Android application packages at even higher performance levels than Chrome apps, allowing it to maintain the series’ breathtaking graphics and breakneck speeds on Chrome OS. Gameloft also added in keyboard controls that were activated when the game detected users were playing on a Chromebook.
 
 ![A close up of a laptop with a car racing gameplay.](gs://stories/asphalt-8/asphalt8-gameplay)
 

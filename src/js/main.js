@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* global gtag */
 import dynamicImportPolyfill from 'dynamic-import-polyfill';
 import { preferences } from 'service-worker-i18n-redirect/preferences';
 import { MainNavigation } from './components/nav';
@@ -34,6 +35,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const navPrimary = document.querySelector('.nav__primary');
   const home = document.querySelector('#home');
   const offlineSearch = document.querySelector('[data-offline-search]');
+  const powerfulPWAs = document.querySelector('[data-pwa-checklist]');
 
   // Set default language if no language is set
   const language = await preferences.get('lang');
@@ -91,6 +93,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     const { TableOfContents } = await import('./components/toc');
     new TableOfContents(toc);
   }
+
+  if (powerfulPWAs) {
+    const { PWAChecklist } = await import('./components/pwa-checklist');
+    new PWAChecklist(powerfulPWAs, document.querySelectorAll('.api'), language);
+  }
 });
 
 // Components not critical to user experience should be loaded on `load`
@@ -128,6 +135,9 @@ window.addEventListener('load', async () => {
       new ResponsiveTable(table);
     }
   }
+
+  const { Tracking } = await import('./lib/tracking');
+  new Tracking(gtag);
 });
 
 // Manage Service Worker
@@ -135,15 +145,15 @@ window.addEventListener('load', async () => {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
-      const registration = await navigator.serviceWorker.register('/sw.js');
-      // log('Service Worker registered! 😎');
-      // log(registration);
+      await navigator.serviceWorker.register('/sw.js');
+      //       // log('Service Worker registered! 😎');
+      //       // log(registration);
 
-      // Only offer reloads if there is already an active Service Worker
-      if (registration.active) {
-        const { offerServiceWorkerReload } = await import('./lib/offer-service-worker-reload');
-        offerServiceWorkerReload(registration);
-      }
+      //       // Only offer reloads if there is already an active Service Worker
+      //       if (registration.active) {
+      //         const { offerServiceWorkerReload } = await import('./lib/offer-service-worker-reload');
+      //         offerServiceWorkerReload(registration);
+      //       }
     } catch (e) {
       // log('Registration failed 😫');
       // log(e);

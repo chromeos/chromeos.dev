@@ -2,7 +2,12 @@
 title: Input support
 metadesc: Learn about keyboard, mouse, controller, and stylus input handling.
 date: 2020-06-16
-weight: -8
+weight: -9
+tags:
+  - keyboard support
+  - mouse support
+  - input devices
+  - stylus support
 ---
 
 While many Chrome OS devices have touch screens, for games the best interaction experience on these large-screen devices is often delivered through mouse, keyboard, and gamepad. The mobile gaming world is often touch-centric and some thought needs to be given into how to provide the best experience for users not using touch.

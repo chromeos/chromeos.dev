@@ -2,7 +2,9 @@
 title: Adapting Android games
 metadesc: Learn how to adapt your Android game for Chrome OS.
 date: 2020-06-16
-weight: -9
+weight: -10
+tags:
+  - android
 ---
 
 Android game developers who have previously focused on small-screen mobile devices and touch-centric input will have some considerations to take into account when adapting their game to Chrome OS.

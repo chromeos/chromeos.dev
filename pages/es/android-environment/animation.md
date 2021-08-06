@@ -27,7 +27,7 @@ Cuando el sistema operativo está trabajando muy duro, la GPU se puede comprimir
 
 Chrome OS tiene una herramienta de creación de perfiles que muestra cómo los búferes se filtran a través del sistema, cuándo se producen intercambios de memoria, qué tan ocupada está la CPU / GPU y qué está haciendo su aplicación en un momento dado:
 
-![Ejemplo del perfilador, con la aplicación ARC ++ ejecutándose a la izquierda y la información de CPU, memoria, gráficos de Chrome y gráficos de Android a la derecha.](/images/android/animation/jank-profiler.png)
+![Ejemplo del perfilador, con la aplicación ARC ++ ejecutándose a la izquierda y la información de CPU, memoria, gráficos de Chrome y gráficos de Android a la derecha.](/images/develop/android/animation/jank-profiler.png)
 
 ### Configurar el perfilador
 
@@ -45,6 +45,6 @@ Para configurar el generador de perfiles, siga estos pasos:
 
 1. Verifique la **parada en "jank"** .
 2. Ejecute la aplicación de Android.
-3. Cuando la aplicación de Android está activa y esta enfocada, presione [[Ctrl]] + [[Shift]] + [[G]].
+3. Cuando la aplicación de Android está activa y esta enfocada, presione [[Ctrl]]+[[Shift]]+[[G]].
 
 Cuando ocurre algua distorción ("jank"), aparecerá la ventana del navegador. Use las teclas [[w]] y [[s]] para hacer zoom y reducir la línea de tiempo.

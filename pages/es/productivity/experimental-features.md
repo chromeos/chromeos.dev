@@ -44,12 +44,12 @@ Para ingresar al modo desarrollador, complete estos pasos:
 !!! aside.message--note
 **Nota:** en la mayoría de los dispositivos, tanto el botón de _recuperación_ como el botón de _cambio de desarrollo_ están virtualizados. Si estas instrucciones no funcionan para usted, consulte las [instrucciones específicas para su dispositivo](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices) . !!!
 
-1. Cuando aparezca la pantalla de _recuperación_ , presione [[Control]] + [[D]]. No se solicita esta acción, por lo que debe completarla proactivamente. Luego, se le solicitará que confirme y reinicie en modo desarrollador.
+1. Cuando aparezca la pantalla de _recuperación_ , presione [[Control]]+[[D]]. No se solicita esta acción, por lo que debe completarla proactivamente. Luego, se le solicitará que confirme y reinicie en modo desarrollador.
 
 Si ve una de las pantallas de la [Figura 2](#figure-2) cuando enciende su dispositivo, ha entrado con éxito en el modo desarrollador.
 
 #2[Pantallas de confirmación del modo desarrollador.](/images/android/dev-mode/verification.jpg)
 
 !!! aside.message--note
-**Nota** : Para omitir la pantalla de carga del sistema operativo, espere 30 segundos o presione [[Control]] + [[D]], y su Chromebook continuará iniciando.
+**Nota** : Para omitir la pantalla de carga del sistema operativo, espere 30 segundos o presione [[Control]]+[[D]], y su Chromebook continuará iniciando.
 !!!

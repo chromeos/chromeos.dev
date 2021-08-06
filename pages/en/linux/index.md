@@ -6,6 +6,8 @@ hero:
   alt: Illustration of a terminal application running on a Chrome OS device.
 date: 2020-06-10
 weight: -8
+tags:
+  - developer tools
 ---
 
 Linux (Beta) on Chrome OS, sometimes called Crostini, allows you to run Linux apps for development alongside your usual Chrome OS desktop & apps. Linux (Beta) on Chromebooks offers developers the best of both worlds. Built and designed with Chrome OS’ principles of simplicity and security, Linux on Chromebooks gives devs the freedom to safely run their favorite editors, IDEs, and thousands of world-class dev tools in one container.
@@ -21,4 +23,4 @@ Benefits:
 - Test Android or Web apps on your Chromebook or test on a separate device [via USB](/{{locale.code}}/android-environment/deploying-apps#connect-to-adb-over-usb) or [port-forwarding](/{{locale.code}}/web-environment/port-forwarding)
 - Easy backup and restore of your Linux container
 
-Once you have [enabled Linux](/{{locale.code}}/linux/setup) you can learn how to configure a [productive desktop environment](/{{locale.code}}/productivity), build for [Android](/{{locale.code}}/android-environment) or [Web](/{{locale.code}}/web-environment), and also work on [games](/{{locale.code}}/games). We also have advanced guides to setup [Flutter](/{{locale.code}}/android-environment#install-flutter-on-chrome-os) and other common Linux development [tools](/{{locale.code}}/linux/setup#installing-linux-apps-and-packages).
+Once you have [enabled Linux](/{{locale.code}}/linux/setup) you can learn how to configure a [productive desktop environment](/{{locale.code}}/productivity), build for [Android](/{{locale.code}}/android-environment) or [Web](/{{locale.code}}/web-environment), and also work on [games](/{{locale.code}}/games). We also have advanced guides to setup [Flutter](/{{locale.code}}/android-environment/developer-options#install-flutter-on-chrome-os) and other common Linux development [tools](/{{locale.code}}/linux/setup#installing-linux-apps-and-packages).

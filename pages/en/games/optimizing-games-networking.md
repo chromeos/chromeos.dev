@@ -3,6 +3,8 @@ title: Multiplayer networking
 metadesc: Optimizing multiplayer networking on Chrome OS.
 date: 2020-06-16
 weight: -4
+tags:
+  - networking
 ---
 
 For many multiplayer networking needs, [Android’s Network Discover](https://developer.android.com/training/connect-devices-wirelessly/nsd) protocols should provide all that you need and work as expected. Chrome OS also has built-in broadcast forwarding in both directions to ensure your game will correctly receive responses to broadcast packets sent out to peers on the local network, and to receive broadcast packets sent by other peers on the local network.

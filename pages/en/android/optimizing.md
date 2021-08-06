@@ -9,9 +9,12 @@ tags:
   - mouse support
   - trackpad support
   - stylus support
+  - camera
 ---
 
 Android apps have an important role to play in redefining what modern computing looks like on large screens. That said, simply running your phone app on a Chromebook won’t give your users the best experience. This page details some ways that you can tailor your experience towards laptop and convertible form factors. See our [comprehensive list of tests](/{{locale.code}}/android/tests) to learn more about testing your app for compatibility on these devices.
+
+@[youtube](https://youtu.be/23EnVczS0Ik)
 
 ## Leverage support for free-form multi-window
 
@@ -19,7 +22,7 @@ The implementation of Android apps on Chrome OS includes basic multi-window supp
 
 Users can resize the window that contains your Android app, as shown in figure 1. To ensure that your free-form windows resize smoothly and are able to display their entire contents to the user, read the guidelines in [Window Management](/{{locale.code}}/android/window-management).
 
-#1[A resizable app window](/images/android/optimizing/resizable.png)
+#1[A resizable app window](/images/android/window-management/resizable.png)
 
 You can improve the user experience when your app runs on Chrome OS by following these best practices:
 
@@ -106,7 +109,7 @@ Your app should make good use of the screen real estate available regardless of 
 - Making better use of real estate in the app's toolbar.
 - Improving placement of UI affordances, by adapting it to mouse usage instead of thumb usage.
 - Optimizing the size for videos and images, establishing a set of max-width and height for all media, and maximizing readability and scannability.
-- Implementing a responsive column system. For more information, see [Responsive UI](https://material.io/guidelines/layout/responsive-ui.html).
+- Implementing a responsive column system. For more information, see [Responsive UI](https://material.io/design/layout/responsive-layout-grid.html).
 - Resizing and modifying the UI when needed using the column system, and avoiding opening a new windows when possible.
 - Removing or reducing the importance of horizontal scrolling components.
 - Avoiding fullscreen modal UI. Use inline UI, such as progress indicators and alerts, for all non-critical actions

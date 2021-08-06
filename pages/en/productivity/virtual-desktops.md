@@ -11,6 +11,6 @@ To create a new virtual desk, start by either swipe up on the touchpad with thre
 
 ![In the show windows view, click on "+ New Desk" in the upper right hand corner to create a new virtual desk.](/images/productivity/new-desk.png)
 
-You can also manipulate virtual desks and using keyboard shortcuts. [[search]] + [[shift]] + [[+]] will create a new virtual desk, and [[search]] + [[shift]] + [[-]] will remove the current virtual desk. To move between desks, use [[search]] + [[&#91;]] or [[search]] + [[&#93;]] top move left or right one desk, respectively. Finally, [[search]] + [[shift]] + [[&#91;]] or [[search]] + [[shift]] + [[&#93;]] will move the current active window to the virtual desk to the left or the right, respectively, of the current desk.
+You can also manipulate virtual desks and using keyboard shortcuts. [[search]]+[[shift]]+[[+]] will create a new virtual desk, and [[search]]+[[shift]]+[[-]] will remove the current virtual desk. To move between desks, use [[search]]+[[&#91;]] or [[search]]+[[&#93;]] top move left or right one desk, respectively. Finally, [[search]]+[[shift]]+[[&#91;]] or [[search]]+[[shift]]+[[&#93;]] will move the current active window to the virtual desk to the left or the right, respectively, of the current desk.
 
 For further documentation, check out the [Chromebook help page on virtual desks](https://support.google.com/chromebook/answer/9594869).

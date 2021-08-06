@@ -5,6 +5,10 @@ posted: Posted by ((t))
 datePosted: Date posted
 more: Read more
 recommended: Recommended
+actions:
+  add: Add
+  remove: Remove
+  reset: Reset
 skip:
   content: Skip to content
   toc: Skip table of contents

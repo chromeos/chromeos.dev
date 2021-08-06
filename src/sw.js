@@ -15,7 +15,7 @@
  */
 /* global importScripts, languages  */
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
-import { CacheFirst, StaleWhileRevalidate, NetworkFirst } from 'workbox-strategies';
+import { CacheFirst, StaleWhileRevalidate, NetworkFirst, NetworkOnly } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, matchPrecache } from 'workbox-precaching';
 import { registerRoute, setCatchHandler } from 'workbox-routing';
@@ -29,6 +29,9 @@ importScripts('/js/languages.js');
 precacheAndRoute(self.__WB_MANIFEST);
 
 googleAnalytics.initialize();
+
+// Short links are read live from a database and should be a network only request
+registerRoute(({ url }) => url.pathname.startsWith('/l/'), new NetworkOnly());
 
 // Handle navigation requests with htmlHandler.
 const htmlCachingStrategy = new StaleWhileRevalidate({
