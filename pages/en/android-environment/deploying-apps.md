@@ -1,7 +1,7 @@
 ---
 title: ADB and testing Android apps
 metadesc: Walkthrough the different ways developers can deploy their apps to Chromebooks, in order to debug and verify their app performance in the Chrome OS form factors.
-date: 2020-06-06
+date: 2021-08-13
 weight: -6
 tags:
   - android studio
@@ -27,6 +27,10 @@ Toggle enable ADB debugging and the computer will restart.
 
 ![Enable Chrome OS' ADB debug settings](/images/develop/android/deploy/debug_settings.gif)
 
+!!! aside.message--note
+**Note:** If the ADB toggle is not available after enabling Linux, or if it can’t be toggled, you may have to factory reset your device.
+!!!
+
 When the computer restarts you'll see a message that lets you know that there may be applications that were not downloaded from the app store on the device.
 
 ![This device may contain apps that haven't been verified by Google](/images/develop/android/deploy/login_notice.jpg)
@@ -36,7 +40,7 @@ ADB is now available to deploy apps to your Chromebook, run debugging commands a
 To ensure that your Android app works well on a variety of Chromebook devices and available form factors, Google recommends that you test your app on the following devices:
 
 - An ARM-based Chromebook
-- An x86-basedChromebook
+- An x86-based Chromebook
 - A device with a touchscreen and one without one
 - A convertible device; that is, one that can change between a laptop and a tablet
 - A device with a stylus
@@ -47,7 +51,7 @@ After enabling ADB debugging, you can load an Android app directly onto your Chr
 
 ### Deploy with Android Studio
 
-After you have set up [Android Studio](https://developer.android.com/studio/install#chrome-os) and the
+After you have set up [Android Studio](https://developer.android.com/studio/install#chrome-os) and
 ADB as described above, you can push your apps to the Chromebook's Android container directly from Android Studio.
 
 The Chromebook will appear as an option in the device drop down:
@@ -55,7 +59,7 @@ The Chromebook will appear as an option in the device drop down:
 ![Android Studio devices dropdown](/images/develop/android/deploy/as_devices.png)
 
 Now you can push your app like any other Android device! The ADB authorization
-dialog appears.After you authorize your application will launch in a new window.
+dialog appears the first time you try to push to a new device. After you authorize it, your application will launch in a new window.
 
 ![Deploy your app directly into Chrome OS](/images/develop/android/deploy/run_app.gif)
 
@@ -75,7 +79,7 @@ Connect to the device:
 adb connect arc
 ```
 
-An authorization popup for USB debugging appears. Grant it.
+An authorization popup for USB debugging appears the first time you try to deploy to the device, and you'll need to allow it.
 
 ![Authorization to connect to the device](/images/develop/android/deploy/usb_dialog.png)
 
@@ -91,15 +95,46 @@ adb install [path to your APK]
 
 If you can't use the method described above and need to push your app from another device, you can connect the device to ADB using [USB](#connect-to-adb-over-usb) or a [network address](#connect-to-adb-over-a-network).
 
-To push your APK from another device into the Chromebook, you must start your Chrome OS in [developer mode](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md) so that you can configure the Chromebook and push apps from the host machine. Follow this steps to get into [developer mode](/{{locale.code}}/productivity/experimental-features#developer-mode).
+### Connect to ADB over a network {: #adb-ip}
+
+1. Make sure you [enabled ADB debugging.](#enable-adb-debug)
+
+Get the IP address of your Chromebook:
+
+1.  Click the clock in the bottom-right area of the screen.
+1.  Click the gear icon.
+1.  Click the network type you are connected to (Wi-Fi or Mobile data) then the name of the network.
+1.  Take note of the IP Address.
+
+Connect to your Chromebook:
+
+1.  Return to your development machine and use ADB to connect to your Chromebook using its IP address:
+
+    ```bash
+    adb connect <ip_address>:22
+    ```
+
+1.  On your Chromebook, click Allow when prompted whether you want to allow the debugger. Your ADB session is established.
+
+#### Troubleshooting ADB debugging over a network
+
+Sometimes the ADB device shows that it's offline when everything is connected properly. In this case, complete the following steps to troubleshoot the issue:
+
+1.  Deactivate **ADB debugging** in _Developer options_.
+2.  In a terminal window, run `adb kill-server`.
+3.  Re-activate the **ADB debugging** option.
+4.  In a terminal window, attempt to run `adb connect`.
+5.  Click **Allow** when prompted whether you want to allow debugging. Your ADB session is established.
+
+### Connect to ADB over USB
+
+To push your APK from another device into the Chromebook via USB, you must start your Chrome OS in [developer mode](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md) so that you can configure the Chromebook and push apps from the host machine. This is the only method that currently requires Developer Mode, and [it only works on a small number of devices](https://www.chromium.org/chromium-os/chrome-os-systems-supporting-adb-debugging-over-usb). Because of this, it's recommended to [use ADB over the network instead](#connect-to-adb-over-a-network). If you'd still like to proceed, follow these steps to get into [developer mode](/{{locale.code}}/productivity/experimental-features#developer-mode).
 
 !!! aside.message--warning
 **Caution:** After switching your Chrome OS device to developer mode, it restarts
 and clears all existing data on the device. The security level of the device is
 also significantly reduced.
 !!!
-
-### Connect to ADB over USB
 
 1. Make sure you [enabled ADB debugging.](#enable-adb-debug)
 1. Determine if your device [supports USB debugging](https://www.chromium.org/chromium-os/chrome-os-systems-supporting-adb-debugging-over-usb)
@@ -129,62 +164,3 @@ Use this command each time you disconnect and reconnect a USB cable. To ensure y
 1. Plug in a USB cable to a [supported port](https://www.chromium.org/chromium-os/chrome-os-systems-supporting-adb-debugging-over-usb) on your device
 2. Run `adb devices` from the Android SDK platform tools on your host machine to see your Chromebook listed as an ADB supported device
 3. On your Chromebook, click **Allow** when prompted whether you want to allow the debugger. Your ADB session is established.
-
-### Connect to ADB over a network {: #adb-ip}
-
-1. Make sure you [enabled ADB debugging.](#enable-adb-debug)
-
-In order to debug over a network, you must configure the Chrome OS firewall to allow incoming ADB connections:
-
-1.  Press [[Control]]+[[Alt]]+[[T]] to start the Chrome OS terminal.
-1.  Type `shell` to get to the bash command shell:
-
-    ```bash
-    crosh> shell
-    chronos@localhost / $
-    ```
-
-1.  Type the following commands to set up developer features and enable disk-write access for the firewall settings changes. If you need to enter a sudo password for the `chronos` user, you can (re)set one by running `chromeos-setdevpassword` at the [VT-2 prompt](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md#vt2) (accessible by pressing [[Control]]+[[Alt]]+[[→]]); you'll need your root password.
-
-    ```bash
-    $ sudo crossystem dev_boot_signed_only=0
-    $ sudo /usr/libexec/debugd/helpers/dev_features_rootfs_verification
-    $ sudo reboot
-    ```
-
-1.  The `sudo reboot` command restarts your Chromebook. You can press the Tab key to enable autocompletion of file names. You must complete this procedure only once on your Chromebook.
-
-After your device restarts, log in to your test account and type the following command to enable the secure shell and configure the firewall properly:
-
-```bash
-$ sudo /usr/libexec/debugd/helpers/dev_features_ssh
-```
-
-When the command completes, you can exit out of the shell.
-
-Get the IP address of your Chromebook:
-
-1.  Click the clock in the bottom-right area of the screen.
-1.  Click the gear icon.
-1.  Click the network type you are connected to (Wi-Fi or Mobile data) then the name of the network.
-1.  Take note of the IP Address.
-
-Connect to your Chromebook:
-
-1.  Return to your development machine and use ADB to connect to your Chromebook using its IP address:
-
-    ```bash
-    adb connect <ip_address>:22
-    ```
-
-1.  On your Chromebook, click Allow when prompted whether you want to allow the debugger. Your ADB session is established.
-
-#### Troubleshooting ADB debugging over a network
-
-Sometimes the ADB device shows that it's offline when everything is connected properly. In this case, complete the following steps to troubleshoot the issue:
-
-1.  Deactivate **ADB debugging** in _Developer options_.
-2.  In a terminal window, run `adb kill-server`.
-3.  Re-activate the **ADB debugging** option.
-4.  In a terminal window, attempt to run `adb connect`.
-5.  Click **Allow** when prompted whether you want to allow debugging. Your ADB session is established.
