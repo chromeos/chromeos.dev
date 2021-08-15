@@ -40,13 +40,13 @@ The Digital Goods API was designed to be compatible with various browsers and di
 
 ```js
 if ('getDigitalGoodsService' in window) {
-	// Digital Goods API is supported!
-	const service = await window.getDigitalGoodsService('https://play.google.com/billing');
-	if (service) {
-		// Google Play Billing service is available!
-	} else {
-		console.log('Google Play Billing is not available');
-	}
+  // Digital Goods API is supported!
+  const service = await window.getDigitalGoodsService('https://play.google.com/billing');
+  if (service) {
+    // Google Play Billing service is available!
+  } else {
+    console.log('Google Play Billing is not available');
+  }
 }
 ```
 
@@ -145,16 +145,17 @@ Learn more about the different proration modes in the Google Play Billing Librar
 The usage of these additional fields will look something like this:
 
 ```js
-const paymentMethod = [{
-	supportedMethods: 'https://play.google.com/billing',
-	data: {
-		sku: item.itemId,
-		oldSku: oldPurchase.itemId,
-		purchaseToken: oldPurchase.purchaseToken,
-		prorationMode: 'immediateAndChargeProratedPrice',
-	}
-}];
-
+const paymentMethod = [
+  {
+    supportedMethods: 'https://play.google.com/billing',
+    data: {
+      sku: item.itemId,
+      oldSku: oldPurchase.itemId,
+      purchaseToken: oldPurchase.purchaseToken,
+      prorationMode: 'immediateAndChargeProratedPrice',
+    },
+  },
+];
 ```
 
 Here, `item` is the `ItemDetails` of the new subscription the user is trying to upgrade or downgrade to, and `oldPurchase` is the `PurchaseDetails` of the user’s current subscription.
