@@ -55,8 +55,8 @@ Casi todos los dispositivos Chrome OS son compatibles con el tacto y muchos comp
 Si está creando una aplicación que hace que los usuarios dibujen con los dedos o con lápices, mantener la latencia entre su entrada y su salida lo suficientemente rápido como para sentir fluidez históricamente ha sido difícil. Al compilar este tipo de aplicaciones de [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) para Chrome OS, recomendamos utilizar la sugerencia `desynchronized` para `canvas.getContext()` para proporcionar [una representación de baja latencia](https://developers.google.com/web/updates/2019/05/desynchronized) . Para usar la sugerencia `desynchronized` para un lienzo, haga lo siguiente:
 
 ```js
-const canvas = document.createElement(‘canvas’); // or select one from the DOM
-const ctx = canvas.getContext(‘2d’, {
+const canvas = document.createElement('canvas'); // or select one from the DOM
+const ctx = canvas.getContext('2d', {
   desynchronized: true,
   // Other options here…
 });
