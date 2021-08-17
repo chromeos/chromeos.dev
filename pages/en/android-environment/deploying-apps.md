@@ -106,17 +106,25 @@ Get the IP address of your Chromebook:
 1.  Click the network type you are connected to (Wi-Fi or Mobile data) then the name of the network.
 1.  Take note of the IP Address.
 
+!!! aside.message--tip
+**Tip:** Another quick way to find your chromebook's IP address is to click the clock in the bottom-right, click the wifi icon, and click the info button.
+!!!
+
 Connect to your Chromebook:
 
 1.  Return to your development machine and use ADB to connect to your Chromebook using its IP address:
 
     ```bash
-    adb connect <ip_address>:22
+    adb connect <ip_address>
     ```
 
 1.  On your Chromebook, click Allow when prompted whether you want to allow the debugger. Your ADB session is established.
 
 #### Troubleshooting ADB debugging over a network
+
+!!! aside.message--note
+**Note:** If your network prohibits these kinds of connections, you can set up your own router or hotspot, or you can try ethernet via a port or dongle.
+!!!
 
 Sometimes the ADB device shows that it's offline when everything is connected properly. In this case, complete the following steps to troubleshoot the issue:
 
