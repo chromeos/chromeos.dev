@@ -40,13 +40,13 @@ The Digital Goods API was designed to be compatible with various browsers and di
 
 ```js
 if ('getDigitalGoodsService' in window) {
-	// Digital Goods API is supported!
-	const service = await window.getDigitalGoodsService('https://play.google.com/billing');
-	if (service) {
-		// Google Play Billing service is available!
-	} else {
-		console.log(‘Google Play Billing is not available’);
-	}
+  // Digital Goods API is supported!
+  const service = await window.getDigitalGoodsService('https://play.google.com/billing');
+  if (service) {
+    // Google Play Billing service is available!
+  } else {
+    console.log('Google Play Billing is not available');
+  }
 }
 ```
 
@@ -146,16 +146,17 @@ Learn more about the different proration modes in the Google Play Billing Librar
 The usage of these additional fields will look something like this:
 
 ```js
-const paymentMethod = [{
-	supportedMethods: ‘https://play.google.com/billing’,
-	data: {
-		sku: item.itemId,
-		oldSku: oldPurchase.itemId,
-		purchaseToken: oldPurchase.purchaseToken,
-		prorationMode: 'immediateAndChargeProratedPrice',
-	}
-}];
-
+const paymentMethod = [
+  {
+    supportedMethods: 'https://play.google.com/billing',
+    data: {
+      sku: item.itemId,
+      oldSku: oldPurchase.itemId,
+      purchaseToken: oldPurchase.purchaseToken,
+      prorationMode: 'immediateAndChargeProratedPrice',
+    },
+  },
+];
 ```
 
 Here, `item` is the `ItemDetails` of the new subscription the user is trying to upgrade or downgrade to, and `oldPurchase` is the `PurchaseDetails` of the user’s current subscription.
@@ -174,7 +175,7 @@ The Digital Goods API requires a purchase to be acknowledged with a `PurchaseTyp
 | -------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | in-app product | onetime      | When a user should only buy a product once and will own it forever (non-consumable item), or when a user can only own one instance of it at a time (needs to be consumed before they can purchase another). |
 |                | repeatable   | When a user can buy and own multiples of a product (consumable item).                                                                                                                                       |
-| subscription   | onetime      | Subscriptions are always acknowledged as ‘onetime’ because a user should only have at most one instance of each subscription.                                                                               |
+| subscription   | onetime      | Subscriptions are always acknowledged as 'onetime' because a user should only have at most one instance of each subscription.                                                                               |
 
 Call `acknowledge()` with the `purchaseToken` string that was returned earlier by the payment response in the `data` member, along with the appropriate purchase type.
 
