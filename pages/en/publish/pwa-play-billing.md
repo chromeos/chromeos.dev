@@ -111,6 +111,17 @@ To prevent fraud, it’s critical to verify the purchase and purchase token on y
 After validating the purchase, call `complete()` on the payment response to finish the payment flow and close out the billing UI. You can also pass in an optional `result` string to indicate the state of the payment process. It is up to the browser whether to provide any indication of this result to the user. Chrome does not create any user-visible cues so it is recommended that you display your own error or success messages in your PWA.
 
 ```js
+/*
+Changes were recently made so that the PaymentResponse `details`
+property returns the purchase token as `purchaseToken`
+instead of `token`.
+
+Note that `token` will be deprecated at some point in the future.
+To ensure that your app won't be affected by this, make the
+change to `purchaseToken` in your client code and use the latest
+version of Bubblewrap (v1.13.5 and later) to update and generate
+a new app package to upload to the Play Console.
+*/
 const { purchaseToken } = paymentResponse.details;
 
 let paymentComplete;
@@ -132,13 +143,14 @@ This purchase flow is the same for both in-app products and subscription purchas
 - `purchaseToken`: This is the purchase token for the user’s current subscription. Like it was noted earlier, it’s a good idea to keep track of the purchase tokens in your backend. And for this scenario and others, you should associate a user to their current purchases and purchase tokens as well.
 - `prorationMode`: This is how the new subscription will be charged when it replaces the user’s current subscription.
 
-| Proration Mode                            | Description                                                                                                                                                                                                                                                         |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| immediateAndChargeProratedPrice           | The subscription is upgraded immediately, and the billing cycle remains the same. The price difference for the remaining period is then charged to the user.                                                                                                        |
-| immediateWithoutProration                 | **TEMPORARILY DISABLED** There is a potential fraud path with this proration mode where users could get an upgraded subscription without extra payment for one billing cycle. Please be aware that we have temporarily disabled this mode while we work on the fix. |
-| immediateWithTimeProration                | The subscription is upgraded or downgraded immediately. Any time remaining is adjusted based on the price difference, and credited toward the new subscription by pushing forward the next billing date. This is the default behavior.                              |
-| deferred                                  | The subscription is upgraded or downgraded only when the subscription renews. This is useful for downgrades especially.                                                                                                                                             |
-| unknownSubscriptionUpgradeDowngradePolicy | No set policy. This is not recommended.                                                                                                                                                                                                                             |
+| Proration Mode                            | Description                                                                                                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| immediateAndChargeProratedPrice           | The subscription is upgraded immediately, and the billing cycle remains the same. The price difference for the remaining period is then charged to the user.                                                                                                                                                                                                                          |
+| immediateAndChargeFullPrice               | The subscription is upgraded or downgraded and the user is charged full price for the new entitlement immediately. The remaining value from the previous subscription is prorated for time toward the new subscription. _This proration mode was recently added in the Google Play Billing Library 4.0 release. It is now available through Bubblewrap starting with version 1.13.5._ |
+| immediateWithoutProration                 | **TEMPORARILY DISABLED** There is a potential fraud path with this proration mode where users could get an upgraded subscription without extra payment for one billing cycle. Please be aware that we have temporarily disabled this mode while we work on the fix.                                                                                                                   |
+| immediateWithTimeProration                | The subscription is upgraded or downgraded immediately. Any time remaining is adjusted based on the price difference, and credited toward the new subscription by pushing forward the next billing date. This is the default behavior.                                                                                                                                                |
+| deferred                                  | The subscription is upgraded or downgraded only when the subscription renews. This is useful for downgrades especially.                                                                                                                                                                                                                                                               |
+| unknownSubscriptionUpgradeDowngradePolicy | No set policy. This is not recommended.                                                                                                                                                                                                                                                                                                                                               |
 
 Learn more about the different proration modes in the Google Play Billing Library [reference documentation](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.ProrationMode). Check out the Android developer docs for more on [subscription upgrade and downgrades](https://developer.android.com/google/play/billing/subscriptions#change) and [proration mode recommendations](https://developer.android.com/google/play/billing/subscriptions#proration-recommendations).
 
