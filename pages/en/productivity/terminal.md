@@ -7,13 +7,13 @@ tags:
   - developer tools
 ---
 
-The Terminal is the main entry point into Linux (Beta) on Chrome OS and the main way for you to interact with the development environment by running command line tools. We understand that the Terminal is a crucial tool for developers and are committed to improving developer experiences on Chrome OS. For this reason, as part of the M84 release, a newly redesigned Terminal launched with a brand new look as well as additional customizable themes and features. These new features make it more accessible and comfortable, and let you personalize the Terminal to feel uniquely your own.
+The Terminal is the main entry point into Linux on Chrome OS and the main way for you to interact with the development environment by running command line tools. We understand that the Terminal is a crucial tool for developers and are committed to improving developer experiences on Chrome OS. For this reason, as part of the M84 release, a newly redesigned Terminal launched with a brand new look as well as additional customizable themes and features. These new features make it more accessible and comfortable, and let you personalize the Terminal to feel uniquely your own.
 
 @[youtube](https://www.youtube.com/watch?v=wMvJgHl7084)
 
 ## Install and settings
 
-Go to the Chrome OS settings and in the “Linux (Beta)” section, “Turn on” Linux. This will bring up a window with a series of prompts. Choose your preferred username and disk size and click “Install”. When the installation is complete, a Terminal window will open.
+Go to the Chrome OS settings and in the “Linux” section, “Turn on” Linux. This will bring up a window with a series of prompts. Choose your preferred username and disk size and click “Install”. When the installation is complete, a Terminal window will open.
 
 When you first start up the Terminal, you’ll notice that the window now opens immediately and displays the progress of starting up the Linux container.
 
