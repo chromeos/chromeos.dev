@@ -62,7 +62,7 @@ Si está utilizando NDK, asegúrese de admitir ABI x86 (32 y 64 bits) para garan
 
 ## Compila, prueba y ejecuta aplicaciones de Android en una Chromebook
 
-Desde el principio, nuestro objetivo ha sido hacer del Chromebook un entorno simple, seguro y rápido para todos. El lanzamiento de [Linux (Beta) en Chrome OS](/{{locale.code}}/linux) permitió a los desarrolladores de Android crear y probar aplicaciones con un Chromebook. Y a principios de este año en I/O, anunciamos que [Android Studio 3.5 ahora es totalmente compatible con Chrome OS](/{{locale.code}}/posts/chromeos-io-19) con una instalación simple con un solo clic.
+Desde el principio, nuestro objetivo ha sido hacer del Chromebook un entorno simple, seguro y rápido para todos. El lanzamiento de [Linux en Chrome OS](/{{locale.code}}/linux) permitió a los desarrolladores de Android crear y probar aplicaciones con un Chromebook. Y a principios de este año en I/O, anunciamos que [Android Studio 3.5 ahora es totalmente compatible con Chrome OS](/{{locale.code}}/posts/chromeos-io-19) con una instalación simple con un solo clic.
 
 Desde entonces, hemos estado trabajando en algunas mejoras que hacen de los Chromebook un lugar aún mejor para el desarrollo seguro y sin problemas de aplicaciones de Android. Comencemos con el más grande:
 
