@@ -56,6 +56,6 @@ Here’s how you can get a better idea of how your users will experience your ap
 
 Better window management for Android mobile apps is an important step toward creating a seamless user experience on larger screens. But the best way to make sure users get the most out of your app on Chrome OS is to adapt it for desktop use.
 
-We broke down some [helpful steps](https://chromeos.dev/en/posts/optimizing-android-app-experiences-for-chromeos) to ensure your app looks and works great across form factors and screen sizes, as well as some [tips for optimizing for Chrome OS.](/{{locale.code}}/android)
+We broke down some [helpful steps](/{{locale.code}}}/posts/optimizing-android-app-experiences-for-chromeos) to ensure your app looks and works great across form factors and screen sizes, as well as some [tips for optimizing for Chrome OS.](/{{locale.code}}/android)
 
 If you have questions or feedback about improved window management for Android mobile apps on Chrome OS, reach out to us at chromeos-developer-feedback@google.com.
