@@ -40,7 +40,7 @@ But all of that is just the beginning -- the Flutter tools allow you to develop 
 
 ## Chrome OS is a great developer platform to build Flutter apps
 
-No matter what platform you're targeting, Flutter has support for rich IDEs and programming tools like Android Studio and Visual Studio Code. Over the last year, Chrome OS has been building support for running the Linux version of these tools with the beta of [Linux on Chrome OS](/{{locale.code}}/linux) (aka Crostini). And, because Chrome OS also supports Android, you can configure the Flutter tooling to run your Android apps directly without an emulator involved.
+No matter what platform you're targeting, Flutter has support for rich IDEs and programming tools like Android Studio and Visual Studio Code. Over the last year, Chrome OS has been building support for running the Linux version of these tools with the of [Linux on Chrome OS](/{{locale.code}}/linux) (aka Crostini). And, because Chrome OS also supports Android, you can configure the Flutter tooling to run your Android apps directly without an emulator involved.
 
 #[The Flutter development tools running on Chrome OS](/images/posts/flutter-and-chromeos-better-together/flutter-on-chromeos.gif)
 

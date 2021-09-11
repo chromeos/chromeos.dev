@@ -11,7 +11,7 @@ Al desarrollar aplicaciones web, las pruebas en varios dispositivos son fundamen
 **Advertencia:** los controles integrados para administrar el reenvío de puertos son una característica nueva que aún se encuentra en desarrollo, por lo que la interfaz de usuario puede cambiar y opción puede dejar de funcionar hasta que sea estable. Deberá ejecutar Chrome OS versión 84 o superior y habilitar el indicador de _reenvío de puertos Crostini_ (`chrome://flags/#crostini-port-forwarding`).
 !!!
 
-Comience yendo a la configuración de Linux (Beta) en Chrome OS y haciendo clic en el cuadro de Linux. Debería haber una opción de _reenvío de puertos_ . Haz clic ahí.
+Comience yendo a la configuración de Linux en Chrome OS y haciendo clic en el cuadro de Linux. Debería haber una opción de _reenvío de puertos_ . Haz clic ahí.
 
 ![Página de configuración de Linux.](/images/develop/web/linux-settings.jpg)
 
