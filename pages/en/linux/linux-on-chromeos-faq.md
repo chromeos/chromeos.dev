@@ -145,7 +145,7 @@ Ultimately, you're responsible for any data going into the containers. To easily
 
 ## How can I backup a VM?
 
-The simplest approach is to use the new backup functionality built into Chrome OS itself. To do so go to Settings and select “Linux" from the left-side nav. Then navigate into “Linux”. You’ll find “Backup & restore”. If you navigate into this menu, you’ll find a “Backup” button that saves a `.tini` file for you.
+The simplest approach is to use the new backup functionality built into Chrome OS itself. To do so go to Settings and select “Developers" from the left-side nav. Then navigate into “Linux”. You’ll find “Backup & restore”. If you navigate into this menu, you’ll find a “Backup” button that saves a `.tini` file for you.
 
 If you want to back up an individual container, another approach is to use the standard [LXC](https://linuxcontainers.org/lxc/introduction/) commands.
 
@@ -245,11 +245,11 @@ crosh> vmc stop termina
 
 ## Is audio capture (e.g. microphone) supported?
 
-This is now supported in the Chrome OS M84 release. To enable audio capture go to Settings and select “Linux" from the left-side nav. Then navigate into “Linux”. You’ll find “Allow Linux to access your microphone" as an option in that menu.
+This is now supported in the Chrome OS M84 release. To enable audio capture go to Settings and select “Developers" from the left-side nav. Then navigate into “Linux”. You’ll find “Allow Linux to access your microphone" as an option in that menu.
 
 ## Can I access hardware (e.g. USB/Bluetooth/serial)?
 
-Chrome OS now allows you to share certain devices through USB. To enable USB access, go to Settings and select “Linux" from the left-side nav. Then navigate into “Linux” and then into “USB preferences”. Here you can enable USB access on a case-by-case basis.
+Chrome OS now allows you to share certain devices through USB. To enable USB access, go to Settings and select “Developers" from the left-side nav. Then navigate into “Linux” and then into “USB preferences”. Here you can enable USB access on a case-by-case basis.
 
 This is an area of active development for the team, and more devices will be supported over time.
 
@@ -343,7 +343,7 @@ Sure, feel free to delete whatever you want. The `vmc destroy` command can be us
 
 Administrators can control access to containers/[VMs](https://en.wikipedia.org/wiki/Virtual_machine) via the management console, so enterprise/education organizations that want to limit this can.
 
-Initially there is a “Linux (Beta)” option under the standard Chrome OS settings, but the long-term plan is to remove this knob so things work on-demand. At which point, there will be no knob for unmanaged devices.
+Initially there is a “Linux” option under the standard Chrome OS settings, but the long-term plan is to remove this knob so things work on-demand. At which point, there will be no knob for unmanaged devices.
 
 ## Can I boot another OS like Windows, macOS, Linux, \*BSD, etc...?
 

@@ -147,7 +147,7 @@ En última instancia, usted es responsable de los datos que ingresan a los conte
 
 ## ¿Cómo puedo hacer una copia de seguridad de una VM?
 
-El enfoque más simple es utilizar la nueva función de copia de seguridad integrada en Chrome OS. Para hacerlo, vaya a Configuración y seleccione "Linux" en el panel de navegación del lado izquierdo. Luego navegue a "Linux". Encontrará "Copia de seguridad y restauración". Si navega por este menú, encontrará un Botón "Copia de seguridad" que guarda un archivo `.tini`.
+El enfoque más simple es utilizar la nueva función de copia de seguridad integrada en Chrome OS. Para hacerlo, vaya a Configuración y seleccione "Desarrolladores" en el panel de navegación del lado izquierdo. Luego navegue a "Linux". Encontrará "Copia de seguridad y restauración". Si navega por este menú, encontrará un Botón "Copia de seguridad" que guarda un archivo `.tini`.
 
 Si desea realizar una copia de seguridad de un contenedor individual, otro enfoque es utilizar los comandos estándar [LXC](https://linuxcontainers.org/lxc/introduction/).
 
@@ -245,11 +245,11 @@ crosh> vmc stop termina
 
 ## ¿Se admite la captura de audio (por ejemplo, micrófono)?
 
-Esto ahora es compatible con la versión Chrome OS M84. Para habilitar la captura de audio, vaya a Configuración y seleccione "Linux" en la barra de navegación del lado izquierdo. Luego navegue a "Linux". Encontrará "Permitir que Linux acceda a su micrófono" como una opción en ese menú.
+Esto ahora es compatible con la versión Chrome OS M84. Para habilitar la captura de audio, vaya a Configuración y seleccione "Desarrolladores" en la barra de navegación del lado izquierdo. Luego navegue a "Linux". Encontrará "Permitir que Linux acceda a su micrófono" como una opción en ese menú.
 
 ## ¿Puedo acceder al hardware (p. Ej. USB / Bluetooth / serie)?
 
-Chrome OS ahora le permite compartir ciertos dispositivos a través de USB. Para habilitar el acceso USB, vaya a Configuración y seleccione "Linux" en el panel de navegación del lado izquierdo. Luego navegue a "Linux" y luego a "Preferencias USB". Aquí puede habilitar el acceso USB para cada caso.
+Chrome OS ahora le permite compartir ciertos dispositivos a través de USB. Para habilitar el acceso USB, vaya a Configuración y seleccione "Desarrolladores" en el panel de navegación del lado izquierdo. Luego navegue a "Linux" y luego a "Preferencias USB". Aquí puede habilitar el acceso USB para cada caso.
 
 Esta es un área de desarrollo activo para el equipo y, con el tiempo, se admitirán más dispositivos.
 

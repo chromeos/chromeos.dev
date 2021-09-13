@@ -37,7 +37,7 @@ If you don't want to make a copy, you can share directories, such as a project f
 ![Right click on a directory to select "Share with Linux" option.](/images/develop/linux/getting-started/share-with-linux.png)
 
 !!! aside.message--note
-**Note:** When you right-click on a folder that's already shared, you will see a “Manage Linux sharing” option instead of "Share with Linux". This option will launch the Chrome OS Settings menu which is located at : “Settings” -> “Linux” -> “Linux” -> “Manage shared folders”.
+**Note:** When you right-click on a folder that's already shared, you will see a “Manage Linux sharing” option instead of "Share with Linux". This option will launch the Chrome OS Settings menu which is located at : “Settings” -> “Developers” -> “Linux development environment” -> “Manage shared folders”.
 !!!
 
 4. Within the Linux container, these shared folders will be located at /mnt/chromeos. From the Terminal app run `cd /mnt/chromeos`.

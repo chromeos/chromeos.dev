@@ -36,7 +36,7 @@ Si no desea hacer una copia, puede compartir directorios, como una carpeta de pr
 ![Haga clic derecho en un directorio para seleccionar](/images/develop/linux/getting-started/share-with-linux.png)
 
 !!! aside.message--note
-**Nota:** cuando haces clic derecho en una carpeta que ya está compartida, verás la opción "Administrar el uso compartido de Linux" en lugar de "Compartir con Linux". Esta opción abrirá el menú de configuración de Chrome OS que se encuentra en: "Configuración" -> "Linux" -> "Linux" -> "Administrar carpetas compartidas".
+**Nota:** cuando haces clic derecho en una carpeta que ya está compartida, verás la opción "Administrar el uso compartido de Linux" en lugar de "Compartir con Linux". Esta opción abrirá el menú de configuración de Chrome OS que se encuentra en: "Configuración" -> "Desarrolladores" -> "Linux" -> "Administrar carpetas compartidas".
 !!!
 
 1. Dentro del contenedor de Linux, estas carpetas compartidas se ubicarán en / mnt / chromeos. Desde la aplicación Terminal, ejecute `cd /mnt/chromeos` .
