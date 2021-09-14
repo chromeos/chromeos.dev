@@ -40,7 +40,7 @@ Pero todo eso es solo el comienzo: las herramientas Flutter también le permiten
 
 ## Chrome OS es una gran plataforma para desarrolladores para crear aplicaciones Flutter
 
-No importa a qué plataforma se dirija, Flutter tiene soporte para IDE ricos y herramientas de programación como Android Studio y Visual Studio Code. Durante el último año, Chrome OS ha estado creando soporte para ejecutar la versión de Linux de estas herramientas con la versión beta de [Linux en Chrome OS](/{{locale.code}}/linux) (también conocido como Crostini). Y, dado que Chrome OS también es compatible con Android de forma nativa, puede configurar las herramientas Flutter para ejecutar sus aplicaciones de Android directamente sin un emulador involucrado.
+No importa a qué plataforma se dirija, Flutter tiene soporte para IDE ricos y herramientas de programación como Android Studio y Visual Studio Code. Durante el último año, Chrome OS ha estado creando soporte para ejecutar la versión de Linux de estas herramientas con la [Linux en Chrome OS](/{{locale.code}}/linux) (también conocido como Crostini). Y, dado que Chrome OS también es compatible con Android de forma nativa, puede configurar las herramientas Flutter para ejecutar sus aplicaciones de Android directamente sin un emulador involucrado.
 
 #[Las herramientas de desarrollo de Flutter que se ejecutan en Chrome OS](/images/posts/flutter-and-chromeos-better-together/flutter-on-chromeos.gif)
 

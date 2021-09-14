@@ -1,6 +1,6 @@
 ---
 title: Overview
-metadesc: An introduction to Linux (Beta) on Chrome OS.
+metadesc: An introduction to Linux on Chrome OS.
 hero:
   image: /images/landings/linux-hero.svg
   alt: Illustration of a terminal application running on a Chrome OS device.
@@ -10,11 +10,11 @@ tags:
   - developer tools
 ---
 
-Linux (Beta) on Chrome OS, sometimes called Crostini, allows you to run Linux apps for development alongside your usual Chrome OS desktop & apps. Linux (Beta) on Chromebooks offers developers the best of both worlds. Built and designed with Chrome OS’ principles of simplicity and security, Linux on Chromebooks gives devs the freedom to safely run their favorite editors, IDEs, and thousands of world-class dev tools in one container.
+Linux on Chrome OS, sometimes called Crostini, allows you to run Linux apps for development alongside your usual Chrome OS desktop & apps. Linux on Chromebooks offers developers the best of both worlds. Built and designed with Chrome OS’ principles of simplicity and security, Linux on Chromebooks gives devs the freedom to safely run their favorite editors, IDEs, and thousands of world-class dev tools in one container.
 
 @[youtube](https://www.youtube.com/watch?v=pRlh8LX4kQI)
 
-Turning on Linux (Beta) will install a Terminal that you can use to run command line tools. You can also install graphical apps like editors and IDEs that show up in the Launcher alongside the rest of your Chrome OS apps. Another useful tool, the Files app, makes it easy to create shared folders for moving files between the Chrome OS host and the Linux container.
+Turning on Linux will install a Terminal that you can use to run command line tools. You can also install graphical apps like editors and IDEs that show up in the Launcher alongside the rest of your Chrome OS apps. Another useful tool, the Files app, makes it easy to create shared folders for moving files between the Chrome OS host and the Linux container.
 
 Benefits:
 

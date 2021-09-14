@@ -85,7 +85,7 @@ Si bien el deseo es que Linux en Chrome OS funcione con todas las Chromebooks, l
 
 ### Dispositivos disponibles actualmente
 
-Para obtener una lista de los dispositivos que son compatibles actualmente, consulte los [sistemas Chrome OS que admiten Linux (beta)](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-linux) .
+Para obtener una lista de los dispositivos que son compatibles actualmente, consulte los [sistemas Chrome OS que admiten Linux](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-linux) .
 
 ### Requisitos de hardware
 
