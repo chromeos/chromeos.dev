@@ -6,7 +6,7 @@ weight: -7
 ---
 
 It's easy to set up Linux, aka Crostini, on Chrome OS.
-First, go to Chrome Settings and “turn on” Linux:
+First, go to Settings, expand the "Advanced" menu and go to "Developers". Then “Turn on” Linux:
 
 #1[Enable Linux from Chrome settings.](/images/develop/linux/getting-started/enable-linux.png)
 
