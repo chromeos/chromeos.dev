@@ -109,4 +109,4 @@ As announced at [Chromium Dash](https://chromiumdash.appspot.com/schedule):
 
 - October 21: Chrome 96 beta
 - November 15: Chrome 96 stable. DGAPI 2.0 is available on Android.
-- November 30: Chrome OS  96 stable. DGAPI 2.0 is available on Chrome OS.
+- November 30: Chrome OS 96 stable. DGAPI 2.0 is available on Chrome OS.
