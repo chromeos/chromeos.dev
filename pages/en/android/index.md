@@ -45,3 +45,7 @@ on resources we have and topics to keep in mind.
   Chrome OS device](/{{locale.code}}/android-environment/deploying-apps#deploy-from-chrome-os) using the Linux for Chrome OS or you can connect your
   [Chrome OS device to your main workstation](/{{locale.code}}/android-environment/deploying-apps#deploy-from-another-device) and
   develop that way.
+
+  ## Developer interest form
+
+  If you're planning on optimizing your Android app or game for desktop, please fill out [our developer interest form](https://forms.gle/wPUjwhLgLnqvsqDG6). Google may reach out to you to further clarify your feedback or app needs. Please note that filling out this form does not constitute automatic inclusion in this program.
