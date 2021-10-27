@@ -48,4 +48,4 @@ on resources we have and topics to keep in mind.
 
   ## Developer interest form
 
-  If you're planning on optimizing your Android app or game for desktop, please fill out [our developer interest form](https://forms.gle/wPUjwhLgLnqvsqDG6). Google may reach out to you to further clarify your feedback or app needs. Please note that filling out this form does not constitute automatic inclusion in this program.
+  If you're planning on optimizing your Android app or game for desktop, and need help from Google -- please fill out [our developer interest form](https://forms.gle/wPUjwhLgLnqvsqDG6). Google may reach out to you to further clarify your feedback or app needs. Please note that filling out this form does not constitute automatic inclusion in this program.
