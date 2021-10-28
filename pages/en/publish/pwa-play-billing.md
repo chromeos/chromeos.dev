@@ -193,7 +193,7 @@ After a user purchases an item, you should grant them the proper entitlements (a
 **Note:** If a purchase is not acknowledged within 72 hours of the purchase time, the payment is refunded to the user and the purchase is revoked. The purchase token will no longer be valid, so when you [query for existing purchases](#check-existing-purchases) the revoked purchase won’t be returned. This ensures that a user isn’t improperly charged in the event of a network error which causes them to not be granted the entitlement to their item.
 !!!
 
-Previously, you could use the Digital Goods API `acknowledge` method to acknowledge a purchase with a `PurchaseType` of either `’onetime’` or `’repeatable’`. With v2.0 of the API, the `acknowledge` method has been deprecated. Instead, you should acknowledge purchases from your backend server using the Google Play Developer API. We recommend granting entitlements and then acknowledging the purchase together in your backend server.
+Previously, you could use the Digital Goods API `acknowledge()` method to acknowledge a purchase with a `PurchaseType` of either `"onetime"` or `"repeatable"`. With v2.0 of the API, the `acknowledge()` method has been deprecated. Instead, you should acknowledge purchases from your backend server using the Google Play Developer API. We recommend granting entitlements and then acknowledging the purchase together in your backend server.
 
 1.  After a user makes a purchase client-side, send the purchase token and item ID in a request to your backend server.
 1.  On your backend, to get details about the purchase to verify it, call:
@@ -208,14 +208,14 @@ Previously, you could use the Digital Goods API `acknowledge` method to acknowle
 
 When you acknowledge a purchase, this lets Google Play know that the user now owns the item and should not be allowed to purchase it again. If this is an item that the user will only need to purchase once and will own forever (e.g. a game character skin), then the item is not consumable.
 
-Alternatively, the item may be something that you limit a user to one of at a time. Then the user will need to use the item before they can purchase another one. When the user “uses” the item, to let Google Play know that the user has consumed the item, you should call the Digital Goods API 1.0 `acknowledge()` method with the `repeatable` purchase type. In Digital Goods API 2.0, the equivalent is the `consume` method. Google Play will then make the item available for the user to purchase again.
+Alternatively, the item may be something that you limit a user to one of at a time. Then the user will need to use the item before they can purchase another one. When the user “uses” the item, to let Google Play know that the user has consumed the item, you should call the Digital Goods API 1.0 `acknowledge()` method with the `"repeatable"` purchase type. In Digital Goods API 2.0, the equivalent is the `consume()` method. Google Play will then make the item available for the user to purchase again.
 
 For items that you allow a user to own multiples of, they need to be able to be purchased repeatedly without needing to be used first (we call these repeatable items). Similarly, these items need to be “consumed” before Google Play will let the user buy it again. Therefore, even if the user has not yet used the item, you need to call the Digital Goods API 1.0 `acknowledge()` method with the `repeatable` purchase type or the Digital Goods API 2.0 `consume()` method to mark the item as consumed.
 
 ```js
 // After the user purchases the item, send the purchase token and item ID to your backend to grant the entitlement and acknowledge it right away
 
-…
+. . .
 // When the user uses the item or if it is a repeatable item, consume it so it’s available for purchase again.
 if ('acknowledge' in service) {
 	// Digital Goods API 1.0
@@ -238,9 +238,12 @@ The Digital Goods API `listPurchases()` method will return a list of `PurchaseDe
 1.  For each purchase, pass the `purchaseToken` and `itemId` to your backend.
 1.  If appropriate, grant entitlement in your backend database.
 1.  Then call:
+
     - [purchases.products.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/get) for in-app items.
     - [purchases.subscriptions.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/get) for subscriptions.
-      and check the `acknowledgementState`.
+
+    and check the `acknowledgementState`.
+
 1.  If the value is 0 (yet to be acknowledged), then call:
     - [purchases.products.acknowledge](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/acknowledge) for in-app items.
     - [purchases.subscriptions.acknowledge](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/acknowledge) for subscriptions.
