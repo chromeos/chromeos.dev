@@ -237,12 +237,10 @@ The Digital Goods API `listPurchases()` method will return a list of `PurchaseDe
 1.  Call the Digital Goods API `listPurchases()` method client-side to retrieve the user’s list of purchases.
 1.  For each purchase, pass the `purchaseToken` and `itemId` to your backend.
 1.  If appropriate, grant entitlement in your backend database.
-1.  Then call:
+1.  Then to check the `acknowledgementState`, call:
 
     - [purchases.products.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/get) for in-app items.
     - [purchases.subscriptions.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/get) for subscriptions.
-
-    and check the `acknowledgementState`.
 
 1.  If the value is 0 (yet to be acknowledged), then call:
     - [purchases.products.acknowledge](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/acknowledge) for in-app items.
