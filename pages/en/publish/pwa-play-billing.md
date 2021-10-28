@@ -22,7 +22,7 @@ Note that the Digital Goods API is currently available through an [Origin Trial]
 - Digital Goods API [origin trial](https://developer.chrome.com/origintrials/#/view_trial/-5451607348931985407)
 - Digital Goods API v2 [origin trial](https://developer.chrome.com/origintrials/#/view_trial/888335026498830337)
 
-You will see a “Valid Until” date which is when your token is guaranteed to work until. Remember to renew your tokens when that date approaches to continue participating in the trial. APIs offered as an origin trial are subject to change, in case of any issues, refer to the [Digital Goods API documentation](https://github.com/WICG/digital-goods/blob/main/explainer.md).
+You will see a “Valid Until” date which is when your token is guaranteed to work until. Remember to renew your tokens when that date approaches to continue participating in the trial. APIs offered as an origin trial are subject to change, so be sure to stay up-to-date with the latest changes to any origin trial you are participating in. In case of any issues, refer to the [Digital Goods API documentation](https://github.com/WICG/digital-goods/blob/main/explainer.md).
 
 ## Payment Request API
 
