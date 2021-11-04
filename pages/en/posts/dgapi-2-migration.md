@@ -99,6 +99,17 @@ DGAPI 2.0 reduces the `purchaseDetails` object to contain only the `purchaseToke
 
 Follow our guideline to [verify purchases on your back-end server before granting entitlements](/{{locale.code}}/publish/play-billing-backend#verify-purchases-before-granting-entitlements) to replace your client side code.
 
+## Origin Trials
+
+Please note that Digital Goods API 2.0 will be run as a new origin trial. The Digital Goods API 1.0 origin trial will still last until its expiry date but will apply only to users on M95 and below.
+
+You will need to register separately for the 1.0 and the 2.0 origin trials, and place both keys in your website in order to keep compatibility with both APIs.
+
+Here are the links to both Origin Trials:
+
+- [Digital Goods API 1.0](https://developer.chrome.com/origintrials/#/view_trial/-5451607348931985407)
+- [Digital Goods API 2.0](https://developer.chrome.com/origintrials/#/view_trial/888335026498830337)
+
 ## Digital Goods API 2.0 Explainer
 
 The full interface to DGAPI 2.0 is available in the [explainer](https://github.com/WICG/digital-goods/blob/main/explainer.md)
