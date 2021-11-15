@@ -5,13 +5,15 @@ date: 2021-11-05
 weight: -3
 ---
 
+Testing the Digital Goods API integration can make sure that there are no unexpected bugs for your user experience in production. This list of test cases, while not comprehensive, aims to help create a testing plan for your team to address the most common issues when releasing your application to the Google Play Store with the Digital Goods API enabled.
+
 ## License testing on the Play Store
 
 We recommend testing the Google Play Billing scenarios on this page with [application license testing](https://support.google.com/googleplay/android-developer/answer/6062777). It lets the licensed testers you designate make test payments instead of charging them real money. License testing also speeds up the subscription renewal periods for more efficient testing.
 
 ## Test cases
 
-Testing the Digital Goods API integration can help make sure that there are no unexpected bugs for your users in production. In order to better check for these integrations, we recommend testing the following in your application:
+We recommend testing the following in your application:
 
 - **Upgrade and Downgrade Flow -** If you sell multiple subscriptions, you want to ensure that the right subscription is granted to your user when they upgrade and downgrade from different tiers of the subscription. You also want to make sure that the billing options such as a free trial or special pricing incentive are enabled. If you have a user that changes their subscription, check that the proration occurs correctly and that granting and removing entitlements also happens correctly.
 - **Onetime purchases and repeatable purchases -** Onetime purchases only occur once and cannot be accidentally purchased again. Repeatable purchases can happen again immediately after they are purchased. Ensure that entitlements are generated on your backend for both.
