@@ -15,7 +15,6 @@ tags:
   - optimization
 date: 2021-11-17
 featured:
-  title: YouTube enhances its Progressive Web App to give Chrome OS users an all-access pass offline
   images:
     - image: /images/stories/youtube/device.png
       alt: A Chromebook
