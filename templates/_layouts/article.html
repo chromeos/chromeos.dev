@@ -7,7 +7,7 @@ layout: _wrapper
 <article class="article">
   <div class="article__hero">
     {%- if hero -%}{% set position = hero.position if hero.position else 'middle' %}
-    <img class="article__hero-image article__hero-image--{{position}} {{'article__hero-image--large article__hero-image--opaque' if section == 'case-studies'}}" src="{{hero.image}}" alt="{{hero.alt}}" />
+    <img class="article__hero-image article__hero-image--{{position}} {{'article__hero-image--large' if section == 'case-studies'}}" src="{{hero.image}}" alt="{{hero.alt}}" />
     {%- endif -%}
   </div>
 
