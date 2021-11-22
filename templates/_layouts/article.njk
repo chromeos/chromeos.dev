@@ -1,0 +1,44 @@
+---
+layout: _wrapper
+---
+
+{% from 'skip-link.njk' import skipLink %} {% from 'app-info.njk' import appInfo %} {% from 'article-footer.njk' import articleFooter %} {% from 'authors-list.njk' import authorsList %} {% from 'back-to-top.njk' import backToTop %} {% from 'item-grid.njk' import itemGrid %} {% from 'date-time.njk' import dateTime %} {% from 'icon.njk' import icon %} {% from 'toc.njk' import toc as tableOfContents %}
+
+<article class="article">
+  <div class="article__hero">
+    {%- if hero -%}{% set position = hero.position if hero.position else 'middle' %}
+    <img class="article__hero-image article__hero-image--{{position}} {{'article__hero-image--large' if section == 'case-studies'}}" src="{{hero.image}}" alt="{{hero.alt}}" />
+    {%- endif -%}
+  </div>
+
+  <div class="article__eyebrow">
+    {% if parent %}
+    <a class="cta cta--back" href="/{{locale.code}}/{{ parent.url }}">
+      {{ microcopy.breadcrumbs.replace('((t))', parent.title) }}
+    </a>
+    {% endif %}
+  </div>
+
+  <h1 class="article__header type--h2">{{title}}</h1>
+
+  <aside class="article__info">
+    {% if section == 'posts' %}{{ dateTime(microcopy.datePosted, page.date, locale.code, options={ year: 'numeric', month: 'long', day: 'numeric' }) }}{{ authorsList(authors, contributors, microcopy) }}{% elif section == 'case-studies' %}{{ appInfo(app) }}{% endif %}
+  </aside>
+
+  {% if content | toc %}
+  <aside class="article__toc">
+    {{ tableOfContents(content, microcopy.toc.title, {title: microcopy.skip.toc, id: 'article'}) }}
+  </aside>
+  {% endif %} {% set topics = { label: microcopy.topics, items: tags } %}{% if section == 'case-studies' %}{% set updated = { label: microcopy.lastUpdated, date: page.date, locale: locale.code } %} {% endif %}
+  <section class="article__body" id="article">
+    <div class="article__content type">
+      {{ content | safe }}
+    </div>
+    {{ articleFooter(locale.code,topics, updated, modifiers={custom:'article__content'}) }}
+  </section>
+
+  <section class="article__recommended wrapper__contained wrapper--padding wrapper--padded">
+    {{itemGrid(microcopy.recommended, title | related(locale.code, page.url))}}
+  </section>
+</article>
+{{ backToTop() }}

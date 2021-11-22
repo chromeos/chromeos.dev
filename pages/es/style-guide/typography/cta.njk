@@ -1,0 +1,41 @@
+<p>--- título: metadesc de llamada a la acción: tipografía de estilo de llamada a la acción: introducción verdadera: | - Las llamadas a la acción son una parte integral de la experiencia del usuario. Como las llamadas a la acción siempre deben incluir una acción del usuario, deben usarse con un `botón` o una` a`. Todos los CTA pueden incluir un icono con la clase `.icon` a la izquierda o a la derecha del texto. Si se incluye un ícono, debe incluir las clases `.cta - left-icon` o` .cta - right-icon`, respectivamente, para garantizar que el ícono esté espaciado, dimensionado y con el estilo correcto. --- {% from 'icon.njk' import icon%}</p>
+<div class="type">{{ intro | safe }}</div>
+
+<section class="style-guide__section">
+  <div class="style-guide__separate-items">
+    <button class="cta cta--high">CTA de alto énfasis</button>
+    <button class="cta cta--high cta--right-icon">CTA de alto énfasis {{icon ('arrow-forward')}}</button>
+    <button class="cta cta--high cta--left-icon">{{icon ('arrow-back')}} CTA de alto énfasis</button>
+  </div>
+  <div class="type">
+    <p>Los CTA de alto énfasis se usan para llamadas a la acción que deben destacarse en su entorno, o para la acción principal cuando hay múltiples llamadas a la acción. Se pueden diseñar incluyendo las clases <code>cta</code> y <code>cta--high</code> .</p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <div class="style-guide__separate-items">
+    <button class="cta cta--medium">CTA de énfasis medio</button>
+    <button class="cta cta--medium cta--right-icon">CTA de énfasis medio {{icon ('arrow-forward')}}</button>
+    <button class="cta cta--medium cta--left-icon">{{icon ('arrow-back')}} CTA de énfasis medio</button>
+  </div>
+  <div class="type">
+    <p>Los CTA de énfasis medio se usan para llamadas a la acción que no tienen prioridad en una situación dada, por ejemplo, como una acción secundaria cuando hay múltiples llamadas a la acción. Se pueden diseñar incluyendo las clases <code>cta</code> y <code>cta--medium</code> .</p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <div class="style-guide__separate-items">
+    <button class="cta cta--low cta--right-icon">Enlace CTA de bajo énfasis {{icon ('arrow-forward')}}</button>
+    <button class="cta cta--low cta--left-icon">{{icon ('arrow-back')}} CTA de bajo énfasis</button>
+  </div>
+  <div class="type">
+    <p>Los CTA de bajo énfasis se usan cuando el llamado a la acción no pretende destacarse, sino ser una parte más pequeña de un componente más grande, por ejemplo, en las tarjetas. Los CTA de bajo énfasis <em>siempre deben</em> incluir un ícono para distinguirlo como cliqueable. Se pueden diseñar incluyendo bot las clases <code>cta</code> y <code>cta--low</code> .</p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <div class="style-guide__separate-items"><a href="/en" class="cta cta--link">Enlace interno</a></div>
+  <div class="type">
+    <p>Un uso muy común de la CTA de bajo énfasis en los componentes es que apunta a una URL interna o externa, o como un indicador de retroceso. Para su comodidad, pueden diseñarse incluyendo las clases <code>cta</code> y <code>cta--link</code> o <code>cta--back</code> (respectivamente), que manejarán estos casos de uso de manera consistente, con un indicador de flecha interno frente a externo.</p>
+  </div>
+</section>

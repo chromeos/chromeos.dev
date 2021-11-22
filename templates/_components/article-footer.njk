@@ -1,0 +1,26 @@
+<!--{#
+  Renders the article content footer.
+  @param {string} localeCode - 
+  @param {Object} topics - Object containing information about topics.
+  @param {string} topics.label - Label for the topic list.
+  @param {string[]} topics.items - List of topics.
+  @param {Object=} updated - Object containing information about updated date.
+  @param {string} updated.label - Label for the article date.
+  @param {Date} updated.date - Date of last update.
+  @param {string} updated.locale - Locale used to render the date.
+  @param {string} updated.options - Object containing formating options.
+  @param {Object=} modifiers - Object with modifier styles.
+  @param {string} modifiers.custom - Custom modifier styles.
+ #}-->
+{% macro articleFooter(localeCode, topics, updated, modifiers={}) -%}
+<footer class="article-footer {{modifiers.custom}}">
+  <div class="article-footer__item">
+    {% from 'topics.njk' import topics as topicsMacro %}{{ topicsMacro(topics.label ~ ':', topics.items, localeCode) }}
+  </div>
+  {% if updated is defined %}
+  <div class="article-footer__item">
+    {% from 'date-time.njk' import dateTime %}{{ dateTime(updated.label ~ ':', updated.date, updated.locale, updated.options, modifiers={inline: true}) }}
+  </div>
+  {% endif %}
+</footer>
+{%- endmacro %}

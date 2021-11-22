@@ -1,0 +1,18 @@
+<!--{#
+  Creates a Table of Contents based on included content.
+
+  @param {string} content - HTML of content to build a ToC for.
+  @param {string} title - Title to use for ToC.
+  @param {object} skip - Skip link info
+  @param {string} skip.title - Title of skip link
+  @param {string} skip.id - ID for skip link
+#}-->
+{% from 'skip-link.njk' import skipLink %}{% from 'icon.njk' import icon %} {% macro toc(content, title, skip) -%} {% if content | toc %} {{skipLink(skip.title, skip.id)}}
+<details class="toc">
+  <summary class="toc__summary type--label">
+    <span class="toc__title">{{title}}</span>
+    {{icon('expand-more', 'toc--expand')}}
+  </summary>
+  {{ content | toc | replace('¶ ', '') | safe}}
+</details>
+{% endif %} {%- endmacro %}

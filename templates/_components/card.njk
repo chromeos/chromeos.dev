@@ -1,0 +1,39 @@
+<!--{#
+  Renders a clickable card.
+
+  Arguments:
+    data: List of objects containing the following attributes.
+      - eyebrow (optional): Card eyebrow.
+      - title: Card title.
+      - body: Card body content.
+      - source (optional): Object containing the information source.
+        - logo: The source logo.
+        - name: The source name. i.e. Google Dev Blog.
+      - url: Card URL.
+    modifiers (optional): Object with modifier styles for the card.
+      - custom {String}: Custom modifier styles for the card.
+      - rounded {Boolean}: Rounded border style. Defaults to true.
+    idPrefix (optional): Additional identifier to prevent repeated IDs if multiple cards share the same title.
+ #}-->
+{% macro card(data, modifiers={}, idPrefix='') -%} {% set titleId %}{{(idPrefix ~ ' ' ~ data.title) | slug}}{% endset %} {% set bodyId %}{{titleId}}-body{% endset %} {% if data.source is defined %} {% set sourceId %}{{titleId}}-source{% endset %} {% endif %} {% set styles %}{{modifiers.custom}} {{'card--rounded' if modifiers.rounded is not defined else modifiers.rounded }}{% endset %}
+<a href="{{ data.url }}" class="card type--base {{styles}}" aria-labelledby="{{ titleId }} {{ bodyId}} {{ sourceId }}">
+  <article class="card__container">
+    <header id="{{ titleId }}" class="card__title">
+      {% if data.eyebrow %}<small class="card__eyebrow type--eyebrow">{{ data.eyebrow }}</small>{% endif %}
+      <h4 class="type--h4">{{ data.title }}</h4>
+    </header>
+    <p id="{{ bodyId }}" class="card__body">{{ data.body }}</p>
+    <footer class="card__footer">
+      {% if data.source is defined %}
+      <img class="card__source-logo" src="{{data.source.logo}}" alt="" aria-hidden="true" />
+      <address id="{{ sourceId }}" class="card__source type--small">
+        {{ data.source.name }}
+      </address>
+      {% endif %}
+      <span class="card__icon" aria-hidden="true">
+        {% from 'icon.njk' import icon %} {{ icon('arrow-forward') }}
+      </span>
+    </footer>
+  </article>
+</a>
+{%- endmacro %}

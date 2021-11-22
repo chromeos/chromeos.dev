@@ -1,0 +1,9 @@
+---
+pagination:
+  data: site.l10n
+  size: 1
+  alias: l10n
+permalink: '_components/{{ l10n.locale.code | slug }}/footer.txt'
+---
+
+{% from 'footer.njk' import footer %} {{ footer(l10n.locale.code, site.languages,l10n.footer,false ) }}

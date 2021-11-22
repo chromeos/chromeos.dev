@@ -1,0 +1,45 @@
+---
+layout: _wrapper
+---
+
+{% from 'component-preview.njk' import componentPreview %} {% set goBack = { url: 'style-guide', text: microcopy.breadcrumbs.replace('((t))', microcopy.styleGuide.title) } %} {% from 'icon.njk' import icon %}
+
+<article class="style-guide style-guide--component">
+  {% set filename = page.fileSlug + '.html' %} {% set component = components[filename] %}
+  <header class="style-guide__header">
+    <a class="cta cta--back" href="/{{locale.code}}/{{ goBack.url }}">{{ goBack.text }}</a>
+    <h1 class="type--h2">{{title}}</h1>
+  </header>
+  <section class="style-guide__content">
+    {% if component.docs %} {% highlight "js" %}{{component.docs | safe}}{% endhighlight %} {% endif %}
+    <div class="style-guide__description {{'type' if not typography }}">
+      {{ content | safe }}
+    </div>
+  </section>
+  {% if component %}
+  <section class="style-guide__examples">
+    {{componentPreview(filename, component, examples, microcopy, options)}}
+  </section>
+  <aside class="style-guide__items type">
+    <dl>
+      <dt>{{microcopy.styleGuide.template}}</dt>
+      <dd><code>{{filename}}</code></dd>
+      <dt>{{microcopy.styleGuide.macro}}</dt>
+      <dd>{{component.macro is defined }}</dd>
+      {% if component.macro is defined %}
+      <dt>{{microcopy.styleGuide.name}}</dt>
+      <dd><code>{{component.macro}}</code></dd>
+      {% endif %} {% if component.arguments | length %}
+      <dt>{{microcopy.styleGuide.params}}</dt>
+      <dd>
+        <ul class="style-guide__params">
+          {% for argument in component.arguments %}
+          <li><code>{{argument}}</code></li>
+          {% endfor %}
+        </ul>
+      </dd>
+      {% endif %}
+    </dl>
+  </aside>
+  {% endif %}
+</article>

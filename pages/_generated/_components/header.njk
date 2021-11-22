@@ -1,0 +1,9 @@
+---
+pagination:
+  data: site.l10n
+  size: 1
+  alias: l10n
+permalink: '_components/{{ l10n.locale.code | slug }}/header.txt'
+---
+
+{% from 'header.njk' import header %} {{ header(l10n.nav, l10n.search.placeholder, l10n.locale, false) }}

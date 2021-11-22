@@ -1,0 +1,12 @@
+<!--{#
+    Renders an input element.
+    @param {Object} input - input settings.
+    @param {String} input.type - String containing the input's type.
+    @param {String} input.value - String containing the input's label.
+#}-->
+{% from 'icon.njk' import icon %} {% macro submitButton(input) -%}
+<button class="form__button cta cta--high" type="submit">
+  <span class="form__button-text">{{ input.value }}</span>
+  {{ icon('loader', 'form__button-icon') }}
+</button>
+{%- endmacro %}

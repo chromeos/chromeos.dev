@@ -1,0 +1,49 @@
+<!--{#
+  Renders a card with stats.
+
+  @param {object} content - Object containing the following attributes.
+  @param {array[]} content.heading - Heading using multiple lines.
+  @param {string} content.desc - Description of the card.
+
+  @param {object} img - Image object.
+  @param {string} img.src  - Path to the image.
+  @param {string} img.alt  - Alt for the image.
+
+  @param {object} cta  - Cta object.
+  @param {string} cta.url  - Cta url.
+  @param {string} cta.text  - Cta text.
+
+  @param {object} stats (optional) - Stats object.
+  @param {string} stats.title  - Stat title.
+  @param {string} stats.value  - Stat value.
+  @param {string} stats.icon  - Stat icon.
+
+  @param {number} footnote (optional)  - Footnote reference number.
+ #}-->
+{% from 'icon.njk' import icon %} {% from 'footnote.njk' import footnote as footnoteComponent%} {% macro cardStats(content, img, cta, stats, footnote) -%} {% set br = joiner("<br />") %}
+<article class="card-stats">
+  <div class="card-stats__banner">
+    <img class="card-stats__image" src="{{img.src}}" alt="{{img.alt}}" />
+  </div>
+  <section class="card-stats__wrapper">
+    <div class="card-stats__copy">
+      <h1 class="type--h2">
+        {%- for title in content.heading -%}{{ br() | safe }}{{ title }}{%- endfor -%}
+      </h1>
+      <p class="type--large">{{content.desc}}</p>
+      {% if cta %}
+      <a class="cta cta--link" href="{{cta.url}}">{{cta.text}}</a>
+      {% endif %}
+    </div>
+    <figure class="card-stats__stats">
+      <div class="card-stats__stat-value type--h1">
+        {% if stats.icon %} {{icon(stats.icon, 'card-stats__stat-icon')}} {% endif %}
+        <p>{{stats.value}}</p>
+      </div>
+      <figcaption class="type--h5">
+        {{stats.title}} {% if footnote %} {{footnoteComponent(footnote)}} {% endif %}
+      </figcaption>
+    </figure>
+  </section>
+</article>
+{%- endmacro %}

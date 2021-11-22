@@ -1,0 +1,54 @@
+<p>--- título: Metadesc de estilo de enlace: Tipografía de estilo de enlace: introducción verdadera: | - Hay varios tipos diferentes de enlaces utilizados en todo el sitio. El enlace de texto en línea más común hereda su familia de fuentes. Otros, como los enlaces de navegación, tienen su familia de fuentes incorporada. En todos los casos, los enlaces deben estar marcados con un elemento `a`. --- {% from 'icon.njk' import icon%}</p>
+<div class="type">{{ intro | safe }}</div>
+
+<section class="style-guide__section">
+  <div class="style-guide__separate-items">
+    <p class="type--base">Este es un <a class="type--link" href="#">enlace en línea</a> con algún otro texto que lo rodea.</p>
+    <p class="type--base">Este es un enlace que apunta a una <a class="type--link" href="https://google.com">URL externa como esta que apunta a Gooogle</a> y tiene un indicador de enlace externo.</p>
+    <p class="type--base">
+      Este es un <a class="type--link" href="https://github.com"><code class="type--code">codeLink</code></a>
+    </p>
+  </div>
+  <div class="type">
+    <p>Los tres enlaces básicos, nuestro enlace en línea y el enlace en línea que apunta a una fuente externa, y un enlace en línea adjunto a algo con una fuente alternativa, como el código en línea. Este estilo se puede aplicar con la clase <code>type--link</code>. Los enlaces con indicadores externos no deben viudar su icono de indicador externo.</p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <div class="style-guide__separate-items">
+    <p><a href="#" class="type--primary-nav">Navegacion primaria</a></p>
+    <p><a href="#" data-active="true" class="type--primary-nav">Navegación primaria activa</a></p>
+  </div>
+  <div class="type">
+    <p>Los enlaces de navegación principales, utilizados en el encabezado global, vienen con su propio estilo de fuente. Están configurados en Google Sans, con un peso de <code>500</code>, con una composición tipográfica de <code>16px</code> /<code> 24px</code>, no cambian de color cuando se visitan y cuando están activos (indicado por la presencia del atributo <code>data-active</code>, suspendido o enfocado, su color cambia Este estilo se puede aplicar con el tipo de clase: <code>type--primary</code>. Debido a que se utilizan principalmente en secciones de navegación claramente delimitadas, no requieren que los subrayados se consideren accesibles y, como tales, no los incluyen.</p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <div class="style-guide__separate-items">
+    <p><a href="#" class="type--secondary-nav">Nav secundario</a></p>
+    <p><a href="#" data-active="true" class="type--secondary-nav">Navegación secundaria activa</a></p>
+  </div>
+  <div class="type">
+    <p>Los enlaces secundarios, en la barra lateral, vienen con su propio estilo de fuente. Están configurados en Roboto, con un peso de <code>400</code>, con una composición de <code>14px</code>/<code>18px</code>, no cambian de color cuando se visitan y cuando están activos (indicado por la presencia del atributo <code>data-active</code> , suspendido o enfocado, un peso de <code>500</code> se falsifica con<code>text-shadow</code>. Este estilo se puede aplicar con el tipo de clase: <code>type--secondary-nav</code>.Debido a que se utilizan principalmente en secciones de navegación claramente delimitadas, no requieren que los subrayados se consideren accesibles y, como tales, no los incluyan .</p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <div class="style-guide__separate-items">
+    <p><a href="#" class="type--tertiary-nav">Navegador terciario</a></p>
+  </div>
+  <div class="type">
+    <p>Los enlaces terciarios, en el pie de página, vienen con su propio estilo de fuente. Están configurados en Google Sans, con un peso de <code>500</code>, con una composición tipográfica de <code>16px</code>/<code>24px</code>, no cambian de color cuando se visitan, y cuando se ciernen o se enfocan, ganan un underlinie. Este estilo se puede aplicar con el tipo de clase: <code>type--tertiary-nav</code> Debido a que se usan principalmente en secciones de navegación claramente delimitadas, no requieren que los subrayados se consideren accesibles y, como tales, no los incluyen.</p>
+  </div>
+</section>
+
+<section class="style-guide__section">
+  <div class="style-guide__separate-items">
+    <p><a href="#" class="type--page-nav">Navegación a nivel de página</a></p>
+    <p><a href="#" data-active="true" class="type--page-nav">Navegación activa a nivel de página</a></p>
+  </div>
+  <div class="type">
+    <p><br />Los enlaces de navegación a nivel de página, utilizados principalmente en los enlaces de salto de Tabla de contenido, vienen con su propio estilo de fuente. Están configurados en Roboto, con un peso de <code>400</code>, con un tipo de letra de <code>14px</code>/<code>18px</code>, no cambian de color cuando se visitan y cuando están activos (indicado por la presencia del atributo <code>data-active</code>, se falsifica un peso de <code>500</code> usando <code>text-shadow</code>. Este estilo se puede aplicar con la clase <code>type--page-nav</code>.</p>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+{% from 'icon.njk' import icon %} {% macro searchBox(labelText,localeCode, modifiers) -%}
+<!--{#
+  Creates a searchbox.
+
+  @param {string} labelText - The label for the search box field.
+  @param {string} localeCode -
+  @param {object} modifiers - classes that change how to display the search box.
+#}-->
+<div class="search-box {{modifiers.background}} {{modifiers.extended}} {{modifiers.headerClass}}">
+  <button arial-label="open search box" class="search-box__icon">
+    {{ icon('search')}}
+  </button>
+  <form class="search-box__wrapper" action="/{{localeCode}}/search">
+    <input class="search-box__field" name="q" placeholder="{{labelText}}" />
+    <input type="hidden" name="locale" value="{{localeCode}}" />
+    <input type="hidden" name="page" value="0" />
+  </form>
+  <button aria-label="close search box" class="search-box__close {{modifiers.close}}">
+    {{ icon('close')}}
+  </button>
+</div>
+{%- endmacro %}

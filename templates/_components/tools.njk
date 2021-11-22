@@ -1,0 +1,34 @@
+<!--{# Renders a list of tools as text or links if provided.
+
+  Arguments:
+    - tools: List of tools.
+      - name: Tool name.
+      - url: (optional) Link to the tool version.
+      - versions:
+          min: Min version for the tool.
+          max: (optional) Max version for the tool.
+    - labels: List of labels.
+      - title: Title for the list.
+      - versions: 'versions' label used on the second paragraph of the item.
+-#}-->
+{% from 'icon.njk' import icon %} {% macro tools(tools, labels) -%} {% if tools is defined %}
+<figure class="tools">
+  <figcaption class="tools--title type--label">{{ labels.title }}</figcaption>
+  <ul class="tools__versions">
+    {% for tool in tools %}
+    <li class="tools__item type--caption">
+      <p class="tools__item-name">
+        {% if tool.url %}
+        <a class="type--link" href="{{ tool.url }}">{{ tool.name }}</a>
+        {% else %} {{ tool.name }} {% endif %}
+      </p>
+      {% if tool.versions.min and tool.versions.max %}
+      <p class="type--small">{{labels.versions.plural}} {{tool.versions.min}} - {{ tool.versions.max }}</p>
+      {% else %}
+      <p class="type--small">{{labels.versions.singular}} {{tool.versions.min}}</p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</figure>
+{% endif %} {%- endmacro %}
