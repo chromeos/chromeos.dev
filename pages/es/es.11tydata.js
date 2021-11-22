@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 /* eslint-env node */
-const l10nData = require('static-site-scaffold/lib/l10n-data');
+const dataFallback = require('eleventy-plugin-i18n-helpers/data-fallback');
 
 module.exports = function() {
-  return l10nData(__dirname, 'en');
+  return dataFallback('en');
 };

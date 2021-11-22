@@ -43,7 +43,7 @@ permalink: '{{ l10n.locale.code | slug }}/style-guide/components/index.html'
             <dd><a href="{{docs.url}}">{{docs.fileSlug}}</a></dd>
             {% elseif info.docs is defined %}
             <dt>{{l10n.microcopy.styleGuide.docs}}</dt>
-            <dd>{% highlight "json" %}{{info.docs | safe}}{% endhighlight %}</dd>
+            <dd>{% highlight "js" %}{{info.docs | safe}}{% endhighlight %}</dd>
             {% endif %}
           </dl>
         </div>

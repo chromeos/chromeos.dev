@@ -13,21 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const scaffold = require('static-site-scaffold/lib/11ty.config');
 const pluginTOC = require('eleventy-plugin-nesting-toc');
+const plugini18n = require('eleventy-plugin-i18n-helpers');
+const pluginSafeExternalLinks = require('eleventy-plugin-safe-external-links');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const discoverPlugins = require('./lib/helpers/discover-plugins');
 const markdown = require('./lib/markdown');
-const sync = require('browser-sync');
-const gulp = require('gulp');
-const gulpfile = require('./gulpfile');
-const Spinner = require('cli-spinner').Spinner;
+const path = require('path');
+const { folders } = require('config');
 
 module.exports = function(eleventy) {
-  const eleventyConfig = scaffold(eleventy);
-  let server = {};
-  const spinner = new Spinner('Compiling HTML...');
-
   eleventy.setLibrary('md', markdown);
 
   // Filters
@@ -39,6 +34,13 @@ module.exports = function(eleventy) {
     wrapperClass: 'toc__nav',
   });
   eleventy.addPlugin(syntaxHighlight);
+  eleventy.addPlugin(plugini18n, {
+    defaultLocale: 'en',
+    contentRoot: './pages',
+  });
+  eleventy.addPlugin(pluginSafeExternalLinks, {
+    files: ['.html', '.txt'],
+  });
 
   // Collections
   discoverPlugins('collections', eleventy);
@@ -48,22 +50,22 @@ module.exports = function(eleventy) {
 
   eleventy.setDataDeepMerge(true);
 
-  // Event Listeners
-  eleventy.on('watchInit', () => {
-    server = sync.create('server');
-    gulp.parallel('dev')();
-  });
+  const inputAbsolute = path.join(process.cwd(), folders.pages);
+  const includesAbsolute = path.join(process.cwd(), folders.templates, folders.includes);
+  const layoutsAbsolute = path.join(process.cwd(), folders.templates, folders.layouts);
 
-  eleventy.on('beforeBuild', () => {
-    spinner.start();
-  });
+  const dir = {
+    input: folders.pages,
+    output: folders.output,
+    includes: path.relative(inputAbsolute, includesAbsolute),
+    layouts: path.relative(inputAbsolute, layoutsAbsolute),
+  };
 
-  eleventy.on('afterBuild', () => {
-    spinner.stop();
-    if (server.reload) {
-      server.reload();
-    }
-  });
-
-  return eleventyConfig;
+  return {
+    dir,
+    dataTemplateEngine: 'njk',
+    markdownTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk',
+    templateEngineOverride: 'njk',
+  };
 };

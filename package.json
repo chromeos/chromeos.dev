@@ -40,6 +40,7 @@
     "compile:test": "run-s 'compile -- --dryrun --quiet'",
     "compile:watch": "run-s 'compile -- --watch'",
     "compile": "cross-env NODE_ICU_DATA=node_modules/full-icu eleventy --quiet",
+    "eleventy": "eleventy",
     "dev": "cross-env NODE_ICU_DATA=node_modules/full-icu run-p *:watch",
     "gulp": "gulp",
     "js:lint": "eslint functions src lib gulpfile.js rollup.config.js rollup.sw.js",
@@ -92,14 +93,18 @@
     "@rollup/plugin-commonjs": "^11.1.0",
     "ajv": "^6.12.2",
     "ajv-merge-patch": "^4.1.0",
-    "ava": "^3.9.0",
+    "ava": "^3.15.0",
     "backstopjs": "^5.0.1",
     "breakpoint-sass": "^2.7.1",
-    "cheerio": "^1.0.0-rc.3",
+    "cheerio": "^1.0.0-rc.10",
+    "chromeos-dev-markdown": "^1.0.0",
     "cli-spinner": "^0.2.10",
-    "commitizen": "^4.1.2",
+    "commitizen": "^4.2.4",
+    "config": "^3.3.6",
     "cross-env": "^7.0.2",
     "del-cli": "^2.0.0",
+    "eleventy-plugin-i18n-helpers": "0.0.2",
+    "eleventy-plugin-safe-external-links": "^0.1.5",
     "emoji-commit-helpers": "^0.1.1",
     "emoji-regex": "^8.0.0",
     "eslint": "^6.5.1",
@@ -148,7 +153,7 @@
     "yaml-unist-parser": "^1.2.1"
   },
   "dependencies": {
-    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy": "^0.12.1",
     "comlink": "^4.3.0",
     "css-paint-polyfill": "^2.0.0",
     "dynamic-import-polyfill": "^0.1.1",
@@ -164,7 +169,6 @@
     "resize-observer-polyfill": "^1.5.1",
     "service-worker-i18n-redirect": "^1.0.0",
     "service-worker-includes": "^1.0.1",
-    "static-site-scaffold": "^4.2.1",
     "string": "^3.3.3",
     "workbox-broadcast-update": "^5.1.3",
     "workbox-cacheable-response": "^5.1.3",
@@ -176,6 +180,6 @@
   },
   "private": true,
   "volta": {
-    "node": "12.16.1"
+    "node": "14.18.1"
   }
 }

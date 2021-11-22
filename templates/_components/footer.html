@@ -29,9 +29,9 @@
       <li class="footer__languages">
         <select class="footer__select type--tertiary-nav" name="lang" id="lang" aria-label="{{ content.selectLang }}">
           {% for lang in languages %} {% if lang === localeCode %}
-          <option value="{{ lang }}" selected>{{ lang | langName }}</option>
+          <option value="{{ lang }}" selected>{{ lang | iso('getNativeName') }}</option>
           {% else %}
-          <option value="{{ lang }}">{{ lang | langName }}</option>
+          <option value="{{ lang }}">{{ lang | iso('getNativeName') }}</option>
           {% endif %} {% endfor %}
         </select>
       </li>

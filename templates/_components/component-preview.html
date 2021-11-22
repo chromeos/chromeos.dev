@@ -17,7 +17,7 @@
     <dl>
       {% for arg, settings in args %}
       <dt>{{arg}}</dt>
-      <dd>{% highlight "json" %}{{ settings | dump(2) | safe }}{% endhighlight %}</dd>
+      <dd>{% highlight "js" %}{{ settings | dump(2) | safe }}{% endhighlight %}</dd>
       {% endfor %}
     </dl>
   </details>

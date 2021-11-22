@@ -11,7 +11,7 @@ layout: _wrapper
     <h1 class="type--h2">{{title}}</h1>
   </header>
   <section class="style-guide__content">
-    {% if component.docs %} {% highlight "json" %}{{component.docs | safe}}{% endhighlight %} {% endif %}
+    {% if component.docs %} {% highlight "js" %}{{component.docs | safe}}{% endhighlight %} {% endif %}
     <div class="style-guide__description {{'type' if not typography }}">
       {{ content | safe }}
     </div>
