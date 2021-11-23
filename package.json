@@ -140,6 +140,7 @@
     "remark-lint-prohibited-strings": "^1.5.2",
     "replaceall": "^0.1.6",
     "rollup": "^1.31.1",
+    "sass": "^1.43.4",
     "sass-toolkit": "^2.10.2",
     "serve": "^11.3.2",
     "serve-handler": "^6.1.3",
@@ -150,6 +151,8 @@
     "unist-util-find": "^1.0.1",
     "unist-util-parents": "^1.0.3",
     "unist-util-visit": "^2.0.2",
+    "vite": "^2.6.14",
+    "vite-plugin-eleventy": "0.0.9",
     "yaml-unist-parser": "^1.2.1"
   },
   "dependencies": {
