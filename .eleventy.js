@@ -50,12 +50,12 @@ module.exports = function(eleventy) {
 
   eleventy.setDataDeepMerge(true);
 
-  const inputAbsolute = path.join(process.cwd(), folders.pages);
-  const includesAbsolute = path.join(process.cwd(), folders.templates, folders.includes);
-  const layoutsAbsolute = path.join(process.cwd(), folders.templates, folders.layouts);
+  const inputAbsolute = path.join(process.cwd(), folders.source);
+  const includesAbsolute = path.join(process.cwd(), folders.source, folders.templates, folders.includes);
+  const layoutsAbsolute = path.join(process.cwd(), folders.source, folders.templates, folders.layouts);
 
   const dir = {
-    input: folders.pages,
+    input: folders.source,
     output: folders.output,
     includes: path.relative(inputAbsolute, includesAbsolute),
     layouts: path.relative(inputAbsolute, layoutsAbsolute),
