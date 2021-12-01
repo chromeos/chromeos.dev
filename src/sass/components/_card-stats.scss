@@ -1,13 +1,14 @@
 // Styles for card-stats component.
+@use 'sass:math';
 
 .card-stats {
   $content-max-width: pxRem(1440px);
   $max-width: 1024px;
-  $scaler: $max-width / 100 / 1vw;
+  $scaler: math.div(math.div($max-width, 100), 1vw);
   $inline-spacing-s: 3.75rem;
   $inline-spacing-l: 5rem;
-  $inline-spacing-m: ($inline-spacing-l + $inline-spacing-s) / 2;
-  $inline-spacing-r: clamp($inline-spacing-s, (7.5 * 16px / $scaler), $inline-spacing-l);
+  $inline-spacing-m: math.div(($inline-spacing-l + $inline-spacing-s), 2);
+  $inline-spacing-r: clamp($inline-spacing-s, (7.5 * math.div(16px, $scaler)), $inline-spacing-l);
 
   $bkpt: 656px;
 
@@ -43,11 +44,11 @@
     flex-wrap: wrap;
     margin: 0 auto;
     max-width: $content-max-width;
-    padding-top: $inline-spacing-m / 2;
+    padding-top: math.div($inline-spacing-m, 2);
     width: calc(100% - #{$inline-spacing-m} * 2);
 
     @supports (width: clamp(1px, 1vw, 2px)) {
-      padding-top: $inline-spacing-r / 2;
+      padding-top: calc(#{$inline-spacing-r} / 2);
       width: calc(100% - #{$inline-spacing-r} * 2);
     }
 
@@ -88,7 +89,7 @@
     @supports (width: clamp(1px, 1vw, 2px)) {
       $min: 120px;
       $max: 240px;
-      $factor: $max / 10.24px * 1vw;
+      $factor: math.div($max, 10.24px) * 1vw;
       min-width: clamp($min, $factor, $max);
     }
   }

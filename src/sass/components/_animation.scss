@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .animation {
   $duration: 0.25s;
   $root: &;
@@ -10,7 +12,7 @@
 
       @for $i from 1 through 10 {
         &[data-step='#{$i}'] {
-          transition-delay: $duration / 2 * $i;
+          transition-delay: math.div($duration, 2) * $i;
         }
       }
     }

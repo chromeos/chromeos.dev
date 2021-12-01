@@ -3,6 +3,7 @@
 
 .embed-responsive {
   &-16by9 {
-    @include ir;
+    // TODO: Add @supports PostCSS plugin to support iOS < 15
+    aspect-ratio: 16 / 9;
   }
 }

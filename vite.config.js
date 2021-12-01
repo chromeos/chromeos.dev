@@ -1,7 +1,6 @@
 /* eslint-env node */
 const { defineConfig } = require('vite');
 const { eleventyPlugin } = require('vite-plugin-eleventy');
-const { imgPlugin } = require('vite-plugin-img');
 const { posthtmlPlugin } = require('vite-plugin-posthtml');
 const { posthtmlExternalLink } = require('posthtml-external-link');
 const path = require('path');
@@ -28,5 +27,11 @@ module.exports = defineConfig({
     outDir: '../public',
     emptyOutDir: true,
   },
-  plugins: [eleventyPlugin()],
+  plugins: [
+    eleventyPlugin(),
+    //   // imgPlugin(),
+    posthtmlPlugin({
+      plugins: [posthtmlExternalLink()],
+    }),
+  ],
 });

@@ -1,4 +1,6 @@
 // Styles for tech detail page
+@use 'sass:math';
+
 .tech-detail {
   $root: &;
   $spacing: clamp(3.75rem, 7.8125vw, 5rem);
@@ -101,15 +103,15 @@
   }
 
   &__header {
-    margin-bottom: $block-padding / 2;
+    margin-bottom: math.div($block-padding, 2);
     margin-top: -5rem;
     padding: 0 $inline-padding;
-    padding-top: $block-padding / 2 + 5rem;
+    padding-top: math.div($block-padding, 2) + 5rem;
 
     #{$root}--landing & {
       grid-row: 3 / span 1;
       padding: 0;
-      padding-top: $block-padding / 2 + 3rem;
+      padding-top: math.div($block-padding, 2) + 3rem;
     }
 
     @include mq($bkpt-tech-details--2-cols) {

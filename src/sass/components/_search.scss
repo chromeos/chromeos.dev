@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .search {
   padding: 0.75rem 1.25rem;
   width: 100%;
@@ -6,11 +8,11 @@
 .search-results {
   $content-max-width: pxRem(1440px);
   $max-width: 1024px;
-  $scaler: $max-width / 100 / 1vw;
+  $scaler: math.div(math.div($max-width, 100), 1vw);
   $inline-spacing-s: 3.75rem;
   $inline-spacing-l: 5rem;
-  $inline-spacing-m: ($inline-spacing-l + $inline-spacing-s) / 2;
-  $inline-spacing-r: clamp($inline-spacing-s, (7.5 * 16px / $scaler), $inline-spacing-l);
+  $inline-spacing-m: math.div(($inline-spacing-l + $inline-spacing-s), 2);
+  $inline-spacing-r: clamp($inline-spacing-s, (7.5 * math.div(16px, $scaler)), $inline-spacing-l);
   $bkpt: 656px;
 
   display: grid;

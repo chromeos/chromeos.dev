@@ -1,4 +1,5 @@
 // Global mixins.
+@use "sass:math";
 
 // Sets font styles.
 @mixin fontSetup($size, $height, $weight: false, $rem: true) {
@@ -8,7 +9,7 @@
     font-size: pxEm($size);
   }
 
-  line-height: ($height / $size);
+  line-height: math.div($height, $size);
   @if $weight {
     font-weight: $weight;
   }
@@ -25,7 +26,7 @@
   @include fontSetup(nth($md, 1), nth($md, 2), $weight);
 
   // Determine scaling factor so that the large font size is reached at 1024px
-  $font-scale: nth($lg, 1) / 10.24px * 1vw;
+  $font-scale: math.div(nth($lg, 1), 10.24px) * 1vw;
   // Set up clamp function
   $font-clamp: clamp(pxEm(nth($sm, 1)), $font-scale, pxEm(nth($lg, 1)));
 
@@ -34,7 +35,7 @@
     // Set font size to clamp
     font-size: $font-clamp;
     // Set line height to ratio of largest line height to font size (unitless number)
-    line-height: nth($lg, 2) / nth($lg, 1);
+    line-height: math.div(nth($lg, 2), nth($lg, 1));
   }
 }
 
@@ -195,7 +196,7 @@
   @supports (height: clamp($min-diameter, 15.625vw, $max-diameter)) {
     $min: $min-diameter;
     $max: $min * 2;
-    $factor: $max-diameter / 10.24px * 1vw;
+    $factor: math.div($max-diameter, 10.24px) * 1vw;
     height: clamp($min, $factor, $max);
     width: clamp($min, $factor, $max);
   }
