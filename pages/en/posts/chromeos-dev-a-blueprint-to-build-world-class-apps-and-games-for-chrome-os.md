@@ -42,7 +42,7 @@ Whether it’s developing Android, Linux, or web apps, every update on ChromeOS.
 
 ### Customizable Linux Terminal
 
-The Linux (Beta) on Chrome OS Terminal now comes equipped with personalized features right out of the box, including:
+The Linux on Chrome OS Terminal now comes equipped with personalized features right out of the box, including:
 
 - **Integrated tabs and shortcuts** - Multitask with ease by using windows and tabs to manage different tasks and switch between multiple projects. You can also use familiar shortcuts such as [[Ctrl]]+[[T]], [[Ctrl]]+[[W]], and [[Ctrl]]+[[Tab]] to manage your tabs, or use the settings page to control if these keys should be used in your Terminal for apps like vim or emacs.
 

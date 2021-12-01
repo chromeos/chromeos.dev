@@ -161,7 +161,7 @@ examples:
         - logo: /images/landings/home/reddit-logo.png
           cta:
             url: https://www.reddit.com/r/chromeos/
-            text: Linux (Beta) on Chrome OS Reddit community
+            text: Chrome OS Reddit community
         - logo: /images/landings/home/stackoverflow-logo.png
           cta:
             url: https://stackoverflow.com/questions/tagged/google-chrome-os

@@ -2,26 +2,26 @@
   "layout": "tech-detail",
   "tags": ["linux"],
   "section": "linux",
-  "eyebrow": "Linux (Beta)",
+  "eyebrow": "Linux",
   "resources": [
     {
       "title": "Cómo usar una Chromebook",
       "url": "https://www.google.com/chromebook/howto/?hl=es"
     },
     {
-      "title": "Sistemas Chrome OS que soportan Linux (Beta)",
+      "title": "Sistemas Chrome OS que soportan Linux",
       "url": "https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-linux"
     },
     {
-      "title": "Configure Linux (Beta) en su Chromebook",
+      "title": "Configure Linux en su Chromebook",
       "url": "https://support.google.com/chromebook/answer/9145439?hl=es"
     },
     {
-      "title": "Crear copias de seguridad y restaurar tus archivos y aplicaciones de Linux (Beta)",
+      "title": "Crear copias de seguridad y restaurar tus archivos y aplicaciones de Linux",
       "url": "https://support.google.com/chromebook/answer/9592813"
     },
     {
-      "title": "Linux (Beta) en Chrome OS comunidad de reddit",
+      "title": "Linux en Chrome OS comunidad de reddit",
       "url": "https://www.reddit.com/r/crostini"
     }
   ]

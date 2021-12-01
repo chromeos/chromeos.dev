@@ -153,6 +153,28 @@ const contributors = {
       title: 'Developer Relations Engineering Manager',
     },
   },
+  fahdi: {
+    name: {
+      given: 'Fahd',
+      family: 'Imtiaz',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Product Manager',
+    },
+  },
+  ikarahan: {
+    name: {
+      given: 'Ibrahim',
+      family: 'Karahan',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Developer Advocate',
+    },
+  },
 };
 
 module.exports = () => contributors; // By making this a function, it'll force Eleventy to reevaluate it every time it gets recompiled

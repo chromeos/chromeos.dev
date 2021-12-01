@@ -13,9 +13,16 @@ If your PWA is listed in Google Play and you want to monetize it by selling in-a
 
 The [Digital Goods API](https://github.com/WICG/digital-goods/blob/main/explainer.md) is an interface between your app and Google Play. It allows you to retrieve the digital products and details you’ve entered for your in-app products and subscriptions in the Play Console as well as retrieve existing purchases a user has made. If you haven’t added in-app products or subscriptions in the Play Console yet, make sure to follow the [Play Console setup for Play Billing](/{{locale.code}}/publish/play-console-setup-for-billing).
 
+On November 30th, 2021, M96 stable will be released for Chrome OS and it will have the Digital Goods API 2.0 implementation. However, not all users will immediately update to M96, therefore it’s important to make sure that your app is compatible with both versions of the API.
+
 ### Register for the Origin Trial
 
-Note that the Digital Goods API is currently available through an [Origin Trial](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md) - a mechanism that allows developers early access to new Web APIs. You will need to [register for the trial](https://developer.chrome.com/origintrials/#/view_trial/-5451607348931985407) and request a token. You will see a “Valid Until” date which is when your token is guaranteed to work until. Remember to renew your token when that date approaches to continue participating in the trial. APIs offered as an origin trial are subject to change, in case of any issues, refer to the [Digital Goods API documentation](https://github.com/WICG/digital-goods/blob/main/explainer.md).
+Note that the Digital Goods API is currently available through an [Origin Trial](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md) - a mechanism that allows developers early access to new Web APIs. You will need to register separately for each version of the API and request a token for both.
+
+- Digital Goods API [origin trial](https://developer.chrome.com/origintrials/#/view_trial/-5451607348931985407)
+- Digital Goods API v2 [origin trial](https://developer.chrome.com/origintrials/#/view_trial/888335026498830337)
+
+You will see a “Valid Until” date which is when your token is guaranteed to work until. Remember to renew your tokens when that date approaches to continue participating in the trial. APIs offered as an origin trial are subject to change, so be sure to stay up-to-date with the latest changes to any origin trial you are participating in. In case of any issues, refer to the [Digital Goods API documentation](https://github.com/WICG/digital-goods/blob/main/explainer.md).
 
 ## Payment Request API
 
@@ -38,19 +45,25 @@ if ('getDigitalGoodsService' in window) {
 
 The Digital Goods API was designed to be compatible with various browsers and digital stores, similar to how the Payment Request API is browser-agnostic and can be used with different payment providers. To obtain an instance of the service associated with Google Play Billing, pass the string `"https://play.google.com/billing"` as the payment method to `getDigitalGoodsService()`.
 
+If the Google Play Billing payment method is not available (e.g. the user is accessing your PWA through the browser), you may offer another payment method for transactions. The behavior of `getDigitalGoodsService` is slightly different in Digital Goods API 1.0 and 2.0. If the service associated with the URL is not supported, version 1.0 will return `null` while version 2.0 will throw an error.
+
 ```js
 if ('getDigitalGoodsService' in window) {
-	// Digital Goods API is supported!
-	const service = await window.getDigitalGoodsService('https://play.google.com/billing');
-	if (service) {
-		// Google Play Billing service is available!
-	} else {
-		console.log(‘Google Play Billing is not available’);
-	}
+  // Digital Goods API is supported!
+  try {
+    const service = await window.getDigitalGoodsService('https://play.google.com/billing');
+    if (service) {
+      // Google Play Billing service is available!
+    } else {
+      // Digital Goods API 1.0
+      // Google Play Billing service is not available. Use another payment flow.
+    }
+  } catch (error) {
+    // Digital Goods API 2.0
+    // Google Play Billing service is not available. Use another payment flow.
+  }
 }
 ```
-
-If the Google Play Billing payment method is not available (e.g. the user is accessing your PWA through the browser), you may offer another payment method for transactions.
 
 ## Get item details
 
@@ -111,6 +124,17 @@ To prevent fraud, it’s critical to verify the purchase and purchase token on y
 After validating the purchase, call `complete()` on the payment response to finish the payment flow and close out the billing UI. You can also pass in an optional `result` string to indicate the state of the payment process. It is up to the browser whether to provide any indication of this result to the user. Chrome does not create any user-visible cues so it is recommended that you display your own error or success messages in your PWA.
 
 ```js
+/*
+Changes were recently made so that the PaymentResponse `details`
+property returns the purchase token as `purchaseToken`
+instead of `token`.
+
+Note that `token` will be deprecated at some point in the future.
+To ensure that your app won't be affected by this, make the
+change to `purchaseToken` in your client code and use the latest
+version of Bubblewrap (v1.13.5 and later) to update and generate
+a new app package to upload to the Play Console.
+*/
 const { purchaseToken } = paymentResponse.details;
 
 let paymentComplete;
@@ -132,29 +156,31 @@ This purchase flow is the same for both in-app products and subscription purchas
 - `purchaseToken`: This is the purchase token for the user’s current subscription. Like it was noted earlier, it’s a good idea to keep track of the purchase tokens in your backend. And for this scenario and others, you should associate a user to their current purchases and purchase tokens as well.
 - `prorationMode`: This is how the new subscription will be charged when it replaces the user’s current subscription.
 
-| Proration Mode                            | Description                                                                                                                                                                                                                                                         |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| immediateAndChargeProratedPrice           | The subscription is upgraded immediately, and the billing cycle remains the same. The price difference for the remaining period is then charged to the user.                                                                                                        |
-| immediateWithoutProration                 | **TEMPORARILY DISABLED** There is a potential fraud path with this proration mode where users could get an upgraded subscription without extra payment for one billing cycle. Please be aware that we have temporarily disabled this mode while we work on the fix. |
-| immediateWithTimeProration                | The subscription is upgraded or downgraded immediately. Any time remaining is adjusted based on the price difference, and credited toward the new subscription by pushing forward the next billing date. This is the default behavior.                              |
-| deferred                                  | The subscription is upgraded or downgraded only when the subscription renews. This is useful for downgrades especially.                                                                                                                                             |
-| unknownSubscriptionUpgradeDowngradePolicy | No set policy. This is not recommended.                                                                                                                                                                                                                             |
+| Proration Mode                            | Description                                                                                                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| immediateAndChargeProratedPrice           | The subscription is upgraded immediately, and the billing cycle remains the same. The price difference for the remaining period is then charged to the user.                                                                                                                                                                                                                          |
+| immediateAndChargeFullPrice               | The subscription is upgraded or downgraded and the user is charged full price for the new entitlement immediately. The remaining value from the previous subscription is prorated for time toward the new subscription. _This proration mode was recently added in the Google Play Billing Library 4.0 release. It is now available through Bubblewrap starting with version 1.13.5._ |
+| immediateWithoutProration                 | **TEMPORARILY DISABLED** There is a potential fraud path with this proration mode where users could get an upgraded subscription without extra payment for one billing cycle. Please be aware that we have temporarily disabled this mode while we work on the fix.                                                                                                                   |
+| immediateWithTimeProration                | The subscription is upgraded or downgraded immediately. Any time remaining is adjusted based on the price difference, and credited toward the new subscription by pushing forward the next billing date. This is the default behavior.                                                                                                                                                |
+| deferred                                  | The subscription is upgraded or downgraded only when the subscription renews. This is useful for downgrades especially.                                                                                                                                                                                                                                                               |
+| unknownSubscriptionUpgradeDowngradePolicy | No set policy. This is not recommended.                                                                                                                                                                                                                                                                                                                                               |
 
 Learn more about the different proration modes in the Google Play Billing Library [reference documentation](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.ProrationMode). Check out the Android developer docs for more on [subscription upgrade and downgrades](https://developer.android.com/google/play/billing/subscriptions#change) and [proration mode recommendations](https://developer.android.com/google/play/billing/subscriptions#proration-recommendations).
 
 The usage of these additional fields will look something like this:
 
 ```js
-const paymentMethod = [{
-	supportedMethods: ‘https://play.google.com/billing’,
-	data: {
-		sku: item.itemId,
-		oldSku: oldPurchase.itemId,
-		purchaseToken: oldPurchase.purchaseToken,
-		prorationMode: 'immediateAndChargeProratedPrice',
-	}
-}];
-
+const paymentMethod = [
+  {
+    supportedMethods: 'https://play.google.com/billing',
+    data: {
+      sku: item.itemId,
+      oldSku: oldPurchase.itemId,
+      purchaseToken: oldPurchase.purchaseToken,
+      prorationMode: 'immediateAndChargeProratedPrice',
+    },
+  },
+];
 ```
 
 Here, `item` is the `ItemDetails` of the new subscription the user is trying to upgrade or downgrade to, and `oldPurchase` is the `PurchaseDetails` of the user’s current subscription.
@@ -167,55 +193,75 @@ After a user purchases an item, you should grant them the proper entitlements (a
 **Note:** If a purchase is not acknowledged within 72 hours of the purchase time, the payment is refunded to the user and the purchase is revoked. The purchase token will no longer be valid, so when you [query for existing purchases](#check-existing-purchases) the revoked purchase won’t be returned. This ensures that a user isn’t improperly charged in the event of a network error which causes them to not be granted the entitlement to their item.
 !!!
 
-The Digital Goods API requires a purchase to be acknowledged with a `PurchaseType` of either `"onetime"` or `"repeatable"`. This is something that you determine client-side and is not something you set when you create your [in-app products and subscriptions in the Play Console](/{{locale.code}}/publish/play-console-setup-for-billing). It is recommended that you keep track of each item’s purchase type in your back-end server. If you also fetch your list of item IDs from the back-end server, you can store the item ID and purchase type as a key-value database.
+Previously, you could use the Digital Goods API `acknowledge()` method to acknowledge a purchase with a `PurchaseType` of either `"onetime"` or `"repeatable"`. With v2.0 of the API, the `acknowledge()` method has been deprecated. Instead, you should acknowledge purchases from your backend server using the Google Play Developer API. We recommend granting entitlements and then acknowledging the purchase together in your backend server.
 
-| Play Console   | PurchaseType | Description                                                                                                                                                                                                 |
-| -------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| in-app product | onetime      | When a user should only buy a product once and will own it forever (non-consumable item), or when a user can only own one instance of it at a time (needs to be consumed before they can purchase another). |
-|                | repeatable   | When a user can buy and own multiples of a product (consumable item).                                                                                                                                       |
-| subscription   | onetime      | Subscriptions are always acknowledged as ‘onetime’ because a user should only have at most one instance of each subscription.                                                                               |
+1.  After a user makes a purchase client-side, send the purchase token and item ID in a request to your backend server.
+1.  On your backend, to get details about the purchase to verify it, call:
+    - [purchases.products.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/get) for in-app items.
+    - [purchases.subscriptions.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/get) for subscriptions.
+1.  Grant the appropriate entitlement in your backend database.
+1.  Then acknowledge the purchase by calling:
+    - [purchases.products.acknowledge](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/acknowledge) for in-app items.
+    - [purchases.subscriptions.acknowledge](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/acknowledge) for subscriptions.
 
-Call `acknowledge()` with the `purchaseToken` string that was returned earlier by the payment response in the `data` member, along with the appropriate purchase type.
+### Consume a purchase
+
+When you acknowledge a purchase, this lets Google Play know that the user now owns the item and should not be allowed to purchase it again. If this is an item that the user will only need to purchase once and will own forever (e.g. a game character skin), then the item is not consumable.
+
+Alternatively, the item may be something that you limit a user to one of at a time. Then the user will need to use the item before they can purchase another one. When the user “uses” the item, to let Google Play know that the user has consumed the item, you should call the Digital Goods API 1.0 `acknowledge()` method with the `"repeatable"` purchase type. In Digital Goods API 2.0, the equivalent is the `consume()` method. Google Play will then make the item available for the user to purchase again.
+
+For items that you allow a user to own multiples of, they need to be able to be purchased repeatedly without needing to be used first (we call these repeatable items). Similarly, these items need to be “consumed” before Google Play will let the user buy it again. Therefore, even if the user has not yet used the item, you need to call the Digital Goods API 1.0 `acknowledge()` method with the `repeatable` purchase type or the Digital Goods API 2.0 `consume()` method to mark the item as consumed.
 
 ```js
-service.acknowledge(purchaseToken, getPurchaseType(item.itemId));
-```
+// After the user purchases the item, send the purchase token and item ID to your backend to grant the entitlement and acknowledge it right away
 
-### Consume a `onetime` purchase
-
-When you acknowledge a purchase with the `onetime` purchase type, this lets Google Play know that the user now owns the item and should not be allowed to purchase it again. If this is an item that the user will only need to purchase once and will own forever (e.g. a game character skin), then the item is not consumable.
-
-Alternatively, the item may be something that you limit a user to one of at a time. Then the user will need to use or consume the item before they can purchase another one. To let Google Play know that the user has consumed the item, you should call the `acknowledge()` method with the `"repeatable"` purchase type. Google Play will then make the item available for the user to purchase again.
-
-```js
-// After the user purchases the item, acknowledge it right away
-service.acknowledge(purchaseToken, 'onetime');
-
-…
-// When the user consumes or uses the item, acknowledge as `repeatable`
-service.acknowledge(purchaseToken, 'repeatable');
+. . .
+// When the user uses the item or if it is a repeatable item, consume it so it’s available for purchase again.
+if ('acknowledge' in service) {
+	// Digital Goods API 1.0
+	service.acknowledge(purchaseToken, 'repeatable');
+} else {
+	// Digital Goods API 2.0
+	service.consume(purchaseToken);
+}
 ```
 
 ## Check existing purchases
 
-The last key user flow is to check for existing entitlements (in-app products that haven’t been consumed yet and on-going subscriptions). These existing entitlements will be from previous Google Play purchases on any device made in-app or on the Play Store, or from a redeemed promo-code.
+The last key user flow is to check for existing purchases (in-app products that haven’t been consumed yet and on-going subscriptions) to let your users know what subscription or items they currently own. These existing purchases will be from previous Google Play purchases on any device made in-app or on the Play Store. Purchases made from outside the app in the Play Store are called [out-of-app purchases](/{{locale.code}}/publish/pwa-play-billing#out-of-app-purchases).
 
-This is also a good place to check the purchase status and acknowledge any purchases that were previously made but did not properly get acknowledged. It is recommended that purchases get acknowledged as soon as possible so the user's entitlements are up-to-date and properly reflected in the app.
+When retrieving existing purchases, you should also check the acknowledgement status and acknowledge any purchases that were previously made but did not properly get acknowledged. It is recommended that purchases get acknowledged as soon as possible so the user's entitlements are up-to-date and properly reflected in the app.
 
-`listPurchases()` will return a list of `PurchaseDetails` that has more information about the purchases.
+The Digital Goods API `listPurchases()` method will return a list of `PurchaseDetails` that has more information about the purchases. In Digital Goods API 2.0, `PurchaseDetails` has been reduced to only contain the `itemId` and `purchaseToken` and the `acknowledge()` method has been removed. Therefore, instead of checking the state of purchases and acknowledging them client-side, you should use the Google Play Developer API on your backend server. You should:
 
-```js
-const existingPurchases = await service.listPurchases();
-for (const purchase of existingPurchases) {
-  if (purchase.purchaseState == 'purchased' && !purchase.acknowledged) {
-    await service.acknowledge(purchase.purchaseToken, getPurchaseType(purchase.itemId));
-  }
-  // Update UI with user’s existing entitlements
-  displayPurchase(purchase.itemId, purchase.purchaseState);
-}
-```
+1.  Call the Digital Goods API `listPurchases()` method client-side to retrieve the user’s list of purchases.
+1.  For each purchase, pass the `purchaseToken` and `itemId` to your backend.
+1.  If appropriate, grant entitlement in your backend database.
+1.  Then call:
 
-To protect your app from potential bad actors, you should not rely only on the client side to get purchases. Learn more about how to [verify purchases on your back-end server before granting entitlements](/{{locale.code}}/publish/play-billing-backend#verify-purchases-before-granting-entitlements).
+    - [purchases.products.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/get) for in-app items.
+    - [purchases.subscriptions.get](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/get) for subscriptions.
+
+    and check the `acknowledgementState`.
+
+1.  If the value is 0 (yet to be acknowledged), then call:
+    - [purchases.products.acknowledge](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/acknowledge) for in-app items.
+    - [purchases.subscriptions.acknowledge](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/acknowledge) for subscriptions.
+
+Learn more about how to [verify purchases on your back-end server before granting entitlements](/{{locale.code}}/publish/play-billing-backend#verify-purchases-before-granting-entitlements).
+
+## Out-of-app purchases
+
+Out-of-app purchases are purchases not made in the normal in-app purchase flow. These will usually occur in the Play Store instead of in your app. There are two main ways users may make an out-of-app purchase:
+
+- **Redeeming a promo code**: In the Play Store user menu, in **“Offers & notifications” -> “Redeem promo code”** or in **“Payments & subscriptions” -> “Redeem gift code”**.
+- **Resubscribing**: In the Play Store user menu, in **“Payments & subscriptions” -> “Subscriptions”**. Here, users may manage all their subscriptions across different apps. For expired or canceled subscriptions, users have the option to “Resubscribe”.
+
+When users resubscribe from the Play Store, their purchases are not acknowledged automatically which may result in them being refunded. This behavior is intentional because users should only be charged for their subscription if they open the app to use it. The user may see a “Confirm subscription” like so, reminding them to open the app.
+
+![Users are prompted to confirm their subscription by opening the app to acknowledge the purchase.](/images/publish/pwa-play-billing/confirm-subscription.png)
+
+It is up to you as the developer to implement acknowledgement of these once the user launches the app. That’s why we recommend [checking for existing purchases](/{{locale.code}}/publish/pwa-play-billing#check-existing-purchases) (usually when the app first launches) and acknowledging any purchases that are not acknowledged yet.
 
 ## Let users manage subscriptions
 

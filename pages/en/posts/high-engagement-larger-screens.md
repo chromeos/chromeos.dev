@@ -64,7 +64,7 @@ If you’re using NDK, be sure to support x86 (32 and 64bit) ABIs to ensure the 
 
 ## Build, test, and run Android apps on a Chromebook
 
-From the start, our goal has been to make the Chromebook a simple, secure, and speedy environment for everyone. The launch of [Linux (Beta) on Chrome OS](/{{locale.code}}/linux) allowed Android developers to build and test apps with a Chromebook. And earlier this year at I/O, we announced that [Android Studio 3.5 now fully supports Chrome OS](/{{locale.code}}/posts/chromeos-io-19) with a simple one-click installation.
+From the start, our goal has been to make the Chromebook a simple, secure, and speedy environment for everyone. The launch of [Linux on Chrome OS](/{{locale.code}}/linux) allowed Android developers to build and test apps with a Chromebook. And earlier this year at I/O, we announced that [Android Studio 3.5 now fully supports Chrome OS](/{{locale.code}}/posts/chromeos-io-19) with a simple one-click installation.
 
 Since then, we’ve been working on a few improvements that make Chromebooks an even better place for safe and seamless Android app development. Let’s start with the biggest one:
 

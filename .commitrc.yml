@@ -18,7 +18,7 @@ scopes:
   - name: publish
     description: Publishing
   - name: linux
-    description: Develop - Linux (Beta)
+    description: Develop - Linux
   - name: web-env
     description: Develop - Web Environment
   - name: android-env

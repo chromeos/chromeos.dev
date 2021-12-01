@@ -42,6 +42,10 @@ on resources we have and topics to keep in mind.
   created some [recommendations and guidelines](/{{locale.code}}/android/design)
   to keep in mind when thinking about how your app looks and behaves on Chrome OS.
 - There are a few ways to develop for Chrome OS, you can build [directly on your
-  Chrome OS device](/{{locale.code}}/android-environment/deploying-apps#deploy-from-chrome-os) using the Linux (Beta) for Chrome OS or you can connect your
+  Chrome OS device](/{{locale.code}}/android-environment/deploying-apps#deploy-from-chrome-os) using the Linux for Chrome OS or you can connect your
   [Chrome OS device to your main workstation](/{{locale.code}}/android-environment/deploying-apps#deploy-from-another-device) and
   develop that way.
+
+  ## Developer interest form
+
+  If you're planning on optimizing your Android app or game for desktop, and need help from Google -- please fill out [our developer interest form](https://forms.gle/wPUjwhLgLnqvsqDG6). Google may reach out to you to further clarify your feedback or app needs. Please note that filling out this form does not constitute automatic inclusion in this program.

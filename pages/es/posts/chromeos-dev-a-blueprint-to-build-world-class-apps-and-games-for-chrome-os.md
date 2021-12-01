@@ -45,7 +45,7 @@ Ya sea que se trate de desarrollar aplicaciones web, Linux o Android, cada actua
 
 ### Terminal Linux personalizable
 
-Terminal de Linux (Beta) en Chrome OS ahora viene equipado con funciones personalizadas desde el primer momento, que incluyen:
+Terminal de Linux en Chrome OS ahora viene equipado con funciones personalizadas desde el primer momento, que incluyen:
 
 - **Pestañas y accesos directos integrados** - Realice
   múltiples tareas con facilidad mediante el uso de ventanas y pestañas para administrar diferentes tareas y cambiar entre múltiples proyectos. También puede usar atajos familiares como [[Ctrl]]+[[T]], [[Ctrl]]+[[W]] y [[Ctrl]]+[[Tab]] para administrar sus pestañas, o usar la página de configuración para controlar si estas teclas deben usarse en su Terminal para aplicaciones como vim o emacs.
