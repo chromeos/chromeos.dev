@@ -1,6 +1,6 @@
 ---
 title: Introducción
-metadesc: Una introducción a Linux (Beta) en Chrome OS.
+metadesc: Una introducción a Linux en Chrome OS.
 hero:
   image: /images/landings/linux-hero.svg
   alt: Ilustración de una aplicación de terminal que se ejecuta en un dispositivo Chrome OS.
@@ -8,11 +8,11 @@ date: 2020-06-10
 weight: -8
 ---
 
-Linux (Beta) en Chrome OS, a veces llamado Crostini, le permite ejecutar aplicaciones Linux para el desarrollo junto con el ambiente de escritorio y aplicaciones habituales de Chrome OS. Linux (Beta) en Chromebooks ofrece a los desarrolladores lo mejor de ambos mundos. Construido y diseñado con los principios de simplicidad y seguridad de Chrome OS, Linux en Chromebooks brinda a los desarrolladores la libertad de ejecutar de forma segura sus editores favoritos, IDE y miles de herramientas de desarrollo de clase mundial en un solo contenedor.
+Linux en Chrome OS, a veces llamado Crostini, le permite ejecutar aplicaciones Linux para el desarrollo junto con el ambiente de escritorio y aplicaciones habituales de Chrome OS. Linux en Chromebooks ofrece a los desarrolladores lo mejor de ambos mundos. Construido y diseñado con los principios de simplicidad y seguridad de Chrome OS, Linux en Chromebooks brinda a los desarrolladores la libertad de ejecutar de forma segura sus editores favoritos, IDE y miles de herramientas de desarrollo de clase mundial en un solo contenedor.
 
 @ [youtube](https://www.youtube.com/watch?v=pRlh8LX4kQI)
 
-Al activar Linux (Beta) se instalará un Terminal que puede usar para ejecutar herramientas de línea de comandos. También puede instalar aplicaciones gráficas como editores e IDEs que aparecen en el Iniciador junto con el resto de sus aplicaciones de Chrome OS. Otra herramienta útil, la aplicación Archivos, facilita la creación de carpetas compartidas para mover archivos entre el host de Chrome OS y el contenedor de Linux.
+Al activar Linux se instalará un Terminal que puede usar para ejecutar herramientas de línea de comandos. También puede instalar aplicaciones gráficas como editores e IDEs que aparecen en el Iniciador junto con el resto de sus aplicaciones de Chrome OS. Otra herramienta útil, la aplicación Archivos, facilita la creación de carpetas compartidas para mover archivos entre el host de Chrome OS y el contenedor de Linux.
 
 Beneficios:
 

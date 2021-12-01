@@ -1,6 +1,6 @@
 settings:
   name: newsletter-sign-up
-  endpoint: https://services.google.com/fb/submissions/chromeos-newsletter/
+  endpoint: https://services.google.com/fb/submissions/chromeos-newsletter-v2/
 content:
   title: Get Chrome OS developer news and updates direct to you
   copy: Sign up for the latest news, tips, releases, updates, and more on Chrome OS.

@@ -277,7 +277,7 @@ export class Search {
     let results = '';
     this.handleLoaderVisibility_();
     this.currentResults_ = searchResults;
-    const resultsText = this.data_.results.replace('((d))', searchResults.pagination.items).replace('((t))', `<span class="search-results__query">${this.query_}</span>`);
+    const resultsText = this.data_.results.replace('((d))', searchResults.pagination.items).replace('((t))', `<span class="search-results__query">${this.query_.replace(/[^\w. ]/gi, c => `&#${c.charCodeAt(0)};`)}</span>`);
     this.searchSummary_.innerHTML = `<p class="type--h2">${resultsText}</p>`;
     if (searchResults.data.length > 0) {
       for (let i = 0; i < searchResults.data.length; i++) {

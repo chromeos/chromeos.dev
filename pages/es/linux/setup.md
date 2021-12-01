@@ -1,11 +1,11 @@
 ---
 title: Configuración de Linux
-metadesc: Instrucciones para habilitar Linux (Beta), también conocido como Crostini, en Chrome OS para el desarrollo.
+metadesc: Instrucciones para habilitar Linux, también conocido como Crostini, en Chrome OS para el desarrollo.
 date: 2020-06-10
 weight: -7
 ---
 
-Es fácil configurar Linux (Beta), también conocido como Crostini, en Chrome OS. Primero, vaya a Configuración de Chrome y "encienda" Linux:
+Es fácil configurar Linux, también conocido como Crostini, en Chrome OS. Primero, vaya a Configuración de Chrome y "encienda" Linux:
 
 #1[Habilite Linux desde la configuración de Chrome.](/images/develop/linux/getting-started/enable-linux.png)
 
@@ -36,7 +36,7 @@ Si no desea hacer una copia, puede compartir directorios, como una carpeta de pr
 ![Haga clic derecho en un directorio para seleccionar](/images/develop/linux/getting-started/share-with-linux.png)
 
 !!! aside.message--note
-**Nota:** cuando haces clic derecho en una carpeta que ya está compartida, verás la opción "Administrar el uso compartido de Linux" en lugar de "Compartir con Linux". Esta opción abrirá el menú de configuración de Chrome OS que se encuentra en: "Configuración" -> "Linux (Beta)" -> "Linux" -> "Administrar carpetas compartidas".
+**Nota:** cuando haces clic derecho en una carpeta que ya está compartida, verás la opción "Administrar el uso compartido de Linux" en lugar de "Compartir con Linux". Esta opción abrirá el menú de configuración de Chrome OS que se encuentra en: "Configuración" -> "Desarrolladores" -> "Linux" -> "Administrar carpetas compartidas".
 !!!
 
 1. Dentro del contenedor de Linux, estas carpetas compartidas se ubicarán en / mnt / chromeos. Desde la aplicación Terminal, ejecute `cd /mnt/chromeos` .
@@ -64,7 +64,7 @@ La instalación de estos agregará dos nuevas aplicaciones, [Software](#figure-4
 
 ### Reiniciar el contenedor de Linux
 
-Si está solucionando un problema con Linux, puede ser útil reiniciar el contenedor sin reiniciar su Chromebook completo. Para hacerlo, haga clic derecho en la aplicación Terminal en su estante y haga clic en "Apagar Linux (Beta)".
+Si está solucionando un problema con Linux, puede ser útil reiniciar el contenedor sin reiniciar su Chromebook completo. Para hacerlo, haga clic derecho en la aplicación Terminal en su estante y haga clic en "Apagar Linux".
 
 #6[Cerrar el contenedor de Linux.](/images/develop/linux/getting-started/shut-down.png)
 
@@ -74,7 +74,7 @@ Una vez que se apaga, las aplicaciones deberían aparecer en el iniciador, y al 
 
 Linux en Chrome OS se ejecuta dentro de un contenedor, [protegiéndolo](https://support.google.com/chromebook/answer/3438631?hl={{es}}#sandboxing) de otras páginas web, aplicaciones y el propio sistema operativo. Sin embargo, todas las aplicaciones instaladas en el contenedor de Linux _comparten_ el mismo entorno limitado, lo que significa que comparten los permisos del contenedor de Linux y pueden afectarse entre sí.
 
-Por razones de seguridad, muchos permisos, como acceso a USB o al microfono, no se comportan automáticamente. Para asegurarse que tiene los permisos adecuados habilitados, debe ir a configuración y habilitarlos. Como siempre tome precauciones con los permisos y nunca habilite más de lo que necesita. Cuando interáctue con Linux (Beta) en Chrome OS, preste particular atención a los [datos del usuario en el contenedor](/{{locale.code}}/linux/linux-on-chromeos-deep-dive#datos-de-usuario-en-el-contenedor).
+Por razones de seguridad, muchos permisos, como acceso a USB o al microfono, no se comportan automáticamente. Para asegurarse que tiene los permisos adecuados habilitados, debe ir a configuración y habilitarlos. Como siempre tome precauciones con los permisos y nunca habilite más de lo que necesita. Cuando interáctue con Linux en Chrome OS, preste particular atención a los [datos del usuario en el contenedor](/{{locale.code}}/linux/linux-on-chromeos-deep-dive#datos-de-usuario-en-el-contenedor).
 
 ## Copia de seguridad y restauración
 

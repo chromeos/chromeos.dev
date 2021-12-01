@@ -111,7 +111,7 @@ const contributors = {
   },
   pjmclachlan: {
     name: {
-      given: 'PJ',
+      given: 'Penny',
       family: 'McLachlan',
     },
     work: {
@@ -129,6 +129,50 @@ const contributors = {
       company: 'Google',
       org: 'Chrome OS',
       title: 'Product Manager',
+    },
+  },
+  mmonasch: {
+    name: {
+      given: 'Matt',
+      family: 'Monasch',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Lead Games Developer Advocate',
+    },
+  },
+  pfuentes: {
+    name: {
+      given: 'Patrick',
+      family: 'Fuentes',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Developer Relations Engineering Manager',
+    },
+  },
+  fahdi: {
+    name: {
+      given: 'Fahd',
+      family: 'Imtiaz',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Product Manager',
+    },
+  },
+  ikarahan: {
+    name: {
+      given: 'Ibrahim',
+      family: 'Karahan',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Developer Advocate',
     },
   },
 };

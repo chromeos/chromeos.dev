@@ -17,7 +17,7 @@
   desc: Utilice Chrome OS para desarrollar aplicaciones en un entorno rápido, seguro y sin complicaciones.
   icon: wrench
   sections:
-    - title: Linux (Beta)
+    - title: Linux
       url: linux
     - title: Entorno para Android
       url: android-environment

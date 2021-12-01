@@ -35,7 +35,7 @@ VideoLAN diseñó varias versiones del diseño para permitir a los usuarios esca
 
 Anteriormente, el equipo necesitaba usar emuladores individuales o dispositivos separados para probar cada diseño. Pero, con el soporte de Android para Chrome OS, el equipo pudo probar el diseño de la interfaz de usuario para computadoras de escritorio, tabletas y dispositivos móviles de una sola vez, en el mismo dispositivo y sin tener que usar un emulador. Esto aceleró sustancialmente el diseño y los tiempos de prueba.
 
-Y ahora con [Linux (Beta) en Chrome OS](/{{locale.code}}/linux) , los desarrolladores pueden usar Android Studio para crear y probar aplicaciones de Android de forma nativa, lo que hace que los dispositivos Chromebook estén listos para el desarrollo.
+Y ahora con [Linux en Chrome OS](/{{locale.code}}/linux) , los desarrolladores pueden usar Android Studio para crear y probar aplicaciones de Android de forma nativa, lo que hace que los dispositivos Chromebook estén listos para el desarrollo.
 
 ![Imagen que muestra varias versiones de diseño, ejemplos de cambio de tamaño dinámico en dispositivos móviles, tabletas y computadoras portátiles.](gs://stories/vlc/vlc-1)
 

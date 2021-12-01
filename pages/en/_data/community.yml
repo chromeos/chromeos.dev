@@ -29,7 +29,7 @@
 - logo: /images/landings/home/reddit-logo.png
   cta:
     url: https://www.reddit.com/r/chromeos/
-    text: Linux (Beta) on Chrome OS Reddit Community
+    text: Chrome OS Reddit Community
 - logo: /images/landings/home/stackoverflow-logo.png
   cta:
     url: https://stackoverflow.com/questions/tagged/google-chrome-os

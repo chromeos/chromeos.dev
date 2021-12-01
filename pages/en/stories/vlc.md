@@ -35,7 +35,7 @@ VideoLAN designed multiple versions of the layout to allow users to easily scale
 
 Previously, the team needed to use individual emulators or separate devices to test each layout. But, with Android support for Chrome OS, the team was able to test UI layout for desktop, tablet, and mobile all at once, on the same device, and without having to use an emulator. This substantially sped up the design and test times.
 
-And now with [Linux (Beta) on Chrome OS](/{{locale.code}}/linux), developers can use Android Studio to build and test Android apps natively, making Chromebooks development-ready devices.
+And now with [Linux on Chrome OS](/{{locale.code}}/linux), developers can use Android Studio to build and test Android apps natively, making Chromebooks development-ready devices.
 
 ![Image showing multiple versions of layout, examples of dynamic resizing across Mobile, Tablet and Laptop devices.](gs://stories/vlc/vlc-1)
 

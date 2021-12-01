@@ -14,6 +14,8 @@ tags:
 
 Android apps have an important role to play in redefining what modern computing looks like on large screens. That said, simply running your phone app on a Chromebook won’t give your users the best experience. This page details some ways that you can tailor your experience towards laptop and convertible form factors. See our [comprehensive list of tests](/{{locale.code}}/android/tests) to learn more about testing your app for compatibility on these devices.
 
+@[youtube](https://youtu.be/23EnVczS0Ik)
+
 ## Leverage support for free-form multi-window
 
 The implementation of Android apps on Chrome OS includes basic multi-window support. Instead of always taking up the full screen, Android renders apps on Chrome OS into free-form window containers which is more appropriate for these devices.
@@ -107,7 +109,7 @@ Your app should make good use of the screen real estate available regardless of 
 - Making better use of real estate in the app's toolbar.
 - Improving placement of UI affordances, by adapting it to mouse usage instead of thumb usage.
 - Optimizing the size for videos and images, establishing a set of max-width and height for all media, and maximizing readability and scannability.
-- Implementing a responsive column system. For more information, see [Responsive UI](https://material.io/guidelines/layout/responsive-ui.html).
+- Implementing a responsive column system. For more information, see [Responsive UI](https://material.io/design/layout/responsive-layout-grid.html).
 - Resizing and modifying the UI when needed using the column system, and avoiding opening a new windows when possible.
 - Removing or reducing the importance of horizontal scrolling components.
 - Avoiding fullscreen modal UI. Use inline UI, such as progress indicators and alerts, for all non-critical actions

@@ -28,6 +28,8 @@ following optimizations:
 - Test app-specific input devices such as stylus for drawing apps, game controllers for games, and MIDI controllers for music apps.
 - Consider advanced input support that could make the app stand-out in desktop environments: touchpad as a cross-fader for DJ apps, mouse capture for games, and extensive keyboard shortcuts for power users.
 
+@[youtube](https://youtu.be/FPuaaYpUd5s)
+
 ## Keyboard
 
 The way your app responds to keyboard input contributes to a good desktop

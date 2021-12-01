@@ -4,12 +4,6 @@ metadesc: ChromeOS.dev is officially launched; an open-source, multilingual blue
 hero:
   image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/hero.svg
   alt: An illustration of a Chromebook and new Chrome OS features.
-featured:
-  title: ChromeOS.dev
-  desc: A blueprint to build world-class apps and games for Chrome OS
-  images:
-    - image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/featured.svg
-      alt: An illustration of a Chromebook and new Chrome OS features.
 tags:
   - product news
   - large screens
@@ -48,7 +42,7 @@ Whether it’s developing Android, Linux, or web apps, every update on ChromeOS.
 
 ### Customizable Linux Terminal
 
-The Linux (Beta) on Chrome OS Terminal now comes equipped with personalized features right out of the box, including:
+The Linux on Chrome OS Terminal now comes equipped with personalized features right out of the box, including:
 
 - **Integrated tabs and shortcuts** - Multitask with ease by using windows and tabs to manage different tasks and switch between multiple projects. You can also use familiar shortcuts such as [[Ctrl]]+[[T]], [[Ctrl]]+[[W]], and [[Ctrl]]+[[Tab]] to manage your tabs, or use the settings page to control if these keys should be used in your Terminal for apps like vim or emacs.
 

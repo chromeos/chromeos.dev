@@ -2,7 +2,7 @@
 title: Input support
 metadesc: Learn about keyboard, mouse, controller, and stylus input handling.
 date: 2020-06-16
-weight: -8
+weight: -9
 tags:
   - keyboard support
   - mouse support
