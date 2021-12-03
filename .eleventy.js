@@ -35,7 +35,7 @@ module.exports = function(eleventy) {
   eleventy.addPlugin(syntaxHighlight);
   eleventy.addPlugin(plugini18n, {
     defaultLocale: 'en',
-    contentRoot: './pages',
+    contentRoot: './src',
   });
 
   // Collections
@@ -43,15 +43,11 @@ module.exports = function(eleventy) {
 
   eleventy.setDataDeepMerge(true);
 
-  const inputAbsolute = path.join(process.cwd(), folders.source);
-  const includesAbsolute = path.join(process.cwd(), folders.source, folders.templates, folders.includes);
-  const layoutsAbsolute = path.join(process.cwd(), folders.source, folders.templates, folders.layouts);
-
   const dir = {
     input: folders.source,
-    output: folders.output,
-    includes: path.relative(inputAbsolute, includesAbsolute),
-    layouts: path.relative(inputAbsolute, layoutsAbsolute),
+    output: folders.source,
+    includes: folders.includes,
+    layouts: folders.layouts,
   };
 
   return {
