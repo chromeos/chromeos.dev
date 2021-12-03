@@ -11,7 +11,7 @@ const postHTMLMissingAttributes = require('./lib/transforms/missing-attributes')
 const path = require('path');
 
 module.exports = defineConfig({
-  root: 'src',
+  root: 'site',
   clearScreen: false,
   server: {
     open: true,

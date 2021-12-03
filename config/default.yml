@@ -1,6 +1,6 @@
 # Shared Folders
 folders:
-  source: src # Asset, JavaScript, Service Worker, and Sass source folder
+  source: site # Asset, JavaScript, Service Worker, and Sass source folder
   pages: pages # HTML source, relative to project root
   templates: templates # HTML templates, relative to project root
   includes: _components # HTML includes, relative to template directory

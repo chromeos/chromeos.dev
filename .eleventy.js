@@ -35,7 +35,7 @@ module.exports = function(eleventy) {
   eleventy.addPlugin(syntaxHighlight);
   eleventy.addPlugin(plugini18n, {
     defaultLocale: 'en',
-    contentRoot: './src',
+    contentRoot: './site',
   });
 
   // Collections
