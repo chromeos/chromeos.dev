@@ -89,7 +89,7 @@ typings/
 
 # Other Items
 .DS_Store
-public
+/public
 functions/indexes
 .eyeglass_cache
 .firebase
