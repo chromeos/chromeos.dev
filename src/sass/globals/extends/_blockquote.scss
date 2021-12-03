@@ -23,10 +23,6 @@
     margin-top: 1rem;
   }
 
-  footer {
-    @extend %type--caption;
-  }
-
   p {
     &:first-of-type::before {
       content: open-quote;
@@ -37,13 +33,7 @@
     }
   }
 
-  footer p {
-    &:first-of-type::before {
-      content: none;
-    }
-
-    &:last-of-type::after {
-      content: none;
-    }
+  footer {
+    @extend %type--caption;
   }
 }

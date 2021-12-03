@@ -15,7 +15,6 @@
  */
 const pluginTOC = require('eleventy-plugin-nesting-toc');
 const plugini18n = require('eleventy-plugin-i18n-helpers');
-const pluginSafeExternalLinks = require('eleventy-plugin-safe-external-links');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const discoverPlugins = require('./lib/helpers/discover-plugins');
 const markdown = require('./lib/markdown');
@@ -38,15 +37,9 @@ module.exports = function(eleventy) {
     defaultLocale: 'en',
     contentRoot: './pages',
   });
-  eleventy.addPlugin(pluginSafeExternalLinks, {
-    files: ['.html', '.txt'],
-  });
 
   // Collections
   discoverPlugins('collections', eleventy);
-
-  // Transforms
-  discoverPlugins('transforms', eleventy);
 
   eleventy.setDataDeepMerge(true);
 

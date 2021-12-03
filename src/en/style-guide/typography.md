@@ -49,7 +49,7 @@ And another thing with _inline markup_
 
 : And its got a definition too
 
-```js
+```js {title="Sample JavaScript" .code-figure}
 let foo = 'Hello World';
 const log = arg => {
   console.log(arg);
@@ -58,14 +58,12 @@ log(foo);
 ```
 
 > This is a nice quote. Eiusmod incididunt excepteur velit qui amet id voluptate cupidatat. Voluptate exercitation incididunt aute pariatur pariatur deserunt minim proident consequat.
-
-Here is the quote attribution {.cite}
+> {cite="Here is the quote attribution"}
 
 > This is a nice quote without attribution. Eiusmod incididunt excepteur velit qui amet id voluptate cupidatat. Voluptate exercitation incididunt aute pariatur pariatur deserunt minim proident consequat.
 >
 > This is the second paragraph.
-
-Here is the quote attribution {.cite}
+> {cite="Here is the quote attribution"}
 
 > This is a nice quote without attribution. Eiusmod incididunt excepteur velit qui amet id voluptate cupidatat. Voluptate exercitation incididunt aute pariatur pariatur deserunt minim proident consequat.
 
