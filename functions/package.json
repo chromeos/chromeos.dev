@@ -10,7 +10,7 @@
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "14"
+    "node": "16"
   },
   "dependencies": {
     "firebase-admin": "^8.12.1",
@@ -26,6 +26,6 @@
   },
   "private": true,
   "volta": {
-    "node": "14.18.1"
+    "node": "16.13.1"
   }
 }
