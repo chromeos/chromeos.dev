@@ -6,7 +6,7 @@
   flex-wrap: wrap;
 
   // This style is needed because the picture tag is created automatically.
-  picture {
+  img {
     height: $photo-size;
     margin-bottom: 0.5rem;
     margin-right: 1rem;

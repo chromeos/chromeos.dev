@@ -46,11 +46,11 @@
     border-image-slice: 0 fill;
     border-image-source: paint(circles);
 
-    picture {
+    img {
       display: block;
     }
 
-    > picture:not(:first-of-type) {
+    > img:not(:first-of-type) {
       left: 0;
       position: absolute;
       top: 0;

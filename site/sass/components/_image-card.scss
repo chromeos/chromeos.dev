@@ -25,7 +25,7 @@
     position: relative;
     z-index: 2;
 
-    picture:not(:first-of-type) {
+    img:not(:first-of-type) {
       left: 0;
       position: absolute;
       top: 0;

@@ -16,16 +16,10 @@
     margin: 0 clamp(0.5rem, 4vw, pxRem(30px)) pxRem(40px);
   }
 
-  // This style is needed because the picture tag is created automatically.
-  picture {
-    height: $logo-size;
-    margin-bottom: 1rem;
-    width: $logo-size;
-  }
-
   &__logo {
     height: $logo-size;
     max-height: initial;
+    margin-bottom: 1rem;
     width: $logo-size;
   }
 }
