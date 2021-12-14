@@ -126,8 +126,6 @@
     "sanitize-html": "^2.6.1",
     "sass": "^1.43",
     "sass-toolkit": "^2.10.2",
-    "serve": "^11.3",
-    "serve-handler": "^6.1",
     "sinon": "^7.5",
     "string-strip-html": "^4.5",
     "unified-lint-rule": "^1.0",
