@@ -36,7 +36,7 @@ Chrome OS has a profiling tool that shows how the buffers are percolating throug
 
 To use the profiler you must run M75 or later. For best results, we recommend using an Intel device.
 
-Before using the profiler you should seed your app with traces. Add `Trace.traceCounter(Trace.TRACE_TAG_GRAPHICS, "Event", <number>);` to your code wherever you'd like to include a trace. The `Event` that you use should begin with the prefix `customTrace.`. The prefix will not appear in the trace message.
+Before using the profiler you should seed your app with traces. Add `Trace.traceCounter(Trace.TRACE_TAG_GRAPHICS, "Event", &lt;number&gt;);` to your code wherever you'd like to include a trace. The `Event` that you use should begin with the prefix `customTrace.`. The prefix will not appear in the trace message.
 
 To set up the profiler, follow these steps:
 

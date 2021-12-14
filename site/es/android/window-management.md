@@ -141,19 +141,22 @@ Las aplicaciones pueden especificar su tamaño de lanzamiento inicial de las sig
   [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element.html):
 
 
-     <meta-data android:name="WindowManagerPreference:FreeformWindowSize"
-                 android:value="[phone|tablet|maximize]" />
-      <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation"
-                 android:value="[portrait|landscape]" />
+    ```xml {title=AndroidManifest.xml}
+    <meta-data android:name="WindowManagerPreference:FreeformWindowSize"
+               android:value="[phone|tablet|maximize]" />
+    <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation"
+               android:value="[portrait|landscape]" />
+    ```
 
 - Use límites de lanzamiento estáticos. Use `<layout>` dentro de la entrada del AndroidManifest.xml de su actividad para especificar un tamaño de inicio "fijo". Vea este ejemplo:
 
-
-     <layout android: defaultHeight = "500dp"
-             android: defaultWidth = "600dp"
-             android: gravity = "top | end"
-             android: minHeight = "450dp"
-             android: minWidth = "300dp" />
+  ```xml {title=AndroidManifest.xml}
+  <layout android:defaultHeight="500dp"
+          android:defaultWidth="600dp"
+          android:gravity="top|end"
+          android:minHeight="450dp"
+          android:minWidth="300dp" />
+  ```
 
 - Use límites de lanzamiento dinámicos . Una actividad puede crear y utilizar `ActivityOptions.setLaunchBounds(Rect)` al crear una nueva actividad. Al especificar un rectángulo vacío, su aplicación se puede maximizar.
 

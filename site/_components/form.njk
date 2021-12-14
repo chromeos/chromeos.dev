@@ -14,7 +14,7 @@
     {{ error.text }}
   </p>
   {% endfor %}
-  <form action="{{ settings.endpoint }}" id="{{ settings.name }}" action="" method="post" enctype="multipart/form-content" class="form__wrapper">
+  <form action="{{ settings.endpoint }}" id="{{ settings.name }}" method="post" enctype="multipart/form-content" class="form__wrapper">
     {% for item in fields %} {% set id = settings.name + '-' + item.name %}
     <div class="form__item form__item-{{ item.type }}{% if item.required %} form__item--required {% endif %} form__item--label-on-top">
       {% if item.type not in ["select", "country", "submit"] %} {{ input(item, id) }} {% endif %} {% if item.type == "select" %} {{ select(item, id) }} {% endif %} {% if item.type == "country" %} {{ country(item, id, locale) }} {% endif %} {% if item.type == "submit" %} {{ submitButton(item, settings.name) }} {% endif %} {% if item.required %} <span class="form__helper type--small"> {{ content.required }}</span>{% endif %} {% if item.error %}

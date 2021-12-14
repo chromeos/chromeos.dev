@@ -158,7 +158,7 @@ SurfaceView is also relatively easier to lay out. You only need to worry about t
 
 #### Source
 
-Underneath SurfaceView, the Android platform rotates output buffers to match the **display orientation** of the device. In other words, it accounts for both the <span style="text-decoration:underline;">sensor orientation</span> and the <span style="text-decoration:underline;">display rotation</span>. To put it even simpler, when our display is currently landscape, we’ll get a preview that is also landscape and vice versa.
+Underneath SurfaceView, the Android platform rotates output buffers to match the **display orientation** of the device. In other words, it accounts for both the **sensor orientation** and the **display rotation**. To put it even simpler, when our display is currently landscape, we’ll get a preview that is also landscape and vice versa.
 
 You can see that illustrated below. The important thing to keep in mind here is that display rotation alone does not determine the orientation of the source.
 
@@ -231,7 +231,7 @@ TextureView gives maximum control over the content of the camera preview, but it
 
 #### Source
 
-Underneath TextureView, the Android platform rotates the output buffers according to the sensor orientation to match the **natural orientation** of the device. While TextureView handles <span style="text-decoration:underline;">sensor orientation</span>, it does not, however, handle display rotations. It simply aligns the output buffers with the natural orientation of the device, which means you’ll need to handle display rotations yourself.
+Underneath TextureView, the Android platform rotates the output buffers according to the sensor orientation to match the **natural orientation** of the device. While TextureView handles **sensor orientation**, it does not, however, handle display rotations. It simply aligns the output buffers with the natural orientation of the device, which means you’ll need to handle display rotations yourself.
 
 You can see that illustrated below. Try rotating the figures by their corresponding display rotation, you’ll actually get the same figures in SurfaceView.
 
@@ -258,7 +258,7 @@ Suppose you have a phone with a display rotation of 90 degrees.
 
 **1. Set the size of the TextureView to be identical to the preview size chosen**
 
-Suppose the preview size you chose is `previewWidth × previewHeight` where `previewWidth > previewHeight` (sensor output is landscape-shaped by nature). When configuring a capture session, one should call [SurfaceTexture#setDefaultBufferSize(int width, height)](<https://developer.android.com/reference/android/graphics/SurfaceTexture#setDefaultBufferSize(int,%20int)>) to specify the preview size (`previewWidth × previewHeight`).
+Suppose the preview size you chose is `previewWidth × previewHeight` where `previewWidth &gt; previewHeight` (sensor output is landscape-shaped by nature). When configuring a capture session, one should call [SurfaceTexture#setDefaultBufferSize(int width, height)](<https://developer.android.com/reference/android/graphics/SurfaceTexture#setDefaultBufferSize(int,%20int)>) to specify the preview size (`previewWidth × previewHeight`).
 
 Before calling setDefaultBufferSize, it’s important that you **also set the size of the TextureView to be `previewWidth × previewHeight`** with [View#setLayoutParams(android.view.ViewGroup.LayoutParams)](<https://developer.android.com/reference/android/view/View#setLayoutParams(android.view.ViewGroup.LayoutParams)>). The reason for this is that TextureView calls `SurfaceTexture#setDefaultBufferSize(int width, height)` with its measured width and height. If the size of the TextureView is not explicitly set beforehand, it can cause a race condition. This is mitigated by explicitly setting the size of the TextureView first.
 

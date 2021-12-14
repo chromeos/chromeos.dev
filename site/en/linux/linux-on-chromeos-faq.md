@@ -357,7 +357,7 @@ Currently, no, you can only boot [Termina](https://chromium.googlesource.com/chr
 
 Of course! The full LXD command line is available, and the included images remote has lots of other distros to choose from. However, we don't test with anything other than the default container that we ship, so things may be broken when running another distro.
 
-## I'm running \<insert distro here\>, how do I get {GUI apps, launcher icons, etc...}?
+## I'm running (insert distro here), how do I get {GUI apps, launcher icons, etc...}?
 
 [Sommelier](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/) and [Garcon](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/garcon/) binaries are bind-mounted into every container, so no need to install or cross-compile. The systemd units and config files from [cros-container-guest-tools](https://chromium.googlesource.com/chromiumos/containers/cros-container-guest-tools/) will start these daemons in a systemd user session. It's also a good idea to run `loginctl enable-linger <user>` to allow these to remain running in the background.
 

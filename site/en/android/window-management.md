@@ -56,6 +56,7 @@ attribute to your AndroidManifest.xml file. See the [multi-window documentation]
 
 !!! aside.message--note
 **Note:** even apps/games that expect to be run in full-screen mode, should strive to implement fluid layouts and handle configuration changes gracefully.
+!!!
 
 ## Window dimensions
 
@@ -91,24 +92,22 @@ Apps can specify their initial launch size in the following ways:
 
 1. Use a specific launch size only in windowed environments: This helps the Chrome OS window manager give the desired launch bounds and orientation to an app and will not affect behaviour on mobile devices. To indicate launch preferences, add the following Chrome OS specific meta tags inside the [Activity⁠](https://developer.android.com/guide/topics/manifest/activity-element.html) element of the `AndroidManifest.xml` file:
 
-```xml {title=AndroidManifest.xml}
-<meta-data android:name="WindowManagerPreference:FreeformWindowSize"
-  android:value="[phone|tablet|maximize]" />
-<meta-data android:name="WindowManagerPreference:FreeformWindowOrientation"
-  android:value="[portrait|landscape]" />
-
-```
+   ```xml {title=AndroidManifest.xml}
+   <meta-data android:name="WindowManagerPreference:FreeformWindowSize"
+              android:value="[phone|tablet|maximize]" />
+   <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation"
+              android:value="[portrait|landscape]" />
+   ```
 
 2. Use static launch bounds: Include a `<layout>` tag inside `AndroidManifest.xml` file to specify an initial window size:
 
-```xml {title=AndroidManifest.xml}
-<layout android:defaultHeight="500dp"
-  android:defaultWidth="600dp"
-  android:gravity="top|end"
-  android:minHeight="450dp"
-  android:minWidth="300dp" />
-
-```
+   ```xml {title=AndroidManifest.xml}
+   <layout android:defaultHeight="500dp"
+           android:defaultWidth="600dp"
+           android:gravity="top|end"
+           android:minHeight="450dp"
+           android:minWidth="300dp" />
+   ```
 
 3. Use dynamic launch bounds: An app can use [setLaunchBounds(Rect)⁠](<https://developer.android.com/reference/android/app/ActivityOptions#setLaunchBounds(android.graphics.Rect)>) when creating a new Activity. If an empty rectangle is specified, the Activity will be started in a maximized state.
 

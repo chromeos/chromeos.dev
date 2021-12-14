@@ -53,16 +53,11 @@ A good place to start is by looking at things that may be hidden to the user, an
 
 Here are some recommendations for your app:
 
-- Your brand will dictate the direction that you should go when thinking about these different
-  screen sizes. Deciding the things to prioritize and surface to the user is dependent on the type
-  of user journey's that exist and the most commonly used features. For inspiration on how you may want
-  to attack this, check out the [Material Studies](https://material.io/design/material-studies) and look at
-  how each different product responds differently when you get to a larger screen.
+- Your brand will dictate the direction that you should go when thinking about these different screen sizes. Deciding the things to prioritize and surface to the user is dependent on the type of user journey's that exist and the most commonly used features. For inspiration on how you may want to attack this, check out the [Material Studies](https://material.io/design/material-studies) and look at how each different product responds differently when you get to a larger screen.
 
 - Think about how your app’s design should behave using a [responsive grid system](https://material.io/design/layout/responsive-layout-grid.html#), and how content/navigation/options should move as you get larger screen real-estate.
 
-- Decide on which screen sizes you'll use a different layout, then provide the different layouts in the appropriate window size buckets (such as large/xlarge) or minimum window widths (such as sw600dp/sw720).
-  Remember that as you get to these layouts, the overall context that the user was in shouldn't change, and you should try and retain all user state while transitioning between layouts (scroll position, text being written, etc)
+- Decide on which screen sizes you'll use a different layout, then provide the different layouts in the appropriate window size buckets (such as large/xlarge) or minimum window widths (such as sw600dp/sw720). Remember that as you get to these layouts, the overall context that the user was in shouldn't change, and you should try and retain all user state while transitioning between layouts (scroll position, text being written, etc)
 
 ## Use assets designed for higher density & larger screens
 

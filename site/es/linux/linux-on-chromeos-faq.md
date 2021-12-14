@@ -357,7 +357,7 @@ Actualmente, no, solo puede iniciar [Termina](https://chromium.googlesource.com/
 
 ¡Por supuesto! La línea de comando completa de LXD está disponible, y el control remoto de imágenes incluido tiene muchas otras distribuciones para elegir. Sin embargo, no probamos con otra cosa que no sea el contenedor predeterminado que enviamos, por lo que las cosas pueden romperse al ejecutar otra distribución.
 
-## Estoy ejecutando <insertar distro aquí>, ¿cómo obtengo {aplicaciones GUI, iconos de iniciador, etc ...}?
+## Estoy ejecutando (insertar distro aquí), ¿cómo obtengo {aplicaciones GUI, iconos de iniciador, etc ...}?
 
 Los binarios de [Sommelier](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/sommelier/) y [Garcon](https://chromium.googlesource.com/chromiumos/platform2/+/master/vm_tools/garcon/) están disponibles en cada contenedor, así que no necesita instalarlos con recompilarlos. Las unidades systemd units y los archivos de configuración de [cros-container-guest-tools](https://chromium.googlesource.com/chromiumos/containers/cros-container-guest-tools/) empiezan estos procesos en una sesión de usuario de systemd. También es una buena idea ejecutar `loginctl enable-linger <user>` para permitir que estos sigan ejecutándose en segundo plano.
 
