@@ -14,7 +14,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: 12.16.1
+          node-version: 16
       - name: Examine Node
         run: |
           node -v
@@ -73,7 +73,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 16.x
       - name: Install Firebase tools and JQ
         run: |
           npm install -g https://storage.googleapis.com/firebase-preview-drop/node/firebase-tools/firebase-tools-8.8.0-channels.1.tgz
