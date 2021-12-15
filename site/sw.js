@@ -24,7 +24,7 @@ import { i18nHandler } from 'service-worker-i18n-redirect';
 import { preferences } from 'service-worker-i18n-redirect/preferences';
 import { serviceWorkerIncludePlugin } from 'service-worker-includes';
 
-importScripts('/js/languages.js');
+importScripts('/js/_data/_languages_.js');
 
 precacheAndRoute(self.__WB_MANIFEST);
 

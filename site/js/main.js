@@ -14,14 +14,10 @@
  * limitations under the License.
  */
 /* global gtag */
-import dynamicImportPolyfill from 'dynamic-import-polyfill';
 import { preferences } from 'service-worker-i18n-redirect/preferences';
 import { MainNavigation } from './components/nav';
 import { CookieDisclaimer } from './components/cookie-disclaimer';
-
-dynamicImportPolyfill.initialize({
-  modulePath: '/js/',
-});
+import { registerSW } from 'virtual:pwa-register';
 
 // Components that are critical to user experience should be loaded on `DomContentLoaded`
 window.addEventListener('DOMContentLoaded', async () => {
@@ -138,25 +134,29 @@ window.addEventListener('load', async () => {
 
   const { Tracking } = await import('./lib/tracking');
   new Tracking(gtag);
+
+  if ('serviceWorker' in navigator) {
+    registerSW();
+  }
 });
 
-// Manage Service Worker
-// eslint-disable-next-line no-constant-condition
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', async () => {
-    try {
-      await navigator.serviceWorker.register('/sw.js');
-      //       // log('Service Worker registered! 😎');
-      //       // log(registration);
+// // Manage Service Worker
+// // eslint-disable-next-line no-constant-condition
+// if ('serviceWorker' in navigator) {
+//   window.addEventListener('load', async () => {
+//     try {
+//       await navigator.serviceWorker.register('/sw.js');
+//       //       // log('Service Worker registered! 😎');
+//       //       // log(registration);
 
-      //       // Only offer reloads if there is already an active Service Worker
-      //       if (registration.active) {
-      //         const { offerServiceWorkerReload } = await import('./lib/offer-service-worker-reload');
-      //         offerServiceWorkerReload(registration);
-      //       }
-    } catch (e) {
-      // log('Registration failed 😫');
-      // log(e);
-    }
-  });
-}
+//       //       // Only offer reloads if there is already an active Service Worker
+//       //       if (registration.active) {
+//       //         const { offerServiceWorkerReload } = await import('./lib/offer-service-worker-reload');
+//       //         offerServiceWorkerReload(registration);
+//       //       }
+//     } catch (e) {
+//       // log('Registration failed 😫');
+//       // log(e);
+//     }
+//   });
+// }

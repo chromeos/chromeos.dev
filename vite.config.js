@@ -2,6 +2,7 @@
 const { defineConfig } = require('vite');
 const { eleventyPlugin } = require('vite-plugin-eleventy');
 const { posthtmlPlugin } = require('vite-plugin-posthtml');
+const { VitePWA: pwaPlugin } = require('vite-plugin-pwa');
 const { posthtmlExternalLink } = require('posthtml-external-link');
 const postHTMLChromeOSWord = require('./lib/transforms/chromeos-word');
 const postHTMLLinkIcons = require('./lib/transforms/link-icons');
@@ -34,6 +35,12 @@ module.exports = defineConfig({
   },
   plugins: [
     eleventyPlugin(),
+    pwaPlugin({
+      manifest: require('./site/manifest.json'),
+      srcDir: './',
+      filename: 'sw.js',
+      strategies: 'injectManifest',
+    }),
     //   // imgPlugin(),
     posthtmlPlugin({
       plugins: [posthtmlExternalLink(), postHTMLChromeOSWord, postHTMLLinkIcons, postHTMLRemoveTrailingSlash, postHTMLGoogleStorageImages, postHTMLMissingAttributes],
