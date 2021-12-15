@@ -17,6 +17,7 @@ const pluginTOC = require('eleventy-plugin-nesting-toc');
 const plugini18n = require('eleventy-plugin-i18n-helpers');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const discoverPlugins = require('./lib/helpers/discover-plugins');
+const { generateSearchIndex } = require('./lib/helpers/generate-search-index');
 const markdown = require('./lib/markdown');
 const path = require('path');
 const { folders } = require('config');
@@ -40,6 +41,20 @@ module.exports = function(eleventy) {
 
   // Collections
   discoverPlugins('collections', eleventy);
+
+  // Generate Search Indexes
+  eleventy.on('beforeBuild', () => {
+    generateSearchIndex();
+  });
+
+  // Ignore Vite files
+  eleventy.ignores.add('site/public/**/*');
+  eleventy.ignores.add('site/js/**/*');
+  eleventy.ignores.add('site/scss/**/*');
+  eleventy.ignores.add('site/sw.js');
+  eleventy.ignores.add('functions/**/*');
+  eleventy.ignores.add('tests/**/*');
+  eleventy.ignores.add('lib/**/*');
 
   eleventy.setDataDeepMerge(true);
 

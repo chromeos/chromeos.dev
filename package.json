@@ -52,6 +52,7 @@
     "vrt:approve": "node vrt.js approve",
     "vrt:reference": "node vrt.js reference",
     "vrt": "node vrt.js test",
+    "vite": "vite",
     "vite:watch": "vite",
     "vite:build": "vite build"
   },
@@ -127,7 +128,6 @@
     "sass": "^1.43",
     "sass-toolkit": "^2.10.2",
     "sinon": "^7.5",
-    "string-strip-html": "^4.5",
     "unified-lint-rule": "^1.0",
     "unist-util-find": "^1.0",
     "unist-util-parents": "^1.0",
