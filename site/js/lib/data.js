@@ -5,8 +5,6 @@
  * @return {Object}
  */
 export async function getData(file, language) {
-  const path = `/js/_data/${file}.js`;
-  const { default: data } = await import(path);
-
+  const { default: data } = await import(`../_data/${file}.js`);
   return data[language];
 }

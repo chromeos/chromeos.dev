@@ -96,3 +96,5 @@ functions/indexes
 .backstop/ci-report
 .backstop/html-report
 .backstop/tests
+site/js/_data
+site/public/js/indexes

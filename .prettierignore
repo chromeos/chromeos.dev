@@ -3,3 +3,5 @@ functions/indexes
 .nyc_output
 .github
 .backstop
+site/public/js/indexes
+site/js/_data

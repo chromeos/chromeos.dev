@@ -1,6 +1,6 @@
 import lunr from 'lunr';
 import { preferences } from 'service-worker-i18n-redirect/preferences';
-import * as Comlink from 'comlink';
+import { expose } from 'comlink';
 
 const PAGE_SIZE = 10;
 /**
@@ -113,4 +113,6 @@ class OfflineSearch {
   }
 }
 
-Comlink.expose(OfflineSearch);
+expose({
+  OfflineSearch,
+});

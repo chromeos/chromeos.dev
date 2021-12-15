@@ -52,7 +52,9 @@ module.exports = function() {
     }
   });
 
-  const output = path.join(process.cwd(), config.folders.output, 'js/languages.js');
+  const publicPath = path.join(process.cwd(), config.folders.source, 'js/_data');
+
+  const output = path.join(publicPath, '_languages_.js');
 
   outputFile(output, `const languages = ${JSON.stringify(languages)};`, err => {
     if (err) console.error(err);
@@ -60,7 +62,7 @@ module.exports = function() {
 
   // Output individual data files
   for (const [key, value] of Object.entries(l10nJS)) {
-    const l10nOutput = path.join(process.cwd(), config.folders.output, `js/_data/${key}.js`);
+    const l10nOutput = path.join(publicPath, `${key}.js`);
     outputFile(l10nOutput, `export default JSON.parse(\`${JSON.stringify(value)}\`);`, err => {
       if (err) console.error(err);
     });

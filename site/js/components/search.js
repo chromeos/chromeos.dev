@@ -155,12 +155,13 @@ export class Search {
    */
   async manageOfflineSearch_(enable) {
     if (enable) {
-      const Comlink = await import('comlink');
-
+      const { wrap: wrapWorker } = await import('comlink');
+      const { default: SearchWorker } = await import('/js/search-worker.js?worker');
       const { preferences } = await import('service-worker-i18n-redirect/preferences');
       const language = await preferences.get('lang');
 
-      const OfflineSearch = Comlink.wrap(new Worker('/search-worker.js'));
+      const worker = wrapWorker(new SearchWorker());
+      const OfflineSearch = worker.OfflineSearch;
       const search = await new OfflineSearch(language);
       this.offlineSearch_ = search;
       preferences.set('offline-search', true);
