@@ -16,6 +16,12 @@ module.exports = defineConfig({
   clearScreen: false,
   server: {
     open: true,
+    proxy: {
+      '/search': {
+        target: 'http://localhost:5010/cros-staging/us-central1',
+        changeOrigin: true,
+      },
+    },
   },
   resolve: {
     alias: [
