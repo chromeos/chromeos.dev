@@ -4,10 +4,10 @@ metadesc: Al optimizar para Chrome OS, Concepts pudo desbloquear una base de usu
 date: 2019-05-02
 app:
   name: Concepts
-  logo: gs://stories/concepts/concepts-icon
+  logo: ix://stories/concepts/concepts-icon.240.png
   company: TopHatch
 hero:
-  image: gs://stories/concepts/hero
+  image: ix://stories/concepts/hero.1500.jpg
   alt: Bosquejo de un coche que muestra la rueda de color en Concepts
 tags:
   - diseño
@@ -18,7 +18,7 @@ tags:
 
 [Concepts](https://play.google.com/store/apps/details?id=com.tophatch.concepts) , desarrollado por el pequeño equipo de [TopHatch](https://concepts.app/en/) , es una plataforma de diseño avanzada que combina la flexibilidad de un cuaderno de dibujo tradicional con la velocidad y versatilidad de una herramienta de dibujo digital. Diseñado para una interfaz natural usando el tacto en dispositivos móviles desde el principio, Concepts permite a los diseñadores profesionales trabajar con herramientas hermosas pero altamente receptivas, entornos flexibles y vectores ajustables. Es un patio de recreo para la creatividad. Los desarrolladores de TopHatch sabían que los usuarios de Concepts valoran dos cosas: un lápiz óptico altamente receptivo y preciso y un gran lienzo para desarrollar sus ideas. Con la aparición de dispositivos versátiles como el Pixelbook Pen y los teléfonos inteligentes plegables, el equipo vio la oportunidad de llegar a más creadores mediante la creación de UX de Concepts para pantallas más grandes y diferentes factores de forma. Con algunos consejos y prácticas recomendadas de Google, los desarrolladores de TopHatch se pusieron a trabajar en la creación de la aplicación Concepts para experiencias inmersivas en Chrome OS y dispositivos Android.
 
-![Interacción de pantalla con lápiz óptico.](gs://stories/concepts/concepts-1)
+![Interacción de pantalla con lápiz óptico.](ix://stories/concepts/concepts-1.1500.png)
 
 ## Que hicieron
 

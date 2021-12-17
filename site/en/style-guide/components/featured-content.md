@@ -97,7 +97,7 @@ examples:
           url: /
           text: This is a link
         imagePrimary:
-          path: gs://featured/evernote-featured-flat
+          path: ix://featured/evernote-featured-flat.1500.png
           alt: some alt
 ---
 

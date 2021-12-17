@@ -3,10 +3,10 @@ title: Evernote launches on Chrome OS and sees 3X increase in time spent on larg
 metadesc: By making their app available on Chromebooks through the Google Play Store, Evernote experienced an increase of 3x time spent on large screen devices since their launch on Chrome OS.
 app:
   name: Evernote
-  logo: gs://stories/evernote/evernote-icon
+  logo: ix://stories/evernote/evernote-icon.240.jpg
   company: Evernote Corporation
 hero:
-  image: gs://stories/evernote/hero
+  image: ix://stories/evernote/hero.1500.jpg
   alt: A desk with a computer showing the Evernote app
   position: center
 tags:
@@ -19,7 +19,7 @@ date: 2019-12-26
 updated: 2020-04-01
 featured:
   images:
-    - image: gs://featured/evernote-featured-flat
+    - image: ix://featured/evernote-featured-flat.1500.png
       alt: Laptop device.
 ---
 

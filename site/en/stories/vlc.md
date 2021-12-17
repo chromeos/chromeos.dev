@@ -4,7 +4,7 @@ metadesc: By leveraging Kotlin, one lead developer was able to optimize their An
 date: 2019-10-11
 app:
   name: VLC
-  logo: gs://stories/vlc/vlc-icon
+  logo: ix://stories/vlc/vlc-icon.240.png
   company: VideoLAN
 tags:
   - video and media
@@ -37,7 +37,7 @@ Previously, the team needed to use individual emulators or separate devices to t
 
 And now with [Linux on Chrome OS](/{{locale.code}}/linux), developers can use Android Studio to build and test Android apps natively, making Chromebooks development-ready devices.
 
-![Image showing multiple versions of layout, examples of dynamic resizing across Mobile, Tablet and Laptop devices.](gs://stories/vlc/vlc-1)
+![Image showing multiple versions of layout, examples of dynamic resizing across Mobile, Tablet and Laptop devices.](ix://stories/vlc/vlc-1.1500.png)
 
 ### ![](ix://icons/code.png){.icon--rounded} Writing code in Kotlin
 

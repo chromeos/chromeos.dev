@@ -4,7 +4,7 @@ metadesc: Al aprovechar Kotlin, un desarrollador líder pudo optimizar su aplica
 date: 2019-10-11
 app:
   name: VLC
-  logo: gs://stories/vlc/vlc-icon
+  logo: ix://stories/vlc/vlc-icon.240.png
   company: VideoLAN
 tags:
   - video y medios
@@ -37,7 +37,7 @@ Anteriormente, el equipo necesitaba usar emuladores individuales o dispositivos 
 
 Y ahora con [Linux en Chrome OS](/{{locale.code}}/linux) , los desarrolladores pueden usar Android Studio para crear y probar aplicaciones de Android de forma nativa, lo que hace que los dispositivos Chromebook estén listos para el desarrollo.
 
-![Imagen que muestra varias versiones de diseño, ejemplos de cambio de tamaño dinámico en dispositivos móviles, tabletas y computadoras portátiles.](gs://stories/vlc/vlc-1)
+![Imagen que muestra varias versiones de diseño, ejemplos de cambio de tamaño dinámico en dispositivos móviles, tabletas y computadoras portátiles.](ix://stories/vlc/vlc-1.1500.png)
 
 ### ![](ix://icons/code.png) {.icon--redondeado} Escribiendo código en Kotlin
 

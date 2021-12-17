@@ -4,10 +4,10 @@ metadesc: Más de 100,000 jugadores ya han jugado War Robots, promediando sesion
 date: 2019-11-01
 app:
   name: Robots de guerra
-  logo: gs://stories/war-robots/war-robots-icon
+  logo: ix://stories/war-robots/war-robots-icon.240.png
   company: Pixonic
 hero:
-  image: gs://stories/war-robots/hero
+  image: ix://stories/war-robots/hero.1500.jpg
   alt: Juego de robots de guerra.
   position: center
 tags:
@@ -54,11 +54,11 @@ public void onConfigurationChanged(Configuration newConfig) {
 
 Si se detecta un teclado QWERTY, el juego se adapta al modo de escritorio. El joystick de movimiento en la esquina inferior izquierda desaparece, y todas las acciones disponibles (como ordenar armas, habilidades y menús) se etiquetan con atajos de teclado.
 
-#[War Robots en modo portátil.](gs://stories/war-robots/war-robots-1 [Una computadora portátil que muestra el juego de War Robots.])
+#[War Robots en modo portátil.](ix://stories/war-robots/war-robots-1.1500.jpg [Una computadora portátil que muestra el juego de War Robots.])
 
 Si no se detecta un teclado, el joystick de movimiento aparece en la esquina inferior izquierda, y los atajos de teclado están ocultos en los botones del menú inferior derecho.
 
-#[War Robots en el modo de juego de tableta / móvil.](gs://stories/war-robots/war-robots-2 [Un dispositivo de tableta que muestra el juego de robots de guerra.])
+#[War Robots en el modo de juego de tableta / móvil.](ix://stories/war-robots/war-robots-2.1500.jpg [Un dispositivo de tableta que muestra el juego de robots de guerra.])
 
 Luego, Pixonic quería asegurarse de que el cursor permanezca oculto cuando un jugador usa su mouse para girar la cámara. Al apuntar a Android 7.0 (API nivel 24) o superior, el equipo podría establecer cualquier ícono de puntero. En este caso, el equipo utilizó un mapa de bits transparente para hacer que el cursor sea invisible durante el juego:
 
@@ -75,9 +75,9 @@ Esto aseguró que el cursor estaría deshabilitado e invisible cuando todas las 
 
 Para una mejor experiencia de usuario, Pixonic también escribió un nuevo código para mostrar diferentes tutoriales de juego basados en el modo de dispositivo actual del usuario. Si un jugador cambia entre el juego de la tableta y la computadora portátil durante la batalla y aún no ha visto un tutorial para el modo diferente, el tutorial se muestra antes de que se reanude el juego.
 
-#[Tutoriales de juego en modo portátil con entrada de teclado y mouse.](gs://stories/war-robots/war-robots-3 [Dos computadoras portátiles que muestran el juego de War Robots con entrada de teclado y mouse.])
+#[Tutoriales de juego en modo portátil con entrada de teclado y mouse.](ix://stories/war-robots/war-robots-3.1500.jpg [Dos computadoras portátiles que muestran el juego de War Robots con entrada de teclado y mouse.])
 
-#[Tutorial de juego en modo tableta con controles de pantalla táctil.] (gs://stories/war-robots/war-robots-4 [Un dispositivo de tableta con pantalla táctil que muestra el juego de robots de guerra.])
+#[Tutorial de juego en modo tableta con controles de pantalla táctil.] (ix://stories/war-robots/war-robots-4.1500.jpg [Un dispositivo de tableta con pantalla táctil que muestra el juego de robots de guerra.])
 
 Cuando los jugadores están en modo portátil, Pixonic también deshabilita el control de la cámara con pantalla táctil (ya que los jugadores controlarán la cámara con un mouse) mientras todos los botones del juego funcionan como de costumbre. Para diferenciar los toques de los movimientos del mouse, el equipo usa la propiedad `Input.touchCount` (en los scripts de Unity):
 
@@ -118,7 +118,7 @@ Para el juego más inmersivo, Pixonic utilizó metaetiquetas para establecer el 
 </application>
 ```
 
-#[War Robots lanzado en modo ventana.](gs://stories/war-robots/war-robots-5 [Una computadora portátil abierta que muestra el tablero de War Robots.])
+#[War Robots lanzado en modo ventana.](ix://stories/war-robots/war-robots-5.1500.jpg [Una computadora portátil abierta que muestra el tablero de War Robots.])
 
 Estas optimizaciones también aseguraron que el juego no se detuviera y que el HUD de batalla se escalara en consecuencia a medida que los jugadores expanden y reducen sus ventanas de juego.
 

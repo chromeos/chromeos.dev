@@ -3,10 +3,10 @@ title: Evernote lanza en Chrome OS, ve un aumento de 3X en tiempo de uso en pant
 metadesc: Evernote experimentó un aumento del tiempo 3X mayor en dispositivos de pantalla grande desde su lanzamiento en Chrome OS.
 app:
   name: Evernote
-  logo: gs://stories/evernote/evernote-icon
+  logo: ix://stories/evernote/evernote-icon.240.jpg
   company: Evernote Corporation
 hero:
-  image: gs://stories/evernote/hero
+  image: ix://stories/evernote/hero.1500.jpg
   alt: Un escritorio con una computadora que muestra la aplicación Evernote
   position: center
 tags:
@@ -19,7 +19,7 @@ date: 2019-12-26
 updated: 2020-04-01
 featured:
   images:
-    - image: gs://featured/evernote-featured-flat
+    - image: ix://featured/evernote-featured-flat.1500.png
       alt: Dispositivo portátil.
 ---
 

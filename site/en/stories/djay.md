@@ -4,10 +4,10 @@ metadesc: Since launching on Chrome OS, djay has seen a higher engagement on des
 date: 2019-11-26
 app:
   name: Djay
-  logo: gs://stories/djay/djay-icon
+  logo: ix://stories/djay/djay-icon.240.png
   company: Algoriddim
 hero:
-  image: gs://stories/djay/hero
+  image: ix://stories/djay/hero.1500.jpg
   alt: Screenshot of Djay command controls
 tags:
   - music
@@ -43,7 +43,7 @@ Rather than simply scaling the mobile UI, Algoriddim specifically positioned cer
 
 With the added screen real estate, Algoriddim was able to add core functionality to the main UI rather than hide it in auxiliary views that cover the main UI on phones and smaller devices, allowing for a powerful multi-touch experience that doesn’t disrupt a DJ’s workflow.
 
-![A close up of a laptop with an Algoriddim music app.](gs://stories/djay/algoriddim)
+![A close up of a laptop with an Algoriddim music app.](ix://stories/djay/algoriddim.1500.png)
 
 Best of all, the extra screen space allowed the team to empower DJs in an entirely new way by combining a touchscreen interface with keyboard and MIDI control, allowing for innovative workflows during live performance.
 

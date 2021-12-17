@@ -3,10 +3,10 @@ title: Infinite Studio ramps up active installations after optimizing for Chrome
 metadesc: After optimizing for large screens, active Infinite Painter installations and overall in-app activity have both grown substantially.
 app:
   name: Infinite Painter
-  logo: gs://stories/infinite-painter/infinite-painter-icon
+  logo: ix://stories/infinite-painter/infinite-painter-icon.240.png
   company: Infinite Studio
 hero:
-  image: gs://stories/infinite-painter/hero
+  image: ix://stories/infinite-painter/hero.1500.jpg
   alt: Screenshot of Infinite Studio with an in-progress painting and brush options open
   position: top
 date: 2018-11-15
@@ -33,7 +33,7 @@ The dev team's first step was figuring out what would make Infinite Painter's UX
 
 The first thing Infinite Studio realized was how often designers and illustrators use keyboard shortcuts to speed up their workflow. So, the developers added 30 industry-standard shortcuts and organized them in an easily accessible dropdown menu triggered by holding down the [[CTRL]] key.
 
-![Control display for Infinite Painter](gs://stories/infinite-painter/infinitepainter-controls)
+![Control display for Infinite Painter](ix://stories/infinite-painter/infinitepainter-controls.1500.png)
 
 ### ![](ix://icons/mouse.png){.icon--rounded} Input devices
 
@@ -45,7 +45,7 @@ The developers already had support for stylus and fingertip input for mobile use
 
 Finally, the team [optimized the app to support varying window sizes](/{{locale.code}}/android/window-management). Users can resize the app window for an optimal experience on any form factor, whether they prefer to work in full-screen mode or to open and use another app beside it. The developers also added the ability for users to drag and drop external images into the app.
 
-![Art board view of Infinite Painter](gs://stories/infinite-painter/infinitepainter-artboards)
+![Art board view of Infinite Painter](ix://stories/infinite-painter/infinitepainter-artboards.1500.png)
 
 ## Results
 

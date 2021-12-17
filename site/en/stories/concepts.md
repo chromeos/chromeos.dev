@@ -4,10 +4,10 @@ metadesc: By optimizing for Chrome OS, Concepts was able to unlock a large and g
 date: 2019-05-02
 app:
   name: Concepts
-  logo: gs://stories/concepts/concepts-icon
+  logo: ix://stories/concepts/concepts-icon.240.png
   company: TopHatch
 hero:
-  image: gs://stories/concepts/hero
+  image: ix://stories/concepts/hero.1500.jpg
   alt: Concepts Car sketch showing color wheel
 tags:
   - design
@@ -18,7 +18,7 @@ tags:
 
 [Concepts](https://play.google.com/store/apps/details?id=com.tophatch.concepts), developed by the small, tight-knit team at [TopHatch](https://concepts.app/en/), is an advanced design platform that combines the flexibility of a traditional sketchbook with the speed and versatility of a digital drawing tool. Built for a natural interface using touch on mobile from the beginning, Concepts allows professional designers to work with beautiful yet highly responsive tools, flexible environments, and adjustable vectors. It's a playground for creativity. TopHatch's developers knew Concepts' users value two things: a highly responsive and accurate stylus and a big canvas to develop their ideas. With the emergence of versatile devices like the Pixelbook Pen and foldable smartphones, the team saw an opportunity to reach even more creators by building Concepts' UX for larger screens and different form factors. With a few tips and best practices from Google, TopHatch's developers went to work building the Concepts app for immersive experiences on Chrome OS and Android devices.
 
-![Screen interaction with stylus pen.](gs://stories/concepts/concepts-1)
+![Screen interaction with stylus pen.](ix://stories/concepts/concepts-1.1500.png)
 
 ## What they did
 

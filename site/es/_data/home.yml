@@ -24,7 +24,7 @@ results:
       en su aplicación existente, puede atraer nuevas audiencias en diferentes formatos
       y dispositivos, en cualquier momento y en cualquier lugar.
   img:
-    src: gs://home/intro
+    src: ix://home/intro.1500.png
     alt: Vista panorámica de un escritorio de madera con un Chromebook y un teléfono
       Pixel. Dos personas se sientan una al lado de la otra, colaborando.
   stats:
@@ -100,7 +100,7 @@ subnav:
     variant: subnav
 chromebook:
   image:
-    src: gs://home/chromebooks-device
+    src: ix://home/chromebooks-device.1500.png
     alt: Una imagen que muestra tres Chromebooks. Una Chromebook Samsung está plegada.
       Otro Acer Chromebook se dobla como una tableta. El último está abierto para
       uso estándar de computadoras portátiles.

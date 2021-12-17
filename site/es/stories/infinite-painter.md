@@ -3,10 +3,10 @@ title: Infinite Studio aumenta las instalaciones activas después de la optimiza
 metadesc: Después de la optimización para pantallas grandes, las instalaciones activas de Infinite Painter y la actividad general en la aplicación han crecido sustancialmente.
 app:
   name: Pintor infinito
-  logo: gs://stories/infinite-painter/infinite-painter-icon
+  logo: ix://stories/infinite-painter/infinite-painter-icon.240.png
   company: Estudio infinito
 hero:
-  image: gs://stories/infinite-painter/hero
+  image: ix://stories/infinite-painter/hero.1500.jpg
   alt: Captura de pantalla de Infinite Studio con una pintura en curso y opciones de pincel abiertas
   position: top
 date: 2018-11-15
@@ -33,7 +33,7 @@ El primer paso del equipo de desarrollo fue descubrir qué haría que el UX de I
 
 Lo primero que Infinite Studio se dio cuenta fue con qué frecuencia los diseñadores e ilustradores usan atajos de teclado para acelerar su flujo de trabajo. Por lo tanto, los desarrolladores agregaron 30 accesos directos estándar de la industria y los organizaron en un menú desplegable de fácil acceso que se activa manteniendo presionada la tecla [[CTRL]].
 
-![Pantalla de control para Infinite Painter](gs://stories/infinite-painter/infinitepainter-controls)
+![Pantalla de control para Infinite Painter](ix://stories/infinite-painter/infinitepainter-controls.1500.png)
 
 ### ![](ix://icons/mouse.png) {.icon - redondeado} Dispositivos de entrada
 
@@ -45,7 +45,7 @@ Los desarrolladores ya tenían soporte para la entrada de lápiz y dedo para usu
 
 Finalmente, el equipo [optimizó la aplicación para admitir diferentes tamaños de ventana](/{{locale.code}}/android/window-management) . Los usuarios pueden cambiar el tamaño de la ventana de la aplicación para una experiencia óptima en cualquier factor de forma, ya sea que prefieran trabajar en modo de pantalla completa o abrir y usar otra aplicación junto a ella. Los desarrolladores también agregaron la capacidad de los usuarios de arrastrar y soltar imágenes externas en la aplicación.
 
-![Vista del tablero de arte de Infinite Painter](gs://stories/infinite-painter/infinitepainter-artboards)
+![Vista del tablero de arte de Infinite Painter](ix://stories/infinite-painter/infinitepainter-artboards.1500.png)
 
 ## Resultados
 
