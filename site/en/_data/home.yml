@@ -6,7 +6,7 @@ hero:
     text: Start building
     url: '#home__subnav'
   img:
-    src: /images/landings/home/hero.png
+    src: ix://landings/home/hero.png
     alt: 'Chromebook, tablet, mobile phone, foldable phone, stylus, and a mouse are shown. The devices with screens show the same image: a mix of colored circles, rounded bars, and lines in red, yellow, blue, and green colors. These objects cycle in unison.'
 results:
   desc: Get results with Chrome OS
@@ -28,11 +28,11 @@ onAndWith:
   desc: Build for Chrome OS, build on Chrome OS
   cards:
     - images:
-        - src: /images/landings/home/linux-laptop-base.png
+        - src: ix://landings/home/linux-laptop-base.png
           alt: A Chromebook.
-        - src: /images/landings/home/android-studio.png
+        - src: ix://landings/home/android-studio.png
           alt: Android Studio running on Chrome OS.
-        - src: /images/landings/home/terminal.png
+        - src: ix://landings/home/terminal.png
           alt: The Terminal app for Linux on Chrome OS.
       content:
         title: Bring ideas to life with Linux on Chrome OS
@@ -43,9 +43,9 @@ onAndWith:
       modifiers:
         offset: true
     - images:
-        - src: /images/landings/home/design-resources-laptop.png
+        - src: ix://landings/home/design-resources-laptop.png
           alt: A large-screen app on a laptop showing how specific elements, highlighted in blue, yellow, green, and red, have been adapted from a small-screen app on a phone (the following image).
-        - src: /images/landings/home/design-resources-phone.png
+        - src: ix://landings/home/design-resources-phone.png
           alt: A small-screen app on a phone with blue and yellow highlighted elements prior to adapting to a large-screen app (the previous image).
       content:
         title: Jumpstart your latest project with design resources for Chrome OS

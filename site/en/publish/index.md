@@ -2,7 +2,7 @@
 title: Publishing on Google Play
 metadesc: How to publish, distribute, and monetize your app and game on Chrome OS.
 hero:
-  image: /images/landings/publish-hero.svg
+  image: ix://landings/publish-hero.svg
   alt: Illustration of several building blocks being queued up for a Chrome OS device.
 date: 2020-05-18
 weight: -8

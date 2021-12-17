@@ -8,7 +8,7 @@ tags:
 authors:
   - ssamat
 hero:
-  image: /images/posts/expand-your-app-beyond-mobile-to-reach-android-users-at-large/hero.png
+  image: ix://posts/expand-your-app-beyond-mobile-to-reach-android-users-at-large/hero.png
   alt: Banner genérico de Android
   position: bottom
 date: 2019-09-05
@@ -39,7 +39,7 @@ Desde el principio, Android fue diseñado como una plataforma que podía manejar
 - En Android 3.0 Honeycomb, agregamos soporte para **tabletas** . En particular, capacidades como `Fragment` permiten crear aplicaciones que funcionan en factores de forma muy diferentes.
 - Android 7 Nougat trajo capacidades de ventanas múltiples y pantallas múltiples, incluida la capacidad de arrastrar y soltar entre aplicaciones. Mientras tanto, Chrome OS agregó la [capacidad](/{{locale.code}}/android) de ejecutar aplicaciones de Android en **computadoras portátiles** . Con algunos ajustes para manejar diferentes entradas y dinámicas de ventanas, ahora puede llegar a los usuarios de la aplicación en un entorno de escritorio.
 
-#[El sistema de diseño de Android ayuda a las aplicaciones a cambiar el tamaño y ajustar su diseño de manera interactiva.](/images/posts/expand-your-app-beyond-mobile-to-reach-android-users-at-large/free-form-resizing.gif)
+#[El sistema de diseño de Android ayuda a las aplicaciones a cambiar el tamaño y ajustar su diseño de manera interactiva.](ix://posts/expand-your-app-beyond-mobile-to-reach-android-users-at-large/free-form-resizing.gif)
 
 - Ahora, en [Android 10](https://developer.android.com/about/versions/10) , hemos realizado aún más mejoras para el desarrollo en pantallas grandes. Hemos mejorado las capacidades de múltiples ventanas, lo que facilita el uso de múltiples aplicaciones en paralelo. También continuamos mejorando el soporte de pantallas múltiples, permitiendo más casos de uso de monitores múltiples. Y le facilitamos experimentar y probar nuevos factores de forma al agregar un emulador dedicado para **plegables** y al publicar una [guía de plegables](https://developer.android.com/guide/topics/ui/foldables) .
 

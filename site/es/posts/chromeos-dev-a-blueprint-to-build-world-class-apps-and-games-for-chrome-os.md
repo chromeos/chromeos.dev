@@ -2,13 +2,13 @@
 title: ChromeOS.dev - Una guía para crear aplicaciones y juegos de clase mundial para elde Chrome OS
 metadesc: se lanza oficialmente ChromeOS.dev; un plan multilingüe de código abierto para crear aplicaciones y juegos de clase mundial para Chrome OS y sobre él. Y nueva funcionalidad de Chrome OS.
 hero:
-  image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/hero.svg
+  image: ix://posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/hero.svg
   alt: Una ilustración de una Chromebook y nueva funcionalidad de Chrome OS.
 featured:
   title: ChromeOS.dev
   desc: Una guía para crear aplicaciones y juegos de clase mundial para Chrome OS
   images:
-    - image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/featured.svg
+    - image: ix://posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/featured.svg
       alt: Una ilustración de una Chromebook y nueva funcionalidad de Chrome OS.
 tags:
   - noticias de producto
@@ -25,7 +25,7 @@ Mientras las personas pasan más tiempo en casa que fuera de ella, dependen cada
 
 Esta tendencia fue clara de marzo a junio de 2020: las ventas de unidades de Chromebook crecieron un 127% interanual, mientras que el resto de la categoría de portátiles de EE. UU. Aumentó un 40% interanual.1 [^1] Las computadoras portátiles se han vuelto cruciales para las personas en casa que quieren usar sus aplicaciones y juegos favoritos, como [Star Trek™ Fleet Command](https://play.google.com/store/apps/details?id=com.scopely.startrek) y [Reigns: Game of Thrones](https://play.google.com/store/apps/details?id=com.devolver.reignsGot) para disfrutar de aventuras llenas de acción, [Calm](https://play.google.com/store/apps/details?id=com.calm.android) manejar el estrés, o [Disney+](https://play.google.com/store/apps/details?id=com.disney.disneyplus) para manterner a toda la familia entretenida.
 
-![Las ventas de Chromebooks han aumentado  127%  interanual de marzo - junio 2020 comparado con 40% para otros notebooks.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/yoy-sales.gif)
+![Las ventas de Chromebooks han aumentado  127%  interanual de marzo - junio 2020 comparado con 40% para otros notebooks.](ix://posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/yoy-sales.gif)
 
 Para brindar experiencias de aplicaciones que realmente mejoren la vida de las personas, los desarrolladores deben estar equipados con las herramientas, los recursos y las mejores prácticas adecuadas. Es por eso que nos complace presentar [ChromeOS.dev](/{{locale.code}}), un recurso dedicado para desarrolladores técnicos, diseñadores, gerentes de productos y líderes comerciales.
 
@@ -35,7 +35,7 @@ Escuche a nuestros expertos en Google y Chrome OS, así como a una variedad de d
 
 Aún mejor, como un destino de [código abierto](https://github.com/chromeos/chromeos.dev) en línea, ChromeOS.dev está diseñado considerando todos los principios y métodos para crear aplicaciones web progresivas (PWA) altamente capaces y confiables, lo que garantiza que los desarrolladores siempre tengan acceso rápido y fácil a la información que necesitan. incluso cuando están desconectados.
 
-![Vista previa animada de las secciones y páginas de ChromeOS.dev.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/website.gif)
+![Vista previa animada de las secciones y páginas de ChromeOS.dev.](ix://posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/website.gif)
 
 Echa un vistazo a algunas de las actualizaciones y mejoras más recientes a continuación, y asegúrate de instalar ChromeOS.dev PWA en tu dispositivo para estar al tanto de la información más reciente.
 
@@ -52,7 +52,7 @@ Terminal de Linux en Chrome OS ahora viene equipado con funciones personalizadas
 
 - **Temas** - La pestaña de configuración se ha reorganizado para facilitar la personalización de todas las opciones de Terminal.
 
-  ![Escoger un tema en Linux.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/linux-updates.gif)
+  ![Escoger un tema en Linux.](ix://posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/linux-updates.gif)
 
 - **Configuración de terminal rediseñada** - The settings tab has been reorganized to make it easier to customize all your Terminal options.
 

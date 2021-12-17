@@ -28,7 +28,7 @@ During the week of Black Friday in 2018, 1 in 3 notebooks sold in the U.S. were 
 [^3]: The NPD Group, Inc., U.S. Retail Tracking Service, Notebook Computers, based on units, Sept. 2018–Aug. 2019. Sales are adjusted for 5 weeks in Jan. 2018 vs. 4 weeks in Jan. 2019.
 [^4]: Google Internal Data, March 2018–March 2019.
 
-![YoY notebook sales in the U.S.](/images/posts/high-engagement-larger-screens-how/yoy-notebook-sales.gif)
+![YoY notebook sales in the U.S.](ix://posts/high-engagement-larger-screens-how/yoy-notebook-sales.gif)
 
 By making adjustments for larger screens, you can provide richer experiences across all these devices and tap into a wider audience of app users. Development teams around the world — including Adobe Lightroom, [Evernote](/{{locale.code}}/stories/evernote), and [Gameloft](/{{locale.code}}/stories/asphalt-8), among many others — have already seen some incredible results:
 
@@ -52,7 +52,7 @@ Test your core app functions to make sure everything works smoothly without cras
 
 Support multi-window mode and free-form window resizing, and be sure to design optimized layouts for both landscape and portrait orientations. Set up your app to correctly handle configuration changes to avoid crashes when people rotate their devices.
 
-![Suite of devices](/images/posts/high-engagement-larger-screens-how/suite-of-devices.png)
+![Suite of devices](ix://posts/high-engagement-larger-screens-how/suite-of-devices.png)
 
 ### 3) Keyboard and mouse input
 

@@ -12,10 +12,10 @@ examples:
           url: / /
           text: Este es un enlace
         imagePrimary:
-          path: /images/feature-story/laptop.png
+          path: ix://feature-story/laptop.png
           alt: algunos alt
         imageSecondary:
-          path: /images/feature-story/screen.png
+          path: ix://feature-story/screen.png
           alt: algunos alt
   - title: Contenedor con ancho máximo de 1440 px - Procesamiento predeterminado.
     useMaxWidth: cierto
@@ -28,10 +28,10 @@ examples:
           url: / /
           text: Este es un enlace
         imagePrimary:
-          path: /images/feature-story/laptop.png
+          path: ix://feature-story/laptop.png
           alt: algunos alt
         imageSecondary:
-          path: /images/feature-story/screen.png
+          path: ix://feature-story/screen.png
           alt: algunos alt
   - title: Contenedor con ancho máximo de 1440 px - Procesamiento predeterminado - CTA externo.
     useMaxWidth: cierto
@@ -44,10 +44,10 @@ examples:
           url: https://www.google.com/
           text: Este es un enlace
         imagePrimary:
-          path: /images/feature-story/laptop.png
+          path: ix://feature-story/laptop.png
           alt: algunos alt
         imageSecondary:
-          path: /images/feature-story/screen.png
+          path: ix://feature-story/screen.png
           alt: algunos alt
   - title: Contenedor con ancho máximo de 1440 px - Procesamiento predeterminado - CTA externo - Círculo amarillo.
     useMaxWidth: cierto
@@ -60,10 +60,10 @@ examples:
           url: https://www.google.com/
           text: Este es un enlace
         imagePrimary:
-          path: /images/feature-story/laptop.png
+          path: ix://feature-story/laptop.png
           alt: algunos alt
         imageSecondary:
-          path: /images/feature-story/screen.png
+          path: ix://feature-story/screen.png
           alt: algunos alt
       modifiers:
         custom: use-yellow-circle
@@ -78,10 +78,10 @@ examples:
           url: / /
           text: Este es un enlace
         imagePrimary:
-          path: /images/feature-story/laptop.png
+          path: ix://feature-story/laptop.png
           alt: algunos alt
         imageSecondary:
-          path: /images/feature-story/screen.png
+          path: ix://feature-story/screen.png
           alt: algunos alt
       modifiers:
         custom: use-gray-overlay
@@ -96,7 +96,7 @@ examples:
           url: / /
           text: Este es un enlace
         imagePrimary:
-          path: /images/feature-story/evernote-featured-flat.png
+          path: ix://feature-story/evernote-featured-flat.png
           alt: algunos alt
 ---
 

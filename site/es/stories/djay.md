@@ -27,7 +27,7 @@ Así es como combinaron la funcionalidad de la pantalla táctil del dispositivo 
 
 Como ya habían implementado el diseño de djay para escritorios de pantalla grande desde el primer día, la mayoría de las optimizaciones de Algoriddim implicaron aprovechar el rendimiento y la funcionalidad completos de Chrome OS. Habilitar el soporte de audio que todo DJ necesita era la prioridad número uno:
 
-### ![](/images/icons/audiotrack.png) {.icon--rounded} Soporte para audio multicanal y para MIDI
+### ![](ix://icons/audiotrack.png) {.icon--rounded} Soporte para audio multicanal y para MIDI
 
 El audio multicanal es fundamental para permitir que los DJ preparen sin problemas la siguiente pista en sus auriculares antes de que el público la escuche en la mezcla principal. Muchos DJ también conectan dispositivos de hardware MIDI externos como beatpads y samplers a sus computadoras portátiles, por lo que poder enviar y recibir señales MIDI con una respuesta de baja latencia en la aplicación es tan esencial.
 
@@ -35,7 +35,7 @@ La aplicación original de djay para Android tenía una funcionalidad MIDI bási
 
 Ambas optimizaciones finalmente dieron un giro completo a la funcionalidad de audio original de gama alta de djay al poner la potencia de nivel de escritorio en manos de los usuarios móviles.
 
-### ![](/images/icons/tablet-android.png) {.icon--rounded} Optimización del diseño de pantalla completa para tabletas
+### ![](ix://icons/tablet-android.png) {.icon--rounded} Optimización del diseño de pantalla completa para tabletas
 
 Cuando Algoriddim consideró cómo los artistas podrían usar la aplicación en dispositivos con pantallas más grandes, vieron la oportunidad de ofrecer una experiencia más única que en un teléfono o escritorio típico.
 

@@ -34,7 +34,7 @@ Para comenzar las optimizaciones, Pixonic agregó una etiqueta de metadatos en A
 
 Pixonic también configuró el minSdk de la aplicación en 24 para que el motor de juegos Unity pueda recibir directamente los clics del mouse y todos los eventos API relacionados con el movimiento (no solo los eventos del panel táctil).
 
-### ![](/images/icons/keyboard.png) {.icon--rounded} Soporte para teclado y mouse
+### ![](ix://icons/keyboard.png) {.icon--rounded} Soporte para teclado y mouse
 
 En juegos PvP en tercera persona como War Robots, moverse y apuntar es mucho más fácil usando un teclado y un mouse, especialmente en dispositivos de pantalla más grande. Entonces, el siguiente paso fue reescribir el código para el teclado y el mouse para el modo de batalla del juego, manteniendo los controles de la pantalla táctil.
 
@@ -71,7 +71,7 @@ public boolean setPointerVisibility(boolean visible) {
 
 Esto aseguró que el cursor estaría deshabilitado e invisible cuando todas las demás ventanas estén cerradas y haya una batalla en curso. Si aparece alguna ventana emergente, como el menú de pausa, Pixonic hace visible el cursor y muestra su icono predeterminado.
 
-### ![](/images/icons/videogame.png) {.icon--rounded} Adaptación de tutoriales y mecánica de juego
+### ![](ix://icons/videogame.png) {.icon--rounded} Adaptación de tutoriales y mecánica de juego
 
 Para una mejor experiencia de usuario, Pixonic también escribió un nuevo código para mostrar diferentes tutoriales de juego basados en el modo de dispositivo actual del usuario. Si un jugador cambia entre el juego de la tableta y la computadora portátil durante la batalla y aún no ha visto un tutorial para el modo diferente, el tutorial se muestra antes de que se reanude el juego.
 
@@ -89,7 +89,7 @@ if (Input.touchCount > 0) {
 }
 ```
 
-### ![](/images/icons/dynamic_feed.png) {.icon--rounded} Soporte para múltiples ventanas
+### ![](ix://icons/dynamic_feed.png) {.icon--rounded} Soporte para múltiples ventanas
 
 Para el paso final, Pixonic quería asegurarse de que el juego no se bloqueara en modo de pantalla completa cuando se lanzó. Al habilitar el juego en ventanas en Chrome OS, los usuarios pueden ver simultáneamente sus transmisores favoritos mientras juegan, actualizar sus robots mientras leen sobre nuevas habilidades en el [sitio web del juego](https://warrobots.com/) o ver una batalla en modo pasivo mientras miran un video por separado.
 

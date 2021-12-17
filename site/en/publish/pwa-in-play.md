@@ -85,7 +85,7 @@ If you already have a well established Android presence with a platform specific
 
 When creating the Chrome OS release, make sure to include the latest Android App Bundle. In the “Previous release” section, find the APK or AAB that corresponds to the latest Android mobile version and select “Include”.
 
-![When you create a new release in the Play Console, you can include APKs or AABs from previous releases.](/images/publish/pwa-in-play/play-console-include.png)
+![When you create a new release in the Play Console, you can include APKs or AABs from previous releases.](ix://publish/pwa-in-play/play-console-include.png)
 
 If the latest mobile package is not included in the Chrome OS release, users on mobile Android devices will not be able to install your app.
 !!!

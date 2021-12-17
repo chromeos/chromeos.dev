@@ -11,7 +11,7 @@ tags:
 authors:
   - nataliagvak
 hero:
-  image: /images/posts/optimizing-android-app-experiences-for-chromeos/hero.png
+  image: ix://posts/optimizing-android-app-experiences-for-chromeos/hero.png
   alt: Illustration of smartphone, laptop, and tablet devices with dotted line connections.
 date: 2019-09-09
 ---
@@ -75,7 +75,7 @@ Android Studio makes supporting this simple: Using Android app bundles, it packa
 
 You’ve probably seen a mobile app that hasn’t been designed for a larger screen — lots of wasted space and clunky navigation. To ensure your app looks great on several layouts, you can use one resource file with multiple layout buckets for each screen size.
 
-![Multiple activity_main.xml files for different layouts](/images/posts/optimizing-android-app-experiences-for-chromeos/multiple-activity-main-xml.png)
+![Multiple activity_main.xml files for different layouts](ix://posts/optimizing-android-app-experiences-for-chromeos/multiple-activity-main-xml.png)
 
 ### Navigation patterns
 
@@ -83,7 +83,7 @@ Your app should also be easy to use on different screen sizes. [Build for portra
 
 Reply, an email app, [redesigned its layout](https://material.io/design/material-studies/reply.html#about-reply) for functionality and ease-of-use on multiple screens, and while Adobe Acrobat optimized its app functionality for Chrome OS, the brand also redesigned its entire layout for different devices.
 
-![Different navigation patterns on different screen sizes and orientations](/images/posts/optimizing-android-app-experiences-for-chromeos/navigation-patterns.png)
+![Different navigation patterns on different screen sizes and orientations](ix://posts/optimizing-android-app-experiences-for-chromeos/navigation-patterns.png)
 
 ### Multi-monitor
 

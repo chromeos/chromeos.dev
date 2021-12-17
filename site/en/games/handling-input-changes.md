@@ -42,7 +42,7 @@ Ideally your visual interface should not need to change very much if a different
 
 Any time your app has touch-specific UI elements, e.g. an on-screen joystick in a game, you should consider what the user experience will be when touch is not being used. In some mobile games, a significant part of the screen is used up by the controls which are necessary for touch-based play, but are unnecessary if the user is using a gamepad or keyboard to play. Your app or game should provide logic to detect which input method is being actively used and adjust the UI accordingly. See the [Implementation section](#implementation) below for some examples of how to do this.
 
-![Car racing game UIs - one with on-screen controls and one with keyboard](/images/games/optimizing-games-input/input-on-screen-horizontal.png)
+![Car racing game UIs - one with on-screen controls and one with keyboard](ix://games/optimizing-games-input/input-on-screen-horizontal.png)
 
 ### On-screen prompts
 
@@ -100,7 +100,7 @@ The current touchscreen interface consists of an on-screen joystick on the botto
 
 You would like to add keyboard and bluetooth game controller support. Where do you begin?
 
-![Car racing game with touch controls](/images/games/optimizing-games-input/input-touch.png)
+![Car racing game with touch controls](ix://games/optimizing-games-input/input-touch.png)
 
 #### Input states
 
@@ -133,7 +133,7 @@ Game controller input would follow a similar pattern: the controller UI state wo
 
 Below is a state diagram and a transition table for the example. Adapt the idea to your app or game.
 
-![Prioritized state machine - touchscreen, keyboard/mouse, game controller](/images/games/optimizing-games-input/input-state-machine.png)
+![Prioritized state machine - touchscreen, keyboard/mouse, game controller](ix://games/optimizing-games-input/input-state-machine.png)
 
 |                | #1 Touchscreen                                                                   | #2 Keyboard                                                                       | #3 Gamepad                                                              |
 | -------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |

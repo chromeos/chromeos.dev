@@ -15,10 +15,10 @@ featured:
   title: What’s new in Chrome OS
   desc: Learn about the latest announcements, news, and resources for Chrome OS from Google I/O '21
   images:
-    - image: /images/posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/hero.png
+    - image: ix://posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/hero.png
       alt: Chrome OS I/O '21 banner
 hero:
-  image: /images/posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/hero.png
+  image: ix://posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/hero.png
   alt: Chrome OS I/O '21 banner
   position: center
 date: 2021-05-19
@@ -28,7 +28,7 @@ Chrome OS [celebrated its 10th birthday](https://blog.google/products/chromebook
 
 In just the last year, Chrome OS grew 92% — five times the rate of the PC market — making it the fastest-growing and second-most-popular desktop OS in the world. And we’re not slowing down. By the end of this year, we’re set to launch 50 new Chromebook devices with cutting-edge capabilities including 4k OLED displays, new stylus inputs, and LTE connectivity.
 
-![](/images/posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/growth.png)
+![](ix://posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/growth.png)
 
 From the classroom to the boardroom, Chrome OS devices are making work simpler and more seamless. More than 40 million students and educators around the world are using Chromebooks today, and we’ve seen 83% growth in Enterprise shipments in the last year. That’s just scratching the surface. Check out our session “[What’s new in Chrome OS](https://youtu.be/a8kkzdOfAgU)” from I/O to hear more about our growing ecosystem.
 
@@ -40,11 +40,11 @@ The web has always been a core part of our fast, simple, and secure computing ex
 
 Developers can now list their PWA in Google Play on Chrome OS or use it in an Android app. Our open-source Bubblewrap tool, [available on GitHub](https://github.com/GoogleChromeLabs/bubblewrap), can help you package and upload your PWA with just five minutes of work.
 
-![The open-source Bubblewrap tool enables developers to create a Project for an Android application that launches an existing PWA using a Trusted Web Activity.](/images/posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/bubblewrap.png)
+![The open-source Bubblewrap tool enables developers to create a Project for an Android application that launches an existing PWA using a Trusted Web Activity.](ix://posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/bubblewrap.png)
 
 We’re also spotlighting the best Chromebook-optimized apps by surfacing them as content-forward listings at the top of Google Play on Chrome OS. Since we started showcasing these apps in early April, optimized partners have already seen a 75% increase in downloads.
 
-![Content-forward listings in Google Play that spotlight the best Chromebook-optimized apps.](/images/posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/google-play.png)
+![Content-forward listings in Google Play that spotlight the best Chromebook-optimized apps.](ix://posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/google-play.png)
 
 To make sure billions of users on Chrome OS can find and enjoy your web app, we recommend starting with our session on [how to list your PWA in Google Play](https://youtu.be/ddbHp8tGBwQ). Check out [in-depth guidance for Web developers on ChromeOS.dev](https://chromeos.dev/en/publish/pwa-in-play) for more tips and coding samples.
 
@@ -58,7 +58,7 @@ Time spent in Android apps on Chromebooks has tripled in the past year, and Chro
 
 Throughout this year, we’ll update all Chromebooks to run Android 11. We’re also moving Android from a container to a virtual machine to improve security, stability, and performance.
 
-![300% more time spent in Android apps on Chromebooks in the last year](/images/posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/app-usage-growth.gif)
+![300% more time spent in Android apps on Chromebooks in the last year](ix://posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/app-usage-growth.gif)
 
 To help developers improve their experience on Chrome OS and across other form factors, we shared an overview during our session “[Optimize your Android games and apps to run on Chrome OS](https://youtu.be/23EnVczS0Ik).” New runtime improvements now support better app resizing, scaling, and app rendering, which developers can test on any Chromebook running Android 11.
 

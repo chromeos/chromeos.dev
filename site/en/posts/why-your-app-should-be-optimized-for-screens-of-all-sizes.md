@@ -17,7 +17,7 @@ tags:
 authors:
   - nataliagvak
 hero:
-  image: /images/posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/hero.png
+  image: ix://posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/hero.png
   alt: Illustration of laptop with gaming and productivity icons.
 date: 2018-10-29
 ---
@@ -34,7 +34,7 @@ Much of our growth has been fueled by new ways that people consume and engage wi
 
 Last year, we added our four-in-one, high-performance Chromebook — [Google Pixelbook](https://store.google.com/us/product/google_pixelbook) — to the Chrome OS family. This October, we introduced the first-ever premium tablet made by Google to run Chrome OS: [Google Pixel Slate](https://store.google.com/us/product/pixel_slate?hl=en-US). Along with a rich display and performance that’s ideal for using mobile apps, the Pixel Slate also comes with a detachable keyboard that gives users a familiar laptop feel.
 
-![Pixel Slate device in its different configurations with and without the detachable keyboard](/images/posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/pixel-slate.jpg)
+![Pixel Slate device in its different configurations with and without the detachable keyboard](ix://posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/pixel-slate.jpg)
 
 Like other devices powered by Chrome OS, both of these devices combine access to millions of mobile apps with a brilliant, large-screen display. Developers can reach even more users by [adapting their apps for Chrome OS](/{{locale.code}}/android/optimizing) in different ways:
 
@@ -67,7 +67,7 @@ Meanwhile, the development team at Slack optimized its popular messaging app for
 
 1Password worked with the Chrome OS team to drastically improve its user experience in just six weeks. To ensure the app made the best use of [window space at any screen orientation and size](/{{locale.code}}/android/window-management), the development team combined its existing designs for phones and tablets to deliver a responsive layout when users resized the app window. The team also used Chrome OS’s drag-and-drop feature so app users can easily drag content between 1Password and other Android apps on Chrome OS.
 
-![1Password app in different configurations in different device modes](/images/posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/1password.jpg)
+![1Password app in different configurations in different device modes](ix://posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/1password.jpg)
 
 Finally, the team enhanced support for keyboard and trackpad input so people can navigate the app without taking their hands off the keyboard. This created a more desktop-like experience on mobile, allowing users to use direction keys and keyboard shortcuts to trigger actions. Since implementing these new improvements, 1Password has seen more than 22.6% more installs on Chrome OS devices.
 

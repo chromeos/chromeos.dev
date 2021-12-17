@@ -32,7 +32,7 @@ The Gallery es una aplicación diseñada para ser una colección de widgets, com
 
 Debido a que Chrome OS ejecuta aplicaciones de Android, apuntar a Android es la forma de crear aplicaciones de Chrome OS. Sin embargo, aunque la creación de aplicaciones de Chrome OS en Android siempre ha sido posible, como se describe en [estas pautas](/{{locale.code}}/android) , a menudo es difícil saber si su aplicación de Android funcionará bien en Chrome OS. Para ayudar con ese problema, hoy estamos agregando un nuevo conjunto de reglas de mejoras de código a las herramientas Flutter para detectar violaciones de las pautas de mejores prácticas más importantes de Chrome OS:
 
-#[Las reglas de formato de código de Flutter Chrome OS en acción](/images/posts/flutter-and-chromeos-better-together/flutter-chromeos-lint-rules.png)
+#[Las reglas de formato de código de Flutter Chrome OS en acción](ix://posts/flutter-and-chromeos-better-together/flutter-chromeos-lint-rules.png)
 
 Cuando pueda establecer estas reglas de formato de código de Chrome OS, podrá ver rápidamente cualquier problema en su aplicación de Android que lo dificulte cuando se ejecuta en Chrome OS. Para saber cómo aprovechar estas reglas, consulte los [documentos de linting para Flutter Chrome OS](https://github.com/flutter/flutter/wiki/Linting-Flutter-apps-for-Chrome-OS) .
 
@@ -42,7 +42,7 @@ Pero todo eso es solo el comienzo: las herramientas Flutter también le permiten
 
 No importa a qué plataforma se dirija, Flutter tiene soporte para IDE ricos y herramientas de programación como Android Studio y Visual Studio Code. Durante el último año, Chrome OS ha estado creando soporte para ejecutar la versión de Linux de estas herramientas con la [Linux en Chrome OS](/{{locale.code}}/linux) (también conocido como Crostini). Y, dado que Chrome OS también es compatible con Android de forma nativa, puede configurar las herramientas Flutter para ejecutar sus aplicaciones de Android directamente sin un emulador involucrado.
 
-#[Las herramientas de desarrollo de Flutter que se ejecutan en Chrome OS](/images/posts/flutter-and-chromeos-better-together/flutter-on-chromeos.gif)
+#[Las herramientas de desarrollo de Flutter que se ejecutan en Chrome OS](ix://posts/flutter-and-chromeos-better-together/flutter-on-chromeos.gif)
 
 Toda la gran productividad de Flutter está disponible, incluida Stateful Hot Reload, cambio de tamaño sin interrupciones, compatibilidad con teclado y mouse, etc. ¡Las mejoras recientes en Crostini, como el alto soporte de DPI, la integración del sistema de archivos Crostini, adb más fácil, etc., han mejorado aún más esta experiencia! Por supuesto, no tiene que probar con el contenedor de Android que se ejecuta en Chrome OS; También puede probar con dispositivos Android conectados a su computadora de Chrome OS. En resumen, Chrome OS es el entorno ideal para desarrollar y probar sus aplicaciones Flutter, especialmente cuando se dirige a Chrome OS.
 

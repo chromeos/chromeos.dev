@@ -59,7 +59,7 @@ Adding pointer icons to your application is a great way to help enable your user
 !!! aside.message--tip
 To see different pointer changes in action check out this [GitHub Pointer Sample](https://github.com/chromeos/pointer-icon-sample)
 
-![Custom pointer icons in an Android app.](/images/android/pointer-styling/pointer-icon.gif)
+![Custom pointer icons in an Android app.](ix://android/pointer-styling/pointer-icon.gif)
 
 !!!
 
@@ -77,26 +77,26 @@ These are the available cursors by default in the Android System.
 
 | Cursor Name                          | Icon                                                                                                                                         |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| TYPE_ALIAS                           | ![Alias Cursor Icon](/images/android/pointer-styling/Mouse-Pointer0.png 'Alias Cursor')                                                      |
-| TYPE_ALL_SCROLL                      | ![All Scroll Cursor Icon](/images/android/pointer-styling/Mouse-Pointer1.png 'All Scroll Cursor')                                            |
-| TYPE\_\_ARROW                        | ![Arrow Cursor Icon](/images/android/pointer-styling/Mouse-Pointer2.png 'Arrow Cursor')                                                      |
-| TYPE_CELL                            | ![Cell Cursor Icon](/images/android/pointer-styling/Mouse-Pointer3.png 'Cell Cursor')                                                        |
-| TYPE_CONTEXT_MENU                    | ![Context Menu Cursor Icon](/images/android/pointer-styling/Mouse-Pointer4.png 'Context Menu Cursor')                                        |
-| TYPE_COPY                            | ![Copy Cursor Icon](/images/android/pointer-styling/Mouse-Pointer5.png 'Copy Cursor')                                                        |
-| TYPE_CROSSHAIR                       | ![Crosshair Cursor Icon](/images/android/pointer-styling/Mouse-Pointer6.png 'Crosshair Cursor')                                              |
-| TYPE_DEFAULT                         | ![Default Cursor Icon](/images/android/pointer-styling/Mouse-Pointer7.png 'Default Cursor')                                                  |
-| TYPE_GRAB                            | ![Grab Cursor Icon](/images/android/pointer-styling/Mouse-Pointer8.png 'Grab Cursor')                                                        |
-| TYPE_GRABBING                        | ![Grabbing Cursor Icon](/images/android/pointer-styling/Mouse-Pointer9.png 'Grabbing Cursor')                                                |
-| TYPE_HAND                            | ![Hand Cursor Icon](/images/android/pointer-styling/Mouse-Pointer10.png 'Hand Cursor')                                                       |
-| TYPE_HELP                            | ![Help Cursor Icon](/images/android/pointer-styling/Mouse-Pointer11.png 'Help Cursor')                                                       |
-| TYPE_HORIZONTAL_DOUBLE_ARROW         | ![Horizontal Double Arrow Cursor Icon](/images/android/pointer-styling/Mouse-Pointer12.png 'Horizontal Double Arrow Cursor')                 |
-| TYPE_NO_DROP                         | ![No Drop Cursor Icon](/images/android/pointer-styling/Mouse-Pointer13.png 'No Drop Cursor')                                                 |
+| TYPE_ALIAS                           | ![Alias Cursor Icon](ix://android/pointer-styling/Mouse-Pointer0.png 'Alias Cursor')                                                      |
+| TYPE_ALL_SCROLL                      | ![All Scroll Cursor Icon](ix://android/pointer-styling/Mouse-Pointer1.png 'All Scroll Cursor')                                            |
+| TYPE\_\_ARROW                        | ![Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer2.png 'Arrow Cursor')                                                      |
+| TYPE_CELL                            | ![Cell Cursor Icon](ix://android/pointer-styling/Mouse-Pointer3.png 'Cell Cursor')                                                        |
+| TYPE_CONTEXT_MENU                    | ![Context Menu Cursor Icon](ix://android/pointer-styling/Mouse-Pointer4.png 'Context Menu Cursor')                                        |
+| TYPE_COPY                            | ![Copy Cursor Icon](ix://android/pointer-styling/Mouse-Pointer5.png 'Copy Cursor')                                                        |
+| TYPE_CROSSHAIR                       | ![Crosshair Cursor Icon](ix://android/pointer-styling/Mouse-Pointer6.png 'Crosshair Cursor')                                              |
+| TYPE_DEFAULT                         | ![Default Cursor Icon](ix://android/pointer-styling/Mouse-Pointer7.png 'Default Cursor')                                                  |
+| TYPE_GRAB                            | ![Grab Cursor Icon](ix://android/pointer-styling/Mouse-Pointer8.png 'Grab Cursor')                                                        |
+| TYPE_GRABBING                        | ![Grabbing Cursor Icon](ix://android/pointer-styling/Mouse-Pointer9.png 'Grabbing Cursor')                                                |
+| TYPE_HAND                            | ![Hand Cursor Icon](ix://android/pointer-styling/Mouse-Pointer10.png 'Hand Cursor')                                                       |
+| TYPE_HELP                            | ![Help Cursor Icon](ix://android/pointer-styling/Mouse-Pointer11.png 'Help Cursor')                                                       |
+| TYPE_HORIZONTAL_DOUBLE_ARROW         | ![Horizontal Double Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer12.png 'Horizontal Double Arrow Cursor')                 |
+| TYPE_NO_DROP                         | ![No Drop Cursor Icon](ix://android/pointer-styling/Mouse-Pointer13.png 'No Drop Cursor')                                                 |
 | TYPE_NULL                            | No Cursor Will Display                                                                                                                       |
-| TYPE_TEXT                            | ![Text Cursor Icon](/images/android/pointer-styling/Mouse-Pointer14.png 'Text Cursor')                                                       |
-| TYPE_TOP_LEFT_DIAGONAL_DOUBLE_ARROW  | ![Top Left Diagonal Double Arrow Cursor Icon](/images/android/pointer-styling/Mouse-Pointer15.png 'Top Left Diagonal Double Arrow Cursor')   |
-| TYPE_TOP_RIGHT_DIAGONAL_DOUBLE_ARROW | ![Top Right Diagonal Double Arrow Cursor Icon](/images/android/pointer-styling/Mouse-Pointer16.png 'Top Right Diagonal Double Arrow Cursor') |
-| TYPE_VERTICAL_DOUBLE_ARROW           | ![Vertical Double Arrow Cursor Icon](/images/android/pointer-styling/Mouse-Pointer17.png 'Vertical Double Arrow Cursor')                     |
-| TYPE_VERTICAL_TEXT                   | ![Vertical Text Cursor Icon](/images/android/pointer-styling/Mouse-Pointer18.png 'Vertical Text Cursor')                                     |
-| TYPE_WAIT                            | ![Wait Cursor Icon](/images/android/pointer-styling/Mouse-Pointer19.gif 'Wait Cursor')                                                       |
-| TYPE_ZOOM_IN                         | ![Zoom In Cursor Icon](/images/android/pointer-styling/Mouse-Pointer20.png 'Zoom In Cursor')                                                 |
-| TYPE_ZOOM_OUT                        | ![Zoom Out Cursor Icon](/images/android/pointer-styling/Mouse-Pointer21.png 'Zoom Out Cursor')                                               |
+| TYPE_TEXT                            | ![Text Cursor Icon](ix://android/pointer-styling/Mouse-Pointer14.png 'Text Cursor')                                                       |
+| TYPE_TOP_LEFT_DIAGONAL_DOUBLE_ARROW  | ![Top Left Diagonal Double Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer15.png 'Top Left Diagonal Double Arrow Cursor')   |
+| TYPE_TOP_RIGHT_DIAGONAL_DOUBLE_ARROW | ![Top Right Diagonal Double Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer16.png 'Top Right Diagonal Double Arrow Cursor') |
+| TYPE_VERTICAL_DOUBLE_ARROW           | ![Vertical Double Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer17.png 'Vertical Double Arrow Cursor')                     |
+| TYPE_VERTICAL_TEXT                   | ![Vertical Text Cursor Icon](ix://android/pointer-styling/Mouse-Pointer18.png 'Vertical Text Cursor')                                     |
+| TYPE_WAIT                            | ![Wait Cursor Icon](ix://android/pointer-styling/Mouse-Pointer19.gif 'Wait Cursor')                                                       |
+| TYPE_ZOOM_IN                         | ![Zoom In Cursor Icon](ix://android/pointer-styling/Mouse-Pointer20.png 'Zoom In Cursor')                                                 |
+| TYPE_ZOOM_OUT                        | ![Zoom Out Cursor Icon](ix://android/pointer-styling/Mouse-Pointer21.png 'Zoom Out Cursor')                                               |

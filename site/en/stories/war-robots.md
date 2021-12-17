@@ -34,7 +34,7 @@ To kick off the optimizations, Pixonic added a metadata tag in AndroidManifest.x
 
 Pixonic also set the app's minSdk to 24 so that the Unity gaming engine can directly receive mouse clicks and all movement-related API events (not just touchpad events).
 
-### ![](/images/icons/keyboard.png){.icon--rounded} Keyboard and mouse support
+### ![](ix://icons/keyboard.png){.icon--rounded} Keyboard and mouse support
 
 In third-person PvP games like War Robots, moving and aiming is a lot easier using a keyboard and mouse, especially on larger-screen devices. So, the next step was to rewrite the code for keyboard and mouse support for the game's battle mode while retaining touchscreen controls.
 
@@ -71,7 +71,7 @@ public boolean setPointerVisibility(boolean visible) {
 
 This ensured the cursor would be disabled and invisible when all other windows are closed and a battle is in progress. If any pop-up windows appear, such as the pause menu, Pixonic made the cursor visible, displaying its default icon.
 
-### ![](/images/icons/videogame.png){.icon--rounded} Adapting gameplay tutorials and mechanics
+### ![](ix://icons/videogame.png){.icon--rounded} Adapting gameplay tutorials and mechanics
 
 For a better user experience, Pixonic also wrote new code to display different gameplay tutorials based on a user's current device mode. If a player switches between tablet and laptop gameplay during battle and they haven't yet seen a tutorial for the different mode, the tutorial is shown before gameplay resumes.
 
@@ -89,7 +89,7 @@ if (Input.touchCount > 0) {
 }
 ```
 
-### ![](/images/icons/dynamic_feed.png){.icon--rounded} Multi-window support
+### ![](ix://icons/dynamic_feed.png){.icon--rounded} Multi-window support
 
 For the final step, Pixonic wanted to make sure the game didn't lock itself in fullscreen mode when launched. Enabling windowed gameplay in Chrome OS allows users to simultaneously watch their favorite streamers while playing, upgrade their robots while reading about new abilities on the [game's website](https://warrobots.com/), or spectate a battle in passive mode while watching a separate video.
 

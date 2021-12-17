@@ -35,11 +35,11 @@ When building components, we have a set of typography with classes that you shou
 
 ###### Headline 6
 
-## ![keyboard icon](/images/icons/keyboard.png){.icon--rounded} Example 1 of headline with an icon
+## ![keyboard icon](ix://icons/keyboard.png){.icon--rounded} Example 1 of headline with an icon
 
-## ![aspect ratio icon](/images/icons/aspect_ratio.png){.icon--rounded} Example 2 of headline with an icon
+## ![aspect ratio icon](ix://icons/aspect_ratio.png){.icon--rounded} Example 2 of headline with an icon
 
-## ![mouse icon](/images/icons/mouse.png){.icon--rounded} Example 3 of headline with an icon
+## ![mouse icon](ix://icons/mouse.png){.icon--rounded} Example 3 of headline with an icon
 
 This Is A Thing
 

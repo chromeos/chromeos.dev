@@ -21,13 +21,13 @@ Cuando sea posible, permita que sus usuarios usen su aplicación en ambas orient
 
 ### Ejemplo 1
 
-![Reply Material Study](/images/games/optimizing-games-windowing/puzzle-example.jpg)
+![Reply Material Study](ix://games/optimizing-games-windowing/puzzle-example.jpg)
 
 Un juego de rompecabezas es un juego para Android maduro que fue diseñado para teléfonos con retrato. En grandes pantallas de paisaje, se ejecuta con barras negras en el lateral. Debido a que el juego tenía una gran base de usuarios activos y el desarrollador se está enfocando en su próximo título, optaron por agregar una imagen de enfoque suave al fondo para cada nivel y menú para enmarcar el juego, sin requerir una reescritura de la interfaz de usuario. Debido a que están en desarrollo activo para el próximo juego, el desarrollador está incluyendo soporte horizontal en el nuevo título.
 
 ### Ejemplo 2
 
-![Reply Material Study](/images/games/optimizing-games-windowing/racing-example.jpg)
+![Reply Material Study](ix://games/optimizing-games-windowing/racing-example.jpg)
 
 Un juego de carreras de autos diseñado para dispositivos móviles está bloqueado en modo horizontal, para optimizar el espacio de la pantalla para los teléfonos. Últimamente, los usuarios de tabletas y Chrome OS se han quejado de que es difícil de jugar y han pedido soporte para retratos. El desarrollador incluye una verificación del tamaño de la pantalla en su código, y si la pantalla es lo suficientemente grande, se permite el modo vertical. Para permitir la vista amplia requerida para el juego, el contenido se coloca en el centro de la pantalla mientras aparece una barra adicional de interfaz de usuario para el estéreo del automóvil en la parte inferior de la pantalla que permite a los usuarios cambiar fácilmente la estación de radio y el mapa y las estadísticas de carrera se mueven a la parte superior de la pantalla, liberando la vista del parabrisas y mejorando el juego.
 

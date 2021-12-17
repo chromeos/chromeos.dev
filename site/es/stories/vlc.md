@@ -25,11 +25,11 @@ Al optimizar la aplicación de Android para Chrome OS y pantallas más grandes, 
 
 El equipo comenzó señalando qué características preferían los usuarios de VLC en el escritorio, como la entrada del mouse, los menús del botón derecho y asegurarse de que el almacenamiento externo (es decir, los discos duros y las unidades de memoria USB) funcionaba correctamente. A partir de ahí, comenzaron a ajustar el diseño y la funcionalidad de la aplicación para garantizar que los usuarios puedan disfrutar de esas mismas funciones en un entorno similar al de un escritorio.
 
-### ![](/images/icons/keyboard.png) {.icon--rounded} Soporte para teclado y mouse
+### ![](ix://icons/keyboard.png) {.icon--rounded} Soporte para teclado y mouse
 
 Una de las optimizaciones más importantes del equipo fue admitir la entrada de teclado y mouse. Los teclados compatibles permitían a las personas usar accesos directos y botones de dirección para navegar fácilmente por la aplicación, mientras que la entrada del mouse permitía comandos de clic derecho y arrastrar y soltar archivos hacia y desde el reproductor VLC.
 
-### ![](/images/icons/aspect_ratio.png) {.icon--rounded} Redimensionamiento dinámico
+### ![](ix://icons/aspect_ratio.png) {.icon--rounded} Redimensionamiento dinámico
 
 VideoLAN diseñó varias versiones del diseño para permitir a los usuarios escalar y cambiar el tamaño de la aplicación fácilmente. Debido a que el equipo ya había diseñado el diseño de VLC para tabletas, acomodar diseños más grandes y anchos fue un proceso bastante simple. También modificaron la configuración de audio del reproductor para aprovechar el espacio adicional disponible en pantallas más grandes.
 
@@ -39,7 +39,7 @@ Y ahora con [Linux en Chrome OS](/{{locale.code}}/linux) , los desarrolladores p
 
 ![Imagen que muestra varias versiones de diseño, ejemplos de cambio de tamaño dinámico en dispositivos móviles, tabletas y computadoras portátiles.](gs://stories/vlc/vlc-1)
 
-### ![](/images/icons/code.png) {.icon--redondeado} Escribiendo código en Kotlin
+### ![](ix://icons/code.png) {.icon--redondeado} Escribiendo código en Kotlin
 
 Lo mejor de todo es que el equipo hizo todo el trabajo en [Kotlin](https://developer.android.com/kotlin) , un poderoso lenguaje de programación que los ayudó a mejorar la productividad al escribir en un código más seguro y conciso. Al reducir la base de código de la aplicación, pudieron pasar menos tiempo resolviendo problemas y más tiempo optimizando el diseño y la funcionalidad de la aplicación.
 

@@ -15,7 +15,7 @@ Android makes it easy to develop an app that runs well on a wide range of device
 
 If you developed your app for handsets and now want to improve your design on Chrome OS and other large-screen form factors, you can start by making minor adjustments to your layouts, fonts, and spacing. In some cases — such as for 7-inch tablets or a game with large canvas — these adjustments may be all you need to make your app look great. In other cases, such as for larger displays, you can redesign parts of your UI to replace a "stretched UI" with an efficient multi-pane UI, easier navigation, and additional content. Take a look at the [Material Studies](https://material.io/design/material-studies/) done by the Material Design team to see examples of what this may look like for different products. Below you can see what [Reply](https://material.io/design/material-studies/reply.html) looks like for different screen sizes.
 
-![Reply Material Study](/images/android/design/reply.png)
+![Reply Material Study](ix://android/design/reply.png)
 
 Here are some suggestions:
 
@@ -47,7 +47,7 @@ In particular, make sure that your layouts do not appear "stretched" across the 
 
 Chrome OS devices provide significantly more screen real estate to your app. As you consider the UI of your app when running on larger screens, make sure that it’s taking full advantage of the extra screen area available. In both the [Reply](https://material.io/design/material-studies/reply.html) example above and the [Rally](https://material.io/design/material-studies/rally.html) example below, you can see that both apps take a different approach for taking advantage of the screen size increase. Reply adds space to make it look cleaner and friendlier, while Rally throws more data on the screen so users can see more with less scrolling or taps.
 
-![Rally Material Study](/images/android/design/rally.png)
+![Rally Material Study](ix://android/design/rally.png)
 
 A good place to start is by looking at things that may be hidden to the user, and how you can pull them out and make them visible. Whether that is showing more information about an item, making menu's visible that may be hidden behind a right-click or long-press, or showing different or deeper navigation options now that you have a larger left-side navigation area. These are big usability wins that can improve your UX and give a more desktop-like feel to your app, without a complete re-design and overhaul of the current experience.
 

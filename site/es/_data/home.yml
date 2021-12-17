@@ -7,7 +7,7 @@ hero:
     text: Comience a crear
     url: '#home__subnav'
   img:
-    src: '/images/landings/home/hero.png'
+    src: 'ix://landings/home/hero.png'
     alt: 'Se muestran Chromebook, tablet,  teléfono celular, teléfono plegable, lápiz
       óptico, y un mouse. Los dispositivos con pantalla muestran la misma imagen:
       una mezcla de círculos de colores, barras redondeadas, y líneas en rojo, amarillo,
@@ -50,16 +50,16 @@ onAndWith:
       modifiers:
         offset: true
       images:
-        - src: '/images/landings/home/linux-laptop-base.png'
+        - src: 'ix://landings/home/linux-laptop-base.png'
           alt: Un Chromebook
-        - src: '/images/landings/home/android-studio.png'
+        - src: 'ix://landings/home/android-studio.png'
           alt: Android Studio ejecutándose en Chrome OS.
-        - src: '/images/landings/home/terminal.png'
+        - src: 'ix://landings/home/terminal.png'
           alt: La aplicación Terminal para Linux en Chrome OS.
       image:
         alt: Una Chromebook que muestra un primer plano de la interfaz de Android Studio
           y la línea de comando de Linux abierto.
-        src: '/images/landings/home/laptop-linux.png'
+        src: 'ix://landings/home/laptop-linux.png'
     - content:
         title: Catalice su último proyecto con recursos de diseño para Chrome OS
         copy: Encuentre todo lo que necesita saber sobre el diseño de su aplicación
@@ -72,12 +72,12 @@ onAndWith:
       modifiers:
         offset: true
       images:
-        - src: '/images/landings/home/design-resources-laptop.png'
+        - src: 'ix://landings/home/design-resources-laptop.png'
           alt: Una aplicación de pantalla grande en una computadora portátil que muestra
             cómo elementos específicos, resaltados en azul, amarillo, verde y rojo, se
             han adaptado de una aplicación de pantalla pequeña en un teléfono (la siguiente
             imagen).
-        - src: '/images/landings/home/design-resources-phone.png'
+        - src: 'ix://landings/home/design-resources-phone.png'
           alt: Una aplicación de pantalla pequeña en un teléfono con elementos resaltados
             en azul y amarillo antes de adaptarse a una aplicación de pantalla grande
             (la imagen anterior).
@@ -85,7 +85,7 @@ onAndWith:
         alt: Muestra un diseño de aplicación que funcione para dispositivos móviles (como se muestra en un teléfono) también
           como en una pantalla de escritorio. El diseño muestra elementos similares, incluidos bloques.
           de color en el espectro de Google (azul, amarillo, verde y rojo).
-        src: '/images/landings/home/laptop-design-guidelines.png'
+        src: 'ix://landings/home/laptop-design-guidelines.png'
 posts:
   title: Lo último sobre Chrome OS
   modifiers:

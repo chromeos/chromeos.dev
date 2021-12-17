@@ -17,7 +17,7 @@ Su dispositivo Chrome OS normalmente está en un canal estable. El canal **estab
 
 Para cambiar en qué canal estás, abre "Configuración" -> "Acerca de Chrome OS" -> "Detalles adicionales" y haz clic en el botón "Cambiar canal". Esto le mostrará un cuadro de diálogo donde puede cambiar su canal de Chrome OS. El cambio de canales requerirá una descarga de la nueva información del canal y un reinicio para poder aplicar.
 
-#1[cuadro de diálogo para selección de canal de Chrome OS](/images/productivity/change-channels.png)
+#1[cuadro de diálogo para selección de canal de Chrome OS](ix://productivity/change-channels.png)
 
 ## Banderas de funciones experimentales
 
@@ -48,7 +48,7 @@ Para ingresar al modo desarrollador, complete estos pasos:
 
 Si ve una de las pantallas de la [Figura 2](#figure-2) cuando enciende su dispositivo, ha entrado con éxito en el modo desarrollador.
 
-#2[Pantallas de confirmación del modo desarrollador.](/images/android/dev-mode/verification.jpg)
+#2[Pantallas de confirmación del modo desarrollador.](ix://android/dev-mode/verification.jpg)
 
 !!! aside.message--note
 **Nota** : Para omitir la pantalla de carga del sistema operativo, espere 30 segundos o presione [[Control]]+[[D]], y su Chromebook continuará iniciando.

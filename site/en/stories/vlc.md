@@ -25,11 +25,11 @@ By optimizing the Android app for Chrome OS and larger screens — as well as su
 
 The team started by noting which features VLC users preferred on desktop, such as mouse input, right-click menus, and making sure external storage (i.e., hard drives and USB thumb drives) worked just right. From there, they started adjusting the app's layout and functionality to ensure users could enjoy those same features in a desktop-like environment.
 
-### ![](/images/icons/keyboard.png){.icon--rounded} Keyboard and mouse support
+### ![](ix://icons/keyboard.png){.icon--rounded} Keyboard and mouse support
 
 One of the team's most important optimizations was to support keyboard and mouse input. Supporting keyboards allowed people to use shortcuts and direction buttons to easily navigate the app, while mouse input enabled right-click commands and file drag-and-drop to and from the VLC player.
 
-### ![](/images/icons/aspect_ratio.png){.icon--rounded} Dynamic resizing
+### ![](ix://icons/aspect_ratio.png){.icon--rounded} Dynamic resizing
 
 VideoLAN designed multiple versions of the layout to allow users to easily scale and resize the app. Because the team had already designed VLC's layout for tablets, accommodating larger, wider layouts was a fairly simple process. They also tweaked the player's audio settings to take advantage of the extra real estate available on larger screens.
 
@@ -39,7 +39,7 @@ And now with [Linux on Chrome OS](/{{locale.code}}/linux), developers can use An
 
 ![Image showing multiple versions of layout, examples of dynamic resizing across Mobile, Tablet and Laptop devices.](gs://stories/vlc/vlc-1)
 
-### ![](/images/icons/code.png){.icon--rounded} Writing code in Kotlin
+### ![](ix://icons/code.png){.icon--rounded} Writing code in Kotlin
 
 Best of all, the team did all the work in [Kotlin](https://developer.android.com/kotlin), a powerful programming language that helped them improve productivity by writing in safer and more concise code. By reducing the app's codebase, they were able to spend less time troubleshooting issues and more time optimizing the app's layout and functionality.
 

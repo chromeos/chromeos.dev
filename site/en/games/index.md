@@ -2,7 +2,7 @@
 title: Games on Chrome OS
 metadesc: Create games for Chrome OS
 hero:
-  image: /images/landings/games-hero.svg
+  image: ix://landings/games-hero.svg
   alt: Illustration of a several inputs connected to a Chrome OS device.
 date: 2020-06-16
 weight: -11

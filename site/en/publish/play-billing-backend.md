@@ -59,7 +59,7 @@ Every time you verify a subscription, your backend should check if the `linkedPu
 
 For example, when the backend receives the purchase token A for the initial purchase, with an empty `linkedPurchaseToken` field, it enables entitlement for that token. Later, when the backend receives the new purchase token B after the upgrade, it checks the `linkedPurchaseToken` field, sees that it is set to A, and disables entitlement for purchase token A.
 
-![How to handle linked purchase tokens during a subscription upgrade.](/images/publish/play-billing-backend/linked-purchase-token.png)
+![How to handle linked purchase tokens during a subscription upgrade.](ix://publish/play-billing-backend/linked-purchase-token.png)
 
 For a detailed discussion of `linkedPurchaseToken` implementation, visit [Implementing `linkedPurchaseToken` correctly to prevent duplicate subscriptions](https://medium.com/androiddevelopers/implementing-linkedpurchasetoken-correctly-to-prevent-duplicate-subscriptions-82dfbf7167da).
 

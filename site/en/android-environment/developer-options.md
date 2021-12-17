@@ -18,7 +18,7 @@ You can configure additional Android developer options:
 2.  Navigate to **Apps** and select **Google Play Store**.
 3.  Click **Manage Android preferences** to bring up the Android settings. You may want to right-click on the Android settings icon in the shelf and pin it there to get faster access in the future.
 
-![The Chrome OS and Android settings icons look very similar, but for Android settings, the gear is slightly larger and the background color is green.](/images/develop/android/developer-options/android_settings.png)
+![The Chrome OS and Android settings icons look very similar, but for Android settings, the gear is slightly larger and the background color is green.](ix://develop/android/developer-options/android_settings.png)
 
 4.  Go to **System**, you should see the **Developer options** menu. If you don't, then do the following:
     - Click **About device**.

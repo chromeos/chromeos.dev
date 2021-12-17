@@ -31,7 +31,7 @@ There are also a number of [unique keys](https://support.google.com/chromebook/a
 
 Many of the default key bindings on your Chrome OS device can be changed, including the search, assistant, control, and alt keys. To change the key bindings to suit your preferences, open Chrome OS's settings and navigate to "Device" -> "Keyboard"; you should see a list of keys whose bindings can be remaped:
 
-![Keyboard settings for changing key bindings](/images/productivity/keyboard-settings.png)
+![Keyboard settings for changing key bindings](ix://productivity/keyboard-settings.png)
 
 ## Touchpad gestures
 
@@ -45,6 +45,6 @@ The touchpad or trackpad supports useful to know swipe and tap functionalities:
 
 Some users coming from other platforms to Chrome OS may notice that the touchpad scrolling seems to be inverted for them. Perhaps, you want to turn on/off tap-to-click. Open Chrome OS's settings and navigate to "Device" -> "Touchpad" for touchpad functionality settings.
 
-![Touchpad settings options menu.](/images/productivity/touchpad-settings.png)
+![Touchpad settings options menu.](ix://productivity/touchpad-settings.png)
 
 If you would like to know more, check out how else to use your [Chromebook touchpad](https://support.google.com/chromebook/answer/1047367)

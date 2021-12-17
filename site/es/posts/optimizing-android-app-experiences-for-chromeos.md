@@ -11,7 +11,7 @@ tags:
 authors:
   - nataliagvak
 hero:
-  image: /images/posts/optimizing-android-app-experiences-for-chromeos/hero.png
+  image: ix://posts/optimizing-android-app-experiences-for-chromeos/hero.png
   alt: Ilustración de teléfonos inteligentes, computadoras portátiles y tabletas con conexiones de línea de puntos.
 date: 2019-09-09
 ---
@@ -75,7 +75,7 @@ Android Studio simplifica el soporte: al usar paquetes de aplicaciones de Androi
 
 Probablemente haya visto una aplicación móvil que no ha sido diseñada para una pantalla más grande: mucho espacio desperdiciado y navegación torpe. Para asegurarse de que su aplicación se vea bien en varios diseños, puede usar un archivo de recursos con múltiples opciones de diseño para cada tamaño de pantalla.
 
-![Múltiples archivos activity_main.xml para diferentes diseños](/images/posts/optimizing-android-app-experiences-for-chromeos/multiple-activity-main-xml.png)
+![Múltiples archivos activity_main.xml para diferentes diseños](ix://posts/optimizing-android-app-experiences-for-chromeos/multiple-activity-main-xml.png)
 
 ### Patrones de navegación
 
@@ -83,7 +83,7 @@ Su aplicación también debería ser fácil de usar en diferentes tamaños de pa
 
 Reply, una aplicación de correo electrónico, [rediseñó su diseño](https://material.io/design/material-studies/reply.html#about-reply) para la funcionalidad y facilidad de uso en múltiples pantallas, y aunque Adobe Acrobat optimizó la funcionalidad de su aplicación para Chrome OS, la marca también rediseñó todo su diseño para diferentes dispositivos.
 
-![Diferentes patrones de navegación en diferentes tamaños y orientaciones de pantalla.](/images/posts/optimizing-android-app-experiences-for-chromeos/navigation-patterns.png)
+![Diferentes patrones de navegación en diferentes tamaños y orientaciones de pantalla.](ix://posts/optimizing-android-app-experiences-for-chromeos/navigation-patterns.png)
 
 ### Monitores múltiples
 

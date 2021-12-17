@@ -22,7 +22,7 @@ The implementation of Android apps on Chrome OS includes basic multi-window supp
 
 Users can resize the window that contains your Android app, as shown in figure 1. To ensure that your free-form windows resize smoothly and are able to display their entire contents to the user, read the guidelines in [Window Management](/{{locale.code}}/android/window-management).
 
-#1[A resizable app window](/images/android/window-management/resizable.png)
+#1[A resizable app window](ix://android/window-management/resizable.png)
 
 You can improve the user experience when your app runs on Chrome OS by following these best practices:
 
@@ -49,9 +49,9 @@ You should ensure that:
 - All touch scrollable surfaces scroll on mouse wheel events
 - Hover states are implemented with intention and best judgment to improve UI discovery without overwhelming the user.
 
-#2[Scrolling with mouse wheel](/images/android/optimizing/scroll-on-mousewheel.png)
+#2[Scrolling with mouse wheel](ix://android/optimizing/scroll-on-mousewheel.png)
 
-#3[Button hover states](/images/android/optimizing/hover-states.png)
+#3[Button hover states](ix://android/optimizing/hover-states.png)
 
 Where appropriate, you should differentiate between mouse and touch inputs. For example, long pressing an item could trigger a multi-select UI while right clicking the same item could trigger an options menu instead.
 
@@ -72,9 +72,9 @@ The `PointerIcon` class provides [constants](https://developer.android.com/refer
 
 Since every Chromebook has a physical keyboard, you should provide hotkeys to allow your users to be more productive. For example, if your app supports printing, you can use **Control + P** to open a print dialog. Similarly, all important UI elements should also be handled by [tab navigation](https://developer.android.com/training/keyboard-input/navigation.html#Tab). This is especially important for accessibility. To meet accessibility standards, however, all UI surfaces should have obvious and accessibility-compliant focused states.
 
-#4[Transversal tabbing](/images/android/optimizing/transversal-tabbing.png)
+#4[Transversal tabbing](ix://android/optimizing/transversal-tabbing.png)
 
-#5[Replacing a swipe gesture with a control that appears on hover](/images/android/optimizing/hover-controls.png)
+#5[Replacing a swipe gesture with a control that appears on hover](ix://android/optimizing/hover-controls.png)
 
 You should also make sure to implement keyboard or mouse alternatives to core features hidden under touch-specific interactions, such as long presses, swipes, or other multi-touch gestures. An example solution would be to provide buttons that appear on a surface on hover.
 
@@ -84,13 +84,13 @@ To attain desktop grade functionality for your app, consider these extra, produc
 
 ### Context menus
 
-![A context menu appearing on right click](/images/android/optimizing/contextual-menu.png)
+![A context menu appearing on right click](ix://android/optimizing/contextual-menu.png)
 
 Android context menus, which are another accelerator for taking users to features of your app, can be triggered by a click of a mouse or trackpad's secondary button, or through a long press on a touchscreen.
 
 ### Drag and drop
 
-![Drag and drop in a file tree interface](/images/android/optimizing/drag-and-drop.png)
+![Drag and drop in a file tree interface](ix://android/optimizing/drag-and-drop.png)
 
 Building drag and drop interactions can bring efficient, intuitive productivity functionality to your app. For more information, see [Drag and drop](https://developer.android.com/guide/topics/ui/drag-drop.html).
 
@@ -100,7 +100,7 @@ Stylus support is crucial for drawing and note taking apps. Provide enhanced sup
 
 ## Make your layouts responsive
 
-![Responsive Layout](/images/android/optimizing/responsive-layout.png)
+![Responsive Layout](ix://android/optimizing/responsive-layout.png)
 
 Your app should make good use of the screen real estate available regardless of the visual state (fullscreen, portrait, landscape, windowed). Some examples of good space usage include but are not limited to:
 

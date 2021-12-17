@@ -8,7 +8,7 @@ tags:
 authors:
   - ssamat
 hero:
-  image: /images/posts/expand-your-app-beyond-mobile-to-reach-android-users-at-large/hero.png
+  image: ix://posts/expand-your-app-beyond-mobile-to-reach-android-users-at-large/hero.png
   alt: Android generic banner
   position: bottom
 date: 2019-09-05
@@ -39,7 +39,7 @@ From the start, Android was designed as a platform that could handle multiple sc
 - In Android 3.0 Honeycomb, we added support for **tablets**. In particular, capabilities like `Fragment`'s allow you to create applications that work across vastly different form factors.
 - Android 7 Nougat brought multi-window and multi-display capabilities, including the ability to drag-and-drop across apps. Meanwhile, Chrome OS added the [capability](/{{locale.code}}/android) to run Android applications on **laptops**. With some adjustments to handle different inputs and windowing dynamics, you could now reach app users in a desktop-style environment.
 
-#[Android's layout system helps applications smoothly resize and adjust their layout interactively.](/images/posts/expand-your-app-beyond-mobile-to-reach-android-users-at-large/free-form-resizing.gif)
+#[Android's layout system helps applications smoothly resize and adjust their layout interactively.](ix://posts/expand-your-app-beyond-mobile-to-reach-android-users-at-large/free-form-resizing.gif)
 
 - Now, in [Android 10](https://developer.android.com/about/versions/10), we’ve made even more enhancements for development on large screens. We’ve improved multi-window capabilities, making it easier to use multiple apps in parallel. We also continued improving multi-display support, enabling more multi-monitor use cases. And we made it easy for you to experiment and test new form factors by adding dedicated emulator for **foldables** as well as publishing a [foldables guide](https://developer.android.com/guide/topics/ui/foldables).
 

@@ -17,7 +17,7 @@ tags:
 authors:
   - bgable
 hero:
-  image: /images/posts/gdc-2019-recap/hero.png
+  image: ix://posts/gdc-2019-recap/hero.png
   alt: Illustration of laptop and foldable device.
 date: 2019-05-02
 ---
@@ -104,7 +104,7 @@ Keep in mind that the values you’re expecting might be swapped on different de
 
 You’ll also need to consider the resolution of the user’s device. Bigger screens call for higher resolution assets, so you can use app bundles to package your game’s code and assets for different device configurations. That way, Google Play will only deliver the correct assets for the particular device your game is downloaded on — for example, omitting ultra-high-resolution assets for smaller screened devices. This saves you valuable download space and the trouble of maintaining multiple APKs for different screen densities.
 
-![Android App Bundle components](/images/posts/gdc-2019-recap/android-app-bundle.png)
+![Android App Bundle components](ix://posts/gdc-2019-recap/android-app-bundle.png)
 
 Remember that with more pixels comes greater flexibility on UI and HUD design. When users are playing on a larger screen — and they’re likely to be sitting farther from the screen — consider the elements you can expand, add, or change to make sure everything on screen is readable and identifiable.
 
@@ -116,11 +116,11 @@ A lot of new devices are also convertibles that can switch configurations on the
 
 To start, you might declare support for configuration events related to input devices, such as keyboards.
 
-![Code snippet for declaring keyboard support for configuration changes. Image shows keyboard instructions displayed during gameplay.](/images/posts/gdc-2019-recap/config-keyboard-support.png)
+![Code snippet for declaring keyboard support for configuration changes. Image shows keyboard instructions displayed during gameplay.](ix://posts/gdc-2019-recap/config-keyboard-support.png)
 
 Then, you can query `InputManager` at startup or during configuration changes and switch from a touch-based control scheme to a keyboard control scheme if there is no touch screen or a keyboard becomes available. In this case, you also want to make sure the keyboard is usable even though `InputManager` says there’s one available. After all, it could be a Chromebook in tablet mode.
 
-![Code snippet for detecting keyboard and mouse presence. Image shows keyboard instructions displayed during gameplay.](/images/posts/gdc-2019-recap/detect-keyboard-and-mouse.png)
+![Code snippet for detecting keyboard and mouse presence. Image shows keyboard instructions displayed during gameplay.](ix://posts/gdc-2019-recap/detect-keyboard-and-mouse.png)
 
 If keyboard support was an afterthought when designing your game, consider implementing some features like the ones below to drastically improve its accessibility:
 

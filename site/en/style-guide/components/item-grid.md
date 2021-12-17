@@ -130,43 +130,43 @@ examples:
     arguments:
       title: Developer news and resources to get you up and running
       items:
-        - logo: /images/landings/home/android-logo.png
+        - logo: ix://landings/home/android-logo.png
           cta:
             url: https://android-developers.googleblog.com/
             text: Android Developers Blog
-        - logo: /images/landings/home/twitter-logo.png
+        - logo: ix://landings/home/twitter-logo.png
           cta:
             url: https://twitter.com/AndroidDev
             text: Android Developers Twitter Channel
-        - logo: /images/landings/home/youtube-logo.png
+        - logo: ix://landings/home/youtube-logo.png
           cta:
             url: https://www.youtube.com/user/androiddevelopers
             text: Android Developers YouTube Channel
-        - logo: /images/landings/home/twitter-logo.png
+        - logo: ix://landings/home/twitter-logo.png
           cta:
             url: https://twitter.com/ChromiumDev
             text: Chrome Developers Twitter Channel
-        - logo: /images/landings/home/github-logo.png
+        - logo: ix://landings/home/github-logo.png
           cta:
             url: https://github.com/googlechrome
             text: Chrome OS on Github
-        - logo: /images/landings/home/codelabs-logo.png
+        - logo: ix://landings/home/codelabs-logo.png
           cta:
             url: https://developers.google.com/web/fundamentals/codelabs/
             text: Codelabs & Code Samples
-        - logo: /images/landings/home/medium-logo.png
+        - logo: ix://landings/home/medium-logo.png
           cta:
             url: https://medium.com/googleplaydev
             text: Google Play on Medium
-        - logo: /images/landings/home/reddit-logo.png
+        - logo: ix://landings/home/reddit-logo.png
           cta:
             url: https://www.reddit.com/r/chromeos/
             text: Chrome OS Reddit community
-        - logo: /images/landings/home/stackoverflow-logo.png
+        - logo: ix://landings/home/stackoverflow-logo.png
           cta:
             url: https://stackoverflow.com/questions/tagged/google-chrome-os
             text: Stack Overflow
-        - logo: /images/landings/home/webdev-logo.png
+        - logo: ix://landings/home/webdev-logo.png
           cta:
             url: https://web.dev/
             text: web.dev

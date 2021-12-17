@@ -22,13 +22,13 @@ tags:
 
 ## Que hicieron
 
-### ![](/images/icons/memory.png) {.icon--rounded} Gráficos de alto rendimiento
+### ![](ix://icons/memory.png) {.icon--rounded} Gráficos de alto rendimiento
 
 La primera prioridad del equipo era garantizar que Chrome OS pudiera admitir el diseño nítido y el rendimiento continuo de Concepts en todos los dispositivos. Concepts ejecuta código de GPU de bajo nivel altamente optimizado. Debido a que Android tiene tantos dispositivos diferentes en el mercado, TopHatch estaba preocupado por garantizar un rendimiento rápido en cada controlador. Después de evaluar las capacidades de Chrome OS con los ingenieros de Google, TopHatch descubrió que los gráficos del sistema operativo eran consistentes y compatibles en todos los dispositivos. Eso significaba que crear la aplicación para obtener el máximo rendimiento en cada controlador de GPU era mucho más fácil de lo esperado. El equipo finalmente terminó con cinco variaciones de su motor de renderizado, lo que permite que Concepts funcione maravillosamente en alrededor de 2.500 dispositivos después de establecer Android 7 y OpenGL ES 3.1 como requisitos mínimos. Después de crear Conceptos para Chrome OS, TopHatch fue un paso más allá y adaptó la aplicación para dispositivos plegables. Debido a que Chrome OS ya es totalmente compatible con el cambio de tamaño dinámico de la pantalla, el equipo pudo completar las optimizaciones en solo medio día.
 
 @ [youtube](https://www.youtube.com/watch?v=QtckOSCYW5w)
 
-### ![](/images/icons/keyboard.png) {.icon--rounded} Soporte de teclado y lápiz óptico de baja latencia
+### ![](ix://icons/keyboard.png) {.icon--rounded} Soporte de teclado y lápiz óptico de baja latencia
 
 La interacción del lápiz óptico suave y rápida es el corazón de la experiencia de Concepts. Los diseñadores digitales quieren sentir que la tinta fluye del lápiz óptico como un bolígrafo real. Con ese fin, el siguiente objetivo de TopHatch era asegurarse de que la demora desde la recepción de la entrada táctil hasta la representación de los trazos en la pantalla fuera lo más mínima posible.
 

@@ -19,7 +19,7 @@ La implementación de aplicaciones de Android en Chrome OS incluye soporte bási
 
 Los usuarios pueden cambiar el tamaño de la ventana que contiene su aplicación de Android, como se muestra en la figura 1. Para asegurarse de que sus ventanas de formato libre cambien de tamaño sin problemas y puedan mostrar todo su contenido al usuario, lea las pautas en [Administración de ventanas](/{{locale.code}}/android/window-management).
 
-#1[Una ventana de aplicación redimensionable](/images/android/window-management/resizable.png)
+#1[Una ventana de aplicación redimensionable](ix://android/window-management/resizable.png)
 
 Puede mejorar la experiencia del usuario cuando su aplicación se ejecuta en Chrome OS siguiendo estas prácticas recomendadas:
 
@@ -44,9 +44,9 @@ Todas las aplicaciones para Chrome OS deben ser compatibles con mouse, trackpad 
 - Todas las superficies de desplazamiento táctil se desplazan en los eventos de la rueda del mouse
 - Los estados de desplazamiento (hover) se implementan con la intención y el mejor criterio para mejorar el descubrimiento de la interfaz de usuario sin abrumar al usuario.
 
-#2[Desplazarse con la rueda del mouse](/images/android/optimizing/scroll-on-mousewheel.png)
+#2[Desplazarse con la rueda del mouse](ix://android/optimizing/scroll-on-mousewheel.png)
 
-#3[Estados de flotar el puntero del ratón sobre elementos](/images/android/optimizing/hover-states.png)
+#3[Estados de flotar el puntero del ratón sobre elementos](ix://android/optimizing/hover-states.png)
 
 Cuando corresponda, debe diferenciar entre el mouse y las entradas táctiles. Por ejemplo, mantener presionado un elemento podría desencadenar una IU de selección múltiple, mientras que hacer clic derecho en el mismo elemento podría desencadenar en cambio un menú de opciones.
 
@@ -67,9 +67,9 @@ La clase `PointerIcon` proporciona [constantes](https://developer.android.com/re
 
 Dado que las Chromebook tienen teclados físicios, su aplicación debería incluir atajos para incrementar la productividad del usuario. Por ejemplo si es posible imprimir desde su aplicación, se podría usar **Control+P** para abrir un dialog de imprimir. También todos los elementos cruciales en la UI deben ser manejados a través [navegación con tab](https://developer.android.com/training/keyboard-input/navigation?hl={{locale.code}}#Tab). Esto es especialmente importante para accesibilidad. Sin embargo, para cumplir con estandares de accesibilidad, todas las superficies en la UI deben tener estados al enfocar visibles y que sean accesibles.
 
-#4[tabulación transversal](/images/android/optimizing/transversal-tabbing.png)
+#4[tabulación transversal](ix://android/optimizing/transversal-tabbing.png)
 
-#5[Reemplazar un gesto de deslizar con un control que aparece al flotar el puntero del mouse sobre elementos](/images/android/optimizing/hover-controls.png)
+#5[Reemplazar un gesto de deslizar con un control que aparece al flotar el puntero del mouse sobre elementos](ix://android/optimizing/hover-controls.png)
 
 También debe asegurarse de implementar alternativas de teclado o mouse a las funciones principales ocultas bajo interacciones específicas del tacto, como pulsaciones prolongadas, deslizamientos u otros gestos multitáctiles. Una solución de ejemplo sería proporcionar botones que aparecen en una superficie al pasar el mouse.
 
@@ -79,13 +79,13 @@ Para lograr la funcionalidad de escritorio para su aplicación, considere estas 
 
 ### Menús contextuales
 
-![Un menú contextual que aparece al hacer clic derecho](/images/android/optimizing/contextual-menu.png)
+![Un menú contextual que aparece al hacer clic derecho](ix://android/optimizing/contextual-menu.png)
 
 Los menús contextuales de Android, que son otro acelerador para llevar a los usuarios a las funciones de su aplicación, pueden activarse haciendo clic con el botón secundario de un mouse o trackpad, o presionando una pantalla táctil.
 
 ### Arrastrar y soltar
 
-![Arrastrar y soltar en una interfaz de navegación de archivos](/images/android/optimizing/drag-and-drop.png)
+![Arrastrar y soltar en una interfaz de navegación de archivos](ix://android/optimizing/drag-and-drop.png)
 
 Construir interacciones de arrastrar y soltar puede brindar una funcionalidad de productividad eficiente e intuitiva a su aplicación. Para obtener más información, consulte [Arrastrar y soltar](https://developer.android.com/guide/topics/ui/drag-drop?hl={{locale.code}}) .
 
@@ -95,7 +95,7 @@ El soporte de stylus es crucial para dibujar y tomar notas. Proporcione un sopor
 
 ## Haz que tus diseños sean adaptables
 
-![Diseño adaptable](/images/android/optimizing/responsive-layout.png)
+![Diseño adaptable](ix://android/optimizing/responsive-layout.png)
 
 Su aplicación debe hacer un buen uso del espacio de la pantalla disponible independientemente del estado visual (pantalla completa, retrato, paisaje, ventana). Algunos ejemplos de buen uso del espacio incluyen, entre otros, los siguientes:
 

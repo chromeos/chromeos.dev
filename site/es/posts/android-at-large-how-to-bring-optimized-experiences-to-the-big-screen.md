@@ -14,7 +14,7 @@ tags:
 authors:
   - kennethford
 hero:
-  image: /images/posts/android-at-large/hero.jpg
+  image: ix://posts/android-at-large/hero.jpg
   alt: Diseño que muestra varios dispositivos Android y equipos de tamaño variable.
 date: 2020-04-21
 ---
@@ -23,7 +23,7 @@ _Este artículo apareció originalmente en Android Developers Medium._
 
 Para muchas personas, Android es sinónimo de teléfonos inteligentes, lo que no es sorprendente teniendo en cuenta que más de 2.500 millones de usuarios ejecutan Android en dispositivos de teléfonos inteligentes. Sin embargo, los dispositivos Android ahora vienen en muchas formas, tamaños y capacidades diferentes: desde dispositivos portátiles y dispositivos de acondicionamiento físico hasta automóviles, computadoras portátiles y televisores.
 
-![Conjunto de dispositivos Android](/images/posts/android-at-large/android-devices.jpg)
+![Conjunto de dispositivos Android](ix://posts/android-at-large/android-devices.jpg)
 
 En este artículo, analizamos cómo crear excelentes experiencias para los dispositivos con pantallas más grandes: tabletas, plegables, computadoras portátiles y dispositivos de escritorio. Cubriemos:
 
@@ -61,13 +61,13 @@ Sin embargo, si el contenido de su aplicación no es adecuado para ciertas relac
 
 Los patrones de navegación pueden romperse cuando comienzas a admitir una variedad de dispositivos diferentes. Por ejemplo, tome la navegación inferior, aquí en una aplicación simple de visor de fotos.
 
-![Navegación inferior en un entorno de teléfono y escritorio](/images/posts/android-at-large/bottom-navigation.jpg)
+![Navegación inferior en un entorno de teléfono y escritorio](ix://posts/android-at-large/bottom-navigation.jpg)
 
 Esta navegación funciona bien en teléfonos inteligentes. Es fácil saber dónde están los objetivos táctiles, dónde termina un elemento y dónde comienza el otro. Sin embargo, cuando se ejecuta en un entorno de escritorio, con una pantalla amplia, se hace difícil determinar dónde terminan los elementos y qué es accionable.
 
 Para pantalla grande, un mejor enfoque es colocar opciones en el lado izquierdo de la pantalla. Si alguien está usando su aplicación en una tableta, esta posición coloca las opciones cerca de donde su mano sostiene el dispositivo, haciendo que la selección sea más conveniente.
 
-![Navegación del lado izquierdo en el entorno de escritorio](/images/posts/android-at-large/left-navigation.jpg)
+![Navegación del lado izquierdo en el entorno de escritorio](ix://posts/android-at-large/left-navigation.jpg)
 
 La navegación del lado izquierdo también es un paradigma al que las personas están acostumbradas desde las páginas web.
 
@@ -77,7 +77,7 @@ El ejemplo del visor de fotos muestra que cuando simplemente reutiliza el diseñ
 
 Por ejemplo, los elementos de opción en un menú que se desborda podrían mostrarse. Entonces, en lugar de tener que hacer tres toques para editar, las personas pueden seleccionar esa opción directamente ahora que hay espacio para colocarla allí.
 
-![Extrajo el menú de opciones que muestra todas las opciones en el espacio extra de la pantalla.](/images/posts/android-at-large/pulled-out-options-menu.jpg)
+![Extrajo el menú de opciones que muestra todas las opciones en el espacio extra de la pantalla.](ix://posts/android-at-large/pulled-out-options-menu.jpg)
 
 Las pantallas más grandes también permiten ofrecer experiencias más inmersivas. Por ejemplo, en una aplicación de visualización de medios o productividad, hay muchas más formas de mantener a las personas comprometidas. Sin embargo, vale la pena señalar que no hay una solución única para usar este espacio adicional.
 
@@ -85,7 +85,7 @@ Mientras tanto, vale la pena echarle un vistazo a los [Estudios de Material Desi
 
 Uno de los estudios es [Reply](https://material.io/design/material-studies/reply.html) , un cliente de correo electrónico creado con objetivos diseñados de claridad, legibilidad, intuición y facilidad de uso al proyectar amabilidad y competencia para su marca.
 
-![Aplicación Reply en varios tamaños de pantalla.](/images/posts/android-at-large/reply-various-screen-sizes.jpg)
+![Aplicación Reply en varios tamaños de pantalla.](ix://posts/android-at-large/reply-various-screen-sizes.jpg)
 
 En este estudio, el contenido del mensaje no cambia significativamente entre los distintos tamaños de pantalla. Sin embargo, la navegación cambia de una navegación inferior en el diseño del teléfono inteligente a un cajón de navegación en pantallas más grandes, que aparece de forma predeterminada en las pantallas más grandes.
 
@@ -93,7 +93,7 @@ Este ejemplo muestra cómo el espacio extra en pantallas más grandes no necesit
 
 Otro estudio es [Rally](https://material.io/design/material-studies/rally.html) , una aplicación financiera, que está diseñada para mostrar la mayor cantidad de información posible para que los usuarios puedan ver rápidamente lo que necesitan para tomar decisiones sobre sus finanzas, y luego salir y seguir con su vida.
 
-![Aplicación Rally en varios tamaños de pantalla.](/images/posts/android-at-large/rally-various-screen-sizes.jpg)
+![Aplicación Rally en varios tamaños de pantalla.](ix://posts/android-at-large/rally-various-screen-sizes.jpg)
 
 ### Patrones de entrada
 
@@ -134,7 +134,7 @@ La continuidad de la aplicación es la capacidad de una aplicación para restaur
 
 En los teléfonos inteligentes, el caso principal, la rotación, generalmente se basa en el contexto, como cambiar a modo horizontal para ver un video. En dispositivos de pantalla más grande, con su soporte para múltiples ventanas, el enfoque para la continuidad de la aplicación se convierte en la necesidad de volver a dibujar y rediseñar su aplicación con un mínimo de distorción. En esta animación, la aplicación Play Store pasa de una ventana más pequeña con una navegación inferior a una ventana grande con navegación del lado izquierdo.
 
-![Transición de aplicaciones sin problemas en teléfonos plegables](/images/posts/android-at-large/foldables.gif)
+![Transición de aplicaciones sin problemas en teléfonos plegables](ix://posts/android-at-large/foldables.gif)
 
 Para lograr una transición sin problemas, asegúrese de que sus métodos onCreate y ciclo de vida se puedan reciclar rápidamente. Para hacer esto, asegúrese de no realizar operaciones de red o lecturas de memoria grandes en esos métodos. Además, este tipo de tareas realizadas con esos métodos a menudo provocan bloqueos, lo que genera una mala experiencia del usuario.
 
@@ -142,7 +142,7 @@ El indicador [`resizeableActivity`](https://developer.android.com/guide/topics/m
 
 Pero, si tiene una actividad configurada para que no se pueda cambiar su tamaño y su orientación esté bloqueada, el nuevo modo de compatibilidad en Android 10 ayuda a garantizar que su aplicación no tendrá un cambio de configuración cuando se despliegue un dispositivo.
 
-![Actividad que se ejecuta en modo compatibilidad en dispositivo plegable cuando se despliega](/images/posts/android-at-large/folded-to-unfolded.jpg)
+![Actividad que se ejecuta en modo compatibilidad en dispositivo plegable cuando se despliega](ix://posts/android-at-large/folded-to-unfolded.jpg)
 
 En el modo de compatibilidad, en la esquina inferior derecha, hay un botón de reinicio de actividad o aplicación para que el usuario reinicie la aplicación. Este botón permite que su aplicación obtenga la nueva configuración global y dibuje en la pantalla disponible.
 
@@ -166,7 +166,7 @@ Con la reanudación múltiple, todas las actividades visibles están en el estad
 
 Este cambio se ha realizado de una manera que minimiza las alteraciones que se deben realizar: en la mayoría de los casos, no debe haber cambios necesarios para que su aplicación funcione en múltiples reanudaciones. Sin embargo, es posible que deba realizar cambios en los recursos que solo pueden manejar el acceso exclusivo.
 
-![Tres actividades que desean usar la cámara en el mismo dispositivo](/images/posts/android-at-large/multiple-camera-activities.jpg)
+![Tres actividades que desean usar la cámara en el mismo dispositivo](ix://posts/android-at-large/multiple-camera-activities.jpg)
 
 Por ejemplo, si hay tres actividades que desean utilizar la cámara, solo una puede acceder a la cámara. En este caso, debe manejar la devolución de llamada `onDisconnect` desde la cámara y escuchar la disponibilidad de la cámara. Tenga en cuenta que establecer `resizeActivity` en `false` no garantizará el acceso a estos recursos porque puede tener una actividad flotante encima de su actividad o una pantalla secundaria con una actividad que quiera usar la cámara.
 

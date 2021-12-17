@@ -31,11 +31,11 @@ Al crear componentes, tenemos un conjunto de tipografía con clases que debe usa
 
 ###### Título 6
 
-## ![icono de teclado](/images/icons/keyboard.png) {.icon - redondeado} Ejemplo 1 de título con un icono
+## ![icono de teclado](ix://icons/keyboard.png) {.icon - redondeado} Ejemplo 1 de título con un icono
 
-## ![icono de relación de aspecto](/images/icons/aspect_ratio.png) {.icon - redondeado} Ejemplo 2 de título con un ícono
+## ![icono de relación de aspecto](ix://icons/aspect_ratio.png) {.icon - redondeado} Ejemplo 2 de título con un ícono
 
-## ![icono del mouse](/images/icons/mouse.png) {.icon - redondeado} Ejemplo 3 de título con un icono
+## ![icono del mouse](ix://icons/mouse.png) {.icon - redondeado} Ejemplo 3 de título con un icono
 
 Esto es una cosa
 

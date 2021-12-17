@@ -26,7 +26,7 @@ Durante la semana de Viernes Negro en 2018, 1 en 3 computadoras notebooks vendid
 
 [^2]: The NPD Group, Inc., Servicio de seguimiento minorista, EE. UU., Computadoras portátiles, Chrome OS, basado en unidades, 18 de noviembre de 2018 a noviembre. 24, 2018 vs.19 de noviembre de 2017 – nov. 25, 2017. [^3]: The NPD Group, Inc., Servicio de seguimiento minorista de EE. UU., Computadoras portátiles, basadas en unidades, septiembre de 2018 a agosto. 2019. Las ventas se ajustan por 5 semanas en enero de 2018 frente a 4 semanas en enero de 2019. [^4]: Datos internos de Google, marzo de 2018 – marzo de 2019.
 
-![Ventas anuales de portátiles en los EE. UU.](/images/posts/high-engagement-larger-screens-how/yoy-notebook-sales.gif)
+![Ventas anuales de portátiles en los EE. UU.](ix://posts/high-engagement-larger-screens-how/yoy-notebook-sales.gif)
 
 Al hacer ajustes para pantallas más grandes, puede proporcionar experiencias más ricas en todos estos dispositivos y aprovechar una audiencia más amplia de usuarios de aplicaciones. Los equipos de desarrollo en todo el mundo, incluidos Adobe Lightroom, [Evernote](/{{locale.code}}/stories/evernote) y [Gameloft](/{{locale.code}}/stories/asphalt-8) , entre muchos otros, ya han visto algunos resultados increíbles:
 
@@ -50,7 +50,7 @@ Pruebe las funciones principales de su aplicación para asegurarse de que todo f
 
 Admite el modo de múltiples ventanas y el cambio de tamaño de la ventana de forma libre, y asegúrate de diseñar diseños optimizados para las orientaciones horizontal y vertical. Configure su aplicación para manejar correctamente los cambios de configuración para evitar bloqueos cuando las personas rotan sus dispositivos.
 
-![Conjunto de dispositivos](/images/posts/high-engagement-larger-screens-how/suite-of-devices.png)
+![Conjunto de dispositivos](ix://posts/high-engagement-larger-screens-how/suite-of-devices.png)
 
 ### 3) Entrada de teclado y mouse
 

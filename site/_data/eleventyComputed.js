@@ -206,7 +206,7 @@ module.exports = {
       og.push([
         {
           property: 'image',
-          content: 'https://chromeos.dev/images/icons/social.png',
+          content: 'ix://images/icons/social.png',
         },
         {
           property: 'image:alt',

@@ -2,7 +2,7 @@
 title: ChromeOS.dev — A blueprint to build world-class apps and games for Chrome OS
 metadesc: ChromeOS.dev is officially launched; an open-source, multilingual blueprint to build world-class apps and game for, and on, Chrome OS. Plus, new Chrome OS features.
 hero:
-  image: /images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/hero.svg
+  image: ix://posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/hero.svg
   alt: An illustration of a Chromebook and new Chrome OS features.
 tags:
   - product news
@@ -22,7 +22,7 @@ While people are spending more time at home than on the go, they’re relying in
 
 This trend was clear from March through June 2020: Chromebook unit sales grew 127% year over year (YOY) while the rest of the U.S. notebook category increased by 40% YOY.[^1] Laptops have become crucial to people at home who want to use their favorite apps and games, like [Star Trek™ Fleet Command](https://play.google.com/store/apps/details?id=com.scopely.startrek) and [Reigns: Game of Thrones](https://play.google.com/store/apps/details?id=com.devolver.reignsGot) to enjoy action-packed adventure, [Calm](https://play.google.com/store/apps/details?id=com.calm.android) to manage stress, or [Disney+](https://play.google.com/store/apps/details?id=com.disney.disneyplus) to keep the whole family entertained.
 
-![Chromebook sales have increased 127% year over year from March-June 2020 as compared to 40% for other notebooks.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/yoy-sales.gif)
+![Chromebook sales have increased 127% year over year from March-June 2020 as compared to 40% for other notebooks.](ix://posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/yoy-sales.gif)
 
 To deliver app experiences that truly improve people’s lives, developers must be equipped with the right tools, resources, and best practices. That’s why we’re excited to introduce [ChromeOS.dev](/{{locale.code}}) — a dedicated resource for technical developers, designers, product managers, and business leaders.
 
@@ -32,7 +32,7 @@ Hear from our experts at Google and Chrome OS, as well as a variety of developer
 
 Even better, as a [fully open-source](https://github.com/chromeos/chromeos.dev) online destination, ChromeOS.dev is designed considering all the principles and methods for creating highly capable and reliable Progressive Web Apps (PWAs), ensuring developers always have quick, easy access to the information they need — even when they’re offline.
 
-![Animated preview of ChromeOS.dev sections and pages.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/website.gif)
+![Animated preview of ChromeOS.dev sections and pages.](ix://posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/website.gif)
 
 Check out a few of the newest updates and improvements below, and be sure to install the ChromeOS.dev PWA on your device to stay on top of the latest information.
 
@@ -48,7 +48,7 @@ The Linux on Chrome OS Terminal now comes equipped with personalized features ri
 
 - **Themes** - Customize your Terminal by selecting a theme to switch up the background, frame, font, and cursor color.
 
-  ![Changing Linux themes.](/images/posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/linux-updates.gif)
+  ![Changing Linux themes.](ix://posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/linux-updates.gif)
 
 - **Redesigned Terminal settings** - The settings tab has been reorganized to make it easier to customize all your Terminal options.
 
