@@ -14,7 +14,12 @@ tags:
 authors:
   - fahdi
   - sanjn
-featured: true
+featured:
+  title: '2021 Recap: Android on Chrome OS'
+  desc: 'From made-for-mobile to made-for-all: a roundup of tools to adapt your Android apps for Chrome OS'
+  images:
+    - image: /images/posts/android-recap-2021/hero.png
+      alt: Illustration of a Chromebook with stylized windows with the Android "droid" logo in the middle.
 hero:
   image: /images/posts/android-recap-2021/hero.png
   alt: Illustration of a Chromebook with stylized windows with the Android "droid" logo in the middle.
