@@ -14,6 +14,7 @@ tags:
 authors:
   - fahdi
   - sanjn
+featured: true
 hero:
   image: /images/posts/android-recap-2021/hero.png
   alt: Illustration of a Chromebook with stylized windows with the Android "droid" logo in the middle.
