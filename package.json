@@ -152,5 +152,11 @@
   "private": true,
   "volta": {
     "node": "16.13.1"
+  },
+  "lint-staged": {
+    "(functions|site|lib|vite.config.js|ava.config.cjs)": "eslint --cache --fix",
+    "site/*/!(style-guide)/**/*.md": "remark -q -f",
+    "./**/*.{html,md,js,json}": "prettier -c --write",
+    "(tests)": "eslint tests --cache --fix"
   }
 }
