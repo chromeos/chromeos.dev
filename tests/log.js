@@ -15,7 +15,7 @@
  */
 import test from 'ava';
 import sinon from 'sinon';
-import { log } from '../src/js/lib/log';
+import { log } from '../site/js/lib/log';
 
 test('Logs non-tables', t => {
   const mock = sinon.mock(console);
