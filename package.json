@@ -155,9 +155,11 @@
     "node": "14.18.2"
   },
   "lint-staged": {
-    "(functions|site|lib|vite.config.js|ava.config.cjs)": "eslint --cache --fix",
+    "(functions|site|lib)/**/*.js": "eslint --cache --fix",
+    "vite.config.js": "eslint --cache --fix",
+    "ava.config.cjs": "eslint --cache --fix",
     "site/*/!(style-guide)/**/*.md": "remark -q -f",
     "./**/*.{html,md,js,json}": "prettier -c --write",
-    "(tests)": "eslint tests --cache --fix"
+    "tests/**/*.js": "eslint -c tests/.eslintrc.yml --cache --fix"
   }
 }
