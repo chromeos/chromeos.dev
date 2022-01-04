@@ -18,6 +18,7 @@ import { preferences } from 'service-worker-i18n-redirect/preferences';
 import { MainNavigation } from './components/nav';
 import { CookieDisclaimer } from './components/cookie-disclaimer';
 import { registerSW } from 'virtual:pwa-register';
+import circleWorklet from './worklets/circles.js?url';
 
 // Components that are critical to user experience should be loaded on `DomContentLoaded`
 window.addEventListener('DOMContentLoaded', async () => {
@@ -81,7 +82,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   }
 
   if (CSS.paintWorklet) {
-    await CSS.paintWorklet.addModule('/js/worklets/circles.js');
+    await CSS.paintWorklet.addModule(circleWorklet);
   }
 
   // Table of Contents
