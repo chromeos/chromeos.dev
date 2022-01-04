@@ -76,8 +76,8 @@ Para ver los diferentes cambios de puntero en acción, consulte este [ejemplo de
 
 Estos son los cursores disponibles por defecto en el sistema Android.
 
-| Nombre del cursor                    | Icono                                                                                                                                                   |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nombre del cursor                    | Icono                                                                                                                                                |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | TYPE_ALIAS                           | ![Alias Cursor Icon](ix://android/pointer-styling/Mouse-Pointer0.png 'Cursor de alias')                                                              |
 | TYPE_ALL_SCROLL                      | ![All Scroll Cursor Icon](ix://android/pointer-styling/Mouse-Pointer1.png 'Todos los cursores de desplazamiento')                                    |
 | TIPO\_\_ ARROW                       | ![Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer2.png 'Cursor de la flecha')                                                          |
@@ -92,7 +92,7 @@ Estos son los cursores disponibles por defecto en el sistema Android.
 | TYPE_HELP                            | ![Help Cursor Icon](ix://android/pointer-styling/Mouse-Pointer11.png 'Cursor de ayuda')                                                              |
 | TYPE_HORIZONTAL_DOUBLE_ARROW         | ![Horizontal Double Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer12.png 'Cursor de doble flecha horizontal')                         |
 | TYPE_NO_DROP                         | ![No Drop Cursor Icon](ix://android/pointer-styling/Mouse-Pointer13.png 'Sin cursor de caída')                                                       |
-| TYPE_NULL                            | No se mostrará ningún cursor                                                                                                                            |
+| TYPE_NULL                            | No se mostrará ningún cursor                                                                                                                         |
 | TYPE_TEXT                            | ![Text Cursor Icon](ix://android/pointer-styling/Mouse-Pointer14.png 'Cursor de texto')                                                              |
 | TYPE_TOP_LEFT_DIAGONAL_DOUBLE_ARROW  | ![Top Left Diagonal Double Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer15.png 'Cursor de doble flecha diagonal superior izquierda') |
 | TYPE_TOP_RIGHT_DIAGONAL_DOUBLE_ARROW | ![Top Right Diagonal Double Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer16.png 'Cursor de doble flecha diagonal superior derecha')  |

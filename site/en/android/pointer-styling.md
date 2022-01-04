@@ -75,8 +75,8 @@ To see different pointer changes in action check out this [GitHub Pointer Sample
 
 These are the available cursors by default in the Android System.
 
-| Cursor Name                          | Icon                                                                                                                                         |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cursor Name                          | Icon                                                                                                                                      |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | TYPE_ALIAS                           | ![Alias Cursor Icon](ix://android/pointer-styling/Mouse-Pointer0.png 'Alias Cursor')                                                      |
 | TYPE_ALL_SCROLL                      | ![All Scroll Cursor Icon](ix://android/pointer-styling/Mouse-Pointer1.png 'All Scroll Cursor')                                            |
 | TYPE\_\_ARROW                        | ![Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer2.png 'Arrow Cursor')                                                      |
@@ -91,7 +91,7 @@ These are the available cursors by default in the Android System.
 | TYPE_HELP                            | ![Help Cursor Icon](ix://android/pointer-styling/Mouse-Pointer11.png 'Help Cursor')                                                       |
 | TYPE_HORIZONTAL_DOUBLE_ARROW         | ![Horizontal Double Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer12.png 'Horizontal Double Arrow Cursor')                 |
 | TYPE_NO_DROP                         | ![No Drop Cursor Icon](ix://android/pointer-styling/Mouse-Pointer13.png 'No Drop Cursor')                                                 |
-| TYPE_NULL                            | No Cursor Will Display                                                                                                                       |
+| TYPE_NULL                            | No Cursor Will Display                                                                                                                    |
 | TYPE_TEXT                            | ![Text Cursor Icon](ix://android/pointer-styling/Mouse-Pointer14.png 'Text Cursor')                                                       |
 | TYPE_TOP_LEFT_DIAGONAL_DOUBLE_ARROW  | ![Top Left Diagonal Double Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer15.png 'Top Left Diagonal Double Arrow Cursor')   |
 | TYPE_TOP_RIGHT_DIAGONAL_DOUBLE_ARROW | ![Top Right Diagonal Double Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer16.png 'Top Right Diagonal Double Arrow Cursor') |
