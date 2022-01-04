@@ -4,7 +4,7 @@ metadesc: By optimizing for Chrome OS, Concepts was able to unlock a large and g
 date: 2019-05-02
 app:
   name: Concepts
-  logo: ix://stories/concepts/concepts-icon.240.png
+  logo: ix://stories/concepts/concepts-icon.250.png
   company: TopHatch
 hero:
   image: ix://stories/concepts/hero.1500.jpg
