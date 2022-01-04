@@ -55,7 +55,7 @@ export class Home {
     });
 
     this.articles_ = elem.querySelector('#home__articles');
-    this.featured_ = elem.querySelectorAll('.featured-content__image-wrapper picture');
+    this.featured_ = elem.querySelectorAll('.featured-content__image-wrapper .featured-content__image');
     this.using_ = [...elem.querySelectorAll('.image-card')].map(e => [...e.querySelectorAll('img')]);
 
     for (const [key, value] of Object.entries(this.constants_.sections)) {
@@ -109,9 +109,9 @@ export class Home {
       case 'using':
         if (flip) {
           fades.push(elem.querySelector('.image-card__wrapper'));
-          fades = fades.concat([...elem.querySelectorAll('picture')]);
+          fades = fades.concat([...elem.querySelectorAll('.image-card__animation-wrapper')]);
         } else {
-          fades = fades.concat([...elem.querySelectorAll('picture')]);
+          fades = fades.concat([...elem.querySelectorAll('.image-card__animation-wrapper')]);
           fades.push(elem.querySelector('.image-card__wrapper'));
         }
         break;
@@ -125,7 +125,7 @@ export class Home {
         break;
       case 'chromebooks':
         fades.push(elem.querySelector('.hero--cta__wrapper'));
-        fades.push(elem.querySelector('picture'));
+        fades.push(elem.querySelector('.hero--cta__image'));
         break;
       case 'community':
         fades.push(elem.querySelector('.item-grid__title'));
