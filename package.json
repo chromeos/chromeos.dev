@@ -55,7 +55,8 @@
     "vrt:approve": "node vrt.js approve",
     "vrt:reference": "node vrt.js reference",
     "vrt:serve": "serve -l 5566 .backstop",
-    "vrt": "node vrt.js test"
+    "vrt": "node vrt.js test",
+    "prepare": "husky install"
   },
   "nyc": {
     "include": [
@@ -63,17 +64,6 @@
       "lib/**/*.js"
     ],
     "all": true
-  },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git-cz --hook || true",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/emoji-commit-helpers/commitizen.js"
-    }
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.3",
