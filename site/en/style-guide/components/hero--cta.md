@@ -4,7 +4,7 @@ examples:
   - title: Default render - Text at the left and image at the right.
     arguments:
       image:
-        src: gs://home/chromebooks-device
+        src: ix://home/chromebooks-device.1500.png
         alt: Some alt
       content:
         title: Get to know Chromebook

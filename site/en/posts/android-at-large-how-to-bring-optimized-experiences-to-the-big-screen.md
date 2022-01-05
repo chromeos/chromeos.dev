@@ -14,7 +14,7 @@ tags:
 authors:
   - kennethford
 hero:
-  image: /images/posts/android-at-large/hero.jpg
+  image: ix://posts/android-at-large/hero.jpg
   alt: Blueprint design showing various android devices and formfactors.
 date: 2020-04-21
 ---
@@ -23,7 +23,7 @@ _This article originally appeared on Android Developers Medium._
 
 For many people, Android is synonymous with smartphones, unsurprising considering that over 2.5 billion users run Android on smartphone devices. However, Android devices now come in many different shapes, sizes, and form factors: from wearables and fitness devices to cars, laptops, and TVs.
 
-![Suite of Android devices](/images/posts/android-at-large/android-devices.jpg)
+![Suite of Android devices](ix://posts/android-at-large/android-devices.jpg)
 
 In this article, we’re looking at how to build great experiences for the larger display devices: tablets, foldables, laptops, and desktop devices. We are going to cover:
 
@@ -61,13 +61,13 @@ However, if your app’s content is unsuitable for certain aspect ratios use the
 
 Navigation patterns can break when you start supporting a variety of different devices. For example, take bottom navigation, here in a simple photo viewer app.
 
-![Bottom navigation on a phone and desktop environment](/images/posts/android-at-large/bottom-navigation.jpg)
+![Bottom navigation on a phone and desktop environment](ix://posts/android-at-large/bottom-navigation.jpg)
 
 This navigation works well on smartphones. It’s easy to tell where the touch targets are, where one item ends and the other begins. However, when running on a desktop environment, with a wide display, it becomes hard to figure out where items end and what is actionable.
 
 For large-screen, a better approach is to place options on the left side of the screen. If somebody is using your app on a tablet, this position places the options close to where their hand holds the device, making selection more convenient.
 
-![Left-side navigation on desktop environment](/images/posts/android-at-large/left-navigation.jpg)
+![Left-side navigation on desktop environment](ix://posts/android-at-large/left-navigation.jpg)
 
 Left-side navigation is also a paradigm people are used to from web pages.
 
@@ -77,7 +77,7 @@ The photo viewer example shows that when you simply reuse a smartphone layout on
 
 For example, option items in an overflow menu could be pulled out. So, instead of having to make three taps to edit, people can select that option directly now that there’s room to place it there.
 
-![Pulled out options menu displaying all options on extra screen space.](/images/posts/android-at-large/pulled-out-options-menu.jpg)
+![Pulled out options menu displaying all options on extra screen space.](ix://posts/android-at-large/pulled-out-options-menu.jpg)
 
 Larger screens also make it possible to deliver more immersive experiences. For example, in a media-viewing or productivity app, there are many more ways to keep people engaged. It’s worth noting though, there is no one-size-fits-all solution to using this extra space.
 
@@ -85,7 +85,7 @@ Meanwhile, it’s worth checking out the [Material Studies](https://material.io/
 
 One of the studies is [Reply](https://material.io/design/material-studies/reply.html), an email client created with designed goals of clarity, legibility, intuition, and ease of use while projecting friendliness and competence for its brand.
 
-![Reply application on various screen sizes.](/images/posts/android-at-large/reply-various-screen-sizes.jpg)
+![Reply application on various screen sizes.](ix://posts/android-at-large/reply-various-screen-sizes.jpg)
 
 In this study, the message content is not changed significantly between the various screen sizes. However, navigation changes from a bottom nav in the smartphone layout to a nav drawer on larger screens, which pops out by default on the largest screens.
 
@@ -93,7 +93,7 @@ This example shows how the extra space on larger screens doesn’t need to be ov
 
 Another study is [Rally](https://material.io/design/material-studies/rally.html), a finance app, that is designed to show as much information as possible so users can quickly see what they need to make decisions about their finances, then get out and get on with their life.
 
-![Rally appliation on various screen sizes.](/images/posts/android-at-large/rally-various-screen-sizes.jpg)
+![Rally appliation on various screen sizes.](ix://posts/android-at-large/rally-various-screen-sizes.jpg)
 
 ### Input patterns
 
@@ -134,7 +134,7 @@ App continuity is the capability of an app to seamlessly restore the user state 
 
 In smartphones the main case, rotation, is generally context-based, such as switching to landscape to view a video. On larger screen devices, with their support for multi-window, the focus for app continuity becomes the need to redraw and re-layout your app with minimal jank. In this animation, the Play Store app goes from a smaller window with a bottom nav to a large window with left-side nav.
 
-![Smooth app transition on foldable phone](/images/posts/android-at-large/foldables.gif)
+![Smooth app transition on foldable phone](ix://posts/android-at-large/foldables.gif)
 
 To achieve a smooth transition make sure your onCreate and lifecycle methods can be cycled quickly. To do this, ensure you’re not performing network operations or large memory reads on those methods. In addition, these types of task performed on those methods often cause crashes, making for a bad user experience.
 
@@ -142,7 +142,7 @@ The [`resizeableActivity`](https://developer.android.com/guide/topics/manifest/a
 
 But, if you have an activity that is set so it cannot be resized and its orientation is locked the new compat mode in Android 10 help guarantees that your app won’t get a configuration change when a device is unfolded.
 
-![Activity running in compat mode on foldable device when unfolded](/images/posts/android-at-large/folded-to-unfolded.jpg)
+![Activity running in compat mode on foldable device when unfolded](ix://posts/android-at-large/folded-to-unfolded.jpg)
 
 In compat mode, in the bottom-right corner, there is an activity or application restart button for the user to restart the app. This button enables your app to get the new global config and draw on the available screen.
 
@@ -166,7 +166,7 @@ With multi-resumed, all the visible activities are in the `RESUMED` state. Howev
 
 This change has been made in a way that minimizes the alterations you need to make: in most cases there should be no changes required to your app to work in multi-resumed. However, you may need to make changes for resources that can only handle exclusive access.
 
-![Three activities wanting to use camera on the same device](/images/posts/android-at-large/multiple-camera-activities.jpg)
+![Three activities wanting to use camera on the same device](ix://posts/android-at-large/multiple-camera-activities.jpg)
 
 For example, if there are three activities wanting to make use of the camera, only one can access the camera. In this case you need to handle the `onDisconnect` callback from the camera and listen for camera availability. Note that setting `resizeActivity` to `false` won’t guarantee access to these resources because you can have a floating activity on top of your activity or secondary display with an activity that wants to use the camera.
 

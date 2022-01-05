@@ -24,12 +24,12 @@
     min-width: 55%;
     position: relative;
     z-index: 2;
+  }
 
-    img:not(:first-of-type) {
-      left: 0;
-      position: absolute;
-      top: 0;
-    }
+  &__animation-wrapper:not(:first-of-type) {
+    left: 0;
+    position: absolute;
+    top: 0;
   }
 
   .type--h3,

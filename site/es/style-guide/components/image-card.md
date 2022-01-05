@@ -4,7 +4,7 @@ examples:
   - title: 'Procesamiento predeterminado: imagen a la izquierda en ventanas grandes.'
     arguments:
       image:
-        src: /images/stories/roblox/roblox-feature.jpg
+        src: ix://stories/roblox/roblox-feature.jpg
         alt: Mejor imagen
       content:
         title: Este es un título ficticio con una imagen a la izquierda.
@@ -15,7 +15,7 @@ examples:
   - title: 'Renderice usando la bandera de volteo: imagen a la derecha en ventanas grandes.'
     arguments:
       image:
-        src: /images/stories/roblox/roblox-feature.jpg
+        src: ix://stories/roblox/roblox-feature.jpg
         alt: Mejor imagen
       content:
         title: Este es un título falso con una imagen a la derecha
@@ -28,7 +28,7 @@ examples:
   - title: 'Renderice con la bandera de desplazamiento: imagen a la izquierda en ventanas grandes.'
     arguments:
       image:
-        src: /images/landings/home/laptop-linux.png
+        src: ix://landings/home/laptop-linux.png
         alt: Mejor imagen
       content:
         title: Este es un título falso con una imagen a la derecha
@@ -41,7 +41,7 @@ examples:
   - title: 'Renderice utilizando el indicador de desplazamiento y volteo: imagen a la derecha en ventanas grandes.'
     arguments:
       image:
-        src: /images/landings/home/laptop-linux.png
+        src: ix://landings/home/laptop-linux.png
         alt: Mejor imagen
       content:
         title: Este es un título falso con una imagen a la derecha

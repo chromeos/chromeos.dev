@@ -31,7 +31,7 @@ También hay una serie de [teclas únicas](https://support.google.com/chromebook
 
 Muchas de las combinaciones de teclas predeterminadas en su dispositivo Chrome OS se pueden cambiar, incluidas las teclas de búsqueda, asistente, control y alt. Para cambiar las combinaciones de teclas según sus preferencias, abra la configuración de Chrome OS y vaya a "Dispositivo" -> "Teclado"; debería ver una lista de claves cuyos enlaces se pueden reasignar:
 
-![Configuración del teclado para cambiar las combinaciones de teclas](/images/productivity/keyboard-settings.png)
+![Configuración del teclado para cambiar las combinaciones de teclas](ix://productivity/keyboard-settings.png)
 
 ## Gestos del panel táctil
 
@@ -45,6 +45,6 @@ El panel táctil(trackpad) son útiles para conocer las funciones de deslizar y 
 
 Algunos usuarios que vienen de otras plataformas a Chrome OS pueden notar que el desplazamiento del panel táctil parece estar invertido para ellos. Tal vez, desee activar / desactivar el toque para hacer clic. Abra la configuración de Chrome OS y vaya a "Dispositivo" -> "Panel táctil" para ver la configuración de la funcionalidad del panel táctil.
 
-![Menú de opciones de configuración del panel táctil.](/images/productivity/touchpad-settings.png)
+![Menú de opciones de configuración del panel táctil.](ix://productivity/touchpad-settings.png)
 
 Si quiere saber más, visite para aprender que otras maneras puede utilizar el [touchpad de Chromebook](https://support.google.com/chromebook/answer/1047367?hl={{locale.code}})

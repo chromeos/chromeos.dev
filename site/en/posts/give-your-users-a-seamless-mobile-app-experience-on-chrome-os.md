@@ -10,10 +10,10 @@ featured:
   title: A seamless mobile app experience
   desc: Learn about the latest improvements for Android mobile apps on Chrome
   images:
-    - image: /images/posts/give-your-users-a-seamless-mobile-app-experience-on-chrome-os/hero.png
+    - image: ix://posts/give-your-users-a-seamless-mobile-app-experience-on-chrome-os/hero.png
       alt: An app shown on phone, tablet, and Chromebook
 hero:
-  image: /images/posts/give-your-users-a-seamless-mobile-app-experience-on-chrome-os/hero.png
+  image: ix://posts/give-your-users-a-seamless-mobile-app-experience-on-chrome-os/hero.png
   alt: An app shown on phone, tablet, and Chromebook
   position: center
 date: 2021-09-10
@@ -31,7 +31,7 @@ Starting in Chrome OS 93, improved window compatibility for mobile apps is now a
 
 Users can easily [switch between a predefined phone and tablet view](https://support.google.com/chromebook/thread/124854535/introducing-chrome-os-93-to-the-stable-channel?hl=en) by using a simple window resize UI that appears when they hover over the top of the app screen. Users can also disable this window management feature to enable full resizability by clicking the “Resizable” option.
 
-![](/images/posts/give-your-users-a-seamless-mobile-app-experience-on-chrome-os/window-management.jpg)
+![](ix://posts/give-your-users-a-seamless-mobile-app-experience-on-chrome-os/window-management.jpg)
 
 This feature applies to most apps available in the Play Store not currently optimized for desktop use. Games and Media apps that have fullscreen mode enabled to [deliver more immersive experiences](https://developer.android.com/training/system-ui/immersive) will continue to launch in fullscreen mode, but users can change the window view at any time.
 

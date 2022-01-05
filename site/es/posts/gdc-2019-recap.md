@@ -17,7 +17,7 @@ tags:
 authors:
   - bgable
 hero:
-  image: /images/posts/gdc-2019-recap/hero.png
+  image: ix://posts/gdc-2019-recap/hero.png
   alt: Ilustración de la computadora portátil y dispositivo plegable.
 date: 2019-05-02
 ---
@@ -103,7 +103,7 @@ Tenga en cuenta que los valores que espera pueden intercambiarse en diferentes d
 
 También deberá considerar la resolución del dispositivo del usuario. Las pantallas más grandes requieren recursos de mayor resolución, por lo que puede usar paquetes de aplicaciones para empaquetar el código y los activos de su juego para diferentes configuraciones de dispositivo. De esa manera, Google Play solo entregará los activos correctos para el dispositivo en particular en el que se descargó su juego, por ejemplo, omitiendo los activos de resolución ultra alta para dispositivos de pantalla más pequeñas. Esto le ahorra valioso espacio de descarga y la molestia de mantener múltiples APK para diferentes densidades de pantalla.
 
-![Componentes del paquete de aplicaciones de Android](/images/posts/gdc-2019-recap/android-app-bundle.png)
+![Componentes del paquete de aplicaciones de Android](ix://posts/gdc-2019-recap/android-app-bundle.png)
 
 Recuerde que con más píxeles viene una mayor flexibilidad en el diseño de interfaz de usuario y HUD. Cuando los usuarios juegan en una pantalla más grande, y es probable que estén más lejos de la pantalla, considere los elementos que puede expandir, agregar o cambiar para asegurarse de que todo en la pantalla sea legible e identificable.
 
@@ -115,11 +115,11 @@ Muchos dispositivos nuevos también son convertibles que pueden cambiar las conf
 
 Para comenzar, puede declarar soporte para eventos de configuración relacionados con dispositivos de entrada, como teclados.
 
-![Fragmento de código para declarar soporte de teclado para cambios de configuración. La imagen muestra las instrucciones del teclado que se muestran durante el juego.](/images/posts/gdc-2019-recap/config-keyboard-support.png)
+![Fragmento de código para declarar soporte de teclado para cambios de configuración. La imagen muestra las instrucciones del teclado que se muestran durante el juego.](ix://posts/gdc-2019-recap/config-keyboard-support.png)
 
 Luego, puede consultar `InputManager` al inicio o durante los cambios de configuración y cambiar de un esquema de control táctil a un esquema de control del teclado si no hay pantalla táctil o si hay un teclado disponible. En este caso, también debes asegurarte de que el teclado sea utilizable aunque `InputManager` dice que hay uno disponible. Después de todo, podría ser un Chromebook en modo tableta.
 
-![Fragmento de código para detectar la presencia del teclado y el mouse. La imagen muestra las instrucciones del teclado que se muestran durante el juego.](/images/posts/gdc-2019-recap/detect-keyboard-and-mouse.png)
+![Fragmento de código para detectar la presencia del teclado y el mouse. La imagen muestra las instrucciones del teclado que se muestran durante el juego.](ix://posts/gdc-2019-recap/detect-keyboard-and-mouse.png)
 
 Si el soporte del teclado fue una idea de último momento al diseñar su juego, considere implementar algunas funciones como las siguientes para mejorar drásticamente su accesibilidad:
 

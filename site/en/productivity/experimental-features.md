@@ -19,7 +19,7 @@ Your Chrome OS device is normally on a stable channel. The **stable** channel is
 
 To change what channel you're on, open "Settings"->"About Chrome OS"->"Additional Details" and click the "Change channel" button. This will show you a dialog box where you can change your Chrome OS channel. Changing channels will require a download of the new chanel information and a restart in order to apply.
 
-#1[Chrome OS channel selection dialog box](/images/productivity/change-channels.png)
+#1[Chrome OS channel selection dialog box](ix://productivity/change-channels.png)
 
 ## Experimental feature flags
 
@@ -51,7 +51,7 @@ To enter developer mode, complete these steps:
 
 If you see one of the screens from [Figure 2](#figure-2) when you turn on your device, you've successfully entered developer mode.
 
-#2[Developer mode confirmation screens.](/images/android/dev-mode/verification.jpg)
+#2[Developer mode confirmation screens.](ix://android/dev-mode/verification.jpg)
 
 !!! aside.message--note
 **Note**: To skip the OS loading screen, either wait 30 seconds or press [[Control]]+[[D]], and your Chromebook will continue starting.

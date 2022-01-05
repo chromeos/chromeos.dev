@@ -60,7 +60,7 @@ Agregar iconos de puntero a su aplicación es una excelente manera de ayudar a q
 !!! aside.message--tip
 Para ver los diferentes cambios de puntero en acción, consulte este [ejemplo de puntero de GitHub](https://github.com/chromeos/pointer-icon-sample)
 
-![Iconos para punteros personalizados en una aplicación de Android.](/images/android/pointer-styling/pointer-icon.gif)
+![Iconos para punteros personalizados en una aplicación de Android.](ix://android/pointer-styling/pointer-icon.gif)
 
 !!!
 
@@ -76,28 +76,28 @@ Para ver los diferentes cambios de puntero en acción, consulte este [ejemplo de
 
 Estos son los cursores disponibles por defecto en el sistema Android.
 
-| Nombre del cursor                    | Icono                                                                                                                                                   |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TYPE_ALIAS                           | ![Alias Cursor Icon](/images/android/pointer-styling/Mouse-Pointer0.png 'Cursor de alias')                                                              |
-| TYPE_ALL_SCROLL                      | ![All Scroll Cursor Icon](/images/android/pointer-styling/Mouse-Pointer1.png 'Todos los cursores de desplazamiento')                                    |
-| TIPO\_\_ ARROW                       | ![Arrow Cursor Icon](/images/android/pointer-styling/Mouse-Pointer2.png 'Cursor de la flecha')                                                          |
-| TYPE_CELL                            | ![Cell Cursor Icon](/images/android/pointer-styling/Mouse-Pointer3.png 'Cursor Celular')                                                                |
-| TYPE_CONTEXT_MENU                    | ![Context Menu Cursor Icon](/images/android/pointer-styling/Mouse-Pointer4.png 'Cursor del menú contextual')                                            |
-| TYPE_COPY                            | ![Copy Cursor Icon](/images/android/pointer-styling/Mouse-Pointer5.png 'Copiar cursor')                                                                 |
-| TYPE_CROSSHAIR                       | ![Crosshair Cursor Icon](/images/android/pointer-styling/Mouse-Pointer6.png 'Cursor en forma de cruz')                                                  |
-| TYPE_DEFAULT                         | ![Default Cursor Icon](/images/android/pointer-styling/Mouse-Pointer7.png 'Cursor predeterminado')                                                      |
-| TYPE_GRAB                            | ![Grab Cursor Icon](/images/android/pointer-styling/Mouse-Pointer8.png 'Agarrar cursor')                                                                |
-| TYPE_GRABBING                        | ![Grabbing Cursor Icon](/images/android/pointer-styling/Mouse-Pointer9.png 'Agarrando el cursor')                                                       |
-| TYPE_HAND                            | ![Hand Cursor Icon](/images/android/pointer-styling/Mouse-Pointer10.png 'Cursor de mano')                                                               |
-| TYPE_HELP                            | ![Help Cursor Icon](/images/android/pointer-styling/Mouse-Pointer11.png 'Cursor de ayuda')                                                              |
-| TYPE_HORIZONTAL_DOUBLE_ARROW         | ![Horizontal Double Arrow Cursor Icon](/images/android/pointer-styling/Mouse-Pointer12.png 'Cursor de doble flecha horizontal')                         |
-| TYPE_NO_DROP                         | ![No Drop Cursor Icon](/images/android/pointer-styling/Mouse-Pointer13.png 'Sin cursor de caída')                                                       |
-| TYPE_NULL                            | No se mostrará ningún cursor                                                                                                                            |
-| TYPE_TEXT                            | ![Text Cursor Icon](/images/android/pointer-styling/Mouse-Pointer14.png 'Cursor de texto')                                                              |
-| TYPE_TOP_LEFT_DIAGONAL_DOUBLE_ARROW  | ![Top Left Diagonal Double Arrow Cursor Icon](/images/android/pointer-styling/Mouse-Pointer15.png 'Cursor de doble flecha diagonal superior izquierda') |
-| TYPE_TOP_RIGHT_DIAGONAL_DOUBLE_ARROW | ![Top Right Diagonal Double Arrow Cursor Icon](/images/android/pointer-styling/Mouse-Pointer16.png 'Cursor de doble flecha diagonal superior derecha')  |
-| TYPE_VERTICAL_DOUBLE_ARROW           | ![Vertical Double Arrow Cursor Icon](/images/android/pointer-styling/Mouse-Pointer17.png 'Cursor vertical de doble flecha')                             |
-| TYPE_VERTICAL_TEXT                   | ![Vertical Text Cursor Icon](/images/android/pointer-styling/Mouse-Pointer18.png 'Cursor de texto vertical')                                            |
-| TYPE_WAIT                            | ![Wait Cursor Icon](/images/android/pointer-styling/Mouse-Pointer19.gif 'Espera cursor')                                                                |
-| TYPE_ZOOM_IN                         | ![Zoom In Cursor Icon](/images/android/pointer-styling/Mouse-Pointer20.png 'Acercar el cursor')                                                         |
-| TYPE_ZOOM_OUT                        | ![Zoom Out Cursor Icon](/images/android/pointer-styling/Mouse-Pointer21.png 'Alejar el cursor')                                                         |
+| Nombre del cursor                    | Icono                                                                                                                                                |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TYPE_ALIAS                           | ![Alias Cursor Icon](ix://android/pointer-styling/Mouse-Pointer0.png 'Cursor de alias')                                                              |
+| TYPE_ALL_SCROLL                      | ![All Scroll Cursor Icon](ix://android/pointer-styling/Mouse-Pointer1.png 'Todos los cursores de desplazamiento')                                    |
+| TIPO\_\_ ARROW                       | ![Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer2.png 'Cursor de la flecha')                                                          |
+| TYPE_CELL                            | ![Cell Cursor Icon](ix://android/pointer-styling/Mouse-Pointer3.png 'Cursor Celular')                                                                |
+| TYPE_CONTEXT_MENU                    | ![Context Menu Cursor Icon](ix://android/pointer-styling/Mouse-Pointer4.png 'Cursor del menú contextual')                                            |
+| TYPE_COPY                            | ![Copy Cursor Icon](ix://android/pointer-styling/Mouse-Pointer5.png 'Copiar cursor')                                                                 |
+| TYPE_CROSSHAIR                       | ![Crosshair Cursor Icon](ix://android/pointer-styling/Mouse-Pointer6.png 'Cursor en forma de cruz')                                                  |
+| TYPE_DEFAULT                         | ![Default Cursor Icon](ix://android/pointer-styling/Mouse-Pointer7.png 'Cursor predeterminado')                                                      |
+| TYPE_GRAB                            | ![Grab Cursor Icon](ix://android/pointer-styling/Mouse-Pointer8.png 'Agarrar cursor')                                                                |
+| TYPE_GRABBING                        | ![Grabbing Cursor Icon](ix://android/pointer-styling/Mouse-Pointer9.png 'Agarrando el cursor')                                                       |
+| TYPE_HAND                            | ![Hand Cursor Icon](ix://android/pointer-styling/Mouse-Pointer10.png 'Cursor de mano')                                                               |
+| TYPE_HELP                            | ![Help Cursor Icon](ix://android/pointer-styling/Mouse-Pointer11.png 'Cursor de ayuda')                                                              |
+| TYPE_HORIZONTAL_DOUBLE_ARROW         | ![Horizontal Double Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer12.png 'Cursor de doble flecha horizontal')                         |
+| TYPE_NO_DROP                         | ![No Drop Cursor Icon](ix://android/pointer-styling/Mouse-Pointer13.png 'Sin cursor de caída')                                                       |
+| TYPE_NULL                            | No se mostrará ningún cursor                                                                                                                         |
+| TYPE_TEXT                            | ![Text Cursor Icon](ix://android/pointer-styling/Mouse-Pointer14.png 'Cursor de texto')                                                              |
+| TYPE_TOP_LEFT_DIAGONAL_DOUBLE_ARROW  | ![Top Left Diagonal Double Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer15.png 'Cursor de doble flecha diagonal superior izquierda') |
+| TYPE_TOP_RIGHT_DIAGONAL_DOUBLE_ARROW | ![Top Right Diagonal Double Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer16.png 'Cursor de doble flecha diagonal superior derecha')  |
+| TYPE_VERTICAL_DOUBLE_ARROW           | ![Vertical Double Arrow Cursor Icon](ix://android/pointer-styling/Mouse-Pointer17.png 'Cursor vertical de doble flecha')                             |
+| TYPE_VERTICAL_TEXT                   | ![Vertical Text Cursor Icon](ix://android/pointer-styling/Mouse-Pointer18.png 'Cursor de texto vertical')                                            |
+| TYPE_WAIT                            | ![Wait Cursor Icon](ix://android/pointer-styling/Mouse-Pointer19.gif 'Espera cursor')                                                                |
+| TYPE_ZOOM_IN                         | ![Zoom In Cursor Icon](ix://android/pointer-styling/Mouse-Pointer20.png 'Acercar el cursor')                                                         |
+| TYPE_ZOOM_OUT                        | ![Zoom Out Cursor Icon](ix://android/pointer-styling/Mouse-Pointer21.png 'Alejar el cursor')                                                         |

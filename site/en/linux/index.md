@@ -2,7 +2,7 @@
 title: Overview
 metadesc: An introduction to Linux on Chrome OS.
 hero:
-  image: /images/landings/linux-hero.svg
+  image: ix://landings/linux-hero.svg
   alt: Illustration of a terminal application running on a Chrome OS device.
 date: 2020-06-10
 weight: -8

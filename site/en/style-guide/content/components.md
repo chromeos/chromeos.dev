@@ -95,14 +95,14 @@ Emoji can be used in :memo: sentences too.
 
 Add an image with visible caption as a single logical figure. Figures can optionally be numbered which will allow them to be directly linked to.
 
-#[Caption for Image](/images/icons/pwa/chromeOS.svg)
+#[Caption for Image](ix://icons/pwa/chromeOS.svg)
 
-#1[Caption for Image](/images/icons/pwa/chromeOS.svg [With accessible description of image])
+#1[Caption for Image](ix://icons/pwa/chromeOS.svg [With accessible description of image])
 
 ```markdown
-#[Caption for Image](/images/icons/pwa/chromeOS.svg)
+#[Caption for Image](ix://icons/pwa/chromeOS.svg)
 
-#1[Caption for Image](/images/icons/pwa/chromeOS.svg [With description of image])
+#1[Caption for Image](ix://icons/pwa/chromeOS.svg [With description of image])
 ```
 
 ### Video

@@ -291,7 +291,7 @@ at this
 ### Multi-select support
 
 If your app contains lists or grids, consider whether your users would benefit from support for multi-select. A high-quality multi-select experience with mouse and trackpad often includes features such as band selection. Implementing this on your own can be challenging, but you can leverage [the Recyclerview Selection library](https://developer.android.com/reference/androidx/recyclerview/selection/package-summary).
-![An example of band multi-select with a mouse and pointer](/images/android/input-compatibility/RecyclerView-Selection-Demo.gif)
+![An example of band multi-select with a mouse and pointer](ix://android/input-compatibility/RecyclerView-Selection-Demo.gif)
 
 ### Advanced pointer support
 

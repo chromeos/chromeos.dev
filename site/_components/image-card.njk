@@ -18,7 +18,9 @@
 <article class="image-card {{'image-card--flip' if modifiers.flip}} {{'image-card--offset' if modifiers.offset}} {{modifiers.custom}}">
   <div class="image-card__image-wrapper">
     {% for image in images %}
-    <img class="image-card__image" src="{{image.src}}" alt="{{image.alt}}" />
+    <div class="image-card__animation-wrapper">
+      <img class="image-card__image" src="{{image.src}}" alt="{{image.alt}}" />
+    </div>
     {% endfor %}
   </div>
 

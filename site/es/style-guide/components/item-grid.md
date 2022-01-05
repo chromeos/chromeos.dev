@@ -130,43 +130,43 @@ examples:
     arguments:
       title: Noticias y recursos para desarrolladores para ponerlo en funcionamiento
       items:
-        - logo: /images/landings/home/android-logo.png
+        - logo: ix://landings/home/android-logo.png
           cta:
             url: https://android-developers.googleblog.com/
             text: Blog de desarrolladores de Android
-        - logo: /images/landings/home/twitter-logo.png
+        - logo: ix://landings/home/twitter-logo.png
           cta:
             url: https://twitter.com/AndroidDev
             text: Canal de Twitter para desarrolladores de Android
-        - logo: /images/landings/home/youtube-logo.png
+        - logo: ix://landings/home/youtube-logo.png
           cta:
             url: https://www.youtube.com/user/androiddevelopers
             text: Canal de YouTube para desarrolladores de Android
-        - logo: /images/landings/home/twitter-logo.png
+        - logo: ix://landings/home/twitter-logo.png
           cta:
             url: https://twitter.com/ChromiumDev
             text: Canal de Twitter para desarrolladores de Chrome
-        - logo: /images/landings/home/github-logo.png
+        - logo: ix://landings/home/github-logo.png
           cta:
             url: https://github.com/googlechrome
             text: Chrome OS en Github
-        - logo: /images/landings/home/codelabs-logo.png
+        - logo: ix://landings/home/codelabs-logo.png
           cta:
             url: https://developers.google.com/web/fundamentals/codelabs/
             text: Codelabs y muestras de código
-        - logo: /images/landings/home/medium-logo.png
+        - logo: ix://landings/home/medium-logo.png
           cta:
             url: https://medium.com/googleplaydev
             text: Google Play en medio
-        - logo: /images/landings/home/reddit-logo.png
+        - logo: ix://landings/home/reddit-logo.png
           cta:
             url: https://www.reddit.com/r/chromeos/
             text: Linux en la comunidad Reddit de Chrome OS
-        - logo: /images/landings/home/stackoverflow-logo.png
+        - logo: ix://landings/home/stackoverflow-logo.png
           cta:
             url: https://stackoverflow.com/questions/tagged/google-chrome-os
             text: Desbordamiento de pila
-        - logo: /images/landings/home/webdev-logo.png
+        - logo: ix://landings/home/webdev-logo.png
           cta:
             url: https://web.dev/
             text: web.dev

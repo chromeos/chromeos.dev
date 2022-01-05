@@ -3,10 +3,10 @@ title: Infinite Studio aumenta las instalaciones activas después de la optimiza
 metadesc: Después de la optimización para pantallas grandes, las instalaciones activas de Infinite Painter y la actividad general en la aplicación han crecido sustancialmente.
 app:
   name: Pintor infinito
-  logo: gs://stories/infinite-painter/infinite-painter-icon
+  logo: ix://stories/infinite-painter/infinite-painter-icon.240.png
   company: Estudio infinito
 hero:
-  image: gs://stories/infinite-painter/hero
+  image: ix://stories/infinite-painter/hero.1500.jpg
   alt: Captura de pantalla de Infinite Studio con una pintura en curso y opciones de pincel abiertas
   position: top
 date: 2018-11-15
@@ -29,23 +29,23 @@ A pesar de que más usuarios migraron del uso de escritorios tradicionales y tab
 
 El primer paso del equipo de desarrollo fue descubrir qué haría que el UX de Infinite Painter fuera más atractivo mientras se ejecuta en una computadora de escritorio. El equipo decidió aprovechar las nuevas funciones de Chromebook, ideales para experiencias inmersivas en pantalla ancha, haciendo tres ajustes clave: agregar atajos de teclado, optimizar nuevos dispositivos de entrada y habilitar ventanas redimensionables.
 
-### ![](/images/icons/keyboard.png) {.icon - redondeado} Atajos de teclado
+### ![](ix://icons/keyboard.png) {.icon - redondeado} Atajos de teclado
 
 Lo primero que Infinite Studio se dio cuenta fue con qué frecuencia los diseñadores e ilustradores usan atajos de teclado para acelerar su flujo de trabajo. Por lo tanto, los desarrolladores agregaron 30 accesos directos estándar de la industria y los organizaron en un menú desplegable de fácil acceso que se activa manteniendo presionada la tecla [[CTRL]].
 
-![Pantalla de control para Infinite Painter](gs://stories/infinite-painter/infinitepainter-controls)
+![Pantalla de control para Infinite Painter](ix://stories/infinite-painter/infinitepainter-controls.1500.png)
 
-### ![](/images/icons/mouse.png) {.icon - redondeado} Dispositivos de entrada
+### ![](ix://icons/mouse.png) {.icon - redondeado} Dispositivos de entrada
 
 Luego, Infinite Studio [optimizó la aplicación para varios dispositivos de entrada](/{{locale.code}}/android/input-compatibility) , como un mouse externo, la punta de los dedos (algunas Chromebooks vienen equipadas con una pantalla táctil), un lápiz óptico o un panel táctil. Para los paneles táctiles, el equipo agregó la capacidad de ampliar y desplazar fácilmente el lienzo con gestos con dos dedos. Para los ratones externos, agregaron el zoom de la rueda de desplazamiento y la información sobre herramientas que aparece cuando los usuarios se desplazan sobre los elementos de la interfaz con el cursor.
 
 Los desarrolladores ya tenían soporte para la entrada de lápiz y dedo para usuarios móviles, pero trabajaron estrechamente con el equipo de Chrome OS para hacer que la experiencia sea aún más fluida con la API de baja latencia. Esto permite que la aplicación dibuje trazos directamente en la superposición de la pantalla y brinda a los usuarios la sensación de dibujar directamente en la pantalla con su lápiz o sus dedos.
 
-### ![](/images/icons/aspect_ratio.png) {.icon - redondeado} Ventanas redimensionables
+### ![](ix://icons/aspect_ratio.png) {.icon - redondeado} Ventanas redimensionables
 
 Finalmente, el equipo [optimizó la aplicación para admitir diferentes tamaños de ventana](/{{locale.code}}/android/window-management) . Los usuarios pueden cambiar el tamaño de la ventana de la aplicación para una experiencia óptima en cualquier factor de forma, ya sea que prefieran trabajar en modo de pantalla completa o abrir y usar otra aplicación junto a ella. Los desarrolladores también agregaron la capacidad de los usuarios de arrastrar y soltar imágenes externas en la aplicación.
 
-![Vista del tablero de arte de Infinite Painter](gs://stories/infinite-painter/infinitepainter-artboards)
+![Vista del tablero de arte de Infinite Painter](ix://stories/infinite-painter/infinitepainter-artboards.1500.png)
 
 ## Resultados
 

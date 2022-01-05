@@ -13,10 +13,10 @@ examples:
           url: /
           text: This is a link
         imagePrimary:
-          path: /images/feature-story/laptop.png
+          path: ix://feature-story/laptop.png
           alt: some alt
         imageSecondary:
-          path: /images/feature-story/screen.png
+          path: ix://feature-story/screen.png
           alt: some alt
   - title: Wrapper with max width 1440px - Default render.
     useMaxWidth: true
@@ -29,10 +29,10 @@ examples:
           url: /
           text: This is a link
         imagePrimary:
-          path: /images/feature-story/laptop.png
+          path: ix://feature-story/laptop.png
           alt: some alt
         imageSecondary:
-          path: /images/feature-story/screen.png
+          path: ix://feature-story/screen.png
           alt: some alt
   - title: Wrapper with max width 1440px - Default render - External CTA.
     useMaxWidth: true
@@ -45,10 +45,10 @@ examples:
           url: https://www.google.com/
           text: This is a link
         imagePrimary:
-          path: /images/feature-story/laptop.png
+          path: ix://feature-story/laptop.png
           alt: some alt
         imageSecondary:
-          path: /images/feature-story/screen.png
+          path: ix://feature-story/screen.png
           alt: some alt
   - title: Wrapper with max width 1440px - Default render - External CTA - Yellow circle.
     useMaxWidth: true
@@ -61,10 +61,10 @@ examples:
           url: https://www.google.com/
           text: This is a link
         imagePrimary:
-          path: /images/feature-story/laptop.png
+          path: ix://feature-story/laptop.png
           alt: some alt
         imageSecondary:
-          path: /images/feature-story/screen.png
+          path: ix://feature-story/screen.png
           alt: some alt
       modifiers:
         custom: use-yellow-circle
@@ -79,10 +79,10 @@ examples:
           url: /
           text: This is a link
         imagePrimary:
-          path: /images/feature-story/laptop.png
+          path: ix://feature-story/laptop.png
           alt: some alt
         imageSecondary:
-          path: /images/feature-story/screen.png
+          path: ix://feature-story/screen.png
           alt: some alt
       modifiers:
         custom: use-grey-overlay
@@ -97,7 +97,7 @@ examples:
           url: /
           text: This is a link
         imagePrimary:
-          path: gs://featured/evernote-featured-flat
+          path: ix://featured/evernote-featured-flat.1500.png
           alt: some alt
 ---
 

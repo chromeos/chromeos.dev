@@ -17,7 +17,7 @@ tags:
 authors:
   - nataliagvak
 hero:
-  image: /images/posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/hero.png
+  image: ix://posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/hero.png
   alt: Ilustración de la computadora portátil con iconos de juegos y productividad.
 date: 2018-10-29
 ---
@@ -34,7 +34,7 @@ Gran parte de nuestro crecimiento ha sido impulsado por nuevas formas en que las
 
 El año pasado, agregamos nuestro Chromebook cuatro en uno de alto rendimiento, [Google Pixelbook](https://store.google.com/us/product/google_pixelbook) , a la familia Chrome OS. Este octubre, presentamos la primera tableta premium hecha por Google para ejecutar Chrome OS: [Google Pixel Slate](https://store.google.com/us/product/pixel_slate?hl=en-US) . Junto con una pantalla rica y un rendimiento ideal para usar aplicaciones móviles, Pixel Slate también viene con un teclado extraíble que brinda a los usuarios una sensación familiar de computadora portátil.
 
-![Dispositivo Pixel Slate en sus diferentes configuraciones con y sin el teclado desmontable](/images/posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/pixel-slate.jpg)
+![Dispositivo Pixel Slate en sus diferentes configuraciones con y sin el teclado desmontable](ix://posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/pixel-slate.jpg)
 
 Al igual que otros dispositivos con Chrome OS, ambos dispositivos combinan el acceso a millones de aplicaciones móviles con una pantalla brillante de pantalla grande. Los desarrolladores pueden llegar incluso a más usuarios [adaptando sus aplicaciones para Chrome OS](/{{locale.code}}/android/optimizing) de diferentes maneras:
 
@@ -67,7 +67,7 @@ Mientras tanto, el equipo de desarrollo de Slack optimizó su popular aplicació
 
 1Password colaboró con el equipo de Chrome OS team para mejorar drásticamente la experiencia de usuario en solo seis semanas. Para asegurarse que la aplicación hiciera el mejor uso de [el espacio en la pantalla en cualquier orientación y de cualquier tamaño](/{{locale.code}}/android/window-management), el equipo de desarrollo combinó sus diseños existentes para teléfonos y tabletas para presentar un diseño flexible cuando los usuarios cambian el tamaño de la ventana de la aplicación. El equipo también utilizó la funcionalidad de arrartrar y colocar de Chrome OS para que los usuarios de la aplicación pudieran arrastrar contenido fácilmente entre 1Password y otras aplicaciones de Android en Chrome OS.
 
-![1Password en diferentes configuraciones en diferentes modos de dispositivo](/images/posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/1password.jpg)
+![1Password en diferentes configuraciones en diferentes modos de dispositivo](ix://posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/1password.jpg)
 
 Finalmente, el equipo mejoró la compatibilidad con la entrada de teclado y panel táctil para que las personas puedan navegar por la aplicación sin quitar las manos del teclado. Esto creó una experiencia más similar a la de un escritorio en dispositivos móviles, permitiendo a los usuarios usar las teclas de dirección y los atajos de teclado para activar acciones. Desde la implementación de estas nuevas mejoras, 1Password ha visto más del 22.6% más de instalaciones en dispositivos Chrome OS.
 

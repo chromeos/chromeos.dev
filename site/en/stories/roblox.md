@@ -3,10 +3,10 @@ title: Roblox casts a wider net for gamers with optimized Chromebook app
 metadesc: By optimizing for Chromebooks, Roblox has been able to draw a lot of excitement from its player communities, resulting in a large group of dedicated players.
 app:
   name: Roblox
-  logo: gs://stories/roblox/roblox-icon
+  logo: ix://stories/roblox/roblox-icon.240.png
   company: Roblox
 hero:
-  image: gs://stories/roblox/hero
+  image: ix://stories/roblox/hero.1500.jpg
   alt: A group of Roblox characters in the world game.
   position: top
 tags:
@@ -21,7 +21,7 @@ With more than 40 million games created by its users, [Roblox](https://www.roblo
 
 Roblox supports many devices, including laptops and tablets with touchscreens. So, it's able to benefit from the Chromebook’s ability to run in both laptop and tablet mode. The optimization process was fairly seamless because Roblox already supported Android, but it had to make a few tweaks within the Android build to make sure it ran smoothly on Chromebook.
 
-![A group of Roblox characters standing next to each other.](gs://stories/roblox/roblox-feature)
+![A group of Roblox characters standing next to each other.](ix://stories/roblox/roblox-feature.1500.jpg)
 
 ## What they did
 

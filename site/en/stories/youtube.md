@@ -3,10 +3,10 @@ title: YouTube gives its Premium users offline access through a Progressive Web 
 metadesc: YouTube's mission is to give everyone a voice and show them the world. But without an Internet connection sometimes users had to put the conversation on pause.
 app:
   name: YouTube
-  logo: /images/stories/youtube/icon.png
+  logo: ix://stories/youtube/icon.png
   company: Google
 hero:
-  image: /images/stories/youtube/banner.png
+  image: ix://stories/youtube/banner.png
   alt: Illustration of being able to download a recipe video from YouTube and watch it while offline
 tags:
   - touchscreen support
@@ -16,9 +16,9 @@ tags:
 date: 2021-11-17
 featured:
   images:
-    - image: /images/stories/youtube/device.png
+    - image: ix://stories/youtube/device.png
       alt: A Chromebook
-    - image: /images/stories/youtube/browser.png
+    - image: ix://stories/youtube/browser.png
       alt: The YouTube PWA installed on a Chromebook
 ---
 
@@ -40,7 +40,7 @@ Because YouTube is a large Polymer app with one JavaScript file, one CSS file, a
 
 After the team got the service worker to cache the core application, they were ready to set up offline playback.
 
-![Downloading a video for offline playback using YouTube on a Chromebook](/images/stories/youtube/offline.gif)
+![Downloading a video for offline playback using YouTube on a Chromebook](ix://stories/youtube/offline.gif)
 
 First, everything on the back end that assumed users were always online needed to be adjusted. Then, the team had YouTube’s custom video player download the encrypted bytes for a video and store them locally using the [IndexedDB API](https://developers.google.com/web/ilt/pwa/working-with-indexeddb). This keeps offline playback secure while allowing the ability to store even multiple large video files.
 

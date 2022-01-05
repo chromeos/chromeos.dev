@@ -32,7 +32,7 @@ The Gallery is an app designed to be a collection of Material Design & Cupertino
 
 Because Chrome OS runs Android apps, targeting Android is the way to build Chrome OS apps. However, while building Chrome OS apps on Android has always been possible, as described in [these guidelines](/{{locale.code}}/android), it’s often difficult to know whether your Android app is going to run well on Chrome OS. To help with that problem, today we are adding a new set of lint rules to the Flutter tooling to catch violations of the most important of the Chrome OS best practice guidelines:
 
-#[The Flutter Chrome OS lint rules in action](/images/posts/flutter-and-chromeos-better-together/flutter-chromeos-lint-rules.png)
+#[The Flutter Chrome OS lint rules in action](ix://posts/flutter-and-chromeos-better-together/flutter-chromeos-lint-rules.png)
 
 When you’re able to put these Chrome OS lint rules in place, you’ll quickly be able to see any problems in your Android app that would hamper it when running on Chrome OS. To learn how to take advantage of these rules, see the [linting docs for Flutter Chrome OS](https://github.com/flutter/flutter/wiki/Linting-Flutter-apps-for-Chrome-OS).
 
@@ -42,7 +42,7 @@ But all of that is just the beginning -- the Flutter tools allow you to develop 
 
 No matter what platform you're targeting, Flutter has support for rich IDEs and programming tools like Android Studio and Visual Studio Code. Over the last year, Chrome OS has been building support for running the Linux version of these tools with [Linux on Chrome OS](/{{locale.code}}/linux) (aka Crostini). And, because Chrome OS also supports Android, you can configure the Flutter tooling to run your Android apps directly without an emulator involved.
 
-#[The Flutter development tools running on Chrome OS](/images/posts/flutter-and-chromeos-better-together/flutter-on-chromeos.gif)
+#[The Flutter development tools running on Chrome OS](ix://posts/flutter-and-chromeos-better-together/flutter-on-chromeos.gif)
 
 All of the great productivity of Flutter is available, including Stateful Hot Reload, seamless resizing, keyboard and mouse support, and so on. Recent improvements in Crostini, such as high DPI support, Crostini file system integration, easier adb, and so on, have made this experience even better! Of course, you don’t have to test against the Android container running on Chrome OS; you can also test against Android devices attached to your Chrome OS box. In short, Chrome OS is the ideal environment in which to develop and test your Flutter apps, especially when you’re targeting Chrome OS itself.
 

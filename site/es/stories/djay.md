@@ -4,10 +4,10 @@ metadesc: Desde su lanzamiento en Chrome OS, djay ha visto una mayor participaci
 date: 2019-11-26
 app:
   name: Djay
-  logo: gs://stories/djay/djay-icon
+  logo: ix://stories/djay/djay-icon.240.png
   company: Algoriddim
 hero:
-  image: gs://stories/djay/hero
+  image: ix://stories/djay/hero.1500.jpg
   alt: Captura de pantalla de los controles de comando de Djay
 tags:
   - música
@@ -27,7 +27,7 @@ Así es como combinaron la funcionalidad de la pantalla táctil del dispositivo 
 
 Como ya habían implementado el diseño de djay para escritorios de pantalla grande desde el primer día, la mayoría de las optimizaciones de Algoriddim implicaron aprovechar el rendimiento y la funcionalidad completos de Chrome OS. Habilitar el soporte de audio que todo DJ necesita era la prioridad número uno:
 
-### ![](/images/icons/audiotrack.png) {.icon--rounded} Soporte para audio multicanal y para MIDI
+### ![](ix://icons/audiotrack.png) {.icon--rounded} Soporte para audio multicanal y para MIDI
 
 El audio multicanal es fundamental para permitir que los DJ preparen sin problemas la siguiente pista en sus auriculares antes de que el público la escuche en la mezcla principal. Muchos DJ también conectan dispositivos de hardware MIDI externos como beatpads y samplers a sus computadoras portátiles, por lo que poder enviar y recibir señales MIDI con una respuesta de baja latencia en la aplicación es tan esencial.
 
@@ -35,7 +35,7 @@ La aplicación original de djay para Android tenía una funcionalidad MIDI bási
 
 Ambas optimizaciones finalmente dieron un giro completo a la funcionalidad de audio original de gama alta de djay al poner la potencia de nivel de escritorio en manos de los usuarios móviles.
 
-### ![](/images/icons/tablet-android.png) {.icon--rounded} Optimización del diseño de pantalla completa para tabletas
+### ![](ix://icons/tablet-android.png) {.icon--rounded} Optimización del diseño de pantalla completa para tabletas
 
 Cuando Algoriddim consideró cómo los artistas podrían usar la aplicación en dispositivos con pantallas más grandes, vieron la oportunidad de ofrecer una experiencia más única que en un teléfono o escritorio típico.
 
@@ -43,7 +43,7 @@ En lugar de simplemente escalar la interfaz de usuario móvil, Algoriddim posici
 
 Con el espacio en pantalla agregado, Algoriddim pudo agregar funcionalidad principal a la interfaz de usuario principal en lugar de ocultarla en vistas auxiliares que cubren la interfaz de usuario principal en teléfonos y dispositivos más pequeños, lo que permite una potente experiencia multitáctil que no interrumpe un El flujo de trabajo de DJ.
 
-![Un primer plano de una computadora portátil con una aplicación de música Algoriddim.](gs://stories/djay/algoriddim)
+![Un primer plano de una computadora portátil con una aplicación de música Algoriddim.](ix://stories/djay/algoriddim.1500.png)
 
 Lo mejor de todo es que el espacio adicional en la pantalla permitió al equipo empoderar a los DJ de una forma completamente nueva al combinar una interfaz de pantalla táctil con teclado y control MIDI, lo que permite flujos de trabajo innovadores durante la presentación en vivo.
 

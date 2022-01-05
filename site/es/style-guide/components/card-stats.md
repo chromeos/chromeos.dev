@@ -10,7 +10,7 @@ examples:
           - Resultados reales
         desc: Ofrezca experiencias enriquecedoras y atractivas a más personas adaptando sus aplicaciones Android, Google Play y Web para Chromebook. Con algunos cambios en su aplicación existente, puede atraer nuevas audiencias en diferentes formatos y dispositivos, en cualquier momento y en cualquier lugar.
       img:
-        src: gs://home/intro
+        src: ix://home/intro.1500.png
         alt: Algunos alt
       cta:
         url: https://www.google.com/
@@ -29,7 +29,7 @@ examples:
           - Resultados reales
         desc: Ofrezca experiencias enriquecedoras y atractivas a más personas adaptando sus aplicaciones Android, Google Play y Web para Chromebook. Con algunos cambios en su aplicación existente, puede atraer nuevas audiencias en diferentes formatos y dispositivos, en cualquier momento y en cualquier lugar.
       img:
-        src: gs://home/intro
+        src: ix://home/intro.1500.png
         alt: Algunos alt
       cta:
         url: / /
@@ -47,7 +47,7 @@ examples:
           - Resultados reales
         desc: Ofrezca experiencias enriquecedoras y atractivas a más personas adaptando sus aplicaciones Android, Google Play y Web para Chromebook. Con algunos cambios en su aplicación existente, puede atraer nuevas audiencias en diferentes formatos y dispositivos, en cualquier momento y en cualquier lugar.
       img:
-        src: gs://home/intro
+        src: ix://home/intro.1500.png
         alt: Algunos alt
       cta:
         url: https://www.google.com/

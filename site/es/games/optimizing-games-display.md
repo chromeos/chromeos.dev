@@ -7,11 +7,11 @@ weight: -6
 
 En la herramienta de configuración de Chrome OS, los usuarios pueden cambiar la configuración de pantalla. Para pantallas integradas, generalmente no es posible ajustar la resolución de salida. En cambio, el usuario ajusta el tamaño relativo de los elementos en la pantalla utilizando el control deslizante "Tamaño de pantalla". El valor que se muestra en "Parece" está en [píxeles independientes del dispositivo](https://en.wikipedia.org/wiki/Device-independent_pixel) y no en valores de píxeles sin formato.
 
-![Control para "tamaño de pantalla" en la configuración](/images/games/optimizing-games-display/display-size-slider.jpg)
+![Control para "tamaño de pantalla" en la configuración](ix://games/optimizing-games-display/display-size-slider.jpg)
 
 Para pantallas externas, los usuarios tendrán más opciones, normalmente podrán ajustar tanto la resolución de salida como el tamaño de los elementos en la pantalla.
 
-![Opciones de configuración de pantalla externa](/images/games/optimizing-games-display/external-display-settings.jpg)
+![Opciones de configuración de pantalla externa](ix://games/optimizing-games-display/external-display-settings.jpg)
 
 Lo que es importante recordar como desarrollador de juegos cuando se trabaja con el motor de renderizado es que los valores devueltos por las API de Android, como [`getSupportedModes()`](<https://developer.android.com/reference/android/view/Display#getSupportedModes()>) y [`getRealMetrics()`](<https://developer.android.com/reference/android/view/Display#getRealMetrics(android.util.DisplayMetrics)>) estarán en valores de píxeles sin procesar y no en píxeles independientes del dispositivo.
 

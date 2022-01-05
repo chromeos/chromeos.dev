@@ -33,7 +33,7 @@ To make things a bit simpler, assume all examples involve a rear-facing camera u
 
 Natural orientation is defined as the display orientation when the device is in the position it is normally expected to be in. For phones, their natural orientation is often portrait. In other words, phones have shorter widths and longer heights. For laptops, their natural orientation is landscape, meaning they have longer widths and shorter heights. Tablets are a bit more complicated than this - they can be either portrait or landscape.
 
-![Natural orientation illustration with a phone, a laptop and an object from the observer side](/images/android/camera-orientation/natural_orientation_observer_side.png)
+![Natural orientation illustration with a phone, a laptop and an object from the observer side](ix://android/camera-orientation/natural_orientation_observer_side.png)
 
 ### Sensor Orientation
 
@@ -43,27 +43,27 @@ According to [Android 10 Compatibility Definition 7.5.5 Camera Orientation](http
 
 Output buffers from cameras are landscape-sized. Since the natural orientation of phones is usually portrait, the sensor orientation is typically 90 or 270 degrees from the natural orientation in order to have the long side of the output buffer match the long side of the screen. Sensor orientation is different for devices whose natural orientation is landscape, like Chromebooks. On these devices, image sensors are again placed so the long side of the output buffer matches the long side of the screen. Because these are both landscape-sized, the orientations match and the sensor orientation is 0 or 180 degrees.
 
-![Sensor orientation illustration with a phone, a laptop and an object from the object side](/images/android/camera-orientation/sensor_orientation_object_side.png)
+![Sensor orientation illustration with a phone, a laptop and an object from the object side](ix://android/camera-orientation/sensor_orientation_object_side.png)
 
 All the illustrations below show how things look from the point of view of an observer, looking at the device screen:
 
-![Sensor orientation illustration with a phone, a laptop and an object from the observer side](/images/android/camera-orientation/sensor_orientation_observer_side.png)
+![Sensor orientation illustration with a phone, a laptop and an object from the observer side](ix://android/camera-orientation/sensor_orientation_observer_side.png)
 
 Consider the following scene:
 
-![A scene with a cute Android figurine (bugdroid)](/images/android/camera-orientation/scene_bugdroid.jpg)
+![A scene with a cute Android figurine (bugdroid)](ix://android/camera-orientation/scene_bugdroid.jpg)
 
 From the camera sensor’s perspective, you would see the following:
 
-| Phone                                                                                                                                               | Laptop                                                                                                                                                |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![Image illustration from looking through the back camera sensor on a phone](/images/android/camera-orientation/sensor_orientation_after_phone.png) | ![Image illustration from looking through the back camera sensor on a laptop](/images/android/camera-orientation/sensor_orientation_after_laptop.png) |
+| Phone                                                                                                                                            | Laptop                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Image illustration from looking through the back camera sensor on a phone](ix://android/camera-orientation/sensor_orientation_after_phone.png) | ![Image illustration from looking through the back camera sensor on a laptop](ix://android/camera-orientation/sensor_orientation_after_laptop.png) |
 
 Because sensor orientation is usually 90 or 270 degrees on phones, without accounting for sensor orientation, the images you would get would look like this:
 
-| Phone                                                                                                                                               | Laptop                                                                                                                                                |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![Image illustration from looking through the back camera sensor on a phone](/images/android/camera-orientation/sensor_orientation_after_phone.png) | ![Image illustration from looking through the back camera sensor on a laptop](/images/android/camera-orientation/sensor_orientation_after_laptop.png) |
+| Phone                                                                                                                                            | Laptop                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Image illustration from looking through the back camera sensor on a phone](ix://android/camera-orientation/sensor_orientation_after_phone.png) | ![Image illustration from looking through the back camera sensor on a laptop](ix://android/camera-orientation/sensor_orientation_after_laptop.png) |
 
 Suppose the counterclockwise sensor orientation is stored in the variable sensorOrientation. To compensate for sensor orientation, you need to **rotate the output buffers by `sensorOrientation` clockwise** to bring the orientation back in alignment with the natural orientation of the device.
 
@@ -77,13 +77,13 @@ Display rotation is formally defined by the rotation of the drawn graphics on th
 
 Suppose you rotate the devices by 90 degrees counterclockwise from their previous positions as demonstrated in the figure below:
 
-![90-deg display rotation illustration with a phone, a laptop and an object from the observer side](/images/android/camera-orientation/display_rotation_observer_side.png)
+![90-deg display rotation illustration with a phone, a laptop and an object from the observer side](ix://android/camera-orientation/display_rotation_observer_side.png)
 
 Assuming the output buffers are already rotated based on the sensor orientation, you would then have the following output buffers:
 
-| Phone                                                                                                                                           | Laptop                                                                                                                                            |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![Image illustration before display rotation is accounted for on a phone](/images/android/camera-orientation/display_rotation_before_phone.png) | ![Image illustration before display rotation is accounted for on a laptop](/images/android/camera-orientation/display_rotation_before_laptop.png) |
+| Phone                                                                                                                                        | Laptop                                                                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Image illustration before display rotation is accounted for on a phone](ix://android/camera-orientation/display_rotation_before_phone.png) | ![Image illustration before display rotation is accounted for on a laptop](ix://android/camera-orientation/display_rotation_before_laptop.png) |
 
 If the display rotation is stored in the variable displayRotation, to get the correct image, you should rotate the output buffers by displayRotation counterclockwise.
 
@@ -104,7 +104,7 @@ The important thing to note here is that display rotation is relative to natural
 
 Let’s use the previous figures to illustrate what the orientations and rotations are.
 
-![Combined orientation illustration with a phone and a laptop unrotated, and an object](/images/android/camera-orientation/orientations_example_display_rotation_0.png)
+![Combined orientation illustration with a phone and a laptop unrotated, and an object](ix://android/camera-orientation/orientations_example_display_rotation_0.png)
 
 | Phone                          | Laptop                          |
 | ------------------------------ | ------------------------------- |
@@ -113,7 +113,7 @@ Let’s use the previous figures to illustrate what the orientations and rotatio
 | Display Rotation = 0           | Display Rotation = 0            |
 | Display Orientation = Portrait | Display Orientation = Landscape |
 
-![Combined orientation illustration with a phone and a laptop with a display rotation of 90 degrees, and an object](/images/android/camera-orientation/orientations_example_display_rotation_90.png)
+![Combined orientation illustration with a phone and a laptop with a display rotation of 90 degrees, and an object](ix://android/camera-orientation/orientations_example_display_rotation_90.png)
 
 | Phone                           | Laptop                          |
 | ------------------------------- | ------------------------------- |
@@ -162,18 +162,18 @@ Underneath SurfaceView, the Android platform rotates output buffers to match the
 
 You can see that illustrated below. The important thing to keep in mind here is that display rotation alone does not determine the orientation of the source.
 
-| Display Rotation | Phone (Natural Orientation = Portrait)                                                                                                               | Laptop (Natural Orientation = Landscape)                                                                                                              |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0                | ![A portrait-shaped image with the bugdroid's head pointed upwards](/images/android/camera-orientation/surface_view_display_rotation_0_phone.png)    | ![A landscape-shaped image with the bugdroid's head pointed upwards](/images/android/camera-orientation/surface_view_display_rotation_0_laptop.png)   |
-| 90               | ![A landscape-shaped image with the bugdroid's head pointed upwards](/images/android/camera-orientation/surface_view_display_rotation_90_phone.png)  | ![A portrait-shaped image with the bugdroid's head pointed upwards](/images/android/camera-orientation/surface_view_display_rotation_90_laptop.png)   |
-| 180              | ![A portrait-shaped image with the bugdroid's head pointed upwards](/images/android/camera-orientation/surface_view_display_rotation_180_phone.png)  | ![A landscape-shaped image with the bugdroid's head pointed upwards](/images/android/camera-orientation/surface_view_display_rotation_180_laptop.png) |
-| 270              | ![A landscape-shaped image with the bugdroid's head pointed upwards](/images/android/camera-orientation/surface_view_display_rotation_270_phone.png) | ![A portrait-shaped image with the bugdroid's head pointed upwards](/images/android/camera-orientation/surface_view_display_rotation_270_laptop.png)  |
+| Display Rotation | Phone (Natural Orientation = Portrait)                                                                                                            | Laptop (Natural Orientation = Landscape)                                                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0                | ![A portrait-shaped image with the bugdroid's head pointed upwards](ix://android/camera-orientation/surface_view_display_rotation_0_phone.png)    | ![A landscape-shaped image with the bugdroid's head pointed upwards](ix://android/camera-orientation/surface_view_display_rotation_0_laptop.png)   |
+| 90               | ![A landscape-shaped image with the bugdroid's head pointed upwards](ix://android/camera-orientation/surface_view_display_rotation_90_phone.png)  | ![A portrait-shaped image with the bugdroid's head pointed upwards](ix://android/camera-orientation/surface_view_display_rotation_90_laptop.png)   |
+| 180              | ![A portrait-shaped image with the bugdroid's head pointed upwards](ix://android/camera-orientation/surface_view_display_rotation_180_phone.png)  | ![A landscape-shaped image with the bugdroid's head pointed upwards](ix://android/camera-orientation/surface_view_display_rotation_180_laptop.png) |
+| 270              | ![A landscape-shaped image with the bugdroid's head pointed upwards](ix://android/camera-orientation/surface_view_display_rotation_270_phone.png) | ![A portrait-shaped image with the bugdroid's head pointed upwards](ix://android/camera-orientation/surface_view_display_rotation_270_laptop.png)  |
 
 #### Layout
 
 As you can see, SurfaceView already handles some of the tricky things for us. But you now need to consider the size of the viewfinder, or how big you want your preview on the screen. SurfaceView automatically scales the source buffer to fit its dimensions. You need to make sure the aspect ratio of the viewfinder is identical to that of the sourcebuffer. For instance, If you try to fit a portrait-shaped preview into a landscape-shaped SurfaceView, you’ll get something distorted like this:
 
-![Image illustration showing a stretched bugdroid as a result of fitting a portrait-shaped preview into a landscape-shaped viewfinder](/images/android/camera-orientation/surface_view_stretched_scene.png)
+![Image illustration showing a stretched bugdroid as a result of fitting a portrait-shaped preview into a landscape-shaped viewfinder](ix://android/camera-orientation/surface_view_stretched_scene.png)
 
 You generally want **the aspect ratio (i.e., width/height) of the viewfinder to be identical to the aspect ratio of the source**. If you don’t want to clip the image in the viewfinder - cutting off some of the pixels to fix the display, there are 2 cases to consider, when `aspectRatioActivity` is greater than `aspectRatioSource` and when it's less than or equal to `aspectRatioSource`
 
@@ -188,7 +188,7 @@ aspectRatioSource = 4/3 ≈ 1.33
 
 First you want your viewfinder to be 4:3 as well. Then you want to fit the source and viewfinder into the activity like so:
 
-![Illustration of an activity whose aspect ratio is greater than the aspect ratio of the viewfinder inside](/images/android/camera-orientation/surface_view_aspect_ratio_activity_bigger.png)
+![Illustration of an activity whose aspect ratio is greater than the aspect ratio of the viewfinder inside](ix://android/camera-orientation/surface_view_aspect_ratio_activity_bigger.png)
 
 In this case, you should make the height of the viewfinder match the height of the activity while making the aspect ratio of the viewfinder identical to the aspect ratio of the source. Very simple pseudo code to demonstrate:
 
@@ -208,7 +208,7 @@ aspectRatioSource = 3/4 = 0.75
 
 In this case, you want to fit the source and viewfinder into the activity like so:
 
-![Illustration of an activity whose aspect ratio is less than the aspect ratio of the viewfinder inside](/images/android/camera-orientation/surface_view_aspect_ratio_activity_smaller.png)
+![Illustration of an activity whose aspect ratio is less than the aspect ratio of the viewfinder inside](ix://android/camera-orientation/surface_view_aspect_ratio_activity_smaller.png)
 
 You should make the width of the viewfinder match the width of the activity (as opposed to height in the previous case) while making the aspect ratio of the viewfinder identical to the aspect ratio of the source. Pseudo code:
 
@@ -235,12 +235,12 @@ Underneath TextureView, the Android platform rotates the output buffers accordin
 
 You can see that illustrated below. Try rotating the figures by their corresponding display rotation, you’ll actually get the same figures in SurfaceView.
 
-| Display Rotation | Phone (Natural Orientation = Portrait)                                                                                                                  | Laptop (Natural Orientation = Landscape)                                                                                                                  |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0                | ![A portrait-shaped image with the bugdroid's head pointed upwards](/images/android/camera-orientation/texture_view_display_rotation_0_phone.png)       | ![A_landscape-shaped image with the bugdroid's head pointed upwards](/images/android/camera-orientation/texture_view_display_rotation_0_laptop.png)       |
-| 90               | ![A portrait-shaped image with the bugdroid's head pointed to the right](/images/android/camera-orientation/texture_view_display_rotation_90_phone.png) | ![A landscape-shaped image with the bugdroid's head pointed to the right](/images/android/camera-orientation/texture_view_display_rotation_90_laptop.png) |
-| 180              | ![A portrait-shaped image with the bugdroid's head pointed downwards](/images/android/camera-orientation/texture_view_display_rotation_180_phone.png)   | ![A landscape-shaped image with the bugdroid's head pointed downwards](/images/android/camera-orientation/texture_view_display_rotation_180_laptop.png)   |
-| 270              | ![A portrait-shaped image with the bugdroid's head pointed to the left](/images/android/camera-orientation/texture_view_display_rotation_270_phone.png) | ![A landscape-shaped image with the bugdroid's head pointed to the left](/images/android/camera-orientation/texture_view_display_rotation_270_laptop.png) |
+| Display Rotation | Phone (Natural Orientation = Portrait)                                                                                                               | Laptop (Natural Orientation = Landscape)                                                                                                               |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0                | ![A portrait-shaped image with the bugdroid's head pointed upwards](ix://android/camera-orientation/texture_view_display_rotation_0_phone.png)       | ![A_landscape-shaped image with the bugdroid's head pointed upwards](ix://android/camera-orientation/texture_view_display_rotation_0_laptop.png)       |
+| 90               | ![A portrait-shaped image with the bugdroid's head pointed to the right](ix://android/camera-orientation/texture_view_display_rotation_90_phone.png) | ![A landscape-shaped image with the bugdroid's head pointed to the right](ix://android/camera-orientation/texture_view_display_rotation_90_laptop.png) |
+| 180              | ![A portrait-shaped image with the bugdroid's head pointed downwards](ix://android/camera-orientation/texture_view_display_rotation_180_phone.png)   | ![A landscape-shaped image with the bugdroid's head pointed downwards](ix://android/camera-orientation/texture_view_display_rotation_180_laptop.png)   |
+| 270              | ![A portrait-shaped image with the bugdroid's head pointed to the left](ix://android/camera-orientation/texture_view_display_rotation_270_phone.png) | ![A landscape-shaped image with the bugdroid's head pointed to the left](ix://android/camera-orientation/texture_view_display_rotation_270_laptop.png) |
 
 #### Layout
 
@@ -254,7 +254,7 @@ The 3-step process to correctly layout previews on a TextureView:
 
 Suppose you have a phone with a display rotation of 90 degrees.
 
-![Illustration of a phone with a display rotation of 90 degrees, and an object](/images/android/camera-orientation/texture_view_observer_side.png)
+![Illustration of a phone with a display rotation of 90 degrees, and an object](ix://android/camera-orientation/texture_view_observer_side.png)
 
 **1. Set the size of the TextureView to be identical to the preview size chosen**
 
@@ -264,7 +264,7 @@ Before calling setDefaultBufferSize, it’s important that you **also set the si
 
 Now the TextureView may not match the dimensions of the source. In the case of phones, the source is portrait-shaped, yet the TextureView is landscape-shaped owing to the layoutParams you just set. This would result in a stretched previews, as illustrated below,
 
-![Image illustration of a portrait-shaped preview stretched to fit inside a TextureView of the same size of the preview size chosen](/images/android/camera-orientation/texture_view_step_1_identical_size.png)
+![Image illustration of a portrait-shaped preview stretched to fit inside a TextureView of the same size of the preview size chosen](ix://android/camera-orientation/texture_view_step_1_identical_size.png)
 
 **2. Scale the potentially stretched TextureView back to the original dimensions of the preview**
 
@@ -280,7 +280,7 @@ Fix stretching by utilizing [View#setScaleX(float)](<https://developer.android.c
 - setScaleX(`sourceWidth / previewWidth`)
 - setScaleY(`sourceHeight / previewHeight`)
 
-![Image illustration showing the procedure of the stretched preview being scaled back to its original dimensions](/images/android/camera-orientation/texture_view_step_2_scale_back.png)
+![Image illustration showing the procedure of the stretched preview being scaled back to its original dimensions](ix://android/camera-orientation/texture_view_step_2_scale_back.png)
 
 **3. Rotate the preview by `displayRotation` counterclockwise**
 
@@ -290,7 +290,7 @@ You can do this by [View#setRotation(float)](<https://developer.android.com/refe
 
 - setRotation(`-displayRotation`), since it does a clockwise rotation.
 
-![Image illustration showing the procedure of the preview being rotated to match to the display orientation of the device](/images/android/camera-orientation/texture_view_step_3_rotate.png)
+![Image illustration showing the procedure of the preview being rotated to match to the display orientation of the device](ix://android/camera-orientation/texture_view_step_3_rotate.png)
 
 ##### Sample
 

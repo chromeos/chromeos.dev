@@ -7,11 +7,11 @@ weight: -6
 
 In the Chrome OS settings tool, users can change the display settings. For built-in displays, generally it is not possible to adjust the output resolution. Instead, the user adjusts the relative size of elements on the screen using the “Display Size” slider. The value shown under “Looks like” is in [device-independent pixels](https://en.wikipedia.org/wiki/Device-independent_pixel), and not raw pixel values.
 
-!["Display Size" slider in the settings](/images/games/optimizing-games-display/display-size-slider.jpg)
+!["Display Size" slider in the settings](ix://games/optimizing-games-display/display-size-slider.jpg)
 
 For external displays, users will have more options, normally being able to adjust both the output resolution and the size of elements on the screen.
 
-![External display setting options](/images/games/optimizing-games-display/external-display-settings.jpg)
+![External display setting options](ix://games/optimizing-games-display/external-display-settings.jpg)
 
 What is important to remember as a game developer when working with the rendering engine is that the values returned by the Android APIs, like [`getSupportedModes()`](<https://developer.android.com/reference/android/view/Display#getSupportedModes()>) and [`getRealMetrics()`](<https://developer.android.com/reference/android/view/Display#getRealMetrics(android.util.DisplayMetrics)>) will be in raw pixel values and not device-independent pixels.
 

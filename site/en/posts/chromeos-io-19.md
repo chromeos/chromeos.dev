@@ -23,7 +23,7 @@ At I/O this year, we showed web and Android developers a few of the most excitin
 
 Today we announced that it’s much easier to share files between Linux, Android, and Chrome OS. Now you can use the file manager to move your files safely across Chrome OS, Google Drive, Android, and Linux.
 
-![File manager lets you share files across Chrome OS, Google Drive, Android, and Linux.](/images/posts/chromeos-io-19/file-sharing.gif)
+![File manager lets you share files across Chrome OS, Google Drive, Android, and Linux.](ix://posts/chromeos-io-19/file-sharing.gif)
 
 ## Port forwarding
 
@@ -33,7 +33,7 @@ We’ve also made improvements to port forwarding on Chrome OS, making it easier
 
 Installing Android Studio on Chrome OS used to be a fairly lengthy process. Now, it takes a simple double-click. There’s no need to use a terminal to download, move, and unzip the file — just download it, click, and install.
 
-![Android Studio one-click installation](/images/posts/chromeos-io-19/one-click-install-android-studio.png)
+![Android Studio one-click installation](ix://posts/chromeos-io-19/one-click-install-android-studio.png)
 
 Now in beta channel with Chrome OS 75, we also enabled secure USB support for Android phones. You can develop, debug, and push your APK to Android phones on any of the [Android developer-recommended Chromebooks](https://developer.android.com/studio#Requirements).
 
@@ -48,7 +48,7 @@ When you’re building on and for Chrome OS, you’re on a streamlined path to r
 [^1]: Google Internal Data, March 2018 to March 2019.
 [^2]: The NPD Group, Inc., Retail Tracking Service, U.S., Notebook Computers, Chrome OS, based on units, Oct. 8, 2017–Jan. 6, 2018 vs. Oct. 7, 2018–Jan. 5, 2019.
 
-![Q4 2018 Chromebooks sales growth](/images/posts/chromeos-io-19/q4-2018-chromebooks-sales.gif)
+![Q4 2018 Chromebooks sales growth](ix://posts/chromeos-io-19/q4-2018-chromebooks-sales.gif)
 
 Because millions of Android apps already run on Chrome OS, you can take the same APK and extend your app’s reach to even more consumers with just a few tweaks. Whether they’re building apps with larger screens in mind from the start or optimizing old apps to reach new users, developers behind some of the most popular mobile apps and games have already seen incredible results from Chromebook users.
 

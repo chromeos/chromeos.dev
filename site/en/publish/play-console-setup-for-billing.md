@@ -9,7 +9,7 @@ To sell digital content and goods in your Play app, you’ll need to first set u
 
 In the left-hand menu for your app, there should be a “Monetize” section. Expand the “Products” item to see the three ways to monetize your app.
 
-![To set up in-app products, subscriptions, and promo codes, expand the "Monetize" section of the menu.](/images/publish/play-console-setup-for-billing/play-console-monetize-menu.gif)
+![To set up in-app products, subscriptions, and promo codes, expand the "Monetize" section of the menu.](ix://publish/play-console-setup-for-billing/play-console-monetize-menu.gif)
 
 Before setting up your in-app products and subscriptions, first make sure that you’ve uploaded your APK or Android App Bundle (AAB) to a production or testing track. You will also need to add the `BILLING` permission to your app. For an Android app, follow the steps to [enable billing-related features](https://developer.android.com/google/play/billing/getting-ready#enable) in the Google Play Console. If you have a Progressive Web App, [Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap/tree/main/packages/cli) lets you enable support for Play Billing in one of the prompts during the `init` setup.
 

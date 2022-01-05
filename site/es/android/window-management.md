@@ -10,13 +10,13 @@ tags:
 
 La implementación de aplicaciones de Android en Chrome OS incluye soporte básico de múltiples ventanas. En lugar de ocupar siempre la pantalla completa, Android presenta las aplicaciones en Chrome OS en contenedores de ventana de forma libre que son apropiados para las dimensiones del dispositivo, como se muestra en la [Figura 1](#figure-1) .
 
-#1[Una ventana de aplicación en diferentes tamaños de dispositivos](/images/android/window-management/fullscreen-and-windows.png)
+#1[Una ventana de aplicación en diferentes tamaños de dispositivos](ix://android/window-management/fullscreen-and-windows.png)
 
 ## Cambiar el tamaño de ventanas
 
 En Chrome OS, los usuarios pueden cambiar el tamaño de la ventana de una aplicación de la forma habitual, arrastrando la esquina inferior derecha, como se muestra en la Figura 2
 
-#2[Una ventana de aplicación redimensionable](/images/android/window-management/resizable.png)
+#2[Una ventana de aplicación redimensionable](ix://android/window-management/resizable.png)
 
 Hay dos opciones para manejar el cambio de tamaño de la ventana:
 

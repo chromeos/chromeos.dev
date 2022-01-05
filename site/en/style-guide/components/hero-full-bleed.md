@@ -11,7 +11,7 @@ examples:
           url: https://www.google.com/
           text: This is a link
         bkgImg:
-          path: /images/landings/news/hero-full-bleed.png
+          path: ix://landings/news/hero-full-bleed.png
           alt: some alt
 ---
 

@@ -4,7 +4,7 @@ examples:
   - title: Default render - Image at the left on large viewports.
     arguments:
       image:
-        src: /images/stories/roblox/roblox-feature.jpg
+        src: ix://stories/roblox/roblox-feature.jpg
         alt: Best image
       content:
         title: This is a dummy title with an image at the left
@@ -15,7 +15,7 @@ examples:
   - title: Render using the flip flag - Image at the right on large viewports.
     arguments:
       image:
-        src: /images/stories/roblox/roblox-feature.jpg
+        src: ix://stories/roblox/roblox-feature.jpg
         alt: Best image
       content:
         title: This is a dummy title with an image at the right
@@ -28,7 +28,7 @@ examples:
   - title: Render using the offset flag - Image at the left on large viewports.
     arguments:
       image:
-        src: /images/landings/home/laptop-linux.png
+        src: ix://landings/home/laptop-linux.png
         alt: Best image
       content:
         title: This is a dummy title with an image at the right
@@ -41,7 +41,7 @@ examples:
   - title: Render using the offset and flip flag - Image at the right on large viewports.
     arguments:
       image:
-        src: /images/landings/home/laptop-linux.png
+        src: ix://landings/home/laptop-linux.png
         alt: Best image
       content:
         title: This is a dummy title with an image at the right

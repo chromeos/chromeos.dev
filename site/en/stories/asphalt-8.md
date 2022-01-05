@@ -3,10 +3,10 @@ title: Gameloft races to 9X more revenue by optimizing for Chrome OS
 metadesc: When Gameloft optimized for Chromebooks, their game Asphalt 8 saw a 6× increase in daily app users and a nearly 9× boost in their Chrome OS app revenue.
 app:
   name: Asphalt 8
-  logo: gs://stories/asphalt-8/asphalt8-icon
+  logo: ix://stories/asphalt-8/asphalt8-icon.240.png
   company: Gameloft
 hero:
-  image: gs://stories/asphalt-8/hero
+  image: ix://stories/asphalt-8/hero.1500.jpg
   alt: Game illustration of a car jumping to a navy aircraft carrier.
 tags:
   - gaming
@@ -16,9 +16,9 @@ date: 2018-11-01
 updated: 2020-05-01
 featured:
   images:
-    - image: gs://featured/gaming-laptop
+    - image: ix://featured/gaming-laptop.1500.png
       alt: Chromebook showing Asphalt 8 being played.
-    - image: gs://featured/car
+    - image: ix://featured/car.1500.png
       alt: A car from Asphalt 8.
 ---
 
@@ -30,15 +30,15 @@ Gameloft was familiar with developing games for different devices, but translati
 
 Taking advantage of the Chromebook’s seamless controls and overall power, Gameloft identified several opportunities to improve the experience for Chromebook gamers. Gameloft was able to run Android application packages at even higher performance levels than Chrome apps, allowing it to maintain the series’ breathtaking graphics and breakneck speeds on Chrome OS. Gameloft also added in keyboard controls that were activated when the game detected users were playing on a Chromebook.
 
-![A close up of a laptop with a car racing gameplay.](gs://stories/asphalt-8/asphalt8-gameplay)
+![A close up of a laptop with a car racing gameplay.](ix://stories/asphalt-8/asphalt8-gameplay.400.jpg)
 
-#[The game’s UI changes automatically when switching between touchscreen and keyboard controls.](gs://stories/asphalt-8/asphalt8-controls [Control command buttons of the Asphalt 8 game.])
+#[The game’s UI changes automatically when switching between touchscreen and keyboard controls.](ix://stories/asphalt-8/asphalt8-controls.400.jpg [Control command buttons of the Asphalt 8 game.])
 
 Since the Chromebook treats its physical keyboard like an external keyboard on an Android phone, _Asphalt 8: Airborne_ was able to support Chromebook keyboard controls using APIs from the Android SDK Platform. That meant Gameloft only had to dedicate a few days of development time to completely integrate the new control schemes to the game, resulting in a better end-user experience with keyboard controls. Overall, the stability of Chrome OS made for a smooth implementation process, with no major development problems along the way.
 
 Gameloft also teamed with Google to offer a free pack of in-app items with the purchase of any Chromebook. Upon initial device setup, users redeemed codes for exclusive cars, turbo boosts, and credits that appeared the next time they opened the app.
 
-![Control logic diagram for Asphalt 8.](gs://stories/asphalt-8/asphalt8-control-logic)
+![Control logic diagram for Asphalt 8.](ix://stories/asphalt-8/asphalt8-control-logic.860.jpg)
 
 ## Results
 

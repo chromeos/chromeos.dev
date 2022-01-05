@@ -3,10 +3,10 @@ title: Roblox proyecta una red más amplia para los jugadores con la aplicación
 metadesc: Al optimizar para Chromebooks, Roblox ha podido atraer mucha emoción de sus comunidades de jugadores, lo que resulta en un gran grupo de jugadores dedicados.
 app:
   name: Roblox
-  logo: gs://stories/roblox/roblox-icon
+  logo: ix://stories/roblox/roblox-icon.240.png
   company: Roblox
 hero:
-  image: gs://stories/roblox/hero
+  image: ix://stories/roblox/hero.1500.jpg
   alt: Un grupo de personajes de Roblox en el juego mundial.
   position: top
 tags:
@@ -21,7 +21,7 @@ Con más de 40 millones de juegos creados por sus usuarios, [Roblox](https://www
 
 Roblox es compatible con muchos dispositivos, incluidas computadoras portátiles y tabletas con pantallas táctiles. Por lo tanto, puede beneficiarse de la capacidad del Chromebook para ejecutarse en modo portátil y tableta. El proceso de optimización fue bastante sencillo porque Roblox ya era compatible con Android, pero tuvo que hacer algunos ajustes dentro de la compilación de Android para asegurarse de que funcionó sin problemas en Chromebook.
 
-![Un grupo de personajes de Roblox parados uno al lado del otro.](gs://stories/roblox/roblox-feature)
+![Un grupo de personajes de Roblox parados uno al lado del otro.](ix://stories/roblox/roblox-feature.1500.jpg)
 
 ## Que hicieron
 

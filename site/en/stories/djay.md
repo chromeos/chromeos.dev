@@ -4,10 +4,10 @@ metadesc: Since launching on Chrome OS, djay has seen a higher engagement on des
 date: 2019-11-26
 app:
   name: Djay
-  logo: gs://stories/djay/djay-icon
+  logo: ix://stories/djay/djay-icon.240.png
   company: Algoriddim
 hero:
-  image: gs://stories/djay/hero
+  image: ix://stories/djay/hero.1500.jpg
   alt: Screenshot of Djay command controls
 tags:
   - music
@@ -27,7 +27,7 @@ Here’s how they combined the touchscreen functionality of mobile with desktop�
 
 Because they’d already designed djay’s layout for large-screen desktops from day one, most of Algoriddim’s optimizations involved taking advantage of the full performance and functionality of Chrome OS. Enabling the audio support that every DJ needs was priority number one:
 
-### ![](/images/icons/audiotrack.png){.icon--rounded} Multi-channel audio and MIDI support
+### ![](ix://icons/audiotrack.png){.icon--rounded} Multi-channel audio and MIDI support
 
 Multi-channel audio is critical to allow DJs to seamlessly prep the next track in their headphones before the audience hears it on the main mix. A lot of DJs also hook up external MIDI hardware devices like beatpads and samplers to their laptops, so being able to send and receive MIDI signals with a low-latency response on the app is just as essential.
 
@@ -35,7 +35,7 @@ The original djay for Android app had basic MIDI functionality, but it was far f
 
 Both optimizations ultimately brought djay’s original, high-end audio functionality full circle by putting desktop-level power into mobile users’ hands.
 
-### ![](/images/icons/tablet-android.png){.icon--rounded} Optimizing full-screen layout for tablets
+### ![](ix://icons/tablet-android.png){.icon--rounded} Optimizing full-screen layout for tablets
 
 When Algoriddim considered how artists might use the app on devices with larger screens, they saw an opportunity to deliver an experience more unique than on a typical phone or desktop.
 
@@ -43,7 +43,7 @@ Rather than simply scaling the mobile UI, Algoriddim specifically positioned cer
 
 With the added screen real estate, Algoriddim was able to add core functionality to the main UI rather than hide it in auxiliary views that cover the main UI on phones and smaller devices, allowing for a powerful multi-touch experience that doesn’t disrupt a DJ’s workflow.
 
-![A close up of a laptop with an Algoriddim music app.](gs://stories/djay/algoriddim)
+![A close up of a laptop with an Algoriddim music app.](ix://stories/djay/algoriddim.1500.png)
 
 Best of all, the extra screen space allowed the team to empower DJs in an entirely new way by combining a touchscreen interface with keyboard and MIDI control, allowing for innovative workflows during live performance.
 

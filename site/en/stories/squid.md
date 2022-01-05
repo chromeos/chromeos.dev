@@ -5,10 +5,10 @@ date: 2018-08-01
 updated: 2020-06-01
 app:
   name: Squid
-  logo: gs://stories/squid/squid-icon
+  logo: ix://stories/squid/squid-icon.240.png
   company: Steadfast Innovation
 hero:
-  image: gs://stories/squid/hero
+  image: ix://stories/squid/hero.1500.jpg
   alt: Math Study Notes in Squid.
   position: top
 tags:

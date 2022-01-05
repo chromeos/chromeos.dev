@@ -24,7 +24,7 @@ Since their release, [Chromebooks and Chrome OS](https://chromeos.dev/en) have p
 [^1]: The NPD Group, Inc., U.S. Retail Tracking Service, Notebook Computers, based on unit sales, Jan.–Aug. 2020.
 [^2]: Chrome usage metrics, Dec. 2019–Dec. 2020.
 
-![Chromebook sales have increased 85% year over year and PWA installs have increased 175% year over year.](/images/posts/easy-to-build-monetize-and-discover-list-your-web-app-on-google-play/yoy_growth.png)
+![Chromebook sales have increased 85% year over year and PWA installs have increased 175% year over year.](ix://posts/easy-to-build-monetize-and-discover-list-your-web-app-on-google-play/yoy_growth.png)
 
 With all the new capabilities being added to web apps — from saving to the local file system to device communication — we saw an opportunity to highlight the best experiences for Chromebook users.
 
@@ -42,7 +42,7 @@ If your app accepts payments, you can simplify the process by using [the Digital
 
 These APIs allow you to offer in-app payments and subscriptions with a single click, and users see the same, familiar Google Play billing flow with the ability to save credits or payment information.
 
-![A laptop showing a Google Play Billing subscription checkout flow on Clipchamp](/images/posts/easy-to-build-monetize-and-discover-list-your-web-app-on-google-play/play_billing_subscription.png)
+![A laptop showing a Google Play Billing subscription checkout flow on Clipchamp](ix://posts/easy-to-build-monetize-and-discover-list-your-web-app-on-google-play/play_billing_subscription.png)
 
 ## More amazing apps coming to Chrome OS
 

@@ -23,7 +23,7 @@ En I/O este año, mostramos a los desarrolladores web y de Android algunas de la
 
 Hoy anunciamos que es mucho más fácil compartir archivos entre Linux, Android y Chrome OS. Ahora se puede usar el administrador de archivos para mover sus archivos de manera segura a través de Chrome OS, Google Drive, Android y Linux.
 
-![El administrador de archivos le permite compartir archivos en Chrome OS, Google Drive, Android y Linux.](/images/posts/chromeos-io-19/file-sharing.gif)
+![El administrador de archivos le permite compartir archivos en Chrome OS, Google Drive, Android y Linux.](ix://posts/chromeos-io-19/file-sharing.gif)
 
 ## Reenvío de puertos
 
@@ -33,7 +33,7 @@ También hemos realizado mejoras en el reenvío de puertos en Chrome OS, lo que 
 
 Instalar Android Studio en Chrome OS solía ser un proceso algo largo. Ahora, se necesita un simple doble clic. No es necesario usar una terminal para descargar, mover y descomprimir el archivo, simplemente descárguelo, haga clic e instálelo.
 
-![Instalación de Android Studio con un clic](/images/posts/chromeos-io-19/one-click-install-android-studio.png)
+![Instalación de Android Studio con un clic](ix://posts/chromeos-io-19/one-click-install-android-studio.png)
 
 Ahora en el canal beta con Chrome OS 75, también habilitamos el soporte USB seguro para teléfonos Android. Puede desarrollar, depurar y enviar su APK a teléfonos Android en cualquiera de los [Chromebooks recomendados por los desarrolladores de Android](https://developer.android.com/studio#Requirements) .
 
@@ -47,7 +47,7 @@ Cuando se está construyendo en y para Chrome OS, se está en una ruta optimizad
 
 [^ 1]: Datos internos de Google, marzo de 2018 a marzo de 2019. [^ 2]: The NPD Group, Inc., Servicio de seguimiento minorista, EE. UU., Computadoras portátiles, Chrome OS, basado en unidades, 8 de octubre de 2017 a enero . 6 de 2018 vs. 7 de octubre de 2018 – ene. 5 de 2019.
 
-![Crecimiento de las ventas de Chromebooks del cuarto trimestre de 2018](/images/posts/chromeos-io-19/q4-2018-chromebooks-sales.gif)
+![Crecimiento de las ventas de Chromebooks del cuarto trimestre de 2018](ix://posts/chromeos-io-19/q4-2018-chromebooks-sales.gif)
 
 Debido a que millones de aplicaciones de Android ya se ejecutan en Chrome OS, puede tomar el mismo APK y extender el alcance de su aplicación a aún más consumidores con solo unos pocos ajustes. Ya sea que estén creando aplicaciones con pantallas más grandes en mente desde el principio u optimizando aplicaciones antiguas para llegar a nuevos usuarios, los desarrolladores detrás de algunas de las aplicaciones y juegos móviles más populares ya han visto resultados increíbles de los usuarios de Chromebook.
 

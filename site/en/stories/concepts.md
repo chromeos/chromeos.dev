@@ -4,10 +4,10 @@ metadesc: By optimizing for Chrome OS, Concepts was able to unlock a large and g
 date: 2019-05-02
 app:
   name: Concepts
-  logo: gs://stories/concepts/concepts-icon
+  logo: ix://stories/concepts/concepts-icon.250.png
   company: TopHatch
 hero:
-  image: gs://stories/concepts/hero
+  image: ix://stories/concepts/hero.1500.jpg
   alt: Concepts Car sketch showing color wheel
 tags:
   - design
@@ -18,17 +18,17 @@ tags:
 
 [Concepts](https://play.google.com/store/apps/details?id=com.tophatch.concepts), developed by the small, tight-knit team at [TopHatch](https://concepts.app/en/), is an advanced design platform that combines the flexibility of a traditional sketchbook with the speed and versatility of a digital drawing tool. Built for a natural interface using touch on mobile from the beginning, Concepts allows professional designers to work with beautiful yet highly responsive tools, flexible environments, and adjustable vectors. It's a playground for creativity. TopHatch's developers knew Concepts' users value two things: a highly responsive and accurate stylus and a big canvas to develop their ideas. With the emergence of versatile devices like the Pixelbook Pen and foldable smartphones, the team saw an opportunity to reach even more creators by building Concepts' UX for larger screens and different form factors. With a few tips and best practices from Google, TopHatch's developers went to work building the Concepts app for immersive experiences on Chrome OS and Android devices.
 
-![Screen interaction with stylus pen.](gs://stories/concepts/concepts-1)
+![Screen interaction with stylus pen.](ix://stories/concepts/concepts-1.1500.png)
 
 ## What they did
 
-### ![](/images/icons/memory.png){.icon--rounded} High-performance graphics
+### ![](ix://icons/memory.png){.icon--rounded} High-performance graphics
 
 The team's first priority was to ensure Chrome OS could support Concepts' sharp design and seamless performance on all devices. Concepts runs highly-optimized, low-level GPU code. Because Android has so many different devices on the market, TopHatch was concerned about ensuring fast performance on every driver. After evaluating Chrome OS' capabilities with engineers at Google, TopHatch found that the OS' graphics were consistent and compatible across devices. That meant building the app for maximum performance on every GPU driver was much easier than expected. The team ultimately ended up with five variations of its rendering engine, which allows Concepts to perform beautifully on around 2,500 devices after establishing Android 7 and OpenGL ES 3.1 as minimum requirements. After building Concepts for Chrome OS, TopHatch went a step further and adapted the app for foldable devices. Because Chrome OS already fully supports dynamic screen resizing, the team was able to complete the optimizations in just half a day.
 
 @[youtube](https://www.youtube.com/watch?v=QtckOSCYW5w)
 
-### ![](/images/icons/keyboard.png){.icon--rounded} Low-latency stylus and keyboard support
+### ![](ix://icons/keyboard.png){.icon--rounded} Low-latency stylus and keyboard support
 
 Smooth and speedy stylus interaction is at the core of the Concepts experience. Digital designers want to feel like ink is flowing from the stylus just like a real pen. To that end, TopHatch's next goal was to make sure the delay from receiving touch input to rendering strokes on screen was as minimal as possible.
 

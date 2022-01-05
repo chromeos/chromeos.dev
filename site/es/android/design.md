@@ -16,7 +16,7 @@ Android facilita el desarrollo de una aplicación que funciona bien en una ampli
 
 Si desarrolló su aplicación para teléfonos y ahora desea mejorar su diseño en Chrome OS y otros factores de forma de pantalla grande, puede comenzar haciendo pequeños ajustes en sus diseños, fuentes y espacios. En algunos casos, como para tabletas de 7 pulgadas o un juego con un lienzo grande, estos ajustes pueden ser todo lo que necesita para que su aplicación se vea genial. En otros casos, como para pantallas más grandes, puede rediseñar partes de su interfaz de usuario para reemplazar una "interfaz de usuario extendida" con una interfaz de usuario eficiente de múltiples paneles, navegación más fácil y contenido adicional. Pruebe visitar los ["Material Studies"](https://material.io/design/material-studies/) (recursos en inglés) realizados por el equipo de Material Design para ver ejemplos de cómo se vería esto para diferentes productos. A continuación puede ver cómo se ve la aplicación ["Reply"](https://material.io/design/material-studies/reply.html) para diferentes tamaños de pantalla.
 
-![Material Study: Reply](/images/android/design/reply.png)
+![Material Study: Reply](ix://android/design/reply.png)
 
 Aquí hay algunas sugerencias:
 
@@ -46,7 +46,7 @@ En particular, asegúrese de que sus diseños no aparezcan "estirados" en la pan
 
 Los dispositivos de Chrome OS brindan significativamente más espacio en la pantalla a su aplicación Cuando considere la interfaz de usuario de su aplicación para que se ejecute en pantallas más grandes, asegúrese de aprovechar al máximo el área de pantalla adicional disponible. Tanto en el ejemplo anterior de [Reply](https://material.io/design/material-studies/reply.html) como en el ejemplo de [Rally](https://material.io/design/material-studies/rally.html) a continuación, puede ver que ambas aplicaciones adoptan un enfoque diferente para aprovechar el aumento del tamaño de la pantalla. Reply agrega espacio para que se vea más limpio y amigable, mientras que Rally agrega más datos en la pantalla para que los usuarios puedan ver más con menos desplazamiento o clics.
 
-![Material Study: Rally](/images/android/design/rally.png)
+![Material Study: Rally](ix://android/design/rally.png)
 
 Un buen lugar para comenzar es ver las cosas que pueden estar ocultas para el usuario y cómo puede sacarlas y hacerlas visibles. Ya sea que esté mostrando más información sobre un elemento, haciendo visible el menú que puede estar oculto detrás de un clic derecho o una pulsación larga, o mostrando opciones de navegación diferentes o más profundas ahora que tiene un área de navegación del lado izquierdo más grande. Estas son pequeñas victorias que pueden mejorar su UX y darle una sensación más nativa, sin un rediseño completo y una revisión de la experiencia actual.
 

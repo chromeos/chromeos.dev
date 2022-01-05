@@ -4,7 +4,7 @@ examples:
   - title: 'Procesamiento predeterminado: texto a la izquierda e imagen a la derecha.'
     arguments:
       image:
-        src: gs://home/chromebooks-device
+        src: ix://home/chromebooks-device.1500.png
         alt: Algunos alt
       content:
         title: Conozca Chromebook

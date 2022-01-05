@@ -10,7 +10,7 @@ examples:
         text: Start building
         url: /
       img:
-        src: /images/landings/home/hero.png
+        src: ix://landings/home/hero.png
         alt: The alternative text of the image.
 ---
 
