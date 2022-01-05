@@ -8,7 +8,7 @@
   },
   "MESSAGES": {
     "success": "All OK",
-    "failure": "Please make sure your PR title matches the following format: 🐎|🐛|🆕|📝|♻️|📌|💎(code|functions|build|tests|content) title",
+    "failure": "Please make sure your PR title matches the following format: 🐎|🐛|🆕|📝|♻️|📌|💎(site|functions|build|tests|content) title",
     "notice": ""
   }
 }
