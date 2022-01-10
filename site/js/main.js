@@ -138,6 +138,13 @@ window.addEventListener('load', async () => {
 
   if ('serviceWorker' in navigator) {
     registerSW();
+    // Currently not working, but want to resolve before merging
+    navigator.serviceWorker.addEventListener('message', event => {
+      // Optional: ensure the message came from workbox-broadcast-update
+      if (event.data.meta === 'workbox-broadcast-update') {
+        console.log(event.data);
+      }
+    });
   }
 });
 

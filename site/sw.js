@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 Google LLC
+ * Copyright 2022 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,99 +20,152 @@ import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, matchPrecache } from 'workbox-precaching';
 import { registerRoute, setCatchHandler } from 'workbox-routing';
 import * as googleAnalytics from 'workbox-google-analytics';
+import { warmStrategyCache } from 'workbox-recipes';
+import { BroadcastUpdatePlugin } from 'workbox-broadcast-update';
 import { i18nHandler } from 'service-worker-i18n-redirect';
 import { preferences } from 'service-worker-i18n-redirect/preferences';
-import { serviceWorkerIncludePlugin } from 'service-worker-includes';
 
 importScripts('/js/_data/_languages_.js');
 
-precacheAndRoute(self.__WB_MANIFEST);
+// Enable navigation preload.
+// navigationPreload.enable();
 
-googleAnalytics.initialize();
-
-// Short links are read live from a database and should be a network only request
-registerRoute(({ url }) => url.pathname.startsWith('/l/'), new NetworkOnly());
-
-// Handle navigation requests with htmlHandler.
-const htmlCachingStrategy = new StaleWhileRevalidate({
+/**
+ * Base Strategies
+ */
+// Long-lived HTML gets cached w/a Stale While Revalidate strategy
+const cacheHTMLStrategy = new StaleWhileRevalidate({
   cacheName: 'pages-cache',
   plugins: [
-    serviceWorkerIncludePlugin,
+    new CacheableResponsePlugin({
+      statuses: [200],
+    }),
+    new BroadcastUpdatePlugin(),
+  ],
+});
+
+// Short-lived HTML gets cached w/a Network First strategy
+const liveHTMLStrategy = new NetworkFirst({
+  cacheName: 'pages-cache',
+  networkTimeoutSeconds: 2,
+  plugins: [
     new CacheableResponsePlugin({
       statuses: [200],
     }),
   ],
 });
 
+// Assets now have hashes in their URLs so they get a Cache First strategy
+const assetStrategy = new CacheFirst({
+  cacheName: 'assets-cache',
+  plugins: [
+    new CacheableResponsePlugin({
+      statuses: [200],
+    }),
+    new ExpirationPlugin({
+      maxAgeSeconds: 60 * 60 * 24 * 365, // 1 Year
+    }),
+  ],
+});
+
+// Search indexes should try and always be fresh
+const indexesStrategy = new NetworkFirst({
+  cacheName: 'indexes',
+  networkTimeoutSeconds: 3,
+  plugins: [
+    new CacheableResponsePlugin({
+      statuses: [200],
+    }),
+  ],
+});
+
+// Fonts get a long-lived cache, so Cache First
+const fontStrategy = new CacheFirst({
+  cacheName: 'fonts',
+  plugins: [
+    new CacheableResponsePlugin({
+      statuses: [200],
+    }),
+    new ExpirationPlugin({
+      maxAgeSeconds: 60 * 60 * 24 * 365, // 1 Year
+    }),
+  ],
+});
+
+// 3P images get long-lived cache and max entries
+const imageStrategy = new CacheFirst({
+  cacheName: 'image-cache',
+  plugins: [
+    new CacheableResponsePlugin({
+      statuses: [200],
+    }),
+    new ExpirationPlugin({
+      maxEntries: 50,
+      maxAgeSeconds: 60 * 60 * 24 * 30, // 1 Year
+    }),
+  ],
+});
+
+/**
+ * Manifest management and precaching
+ */
+// Manage and filter injected Workbox manifest
+const manifest = self.__WB_MANIFEST;
+const precache = manifest.filter(entry => entry.url.startsWith('offline/') || entry.url.startsWith('js/') || entry.url.startsWith('images/icons/')).map(entry => ({ revision: entry.revision, url: `/${entry.url}` }));
+const html = manifest.filter(entry => entry.url.endsWith('.html') && !entry.url.startsWith('offline/')).map(entry => `/${entry.url}`);
+const assets = manifest.filter(entry => entry.url.startsWith('assets/')).map(entry => `/${entry.url}`);
+
+// Precache offline
+precacheAndRoute(precache);
+
+// Warm HTML and asset caches
+warmStrategyCache({ urls: html, strategy: cacheHTMLStrategy });
+warmStrategyCache({ urls: assets, strategy: assetStrategy });
+
+/**
+ * Routing
+ */
+// Google Analytics
+googleAnalytics.initialize();
+
+// Short links
+//   Read live from a database, need to be network only
+registerRoute(({ url }) => url.pathname.startsWith('/l/'), new NetworkOnly());
+
 // Offline Indexes
-registerRoute(
-  ({ request }) => request.url.includes('js/indexes'),
-  new NetworkFirst({
-    cacheName: 'indexes',
-    plugins: [
-      new CacheableResponsePlugin({
-        statuses: [200],
-      }),
-    ],
-  }),
-);
+registerRoute(({ request }) => request.url.includes('js/indexes'), indexesStrategy);
 
-registerRoute(({ request }) => request.mode === 'navigate', i18nHandler(languages, preferences, htmlCachingStrategy));
+// Live HTML
+registerRoute(({ request, url }) => {
+  const nav = request.mode === 'navigate';
+  if (!nav) return false;
+  const isIndex = languages
+    .map(lang => [`/${lang}/`, `/${lang}`])
+    .flat()
+    .includes(url.pathname);
+  const isNews = languages
+    .map(lang => [`/${lang}/news/`, `/${lang}/news`])
+    .flat()
+    .includes(url.pathname);
 
-// Cache stylesheets with a stale-while-revalidate strategy.
-registerRoute(
-  ({ request }) => request.destination === 'style',
-  new StaleWhileRevalidate({
-    cacheName: 'stylesheets',
-  }),
-);
+  return isIndex || isNews;
+}, i18nHandler(languages, preferences, liveHTMLStrategy));
 
-// Cache stylesheets with a stale-while-revalidate strategy.
-registerRoute(
-  ({ request }) => request.destination === 'script' || request.destination === 'worker',
-  new StaleWhileRevalidate({
-    cacheName: 'scripts',
-    plugins: [
-      new ExpirationPlugin({
-        maxAgeSeconds: 60 * 60 * 24 * 365, // 1 Year
-      }),
-    ],
-  }),
-);
+// Long-term HTML
+registerRoute(({ request }) => request.mode === 'navigate', i18nHandler(languages, preferences, cacheHTMLStrategy));
 
-// Cache font files with a cache-first strategy for 1 year.
-registerRoute(
-  ({ request }) => request.destination === 'font',
-  new CacheFirst({
-    cacheName: 'fonts',
-    plugins: [
-      new CacheableResponsePlugin({
-        statuses: [200],
-      }),
-      new ExpirationPlugin({
-        maxAgeSeconds: 60 * 60 * 24 * 365, // 1 Year
-      }),
-    ],
-  }),
-);
+// Cache assets
+registerRoute(({ request }) => request.destination === 'script' || request.destination === 'worker' || request.destination === 'style', assetStrategy);
 
-// Cache images with a cache-first strategy for 30 days
-registerRoute(
-  ({ request }) => request.destination === 'image',
-  new CacheFirst({
-    cacheName: 'images',
-    plugins: [
-      new CacheableResponsePlugin({
-        statuses: [200],
-      }),
-      new ExpirationPlugin({
-        maxEntries: 50,
-        maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
-      }),
-    ],
-  }),
-);
+// Font cache
+registerRoute(({ request }) => request.destination === 'font', fontStrategy);
 
+// 3P Images cache
+registerRoute(({ url }) => url.hostname === 'chromeos-dev.imgix.net' && url.protocol === 'https:', imageStrategy);
+
+/**
+ * Catch handler
+ */
 setCatchHandler(async ({ event }) => {
   const dest = event.request.destination;
 
@@ -124,8 +177,8 @@ setCatchHandler(async ({ event }) => {
   return Response.error();
 });
 
-addEventListener('message', event => {
-  if (event.data && event.data === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
-});
+// addEventListener('message', event => {
+//   if (event.data && event.data === 'SKIP_WAITING') {
+//     self.skipWaiting();
+//   }
+// });

@@ -47,7 +47,7 @@ module.exports = defineConfig({
       filename: 'sw.js',
       strategies: 'injectManifest',
       injectManifest: {
-        globPatterns: ['**/*.css', '**/*.js', '_components/**/*.html', 'images/icons/sprite.svg', 'en/index.html', 'index.html', '404.html', '**/404/index.html', 'offline/**/index.html'],
+        globPatterns: ['**/*.css', '**/*.js', '_components/**/*.html', 'images/icons/**/*', 'en/index.html', 'index.html', '404.html', '**/404/index.html', 'offline/**/index.html'],
       },
     }),
     //   // imgPlugin(),
