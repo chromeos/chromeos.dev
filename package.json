@@ -74,7 +74,7 @@
     "ava": "^3.15",
     "backstopjs": "^5.4",
     "breakpoint-sass": "^2.7.1",
-    "chromeos-dev-markdown": "^1.0.0",
+    "chromeos-dev-markdown": "^1.0.1",
     "commitizen": "^4.2",
     "config": "^3.3",
     "cross-env": "^7.0",
