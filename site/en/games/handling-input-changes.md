@@ -155,7 +155,7 @@ Here is some example code of how to detect input events from various kinds of in
 
 #### Keyboard and controller buttons
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 // Drive the state machine based on the received input type
 // onKeyDown drives the state machine, but does not trigger game actions
 // Both keyboard and game controller events come through as key events
@@ -181,7 +181,7 @@ override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
 }
 ```
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 // Trigger game events based on key release
 // Both keyboard and game controller events come through as key events
 override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
@@ -205,7 +205,7 @@ If a user presses and holds a button, [`onKeyUp()`](<https://developer.android.c
 
 #### Touch and Stylus
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 // Touch and stylus events come through as touch events
 override fun onTouchEvent(event: MotionEvent?): Boolean {
    if (event != null) {
@@ -236,7 +236,7 @@ override fun onTouchEvent(event: MotionEvent?): Boolean {
 
 #### Mouse and joystick
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 // Mouse and joystick events come through as generic events
 override fun onGenericMotionEvent(event: MotionEvent?): Boolean {
    if (event != null) {

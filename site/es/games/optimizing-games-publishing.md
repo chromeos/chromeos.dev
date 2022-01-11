@@ -11,7 +11,7 @@ Sería ideal que todas las aplicaciones estuvieran disponibles en los [cuatro AB
 
 Esto proporciona el mejor rendimiento y el menor consumo de batería para cada dispositivo. Por ejemplo, un archivo `build.gradle` basado en cmake puede contener:
 
-```groovy
+```groovy {title="build.gradle" .code-figure}
 externalNativeBuild {
   cmake {
     abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'

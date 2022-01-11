@@ -15,19 +15,19 @@ By listing your PWA on Google Play, it becomes discoverable in the world’s lar
 
 To get started, install Bubblewrap from NPM:
 
-```bash
+```bash {title="Sample Bash" .code-figure}
 $ npm install -g @bubblewrap/cli
 ```
 
 To initialize your project, pass in your PWA’s [web app manifest](https://web.dev/add-manifest/) as input and Bubblewrap will generate an Android project to build your PWA Play package from.
 
-```bash
+```bash {title="Sample Bash" .code-figure}
 $ bubblewrap init --manifest="<web-manifest-url>"
 ```
 
 Then build the project and Bubblewrap will create the packages (APK or AAB) that can be uploaded to Google Play to be distributed.
 
-```bash
+```bash {title="Sample Bash" .code-figure}
 $ bubblewrap build
 ```
 
@@ -37,7 +37,7 @@ Check the [official CLI documentation](https://github.com/GoogleChromeLabs/bubbl
 
 If you already have a platform specific Android app, or do not wish to have a mobile experience, you can make your application available only on Chrome OS by adding the `--chromeosonly` flag in the init command:
 
-```bash
+```bash {title="Sample Bash" .code-figure}
 $ bubblewrap init --manifest="<web-manifest-url>" --chromeosonly
 ```
 

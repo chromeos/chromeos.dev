@@ -45,7 +45,7 @@ Y otra cosa con _marcado en línea_
 
 : Y también tiene una definición
 
-```js
+```js {title="Sample JavaScript" .code-figure}
 let foo = 'Hello World';
 const log = arg => {
   console.log(arg);

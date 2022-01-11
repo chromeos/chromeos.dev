@@ -118,7 +118,7 @@ A medida que su aplicación se personaliza cada vez más para un entorno de comp
 
 Puede controlar si su aplicación muestra o no un botón de retroceso en su ventana configurando una preferencia dentro de la etiqueta [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element?hl={{locale.code}}) . Una configuración de **true** ocultará el botón Atrás:
 
-```xml
+```xml {title="Sample XML" .code-figure}
 <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true" />
 ```
 

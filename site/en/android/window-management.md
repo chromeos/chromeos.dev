@@ -34,7 +34,7 @@ This will ensure an app’s UI is decoupled from user data and expensive data op
 
 2. You can also handle configuration changes yourself. This requires careful attention and can lead to poor behavior if you receive unexpected configuration changes - for example if screen density changes when a user plugs in an external monitor. However, some apps, games, and games engines may wish to handle configuration changes caused by window resizing manually. To do this, add the following line to the `<Activity>` tag in your `AndroidManifest.xml` file:
 
-```xml {title=AndroidManifest.xml}
+```xml {title="AndroidManifest.xml" .code-figure}
 android:configChanges="screenSize|smallestScreenSize|orientation|screenLayout"
 ```
 
@@ -48,7 +48,7 @@ and then override the `onConfigurationChanged` method in your main activity. See
 
 To make you app or activity non-resizable add the
 
-```xml
+```xml {title="Sample XML" .code-figure}
 android:resizeableActivity="false"
 ```
 
@@ -64,7 +64,7 @@ In windowed environments, Activities can be resized. When possible, apps should 
 
 If your app needs to manually calculate layout dimensions at runtime, get the current window dimensions in dp ([density independent pixels](https://developer.android.com/training/multiscreen/screendensities#TaskUseDP)) using [getConfiguration](<https://developer.android.com/reference/android/content/res/Resources#getConfiguration()>) or in raw pixels using [displayMetrics](https://developer.android.com/reference/android/util/DisplayMetrics) as demonstrated below. Be sure to check for new window dimensions in every [onCreate⁠](<https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)>) call or on every [configuration change⁠](https://developer.android.com/guide/topics/resources/runtime-changes) if you are handling configurations changes yourself.
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 // Get window dimensions in dp
 val config = appActivity.resources.configuration
 val windowWidthDp = config.screenWidthDp
@@ -92,7 +92,7 @@ Apps can specify their initial launch size in the following ways:
 
 1. Use a specific launch size only in windowed environments: This helps the Chrome OS window manager give the desired launch bounds and orientation to an app and will not affect behaviour on mobile devices. To indicate launch preferences, add the following Chrome OS specific meta tags inside the [Activity⁠](https://developer.android.com/guide/topics/manifest/activity-element.html) element of the `AndroidManifest.xml` file:
 
-   ```xml {title=AndroidManifest.xml}
+   ```xml {title="AndroidManifest.xml" .code-figure}
    <meta-data android:name="WindowManagerPreference:FreeformWindowSize"
               android:value="[phone|tablet|maximize]" />
    <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation"
@@ -101,7 +101,7 @@ Apps can specify their initial launch size in the following ways:
 
 2. Use static launch bounds: Include a `<layout>` tag inside `AndroidManifest.xml` file to specify an initial window size:
 
-   ```xml {title=AndroidManifest.xml}
+   ```xml {title="AndroidManifest.xml" .code-figure}
    <layout android:defaultHeight="500dp"
            android:defaultWidth="600dp"
            android:gravity="top|end"

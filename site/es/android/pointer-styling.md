@@ -15,7 +15,7 @@ Los usuarios de Android acceden a su aplicación desde todos los diferentes tipo
 
 Los usuarios están familiarizados con diferentes convenciones para interactuar con diferentes tipos de objetos en dispositivos de pantalla grande. Android, sin necesidad de agregar ningún cambio, ofrece a los desarrolladores algunos de los iconos de cursor más comunes con los que los usuarios están familiarizados. Agregar algunos de estos iconos de cursor predeterminados del sistema es fácil. Echemos un vistazo al siguiente fragmento de Kotlin:
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 myView.setOnHoverListener { view, _ ->
       view.pointerIcon =
          PointerIcon.getSystemIcon(applicationContext, PointerIcon.TYPE_HAND)
@@ -29,7 +29,7 @@ myView.setOnHoverListener { view, _ ->
 
 Es posible que los iconos del sistema Android no cubran todas sus necesidades. Por ejemplo, si tiene una aplicación de comercio de acciones, es posible que desee mostrar un "\$" verde como puntero del mouse cuando los usuarios se ciernen sobre el botón de compra. Analicemos el siguiente fragmento de Kotlin:
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 // Loading a bitmap to use as a pointer icon
 val dollarBitmap = Bitmap.createScaledBitmap(
     BitmapFactory.decodeResource(

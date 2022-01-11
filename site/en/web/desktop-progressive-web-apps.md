@@ -57,7 +57,7 @@ Almost all Chrome OS devices support touch and many support styluses, too, so yo
 
 If you’re building an app that has users drawing with their fingers or styluses, keeping latency between their input and your output fast enough to feel fluid has historically been difficult. When building these kinds of [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) powered apps for Chrome OS, we recommend using the `desynchronized` hint for `canvas.getContext()` to provide [low-latency rendering](https://developers.google.com/web/updates/2019/05/desynchronized). To use the `desynchronized` hint for a canvas, do the following:
 
-```js
+```js {title="Sample JavaScript" .code-figure}
 const canvas = document.createElement('canvas'); // or select one from the DOM
 const ctx = canvas.getContext('2d', {
   desynchronized: true,

@@ -20,7 +20,7 @@ Touch-based actions are okay for Chromebooks with touchscreens, but it’s impor
 
 First person viewpoint games look best on the desktop when they implement mouse capture. This hides the mouse pointer and allows the user to move the viewpoint, to aim, to steer, etc., by using the mouse. Below is a basic mouse capture demo that records the pointer position and button states after the user clicks a text view named `text_clickme`. See the Android [pointer capture documentation](https://developer.android.com/training/gestures/movement#pointer-capture) for more information.
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 class MainActivity : AppCompatActivity() {
 
     var mouse_x: Float = 0f
@@ -97,7 +97,7 @@ Chat features can be an important component of multiplayer games. Take some time
 
 One pattern could be to have a keyboard key focus the chat box, and handle the [[enter]] key to send messages.
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
   return when(keyCode) {
     KeyEvent.KEYCODE_C -> {

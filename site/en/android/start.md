@@ -27,7 +27,7 @@ To get started, update your manifest file to account for some key hardware and s
 
 As of Chrome OS version M53, all Android apps that don't explicitly require the [`android.hardware.touchscreen`](https://developer.android.com/guide/topics/manifest/uses-feature-element.html#touchscreen-hw-features) feature will also work on Chrome OS devices that support the `android.hardware.faketouch` feature. However, to ensure your app works on all Chromebooks, go to your manifest file and adjust the settings so that the `android.hardware.touchscreen` feature is not required, as shown in the following example. Removing the requirement for touch input means you should also review your app's support for [mouse and keyboard interactions](https://developer.android.com/training/gestures/movement).
 
-```xml
+```xml {title="Sample XML" .code-figure}
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" ... >
   <!-- Some Chromebooks don't support touch. Although not essential,
         it's a good idea to explicitly include this declaration. -->

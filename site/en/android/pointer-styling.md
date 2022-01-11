@@ -15,7 +15,7 @@ Android users come to your app from all different types of form factors i.e., ph
 
 Users are familiar with different conventions for interacting with different types of objects on large screen devices. Android out of the box luckily provides developers with some of the most common cursor icons that users are familiar with. Adding in some of these system default cursor icons is easy. Let's take a look at the following Kotlin snippet:
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 myView.setOnHoverListener { view, _ ->
       view.pointerIcon =
          PointerIcon.getSystemIcon(applicationContext, PointerIcon.TYPE_HAND)
@@ -29,7 +29,7 @@ myView.setOnHoverListener { view, _ ->
 
 You may find that the Android system icons don’t cover all your needs. For example, if you have a stock trading app, you may want to show a green “\$” as the mouse pointer when users hover over the buy button. Let’s break down the following Kotlin snippet:
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 // Loading a bitmap to use as a pointer icon
 val dollarBitmap = Bitmap.createScaledBitmap(
     BitmapFactory.decodeResource(

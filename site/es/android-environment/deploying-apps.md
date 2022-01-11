@@ -60,13 +60,13 @@ Eso es todo, ahora puede implementar la aplicación en el Chromebook, probar y d
 
 Si no lo ha hecho, instale ADB:
 
-```bash
+```bash {title="Sample Bash" .code-figure}
 sudo apt install adb
 ```
 
 Conéctese al dispositivo:
 
-```bash
+```bash {title="Sample Bash" .code-figure}
 adb connect arc
 ```
 
@@ -76,7 +76,7 @@ Aparecerá una ventana emergente pidiendo autorización para la depuración de U
 
 Instala tu aplicación desde la terminal:
 
-```bash
+```bash {title="Sample Bash" .code-figure}
 adb install [path to your APK]
 ```
 
@@ -102,21 +102,21 @@ Para enviar su APK desde otro dispositivo al Chromebook, debe iniciar su Chrome 
 
 4. Escriba `shell` para llegar al comando bash shell:
 
-   ```bash
+   ```bash {title="Sample Bash" .code-figure}
    crosh> shell
    chronos@localhost / $
    ```
 
 5. Escriba los siguientes comandos para configurar su dispositivo:
 
-   ```bash
+   ```bash {title="Sample Bash" .code-figure}
    $ sudo crossystem dev_enable_udc=1
    $ sudo reboot
    ```
 
 6. Después de reiniciar, abra el terminal nuevamente y ejecute el siguiente comando para habilitar ADB en el puerto USB del Chromebook:
 
-   ```bash
+   ```bash {title="Sample Bash" .code-figure}
    $ sudo ectool usbpd <port number> dr_swap
    ```
 
@@ -136,14 +136,14 @@ Para depurar a través de una red, debe configurar el firewall de Chrome OS para
 
 2. Escriba `shell` para llegar al comando bash shell:
 
-   ```bash
+   ```bash {title="Sample Bash" .code-figure}
    crosh> shell
    chronos@localhost / $
    ```
 
 3. Escriba los siguientes comandos para configurar las características del desarrollador y habilitar el acceso de escritura en disco para los cambios en la configuración del firewall. Si necesita ingresar una contraseña de sudo para el usuario de `chronos` , puede (re) establecer una ejecutando `chromeos-setdevpassword` en el [indicador VT-2](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md#vt2) ([[Control]]+[[Alt]]+[[→]]) ; Necesitarás tu contraseña de root.
 
-   ```bash
+   ```bash {title="Sample Bash" .code-figure}
    $ sudo crossystem dev_boot_signed_only=0
    $ sudo /usr/libexec/debugd/helpers/dev_features_rootfs_verification
    $ sudo reboot
@@ -153,7 +153,7 @@ Para depurar a través de una red, debe configurar el firewall de Chrome OS para
 
 Después de reiniciar su dispositivo, inicie sesión en su cuenta de prueba y escriba el siguiente comando para habilitar el shell seguro y configurar el firewall correctamente:
 
-```bash
+```bash {title="Sample Bash" .code-figure}
 $ sudo /usr/libexec/debugd/helpers/dev_features_ssh
 ```
 
@@ -170,7 +170,7 @@ Conéctese a su Chromebook:
 
 1. Regrese a su máquina de desarrollo y use ADB para conectarse a su Chromebook usando su dirección IP:
 
-   ```bash
+   ```bash {title="Sample Bash" .code-figure}
    adb connect <ip_address>:22
    ```
 
