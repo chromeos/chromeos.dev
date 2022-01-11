@@ -57,23 +57,15 @@ const log = arg => {
 log(foo);
 ```
 
-> This is a nice quote. Eiusmod incididunt excepteur velit qui amet id voluptate cupidatat. Voluptate exercitation incididunt aute pariatur pariatur deserunt minim proident consequat.
+> This is a nice quote with attribution. Eiusmod incididunt excepteur velit qui amet id voluptate cupidatat. Voluptate exercitation incididunt aute pariatur pariatur deserunt minim proident consequat.
 > {cite="Here is the quote attribution"}
 
-> This is a nice quote without attribution. Eiusmod incididunt excepteur velit qui amet id voluptate cupidatat. Voluptate exercitation incididunt aute pariatur pariatur deserunt minim proident consequat.
+> This is a nice multi-paragraph quote with attribution. Eiusmod incididunt excepteur velit qui amet id voluptate cupidatat. Voluptate exercitation incididunt aute pariatur pariatur deserunt minim proident consequat.
 >
 > This is the second paragraph.
 > {cite="Here is the quote attribution"}
 
 > This is a nice quote without attribution. Eiusmod incididunt excepteur velit qui amet id voluptate cupidatat. Voluptate exercitation incididunt aute pariatur pariatur deserunt minim proident consequat.
-
-This is not the attribution for the quote
-
-> This is a nice quote without attribution. Eiusmod incididunt excepteur velit qui amet id voluptate cupidatat. Voluptate exercitation incididunt aute pariatur pariatur deserunt minim proident consequat.
->
-> This is the second paragraph.
-
-This is not the attribution for the quote
 
 Here is a footnote. [^1]
 
