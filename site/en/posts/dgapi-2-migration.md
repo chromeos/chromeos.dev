@@ -27,7 +27,7 @@ Both DGAPI 1.0 and 2.0 use the async `getDigitalGoodsService()` method to retrie
 
 In order to handle this change, use the following snippet to instantiate your service object:
 
-```js {title="Sample JavaScript" .code-figure}
+```js {title="JavaScript" .code-figure}
 if (window.getDigitalGoodsService === undefined) {
   // Digital Goods API is not supported in this context.
   return;
@@ -64,7 +64,7 @@ If you offer consumable in-app purchases in your app, follow these steps:
 
 Here’s a snippet:
 
-```js {title="Sample JavaScript" .code-figure}
+```js {title="JavaScript" .code-figure}
 if ('acknowledge' in service) {
   // DGAPI 1.0
   service.acknowledge(purchaseToken, 'repeatable');
@@ -82,7 +82,7 @@ If you currently acknowledge purchases on the client, follow these steps to move
 
 1. Remove all references to the DGAPI `acknowledge()` method called with the `'onetime'` purchase type in your web app.
 
-```js {title="Sample JavaScript" .code-figure}
+```js {title="JavaScript" .code-figure}
 service.acknowledge(purchaseToken, 'onetime');
 ```
 

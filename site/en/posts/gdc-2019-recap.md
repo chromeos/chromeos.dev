@@ -37,7 +37,7 @@ As game developers, you want to provide the best possible gaming experience on e
 
 In the APK, this starts with a configuration change. The system detects a device configuration change and will automatically restart your activity with new resources that allow your game or app to adapt to the new configuration.
 
-```java {title="Sample Java" .code-figure}
+```java {title="Java" .code-figure}
 public void onConfigurationChanged(Configuration newConfig) {
     //Scale UI
     //Toggle control scheme
@@ -56,7 +56,7 @@ On devices such as Chromebooks and Samsung DeX, games are launched in a windowed
 
 Here’s how you can configure for changes in screen size and orientation in your manifest:
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <activity android:name=".MyActivity"
   android:configChanges="screenSize|orientation"
   android:label="@string/app_name">
@@ -66,7 +66,7 @@ Here’s how you can configure for changes in screen size and orientation in you
 
 In your code, your activity will invoke `onConfigurationChanged` whenever your declared configuration change happens. Now, you can handle whatever the change is. For example, you could scale your OpenGL content to match the new resolution or aspect ratio to prevent inaccessible UI elements.
 
-```java {title="Sample Java" .code-figure}
+```java {title="Java" .code-figure}
 public void onConfigurationChanged(Configuration newConfig) {
   //Get native surface size
   //NativeActivity.mLastContent[X/Y/Width/Height]()
@@ -78,7 +78,7 @@ public void onConfigurationChanged(Configuration newConfig) {
 
 It’s also important to remember that every time the screen size changes, your input areas will change as well. If your game is always intended to run in full screen, or you need to quickly prevent configuration change problems while you iron out the bugs, you can simply set [`resizableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) to false in your manifest. This will prevent dynamic resizing but it’ll also prevent split-screen views, so use it sparingly to avoid limiting the user experience.
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <activity android:name=".MyActivity"
   android:resizeableActivity="false"
   android:label="@string/app_name">
@@ -88,13 +88,13 @@ It’s also important to remember that every time the screen size changes, your 
 
 On mobile, the default screen orientation is portrait. On other devices, it could be landscape. In your manifest, specify the sensor orientations you support to have the system handle them and make sure your game doesn’t flip upside down unexpectedly.
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <activity … android:screenOrientation=”...”>
 ```
 
 Or, if you’re dynamically handling orientation in `onConfigurationChanged`, use `Display.getRotation()` to get the current screen orientation in code.
 
-```java {title="Sample Java" .code-figure}
+```java {title="Java" .code-figure}
 Display.getRotation()
 ```
 
@@ -137,7 +137,7 @@ Don’t forget about gamers who use mice — especially when it comes to first-p
 
 ### Mouse capture
 
-```java {title="Sample Java" .code-figure}
+```java {title="Java" .code-figure}
 public void onClick(View view) {
     view.requestPointerCapture();
 }
@@ -176,7 +176,7 @@ The final step is **testing** across all large-screen devices. Add test cases th
 
 The emulator app, which can run on Android devices and Android Studio AVD, is provided to test for changing screen size and density.
 
-```bash {title="Sample Bash" .code-figure}
+```bash {title="Bash" .code-figure}
 $ adb install FoldableEmulator.apk
 $ adb shell pm grant com.samsung.android.foldable.emulator android.permission.WRITE_SECURE_SETTINGS
 $ adb shell pm grant com.samsung.android.foldable.emulator android.permission.SYSTEM_ALERT_WINDOW
@@ -196,7 +196,7 @@ Supporting full screen mode is critical to ensure that gamers get the best and m
 - Declare the `resizeableActivity` (only declare as “true” if your game supports multi-window): `android:resizeableActivity=[“true” | “false”]`
 - Declare a max aspect ratio: The cover screen aspect ratio is 21:9, and that requires you to mention the max aspect ratio as 2.4. Here’s how to declare maximum aspect ratio in your manifest file (this metadata needs to be set under the Application tag):
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <!-- Render on full screen up to aspect ratio of 2.4 -->
 <!-- Use a letterbox on screens larger than 2.4 -->
 <meta-data android:name="android.max_aspect" android:value="2.4" />
@@ -218,7 +218,7 @@ If you are rendering into the cutout area, you can use `WindowInsets.getDisplayC
 
 Below defines a style that you can use to apply the `LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES` attribute to the activity.
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <style name="ActivityTheme">
    <item name="android:windowLayoutInDisplayCutoutMode">
        shortEdges <!-- default, shortEdges, never -->
@@ -242,7 +242,7 @@ Multi-resume means resuming all top visible activities in multi-window. In Andro
 
 Applying multi-resume is simple. Just add meta-data into the manifest file of your application. Then, if your game is top visible with a multi-window situation, your activity will be resumed.
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <application>
   <meta-data
     android:name="android.allow_multiple_resumed_activities"

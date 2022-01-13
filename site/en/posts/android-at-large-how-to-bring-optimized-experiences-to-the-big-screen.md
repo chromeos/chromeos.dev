@@ -103,7 +103,7 @@ For example, consider handling right-click (context) actions, which you do by se
 
 Another useful technique to help show people that things are actionable are hover actions. For example, you can change colors or elevation when hovering over action items using `setOnHoverListener` like this:
 
-```kotlin {title="Sample Kotlin" .code-figure}
+```kotlin {title="Kotlin" .code-figure}
 yourView.setOnHoverListener{ view, motionEvent ->
   when (motionEvent.actionMasked) {
     MotionEvent.ACTION_HOVER_ENTER -> {
@@ -118,7 +118,7 @@ yourView.setOnHoverListener{ view, motionEvent ->
 
 Or update the mouse pointer, for example to change it to a hand icon to indicate a grab or select function. This is a simple one-line implementation:
 
-```kotlin {title="Sample Kotlin" .code-figure}
+```kotlin {title="Kotlin" .code-figure}
 yourView.setOnHoverListener { view, motionEvent ->
  // Change to the hand icon that users expect when
  // hovering over something actionable
@@ -172,7 +172,7 @@ For example, if there are three activities wanting to make use of the camera, on
 
 Android 10 introduces a new callback, [`onTopResumedActivityChanged`](<https://developer.android.com/reference/android/app/Activity.html#onTopResumedActivityChanged(boolean)>), where the activity is notified when it’s the “top” resumed one.
 
-```kotlin {title="Sample Kotlin" .code-figure}
+```kotlin {title="Kotlin" .code-figure}
 protected void onTopResumedActivityChanged(boolean topResumed) {
   if (topResumed) {
     // Top Resumed activity

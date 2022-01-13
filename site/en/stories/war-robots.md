@@ -28,7 +28,7 @@ Here's how the Pixonic team optimized War Robots for an optimal experiences on l
 
 To kick off the optimizations, Pixonic added a metadata tag in AndroidManifest.xml that tells the system it's ready for full Chrome OS support and needs to disable touch emulation:
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <uses-feature android:name="android.hardware.type.pc" android:required="false" />
 ```
 
@@ -40,7 +40,7 @@ In third-person PvP games like War Robots, moving and aiming is a lot easier usi
 
 To provide the right controls at the right time, Pixonic's team wrote new code to check the user's current gameplay mode:
 
-```java {title="Sample Java" .code-figure}
+```java {title="Java" .code-figure}
 @Override
 public void onConfigurationChanged(Configuration newConfig) {
     boolean hasQwertyKeyboard = newConfig.keyboard == Configuration.KEYBOARD_QWERTY && newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO;
@@ -62,7 +62,7 @@ If a keyboard isn't detected, the movement joystick appears in the bottom-left c
 
 Next, Pixonic wanted to make sure the cursor stays hidden when a player uses their mouse to rotate the camera. By targeting Android 7.0 (API level 24) or higher, the team could set any pointer icon. In this case, the team used a transparent bitmap to make the cursor invisible during gameplay:
 
-```java {title="Sample Java" .code-figure}
+```java {title="Java" .code-figure}
 public boolean setPointerVisibility(boolean visible) {
     View = activity.findViewById(android.R.id.content);
     view.setPointerIcon(PointerIcon.getSystemIcon(activity, visible ? PointerIcon.TYPE_DEFAULT : PointerIcon.TYPE_NULL));
@@ -81,7 +81,7 @@ For a better user experience, Pixonic also wrote new code to display different g
 
 When players are in laptop mode, Pixonic also disables touchscreen camera control (since players will control the camera with a mouse) while all the gameplay buttons work as usual. To differentiate touches from mouse movements, the team uses the `Input.touchCount` property (in Unity scripts):
 
-```java {title="Sample Java" .code-figure}
+```java {title="Java" .code-figure}
 if (Input.touchCount > 0) {
   // this is screen touch event
 } else {
@@ -95,14 +95,14 @@ For the final step, Pixonic wanted to make sure the game didn't lock itself in f
 
 To do this, Pixonic marked `UnityPlayerActivity` as resizable:
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <activity android:name="com.unity3d.player.UnityPlayerActivity" ....
 android:resizeableActivity="true">
 ```
 
 Keeping in mind that the game interface only looks playable in a certain dimension range, the team set minimum supported window sizes:
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <activity … >
     <layout android:gravity="center" android:minHeight="800dp" android:minWidth="1200dp" />
 </activity>
@@ -110,7 +110,7 @@ Keeping in mind that the game interface only looks playable in a certain dimensi
 
 For the most immersive gameplay, Pixonic used meta tags to set fullscreen mode as default and landscape orientation as desirable.
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <application>
     <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize" />
     <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape" />

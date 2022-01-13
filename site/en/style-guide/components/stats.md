@@ -14,6 +14,6 @@ examples:
 
 This component is used to incorporate statistics into long-form content. To use in a Markdown file, write your stats in a newly included stat block:
 
-```markdown {title="Sample Markdown" .code-figure}
+```markdown {title="Markdown" .code-figure}
 %[(55%, Growth in active installations), (2x, Growth in overall activity in app)]
 ```

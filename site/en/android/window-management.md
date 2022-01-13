@@ -48,7 +48,7 @@ and then override the `onConfigurationChanged` method in your main activity. See
 
 To make you app or activity non-resizable add the
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 android:resizeableActivity="false"
 ```
 
@@ -64,7 +64,7 @@ In windowed environments, Activities can be resized. When possible, apps should 
 
 If your app needs to manually calculate layout dimensions at runtime, get the current window dimensions in dp ([density independent pixels](https://developer.android.com/training/multiscreen/screendensities#TaskUseDP)) using [getConfiguration](<https://developer.android.com/reference/android/content/res/Resources#getConfiguration()>) or in raw pixels using [displayMetrics](https://developer.android.com/reference/android/util/DisplayMetrics) as demonstrated below. Be sure to check for new window dimensions in every [onCreate⁠](<https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)>) call or on every [configuration change⁠](https://developer.android.com/guide/topics/resources/runtime-changes) if you are handling configurations changes yourself.
 
-```kotlin {title="Sample Kotlin" .code-figure}
+```kotlin {title="Kotlin" .code-figure}
 // Get window dimensions in dp
 val config = appActivity.resources.configuration
 val windowWidthDp = config.screenWidthDp

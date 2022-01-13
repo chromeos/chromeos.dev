@@ -69,13 +69,13 @@ That's it, you can now deploy the app to the Chromebook, test and debug _without
 
 Install ADB if necessary:
 
-```bash {title="Sample Bash" .code-figure}
+```bash {title="Bash" .code-figure}
 sudo apt install adb
 ```
 
 Connect to the device:
 
-```bash {title="Sample Bash" .code-figure}
+```bash {title="Bash" .code-figure}
 adb connect arc
 ```
 
@@ -85,7 +85,7 @@ An authorization popup for USB debugging appears the first time you try to deplo
 
 Install your app from the terminal:
 
-```bash {title="Sample Bash" .code-figure}
+```bash {title="Bash" .code-figure}
 adb install [path to your APK]
 ```
 
@@ -114,7 +114,7 @@ Connect to your Chromebook:
 
 1.  Return to your development machine and use ADB to connect to your Chromebook using its IP address:
 
-    ```bash {title="Sample Bash" .code-figure}
+    ```bash {title="Bash" .code-figure}
     adb connect <ip_address>
     ```
 
@@ -149,21 +149,21 @@ also significantly reduced.
 1. Press [[Control]]+[[Alt]]+[[T]] to start the Chrome OS terminal.
 1. Type `shell` to get to the bash command shell:
 
-   ```bash {title="Sample Bash" .code-figure}
+   ```bash {title="Bash" .code-figure}
    crosh> shell
    chronos@localhost / $
    ```
 
 1. Type the following commands to set up your device:
 
-   ```bash {title="Sample Bash" .code-figure}
+   ```bash {title="Bash" .code-figure}
    $ sudo crossystem dev_enable_udc=1
    $ sudo reboot
    ```
 
 1. After rebooting, open the terminal again and run the following command to enable ADB on the Chromebook's USB port:
 
-   ```bash {title="Sample Bash" .code-figure}
+   ```bash {title="Bash" .code-figure}
    $ sudo ectool usbpd <port number> dr_swap
    ```
 

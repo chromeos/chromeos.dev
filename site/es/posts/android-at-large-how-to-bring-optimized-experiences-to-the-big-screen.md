@@ -103,7 +103,7 @@ Por ejemplo, considere manejar las acciones de hacer clic con el botón derecho 
 
 Otra técnica útil para ayudar a mostrar a las personas que las cosas son accionables son las acciones de desplazamiento. Por ejemplo, puede cambiar los colores o la elevación al pasar el cursor sobre los elementos de acción utilizando `setOnHoverListener` esta manera:
 
-```kotlin {title="Sample Kotlin" .code-figure}
+```kotlin {title="Kotlin" .code-figure}
 yourView.setOnHoverListener{ view, motionEvent ->
   when (motionEvent.actionMasked) {
     MotionEvent.ACTION_HOVER_ENTER -> {
@@ -118,7 +118,7 @@ yourView.setOnHoverListener{ view, motionEvent ->
 
 O actualice el puntero del mouse, por ejemplo, para cambiarlo a un icono de mano para indicar una función de agarrar o seleccionar. Esta es una implementación simple de una línea:
 
-```kotlin {title="Sample Kotlin" .code-figure}
+```kotlin {title="Kotlin" .code-figure}
 yourView.setOnHoverListener { view, motionEvent ->
  // Change to the hand icon that users expect when
  // hovering over something actionable
@@ -172,7 +172,7 @@ Por ejemplo, si hay tres actividades que desean utilizar la cámara, solo una pu
 
 Android 10 presenta una nueva devolución de llamada, [`onTopResumedActivityChanged`](<https://developer.android.com/reference/android/app/Activity.html#onTopResumedActivityChanged(boolean)>) , donde se notifica la actividad cuando se reanuda la "parte superior".
 
-```kotlin {title="Sample Kotlin" .code-figure}
+```kotlin {title="Kotlin" .code-figure}
 protected void onTopResumedActivityChanged(boolean topResumed) {
   if (topResumed) {
     // Top Resumed activity

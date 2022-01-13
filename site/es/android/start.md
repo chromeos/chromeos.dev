@@ -24,7 +24,7 @@ Para comenzar, actualice su archivo de manifiesto para tener en cuenta algunas d
 
 A partir de Chrome OS versión M53, todas las aplicaciones de Android que no requieren explícitamente la función [`android.hardware.touchscreen`](https://developer.android.com/guide/topics/manifest/uses-feature-element.html?hl={{locale.code}}#touchscreen-hw-features) también funcionarán en dispositivos Chrome OS que admitan la función `android.hardware.faketouch` . Sin embargo, para garantizar que su aplicación funcione en todas las Chromebooks, vaya a su archivo de manifiesto y ajuste la configuración para que no se requiera la función `android.hardware.touchscreen` , como se muestra en el siguiente ejemplo. Eliminar el requisito de entrada táctil significa que también debe revisar el soporte de su aplicación para las [interacciones de mouse y teclado](https://developer.android.com/training/gestures/movement?hl={{locale.code}}) .
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" ... >
   <!-- Some Chromebooks don't support touch. Although not essential,
         it's a good idea to explicitly include this declaration. -->

@@ -13,7 +13,7 @@ Due to Chrome OS’s architecture and security rules, an Android app that needs 
 
 To get the IPv4 address assigned to the highest priority network that the Chrome OS device is connected to, examine the android system property `arc.net.ipv4.host_address` and, if needed, `arc.net.ipv4.host_gateway`. One way to do this is:
 
-```kotlin {title="Sample Kotlin" .code-figure}
+```kotlin {title="Kotlin" .code-figure}
 fun getChromeOsIpAddress() : String {
    val process = ProcessBuilder().command("/system/bin/getprop", "arc.net.ipv4.host_address").start()
    val ipAddress = readInput(process.inputStream)

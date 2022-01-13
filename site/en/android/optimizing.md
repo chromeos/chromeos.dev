@@ -123,7 +123,7 @@ As your app becomes increasingly customized for a laptop environment, consider m
 
 You can control whether or not your app displays a back button in its window by setting a preference inside the [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element.html) tag. A setting of **true** will hide the back button:
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <meta-data android:name="WindowManagerPreference:SuppressWindowControlNavigationButton" android:value="true" />
 ```
 

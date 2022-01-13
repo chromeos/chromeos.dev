@@ -41,7 +41,7 @@ The way someone uses your app depends entirely on his or her device. There are a
 
 If your app doesn’t already support keyboards, here’s the code to make sure it does:
 
-```kotlin {title="Sample Kotlin" .code-figure}
+```kotlin {title="Kotlin" .code-figure}
 override fun onKeyUp(code: Int, ev: KeyEvent?): Boolean {
   return when (code) {
     KeyEvent.KEYCODE_J -> {

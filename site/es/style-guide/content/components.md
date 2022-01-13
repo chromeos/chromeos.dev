@@ -23,7 +23,7 @@ Término: definición
 
 Término 2: Definición
 
-```markdown {title="Sample Markdown" .code-figure}
+```markdown {title="Markdown" .code-figure}
 Term
 : Definition
 
@@ -39,7 +39,7 @@ Esta es una nota al pie [^ 1], con una segunda [^ segundo] como medida.
 
 [^ 1]: Contenido de la primera nota al pie. [^ segundo]: segunda nota al pie
 
-```markdown {title="Sample Markdown" .code-figure}
+```markdown {title="Markdown" .code-figure}
 This is a footnote[^1], with a second one[^second] for good measure.
 
 [^1]: Content of the first footnote.
@@ -52,7 +52,7 @@ El contenido de superíndice suele ser superíndice por razones puramente de pre
 
 Este ^ es ^ algún ^ superíndice ^ contenido.
 
-```markdown {title="Sample Markdown" .code-figure}
+```markdown {title="Markdown" .code-figure}
 This^is^ some^superscript^ content.
 ```
 
@@ -65,7 +65,7 @@ Las abreviaturas le permiten definir una abreviatura para usar en todo el texto.
 
 Este archivo MD se convierte en HTML cuando se compila el sitio.
 
-```markdown {title="Sample Markdown" .code-figure}
+```markdown {title="Markdown" .code-figure}
 <!-- prettier-ignore -->
 *[HTML]: Hyper Text Markup Language
 *[MD]: Markdown
@@ -81,7 +81,7 @@ Agregue Emoji directamente a la salida representada a través de palabras clave 
 
 Emoji se puede usar en: memo: oraciones también.
 
-```markdown {title="Sample Markdown" .code-figure}
+```markdown {title="Markdown" .code-figure}
 :heart: <3
 
 Emoji can be used in :memo: sentences too.
@@ -95,7 +95,7 @@ Agregue una imagen con título visible como una figura lógica única. Las figur
 
 # 1 [Título de imagen] (/ images / icons / pwa / chromeOS.svg [Con una descripción accesible de la imagen])
 
-```markdown {title="Sample Markdown" .code-figure}
+```markdown {title="Markdown" .code-figure}
 #[Caption for Image](ix://icons/pwa/chromeOS.svg)
 
 #1[Caption for Image](ix://icons/pwa/chromeOS.svg [With description of image])
@@ -107,7 +107,7 @@ Agregue un video incrustado de YouTube.
 
 @ [youtube](https://www.youtube.com/watch?v=ntLPcVAyNPE)
 
-```markdown {title="Sample Markdown" .code-figure}
+```markdown {title="Markdown" .code-figure}
 @[youtube](https://www.youtube.com/watch?v=ntLPcVAyNPE)
 ```
 
@@ -117,7 +117,7 @@ Mostrar una tecla del teclado. Siempre que esté hablando de una tecla específi
 
 [[CTRL]]+[[C]]
 
-```markdown {title="Sample Markdown" .code-figure}
+```markdown {title="Markdown" .code-figure}
 [[CTRL]]+[[C]]
 ```
 
@@ -129,7 +129,7 @@ Muestra una o varias estadísticas relacionadas juntas.
 
 % [(123%, ¿Puedes creerlo?), (2x, Crecimiento en la actividad), (12%, Golpe pero aún impresionante)]
 
-```markdown {title="Sample Markdown" .code-figure}
+```markdown {title="Markdown" .code-figure}
 %[123%, What an improvement]
 
 %[(123%, Can you believe it), (2x, Growth in activity), (12%, Bump but still impressive)]
@@ -155,7 +155,7 @@ Esta es una advertencia.
 Este es un consejo.
 !!!
 
-```markdown {title="Sample Markdown" .code-figure}
+```markdown {title="Markdown" .code-figure}
 !!! aside.message
 This is just a message. Messages _can_ have Markdown in them, and it will render as expected.
 !!!
@@ -182,7 +182,7 @@ Al escribir citas independientes, use lo siguiente para incluir correctamente la
 
 Aquí está la atribución de la cita {.cite}
 
-```markdown {title="Sample Markdown" .code-figure}
+```markdown {title="Markdown" .code-figure}
 > This is a quote
 >
 > The quote can have multiple paragraphs

@@ -231,7 +231,7 @@ Yes, starting with R74 ([Termina](https://chromium.googlesource.com/chromiumos/o
 
 If you set up your container before audio support was deployed, it might not be configured correctly (as the default before was to output to the null device). You can try these steps to recover:
 
-```bash {title="Sample Bash" .code-figure}
+```bash {title="Bash" .code-figure}
 # Make sure the new cros-pulse-config package is installed.
 $ sudo apt-get update
 $ sudo apt-get dist-upgrade

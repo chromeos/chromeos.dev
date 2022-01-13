@@ -14,6 +14,6 @@ examples:
 
 Este componente se utiliza para incorporar estadísticas en contenido de formato largo. Para usar en un archivo Markdown, escriba sus estadísticas en un bloque de estadísticas recién incluido:
 
-```markdown {title="Sample Markdown" .code-figure}
+```markdown {title="Markdown" .code-figure}
 %[(55%, Growth in active installations), (2x, Growth in overall activity in app)]
 ```
