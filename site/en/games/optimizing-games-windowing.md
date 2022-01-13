@@ -59,7 +59,7 @@ Read more about [window management](/{{locale.code}}/android/window-management).
 
 When your game is running in a full-screen window, you may wish to put it into immersive mode to remove window borders and other distracting screen elements. See the Android [full-screen documentation](https://developer.android.com/training/system-ui/immersive) for more information.
 
-```kotlin {title="Sample Kotlin" .code-figure}
+```kotlin {title="Kotlin" .code-figure}
 private fun hideSystemUI() {
     // Enables regular immersive mode.
     window.decorView.systemUiVisibility = (

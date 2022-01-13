@@ -49,7 +49,7 @@ And another thing with _inline markup_
 
 : And its got a definition too
 
-```js {title="Sample JavaScript" .code-figure}
+```js {title="JavaScript" .code-figure}
 let foo = 'Hello World';
 const log = arg => {
   console.log(arg);

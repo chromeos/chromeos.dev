@@ -28,7 +28,7 @@ Así es como el equipo de Pixonic optimizó War Robots para una experiencia ópt
 
 Para comenzar las optimizaciones, Pixonic agregó una etiqueta de metadatos en AndroidManifest.xml que le dice al sistema que está listo para la compatibilidad total con Chrome OS y que necesita deshabilitar la emulación táctil:
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <uses-feature android:name="android.hardware.type.pc" android:required="false" />
 ```
 
@@ -40,7 +40,7 @@ En juegos PvP en tercera persona como War Robots, moverse y apuntar es mucho má
 
 Para proporcionar los controles correctos en el momento adecuado, el equipo de Pixonic escribió un nuevo código para verificar el modo de juego actual del usuario:
 
-```java {title="Sample Java" .code-figure}
+```java {title="Java" .code-figure}
 @Override
 public void onConfigurationChanged(Configuration newConfig) {
     boolean hasQwertyKeyboard = newConfig.keyboard == Configuration.KEYBOARD_QWERTY && newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO;
@@ -62,7 +62,7 @@ Si no se detecta un teclado, el joystick de movimiento aparece en la esquina inf
 
 Luego, Pixonic quería asegurarse de que el cursor permanezca oculto cuando un jugador usa su mouse para girar la cámara. Al apuntar a Android 7.0 (API nivel 24) o superior, el equipo podría establecer cualquier ícono de puntero. En este caso, el equipo utilizó un mapa de bits transparente para hacer que el cursor sea invisible durante el juego:
 
-```java {title="Sample Java" .code-figure}
+```java {title="Java" .code-figure}
 public boolean setPointerVisibility(boolean visible) {
     View = activity.findViewById(android.R.id.content);
     view.setPointerIcon(PointerIcon.getSystemIcon(activity, visible ? PointerIcon.TYPE_DEFAULT : PointerIcon.TYPE_NULL));
@@ -81,7 +81,7 @@ Para una mejor experiencia de usuario, Pixonic también escribió un nuevo códi
 
 Cuando los jugadores están en modo portátil, Pixonic también deshabilita el control de la cámara con pantalla táctil (ya que los jugadores controlarán la cámara con un mouse) mientras todos los botones del juego funcionan como de costumbre. Para diferenciar los toques de los movimientos del mouse, el equipo usa la propiedad `Input.touchCount` (en los scripts de Unity):
 
-```java {title="Sample Java" .code-figure}
+```java {title="Java" .code-figure}
 if (Input.touchCount > 0) {
   // this is screen touch event
 } else {
@@ -95,14 +95,14 @@ Para el paso final, Pixonic quería asegurarse de que el juego no se bloqueara e
 
 Para hacer esto, Pixonic marcó `UnityPlayerActivity` como redimensionable:
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <activity android:name="com.unity3d.player.UnityPlayerActivity" ....
 android:resizeableActivity="true">
 ```
 
 Teniendo en cuenta que la interfaz del juego solo parece jugable en un cierto rango de dimensión, el equipo estableció los tamaños mínimos de ventana admitidos:
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <activity … >
     <layout android:gravity="center" android:minHeight="800dp" android:minWidth="1200dp" />
 </activity>
@@ -110,7 +110,7 @@ Teniendo en cuenta que la interfaz del juego solo parece jugable en un cierto ra
 
 Para el juego más inmersivo, Pixonic utilizó metaetiquetas para establecer el modo de pantalla completa como predeterminado y la orientación horizontal como deseable.
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <application>
     <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize" />
     <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape" />

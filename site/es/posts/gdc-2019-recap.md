@@ -36,7 +36,7 @@ Como desarrolladores de juegos, desea proporcionar la mejor experiencia de juego
 
 En el APK, esto comienza con un cambio de configuración. El sistema detecta un cambio en la configuración del dispositivo y reiniciará automáticamente su actividad con nuevos recursos que permiten que su juego o aplicación se adapte a la nueva configuración.
 
-```java {title="Sample Java" .code-figure}
+```java {title="Java" .code-figure}
 public void onConfigurationChanged(Configuration newConfig) {
     //Scale UI
     //Toggle control scheme
@@ -55,7 +55,7 @@ En dispositivos como las Chromebooks and Samsung DeX, los juegos son inicializad
 
 Aquí le mostramos cómo puede configurar los cambios en el tamaño y la orientación de la pantalla en su manifiesto:
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <activity android:name=".MyActivity"
   android:configChanges="screenSize|orientation"
   android:label="@string/app_name">
@@ -65,7 +65,7 @@ Aquí le mostramos cómo puede configurar los cambios en el tamaño y la orienta
 
 En su código, su actividad invocará `onConfigurationChanged` siempre que ocurra el cambio de configuración declarado previamentee. Ahora, puede manejar cualquier cambio que sea. Por ejemplo, podría escalar su contenido de OpenGL para que coincida con la nueva resolución o propoción de la pantalla para evitar elementos de IU inaccesibles.
 
-```java {title="Sample Java" .code-figure}
+```java {title="Java" .code-figure}
 public void onConfigurationChanged(Configuration newConfig) {
   //Get native surface size
   //NativeActivity.mLastContent[X/Y/Width/Height]()
@@ -77,7 +77,7 @@ public void onConfigurationChanged(Configuration newConfig) {
 
 También es importante recordar que cada vez que cambie el tamaño de la pantalla, las áreas de entrada también cambiarán. Si su juego siempre está destinado a ejecutarse en pantalla completa, o si necesita evitar rápidamente los problemas de cambio de configuración mientras soluciona los errores, simplemente puede configurar [`resizableActivity`](https://developer.android.com/guide/topics/manifest/activity-element?hl={{locale.code}}#resizeableActivity) en false en su manifiesto. Esto evitará el cambio de tamaño dinámico, pero también evitará las vistas de pantalla dividida, así que úselo con moderación para evitar limitar la experiencia del usuario.
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <activity android:name=".MyActivity"
   android:resizeableActivity="false"
   android:label="@string/app_name">
@@ -87,13 +87,13 @@ También es importante recordar que cada vez que cambie el tamaño de la pantall
 
 En dispositivos móviles, la orientación de pantalla predeterminada es vertical. En otros dispositivos, podría ser horizontal. En su manifiesto, especifique las orientaciones de los sensores que admite para que el sistema las maneje y asegúrese de que su juego no se voltee inesperadamente.
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <activity … android:screenOrientation=”...”>
 ```
 
 O, si está manejando dinámicamente la orientación en `onConfigurationChanged` , use `Display.getRotation()` para obtener la orientación actual de la pantalla en código.
 
-```java {title="Sample Java" .code-figure}
+```java {title="Java" .code-figure}
 Display.getRotation()
 ```
 
@@ -136,7 +136,7 @@ No te olvides de los jugadores que usan ratones, especialmente cuando se trata d
 
 ### Captura de ratón
 
-```java {title="Sample Java" .code-figure}
+```java {title="Java" .code-figure}
 public void onClick(View view) {
     view.requestPointerCapture();
 }
@@ -175,7 +175,7 @@ El último paso es **probar** en todos los dispositivos de pantalla grande. Agre
 
 La aplicación de emulador, que puede ejecutarse en dispositivos Android y Android Studio AVD, se proporciona para probar el cambio de tamaño y densidad de la pantalla.
 
-```bash {title="Sample Bash" .code-figure}
+```bash {title="Bash" .code-figure}
 $ adb install FoldableEmulator.apk
 $ adb shell pm grant com.samsung.android.foldable.emulator android.permission.WRITE_SECURE_SETTINGS
 $ adb shell pm grant com.samsung.android.foldable.emulator android.permission.SYSTEM_ALERT_WINDOW
@@ -195,7 +195,7 @@ Admitir el modo de pantalla completa es fundamental para garantizar que los juga
 - Declara la actividad `resizeableActivity` (solo declara como "true" si tu juego admite múltiples ventanas): `android:resizeableActivity=[“true” | “false”]`
 - Declare una proporción de la pantalla máxima: la proporción de la pantalla inicial es 21: 9, y eso requiere que mencione la proporción de aspecto máxima como 2.4. A continuación, le indicamos cómo declarar la proporción máxima en su archivo de manifiesto (estos metadatos deben establecerse en la etiqueta Aplicación):
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <!-- Render on full screen up to aspect ratio of 2.4 -->
 <!-- Use a letterbox on screens larger than 2.4 -->
 <meta-data android:name="android.max_aspect" android:value="2.4" />
@@ -217,7 +217,7 @@ Si está renderizando en el área recortada, puede usar `WindowInsets.getDisplay
 
 A continuación se define un estilo que puede usar para aplicar el atributo `LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES` a la actividad.
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <style name="ActivityTheme">
    <item name="android:windowLayoutInDisplayCutoutMode">
        shortEdges <!-- default, shortEdges, never -->
@@ -241,7 +241,7 @@ La reanudación múltiple significa reanudar todas las actividades visibles supe
 
 Aplicar la reanudación múltiple es simple. Simplemente agregue metadatos en el archivo de manifiesto de su aplicación. Luego, si su juego es visible con una situación de ventanas múltiples, su actividad se reanudará.
 
-```xml {title="Sample XML" .code-figure}
+```xml {title="XML" .code-figure}
 <application>
   <meta-data
     android:name="android.allow_multiple_resumed_activities"

@@ -16,7 +16,7 @@ Chrome OS will automatically download the necessary files and set up your Linux 
 
 Now your Debian Linux installation is ready to go! A good first thing to do is update the [APT](https://wiki.debian.org/Apt) repository index and install. APT is a command-line package manager for Debian, and keeping it up to date will ensure you're always installing the latest versions of tools in its repository:
 
-```bash {title="Sample Bash" .code-figure}
+```bash {title="Bash" .code-figure}
 sudo apt update
 ```
 
@@ -52,7 +52,7 @@ Now that Linux is set up, it's time to install your first apps! While you can al
 
 If you prefer to find, install, and manage applications and tools through an application with a graphic user interface, you can install [GNOME's Software](https://wiki.gnome.org/Apps/Software) app and [PackageKit](https://www.freedesktop.org/software/PackageKit/). To do so, run the following:
 
-```bash {title="Sample Bash" .code-figure}
+```bash {title="Bash" .code-figure}
 sudo apt install -y gnome-software gnome-packagekit && \
 sudo apt update
 ```

@@ -15,7 +15,7 @@ Las acciones táctiles están bien para Chromebooks con pantallas táctiles, per
 
 Los juegos de punto de vista en primera persona se ven mejor en el escritorio cuando implementan la captura del mouse. Esto oculta el puntero del mouse y permite al usuario mover el punto de vista, apuntar, dirigir, etc., usando el mouse. A continuación una demostración básica de captura del mouse que registra la posición del puntero y los estados de los botones después de que el usuario hace clic en una vista de texto llamada `text_clickme` . Consulte la [documentación de captura del puntero de](https://developer.android.com/training/gestures/movement#pointer-capture) Android para obtener más información.
 
-```kotlin {title="Sample Kotlin" .code-figure}
+```kotlin {title="Kotlin" .code-figure}
 class MainActivity : AppCompatActivity() {
 
     var mouse_x: Float = 0f
@@ -92,7 +92,7 @@ Las funciones de chat pueden ser un componente importante de los juegos multijug
 
 Un patrón podría ser que una tecla del teclado enfoque el cuadro de chat y maneje la tecla [[enter]] para enviar mensajes.
 
-```kotlin {title="Sample Kotlin" .code-figure}
+```kotlin {title="Kotlin" .code-figure}
 override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
   return when(keyCode) {
     KeyEvent.KEYCODE_C -> {

@@ -11,7 +11,7 @@ Debido a la arquitectura y las reglas de seguridad de Chrome OS, una aplicación
 
 Para obtener la dirección IPv4 asignada a la red de mayor prioridad a la que está conectado el dispositivo Chrome OS, examine la propiedad del sistema Android `arc.net.ipv4.host_address` y, si es necesario, `arc.net.ipv4.host_gateway` . Una forma de hacer esto es:
 
-```kotlin {title="Sample Kotlin" .code-figure}
+```kotlin {title="Kotlin" .code-figure}
 fun getChromeOsIpAddress() : String {
    val process = ProcessBuilder().command("/system/bin/getprop", "arc.net.ipv4.host_address").start()
    val ipAddress = readInput(process.inputStream)
