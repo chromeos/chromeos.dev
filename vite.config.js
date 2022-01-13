@@ -42,6 +42,7 @@ module.exports = defineConfig({
   plugins: [
     eleventyPlugin(),
     pwaPlugin({
+      injectRegister: false,
       manifest: require('./site/manifest.json'),
       srcDir: './',
       filename: 'sw.js',
