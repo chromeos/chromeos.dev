@@ -174,15 +174,20 @@ $section-block-margin: 3.75rem;
     margin-top: 2.5rem;
   }
 
-  figure:not(:first-child) {
+  .code-figure {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  figure:not(:first-child):not(.code-figure) {
     margin-top: 2.5rem;
   }
 
-  figure:not(:first-child) > :last-child:not(figcaption) {
+  figure:not(:first-child):not(.code-figure) > :last-child:not(figcaption) {
     margin-bottom: 2.5rem;
   }
 
-  figure:not(:first-child) > figcaption:not([class]) {
+  figure:not(:first-child):not(.code-figure) > figcaption:not([class]) {
     margin-bottom: 1.5rem;
   }
 
@@ -202,7 +207,7 @@ $section-block-margin: 3.75rem;
     margin-bottom: 0;
   }
 
-  figcaption {
+  figcaption:not(.code-figure--caption) {
     margin-top: 0.5rem;
 
     &:not([class]) {
