@@ -41,7 +41,9 @@ const cacheHTMLStrategy = new StaleWhileRevalidate({
     new CacheableResponsePlugin({
       statuses: [200],
     }),
-    new BroadcastUpdatePlugin(),
+    new BroadcastUpdatePlugin({
+      headersToCheck: ['etag'],
+    }),
   ],
 });
 

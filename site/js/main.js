@@ -142,6 +142,17 @@ window.addEventListener('load', async () => {
   }
 });
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.addEventListener('message', async event => {
+    console.log('Message!');
+    // Optional: ensure the message came from workbox-broadcast-update
+    if (event.data.meta === 'workbox-broadcast-update') {
+      const { offerPageReload } = await import('./lib/offer-page-reload');
+      offerPageReload();
+    }
+  });
+}
+
 // // Manage Service Worker
 // // eslint-disable-next-line no-constant-condition
 // if ('serviceWorker' in navigator) {
