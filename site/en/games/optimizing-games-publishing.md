@@ -13,7 +13,7 @@ Ideally, all apps with the Android NDK code should ship with all [four major And
 
 This provides the best performance and lowest battery consumption for each device. For example, a cmake-based `build.gradle` file may contain:
 
-```groovy {title=build.gradle}
+```groovy {title="build.gradle" .code-figure}
 externalNativeBuild {
   cmake {
     abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'

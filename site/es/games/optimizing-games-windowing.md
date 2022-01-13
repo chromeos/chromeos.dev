@@ -39,7 +39,7 @@ Los juegos a menudo brindan a los usuarios una experiencia inmersiva de pantalla
 
 La capacidad de ventanas múltiples es el comportamiento predeterminado para aplicaciones y juegos de Android, que se aplica a los escritorios de Chrome OS, así como a teléfonos y tabletas en modo de pantalla dividida. Si desea evitar que su juego cambie de tamaño, declare que no es redimensionable en `AndroidManifest.xml` .
 
-```xml
+```xml {title="Sample XML" .code-figure}
 android:resizeableActivity="false"
 ```
 
@@ -55,7 +55,7 @@ Lea más sobre la [gestión de ventanas](/{{locale.code}}/android/window-managem
 
 Cuando su juego se ejecuta en una ventana de pantalla completa, es posible que desee ponerlo en modo inmersivo para eliminar los bordes de la ventana y otros elementos de la pantalla que distraen. Consulte la [documentación de pantalla completa de](https://developer.android.com/training/system-ui/immersive?hl={{locale.code}}) Android para obtener más información.
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 private fun hideSystemUI() {
     // Enables regular immersive mode.
     window.decorView.systemUiVisibility = (

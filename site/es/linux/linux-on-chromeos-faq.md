@@ -231,7 +231,7 @@ Sí, comenzando con R74 ([Termina](https://chromium.googlesource.com/chromiumos/
 
 Si configuró su contenedor antes de que se implementara el soporte de audio, es posible que no esté configurado correctamente (ya que el valor predeterminado anterior era la salida al dispositivo nulo). Puede probar estos pasos para recuperarlo:
 
-```shell
+```bash {title="Sample Bash" .code-figure}
 # Make sure the new cros-pulse-config package is installed.
 $ sudo apt-get update
 $ sudo apt-get dist-upgrade

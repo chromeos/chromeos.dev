@@ -43,7 +43,7 @@ Games often provide users with an immersive, full-screen experience. Some users 
 
 Multi-window capability is the default behaviour for Android apps and games, which applies to Chrome OS desktops, as well as phones and tablets in split-screen mode. If you wish to prevent your game from being resized, declare that it is non-resizable in `AndroidManifest.xml`.
 
-```xml {title=AndroidManifest.xml}
+```xml {title="AndroidManifest.xml" .code-figure}
 android:resizeableActivity="false"
 ```
 
@@ -59,7 +59,7 @@ Read more about [window management](/{{locale.code}}/android/window-management).
 
 When your game is running in a full-screen window, you may wish to put it into immersive mode to remove window borders and other distracting screen elements. See the Android [full-screen documentation](https://developer.android.com/training/system-ui/immersive) for more information.
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 private fun hideSystemUI() {
     // Enables regular immersive mode.
     window.decorView.systemUiVisibility = (

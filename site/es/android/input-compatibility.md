@@ -34,19 +34,19 @@ como en dispositivos de escritorio.
 
 Para muchas aplicaciones, todo lo que se necesita es una simple navegación con teclas de flechas y navegación por pestañas, en su mayoría, el framework de Android lo maneja automáticamente. Por ejemplo, una vista de "Botón" se puede enfocar de forma predeterminada, y la navegación por teclado debería generalmente funcionarsin ningún código adicional. Para habilitar la navegación con el teclado para las vistas que no se pueden enfocar de forma predeterminada, los desarrolladores deben marcarlas como enfocables. Esto se puede hacer mediante programación o en XML, como se muestra a continuación. Consulte la documentación de [manejo de enfoque](https://developer.android.com/reference/android/view/View.html#FocusHandling) para obtener más información.
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 yourView.isFocusable = true
 ```
 
 Alternativamente, puede establecer el atributo `focusable` su archivo de layout:
 
-```xml
+```xml {title="Sample XML" .code-figure}
 android:focusable="true"
 ```
 
 Una vez que el enfoque está habilitado, el marco de Android creará un mapa de navegación para todas las vistas enfocables en función de su posición. Por lo general, esto funciona como se espera y no se necesita más trabajo. Cuando el mapeo predeterminado no es correcto para las necesidades de una aplicación, se puede anular de la siguiente manera:
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 // Teclas de flechas
 yourView.nextFocusLeftId = R.id.view_to_left
 yourView.nextFocusRightId = R.id.view_to_right
@@ -79,7 +79,7 @@ La mayoría de las aplicaciones anulan el evento
 [onKeyUp](<https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyUp(int,%20android.view.KeyEvent)>)
 y agregan el comportamiento esperado para cada código clave recibido, como se muestra a continuación.
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
     return when (keyCode) {
         KeyEvent.KEYCODE_ENTER -> {
@@ -125,7 +125,7 @@ o [KeyEvent.hasModifiers](<https://developer.android.com/reference/android/view/
 
 La separación de código de acceso directo desde otras manipulaciones de pulsaciones de teclas (como `onKeyUp` o`onKeyDown`) puede hacer más fácil el mantenimiento del código y mantiene la aceptación por defecto de las meta-teclas sin tener que implementar manualmente los controles clave meta-en todos los casos. Permitir todas las combinaciones de meta-teclas también puede ser más conveniente para los usuarios que están acostumbrados a diferentes diseños de teclado y sistemas operativos.
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 override fun dispatchKeyShortcutEvent(event: KeyEvent): Boolean {
   return when (event.keyCode) {
     KeyEvent.KEYCODE_O -> {
@@ -157,7 +157,7 @@ o [KeyEvent.isAltPressed](<https://developer.android.com/reference/android/view/
 de la misma manera que arriba. Esto puede ser más fácil de mantener si el meta-comportamiento
 es más una modificación del comportamiento de una aplicación que un acceso directo. Por ejemplo, cuando [[W]] significa "caminar hacia adelante" y [[Shift]]+[[W]] significa "correr hacia adelante".
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
   return when(keyCode) {
     KeyEvent.KEYCODE_W-> {
@@ -187,7 +187,7 @@ Chrome OS maneja automáticamente la mayoría de los eventos del mouse y del pan
 Cualquier acción que cause que una aplicación muestre un menú contextual, como una pulsación larga en un elemento de la lista, también debería reaccionar a los eventos de clic derecho. Para manejar eventos de clic derecho las aplicaciones deben registrar un
 [`View.OnContextClickListener`](https://developer.android.com/reference/android/view/View.OnContextClickListener). Para obtener detalles sobre la construcción de un menú contextual, consulte la [documentación del menú contextual](https://developer.android.com/guide/topics/ui/menus#context-menu) de Android.
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 yourView.setOnContextClickListener {
   showContextMenu()
   true
@@ -205,7 +205,7 @@ Los desarrolladores pueden hacer que los diseños de sus aplicaciones se sientan
 - Indicar a los usuarios si un elemento tiene un comportamiento interactivo, como ser seleccionable o editable, cambiando el ícono del puntero del mouse
 - Agregar comentarios visuales a los elementos en una lista o cuadrícula grande cuando el puntero se desplaza sobre ellos
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 // Change the icon to a "hand" pointer on hover,
 // Highlight the view by changing the background.
 yourView.setOnHoverListener { view, _ ->
@@ -304,7 +304,7 @@ Chrome OS tiene un intent especial que muestra las aplicaciones registradas para
 usuarios. Para registrar una aplicación como aplicación para tomar notas, agregue lo siguiente al
 AndroidManifest.xml:
 
-```xml
+```xml {title="Sample XML" .code-figure}
   <intent-filter>
     <action android:name="org.chromium.arc.intent.action.CREATE_NOTE" />
     <category android:name="android.intent.category.DEFAULT" />
@@ -352,7 +352,7 @@ Chrome OS habilita un modo de traducción de entrada de forma predeterminada. Pa
 
 Si una aplicación implementa un comportamiento de entrada personalizado, por ejemplo, la definición de una acción de pellizco (pinch) con dos dedos del panel táctil o estas traducciones de entrada no proporcionan los eventos de entrada que espera la aplicación, puede deshabilitar el modo de traducción de entrada agregando la siguiente etiqueta a AndroidManifest.xml:
 
-```xml
+```xml {title="Sample XML" .code-figure}
 <uses-feature
   android:name="android.hardware.type.pc"
   android:required="false" />

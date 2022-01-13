@@ -52,13 +52,13 @@ focusable. This can be done programmatically or in XML, as shown below. See the
 [Focus Handling](https://developer.android.com/reference/android/view/View.html#FocusHandling)
 documentation for more information.
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 yourView.isFocusable = true
 ```
 
 Alternatively you can set the `focusable` attribute in your layout file:
 
-```xml
+```xml {title="Sample XML" .code-figure}
 android:focusable="true"
 ```
 
@@ -67,7 +67,7 @@ for all focusable views based on their position. This usually works as expected
 and no further work is needed. When the default mapping is not correct for an
 app's needs, it can be overridden as follows:
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 // Arrow keys
 yourView.nextFocusLeftId = R.id.view_to_left
 yourView.nextFocusRightId = R.id.view_to_right
@@ -103,7 +103,7 @@ Most apps override the
 [onKeyUp](<https://developer.android.com/reference/android/view/KeyEvent.Callback#onKeyUp(int,%20android.view.KeyEvent)>)
 event and add the expected behavior for each received keycode, as shown below.
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
     return when (keyCode) {
         KeyEvent.KEYCODE_ENTER -> {
@@ -163,7 +163,7 @@ of meta-keys without having to manually implement meta-key checks in every case.
 Allowing all meta-key combinations can also be more convenient for users who
 are accustomed to different keyboard layouts and operating systems.
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 override fun dispatchKeyShortcutEvent(event: KeyEvent): Boolean {
   return when (event.keyCode) {
     KeyEvent.KEYCODE_O -> {
@@ -196,7 +196,7 @@ in the same manner as above. This can be easier to maintain if the meta-behavior
 is more of a modification to an app behavior than a shortcut. For example, when
 [[W]] means "walk forward" and [[Shift]]+[[W]] means "run forward".
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
   return when(keyCode) {
     KeyEvent.KEYCODE_W-> {
@@ -234,7 +234,7 @@ events, apps should register a
 For details on constructing a context menu, see the Android
 [context menu documentation](https://developer.android.com/guide/topics/ui/menus#context-menu)
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 yourView.setOnContextClickListener {
   showContextMenu()
   true
@@ -254,7 +254,7 @@ common examples of this are:
 - Indicating to users if an element has interactive behavior, such as being clickable or editable, by changing the mouse pointer icon
 - Adding visual feedback to items in a large list or grid when the pointer is hovering over them
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 // Change the icon to a "hand" pointer on hover,
 // Highlight the view by changing the background.
 yourView.setOnHoverListener { view, _ ->
@@ -367,7 +367,7 @@ Chrome OS has a special intent that surfaces registered note-taking apps to
 users. To register an app as a note-taking app, add the following to the
 Android manifest:
 
-```xml
+```xml {title="Sample XML" .code-figure}
   <intent-filter>
     <action android:name="org.chromium.arc.intent.action.CREATE_NOTE" />
     <category android:name="android.intent.category.DEFAULT" />
@@ -426,7 +426,7 @@ two-finger touchpad pinch action, or these input translations do not provide
 the input events expected by the app, you can disable the input translation mode
 by adding the following tag to the Android manifest:
 
-```xml
+```xml {title="Sample XML" .code-figure}
 <uses-feature
   android:name="android.hardware.type.pc"
   android:required="false" />

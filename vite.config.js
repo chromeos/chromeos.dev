@@ -42,10 +42,14 @@ module.exports = defineConfig({
   plugins: [
     eleventyPlugin(),
     pwaPlugin({
+      injectRegister: false,
       manifest: require('./site/manifest.json'),
       srcDir: './',
       filename: 'sw.js',
       strategies: 'injectManifest',
+      injectManifest: {
+        globPatterns: ['**/*.css', '**/*.js', '_components/**/*.html', 'images/icons/**/*', 'en/index.html', 'index.html', '404.html', '**/404/index.html', 'offline/**/index.html'],
+      },
     }),
     //   // imgPlugin(),
     posthtmlPlugin({

@@ -41,7 +41,7 @@ La forma en que alguien usa su aplicación depende completamente de su dispositi
 
 Si su aplicación aún no admite teclados, aquí está el código para asegurarse de que lo haga:
 
-```kotlin
+```kotlin {title="Sample Kotlin" .code-figure}
 override fun onKeyUp(code: Int, ev: KeyEvent?): Boolean {
   return when (code) {
     KeyEvent.KEYCODE_J -> {

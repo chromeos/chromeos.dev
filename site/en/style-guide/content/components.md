@@ -25,7 +25,7 @@ Term
 Term 2
 : Definition
 
-```markdown
+```markdown {title="Sample Markdown" .code-figure}
 Term
 : Definition
 
@@ -42,7 +42,7 @@ This is a footnote[^1], with a second one[^second] for good measure.
 [^1]: Content of the first footnote.
 [^second]: Second footnote
 
-```markdown
+```markdown {title="Sample Markdown" .code-figure}
 This is a footnote[^1], with a second one[^second] for good measure.
 
 [^1]: Content of the first footnote.
@@ -55,7 +55,7 @@ Superscript content is usually superscript for purely presentational reasons.
 
 This^is^ some^superscript^ content.
 
-```markdown
+```markdown {title="Sample Markdown" .code-figure}
 This^is^ some^superscript^ content.
 ```
 
@@ -69,7 +69,7 @@ Abbreviations allow you to define an abbreviation for use throughout text.
 
 This MD file is turned into HTML when the site is compiled.
 
-```markdown
+```markdown {title="Sample Markdown" .code-figure}
 <!-- prettier-ignore -->
 *[HTML]: Hyper Text Markup Language
 *[MD]: Markdown
@@ -85,7 +85,7 @@ Add Emoji directly to rendered output through keywords and shortcuts instead of 
 
 Emoji can be used in :memo: sentences too.
 
-```markdown
+```markdown {title="Sample Markdown" .code-figure}
 :heart: <3
 
 Emoji can be used in :memo: sentences too.
@@ -99,7 +99,7 @@ Add an image with visible caption as a single logical figure. Figures can option
 
 #1[Caption for Image](ix://icons/pwa/chromeOS.svg [With accessible description of image])
 
-```markdown
+```markdown {title="Sample Markdown" .code-figure}
 #[Caption for Image](ix://icons/pwa/chromeOS.svg)
 
 #1[Caption for Image](ix://icons/pwa/chromeOS.svg [With description of image])
@@ -111,7 +111,7 @@ Add an embedded video from YouTube.
 
 @[youtube](https://www.youtube.com/watch?v=ntLPcVAyNPE)
 
-```markdown
+```markdown {title="Sample Markdown" .code-figure}
 @[youtube](https://www.youtube.com/watch?v=ntLPcVAyNPE)
 ```
 
@@ -121,7 +121,7 @@ Display a keyboard key. Whenever you are talking about a specific key on a keybo
 
 [[CTRL]]+[[C]]
 
-```markdown
+```markdown {title="Sample Markdown" .code-figure}
 [[CTRL]]+[[C]]
 ```
 
@@ -133,7 +133,7 @@ Display either a single or multiple related statistics together.
 
 %[(123%, Can you believe it), (2x, Growth in activity), (12%, Bump but still impressive)]
 
-```markdown
+```markdown {title="Sample Markdown" .code-figure}
 %[123%, What an improvement]
 
 %[(123%, Can you believe it), (2x, Growth in activity), (12%, Bump but still impressive)]
@@ -159,7 +159,7 @@ This is a warning.
 This is a tip.
 !!!
 
-```markdown
+```markdown {title="Sample Markdown" .code-figure}
 !!! aside.message
 This is just a message. Messages _can_ have Markdown in them, and it will render as expected.
 !!!
@@ -187,7 +187,7 @@ When writing stand-alone quotes, use the following to properly include attributi
 
 Here is the quote attribution {.cite}
 
-```markdown
+```markdown {title="Sample Markdown" .code-figure}
 > This is a quote
 >
 > The quote can have multiple paragraphs

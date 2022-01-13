@@ -141,7 +141,7 @@ Las aplicaciones pueden especificar su tamaño de lanzamiento inicial de las sig
   [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element.html):
 
 
-    ```xml {title=AndroidManifest.xml}
+    ```xml {title="AndroidManifest.xml" .code-figure}
     <meta-data android:name="WindowManagerPreference:FreeformWindowSize"
                android:value="[phone|tablet|maximize]" />
     <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation"
@@ -150,7 +150,7 @@ Las aplicaciones pueden especificar su tamaño de lanzamiento inicial de las sig
 
 - Use límites de lanzamiento estáticos. Use `<layout>` dentro de la entrada del AndroidManifest.xml de su actividad para especificar un tamaño de inicio "fijo". Vea este ejemplo:
 
-  ```xml {title=AndroidManifest.xml}
+  ```xml {title="AndroidManifest.xml" .code-figure}
   <layout android:defaultHeight="500dp"
           android:defaultWidth="600dp"
           android:gravity="top|end"
