@@ -50,6 +50,7 @@
     "test:lint": "eslint tests",
     "test": "nyc ava",
     "vite:build": "vite build",
+    "vite:staging": "vite build --mode staging",
     "vite:watch": "vite",
     "vite": "vite",
     "vrt:approve": "node vrt.js approve",
