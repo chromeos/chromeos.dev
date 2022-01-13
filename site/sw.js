@@ -15,6 +15,7 @@
  */
 /* global importScripts, languages  */
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
+import * as navigationPreload from 'workbox-navigation-preload';
 import { CacheFirst, StaleWhileRevalidate, NetworkFirst, NetworkOnly } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, matchPrecache } from 'workbox-precaching';
@@ -28,7 +29,7 @@ import { preferences } from 'service-worker-i18n-redirect/preferences';
 importScripts('/js/_data/_languages_.js');
 
 // Enable navigation preload.
-// navigationPreload.enable();
+navigationPreload.enable();
 
 /**
  * Base Strategies
@@ -111,15 +112,15 @@ const imageStrategy = new CacheFirst({
  */
 // Manage and filter injected Workbox manifest
 const manifest = self.__WB_MANIFEST;
-const precache = manifest.filter(entry => entry.url.startsWith('offline/') || entry.url.startsWith('js/') || entry.url.startsWith('images/icons/')).map(entry => ({ revision: entry.revision, url: `/${entry.url}` }));
-const html = manifest.filter(entry => entry.url.endsWith('.html') && !entry.url.startsWith('offline/')).map(entry => `/${entry.url}`);
+const precache = manifest.filter(entry => entry.url.startsWith('offline/') || entry.url.startsWith('js/') || entry.url.startsWith('images/icons/') || entry.url.startsWith('_components')).map(entry => ({ revision: entry.revision, url: `/${entry.url}` }));
+const html = manifest.filter(entry => entry.url.endsWith('.html') && !entry.url.startsWith('offline/') && !entry.url.startsWith('_components')).map(entry => `/${entry.url}`);
 const assets = manifest.filter(entry => entry.url.startsWith('assets/')).map(entry => `/${entry.url}`);
 
 // Precache offline
 precacheAndRoute(precache);
 
 // Warm HTML and asset caches
-warmStrategyCache({ urls: html, strategy: cacheHTMLStrategy });
+warmStrategyCache({ urls: html, strategy: liveHTMLStrategy });
 warmStrategyCache({ urls: assets, strategy: assetStrategy });
 
 /**
