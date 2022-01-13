@@ -15,7 +15,7 @@
  */
 /* global importScripts, languages  */
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
-import * as navigationPreload from 'workbox-navigation-preload';
+// import * as navigationPreload from 'workbox-navigation-preload';
 import { CacheFirst, StaleWhileRevalidate, NetworkFirst, NetworkOnly } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, matchPrecache } from 'workbox-precaching';
@@ -29,7 +29,7 @@ import { preferences } from 'service-worker-i18n-redirect/preferences';
 importScripts('/js/_data/_languages_.js');
 
 // Enable navigation preload.
-navigationPreload.enable();
+// navigationPreload.enable();
 
 /**
  * Base Strategies
