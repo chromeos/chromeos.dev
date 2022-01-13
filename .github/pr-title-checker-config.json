@@ -4,7 +4,7 @@
     "color": "#db2780"
   },
   "CHECKS": {
-    "regexp": "^(🐎|🐛|🆕|📝|♻️|📌|💎){1}(\\((code|functions|build|tests|content)\\))? {1}(\\w|\\s)*$"
+    "regexp": "^(🐎|🐛|🆕|📝|♻️|📌|💎){1}(\\((site|functions|build|tests|content)\\))? {1}(\\w|\\s)*$"
   },
   "MESSAGES": {
     "success": "All OK",
