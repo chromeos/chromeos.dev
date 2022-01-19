@@ -23,6 +23,33 @@ use GitHub pull requests for this purpose. Consult
 [GitHub Help](https://help.github.com/articles/about-pull-requests/) for more
 information on using pull requests.
 
+### Pull Request Titles
+
+Pull request titles should start with one of the following emoji, whichever best describes the primary changes happening in the PR:
+
+- 🐎 - Performance improvements
+- 🐛 - Bug fix
+- 🆕 - New feature
+- 📝 - Documentation/content change
+- ♻️ - Refactor
+- 📌 - Dependency Change
+- 💎 - User/Developer Interface/Experience change
+
+Optionally, one of the following scopes should be included in parenthesis after the emoji.
+
+- `site`
+- `functions`
+- `build`
+- `tests`
+- `content`
+
+Title should have a space between either the emoji and the start of the title, or the clothing parenthesis of the scope and the start of the title. There should be no space between the emoji and the opening parenthesis of the scope. We have automation in place to check your PR titles to help you out.
+
+All together a PR title should look something like this:
+
+- `🐎 Improve performance of everything`
+- `📌(build) Update build tool version`
+
 ## Bugs or Feature Requests
 
 Thanks for your feedback! For bugs or features for Chrome OS itself, please [file a defect](https://bugs.chromium.org/p/chromium/issues/entry?template=Defect+on+Chrome+OS) on the Chromium bug tracker and follow-up there for updates. For the chromeOS.dev site, [file an issue in this repo](https://github.com/chromeos/chromeos.dev/issues/new/choose) and a team member should reply shortly. Please follow these best practices when filing an issue here for us:
