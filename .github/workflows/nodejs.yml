@@ -162,7 +162,7 @@ jobs:
         run: |
           npm install --prefix functions
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@v1.3.0
+        uses: w9jds/firebase-action@v2.0.0
         with:
           args: deploy
         env:
