@@ -36,7 +36,7 @@ importScripts('/js/_data/_languages_.js');
  */
 // Long-lived HTML gets cached w/a Stale While Revalidate strategy
 const cacheHTMLStrategy = new StaleWhileRevalidate({
-  cacheName: 'pages-cache',
+  cacheName: 'page-cache',
   plugins: [
     new CacheableResponsePlugin({
       statuses: [200],
@@ -49,7 +49,7 @@ const cacheHTMLStrategy = new StaleWhileRevalidate({
 
 // Short-lived HTML gets cached w/a Network First strategy
 const liveHTMLStrategy = new NetworkFirst({
-  cacheName: 'pages-cache',
+  cacheName: 'page-cache',
   networkTimeoutSeconds: 2,
   plugins: [
     new CacheableResponsePlugin({
