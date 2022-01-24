@@ -4,11 +4,11 @@
     "color": "#db2780"
   },
   "CHECKS": {
-    "regexp": "^(🐎|🐛|🆕|📝|♻️|📌|💎){1}(\\((site|functions|build|tests|content)\\))? {1}(\\w|\\s)*$"
+    "regexp": "^(🐎|🐛|🆕|📝|♻️|📌|💎){1}(\\((site|functions|build|tests|content)\\))? {1}\\w(\\w|\\s|\\d|.|\\-)*$"
   },
   "MESSAGES": {
     "success": "All OK",
-    "failure": "Please make sure your PR title matches the following format: 🐎|🐛|🆕|📝|♻️|📌|💎(site|functions|build|tests|content) title",
+    "failure": "Please make sure your PR title matches the following format: 🐎|🐛|🆕|📝|♻️|📌|💎(site|functions|build|tests|content) title. Title can contain letters, spaces, numbers, dashes and dots, and must start with a letter",
     "notice": ""
   }
 }
