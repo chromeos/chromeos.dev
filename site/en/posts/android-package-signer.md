@@ -1,5 +1,5 @@
 ---
-title: Introducing Android Package Signer Library
+title: Introducing Android Package Signer
 metadesc: Bringing Android package signing to the browser.
 tags:
   - technical
@@ -8,21 +8,28 @@ authors:
 date: 2022-01-26
 ---
 
-The Android Package Signer library is a JavaScript library that allows web developers to generate signing keys and use those signing keys in the browser to sign Android packages. This library was built so anyone who runs app building as a service can prevent asking their user to transfer credentials to a third party service. This is part of our advice we provide in regards to [keeping signing keys secure](https://developer.android.com/studio/publish/app-signing#secure_key). This package also helps remove a dependency on Java for developers looking to sign their pre-built unsigned Android packages.
+The Android Package Signer library is a new open-source JavaScript library that allows web developers to both generate signing keys and use signing keys to sign Android packages, all entirely in browser. It's design to allow anyone who runs app building as a service to do so without requiring users to upload their credentials, and important part of [keeping signing keys secure](https://developer.android.com/studio/publish/app-signing#secure_key). As a bonus, this package also removes a dependency on Java for developers looking to sign their pre-built unsigned Android packages.
 
-## Android package signer and bubblewrap
+## Android Package Signer and Bubblewrap
 
-[Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap) is a project created to help web developers package their progressive web apps for distribution on Google Play. Lots of third parties have used the bubblewrap project to create their own app bundling service. The drawback to this was that users were handing over their android signing keys and passwords when creating a new project which users were unaware if the servers that they were sending their credentials to were storing their keys or potentially leaking their keys. Having a leaked key could allow a malicious party to impersonate the developer and release malicious packages in place of the android packages the developer originally intended to release.
+[Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap) is a project created to help web developers package their Progressive Web Apps for distribution on Google Play that a has been used to create as the foundation of app bundling services. Often, though, this meant users were handing over the Android signing keys and password when creating a new project without knowing if they were being stored or potentially leaked. Having a leaked key could allow a malicious party to impersonate a developer and release harmful package updates that would otherwise appear to be legitimate.
 
-## Where can I find this tool and how can I use it?
+## Installation and Usage
 
-For the latest information on this tool, please see our [GitHub repository](https://github.com/chromeos/android-package-sign-js). To add the package to your project, call `npm i @chromeos/android-package-signer` to add to your project. From there, you can call
+The [Android Package Signer repository](https://github.com/chromeos/android-package-sign-js) is the best place to go to keep up-to-date with the package.
+
+To add Android Package Signer to your project, first install it from NPM:
+
+```bash {title="bash" .code-figure}
+npm i @chromeos/android-package-signer
+``` From there, require it in your project and initialize it:
 
 ```typescript {title="Typescript" .code-figure}
+import { PackageSigner } from 'android-package-signer';
 const packageSigner = new PackageSigner(password: string, alias: string = 'android');
 ```
 
-This allows you to generate a class that can both generate a key and then later reuse that key to sign a package. For generating a key, all that is needed from the class is a DName object. The structure of the DName object we have written below with the signature for generating the key listed below it.
+This will instantiate a class that can be used to generate a key and sign a package with a key. To generate a key, pass the class's `generateKey` method a DName object, structured below.
 
 ```typescript {title="Typescript" .code-figure}
 export interface DName {
@@ -32,7 +39,8 @@ export interface DName {
   countryCode: string;
 }
 
-async generateKey(dname: DName): Promise<string>;
+// In your code
+await packageSigner.generateKey(dname: DName): Promise<string>;
 ```
 
 The password is a string and should be a minimum of six characters long. This will protect your keystore, so the longer the password, the better. The response from the generateKey function is a base64-encoded der formatted PKCS12 keystore.
