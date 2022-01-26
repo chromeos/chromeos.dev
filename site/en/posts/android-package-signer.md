@@ -12,7 +12,7 @@ The Android Package Signer library is a new open-source JavaScript library that 
 
 ## Android Package Signer and Bubblewrap
 
-[Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap) is a project created to help web developers package their Progressive Web Apps for distribution on Google Play that and has been used to be the foundation of app bundling services. Often, though, this meant users were handing over the Android signing keys and password when creating a new project without knowing if they were being stored or potentially leaked. Having a leaked key could allow a malicious party to impersonate a developer and release harmful package updates that would otherwise appear to be legitimate.
+[Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap) is a project created to help web developers package their Progressive Web Apps for distribution on Google Play and has been used to be the foundation of app bundling services. Often, though, this meant users were handing over the Android signing keys and password when creating a new project without knowing if they were being stored or potentially leaked. Having a leaked key could allow a malicious party to impersonate a developer and release harmful package updates that would otherwise appear to be legitimate.
 
 ## Installation and Usage
 
