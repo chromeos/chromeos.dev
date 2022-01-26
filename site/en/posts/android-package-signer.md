@@ -82,6 +82,6 @@ async function signBundle(): Promise<string> {
 }
 ```
 
-`signPackage` signs and zipaligns your android package returning a base64 encoded zip file which can be downloaded an distributed to your favorite Android application stores.
+`signPackage` signs and zipaligns your android package returning a base64 encoded zip file which can be downloaded and distributed to your favorite Android application stores.
 
 Please install the package and let us know what you think!
