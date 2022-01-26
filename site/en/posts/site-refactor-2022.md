@@ -8,7 +8,7 @@ authors:
 date: 2022-01-24
 ---
 
-It's hard to believe, but ChromeOS.dev launched almost 18 months ago! The web moves fast, and assumptions we make at the beginning of projects sometimes don't pan out. After our 1st year launch anniversary, we identified some issues with our codebase that made maintenance difficult and slowed our velocity. We put together a plan and last week, we pushed our new, refactored codebase to production. This is what we did, and what we learned.
+It's hard to believe, but ChromeOS.dev launched almost 18 months ago! The web moves fast, and assumptions we make at the beginning of projects sometimes don't pan out. After our first year launch anniversary, we identified some issues with our codebase that made maintenance difficult and slowed our velocity. We put together a plan and last week, we pushed our new, refactored codebase to production. This is what we did, and what we learned.
 
 ## Static Site Scaffold
 
