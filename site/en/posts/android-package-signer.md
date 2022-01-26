@@ -8,17 +8,13 @@ authors:
 date: 2022-01-26
 ---
 
-# Introducing Android Package Signer Library
-
-# What is it and why did we build it?
-
 The Android Package Signer library is a JavaScript library that allows web developers to generate signing keys and use those signing keys in the browser to sign Android packages. This library was built so anyone who runs app building as a service can prevent asking their user to transfer credentials to a third party service. This is part of our advice we provide in regards to [keeping signing keys secure](https://developer.android.com/studio/publish/app-signing#secure_key). This package also helps remove a dependency on Java for developers looking to sign their pre-built unsigned Android packages.
 
-# Android package signer and bubblewrap
+## Android package signer and bubblewrap
 
 [Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap) is a project created to help web developers package their progressive web apps for distribution on Google Play. Lots of third parties have used the bubblewrap project to create their own app bundling service. The drawback to this was that users were handing over their android signing keys and passwords when creating a new project which users were unaware if the servers that they were sending their credentials to were storing their keys or potentially leaking their keys. Having a leaked key could allow a malicious party to impersonate the developer and release malicious packages in place of the android packages the developer originally intended to release.
 
-# Where can I find this tool and how can I use it?
+## Where can I find this tool and how can I use it?
 
 For the latest information on this tool, please see our [GitHub repository](https://github.com/chromeos/android-package-sign-js). To add the package to your project, call `npm i @chromeos/android-package-signer` to add to your project. From there, you can call
 
