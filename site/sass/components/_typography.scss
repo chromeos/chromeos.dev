@@ -225,6 +225,14 @@ $section-block-margin: 3.75rem;
     margin-top: 2.5rem;
   }
 
+  hr {
+    background-color: var(--grey-300);
+    border: 0;
+    height: 1px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
   .message {
     margin: 2.5rem 0;
   }
