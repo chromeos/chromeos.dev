@@ -22,13 +22,13 @@ The Android Package Signer library is a JavaScript library that allows web devel
 
 For the latest information on this tool, please see our [GitHub repository](https://github.com/chromeos/android-package-sign-js). To add the package to your project, call `npm i @chromeos/android-package-signer` to add to your project. From there, you can call
 
-```
+```typescript {title="Typescript" .code-figure}
 const packageSigner = new PackageSigner(password: string, alias: string = 'android');
 ```
 
 This allows you to generate a class that can both generate a key and then later reuse that key to sign a package. For generating a key, all that is needed from the class is a DName object. The structure of the DName object we have written below with the signature for generating the key listed below it.
 
-```
+```typescript {title="Typescript" .code-figure}
 export interface DName {
   commonName: string;
   organizationName: string;
@@ -43,7 +43,7 @@ The password is a string and should be a minimum of six characters long. This wi
 
 For signing the Android packages, we provide this function signature:
 
-```
+```typescript {title="Typescript" .code-figure}
 async signPackage(
     zipBlob: File,
     base64DerKey: string | undefined = undefined,
