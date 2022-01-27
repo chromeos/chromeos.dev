@@ -12,7 +12,7 @@ The Android Package Signer library is a new open-source JavaScript library that 
 
 ## Android Package Signer and Bubblewrap
 
-[Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap) is a project created to help web developers package their Progressive Web Apps for distribution on Google Play and has been used to be the foundation of app bundling services. Often, though, this meant users were handing over the Android signing keys and password when creating a new project without knowing if they were being stored or potentially leaked. Having a leaked key could allow a malicious party to impersonate a developer and release harmful package updates that would otherwise appear to be legitimate.
+[Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap) is a project created to help web developers package their Progressive Web Apps for distribution on Google Play and has been used as the foundation of some app bundling services. Often, though, this meant users were handing over their Android signing keys and password when creating a new project without knowing if they were being stored or potentially leaked. Having a leaked key could allow a malicious party to impersonate a developer and release harmful package updates that would otherwise appear to be legitimate.
 
 ## Installation and Usage
 
@@ -31,7 +31,7 @@ const packageSigner = new PackageSigner(password: string, alias: string = 'andro
 
 The password is a string and should be a minimum of six characters long. This will protect your keystore, so the longer the password, the better.
 
-This will instantiate a class that can be used to generate a key and sign a package with a key. To generate a key, pass the class's `generateKey` method a DName object, structured below.
+This will instantiate a class that can be used to generate a key and sign a package with a key. To generate a key, pass the class's `generateKey` method a DName object.
 
 ```typescript {title="Typescript" .code-figure}
 export interface DName {
@@ -62,7 +62,7 @@ async function keyGen(): Promise<string> {
 
 The response from the generateKey function is a base64-encoded der formatted PKCS12 keystore. To save this keystore to a file, download the base64Der string contents to a file. In the above example we use an anchor element with a href attribute containing the base64 encoded keystore.
 
-For signing the Android packages, using the following should be used:
+For signing an Android package, use the following:
 
 ```typescript {title="Typescript" .code-figure}
 import { PackageSigner } from '@chromeos/android-package-signer';
@@ -82,6 +82,6 @@ async function signBundle(): Promise<string> {
 }
 ```
 
-`signPackage` signs and zipaligns your android package returning a base64 encoded zip file which can be downloaded and distributed to your favorite Android application stores.
+`signPackage` signs and zipaligns your Android package returning a base64 encoded zip file which can be downloaded and distributed to your favorite Android application stores.
 
 Please install the package and let us know what you think!
