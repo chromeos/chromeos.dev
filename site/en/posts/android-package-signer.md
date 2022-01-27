@@ -64,11 +64,6 @@ downloadElement.innerText = 'Download Generated Key';
 For signing an Android package, use the following:
 
 ```typescript {title="Typescript" .code-figure}
-function loadStoredKeystore(): string {
-  // returns a base64 encoded keystore that was previously loaded
-}
-
-const packageSigner = new PackageSigner(password, alias);
 let fileHandle;
 [fileHandle] = await window.showOpenFilePicker();
 const zipBlob = await fileHandle.getFile();
