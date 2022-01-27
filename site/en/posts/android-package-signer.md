@@ -20,17 +20,16 @@ The [Android Package Signer repository](https://github.com/chromeos/android-pack
 
 To add Android Package Signer to your project, first install it from NPM:
 
-````bash {title="bash" .code-figure}
+```bash {title="bash" .code-figure}
 npm i @chromeos/android-package-signer
 ```
 
 From there, require it in your project and initialize it. The password is a string and should be a minimum of six characters long. This will protect your keystore, so the longer the password, the better.
 
-
 ```typescript {title="Typescript" .code-figure}
 import { PackageSigner } from 'android-package-signer';
 const packageSigner = new PackageSigner(password: string, alias: string = 'android');
-````
+```
 
 This will instantiate a class that can be used to generate a key and sign a package with a key. To generate a key, pass the class's `generateKey` method a DName object.
 
