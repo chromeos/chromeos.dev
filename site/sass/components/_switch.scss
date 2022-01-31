@@ -13,8 +13,6 @@
   }
 
   &__input {
-    -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
-    -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
     align-items: center;
     appearance: none;
     cursor: pointer;

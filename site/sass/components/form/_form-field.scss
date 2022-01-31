@@ -24,8 +24,6 @@
 
   &__item-checkbox {
     #{$self}__field {
-      -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
-      -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
       appearance: none;
       border: 2px solid var(--grey-700);
       border-radius: 2px;
@@ -182,8 +180,6 @@
   }
 
   &__field--select {
-    -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
-    -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
     appearance: none;
     background-image: url('/images/icons/sprite.svg#arrow-drop-down');
     background-position: right 1% top 50%;

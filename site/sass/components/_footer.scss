@@ -85,8 +85,6 @@
   }
 
   &__select {
-    -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
-    -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
     appearance: none;
     background-color: var(--grey-50);
     background-image: url('/images/icons/sprite.svg#arrow-drop-down');

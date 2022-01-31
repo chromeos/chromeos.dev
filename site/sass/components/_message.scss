@@ -10,10 +10,6 @@
   position: relative;
 
   &::before {
-    -webkit-mask-image: var(--message-icon); // sass-lint:disable-line no-vendor-prefixes
-    -webkit-mask-position: center center; // sass-lint:disable-line no-vendor-prefixes
-    -webkit-mask-repeat: no-repeat; // sass-lint:disable-line no-vendor-prefixes
-    -webkit-mask-size: 100%; // sass-lint:disable-line no-vendor-prefixes
     background-color: var(--grey-700);
     content: '';
     height: 1.75rem;
