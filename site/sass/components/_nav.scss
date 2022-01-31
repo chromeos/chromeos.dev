@@ -76,7 +76,6 @@
 
       &[aria-haspopup] {
         &::after {
-          -webkit-mask-image: url('/images/icons/sprite.svg#expand-more'); // sass-lint:disable-line no-vendor-prefixes
           background-color: var(--grey-900);
           background-size: 1em;
           content: '';

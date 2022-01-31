@@ -16,10 +16,6 @@ $section-block-margin: 3.75rem;
 
   &:focus::before,
   &:hover::before {
-    -webkit-mask-image: url('/images/icons/sprite.svg#link'); // sass-lint:disable-line no-vendor-prefixes
-    -webkit-mask-position: center left; // sass-lint:disable-line no-vendor-prefixes
-    -webkit-mask-repeat: no-repeat; // sass-lint:disable-line no-vendor-prefixes
-    -webkit-mask-size: 0.75em; // sass-lint:disable-line no-vendor-prefixes
     background-color: currentColor;
     content: '';
     display: block;
