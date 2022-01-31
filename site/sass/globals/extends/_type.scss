@@ -1,41 +1,53 @@
 %type {
   &--header {
-    color: var(--grey-900);
+    color: var(--black);
     text-rendering: optimizeLegibility;
+  }
+
+  // TODO: scaling intermediate font sizes/line-heights based off TBD anchor points: h1-h6, eyebrow
+  &--mega {
+    @include flexFont((36px 50.4px), (50px, 61.8px), (64px 73.3px));
+    letter-spacing: -0.01em;
+    font-family: $font-google-sans;
   }
 
   &--h1 {
     @extend %type--header;
 
-    @include flexFont((36px 40px), (48px 56px), (60px 72px), 400);
-    font-family: $font-google-sans-display;
+    @include flexFont((28px 39px), (48px 56px), (48px 64px), 400);
+    letter-spacing: -0.01em;
+    font-family: $font-google-sans;
   }
 
   &--h2 {
     @extend %type--header;
 
-    @include flexFont((28px 40px), (40px 48px), (48px 56px), 400);
-    font-family: $font-google-sans-display;
+    @include flexFont((24px 34px), (40px 48px), (38px 44px), 400);
+    letter-spacing: -0.01em;
+    font-family: $font-google-sans;
   }
 
   &--h3 {
     @extend %type--header;
 
-    @include flexFont((24px 32px), (32px 40px), (36px 44px), 400);
+    @include flexFont((20px 28px), (32px 40px), (30px 39px), 400);
+    letter-spacing: -0.01em;
     font-family: $font-google-sans;
   }
 
   &--h4 {
     @extend %type--header;
 
-    @include flexFont((18px 28px), (28px 36px), (28px 36px), 400);
+    @include flexFont((16px 22px), (28px 36px), (22px 31px), 400);
+    letter-spacing: -0.01em;
     font-family: $font-google-sans;
   }
 
   &--h5 {
     @extend %type--header;
 
-    @include flexFont((16px 28px), (20px 28px), (20px 28px), 400);
+    @include flexFont((12px 17px), (20px 28px), (18px 21px), 500);
+    letter-spacing: -0.01em;
     font-family: $font-google-sans;
   }
 
@@ -47,15 +59,17 @@
   }
 
   &--base {
-    @include fontSetup(16px, 28px, 400);
+    @include fontSetup(16px, 24px, 400);
+    letter-spacing: -0.01em;
     color: var(--grey-700);
-    font-family: $font-roboto;
+    font-family: $font-google-sans;
   }
 
   &--large {
     @extend %type--base;
 
-    @include fontSetup(18px, 28px, 400);
+    @include fontSetup(18px, 27px, 400);
+    letter-spacing: -0.01em;
   }
 
   &--small {
@@ -71,12 +85,12 @@
   }
 
   &--eyebrow {
-    @include fontSetup(14px, 20px, 500);
-    color: var(--grey-700);
+    @extend %type--header;
+
+    @include flexFont((12px 14px), (12px 14px), (12px 14px), 500);
     display: inline-block;
     font-family: $font-google-sans;
-    letter-spacing: pxEm(0.5px);
-    text-rendering: optimizeLegibility;
+    letter-spacing: -0.01em;
     text-transform: uppercase;
   }
 
@@ -93,7 +107,8 @@
 
   &--caption {
     #{--icon-offset}: 0.1em;
-    @include fontSetup(14px, 18px, 400);
+    @include fontSetup(12px, 17px, 400);
+    letter-spacing: -0.01em;
     color: var(--grey-700);
   }
 
