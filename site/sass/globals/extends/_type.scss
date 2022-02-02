@@ -1,4 +1,8 @@
 %type {
+  $bkpt-type--fablet: 744px;
+  $bkpt-type--tablet: 1140px;
+  $bkpt-type--desktop: 1600px;
+
   &--header {
     color: var(--black);
     text-rendering: optimizeLegibility;
@@ -14,15 +18,31 @@
   &--h1 {
     @extend %type--header;
 
-    @include flexFont((28px 39px), (48px 56px), (48px 64px), 400);
+    @include flexFont((28px 39px), (40px 54px), (48px 64px), 400);
     letter-spacing: -0.01em;
     font-family: $font-google-sans;
+
+    @include mq($bkpt-type--tablet) {
+      letter-spacing: -0.02em;
+    }
   }
 
   &--h2 {
     @extend %type--header;
 
     @include flexFont((24px 34px), (40px 48px), (38px 44px), 400);
+    letter-spacing: -0.02em;
+    font-family: $font-google-sans;
+
+    @include mq($bkpt-type--tablet) {
+      letter-spacing: -0.02em;
+    }
+  }
+  
+  &--h2-grow-h3 {
+    @extend %type--header;
+
+    @include flexFont((24px 34px), (24px 34px), (30px 39px), 400);
     letter-spacing: -0.01em;
     font-family: $font-google-sans;
   }
@@ -92,6 +112,10 @@
     font-family: $font-google-sans;
     letter-spacing: -0.01em;
     text-transform: uppercase;
+
+    @include mq($bkpt-type--tablet) {
+      letter-spacing: 0.01em;
+    }
   }
 
   &--label {

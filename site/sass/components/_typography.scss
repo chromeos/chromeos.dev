@@ -58,6 +58,10 @@ $section-block-margin: 3.75rem;
     }
   }
 
+  &--h2-grow-h3 {
+    @extend %type--h2-grow-h3;
+  }
+
   &--link {
     @extend %anchor;
   }
