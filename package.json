@@ -44,8 +44,8 @@
     "postinstall": "patch-package",
     "prebuild": "del public",
     "pretest": "run-s lint",
-    "prettier:lint": "prettier -c './**/*.{html,md,js,json}'",
-    "prettier": "prettier --write './**/*.{html,md,js,json}'",
+    "prettier:lint": "prettier -c './**/*.{html,md,js,json,scss}'",
+    "prettier": "prettier --write './**/*.{html,md,js,json,scss}'",
     "start": "run-s dev",
     "test:lint": "eslint tests",
     "test": "nyc ava",
@@ -57,7 +57,9 @@
     "vrt:reference": "node vrt.js reference",
     "vrt:serve": "serve -l 5566 .backstop",
     "vrt": "node vrt.js test",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "css:lint": "stylelint 'site/sass/**/*.scss'",
+    "css:fix": "stylelint --fix 'site/sass/**/*.scss'"
   },
   "nyc": {
     "include": [
@@ -123,6 +125,11 @@
     "sass": "^1.43",
     "sass-toolkit": "^2.10.2",
     "sinon": "^7.5",
+    "stylelint": "^14.3.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended": "^6.0.0",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-config-standard": "^24.0.0",
     "unified-lint-rule": "^1.0",
     "unist-util-find": "^1.0",
     "unist-util-parents": "^1.0",
@@ -163,7 +170,8 @@
     "vite.config.js": "eslint --cache --fix",
     "ava.config.cjs": "eslint --cache --fix",
     "site/*/!(style-guide)/**/*.md": "remark -q -f",
-    "./**/*.{html,md,js,json}": "prettier -c --write",
+    "./**/*.{html,md,js,json,scss}": "prettier -c --write",
+    "site/sass/**/*scss": "stylelint --fix 'site/sass/**/*.scss'",
     "tests/**/*.js": "eslint -c tests/.eslintrc.yml --cache --fix"
   }
 }
