@@ -10,7 +10,7 @@
 .item-grid {
   $bkpt-grid--large: 100ch;
   // We explicitly need the three values here to match the design margin on large resolutions.
-  padding: var(--block-start-padding, 0) var(--inline-padding, 0) var(--block-end-padding, 0); // sass-lint:disable-line shorthand-values
+  padding: var(--block-start-padding, 0) var(--inline-padding, 0) var(--block-end-padding, 0);
   position: relative;
   z-index: 10;
 

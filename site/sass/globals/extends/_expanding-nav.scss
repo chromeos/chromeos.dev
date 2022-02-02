@@ -13,9 +13,7 @@
     padding: 1rem;
 
     // Chrome/Webkit needs this non-standard selector
-    // sass-lint:disable  no-vendor-prefixes
     &::-webkit-details-marker {
-      // sass-lint:disable  no-vendor-prefixes
       display: none;
     }
   }
