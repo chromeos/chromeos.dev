@@ -1,11 +1,10 @@
 // Styles for the animated hero.
 
 .hero-animated {
+  --heading-margin-start: pxRem(48px);
+  --wrapper-padding: pxRem(24px);
   $bkpt-hero--medium: 600px;
   $bkpt-hero--large: 1200px;
-
-  #{'--heading-margin-start'}: pxRem(48px);
-  #{'--wrapper-padding'}: pxRem(24px);
 
   display: grid;
   grid-row-gap: 1rem;
@@ -13,13 +12,8 @@
   overflow: hidden;
   position: relative;
 
-  // @supports (--heading-margin-start: clamp(3rem, 7vw, 7.5rem)) was failing in safari.
-  @supports (margin: clamp(3rem, 7vw, 7.5rem)) {
-    #{'--heading-margin-start'}: clamp(3rem, 7vw, 7.5rem);
-  }
-
   @include mq($bkpt-hero--medium) {
-    #{'--wrapper-padding'}: pxRem(40px);
+    --wrapper-padding: #{pxRem(40px)};
   }
 
   @include mq($bkpt-hero--large) {
@@ -40,7 +34,7 @@
     z-index: -2;
 
     @include mq($bkpt-hero--medium) {
-      #{--background-position}: 120%;
+      --background-position: 120%;
     }
   }
 
@@ -103,6 +97,11 @@
     display: block;
     height: 100%;
     width: 100%;
+  }
+
+  // @supports (--heading-margin-start: clamp(3rem, 7vw, 7.5rem)) was failing in safari.
+  @supports (margin: clamp(3rem, 7vw, 7.5rem)) {
+    --heading-margin-start: clamp(3rem, 7vw, 7.5rem);
   }
 
   // Animation setup

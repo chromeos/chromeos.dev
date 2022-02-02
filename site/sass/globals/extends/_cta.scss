@@ -93,7 +93,7 @@
     display: inline-block;
 
     &:visited {
-      #{--visited-color}: var(--blue-600);
+      --visited-color: var(--blue-600);
       color: var(--blue-600);
     }
   }

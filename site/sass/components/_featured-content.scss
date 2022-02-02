@@ -41,7 +41,7 @@
   }
 
   &__image-wrapper {
-    #{--circle-type}: featured;
+    --circle-type: featured;
     border-image-outset: 300px;
     border-image-slice: 0 fill;
     border-image-source: paint(circles);

@@ -198,35 +198,35 @@
   }
 
   &__responsive-circle {
+    --circle-radius: #{$circle-s};
+    --circle-offset: -50;
     $circle-s: 100px;
     $circle-l: 150px;
     $circle-m: math.div(($circle-l + $circle-s), 2);
 
     $medium: math.div($circle-m, (math.div(math.div($circle-l, $scaler), 100vw)));
-    #{--circle-radius}: $circle-s;
-    #{--circle-offset}: -50; // sass-lint:disable-line no-duplicate-properties
 
     @include mq($medium) {
-      #{--circle-radius}: $circle-m;
+      --circle-radius: #{$circle-m};
     }
 
     @include mq($max-width) {
-      #{--circle-radius}: $circle-l;
-      #{--circle-offset}: 0; // sass-lint:disable-line no-duplicate-properties
+      --circle-radius: #{$circle-l};
+      --circle-offset: 0;
     }
   }
 
   &__green-circle {
-    #{--shape-color}: var(--green-500);
+    --shape-color: var(--green-500);
   }
 
   &__yellow-circle {
-    #{--shape-color}: var(--yellow-500);
+    --shape-color: var(--yellow-500);
   }
 
   &--full-circles {
-    #{--circle-type}: full-circles;
-    #{--shape-color}: var(--blue-600), var(--yellow-500); // sass-lint:disable-line no-duplicate-properties
+    --circle-type: full-circles;
+    --shape-color: var(--blue-600), var(--yellow-500);
     background-image: paint(circles);
     height: 100%;
   }

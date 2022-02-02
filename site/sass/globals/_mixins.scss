@@ -143,15 +143,15 @@
   }
 
   &__link {
+    --space: #{$small-space};
+    --bkg: var(--grey-200);
+    --padding: 0.75rem;
     @extend %expanding-nav__link;
-    #{'--space'}: $small-space;
-    #{'--bkg'}: var(--grey-200);
-    #{'--padding'}: 0.75rem;
 
     @include mq($bkpt) {
-      #{'--space'}: $large-space;
-      #{'--bkg'}: var(--grey-100);
-      #{'--padding'}: 0.5rem;
+      --space: #{$large-space};
+      --bkg: var(--grey-100);
+      --padding: 0.5rem;
     }
 
     &::after {
@@ -165,19 +165,19 @@
     // Need to use tags selectors because ToC plugin doesn't allow for class customization
     // Will only go to a max depth of 4 because we start at H2s.
     ol ol &::after {
-      #{--scoot}: 1rem;
+      --scoot: 1rem;
     }
 
     ol ol ol &::after {
-      #{--scoot}: 2rem;
+      --scoot: 2rem;
     }
 
     ol ol ol ol &::after {
-      #{--scoot}: 3rem;
+      --scoot: 3rem;
     }
 
     ol ol ol ol ol &::after {
-      #{--scoot}: 4rem;
+      --scoot: 4rem;
     }
     /* stylelint-enable selector-max-compound-selectors */
   }
