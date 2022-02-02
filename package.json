@@ -166,12 +166,12 @@
     "node": "14.18.2"
   },
   "lint-staged": {
-    "(functions|site|lib)/**/*.js": "eslint --cache --fix",
-    "vite.config.js": "eslint --cache --fix",
-    "ava.config.cjs": "eslint --cache --fix",
+    "(functions|site|lib)/**/*.js": "eslint --cache",
+    "vite.config.js": "eslint --cache",
+    "ava.config.cjs": "eslint --cache",
     "site/*/!(style-guide)/**/*.md": "remark -q -f",
-    "./**/*.{html,md,js,json,scss}": "prettier -c --write",
-    "site/sass/**/*scss": "stylelint --fix 'site/sass/**/*.scss'",
-    "tests/**/*.js": "eslint -c tests/.eslintrc.yml --cache --fix"
+    "./**/*.{html,md,js,json,scss}": "prettier -c",
+    "site/sass/**/*scss": "stylelint 'site/sass/**/*.scss'",
+    "tests/**/*.js": "eslint -c tests/.eslintrc.yml --cache"
   }
 }
