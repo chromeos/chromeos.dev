@@ -16,10 +16,6 @@ $section-block-margin: 3.75rem;
 
   &:focus::before,
   &:hover::before {
-    -webkit-mask-image: url('/images/icons/sprite.svg#link'); // sass-lint:disable-line no-vendor-prefixes
-    -webkit-mask-position: center left; // sass-lint:disable-line no-vendor-prefixes
-    -webkit-mask-repeat: no-repeat; // sass-lint:disable-line no-vendor-prefixes
-    -webkit-mask-size: 0.75em; // sass-lint:disable-line no-vendor-prefixes
     background-color: currentColor;
     content: '';
     display: block;
@@ -120,10 +116,12 @@ $section-block-margin: 3.75rem;
   }
 
   // Long-form type styling
+  /* stylelint-disable-next-line selector-max-compound-selectors */
   * + *:not(:empty) {
     margin-top: 1em;
   }
 
+  /* stylelint-disable-next-line selector-max-compound-selectors */
   p > * + *:not(:empty) {
     margin-top: 0;
   }
@@ -166,6 +164,14 @@ $section-block-margin: 3.75rem;
     @extend %type--kbd;
   }
 
+  figcaption:not(.code-figure--caption) {
+    margin-top: 0.5rem;
+
+    &:not([class]) {
+      @extend %type--caption;
+    }
+  }
+
   img:not(:first-child):not([class]),
   video:not(:first-child),
   pre:not(:first-child),
@@ -174,45 +180,42 @@ $section-block-margin: 3.75rem;
     margin-top: 2.5rem;
   }
 
-  .code-figure {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
+  figure {
+    &:not(:first-child):not(.code-figure) {
+      margin-top: 2.5rem;
 
-  figure:not(:first-child):not(.code-figure) {
-    margin-top: 2.5rem;
-  }
+      > :last-child:not(figcaption) {
+        margin-bottom: 2.5rem;
+      }
 
-  figure:not(:first-child):not(.code-figure) > :last-child:not(figcaption) {
-    margin-bottom: 2.5rem;
-  }
-
-  figure:not(:first-child):not(.code-figure) > figcaption:not([class]) {
-    margin-bottom: 1.5rem;
-  }
-
-  figure img:nth-of-type(1n),
-  figure video:nth-of-type(1n),
-  figure pre:nth-of-type(1n),
-  figure table:nth-of-type(1n) {
-    margin: 0;
-  }
-
-  figure img:not(:first-child):not([class]) {
-    margin-bottom: 0;
-  }
-
-  figure > img {
-    display: block;
-    margin-bottom: 0;
-  }
-
-  figcaption:not(.code-figure--caption) {
-    margin-top: 0.5rem;
-
-    &:not([class]) {
-      @extend %type--caption;
+      > figcaption:not([class]) {
+        margin-bottom: 1.5rem;
+      }
     }
+
+    // There's no good way to arrange the following so there's no descending specificity without scattering the declarations to the wind
+    /* stylelint-disable no-descending-specificity */
+    > img {
+      display: block;
+      margin-bottom: 0;
+    }
+
+    img:nth-of-type(1n),
+    video:nth-of-type(1n),
+    pre:nth-of-type(1n),
+    table:nth-of-type(1n) {
+      margin: 0;
+    }
+
+    img:not(:first-child):not([class]) {
+      margin-bottom: 0;
+    }
+    /* stylelint-enable no-descending-specificity */
+  }
+
+  .code-figure {
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
   }
 
   section:not(:first-child) {

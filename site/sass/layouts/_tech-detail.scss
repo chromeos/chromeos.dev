@@ -108,12 +108,6 @@
     padding: 0 $inline-padding;
     padding-top: math.div($block-padding, 2) + 5rem;
 
-    #{$root}--landing & {
-      grid-row: 3 / span 1;
-      padding: 0;
-      padding-top: math.div($block-padding, 2) + 3rem;
-    }
-
     @include mq($bkpt-tech-details--2-cols) {
       grid-column: 3 / span 1;
       grid-row: 1 / span 1;
@@ -128,6 +122,12 @@
       #{$root}--landing & {
         grid-row: 2 / span 2;
       }
+    }
+
+    #{$root}--landing & {
+      grid-row: 3 / span 1;
+      padding: 0;
+      padding-top: math.div($block-padding, 2) + 3rem;
     }
   }
 

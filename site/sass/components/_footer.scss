@@ -65,6 +65,14 @@
     position: relative;
   }
 
+  &__help-icon {
+    fill: var(--grey-700);
+    height: pxRem(32px);
+    margin-right: pxRem(8px);
+    vertical-align: middle;
+    width: pxRem(24px);
+  }
+
   &__help-link {
     align-items: center;
     display: flex;
@@ -76,17 +84,7 @@
     }
   }
 
-  &__help-icon {
-    fill: var(--grey-700);
-    height: pxRem(32px);
-    margin-right: pxRem(8px);
-    vertical-align: middle;
-    width: pxRem(24px);
-  }
-
   &__select {
-    -moz-appearance: none; // sass-lint:disable-line no-vendor-prefixes
-    -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
     appearance: none;
     background-color: var(--grey-50);
     background-image: url('/images/icons/sprite.svg#arrow-drop-down');

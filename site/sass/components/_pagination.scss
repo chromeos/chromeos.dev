@@ -18,10 +18,16 @@
     width: 2rem;
   }
 
-  &__link {
+  &__link,
+  &__end {
     &:hover {
-      cursor: pointer;
+      background-color: var(--blue-25);
+      border-radius: 50%;
     }
+  }
+
+  &__link:hover {
+    cursor: pointer;
   }
 
   &__ellipsis {
@@ -33,16 +39,8 @@
     width: 1rem;
   }
 
-  &__link,
-  &__end {
-    &:hover {
-      background-color: var(--blue-25);
-      border-radius: 50%;
-    }
-  }
-
   &__active {
-    font-weight: bold;
+    font-weight: $font-weight-bold;
 
     &::after {
       border-bottom: 2px solid var(--blue-600);
