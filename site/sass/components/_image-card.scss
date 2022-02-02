@@ -1,9 +1,9 @@
 // Styles for image-card component.
 
 .image-card {
-  --offset-orientation: -1;
   $content-space: pxRem(20px);
   $this: &;
+  --offset-orientation: -1;
 
   align-items: center;
   display: flex;

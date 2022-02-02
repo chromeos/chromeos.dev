@@ -40,6 +40,28 @@
       }
     ],
     "scss/at-function-pattern": "^[a-z]+([a-zA-Z0-9-]+[a-zA-Z0-9]+)?$",
-    "scss/at-mixin-pattern": "^[a-z]+([a-zA-Z0-9-]+[a-zA-Z0-9]+)?$"
+    "scss/at-mixin-pattern": "^[a-z]+([a-zA-Z0-9-]+[a-zA-Z0-9]+)?$",
+    "order/order": [
+      [
+        "dollar-variables",
+        "custom-properties",
+        {
+          "type": "at-rule",
+          "name": "extend"
+        },
+        {
+          "type": "at-rule",
+          "name": "include",
+          "hasBlock": false
+        },
+        "declarations",
+        {
+          "type": "at-rule",
+          "name": "include",
+          "hasBlock": true
+        },
+        "rules"
+      ]
+    ]
   }
 }

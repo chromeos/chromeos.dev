@@ -1,10 +1,10 @@
 // Styles for the animated hero.
 
 .hero-animated {
-  --heading-margin-start: pxRem(48px);
-  --wrapper-padding: pxRem(24px);
   $bkpt-hero--medium: 600px;
   $bkpt-hero--large: 1200px;
+  --heading-margin-start: pxRem(48px);
+  --wrapper-padding: pxRem(24px);
 
   display: grid;
   grid-row-gap: 1rem;

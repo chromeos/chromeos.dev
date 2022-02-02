@@ -2,10 +2,10 @@
 // This is pretty complex as we have two almost entirely separate sets of styling represented here
 
 .nav {
-  --nav-transition: none;
   $transition-duration: 0.375s;
   $transition-timing: ease-in-out;
   $transition-space: $transition-duration $transition-timing;
+  --nav-transition: none;
 
   @include maxLangMQ($bkpt-map--header--large) {
     height: 100vh;

@@ -198,13 +198,14 @@
   }
 
   &__responsive-circle {
-    --circle-radius: #{$circle-s};
-    --circle-offset: -50;
     $circle-s: 100px;
     $circle-l: 150px;
     $circle-m: math.div(($circle-l + $circle-s), 2);
 
     $medium: math.div($circle-m, (math.div(math.div($circle-l, $scaler), 100vw)));
+
+    --circle-radius: #{$circle-s};
+    --circle-offset: -50;
 
     @include mq($medium) {
       --circle-radius: #{$circle-m};
