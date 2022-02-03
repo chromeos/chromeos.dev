@@ -36,18 +36,20 @@
     text-align: center;
   }
 
-  &--disabled & {
-    &__item,
-    &__disclaimer,
-    &__button {
-      opacity: 50%;
-    }
-  }
-
   &__button {
     cursor: pointer;
     max-width: min-content;
     position: relative;
+
+    &-icon {
+      animation: form__spinner 1s linear infinite;
+      display: none;
+      height: pxRem(20px);
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      width: pxRem(20px);
+    }
 
     &--loader & {
       &-text {
@@ -60,14 +62,12 @@
     }
   }
 
-  &__button-icon {
-    animation: form__spinner 1s linear infinite;
-    display: none;
-    height: pxRem(20px);
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    width: pxRem(20px);
+  &--disabled & {
+    &__item,
+    &__disclaimer,
+    &__button {
+      opacity: 50%;
+    }
   }
 
   @keyframes form__spinner {

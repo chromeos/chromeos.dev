@@ -18,6 +18,7 @@
     min-width: 60%;
     transform: translateX(17%) scale(1.1) translateY(1.5rem);
 
+    /* stylelint-disable selector-no-qualifying-type */
     .animation--active &.animation__lift-fade--start {
       transform: translateX(17%) scale(1.1) translateY(3rem);
     }
@@ -25,6 +26,7 @@
     .animation--active &.animation__lift-fade--end {
       transform: translateX(17%) scale(1.1) translateY(1.5rem);
     }
+    /* stylelint-enable selector-no-qualifying-type */
   }
 
   .type--large {

@@ -5,7 +5,7 @@
 
 .article {
   $default-eyebrow-color: map-get($google-colors, 'blue-600');
-  #{--col-padding}: pxRem(28px);
+  --col-padding: #{pxRem(28px)};
 
   display: grid;
 
@@ -14,7 +14,7 @@
   }
 
   @include mq($bkpt-articles--3-cols) {
-    #{--col-padding}: pxRem(60px);
+    --col-padding: #{pxRem(60px)};
 
     grid-template-columns: 1fr minmax(min-content, pxRem(300px)) minmax(50ch, 90ch) minmax(min-content, pxRem(300px)) 1fr;
 
@@ -39,10 +39,6 @@
   &__hero {
     background-color: var(--grey-900);
 
-    &:empty {
-      background-color: var(--blue-600);
-    }
-
     @include mq($bkpt-articles--2-cols) {
       grid-column: 1 / span 2;
       grid-row: 1 / span 2;
@@ -52,6 +48,10 @@
     @include mq($bkpt-articles--3-cols) {
       grid-column: 1 / span 5;
       grid-row: 1 / span 2;
+    }
+
+    &:empty {
+      background-color: var(--blue-600);
     }
   }
 

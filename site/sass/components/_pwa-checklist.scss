@@ -22,7 +22,7 @@
     align-items: center;
     display: inline-flex;
     justify-content: center;
-    margin: 0.5rem !important; // sass-lint:disable-line no-important
+    margin: 0.5rem !important; /* stylelint-disable-line declaration-no-important */
     position: relative;
   }
 
@@ -63,6 +63,6 @@
 
   &--add {
     margin-inline-start: 0.5rem;
-    margin-top: 0 !important; // sass-lint:disable-line no-important
+    margin-top: 0 !important; /* stylelint-disable-line declaration-no-important */
   }
 }
