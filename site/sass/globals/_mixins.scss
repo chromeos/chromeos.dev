@@ -15,6 +15,26 @@
   }
 }
 
+// Scale font-size between two screen widths.
+//
+// @param {absolute unit} $min-vw: width at which to begin scaling.
+// @param {absolute unit} $max-vw: width at which to reach the max font size.
+// @param {unit} $min-value: lower threshold of font size scale.
+// @param {unit} $max-value: upper threshold of font size scale.
+@mixin scaleFontSize($min-vw, $max-vw, $min-value, $max-value) {
+  $factor: math.div(1, $max-vw - $min-vw) * ($max-value - $min-value);
+  $relsize: unquote(
+    "#{ $min-value - ($min-vw * $factor) } + #{ 100vw * $factor }"
+  );
+
+  font-size: $min-value;
+  $font-clamp: clamp($min-value, $relsize, $max-value);
+
+  @supports (font-size: $font-clamp) {
+    font-size: $font-clamp;
+  }
+}
+
 // Sets a flexible font size
 //
 // @param {length()} $sm - List of lengths, in px, representing font size and line height of the smallest size
@@ -25,8 +45,8 @@
   // Setup basic font styling from medium size
   @include fontSetup(nth($md, 1), nth($md, 2), $weight);
 
-  // Determine scaling factor so that the large font size is reached at 1440px
-  $font-scale: math.div(nth($lg, 1), 14.4px) * 1vw;
+  // Determine scaling factor so that the large font size is reached at 1024px
+  $font-scale: math.div(nth($lg, 1), 10.24px) * 1vw;
   // Set up clamp function
   $font-clamp: clamp(pxEm(nth($sm, 1)), $font-scale, pxEm(nth($lg, 1)));
 
