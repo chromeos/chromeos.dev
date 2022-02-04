@@ -15,7 +15,7 @@
   "dependencies": {
     "firebase-admin": "^8.12.1",
     "firebase-functions": "^3.9.0",
-    "firebase-tools": "^8.7.0",
+    "firebase-tools": "^10.1.4",
     "iso-639-1": "^2.1.0",
     "lunr": "^2.3.8"
   },
