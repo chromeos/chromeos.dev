@@ -16,7 +16,7 @@
     "firebase-admin": "^8.12.1",
     "firebase-functions": "^3.9.0",
     "firebase-tools": "^8.7.0",
-    "iso-639-1": "^2.1.0",
+    "iso-639-1": "^2.1.12",
     "lunr": "^2.3.8"
   },
   "devDependencies": {
