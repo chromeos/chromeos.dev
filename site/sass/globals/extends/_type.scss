@@ -127,7 +127,7 @@
   &--base {
     @include fontSetup(16px, 24px, 400);
     letter-spacing: -0.01em;
-    color: var(--grey-700);
+    color: var(--grey-900);
     font-family: $font-google-sans;
 
     @include mq($bkpt-type--fablet) {
@@ -262,11 +262,5 @@
 
   &--list-item {
     margin-top: 0.5em;
-  }
-
-  &--cta {
-    @extend %type--header;
-
-    @include fontSetup(14px, 14px, 500);
   }
 }
