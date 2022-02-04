@@ -2,7 +2,7 @@
   $shadow-color: rgba(map-get($google-colors, 'grey-800'), 0.15);
   $this: &;
 
-  @include fontSetup(16px, 24px, 500);
+  @include fontSetup(14px, 16px, 500);
   align-items: center;
   border: 0;
   border-radius: 4px;
@@ -10,48 +10,45 @@
   display: flex;
   font-family: $font-google-sans;
   justify-content: center;
-  padding: 0.75em 1.5em;
+  padding: pxRem(15px) pxRem(40px);
+  min-width: pxRem(150px);
   text-decoration: none;
   text-rendering: optimizeLegibility;
 
   &--left-icon {
-    padding: 0.75em 1em 0.75em 0.75em;
+    padding: pxRem(15px) pxRem(40px);
 
     .icon {
-      margin-right: 0.5em;
+      margin-right: pxRem(8px);
     }
   }
 
   &--right-icon {
-    padding: 0.75em 0.75em 0.75em 1em;
+    padding: pxRem(15px) pxRem(40px);
 
     .icon {
-      margin-left: 0.5em;
+      margin-left: pxRem(10px);
     }
   }
 
   &--high {
-    background-color: var(--blue-600);
-    border: 2px solid var(--blue-600);
+    background-color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
     color: var(--white);
 
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: var(--blue-800);
+    &:hover {
+      background-color: var(--secondary-blue-dark);
+      border-color: var(--secondary-blue-dark);
     }
 
-    &:hover,
-    &:active {
-      border-color: var(--blue-800);
-    }
-
-    &:focus {
-      border-color: var(--blue-200);
+    &:focus-visible {
+      outline: var(--red-650) solid 2px;
+      outline-offset: 2px;
     }
 
     &:active {
-      box-shadow: 0 1px 3px 1px $shadow-color;
+      background-color: var(--secondary-blue-light);
+      border-color: var(--secondary-blue-light);
     }
   }
 
@@ -60,20 +57,29 @@
     text-align: center;
   }
 
+  &--high,
+  &--low {
+    letter-spacing: -0.01em;
+  }
+
   &--medium {
     background-color: var(--white);
-    border: 1px solid var(--grey-300);
+    color: var(--grey-900);
+    border: 1px solid var(--grey-700);
 
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: var(--blue-25);
-      border-color: var(--blue-600);
+    &:hover {
+      background-color: var(--grey-300);
+      border-color: var(--grey-700);
+    }
+
+    &:focus-visible {
+      background-color: var(--white);
+      border-color: var(--primary-blue);
+      outline: var(--primary-blue) solid 2px;
     }
 
     &:active {
-      background-color: var(--blue-50);
-      box-shadow: 1px 0 1px var(--blue-600), -1px 0 1px var(--blue-600), 0 1px 1px var(--blue-600), 0 -1px 1px var(--blue-600);
+      background-color: var(--grey-350);
     }
   }
 
@@ -98,7 +104,6 @@
     }
   }
 
-  &--medium,
   &--low,
   &--link,
   &--back {
@@ -115,7 +120,7 @@
 
     &:hover,
     &:focus {
-      color: var(--blue-900);
+      color: var(--secondary-blue-dark);
     }
 
     &:focus {
@@ -127,9 +132,21 @@
     }
   }
 
+  &--low {
+    &:focus {
+      background-color: transparent;
+    }
+
+    &:focus-visible {
+      outline-offset: 5px;
+      outline: 3px solid var(--secondary-blue-dark);
+    }
+  }  
+
   .icon {
     fill: currentColor;
-    height: 1.125em;
-    width: 1.125em;
+    height: pxRem(18px);
+    width: pxRem(18px);
+
   }
 }
