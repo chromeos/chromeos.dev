@@ -141,6 +141,10 @@
       outline-offset: 5px;
       outline: 3px solid var(--secondary-blue-dark);
     }
+
+    &:active {
+      color: var(--secondary-blue-light);
+    }
   }  
 
   .icon {
