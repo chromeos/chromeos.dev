@@ -15,23 +15,18 @@
   }
 }
 
-// Scale font-size between two screen widths.
+// Scale font-size between two screen widths in rems.
 //
-// @param {absolute unit} $min-vw: width at which to begin scaling.
-// @param {absolute unit} $max-vw: width at which to reach the max font size.
-// @param {unit} $min-value: lower threshold of font size scale.
-// @param {unit} $max-value: upper threshold of font size scale.
-@mixin scaleFontSize($min-vw, $max-vw, $min-value, $max-value) {
-  $factor: math.div(1, $max-vw - $min-vw) * ($max-value - $min-value);
-  $relsize: unquote(
-    "#{ $min-value - ($min-vw * $factor) } + #{ 100vw * $factor }"
-  );
+// @param {length} $min-vw: screen width in px at which to begin scaling.
+// @param {length} $max-vw: screen width in px at which to reach the max value font size.
+// @param {length} $min-value: px lower threshold of font size scale.
+// @param {length} $max-value: px upper threshold of font size scale.
+@mixin fluidFont($min-vw, $max-vw, $min-value, $max-value) {
+  $difference: math.div($max-value - $min-value, 2);
+  font-size: $min-value + $difference;
 
-  font-size: $min-value;
-  $font-clamp: clamp($min-value, $relsize, $max-value);
-
-  @supports (font-size: $font-clamp) {
-    font-size: $font-clamp;
+  @supports (font-size: clamp(1px, 1vw, 2px)) {
+    font-size: fluid(pxRem($min-vw), pxRem($max-vw), pxRem($min-value), pxRem($max-value));
   }
 }
 

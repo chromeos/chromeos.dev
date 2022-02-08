@@ -10,3 +10,27 @@
 @function pxRem($px) {
   @return math.div($px, $base-font-size) * 1rem;
 }
+
+/**
+  @desc Scale a value from one screen width to another based on the difference between the minimum
+      and maximum values. Requires clamp() support.
+  @param {length} $min-width: screen size to begin scaling.
+  @param {length} $max-width: screen size at which scaling will end.
+  @param {length} $min-value: Low value of clamp in the same unit as the max value.
+  @param {length} $max-value: High value of clamp in the same unit as the min value.
+  @example <caption>Between screen sizes of 744px and 1140px, linearly scale the padding from 20px to 40px.</caption>
+  .selector {
+    padding: fluid(744px, 1140px, 20px, 40px);
+  }
+  @returns {clamp($min-value, <responsive-value>, $max-value)}
+*/
+@function fluid($min-width, $max-width, $min-value, $max-value) {
+  $width-difference: math.div(1, $max-width - $min-width);
+  $value-difference: $max-value - $min-value;
+  $rate: $width-difference * $value-difference;
+
+  $responsive-value: unquote(
+    "#{$min-value - ($min-width * $rate)} + #{100vw * $rate}"
+  );
+  @return clamp($min-value, $responsive-value, $max-value);
+}

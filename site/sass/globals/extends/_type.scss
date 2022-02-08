@@ -16,11 +16,11 @@
     @include fontSetup(36px, 50.4px, 400);
 
     @include mq($bkpt-type--fablet) {
-      @include scaleFontSize(pxRem($bkpt-type--fablet), pxRem($bkpt-type--tablet), pxRem(48px), pxRem(56px));
+      @include fluidFont($bkpt-type--fablet, $bkpt-type--tablet, 48px, 56px);
       line-height: 1.2;
     }
     @include mq($bkpt-type--tablet) {
-      @include scaleFontSize(pxRem($bkpt-type--tablet), pxRem($bkpt-type--desktop-lg), pxRem(56px), pxRem(64px));
+      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 56px, 64px);
       line-height: 1.15;
     }
   }
@@ -31,12 +31,12 @@
     font-family: $font-google-sans;
 
     @include mq($bkpt-type--fablet) {
-      @include scaleFontSize(pxRem($bkpt-type--fablet), pxRem($bkpt-type--tablet), pxRem(32px), pxRem(40px));
+      @include fluidFont($bkpt-type--fablet, $bkpt-type--tablet, 32px, 40px);
       line-height: 1.3;
     }
 
     @include mq($bkpt-type--tablet) {
-      @include scaleFontSize(pxRem($bkpt-type--tablet), pxRem($bkpt-type--desktop-lg), pxRem(40px), pxRem(48px));
+      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 40px, 48px);
     }
   }
 
@@ -47,12 +47,12 @@
     font-family: $font-google-sans;
 
     @include mq($bkpt-type--fablet) {
-      @include scaleFontSize(pxRem($bkpt-type--fablet), pxRem($bkpt-type--tablet), pxRem(28px), pxRem(32px));
+      @include fluidFont($bkpt-type--fablet, $bkpt-type--tablet, 28px, 32px);
       line-height: 1.3;
     }
 
     @include mq($bkpt-type--tablet) {
-      @include scaleFontSize(pxRem($bkpt-type--tablet), pxRem($bkpt-type--desktop-lg), pxRem(32px), pxRem(38px));
+      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 32px, 38px);
     }
 
     @include mq($bkpt-type--desktop) {
@@ -67,7 +67,7 @@
     font-family: $font-google-sans;
 
     @include mq($bkpt-type--tablet) {
-      @include scaleFontSize(pxRem($bkpt-type--tablet), pxRem($bkpt-type--desktop-lg), pxRem(24px), pxRem(30px));
+      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 24px, 30px);
     }
 
     @include mq($bkpt-type--desktop) {
@@ -82,12 +82,12 @@
     font-family: $font-google-sans;
 
     @include mq($bkpt-type--fablet) {
-      @include scaleFontSize(pxRem($bkpt-type--fablet), pxRem($bkpt-type--tablet), pxRem(22px), pxRem(26px));
+      @include fluidFont($bkpt-type--fablet, $bkpt-type--tablet, 22px, 26px);
       line-height: 1.3;
     }
 
     @include mq($bkpt-type--tablet) {
-      @include scaleFontSize(pxRem($bkpt-type--tablet), pxRem($bkpt-type--desktop-lg), pxRem(26px), pxRem(30px));
+      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 26px, 30px);
     }
   }
 
@@ -102,7 +102,7 @@
     }
 
     @include mq($bkpt-type--tablet) {
-      @include scaleFontSize(pxRem($bkpt-type--tablet), pxRem($bkpt-type--desktop-lg), pxRem(20px), pxRem(22px));
+      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 20px, 22px);
     }
   }
 
@@ -146,7 +146,7 @@
     }
 
     @include mq($bkpt-type--tablet) {
-      @include scaleFontSize(pxRem($bkpt-type--tablet), pxRem($bkpt-type--desktop-lg), pxRem(16px), pxRem(18px));
+      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 16px, 18px);
     }
 
     @include mq($bkpt-type--desktop) {
@@ -175,7 +175,7 @@
     text-transform: uppercase;
 
     @include mq($bkpt-type--fablet) {
-      @include scaleFontSize(pxRem($bkpt-type--fablet), pxRem($bkpt-type--tablet), pxRem(12px), pxRem(14px));
+      @include fluidFont($bkpt-type--fablet, $bkpt-type--tablet, 12px, 14px);
     }
 
     @include mq($bkpt-type--tablet) {
