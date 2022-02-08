@@ -17,6 +17,10 @@ hideNewsletter: true
     {{ heroAnimated(l10n.home.hero.heading, l10n.home.hero.cta, l10n.home.hero.img) }}
   </header>
 
+  <div id="home__validation" class="wrapper wrapper--padded wrapper--padding">
+    {{ itemGrid(l10n.home.validation.title, l10n.home.validation.items, l10n.home.validation.modifiers) }}
+  </div>
+
   <!-- Chrome OS Stats -->
   <section id="home__stats" class="wrapper wrapper--full-bleed wrapper--no-top wrapper--no-bottom" aria-label="{{ l10n.home.results.desc }}">
     {{ cardStats(l10n.home.results.content, l10n.home.results.img, l10n.home.results.cta, l10n.home.results.stats, l10n.home.results.footnote) }}

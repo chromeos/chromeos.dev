@@ -1,0 +1,83 @@
+.validation-card {
+  $transparency: rgba(255, 255, 255, 0.001);
+  justify-self: center;
+  text-align: center;
+  max-width: pxRem(306px);
+
+  &__dt {
+    position: relative;
+    display: inline-block;
+    margin-bottom: pxRem(26px);
+    color: var(--black);
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 1.145;
+    text-align: center;
+    letter-spacing: -0.01em;
+  }
+
+  &__shape {
+    // --primary-yellow
+    --shape-color: #FBBD03;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+  }
+
+  &--yellow & {
+    &__shape {
+      // --primary-yellow
+      --shape-color: #FBBD03;
+    }
+  }
+
+  &--blue & {
+    &__shape {
+      // --primary-blue
+      --shape-color: #3474E0;
+    }
+  }
+
+  &--green & {
+    &__shape {
+      // --primary-green
+      --shape-color: #4BAD4B;
+    }
+  }
+
+  &--semicircle & {
+    &__shape {
+      --circle-radius: 65;
+      --circle-offset: 65;
+      top: 100%;
+      width: pxRem(130px);
+      height: pxRem(65px);
+      background-image: paint(circles);
+      transform: translate(-50%, -0%) rotate(210deg);
+      transform-origin: top center;
+    }
+  }
+
+  &--circle & {
+    &__shape {
+      --circle-radius: 42.5;
+      --circle-offset: 42.5;
+      bottom: 0;
+      width: pxRem(85px);
+      height: pxRem(85px);
+      background-image: paint(circles);
+      transform: translateX(-50%);
+    }
+  }
+
+  &--triangle & {
+    &__shape {
+      top: 0;
+      width: pxRem(100px);
+      height: pxRem(100px);
+      background-image: linear-gradient(to bottom left, var(--shape-color), var(--shape-color) 50%, $transparency 50%, $transparency);
+      transform: translate(-50%, -25%) rotate(-15deg);
+      transform-origin: bottom right;
+    }
+  }
+}

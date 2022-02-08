@@ -1,0 +1,26 @@
+<!--{#
+  Renders a card with a description term and description details.
+
+  @param {object} content - Object containing the following attributes.
+  @param {string} content.description: A statistic to be displayed as the description term.
+  @param {string} content.details: Short accompanying text to be displayed as the description details.
+
+  @param {object} modifiers (optional): Object containing modifier styles for the card.
+  @param {string: semicircle | circle | triangle} modifiers.shape: The shape to be displayed behind the description term.
+  @param {string: yellow | blue | green} modifiers.color: The color of the shape. Defaults to primary yellow if omitted.
+  @param {string} modifiers.custom: Custom classes to be added to the card.
+#}-->
+
+{% macro validationCard(content, modifiers) %}
+<article class="validation-card {{modifiers.custom}} {% if modifiers.shape %}validation-card--{{modifiers.shape}} {% endif %}{% if modifiers.color %}validation-card--{{modifiers.color}}{% endif %}">
+  <dl>
+    <dt class="validation-card__dt">
+      {{content.description}}
+      {% if modifiers.shape %} <div class="validation-card__shape shape" role="presentation"></div> {% endif %}
+    </dt>
+    <dd class="validation-card__dd">
+      {{content.details}}
+    </dd>
+  </dl>
+</article>
+{% endmacro %}
