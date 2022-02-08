@@ -151,7 +151,7 @@
     "resize-observer-polyfill": "^1.5",
     "service-worker-i18n-redirect": "^1.0.0",
     "service-worker-includes": "^1.0.1",
-    "vite-plugin-pwa": "^0.11.11",
+    "vite-plugin-pwa": "^0.11.13",
     "workbox-broadcast-update": "^6.4.2",
     "workbox-cacheable-response": "^6.4",
     "workbox-expiration": "^6.4",
