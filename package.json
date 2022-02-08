@@ -119,7 +119,7 @@
     "remark": "^14.0",
     "remark-cli": "^8.0",
     "remark-frontmatter": "^2.0",
-    "remark-lint": "^7.0",
+    "remark-lint": "^9.1",
     "remark-lint-prohibited-strings": "^1.5",
     "replaceall": "^0.1",
     "sanitize-html": "^2.6.1",
