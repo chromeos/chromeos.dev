@@ -1,0 +1,36 @@
+.case-studies {
+
+  &__header,
+  &__footer {
+    text-align: center;
+  }
+
+  &__subtitle {
+    margin-top: pxRem(8px);
+  }
+
+  &__content {
+    display: grid;
+    grid-template: auto;
+    grid-gap: pxRem(20px);
+    margin-top: pxRem(64px);
+    
+    @include mq(744px) {
+      grid-template: auto / repeat(2, 1fr);
+    }
+
+    @include mq(1024px) {
+      grid-gap: fluid(pxRem(1024px), pxRem(1440px), pxRem(20px), pxRem(45px)) pxRem(20px);
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    &:first-of-type {
+      @include mq(744px) {
+        grid-column: 1 / 3;
+      }
+    }
+  }
+}

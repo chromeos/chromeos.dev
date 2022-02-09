@@ -305,13 +305,25 @@ module.exports = {
         .sort(propSort({ prop: 'data.title', lowercase: true }))
         .sort(propSort({ prop: 'data.weight', fallback: 0 }))
         .map(i => ({
+          eyebrow: get(i, 'data.tags[1]'),
           title: get(i, 'data.title'),
           image: get(i, 'data.app.logo'),
+          logo: {
+            src: get(i, 'data.app.logo'),
+            name: get(i, 'data.app.name'),
+            company: get(i, 'data.app.company'),
+          },
+          media: {
+            src: get(i, 'data.hero.image'),
+            alt: get(i, 'data.hero.alt'),
+          },
           cta: {
             text: l10nFallback('microcopy.more')(data),
             url: get(i, 'data.page.url'),
           },
         }));
+
+      collections.homeCaseStudies = collections.stories.slice(0, 3);
     }
 
     return collections;

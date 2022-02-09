@@ -1,0 +1,27 @@
+<!--{#
+  Renders a grid of 3 case studies.
+
+  @param {object} content: An object containing the following required attributes.
+  @param {string} content.title: Section title, displayed in a heading element.
+  @param {string} content.subtitle: Section subtitle, displayed beneath the heading.
+  @param {object} cta: A CTA object containing the following required attributes.
+  @param {string} cta.text: Text to be displayed within the CTA.
+  @param {string} cta.url: href value for the CTA.
+
+  @param {array} studies: Array of 3 case studies, using the schema set in eleventy.landingCollections.homeCaseStudies.
+#}-->
+{% from 'card-study.njk' import cardStudy %}
+{% macro caseStudies(content, studies) %}
+<section class="case-studies">
+  <header class="case-studies__header">
+    <h1 class="type--h1 case-studies__title">{{content.title}}</h1>
+    <h2 class="type--large case-studies__subtitle">{{content.subtitle}}</h2>
+  </header>
+  <div class="case-studies__content">
+    {% for study in studies %}{{cardStudy(study)}}{% endfor %}
+  </div>
+  <footer class="case-studies__footer">
+    <a class="cta cta--secondary" href="{{content.cta.url}}">{{content.cta.text}}</a>
+  </footer>
+</section>
+{% endmacro %}
