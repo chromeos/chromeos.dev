@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const lunr = require('lunr');
-const fs = require('fs');
 const ISO6391 = require('iso-639-1');
+const fs = require('fs');
 const path = require('path');
 
 const dataCache = {};
