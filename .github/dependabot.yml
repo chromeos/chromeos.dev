@@ -6,6 +6,16 @@ updates:
       interval: weekly
     commit-message:
       prefix: '📌 '
+    ignore:
+      - dependency-name: remark-lint*
+        update-types:
+          - version-update:semver-major
+      - dependency-name: unified-lint-rule
+        update-types:
+          - version-update:semver-major
+      - dependency-name: unist-*
+        update-types:
+          - version-update:semver-major
   - package-ecosystem: npm
     directory: /functions
     schedule:
