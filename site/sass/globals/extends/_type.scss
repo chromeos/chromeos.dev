@@ -108,11 +108,16 @@
 
   &--h5 {
     @extend %type--header;
-    @include fontSetup(18px, 23.4px, 500);
+    @include fontSetup(14px, 19.6px, 500);
     letter-spacing: -0.01em;
     font-family: $font-google-sans;
 
     @include mq($bkpt-type--fablet) {
+      font-size: pxEm(18px);
+      line-height: 1.3;
+    }
+
+    @include mq($bkpt-type--tablet) {
       line-height: 1.2;
     }
   }
@@ -131,7 +136,12 @@
     font-family: $font-google-sans;
 
     @include mq($bkpt-type--fablet) {
+      font-size: pxEm(14px);
       line-height: 1.6;
+    }
+
+    @include mq($bkpt-type--tablet) {
+      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 14px, 16px);
     }
   }
 

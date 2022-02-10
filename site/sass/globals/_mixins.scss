@@ -15,7 +15,7 @@
   }
 }
 
-// Scale font-size between two screen widths in rems.
+// Scale font-size between two screen widths in ems.
 //
 // @param {length} $min-vw: screen width in px at which to begin scaling.
 // @param {length} $max-vw: screen width in px at which to reach the max value font size.
@@ -26,7 +26,7 @@
   font-size: $min-value + $difference;
 
   @supports (font-size: clamp(1px, 1vw, 2px)) {
-    font-size: fluid(pxRem($min-vw), pxRem($max-vw), pxRem($min-value), pxRem($max-value));
+    font-size: fluid(pxEm($min-vw), pxEm($max-vw), pxEm($min-value), pxEm($max-value));
   }
 }
 
