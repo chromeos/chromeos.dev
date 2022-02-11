@@ -275,6 +275,7 @@ module.exports = {
     const featured = (localeCollection('case-studies__featured')(data) || []).sort(dateSort(false));
     const featuredPost = (localeCollection('posts__featured')(data) || []).sort(dateSort(false));
     const stories = localeCollection('case-studies')(data) || [];
+    const feed = [...posts, ...stories].sort(dateSort(false));
 
     const collections = {};
 
@@ -312,6 +313,10 @@ module.exports = {
             url: get(i, 'data.page.url'),
           },
         }));
+    }
+
+    if (feed && feed.length >= 1) {
+      collections.feed = feed;
     }
 
     return collections;

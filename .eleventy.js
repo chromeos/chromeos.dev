@@ -21,12 +21,16 @@ const { generateSearchIndex } = require('./lib/helpers/generate-search-index');
 const markdown = require('./lib/markdown');
 const path = require('path');
 const { folders } = require('config');
+const pluginRss = require('@11ty/eleventy-plugin-rss');
 
 module.exports = function(eleventy) {
   eleventy.setLibrary('md', markdown);
 
   // Filters
   discoverPlugins('filters', eleventy);
+
+  // RSS Feed generation
+  eleventy.addPlugin(pluginRss);
 
   //Plugins
   eleventy.addPlugin(pluginTOC, {

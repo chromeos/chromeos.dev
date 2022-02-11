@@ -71,6 +71,7 @@
     "all": true
   },
   "devDependencies": {
+    "@11ty/eleventy-plugin-rss": "^1.1.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "ajv": "^6.12",
     "ajv-merge-patch": "^4.1",
