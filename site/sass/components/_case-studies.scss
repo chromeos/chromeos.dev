@@ -1,5 +1,4 @@
 .case-studies {
-
   &__header,
   &__footer {
     text-align: center;
@@ -11,26 +10,23 @@
 
   &__content {
     display: grid;
-    grid-template: auto;
-    grid-gap: pxRem(20px);
+    grid-gap: fluid(pxRem(1140px), pxRem(1440px), pxRem(20px), pxRem(45px)) pxRem(20px);
     margin-top: pxRem(64px);
     
     @include mq(744px) {
       grid-template: auto / repeat(2, 1fr);
     }
+  }
 
-    @include mq(1024px) {
-      grid-gap: fluid(pxRem(1024px), pxRem(1440px), pxRem(20px), pxRem(45px)) pxRem(20px);
+  &__footer {
+    margin-top: fluid(pxRem(420px), pxRem(1140px), pxRem(48px), pxRem(56px));
+
+    @include mq(1140px) {
+      margin-top: fluid(pxRem(1140px), pxRem(1440px), pxRem(56px), pxRem(64px));
     }
   }
 
-  &__item {
-    position: relative;
-
-    &:first-of-type {
-      @include mq(744px) {
-        grid-column: 1 / 3;
-      }
-    }
+  &__cta {
+    display: inline-flex;
   }
 }

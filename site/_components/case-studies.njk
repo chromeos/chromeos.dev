@@ -1,27 +1,29 @@
 <!--{#
-  Renders a grid of 3 case studies.
+  Renders a grid of case study cards.
 
-  @param {object} content: An object containing the following required attributes.
+  @param {object} content: An object containing the following attributes.
   @param {string} content.title: Section title, displayed in a heading element.
-  @param {string} content.subtitle: Section subtitle, displayed beneath the heading.
-  @param {object} cta: A CTA object containing the following required attributes.
-  @param {string} cta.text: Text to be displayed within the CTA.
-  @param {string} cta.url: href value for the CTA.
-
-  @param {array} studies: Array of 3 case studies, using the schema set in eleventy.landingCollections.homeCaseStudies.
+  @param {string} content.subtitle (optional): Section subtitle, displayed beneath the heading.
+  @param {string} content.modifiers (optional): Modifier classes to be applied to the section.
+  @param {object} content.cta (optional): A CTA object containing the following required attributes.
+  @param {string} content.cta.text: Text to be displayed within the CTA.
+  @param {string} content.cta.url: href value for the CTA.
+  @param {array} studies: Array of 3 case studies.
 #}-->
 {% from 'card-study.njk' import cardStudy %}
 {% macro caseStudies(content, studies) %}
-<section class="case-studies">
+<section class="case-studies {% if content.modifiers %}{{content.modifiers}}{% endif %}">
   <header class="case-studies__header">
     <h1 class="type--h1 case-studies__title">{{content.title}}</h1>
-    <h2 class="type--large case-studies__subtitle">{{content.subtitle}}</h2>
+    {% if content.subtitle %}<h2 class="type--large case-studies__subtitle">{{content.subtitle}}</h2>{% endif %}
   </header>
   <div class="case-studies__content">
     {% for study in studies %}{{cardStudy(study)}}{% endfor %}
   </div>
+  {% if content.cta %}
   <footer class="case-studies__footer">
-    <a class="cta cta--secondary" href="{{content.cta.url}}">{{content.cta.text}}</a>
+    <a class="cta cta--secondary case-studies__cta" href="{{content.cta.url}}">{{content.cta.text}}</a>
   </footer>
+  {% endif %}
 </section>
 {% endmacro %}

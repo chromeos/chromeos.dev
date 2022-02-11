@@ -1,5 +1,6 @@
 <!--{#
   Renders a card for a case study.
+
   @param {object} study: Object containing the following attributes.
   @param {string} study.eyebrow
   @param {string} study.title
@@ -9,12 +10,16 @@
 #}-->
 {% from 'icon.njk' import icon %}
 {% macro cardStudy(study) %}
-  <article class="card-study">
+  <article class="card-study {% if not study.logo %} card-study--no-logo{% endif %}">
     <img class="card-study__media" src="{{study.media.src}}" alt="{{study.media.alt}}" />
     <div class="card-study__tile">
+      {% if study.logo %}
       <img class="card-study__tile-logo" src="{{study.logo.src}}" alt="{{study.logo.name}}" />
-      <div class="type--eyebrow card-study__tile-eyebrow">{{study.eyebrow}}</div>
-      <h1 class="type--h3 card-study__tile-title">{{study.title}}</h1>
+      {% endif %}
+      {% if study.eyebrow %}
+      <small class="type--eyebrow card-study__tile-eyebrow">{{study.eyebrow}}</small>
+      {% endif %}
+      <h1 class="type--h4 card-study__tile-title">{{study.title}}</h1>
       <a class="cta cta--low card-study__tile-cta" href="{{study.cta.url}}">
         {{study.cta.text}}
         {{icon('arrow-forward')}}
