@@ -109,7 +109,8 @@
     /* stylelint-disable selector-no-qualifying-type */
     a[href^='http://'] &,
     a[href^='https://'] &,
-    a[href^='//'] & {
+    a[href^='//'] &
+    {
       transform: rotate(-45deg);
     }
     /* stylelint-enable selector-no-qualifying-type */

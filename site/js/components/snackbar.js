@@ -58,7 +58,7 @@ export class SnackbarArea {
 
     if (action) {
       actionButton.innerText = action.text;
-      actionButton.addEventListener('click', e => {
+      actionButton.addEventListener('click', (e) => {
         action.cb(e);
         snackbar.remove();
       });
@@ -67,7 +67,7 @@ export class SnackbarArea {
       actionButton.innerHTML = '<svg role="image" aria-hidden="true" class="icon snackbar__close"><use href="/images/icons/sprite.svg#close"></svg>';
       actionButton.setAttribute('aria-label', 'Close');
       actionButton.value = 'cancel';
-      actionButton.addEventListener('click', e => {
+      actionButton.addEventListener('click', (e) => {
         snackbar.remove();
       });
     }
