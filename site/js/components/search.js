@@ -61,14 +61,14 @@ export class Search {
     this.pagination_ = element.querySelector(this.constants_.pagination);
 
     this.locale_ = locale;
-    getData('search', locale).then(data => (this.data_ = data));
-    getData('microcopy', locale).then(data => (this.microcopy_ = data));
+    getData('search', locale).then((data) => (this.data_ = data));
+    getData('microcopy', locale).then((data) => (this.microcopy_ = data));
 
     this.query_ = this.getQuery_(window.location.search, this.constants_.queryParam);
     this.field_ = this.getQuery_(window.location.search, this.constants_.fieldParam);
     this.page_ = this.getQuery_(window.location.search, this.constants_.page) ? this.getQuery_(window.location.search, this.constants_.page) : 0;
 
-    this.offlineToggle_.addEventListener('click', e => {
+    this.offlineToggle_.addEventListener('click', (e) => {
       this.manageOfflineSearch_(e.target.checked);
     });
     window.addEventListener('offline', this.handleOffline_.bind(this));
@@ -82,7 +82,7 @@ export class Search {
 
     this.searchBox_.addEventListener('submit', this.handleSubmit_.bind(this));
 
-    window.addEventListener('popstate', e => {
+    window.addEventListener('popstate', (e) => {
       const params = new URLSearchParams(window.location.search);
       this.inlineSearch(params);
     });
@@ -244,18 +244,28 @@ export class Search {
         data.append('page', this.page_);
       }
 
-      const query = [...data.entries()].map(e => `${encodeURIComponent(e[0])}=${encodeURIComponent(e[1])}`).join('&');
+      const query = [...data.entries()].map((e) => `${encodeURIComponent(e[0])}=${encodeURIComponent(e[1])}`).join('&');
       const response = await fetch(`${this.constants_.searchUrl}?${query}`);
       if (!response.ok) {
         if (this.offlineSearch_) {
-          return await this.offlineSearch_.search({ q: this.query_, locale: this.locale_, field: this.field_, p: this.page_ });
+          return await this.offlineSearch_.search({
+            q: this.query_,
+            locale: this.locale_,
+            field: this.field_,
+            p: this.page_,
+          });
         }
 
         throw new Error();
       }
       return response.json();
     } else {
-      return await this.offlineSearch_.search({ q: this.query_, locale: this.locale_, field: this.field_, p: this.page_ });
+      return await this.offlineSearch_.search({
+        q: this.query_,
+        locale: this.locale_,
+        field: this.field_,
+        p: this.page_,
+      });
     }
   }
 
@@ -278,7 +288,7 @@ export class Search {
     let results = '';
     this.handleLoaderVisibility_();
     this.currentResults_ = searchResults;
-    const resultsText = this.data_.results.replace('((d))', searchResults.pagination.items).replace('((t))', `<span class="search-results__query">${this.query_.replace(/[^\w. ]/gi, c => `&#${c.charCodeAt(0)};`)}</span>`);
+    const resultsText = this.data_.results.replace('((d))', searchResults.pagination.items).replace('((t))', `<span class="search-results__query">${this.query_.replace(/[^\w. ]/gi, (c) => `&#${c.charCodeAt(0)};`)}</span>`);
     this.searchSummary_.innerHTML = `<p class="type--h2">${resultsText}</p>`;
     if (searchResults.data.length > 0) {
       for (let i = 0; i < searchResults.data.length; i++) {
@@ -413,7 +423,7 @@ export class Search {
       }
     }
 
-    lastPages.map(p => this.getPaginationButton(p.pageNumber, p.display, p.class, p.aria)).forEach(link => this.pagination_.appendChild(link));
+    lastPages.map((p) => this.getPaginationButton(p.pageNumber, p.display, p.class, p.aria)).forEach((link) => this.pagination_.appendChild(link));
   }
 
   /**

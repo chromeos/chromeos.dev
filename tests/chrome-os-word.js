@@ -38,7 +38,7 @@ function buildHtmlResult(content) {
   return $('body').html();
 }
 
-test.beforeEach(t => {
+test.beforeEach((t) => {
   const eleventyConfig = new EleventyConfig();
   chromeOsWord(eleventyConfig);
 
@@ -47,7 +47,7 @@ test.beforeEach(t => {
   };
 });
 
-test.skip('Base cases', t => {
+test.skip('Base cases', (t) => {
   const textSamples = ['chromeos', 'chrome-os', 'chrome os', 'chrome  os', 'chrome&nbsp;os', 'chrome–os'];
 
   for (const sample of textSamples) {
@@ -55,7 +55,7 @@ test.skip('Base cases', t => {
   }
 });
 
-test.skip('Anchor cases', t => {
+test.skip('Anchor cases', (t) => {
   const tests = [
     {
       input: '<a href="https://www.reddit.com/r/chromeos/">Chrome os is awesome</a>',
@@ -80,7 +80,7 @@ test.skip('Anchor cases', t => {
   }
 });
 
-test.skip('Immutable cases', t => {
+test.skip('Immutable cases', (t) => {
   const immutableSamples = ['<a href ="go/google-chromeos">Go url</a>', '<a href="#chromeos-help">Hash url</a>', '<a href="#chromeos">Hash url 2</a>', '<a href="chromeos#help">Hash url3</a>', '<a href="someurl?q=help&w=chromeos">Query param 1</a>', '<a href="help?q=chromeos">Query param 2</a>'];
 
   for (const sample of immutableSamples) {
@@ -88,13 +88,13 @@ test.skip('Immutable cases', t => {
   }
 });
 
-test.skip('chromeOS logo case', t => {
+test.skip('chromeOS logo case', (t) => {
   const logo = '<span class="logo__text">chromeOS</span>';
 
   t.is(t.context.eleventyConfig.callTransform('chromeOsWord', logo), buildHtmlResult(logo));
 });
 
-test.skip('Head tags cases', t => {
+test.skip('Head tags cases', (t) => {
   const html = `
     <!DOCTYPE html>
     <html lang="en">

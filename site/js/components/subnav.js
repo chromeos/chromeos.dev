@@ -31,8 +31,8 @@ export class Subnav {
    * Handles async initialization.
    */
   async init() {
-    const resizeObserver = await ponyfillResizeObserver(entries => {
-      const entry = entries.find(e => e.target === this.elem_);
+    const resizeObserver = await ponyfillResizeObserver((entries) => {
+      const entry = entries.find((e) => e.target === this.elem_);
       if (entry.target === this.elem_) {
         const { backgroundColor } = getComputedStyle(this.elem_);
         if (this.previousBackground !== backgroundColor) {

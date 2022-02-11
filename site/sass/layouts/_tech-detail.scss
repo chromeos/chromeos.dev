@@ -28,7 +28,9 @@
     border-bottom: 1px solid var(--grey-300);
 
     @include mq($bkpt-tech-details--landing) {
-      grid-template-columns: $topics-and-resources-width minmax($spacing, 1fr) minmax(auto, 90ch) minmax($spacing, 1fr);
+      grid-template-columns:
+        $topics-and-resources-width minmax($spacing, 1fr) minmax(auto, 90ch)
+        minmax($spacing, 1fr);
       grid-template-rows: auto 4rem auto 1fr auto;
     }
   }

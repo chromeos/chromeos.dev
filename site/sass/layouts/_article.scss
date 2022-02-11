@@ -16,7 +16,9 @@
   @include mq($bkpt-articles--3-cols) {
     --col-padding: #{pxRem(60px)};
 
-    grid-template-columns: 1fr minmax(min-content, pxRem(300px)) minmax(50ch, 90ch) minmax(min-content, pxRem(300px)) 1fr;
+    grid-template-columns:
+      1fr minmax(min-content, pxRem(300px)) minmax(50ch, 90ch)
+      minmax(min-content, pxRem(300px)) 1fr;
 
     // Background color for wider screens
     &::before,

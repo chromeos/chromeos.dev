@@ -17,32 +17,23 @@ import test from 'ava';
 import sinon from 'sinon';
 import { log } from '../site/js/lib/log';
 
-test('Logs non-tables', t => {
+test('Logs non-tables', (t) => {
   const mock = sinon.mock(console);
-  mock
-    .expects('log')
-    .once()
-    .withArgs('Hello');
+  mock.expects('log').once().withArgs('Hello');
   log('Hello');
   t.true(mock.verify());
 });
 
-test('Logs tables', t => {
+test('Logs tables', (t) => {
   const mock = sinon.mock(console);
-  mock
-    .expects('table')
-    .once(1)
-    .withArgs(['Hello', 'World']);
+  mock.expects('table').once(1).withArgs(['Hello', 'World']);
   log(['Hello', 'World']);
   t.true(mock.verify());
 });
 
-test('Logs objects', t => {
+test('Logs objects', (t) => {
   const mock = sinon.mock(console);
-  mock
-    .expects('table')
-    .once(1)
-    .withArgs({ hello: 'world' });
+  mock.expects('table').once(1).withArgs({ hello: 'world' });
   log({ hello: 'world' });
   t.true(mock.verify());
 });

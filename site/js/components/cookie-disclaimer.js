@@ -83,7 +83,7 @@ export class CookieDisclaimer {
    * Handles the keyboard when the cookie disclaimer is open
    */
   keyHandler() {
-    document.addEventListener('keydown', e => {
+    document.addEventListener('keydown', (e) => {
       if (this.elem_.hasAttribute('open')) {
         // `esc` trigger
         if (e.keyCode === 27) {

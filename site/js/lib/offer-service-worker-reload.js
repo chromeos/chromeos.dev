@@ -55,7 +55,7 @@ export function offerServiceWorkerReload(registration) {
       showSkipWaitingPrompt();
     } else {
       // Otherwise, wait for the service worker to be installed and then offer the reload
-      registration.installing.addEventListener('statechange', event => {
+      registration.installing.addEventListener('statechange', (event) => {
         if (event.target.state === 'installed') {
           showSkipWaitingPrompt();
         }

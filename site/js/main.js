@@ -40,7 +40,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   }
 
   // Redirect user if language is changed
-  lang.addEventListener('change', e => {
+  lang.addEventListener('change', (e) => {
     preferences.set('lang', e.target.value);
     window.location = document.querySelector(`link[rel="alternate"][hreflang="${e.target.value}"]`).href;
   });
@@ -143,7 +143,7 @@ window.addEventListener('load', async () => {
 });
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.addEventListener('message', async event => {
+  navigator.serviceWorker.addEventListener('message', async (event) => {
     console.log('Message!');
     // Optional: ensure the message came from workbox-broadcast-update
     if (event.data.meta === 'workbox-broadcast-update') {
