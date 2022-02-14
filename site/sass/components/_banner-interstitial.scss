@@ -1,0 +1,163 @@
+@use "sass:math";
+
+.banner-interstitial {
+  position: relative;
+  display: grid;
+  margin: 0 pxRem(-24px);
+
+  @include mq(0px 743px) {
+    padding-bottom: pxRem(32px);
+  }
+
+  @include mq(744px) {
+    grid-template-columns: auto 1fr;
+    min-height: fluid(pxRem(744px), pxRem(1140px), pxRem(333px), pxRem(353px));
+    margin: 0;
+    border-radius: pxRem(10px);
+  }
+
+  @include mq(1140px) {
+    min-height: fluid(pxRem(1140px), pxRem(1440px), pxRem(353px), pxRem(471px));
+  }
+
+  &__background-layer {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    // primary blue, primary blue dark, primary blue
+    background-image: linear-gradient(64.75deg, #1c50b9, #1c50b9 14.14%, #3474e0 14.14%, #3474e0);
+    
+    @include mq(744px) {
+      background-image: linear-gradient(105deg, #3474e0, #3474e0 math.percentage(math.div(211, 696)), #1c50b9 math.percentage(math.div(211, 696)), #1c50b9 calc(math.percentage(math.div(211, 696)) + 160px), #3474e0 calc(math.percentage(math.div(211, 696)) + 160px), #3474e0);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    &::before {
+      left: 5.9%;
+      top: calc(100% - 60px);
+      width: 65.86vw;
+      height: 65.86vw;
+      //. primary red dark
+      background: #c84030;
+      transform: translateY(-100%) rotate(-25.25deg);
+      
+      @include mq(744px) {
+        top: 72%;
+        left:  min(40%, 560px);
+        width: min(37.5vw, 600px);
+        height: min(37.5vw, 600px);
+        transform: translateY(-50%) rotate(15deg);
+      }
+    }
+
+    &::after {
+      top: calc(100% + 30px);
+      left: math.percentage(math.div(230, 375));
+      width: 100vw;
+      height: 100vw;
+      // primary yellow-dark
+      background: var(--yellow-600);
+      z-index: 0;
+      transform: translateY(-100%) rotate(-25.25deg);
+      
+      @include mq(744px) {
+        top: 29.333333%;
+        right: -2%;
+        width: min(37.5vw, 600px);
+        height: min(37.5vw, 600px);
+        transform: translate(50%, -50%) rotate(15deg);
+      }
+    }
+
+    @include mq(744px) {
+      border-radius: pxRem(10px);
+    }
+  }
+
+  &__content {
+    padding-top: pxRem(50px);
+    padding-left: fluid(pxRem(375px), pxRem(744px), pxRem(24px), pxRem(40px));
+
+    @include mq(744px) {
+      align-self: center;
+      padding: pxRem(63px) 0 pxRem(63px) fluid(pxRem(744px), pxRem(1140px), pxRem(40px), pxRem(130px));
+    }
+
+    @include mq(1440px) {
+      padding-left: pxRem(123px);
+    }
+  }
+
+  &__eyebrow {
+    // yellow primary
+    color: #fbbd03;
+    font-size: pxRem(28px);
+    line-height: 1.3;
+  }
+
+  &__title,
+  &__copy {
+    color: var(--white);
+  }
+
+  &__copy {
+    font-size: pxEm(16px);
+    line-height: 1.45;
+    max-width: fluid(pxRem(420px), pxRem(744px), pxRem(260px), pxRem(340px));
+    margin-top: pxRem(24px);
+
+    @include mq(1440px) {
+      max-width: pxRem(460px);
+    }
+  }
+
+  &__cta {
+    margin-top: pxRem(32px);
+  }
+
+  &__image {
+    $scale-ratio: math.div(456, 375);
+    $scale-offset: math.percentage(math.div(.216, 2));
+
+    position: relative;
+    left: calc(42px + $scale-offset);
+    transform: scale($scale-ratio);
+
+    @include mq(744px) {
+      position: static;
+      align-self: flex-end;
+      transform: scale(1.333) translate(-30px, 30px);
+    }
+
+    @include mq(1140px) {
+      $scale-ratio: math.div(611, 526);
+      $scale-offset: math.percentage(math.div($scale-ratio - 1, 2));
+
+      position: relative;
+      left: $scale-offset;
+      transform: scale($scale-ratio);
+    }
+
+    @include mq(1440px) {
+      $scale-ratio: math.div(800, 639);
+      $scale-offset: math.percentage(math.div($scale-ratio - 1, 2));
+
+      position: absolute;
+      top: calc($scale-offset - pxRem(43px));
+      left: initial;
+      right: calc($scale-offset - pxRem(60px));
+      transform: scale($scale-ratio);
+    }
+  }
+}

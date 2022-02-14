@@ -10,7 +10,7 @@ metadesc: Deliver rich, engaging Android, and Web apps for Chromebook with just 
 hideNewsletter: true
 ---
 
-{% from 'hero-animated.njk' import heroAnimated %} {% from 'card-stats.njk' import cardStats %} {% from 'image-card.njk' import imageCard %} {% from 'hero--cta.njk' import heroCta %} {% from 'item-grid.njk' import itemGrid %} {% from 'featured-content.njk' import featuredContent %} {% from 'call-out.njk' import callOut %} {% from 'footnotes.njk' import footnotes %}
+{% from 'hero-animated.njk' import heroAnimated %} {% from 'card-stats.njk' import cardStats %} {% from 'image-card.njk' import imageCard %} {% from 'hero--cta.njk' import heroCta %} {% from 'item-grid.njk' import itemGrid %} {% from 'featured-content.njk' import featuredContent %} {% from 'call-out.njk' import callOut %} {% from 'footnotes.njk' import footnotes %} {% from 'banner-interstitial.njk' import bannerInterstitial %}
 <div id="home" class="wrapper--hidden-x">
   <!-- Hero Animation -->
   <header id="home__hero" class="wrapper wrapper--full-bleed wrapper--no-bottom wrapper--no-top">
@@ -47,8 +47,8 @@ hideNewsletter: true
   {% endif %}
 
   <!-- Chromebooks -->
-  <div id="home__chromebooks" class="wrapper wrapper--background wrapper--no-bottom wrapper--padded">
-    {{ heroCta(l10n.home.chromebook.content, l10n.home.chromebook.image, l10n.home.chromebook.cta) }}
+  <div id="home__banner" class="wrapper wrapper--padding wrapper--padded">
+    {{ bannerInterstitial(l10n.home.chromebook.content, l10n.home.chromebook.image, l10n.home.chromebook.cta, l10n.home.chromebook.modifiers) }}
   </div>
 
   <!-- Community -->

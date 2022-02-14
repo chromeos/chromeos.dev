@@ -1,0 +1,37 @@
+<!--{#
+  Renders a full-width banner.
+
+  @param {object} content: An object containing the following attributes.
+  @param {string} content.eyebrow
+  @param {string} content.title
+  @param {string} content.copy
+
+  @param {object} image
+  @param {string} image.src
+  @param {string} image.alt
+
+  @param {object} cta: An object containing the following attributes.
+  @param {string} cta.text
+  @param {string} cta.url
+  
+  @param {object} modifiers (optional): An object containing the following attributes.
+  @param {string} modifiers.class: Modifiers class/classes
+#}-->
+{% from 'icon.njk' import icon %}
+{% macro bannerInterstitial(content, image, cta, modifiers) %}
+<div class="wrapper--padding">
+  <article class="banner-interstitial {% if modifiers.class %}{{modifiers.class}}{% endif %}">
+    <div class="banner-interstitial__background-layer"></div>
+    <div class="banner-interstitial__content">
+      <small class="banner-interstitial__eyebrow type--h3">{{content.eyebrow}}</small>
+      <h2 class="banner-interstitial__title type--h1">{{content.title}}</h2>
+      <p class="banner-interstitial__copy type--large">{{content.copy}}</p>
+      <a href="{{cta.url}}" class="cta cta--medium banner-interstitial__cta">
+        {{cta.text}}
+        {{icon('arrow-forward')}}
+      </a>
+    </div>
+    <img src="{{image.src}}" alt="{{image.alt}}" class="banner-interstitial__image">
+  </article>
+</div>
+{% endmacro %}
