@@ -123,7 +123,7 @@
     "remark-lint-prohibited-strings": "^1.5.2",
     "replaceall": "^0.1",
     "sanitize-html": "^2.6.1",
-    "sass": "^1.43",
+    "sass": "^1.49",
     "sass-toolkit": "^2.10.2",
     "sinon": "^7.5",
     "stylelint": "^14.3.0",
