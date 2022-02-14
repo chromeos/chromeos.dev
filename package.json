@@ -103,7 +103,7 @@
     "glob": "^7.2",
     "husky": "^7.0.4",
     "inquirer-autocomplete-prompt": "^1.4",
-    "js-yaml": "^3.14",
+    "js-yaml": "^4.1",
     "lint-staged": "^12.1.5",
     "lodash.clonedeep": "^4.5",
     "lodash.get": "^4.4",
