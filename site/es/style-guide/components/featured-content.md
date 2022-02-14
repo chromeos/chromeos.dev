@@ -102,4 +102,12 @@ examples:
 
 Este es un contenido de muestra que explica el componente
 
-<style><br>.use-grey-overlay {<br>  --overlay-color: var(--grey-300);<br>}<br><br>.use-yellow-circle {<br>  --featured-shape-color: var(--yellow-500);<br>}<br></style>
+<style>
+.use-grey-overlay {
+  --overlay-color: var(--grey-300);
+}
+
+.use-yellow-circle {
+  --featured-shape-color: var(--yellow-500);
+}
+</style>
