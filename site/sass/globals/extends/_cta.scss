@@ -10,8 +10,8 @@
   display: flex;
   font-family: $font-google-sans;
   justify-content: center;
-  padding: pxRem(15px) pxRem(40px);
   min-width: pxRem(150px);
+  padding: pxRem(15px) pxRem(40px);
   text-decoration: none;
   text-rendering: optimizeLegibility;
 
@@ -64,8 +64,8 @@
 
   &--medium {
     background-color: var(--white);
-    color: var(--grey-900);
     border: 1px solid var(--grey-700);
+    color: var(--grey-900);
 
     &:hover {
       background-color: var(--grey-300);
@@ -99,18 +99,18 @@
     display: inline-block;
 
     &:visited {
-      #{--visited-color}: var(--blue-600);
+      --visited-color: var(--blue-600);
       color: var(--blue-600);
     }
   }
-
+  /* stylelint-disable-next-line no-duplicate-selectors */
   &--low,
   &--link,
   &--back {
     color: var(--blue-600);
   }
 
-  // sass-lint:disable no-mergeable-selectors
+  /* stylelint-disable-next-line no-duplicate-selectors */
   &--low,
   &--link,
   &--back {
@@ -138,19 +138,18 @@
     }
 
     &:focus-visible {
-      outline-offset: 5px;
       outline: 3px solid var(--secondary-blue-dark);
+      outline-offset: 5px;
     }
 
     &:active {
       color: var(--secondary-blue-light);
     }
-  }  
+  }
 
   .icon {
     fill: currentColor;
     height: pxRem(18px);
     width: pxRem(18px);
-
   }
 }

@@ -51,7 +51,7 @@ And another thing with _inline markup_
 
 ```js {title="JavaScript" .code-figure}
 let foo = 'Hello World';
-const log = arg => {
+const log = (arg) => {
   console.log(arg);
 };
 log(foo);

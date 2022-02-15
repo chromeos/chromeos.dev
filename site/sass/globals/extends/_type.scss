@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 
 %type {
   $bkpt-type--fablet: 420px;
@@ -43,8 +43,8 @@
   &--h2 {
     @extend %type--header;
     @include fontSetup(24px, 33.6px, 400);
-    letter-spacing: -0.01em;
     font-family: $font-google-sans;
+    letter-spacing: -0.01em;
 
     @include mq($bkpt-type--fablet) {
       @include fluidFont($bkpt-type--fablet, $bkpt-type--tablet, 28px, 32px);
@@ -59,12 +59,12 @@
       line-height: 1.2;
     }
   }
-  
+
   &--h2-shrink-h3 {
     @extend %type--header;
     @include fontSetup(24px, 33.6px, 400);
-    letter-spacing: -0.01em;
     font-family: $font-google-sans;
+    letter-spacing: -0.01em;
 
     @include mq($bkpt-type--tablet) {
       @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 24px, 30px);
@@ -78,8 +78,8 @@
   &--h3 {
     @extend %type--header;
     @include fontSetup(20px, 28px, 400);
-    letter-spacing: -0.01em;
     font-family: $font-google-sans;
+    letter-spacing: -0.01em;
 
     @include mq($bkpt-type--fablet) {
       @include fluidFont($bkpt-type--fablet, $bkpt-type--tablet, 22px, 26px);
@@ -94,8 +94,8 @@
   &--h4 {
     @extend %type--header;
     @include fontSetup(16px, 22.4px, 400);
-    letter-spacing: -0.01em;
     font-family: $font-google-sans;
+    letter-spacing: -0.01em;
 
     @include mq($bkpt-type--fablet) {
       font-size: pxRem(20px);
@@ -109,8 +109,8 @@
   &--h5 {
     @extend %type--header;
     @include fontSetup(14px, 19.6px, 500);
-    letter-spacing: -0.01em;
     font-family: $font-google-sans;
+    letter-spacing: -0.01em;
 
     @include mq($bkpt-type--fablet) {
       font-size: pxEm(18px);
@@ -131,9 +131,9 @@
 
   &--base {
     @include fontSetup(16px, 24px, 400);
-    letter-spacing: -0.01em;
     color: var(--grey-900);
     font-family: $font-google-sans;
+    letter-spacing: -0.01em;
 
     @include mq($bkpt-type--fablet) {
       font-size: pxEm(14px);
@@ -150,7 +150,7 @@
 
     @include fontSetup(18px, 27px, 400);
     letter-spacing: -0.01em;
-    
+
     @include mq($bkpt-type--fablet) {
       @include fontSetup(16px, 23.2px, 400);
     }
@@ -205,10 +205,10 @@
   }
 
   &--caption {
-    #{--icon-offset}: 0.1em;
+    --icon-offset: 0.1em;
     @include fontSetup(12px, 16.8px, 400);
-    letter-spacing: -0.01em;
     color: var(--grey-700);
+    letter-spacing: -0.01em;
   }
 
   &--code {
@@ -256,7 +256,7 @@
     font-family: $font-mono;
     font-size: 0.8em;
     font-variant: small-caps;
-    font-weight: bold;
+    font-weight: $font-weight-bold;
     letter-spacing: pxRem(1px);
     margin: 0 0.125em;
     padding: 0 0.5em;

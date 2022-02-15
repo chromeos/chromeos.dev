@@ -25,7 +25,7 @@ export class Home {
    * @param {DOMElement} elem - The Home element
    */
   constructor(elem) {
-    const sections = ['stats', 'subnav', 'using', 'articles', 'featured', 'chromebooks', 'community'].map(i => `#home__${i}`).reduce((acc, cur) => Object.assign(acc, { [cur.replace('#home__', '')]: cur }), {});
+    const sections = ['stats', 'subnav', 'using', 'articles', 'featured', 'chromebooks', 'community'].map((i) => `#home__${i}`).reduce((acc, cur) => Object.assign(acc, { [cur.replace('#home__', '')]: cur }), {});
 
     this.elem_ = elem;
     this.constants_ = Object.freeze({
@@ -42,7 +42,7 @@ export class Home {
       this.elem_.classList.add('animation--active');
     }
 
-    this.reducedMotion_.addListener(e => {
+    this.reducedMotion_.addListener((e) => {
       if (e.matches || this.constants_.off) {
         this.elem_.classList.remove('animation--active');
       } else {
@@ -56,7 +56,7 @@ export class Home {
 
     this.articles_ = elem.querySelector('#home__articles');
     this.featured_ = elem.querySelectorAll('.featured-content__image-wrapper .featured-content__image');
-    this.using_ = [...elem.querySelectorAll('.image-card')].map(e => [...e.querySelectorAll('img')]);
+    this.using_ = [...elem.querySelectorAll('.image-card')].map((e) => [...e.querySelectorAll('img')]);
 
     for (const [key, value] of Object.entries(this.constants_.sections)) {
       const element = elem.querySelector(value);

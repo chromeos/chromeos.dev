@@ -1,5 +1,5 @@
 // Global functions.
-@use "sass:math";
+@use 'sass:math';
 
 // Pixels to ems.
 @function pxEm($px) {
@@ -29,8 +29,6 @@
   $value-difference: $max-value - $min-value;
   $rate: $width-difference * $value-difference;
 
-  $responsive-value: unquote(
-    "#{$min-value - ($min-width * $rate)} + #{100vw * $rate}"
-  );
+  $responsive-value: unquote('#{$min-value - ($min-width * $rate)} + #{100vw * $rate}');
   @return clamp($min-value, $responsive-value, $max-value);
 }

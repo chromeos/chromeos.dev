@@ -1,5 +1,5 @@
 // Global mixins.
-@use "sass:math";
+@use 'sass:math';
 
 // Sets font styles.
 @mixin fontSetup($size, $height, $weight: false, $rem: true) {
@@ -37,13 +37,12 @@
 // @param {length()} $lg - List of lengths, in px, representing font size and line height of the largest size
 // @param {number | boolean} $weight - Font weight, or false
 @mixin flexFont($sm, $md, $lg, $weight: false) {
-  // Setup basic font styling from medium size
-  @include fontSetup(nth($md, 1), nth($md, 2), $weight);
-
   // Determine scaling factor so that the large font size is reached at 1024px
   $font-scale: math.div(nth($lg, 1), 10.24px) * 1vw;
   // Set up clamp function
   $font-clamp: clamp(pxEm(nth($sm, 1)), $font-scale, pxEm(nth($lg, 1)));
+  // Setup basic font styling from medium size
+  @include fontSetup(nth($md, 1), nth($md, 2), $weight);
 
   // Check for support for clamp function
   @supports (font-size: $font-clamp) {
@@ -159,40 +158,43 @@
   }
 
   &__link {
+    --space: #{$small-space};
+    --bkg: var(--grey-200);
+    --padding: 0.75rem;
     @extend %expanding-nav__link;
-    #{'--space'}: $small-space;
-    #{'--bkg'}: var(--grey-200);
-    #{'--padding'}: 0.75rem;
 
     @include mq($bkpt) {
-      #{'--space'}: $large-space;
-      #{'--bkg'}: var(--grey-100);
-      #{'--padding'}: 0.5rem;
+      --space: #{$large-space};
+      --bkg: var(--grey-100);
+      --padding: 0.5rem;
     }
 
     &::after {
-      #{--scoot}: 0rem; // sass-lint:disable-line zero-unit
+      // Because this is a CSS custom property, we need to include the unit
+      --scoot: 0rem; /* stylelint-disable-line length-zero-no-unit */
       left: calc(var(--space) * -1 - var(--scoot));
       width: calc(100% + (var(--space) * 2) - 4px + var(--scoot));
     }
 
+    /* stylelint-disable selector-max-compound-selectors */
     // Need to use tags selectors because ToC plugin doesn't allow for class customization
     // Will only go to a max depth of 4 because we start at H2s.
     ol ol &::after {
-      #{--scoot}: 1rem;
+      --scoot: 1rem;
     }
 
     ol ol ol &::after {
-      #{--scoot}: 2rem;
+      --scoot: 2rem;
     }
 
     ol ol ol ol &::after {
-      #{--scoot}: 3rem;
+      --scoot: 3rem;
     }
 
     ol ol ol ol ol &::after {
-      #{--scoot}: 4rem;
+      --scoot: 4rem;
     }
+    /* stylelint-enable selector-max-compound-selectors */
   }
 }
 

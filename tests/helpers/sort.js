@@ -16,7 +16,7 @@
 import test from 'ava';
 import { propSort, dateSort } from '../../lib/helpers/sort';
 
-test('Prop Sort - Sorts on a property', t => {
+test('Prop Sort - Sorts on a property', (t) => {
   const input = [
     {
       one: 'b',
@@ -50,7 +50,7 @@ test('Prop Sort - Sorts on a property', t => {
   t.deepEqual(expected, input.sort(propSort({ prop: 'one' })));
 });
 
-test('Prop Sort - Sorts with a fallback', t => {
+test('Prop Sort - Sorts with a fallback', (t) => {
   const input = [
     {
       one: 'b',
@@ -95,7 +95,7 @@ test('Prop Sort - Sorts with a fallback', t => {
   t.deepEqual(sorted, expected);
 });
 
-test('Prop Sort - Sorts with an object fallback', t => {
+test('Prop Sort - Sorts with an object fallback', (t) => {
   const input = [
     {
       one: {
@@ -152,7 +152,7 @@ test('Prop Sort - Sorts with an object fallback', t => {
   t.deepEqual(sorted, expected);
 });
 
-test('Date Sort - Works (ascending)', t => {
+test('Date Sort - Works (ascending)', (t) => {
   const input = [
     {
       title: 'item A',
@@ -200,7 +200,7 @@ test('Date Sort - Works (ascending)', t => {
   t.deepEqual(sorted, expected);
 });
 
-test('Date Sort - Works (descending)', t => {
+test('Date Sort - Works (descending)', (t) => {
   const input = [
     {
       title: 'item A',

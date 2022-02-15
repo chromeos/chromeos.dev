@@ -18,14 +18,8 @@ registerPaint(
      * @param {object} props - Input props
      */
     paint(ctx, size, props) {
-      const color = props
-        .get('--shape-color')
-        .toString()
-        .trim();
-      const type = props
-        .get('--circle-type')
-        .toString()
-        .trim();
+      const color = props.get('--shape-color').toString().trim();
+      const type = props.get('--circle-type').toString().trim();
       const pTop = parseFloat(props.get('--parallax-top').toString()) || 0;
       const radius = parseFloat(props.get('--circle-radius').toString()) || 150;
       const cOffset = parseFloat(props.get('--circle-offset').toString()) || 0;

@@ -114,9 +114,9 @@ const imageStrategy = new CacheFirst({
  */
 // Manage and filter injected Workbox manifest
 const manifest = self.__WB_MANIFEST;
-const precache = manifest.filter(entry => entry.url.startsWith('offline/') || entry.url.startsWith('js/') || entry.url.startsWith('images/icons/') || entry.url.startsWith('_components')).map(entry => ({ revision: entry.revision, url: `/${entry.url}` }));
-const html = manifest.filter(entry => entry.url.endsWith('.html') && !entry.url.startsWith('offline/') && !entry.url.startsWith('_components')).map(entry => `/${entry.url}`);
-const assets = manifest.filter(entry => entry.url.startsWith('assets/')).map(entry => `/${entry.url}`);
+const precache = manifest.filter((entry) => entry.url.startsWith('offline/') || entry.url.startsWith('js/') || entry.url.startsWith('images/icons/') || entry.url.startsWith('_components')).map((entry) => ({ revision: entry.revision, url: `/${entry.url}` }));
+const html = manifest.filter((entry) => entry.url.endsWith('.html') && !entry.url.startsWith('offline/') && !entry.url.startsWith('_components')).map((entry) => `/${entry.url}`);
+const assets = manifest.filter((entry) => entry.url.startsWith('assets/')).map((entry) => `/${entry.url}`);
 
 // Precache offline
 precacheAndRoute(precache);
@@ -143,11 +143,11 @@ registerRoute(({ request, url }) => {
   const nav = request.mode === 'navigate';
   if (!nav) return false;
   const isIndex = languages
-    .map(lang => [`/${lang}/`, `/${lang}`])
+    .map((lang) => [`/${lang}/`, `/${lang}`])
     .flat()
     .includes(url.pathname);
   const isNews = languages
-    .map(lang => [`/${lang}/news/`, `/${lang}/news`])
+    .map((lang) => [`/${lang}/news/`, `/${lang}/news`])
     .flat()
     .includes(url.pathname);
 

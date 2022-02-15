@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const lunr = require('lunr');
-const fs = require('fs');
 const ISO6391 = require('iso-639-1');
+const fs = require('fs');
 const path = require('path');
 
 const dataCache = {};
@@ -24,7 +24,7 @@ exports.search = functions.https.onRequest((request, response) => {
     const idx = lunr.Index.load(getIndexData(locale));
     const results = idx.search(query);
     const previewData = getPreviewData(locale);
-    const searchResults = results.map(r => previewData[r.ref]);
+    const searchResults = results.map((r) => previewData[r.ref]);
     let page = request.query.page;
     if (!page) page = 0;
     const returnResult = paginate(searchResults, page, PAGE_SIZE);
@@ -51,7 +51,10 @@ function paginate(searchResults, page, pageSize) {
     result.data = searchResults;
   }
 
-  result.pagination = { items: searchResults.length, pages: Math.ceil(searchResults.length / pageSize) };
+  result.pagination = {
+    items: searchResults.length,
+    pages: Math.ceil(searchResults.length / pageSize),
+  };
   return result;
 }
 
