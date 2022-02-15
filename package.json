@@ -178,7 +178,7 @@
     "vite.config.js": "eslint --cache",
     "ava.config.cjs": "eslint --cache",
     "site/*/!(style-guide)/**/*.md": "remark -q -f",
-    "./**/*.{html,md,js,json,scss}": "prettier -c",
+    "**/*": "prettier -c",
     "site/sass/**/*scss": "stylelint 'site/sass/**/*.scss'",
     "tests/**/*.js": "eslint -c tests/.eslintrc.yml --cache"
   }
