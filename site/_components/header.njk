@@ -10,9 +10,7 @@
 {% from 'nav.njk' import nav as navigation %} {% from 'icon.njk' import icon %} {% from 'search-box.njk' import searchBox %}{% macro header(nav, searchPlaceholder, locale, ssi = true) %} {% if ssi %}<!--#include virtual="/_components/{{locale.code}}/header.txt"-->{% endif %}
 <header class="header">
   <div class="header__container">
-    <button class="header__menu" aria-expanded="false" aria-haspopup="true" aria-label="Menu">
-      {{ icon('menu', 'header__menu-icon')}}
-    </button>
+    <button class="header__menu" aria-expanded="false" aria-haspopup="true" aria-label="Menu">{{ icon('menu', 'header__menu-icon')}}</button>
     <a href="/{{locale.code}}" class="header__home">{% include 'logo.njk' %}</a>
     {{ navigation(nav, locale) }} {{searchBox(searchPlaceholder,locale.code, {background: 'search-box__white', headerClass:'search-box-header'})}}
   </div>

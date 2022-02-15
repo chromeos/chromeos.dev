@@ -14,13 +14,9 @@
  #}-->
 {% macro articleFooter(localeCode, topics, updated, modifiers={}) -%}
 <footer class="article-footer {{modifiers.custom}}">
-  <div class="article-footer__item">
-    {% from 'topics.njk' import topics as topicsMacro %}{{ topicsMacro(topics.label ~ ':', topics.items, localeCode) }}
-  </div>
+  <div class="article-footer__item">{% from 'topics.njk' import topics as topicsMacro %}{{ topicsMacro(topics.label ~ ':', topics.items, localeCode) }}</div>
   {% if updated is defined %}
-  <div class="article-footer__item">
-    {% from 'date-time.njk' import dateTime %}{{ dateTime(updated.label ~ ':', updated.date, updated.locale, updated.options, modifiers={inline: true}) }}
-  </div>
+  <div class="article-footer__item">{% from 'date-time.njk' import dateTime %}{{ dateTime(updated.label ~ ':', updated.date, updated.locale, updated.options, modifiers={inline: true}) }}</div>
   {% endif %}
 </footer>
 {%- endmacro %}

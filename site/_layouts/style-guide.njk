@@ -12,14 +12,10 @@ layout: _wrapper
   </header>
   <section class="style-guide__content">
     {% if component.docs %} {% highlight "js" %}{{component.docs | safe}}{% endhighlight %} {% endif %}
-    <div class="style-guide__description {{'type' if not typography }}">
-      {{ content | safe }}
-    </div>
+    <div class="style-guide__description {{'type' if not typography }}">{{ content | safe }}</div>
   </section>
   {% if component %}
-  <section class="style-guide__examples">
-    {{componentPreview(filename, component, examples, microcopy, options)}}
-  </section>
+  <section class="style-guide__examples">{{componentPreview(filename, component, examples, microcopy, options)}}</section>
   <aside class="style-guide__items type">
     <dl>
       <dt>{{microcopy.styleGuide.template}}</dt>

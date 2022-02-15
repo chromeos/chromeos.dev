@@ -10,9 +10,7 @@
 {% from 'author.njk' import author as authorMacro %} {% macro authorsList(authors, contributors, microcopy) -%}
 <ul class="authors-list">
   {% for author in authors %}
-  <li class="authors-list__author">
-    {{authorMacro(contributors[author], microcopy.author.alt, author)}}
-  </li>
+  <li class="authors-list__author">{{authorMacro(contributors[author], microcopy.author.alt, author)}}</li>
   {% endfor %}
 </ul>
 {%- endmacro %}
