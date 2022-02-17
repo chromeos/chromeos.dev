@@ -1,6 +1,6 @@
 .shape {
-  position: relative;
   overflow: hidden;
+  position: relative;
 
   &[class*='circle']:not([class*='semi']) {
     border-radius: 50%;

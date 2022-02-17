@@ -7,14 +7,14 @@
 @use 'sass:math';
 
 .wrapper {
-  $content-max-width: pxRem(1440px);
+  $content-max-width: pxRem(1600px);
 
-  $max-width: 1024px;
+  $max-width: 1440px;
   $scaler: math.div(math.div($max-width, 100), 1vw);
 
   $block-spacing-s: 5.75rem;
   $block-spacing-l: 7.5rem;
-  $inline-spacing-s: 3.75rem;
+  $inline-spacing-s: 1.5rem;
   $inline-spacing-l: 5rem;
 
   $bumper-s: 0.875rem;
@@ -55,8 +55,13 @@
     padding-right: $inline-spacing-m;
 
     @supports (margin: clamp(1px, 1vw, 2px)) {
-      padding-left: $inline-spacing-r;
-      padding-right: $inline-spacing-r;
+      padding-left: fluid((744px 1140px), (24px 60px));
+      padding-right: fluid((744px 1140px), (24px 60px));
+
+      @include mq(1140px) {
+        padding-left: fluid((1140px 1440px), (60px 80px));
+        padding-right: fluid((1140px 1440px), (60px 80px));
+      }
     }
   }
 

@@ -10,3 +10,43 @@
 @function pxRem($px) {
   @return math.div($px, $base-font-size) * 1rem;
 }
+
+/**
+  @desc Scale a value from one screen width to another based on the difference between the minimum
+      and maximum values. Requires clamp() support.
+  @param {length()} $widths - List of lengths, in px, representing the range to scale between the min and max values.
+  @param {length()} $values - List of lengths, in px, representing the min and max values to scale between.
+  @example <caption>Between screen sizes of 744px and 1140px, linearly scale the padding from 20px to 40px.</caption>
+  .selector {
+    padding: fluid((744px 1140px), (20px 40px));
+  }
+  @returns {clamp($min-value, <responsive-value>, $max-value)}
+*/
+@function fluid($widths, $values) {
+  $params: (
+    'min-width': nth($widths, 1),
+    'max-width': nth($widths, 2),
+    'min-value': nth($values, 1),
+    'max-value': nth($values, 2),
+  );
+
+  @each $name, $var in $params {
+    @if unitless($var) {
+      $var: pxRem(#{$var + 'px'});
+    } @else {
+      $var: pxRem($var);
+    }
+  }
+
+  $min-width: map-get($params, 'min-width');
+  $max-width: map-get($params, 'max-width');
+  $min-value: map-get($params, 'min-value');
+  $max-value: map-get($params, 'max-value');
+
+  $width-difference: math.div(1, $max-width - $min-width);
+  $value-difference: $max-value - $min-value;
+  $rate: $width-difference * $value-difference;
+
+  $responsive-value: unquote('#{$min-value - ($min-width * $rate)} + #{100vw * $rate}');
+  @return clamp($min-value, $responsive-value, $max-value);
+}
