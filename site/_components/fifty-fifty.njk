@@ -1,0 +1,37 @@
+<!--{#
+  Renders a fifty-fifty module.
+
+  @param {object} content - An object with the following attributes.
+  @param {string} content.title
+  @param {string} content.copy
+
+  @param {object} cta - An object with the following attributes.
+  @param {string} cta.url
+  @param {string} cta.text
+
+  @param {array} images - An array with images containing the following attributes.
+  @param {string} image.src
+  @param {string} image.alt
+
+  @param {array} shapes - shapes to render behind the primary image.
+  @param {string} shape.type - The type of shape to be rendered.
+  @param {string} shape.fill - Fills the paths or the background of the shape with the provided CSS custom property color.
+#}-->
+{% from 'icon.njk' import icon %} {% from 'decor-shape.njk' import decorShape %}
+{% macro fiftyFifty(content, cta, images, shapes) %}
+  <article class="fifty-fifty {{modifiers.class}}">
+    <div class="fifty-fifty__content">
+      <h3 class="type--h1">{{content.title | striptags(true) | escape | nl2br}}</h3>
+      <p class="type--base">{{content.copy}}</p>
+      <a href="{{cta.url}}" class="cta cta--low cta--right-icon fifty-fifty__cta">{{cta.text}}{{ icon('arrow-forward') }}</a>
+    </div>
+    <div class="fifty-fifty__image-wrapper">
+      {% for shape in shapes %}
+        {{ decorShape(shape.type, shape.fill) }}
+      {% endfor %}
+      {% for image in images %}
+        <img src="{{image.src}}" alt="{{image.alt}}" class="fifty-fifty__image">
+      {% endfor %}
+    </div>
+  </article>
+{% endmacro %}

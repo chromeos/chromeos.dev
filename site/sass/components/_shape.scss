@@ -1,0 +1,23 @@
+.shape {
+  position: relative;
+  overflow: hidden;
+
+  &[class*='circle']:not([class*='semi']) {
+    border-radius: 50%;
+  }
+
+  &--semicircle {
+    --circle-radius: 100px;
+    --circle-offset: 100px;
+    background-image: paint(circles);
+  }
+
+  &--secondary-blue-light {
+    // TODO: secondary-blue-light
+    --shape-color: var(--blue-300);
+  }
+
+  svg {
+    overflow: visible;
+  }
+}

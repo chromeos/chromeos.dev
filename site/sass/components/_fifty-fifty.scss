@@ -1,0 +1,87 @@
+@use 'sass:math';
+
+.fifty-fifty {
+  display: grid;
+  place-items: center;
+  margin-bottom: pxRem(70px);
+  
+  @include mq(420px) {
+    column-gap: pxRem(20px);
+    grid-template-columns: repeat(auto-fit, minmax(pxRem(280px), 1fr));
+  }
+
+  @include mq(608px) {
+    margin-bottom: 0;
+    padding: fluid(pxRem(608px), pxRem(1440px), pxRem(90px), pxRem(113px)) 0 fluid(pxRem(608px), pxRem(1440px), pxRem(0px), pxRem(40px));
+  }
+
+  &__content {
+    max-width: fluid(pxRem(744px), pxRem(1440px), pxRem(340px), pxRem(490px));
+    margin-bottom: pxRem(30px);
+    margin-left: fluid(pxRem(1140px), pxRem(1600px), pxRem(0px), pxRem(122px));
+    text-align: center;
+
+    @include mq(608px) {
+      place-self: flex-start;
+      text-align: left;
+    }
+
+    .type--base,
+    .cta {
+      margin-top: pxRem(24px);
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    display: grid;
+    place-content: center;
+    max-width: min(100%, pxRem(570px));
+
+    .shape--bracket-circle {
+      position: absolute;
+      top: 50%;
+      left: calc(100% + pxRem(24px));
+      width: fluid(pxRem(320px), pxRem(1440px), pxRem(308px), pxRem(420px));
+      height: fluid(pxRem(320px), pxRem(1440px), pxRem(308px), pxRem(420px));
+      transform: translate(-50%, -50%);
+
+      @include mq(608px) {
+        top: math.percentage(math.div(1, 3));
+        left: math.percentage(math.div(2, 3));        
+      }
+    }
+
+    .shape--semicircle {
+      --circle-radius: 100px;
+      --circle-offset: 100px;
+      position: absolute;
+      top: 40%;
+      left: 3%;
+      width: 200px;
+      height: 100px;
+      transform: rotate(155deg);
+    }
+  }
+
+  &__shapes {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image {
+    position: relative;
+
+    &:not(:first-of-type) {
+      position: absolute;
+      top: -15%;
+      left: 0;
+      transform: scale(0.5);
+    }
+  }
+}
