@@ -1,5 +1,6 @@
 // Global functions.
 @use 'sass:math';
+@use 'sass:map';
 
 // Pixels to ems.
 @function pxEm($px) {
@@ -11,32 +12,36 @@
   @return math.div($px, $base-font-size) * 1rem;
 }
 
+// Cast a value to a rem or em if necessary.
+@function coerce($length, $rem: true) {
+  $coerced: $length;
+  @if unitless($length) {
+    $coerced: if($rem, pxRem($length * 1px), pxEm($length * 1px));
+  } @else {
+    $coerced: if($rem, pxRem($length), pxEm($length));
+  }
+  @return $coerced;
+}
+
 /**
   @desc Scale a value from one screen width to another based on the difference between the minimum
       and maximum values. Requires clamp() support.
   @param {length()} $widths - List of lengths, in px, representing the range to scale between the min and max values.
   @param {length()} $values - List of lengths, in px, representing the min and max values to scale between.
+  @param {boolean} $rem (optional) - output units in rems. When false, outputs units in ems.
   @example <caption>Between screen sizes of 744px and 1140px, linearly scale the padding from 20px to 40px.</caption>
   .selector {
     padding: fluid((744px 1140px), (20px 40px));
   }
   @returns {clamp($min-value, <responsive-value>, $max-value)}
 */
-@function fluid($widths, $values) {
+@function fluid($widths, $values, $rem: true) {
   $params: (
-    'min-width': nth($widths, 1),
-    'max-width': nth($widths, 2),
-    'min-value': nth($values, 1),
-    'max-value': nth($values, 2),
+    'min-width': coerce(nth($widths, 1), $rem),
+    'max-width': coerce(nth($widths, 2), $rem),
+    'min-value': coerce(nth($values, 1), $rem),
+    'max-value': coerce(nth($values, 2), $rem),
   );
-
-  @each $name, $var in $params {
-    @if unitless($var) {
-      $var: pxRem(#{$var + 'px'});
-    } @else {
-      $var: pxRem($var);
-    }
-  }
 
   $min-width: map-get($params, 'min-width');
   $max-width: map-get($params, 'max-width');
