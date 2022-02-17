@@ -41,19 +41,24 @@
     }
 
     &[data-header] {
+      /* stylelint-disable selector-no-qualifying-type */
       &::before {
         align-items: center;
         content: attr(data-header);
         display: flex;
-        font-weight: bold;
+        font-weight: $font-weight-bold;
         margin: -1rem -1rem 1rem;
         padding: 1rem;
       }
+      /* stylelint-enable selector-no-qualifying-type */
     }
   }
 
   &--2-cols {
+    // This logically belongs here, not above with the rest of the TD stuff
+    /* stylelint-disable no-descending-specificity */
     td {
+      /* stylelint-enable no-descending-specificity */
       grid-template-columns: 8rem 1fr;
 
       &::before {
@@ -62,11 +67,13 @@
         margin-right: 0.5rem;
       }
 
+      /* stylelint-disable max-nesting-depth, selector-no-qualifying-type */
       &[data-header] {
         &::before {
           margin: -1rem 1rem -1rem -1rem;
         }
       }
+      /* stylelint-enable max-nesting-depth, selector-no-qualifying-type */
     }
   }
 }

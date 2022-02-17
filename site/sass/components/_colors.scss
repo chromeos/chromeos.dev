@@ -4,6 +4,6 @@
     #{$name}: #{$v};
   }
 
-  #{'--black'}: map-get($google-colors, 'grey-900');
-  #{'--white'}: #fff;
+  --black: #{map-get($google-colors, 'grey-900')};
+  --white: #ffffff;
 }

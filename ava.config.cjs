@@ -17,7 +17,7 @@
 const config = require('config');
 const path = require('path');
 
-const ignoredByWatcher = [config.folders.pages, config.folders.output, config.folders.templates].map(i => path.join(i, '**/*')).concat(Object.values(config.assets).map(i => path.join(config.folders.source, i.src)));
+const ignoredByWatcher = [config.folders.pages, config.folders.output, config.folders.templates].map((i) => path.join(i, '**/*')).concat(Object.values(config.assets).map((i) => path.join(config.folders.source, i.src)));
 
 ignoredByWatcher.push(path.join(config.folders.source, config.images.watch.src));
 ignoredByWatcher.push(path.join(config.folders.source, config.sass.src));

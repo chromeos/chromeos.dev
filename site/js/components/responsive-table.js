@@ -37,8 +37,8 @@ export class ResponsiveTable {
    * Toggles the table responsive behavior based on a minimum width value.
    */
   async init() {
-    const resizeObserver = await ponyfillResizeObserver(entries => {
-      const entry = entries.find(e => e.target === this.parent_);
+    const resizeObserver = await ponyfillResizeObserver((entries) => {
+      const entry = entries.find((e) => e.target === this.parent_);
       if (entry.target === this.parent_) {
         const isMinWidth = entry.contentRect.width < this.minimumWidth_;
         const isMinWidthStack = entry.contentRect.width < this.minimumWidthStack_;

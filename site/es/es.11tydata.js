@@ -16,6 +16,6 @@
 /* eslint-env node */
 const dataFallback = require('eleventy-plugin-i18n-helpers/data-fallback');
 
-module.exports = function() {
+module.exports = function () {
   return dataFallback('en');
 };

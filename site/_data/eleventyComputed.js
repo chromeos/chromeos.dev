@@ -62,7 +62,7 @@ function localeCollection(collection) {
  * @return {object | false}
  */
 function findNavParent(parent, nav) {
-  const p = nav.find(i => i.url === parent);
+  const p = nav.find((i) => i.url === parent);
 
   if (p) {
     return {
@@ -71,10 +71,10 @@ function findNavParent(parent, nav) {
     };
   }
 
-  const nested = nav.filter(i => 'sections' in i);
+  const nested = nav.filter((i) => 'sections' in i);
 
   for (let i = 0; i < nested.length; i++) {
-    const f = nested[i].sections.find(n => n.url === parent);
+    const f = nested[i].sections.find((n) => n.url === parent);
     if (f) {
       return {
         title: f.title,
@@ -94,9 +94,9 @@ module.exports = {
   nav: l10nFallback('nav'),
   cookies: l10nFallback('cookieDisclaimer'),
   search: l10nFallback('search'),
-  showNewsletter: data => (l10nFallback('hideNewsletter')(data) ? false : 'show'),
+  showNewsletter: (data) => (l10nFallback('hideNewsletter')(data) ? false : 'show'),
   subscribe: l10nFallback('newsletter.subscribe'),
-  og: data => {
+  og: (data) => {
     const og = [
       {
         property: 'title',
@@ -217,7 +217,7 @@ module.exports = {
 
     return og.flat();
   },
-  parent: data => {
+  parent: (data) => {
     if (data.parent && typeof data.parent === 'string') {
       const parent = findNavParent(data.parent, data.nav);
 
@@ -228,7 +228,7 @@ module.exports = {
 
     return data.parent;
   },
-  featured: data => {
+  featured: (data) => {
     if (data.featured) {
       const featured = {
         eyebrow: dataFallback('featured.eyebrow', 'microcopy.featured.eyebrow')(data),
@@ -252,10 +252,10 @@ module.exports = {
     }
     return null;
   },
-  landingPage: data => {
+  landingPage: (data) => {
     const stem = data.page.filePathStem.split('/');
     if (data.layout === 'tech-detail' && stem.length === 4 && stem[3] === 'index') {
-      const subnav = localeCollection(data.section)(data).map(i => ({
+      const subnav = localeCollection(data.section)(data).map((i) => ({
         title: i.data.title,
         body: i.data.metadesc,
         url: i.url,
@@ -270,7 +270,7 @@ module.exports = {
     return false;
   },
 
-  landingCollections: data => {
+  landingCollections: (data) => {
     const posts = (localeCollection('posts')(data) || []).sort(dateSort(false));
     const featured = (localeCollection('case-studies__featured')(data) || []).sort(dateSort(false));
     const featuredPost = (localeCollection('posts__featured')(data) || []).sort(dateSort(false));
@@ -287,24 +287,24 @@ module.exports = {
     }
 
     if (posts && posts.length >= 1) {
-      collections.posts = posts.map(post => ({
+      collections.posts = posts.map((post) => ({
         eyebrow: post.data.tags[0],
         title: post.data.title,
         body: post.data.metadesc,
         url: post.data.page.url,
       }));
 
-      collections.filteredPosts = collections.posts.filter(i => i.url !== get(collections, 'featured.post.cta.url'));
+      collections.filteredPosts = collections.posts.filter((i) => i.url !== get(collections, 'featured.post.cta.url'));
 
       collections.homePosts = collections.posts.slice(0, 3);
     }
 
     if (stories && stories.length >= 1) {
       collections.stories = stories
-        .filter(i => i.data.page.url !== get(collections, 'featured.second.cta.url'))
+        .filter((i) => i.data.page.url !== get(collections, 'featured.second.cta.url'))
         .sort(propSort({ prop: 'data.title', lowercase: true }))
         .sort(propSort({ prop: 'data.weight', fallback: 0 }))
-        .map(i => ({
+        .map((i) => ({
           title: get(i, 'data.title'),
           image: get(i, 'data.app.logo'),
           cta: {

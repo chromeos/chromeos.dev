@@ -28,7 +28,9 @@
     border-bottom: 1px solid var(--grey-300);
 
     @include mq($bkpt-tech-details--landing) {
-      grid-template-columns: $topics-and-resources-width minmax($spacing, 1fr) minmax(auto, 90ch) minmax($spacing, 1fr);
+      grid-template-columns:
+        $topics-and-resources-width minmax($spacing, 1fr) minmax(auto, 90ch)
+        minmax($spacing, 1fr);
       grid-template-rows: auto 4rem auto 1fr auto;
     }
   }
@@ -108,12 +110,6 @@
     padding: 0 $inline-padding;
     padding-top: math.div($block-padding, 2) + 5rem;
 
-    #{$root}--landing & {
-      grid-row: 3 / span 1;
-      padding: 0;
-      padding-top: math.div($block-padding, 2) + 3rem;
-    }
-
     @include mq($bkpt-tech-details--2-cols) {
       grid-column: 3 / span 1;
       grid-row: 1 / span 1;
@@ -128,6 +124,12 @@
       #{$root}--landing & {
         grid-row: 2 / span 2;
       }
+    }
+
+    #{$root}--landing & {
+      grid-row: 3 / span 1;
+      padding: 0;
+      padding-top: math.div($block-padding, 2) + 3rem;
     }
   }
 

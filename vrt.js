@@ -118,7 +118,7 @@ const scenarios = [
     label: 'App Info',
     url: 'components/app-info',
   },
-].map(s => {
+].map((s) => {
   const scenario = s;
   scenario.label = `Style Guide - ${s.label}`;
   scenario.url = testURL(`style-guide/${s.url}`);
@@ -187,7 +187,7 @@ server.listen(port, () => {
       console.log('Success');
       server.close();
     })
-    .catch(e => {
+    .catch((e) => {
       console.log('Error');
       console.error(e);
       server.close();

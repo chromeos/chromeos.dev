@@ -38,14 +38,14 @@ export class TableOfContents {
     const anchors = [...this.elem_.querySelectorAll('a')];
 
     anchors
-      .map(link => {
+      .map((link) => {
         const href = link.getAttribute('href');
 
         links[href] = link;
 
         return document.getElementById(link.getAttribute('href').slice(1));
       })
-      .forEach(heading => this.observer_.observe(heading));
+      .forEach((heading) => this.observer_.observe(heading));
 
     let current = links[Object.keys(links)[0]].getAttribute('href');
     /**
@@ -96,8 +96,8 @@ export class TableOfContents {
    * Toc collapse behavior
    */
   async collapse() {
-    const resizeObserver = await ponyfillResizeObserver(entries => {
-      const entry = entries.find(e => e.target === this.elem_);
+    const resizeObserver = await ponyfillResizeObserver((entries) => {
+      const entry = entries.find((e) => e.target === this.elem_);
       if (entry.target === this.elem_) {
         const { position } = getComputedStyle(this.elem_);
         if (this.previousPosition !== position) {
