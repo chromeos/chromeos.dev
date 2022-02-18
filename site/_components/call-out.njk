@@ -3,7 +3,7 @@
 
     @param {object[]} content: List of objects containing the following attributes.
     @param {string} content.title: Content title.
-    @param {string} content.body: Content body copy.
+    @param {string} content.body (optional): Content body copy.
 
     @param {object[]} cta: Object the cta information.
     @param {string} cta.text: Cta text.
@@ -12,7 +12,7 @@
 {% macro callOut(content, cta) -%}
 <aside class="call-out">
   <h2 class="type--h4">{{content.title}}</h2>
-  <p class="type">{{content.body}}</p>
+  {% if content.body %}<p class="type">{{content.body}}</p>{% endif %}
   <a class="cta cta--high" href="{{cta.url}}">{{cta.text}}</a>
 </aside>
 {%- endmacro %}
