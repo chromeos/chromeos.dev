@@ -11,14 +11,18 @@
     display: flex;
     flex-flow: column;
     height: 100%;
-    padding: pxRem(40px) pxRem(24px) pxRem(24px);
+    padding: pxRem(40px);
     position: relative;
     width: 100%;
     z-index: 1;
 
+    @include mq(0 739px) {
+      text-align: center;
+    }
+
     /* stylelint-disable no-descending-specificity */
     #{$self}--rounded & {
-      border-bottom-left-radius: pxRem(24px);
+      border-radius: pxRem(10px);
     }
 
     #{$self}--disabled & {
@@ -37,9 +41,18 @@
     /* stylelint-enable no-descending-specificity */
   }
 
+  &__lead-in {
+    margin-bottom: pxRem(24px);
+
+    @include mq(740px) {
+      margin-bottom: pxRem(30px);
+    }
+  }
+
   &__eyebrow {
-    display: ∫inline-block;
+    display: inline-block;
     margin-bottom: pxRem(8px);
+    margin-left: pxRem(8px);
   }
 
   &__title {
@@ -92,13 +105,8 @@
     align-self: flex-end;
     fill: var(--blue-600);
 
-    /* stylelint-disable no-descending-specificity */
-    [dir='ltr'] & {
-      margin-left: auto;
-    }
-
-    [dir='rtl'] & {
-      margin-right: auto;
+    @include mq(0 739px) {
+      margin: 0 auto;
     }
 
     a:hover &,
@@ -115,6 +123,7 @@
     }
     /* stylelint-enable selector-no-qualifying-type */
 
+    /* stylelint-disable no-descending-specificity */
     .card__message & {
       fill: currentColor;
 
@@ -126,7 +135,6 @@
         margin-right: 0.5rem;
       }
     }
-
     /* stylelint-enable no-descending-specificity */
   }
 

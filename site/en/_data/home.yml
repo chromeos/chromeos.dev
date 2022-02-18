@@ -58,7 +58,11 @@ onAndWith:
 posts:
   title: The latest on Chrome OS
   modifiers:
-    shapeOn: 1
+    custom: item-grid--posts
+    subtitle: Explore trends, events, and updates on our community.
+    cta:
+      text: All Articles
+      url: /en/news
 featured:
   modifiers:
     custom: landing--news-grey-overlay

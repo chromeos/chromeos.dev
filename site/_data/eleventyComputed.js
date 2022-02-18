@@ -287,7 +287,9 @@ module.exports = {
     }
 
     if (posts && posts.length >= 1) {
-      collections.posts = posts.map((post) => ({
+      const topics = ['technical', 'events', 'trends'];
+      collections.posts = posts.map((post, i) => ({
+        topic: topics.includes(post.data.tags[0]),
         eyebrow: post.data.tags[0],
         title: post.data.title,
         body: post.data.metadesc,

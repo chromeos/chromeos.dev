@@ -15,11 +15,15 @@
       - rounded {Boolean}: Rounded border style. Defaults to true.
     idPrefix (optional): Additional identifier to prevent repeated IDs if multiple cards share the same title.
  #}-->
+{% from 'icon.njk' import icon %}
 {% macro card(data, modifiers={}, idPrefix='') -%} {% set titleId %}{{(idPrefix ~ ' ' ~ data.title) | slug}}{% endset %} {% set bodyId %}{{titleId}}-body{% endset %} {% if data.source is defined %} {% set sourceId %}{{titleId}}-source{% endset %} {% endif %} {% set styles %}{{modifiers.custom}} {{'card--rounded' if modifiers.rounded is not defined else modifiers.rounded }}{% endset %}
 <a href="{{ data.url }}" class="card type--base {{styles}}" aria-labelledby="{{ titleId }} {{ bodyId}} {{ sourceId }}">
   <article class="card__container">
     <header id="{{ titleId }}" class="card__title">
-      {% if data.eyebrow %}<small class="card__eyebrow type--eyebrow">{{ data.eyebrow }}</small>{% endif %}
+      <div class="card__lead-in">
+        {% if data.topic %}{{ icon(data.eyebrow) }}{% endif %}
+        <small class="card__eyebrow type--eyebrow">{{ data.eyebrow }}</small>
+      </div>
       <h4 class="type--h4">{{ data.title }}</h4>
     </header>
     <p id="{{ bodyId }}" class="card__body">{{ data.body }}</p>
@@ -30,8 +34,9 @@
         {{ data.source.name }}
       </address>
       {% endif %}
-      <span class="card__icon" aria-hidden="true">
-        {% from 'icon.njk' import icon %} {{ icon('arrow-forward') }}
+      <span class="card__icon cta cta--low cta--right-icon" aria-hidden="true">
+        Learn more
+        {{ icon('arrow-forward') }}
       </span>
     </footer>
   </article>

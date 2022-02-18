@@ -14,22 +14,50 @@
   position: relative;
   z-index: 10;
 
+  &__title,
+  &__subtitle {
+    text-align: center;
+  }
+
   &__title {
     margin: 0 auto;
     max-width: pxRem(640px);
     padding: 0 calc(var(--shape-circle--size) / 6);
     position: relative;
-    text-align: center;
     z-index: 3;
+  }
+
+  &__subtitle {
+    margin: pxRem(8px) auto 0;
+    max-width: pxRem(450px);
   }
 
   &__content {
     display: grid;
-    grid-gap: pxRem(40px) pxRem(24px);
+    grid-gap: pxRem(20px) pxRem(20px);
     margin-top: pxRem(40px);
 
     @include mq(430px) {
       grid-template-columns: repeat(auto-fit, minmax(pxRem(300px), 1fr));
+    }
+  }
+
+  &__footer {
+    margin-top: pxRem(48px);
+    text-align: center;
+
+    .cta {
+      display: inline-flex;
+    }
+  }
+
+  &--posts & {
+    &__content {
+      margin-top: pxRem(50px);
+
+      @supports (margin-top: clamp(1px, 1vw, 2px)) {
+        margin-top: fluid((744px 1440px), (38px 65px));
+      }
     }
   }
 
