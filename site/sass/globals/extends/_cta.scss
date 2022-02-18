@@ -2,7 +2,7 @@
   $shadow-color: rgba(map-get($google-colors, 'grey-800'), 0.15);
   $this: &;
 
-  @include fontSetup(14px, 16px, 500);
+  @include fontSetup(16px, 18.32px, 500);
   align-items: center;
   border: 0;
   border-radius: 4px;
@@ -37,8 +37,8 @@
     color: var(--white);
 
     &:hover {
-      background-color: var(--secondary-blue-dark);
-      border-color: var(--secondary-blue-dark);
+      background-color: var(--secondary-blue);
+      border-color: var(--secondary-blue);
     }
 
     &:focus-visible {
@@ -47,8 +47,8 @@
     }
 
     &:active {
-      background-color: var(--secondary-blue-light);
-      border-color: var(--secondary-blue-light);
+      background-color: var(--tertiary-blue);
+      border-color: var(--tertiary-blue);
     }
   }
 
@@ -120,7 +120,7 @@
 
     &:hover,
     &:focus {
-      color: var(--secondary-blue-dark);
+      color: var(--secondary-blue);
     }
 
     &:focus {
@@ -138,12 +138,12 @@
     }
 
     &:focus-visible {
-      outline: 3px solid var(--secondary-blue-dark);
+      outline: 3px solid var(--secondary-blue);
       outline-offset: 5px;
     }
 
     &:active {
-      color: var(--secondary-blue-light);
+      color: var(--tertiary-blue);
     }
   }
 

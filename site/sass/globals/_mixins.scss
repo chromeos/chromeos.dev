@@ -17,16 +17,14 @@
 
 // Scale font-size between two screen widths in ems.
 //
-// @param {length} $min-vw: screen width in px at which to begin scaling.
-// @param {length} $max-vw: screen width in px at which to reach the max value font size.
-// @param {length} $min-value: px lower threshold of font size scale.
-// @param {length} $max-value: px upper threshold of font size scale.
-@mixin fluidFont($min-vw, $max-vw, $min-value, $max-value) {
-  $difference: math.div($max-value - $min-value, 2);
-  font-size: $min-value + $difference;
+// @param {length()} $widths - List of lengths, in px, representing the range to scale between the min and max values.
+// @param {length()} $values - List of lengths, in px, representing the min and max values to scale between.
+@mixin fluidFont($widths, $values) {
+  $difference: math.div(nth($values, 2) - nth($values, 1), 2);
+  font-size: pxEm(nth($values, 1) + $difference);
 
   @supports (font-size: clamp(1px, 1vw, 2px)) {
-    font-size: fluid(pxEm($min-vw), pxEm($max-vw), pxEm($min-value), pxEm($max-value));
+    font-size: fluid($widths, $values, false);
   }
 }
 
@@ -38,7 +36,7 @@
 // @param {number | boolean} $weight - Font weight, or false
 @mixin flexFont($sm, $md, $lg, $weight: false) {
   // Determine scaling factor so that the large font size is reached at 1024px
-  $font-scale: math.div(nth($lg, 1), 10.24px) * 1vw;
+  $font-scale: math.div(nth($lg, 1), 14.4px) * 1vw;
   // Set up clamp function
   $font-clamp: clamp(pxEm(nth($sm, 1)), $font-scale, pxEm(nth($lg, 1)));
   // Setup basic font styling from medium size

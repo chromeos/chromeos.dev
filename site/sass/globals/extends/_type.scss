@@ -1,10 +1,7 @@
 @use 'sass:math';
 
 %type {
-  $bkpt-type--fablet: 420px;
-  $bkpt-type--tablet: 744px;
-  $bkpt-type--desktop: 1024px;
-  $bkpt-type--desktop-lg: 1440px;
+  $scaling-range: (375px 1440px);
 
   &--header {
     color: var(--black);
@@ -13,113 +10,59 @@
 
   &--mega {
     @extend %type--header;
-    @include fontSetup(36px, 50.4px, 400);
-
-    @include mq($bkpt-type--fablet) {
-      @include fluidFont($bkpt-type--fablet, $bkpt-type--tablet, 48px, 56px);
-      line-height: 1.2;
-    }
-    @include mq($bkpt-type--tablet) {
-      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 56px, 64px);
-      line-height: 1.15;
-    }
+    @include fluidFont($scaling-range, (36px, 64px));
+    font-family: $font-google-sans;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
   }
 
   &--h1 {
     @extend %type--header;
-    @include fontSetup(28px, 39.2px, 400);
+    @include fluidFont($scaling-range, (28px 48px));
     font-family: $font-google-sans;
-
-    @include mq($bkpt-type--fablet) {
-      @include fluidFont($bkpt-type--fablet, $bkpt-type--tablet, 32px, 40px);
-      line-height: 1.3;
-    }
-
-    @include mq($bkpt-type--tablet) {
-      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 40px, 48px);
-    }
+    letter-spacing: -0.01em;
+    line-height: 1.3;
   }
 
   &--h2 {
     @extend %type--header;
-    @include fontSetup(24px, 33.6px, 400);
+    @include fluidFont($scaling-range, (24px 38px));
     font-family: $font-google-sans;
     letter-spacing: -0.01em;
-
-    @include mq($bkpt-type--fablet) {
-      @include fluidFont($bkpt-type--fablet, $bkpt-type--tablet, 28px, 32px);
-      line-height: 1.3;
-    }
-
-    @include mq($bkpt-type--tablet) {
-      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 32px, 38px);
-    }
-
-    @include mq($bkpt-type--desktop) {
-      line-height: 1.2;
-    }
+    line-height: 1.3;
   }
 
   &--h2-shrink-h3 {
     @extend %type--header;
-    @include fontSetup(24px, 33.6px, 400);
+    @include fluidFont($scaling-range, (24px 30px));
     font-family: $font-google-sans;
     letter-spacing: -0.01em;
-
-    @include mq($bkpt-type--tablet) {
-      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 24px, 30px);
-    }
-
-    @include mq($bkpt-type--desktop) {
-      line-height: 1.3;
-    }
+    line-height: 1.3;
   }
 
   &--h3 {
     @extend %type--header;
-    @include fontSetup(20px, 28px, 400);
+    @include fluidFont($scaling-range, (20px 30px));
     font-family: $font-google-sans;
     letter-spacing: -0.01em;
-
-    @include mq($bkpt-type--fablet) {
-      @include fluidFont($bkpt-type--fablet, $bkpt-type--tablet, 22px, 26px);
-      line-height: 1.3;
-    }
-
-    @include mq($bkpt-type--tablet) {
-      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 26px, 30px);
-    }
+    line-height: 1.3;
   }
 
   &--h4 {
     @extend %type--header;
-    @include fontSetup(16px, 22.4px, 400);
+    @include fluidFont($scaling-range, (16px 22px));
     font-family: $font-google-sans;
     letter-spacing: -0.01em;
-
-    @include mq($bkpt-type--fablet) {
-      font-size: pxRem(20px);
-    }
-
-    @include mq($bkpt-type--tablet) {
-      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 20px, 22px);
-    }
+    line-height: 1.4;
   }
 
   &--h5 {
     @extend %type--header;
-    @include fontSetup(14px, 19.6px, 500);
+    @include fluidFont($scaling-range, (14px 18px));
     font-family: $font-google-sans;
+    font-weight: 500;
     letter-spacing: -0.01em;
-
-    @include mq($bkpt-type--fablet) {
-      font-size: pxEm(18px);
-      line-height: 1.3;
-    }
-
-    @include mq($bkpt-type--tablet) {
-      line-height: 1.2;
-    }
+    line-height: 1.3;
   }
 
   &--h6 {
@@ -134,34 +77,12 @@
     color: var(--grey-900);
     font-family: $font-google-sans;
     letter-spacing: -0.01em;
-
-    @include mq($bkpt-type--fablet) {
-      font-size: pxEm(14px);
-      line-height: 1.6;
-    }
-
-    @include mq($bkpt-type--tablet) {
-      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 14px, 16px);
-    }
   }
 
   &--large {
     @extend %type--base;
-
     @include fontSetup(18px, 27px, 400);
     letter-spacing: -0.01em;
-
-    @include mq($bkpt-type--fablet) {
-      @include fontSetup(16px, 23.2px, 400);
-    }
-
-    @include mq($bkpt-type--tablet) {
-      @include fluidFont($bkpt-type--tablet, $bkpt-type--desktop-lg, 16px, 18px);
-    }
-
-    @include mq($bkpt-type--desktop) {
-      line-height: 1.6;
-    }
   }
 
   &--small {
@@ -178,19 +99,11 @@
 
   &--eyebrow {
     @extend %type--header;
-    @include fontSetup(12px, 12px, 500);
+    @include fontSetup(14px, 14px, 500);
     display: inline-block;
     font-family: $font-google-sans;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.01em;
     text-transform: uppercase;
-
-    @include mq($bkpt-type--fablet) {
-      @include fluidFont($bkpt-type--fablet, $bkpt-type--tablet, 12px, 14px);
-    }
-
-    @include mq($bkpt-type--tablet) {
-      letter-spacing: 0.01em;
-    }
   }
 
   &--label {
@@ -206,7 +119,7 @@
 
   &--caption {
     --icon-offset: 0.1em;
-    @include fontSetup(12px, 16.8px, 400);
+    @include fontSetup(14px, 19.6px, 400);
     color: var(--grey-700);
     letter-spacing: -0.01em;
   }
