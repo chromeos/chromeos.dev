@@ -150,7 +150,7 @@
     "comlink": "^4.3",
     "css-paint-polyfill": "^3.0",
     "dynamic-import-polyfill": "^0.1",
-    "i18n-iso-countries": "^5.5",
+    "i18n-iso-countries": "^7.3",
     "iso-639-1": "^2.1",
     "lottie-web": "^5.8",
     "lunr": "^2.3",
