@@ -78,7 +78,7 @@ chromebook:
     url: https://www.google.com/chromebook/
     text: Learn about Chromebook
 community:
-  title: Developer news and resources to get you up and running
+  title: Developer news and resources
   modifiers:
     variant: community
 footnotes:

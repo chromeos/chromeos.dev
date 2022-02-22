@@ -34,11 +34,26 @@
   }
 
   &--community & {
+    &__title,
     &__content {
-      align-items: flex-start;
+      max-width: max(760px, 75vw);
+
+      @include mq(1348px) {
+        max-width: pxRem(1200px);
+      }
+    }
+
+    &__content {
       display: flex;
-      flex-wrap: wrap;
+      flex-flow: row wrap;
+      grid-gap: pxRem(20px);
       justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+
+      @include mq(1348px) {
+        justify-content: flex-start;
+      }
     }
   }
 

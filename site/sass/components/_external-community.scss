@@ -1,19 +1,21 @@
 // Styles for the external community with logo.
 .external-community {
-  $logo-size: pxRem(60px);
+  $logo-size: pxRem(48px);
 
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  margin: 0 pxRem(8px) pxRem(40px);
-  text-align: center;
-  width: 9rem;
-  @supports (width: clamp(pxRem(125px), 20vw, pxRem(160px))) {
-    width: clamp(pxRem(125px), 20vw, pxRem(160px));
-  }
-  @supports (margin: 0 clamp(0.5rem, 4vw, 1.5rem) pxRem(40px)) {
-    margin: 0 clamp(0.5rem, 4vw, pxRem(30px)) pxRem(40px);
+  flex: 1 0 pxRem(102px);
+  max-width: pxRem(102px);
+  text-decoration: none;
+
+  &__liner {
+    align-items: center;
+    border: 1px solid var(--grey-200);
+    border-radius: pxRem(10px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-self: center;
+    padding: 1rem 0.25ch;
+    text-align: center;
   }
 
   &__logo {
@@ -21,5 +23,17 @@
     margin-bottom: 1rem;
     max-height: initial;
     width: $logo-size;
+  }
+
+  &__copy-wrapper {
+    color: var(--black);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: pxEm(14px);
+    line-height: 1.3;
+
+    strong {
+      display: block;
+      margin-bottom: pxRem(10px);
+    }
   }
 }
