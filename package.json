@@ -134,7 +134,7 @@
     "sinon": "^13.0",
     "stylelint": "^14.5.2",
     "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-recommended": "^6.0.0",
+    "stylelint-config-recommended": "^7.0.0",
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard": "^25.0.0",
     "unified-lint-rule": "^1.0.6",
