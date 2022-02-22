@@ -125,7 +125,7 @@
     "prettier": "^2.5",
     "remark": "^14.0",
     "remark-cli": "^8.0",
-    "remark-frontmatter": "^2.0",
+    "remark-frontmatter": "^4.0",
     "remark-lint": "^7.0.1",
     "remark-lint-prohibited-strings": "^1.5.2",
     "replaceall": "^0.1",
