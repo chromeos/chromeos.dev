@@ -116,7 +116,7 @@
     "lodash.get": "^4.4",
     "lodash.kebabcase": "^4.1",
     "markdown-it": "^12.3.2",
-    "node-fetch": "^2.6",
+    "node-fetch": "^3.2",
     "npm-run-all": "^4.1",
     "nyc": "^15.1",
     "patch-package": "^6.4",
