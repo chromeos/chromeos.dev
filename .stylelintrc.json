@@ -14,6 +14,12 @@
     "property-no-vendor-prefix": true,
     "value-no-vendor-prefix": true,
     "number-leading-zero": "always",
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": ["pxRem", "pxEm", "math.div", "nth", "map-get"]
+      }
+    ],
     "function-url-quotes": "always",
     "font-weight-notation": "numeric",
     "font-family-name-quotes": "always-where-required",
