@@ -13,6 +13,9 @@ updates:
       - dependency-name: node-fetch
         update-types:
           - version-update:semver-major
+      - dependency-name: ava
+        update-types:
+          - version-update:semver-major
       - dependency-name: unified-lint-rule
         update-types:
           - version-update:semver-major
