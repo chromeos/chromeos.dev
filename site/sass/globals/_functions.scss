@@ -17,14 +17,12 @@
   @param {length | number} $length - A px length or unitless number.
   @param {boolean} $rem (optional) - Cast the provided px length or unitless number to a rem. When false, casts to em instead.
 */
-@function cast($length, $rem: true) {
-  $casted: $length;
-  @if unitless($length) {
-    $casted: if($rem, pxRem($length * 1px), pxEm($length * 1px));
-  } @else {
-    $casted: if($rem, pxRem($length), pxEm($length));
+@function pxCast($length, $rem: true) {
+  @if unitless($length) and $length != 0 {
+    @error 'pxCast: $length is unitless and non-zero.';
   }
-  @return $casted;
+  $casted: if(unitless($length), $length * 1px, $length);
+  @return if($rem, pxRem($casted), pxEm($casted));
 }
 
 //  @desc Scale a value from one screen width to another based on the difference between the minimum
@@ -39,10 +37,10 @@
 //  @returns clamp($min-value, <responsive-value>, $max-value)
 @function fluid($widths, $values, $rem: true) {
   $params: (
-    'min-width': cast(nth($widths, 1), $rem),
-    'max-width': cast(nth($widths, 2), $rem),
-    'min-value': cast(nth($values, 1), $rem),
-    'max-value': cast(nth($values, 2), $rem),
+    'min-width': pxCast(nth($widths, 1), $rem),
+    'max-width': pxCast(nth($widths, 2), $rem),
+    'min-value': pxCast(nth($values, 1), $rem),
+    'max-value': pxCast(nth($values, 2), $rem),
   );
 
   $min-width: map-get($params, 'min-width');

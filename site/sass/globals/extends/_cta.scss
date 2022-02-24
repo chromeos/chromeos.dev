@@ -11,23 +11,19 @@
   font-family: $font-google-sans;
   justify-content: center;
   min-width: pxRem(150px);
-  padding: pxRem(15px) pxRem(40px);
+  padding: 1rem 2.5rem;
   text-decoration: none;
   text-rendering: optimizeLegibility;
 
   &--left-icon {
-    padding: pxRem(15px) pxRem(40px);
-
     .icon {
-      margin-right: pxRem(8px);
+      margin-right: 0.5rem;
     }
   }
 
   &--right-icon {
-    padding: pxRem(15px) pxRem(40px);
-
     .icon {
-      margin-left: pxRem(10px);
+      margin-left: 0.625rem;
     }
   }
 
@@ -149,7 +145,7 @@
 
   .icon {
     fill: currentColor;
-    height: pxRem(18px);
-    width: pxRem(18px);
+    height: 1.125em;
+    width: 1.125em;
   }
 }

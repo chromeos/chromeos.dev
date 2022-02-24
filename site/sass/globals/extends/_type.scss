@@ -1,8 +1,6 @@
 @use 'sass:math';
 
 %type {
-  $scaling-range: (375px 1440px);
-
   &--header {
     color: var(--black);
     text-rendering: optimizeLegibility;
@@ -10,15 +8,15 @@
 
   &--mega {
     @extend %type--header;
-    @include fluidFont($scaling-range, (36px, 64px));
+    @include flexFont((36px 50.4px), (56px 64.4px), (64px 73.6px));
     font-family: $font-google-sans;
     letter-spacing: -0.01em;
-    line-height: 1.25;
+    line-height: 1.15;
   }
 
   &--h1 {
     @extend %type--header;
-    @include fluidFont($scaling-range, (28px 48px));
+    @include flexFont((28px 39.2px), (40px 52px), (48px 62.4px));
     font-family: $font-google-sans;
     letter-spacing: -0.01em;
     line-height: 1.3;
@@ -26,15 +24,7 @@
 
   &--h2 {
     @extend %type--header;
-    @include fluidFont($scaling-range, (24px 38px));
-    font-family: $font-google-sans;
-    letter-spacing: -0.01em;
-    line-height: 1.3;
-  }
-
-  &--h2-shrink-h3 {
-    @extend %type--header;
-    @include fluidFont($scaling-range, (24px 30px));
+    @include flexFont((24px 33.6px), (32px 41.6px), (38px 45.6px));
     font-family: $font-google-sans;
     letter-spacing: -0.01em;
     line-height: 1.3;
@@ -42,7 +32,7 @@
 
   &--h3 {
     @extend %type--header;
-    @include fluidFont($scaling-range, (20px 30px));
+    @include flexFont((20px 28px), (26px 33.8px), (30px 39px));
     font-family: $font-google-sans;
     letter-spacing: -0.01em;
     line-height: 1.3;
@@ -50,7 +40,7 @@
 
   &--h4 {
     @extend %type--header;
-    @include fluidFont($scaling-range, (16px 22px));
+    @include flexFont((16px 22.4px), (20px 28px), (22px 30.8px));
     font-family: $font-google-sans;
     letter-spacing: -0.01em;
     line-height: 1.4;
@@ -58,11 +48,11 @@
 
   &--h5 {
     @extend %type--header;
-    @include fluidFont($scaling-range, (14px 18px));
+    @include flexFont((14px 19.6px), (16px 19.2px), (18px 21.6px));
     font-family: $font-google-sans;
     font-weight: 500;
     letter-spacing: -0.01em;
-    line-height: 1.3;
+    line-height: 1.2;
   }
 
   &--h6 {

@@ -15,19 +15,6 @@
   }
 }
 
-// Scale font-size between two screen widths in ems.
-//
-// @param {length()} $widths - List of lengths, in px, representing the range to scale between the min and max values.
-// @param {length()} $values - List of lengths, in px, representing the min and max values to scale between.
-@mixin fluidFont($widths, $values) {
-  $difference: math.div(nth($values, 2) - nth($values, 1), 2);
-  font-size: pxEm(nth($values, 1) + $difference);
-
-  @supports (font-size: clamp(1px, 1vw, 2px)) {
-    font-size: fluid($widths, $values, false);
-  }
-}
-
 // Sets a flexible font size
 //
 // @param {length()} $sm - List of lengths, in px, representing font size and line height of the smallest size

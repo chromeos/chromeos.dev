@@ -60,10 +60,6 @@ $section-block-margin: 3.75rem;
     @extend %type--mega;
   }
 
-  &--h2-shrink-h3 {
-    @extend %type--h2-shrink-h3;
-  }
-
   &--link {
     @extend %anchor;
   }
