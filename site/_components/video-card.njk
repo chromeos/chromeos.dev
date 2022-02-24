@@ -1,0 +1,24 @@
+<!--{#
+  Renders a card that links to a video.
+
+  @param {object} video - An object with the following attributes.
+  @param {string} video.title - Text displayed beneath the video capture.
+  @param {string} video.url - Link to the video.
+  @param {object} capture - An object with the following attributes.
+  @param {string} capture.src - Image src
+  @param {string} capture.alt - Alt text
+#}-->
+{% from 'icon.njk' import icon %}
+{% macro videoCard(video, capture) %}
+<a class="video-card" href="{{video.url}}">
+  <figure>
+    <div class="video-card__capture-wrapper">
+      <img src="{{capture.src}}" alt="{{capture.alt}}">
+      {{ icon('play-button') }}
+    </div>
+    <figcaption class="video-card__caption">
+      <span class="type--h4">{{video.title}}</span>
+    </figcaption>
+  </figure>
+</a>
+{% endmacro %}

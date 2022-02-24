@@ -1,0 +1,34 @@
+.video-card {
+  text-decoration: none;
+
+  &__capture-wrapper {
+    border-radius: 0.625rem;
+    display: grid;
+    overflow: hidden;
+
+    > * {
+      grid-area: 1 / -1;
+    }
+
+    .icon {
+      height: 3.625rem;
+      place-self: center;
+      width: 3.625rem;
+    }
+  }
+
+  &__caption {
+    margin-top: pxRem(24px);
+    text-align: center;
+
+    @include mq(1052px) {
+      text-align: left;
+    }
+
+    [dir='rtl'] & {
+      @include mq(1052px) {
+        text-align: right;
+      }
+    }
+  }
+}

@@ -59,6 +59,13 @@
     }
   }
 
+  &--videos & {
+    &__content {
+      align-items: flex-start;
+      grid-gap: 2.75rem 1.25rem;
+    }
+  }
+
   &--circled &__content {
     border-image-outset: 300px;
     border-image-slice: 0 fill;

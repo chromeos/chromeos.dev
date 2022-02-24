@@ -81,6 +81,29 @@ community:
   title: Developer news and resources to get you up and running
   modifiers:
     variant: community
+videos:
+  title: Watch the latest videos
+  items:
+    - video:
+        title: Developer Keynote at Google I/O '21
+        url: https://www.youtube.com/watch?v=FPuaaYpUd5s
+      capture:
+        src: https://drive.google.com/uc?id=13gLkQxETrT-U2JOAdLHL7MD3Hrq1r7sO
+        alt: "Google IO: Input matters for Chrome OS"
+    - video:
+        title: Chrome OS Demo Day
+        url: https://www.youtube.com/watch?v=7JvD7Zamv9A
+      capture:
+        src: https://drive.google.com/uc?id=1aIsEWzPoA1vFATP4pHZN7sO3QQAv5PIh
+        alt: "Chrome OS Demo Day: 77% of enterprises had at least one app in the cloud in 2018."
+    - video:
+        title: Creating a more private internet
+        url: https://www.youtube.com/watch?v=_u9_3umb5LY
+      capture:
+        src: https://drive.google.com/uc?id=1ifLviMymGZ9RZ5QNgkzO06z2rvKXdokd
+        alt: "Privacy Sandbox: Creating a more private internet"
+  modifiers:
+    variant: videos
 footnotes:
   notes:
     - The NPD Group, Inc., U.S. Retail Tracking Service, Notebook Computers, based on unit sales, April-June 2020 and March-June 2020.
