@@ -13,7 +13,7 @@ If your PWA is listed in Google Play and you want to monetize it by selling in-a
 
 The [Digital Goods API](https://github.com/WICG/digital-goods/blob/main/explainer.md) is an interface between your app and Google Play. It allows you to retrieve the digital products and details you’ve entered for your in-app products and subscriptions in the Play Console as well as retrieve existing purchases a user has made. If you haven’t added in-app products or subscriptions in the Play Console yet, make sure to follow the [Play Console setup for Play Billing](/{{locale.code}}/publish/play-console-setup-for-billing).
 
-On November 30th, 2021, M96 stable will be released for Chrome OS and it will have the Digital Goods API 2.0 implementation.
+On November 30th, 2021, Chrome OS 96 was released with the Digital Goods API 2.0 implementation.
 
 The origin trial for the first version of the Digital Goods API ended on January 30, 2022. Therefore it is now deprecated and only v2 of the API is available.
 
