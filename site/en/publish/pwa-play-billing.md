@@ -77,7 +77,10 @@ for (const item of itemDetails) {
 To get the appropriate price for the user’s locale, you will need to do some additional formatting:
 
 ```js {title="JavaScript" .code-figure}
-const localePrice = new Intl.NumberFormat(navigator.language, { style: 'currency', currency: item.price.currency }).format(item.price.value);
+const localePrice = new Intl.NumberFormat(navigator.language, {
+  style: 'currency',
+  currency: item.price.currency,
+}).format(item.price.value);
 ```
 
 !!! aside.message--note
@@ -247,7 +250,7 @@ Out-of-app purchases are purchases not made in the normal in-app purchase flow. 
 
 When users resubscribe from the Play Store, their purchases are not acknowledged automatically which may result in them being refunded. This behavior is intentional because users should only be charged for their subscription if they open the app to use it. The user may see a “Confirm subscription” like so, reminding them to open the app.
 
-![Users are prompted to confirm their subscription by opening the app to acknowledge the purchase.](/images/publish/pwa-play-billing/confirm-subscription.png)
+![Users are prompted to confirm their subscription by opening the app to acknowledge the purchase.](ix:/publish/pwa-play-billing/confirm-subscription.png)
 
 It is up to you as the developer to implement acknowledgement of these once the user launches the app. That’s why we recommend [checking for existing purchases](/{{locale.code}}/publish/pwa-play-billing#check-existing-purchases) (usually when the app first launches) and acknowledging any purchases that are not acknowledged yet.
 
