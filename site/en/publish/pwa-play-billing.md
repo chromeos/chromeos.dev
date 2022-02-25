@@ -2,6 +2,7 @@
 title: Implement Play Billing in your PWA
 metadesc: How to monetize your Progressive Web App in Google Play by selling digital goods with Play Billing.
 date: 2021-05-14
+updated: 2022-02-25
 weight: -4
 ---
 
