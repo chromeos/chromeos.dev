@@ -19,7 +19,9 @@ The origin trial for the first version of the Digital Goods API ended on January
 
 ### Register for the Origin Trial
 
-Note that the Digital Goods API is currently available through an [Origin Trial](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md) - a mechanism that allows developers early access to new Web APIs. You will need to register for the Digital Goods API v2 [origin trial](https://developer.chrome.com/origintrials/#/view_trial/888335026498830337) and request a token, which you will need to [provide on any pages in your origin](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md#how-do-i-enable-an-experimental-feature-on-my-origin).
+!!! aside.message--note
+**Note:** The Digital Goods API is currently available through an [Origin Trial](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md) - a mechanism that allows developers early access to new Web APIs. You will need to register for the Digital Goods API v2 [origin trial](https://developer.chrome.com/origintrials/#/view_trial/888335026498830337) and request a token, which you will need to [provide on any pages in your origin](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md#how-do-i-enable-an-experimental-feature-on-my-origin).
+!!!
 
 Upon registering for the origin trial, you will see a “Valid Until” date which is when your token is guaranteed to work until. Remember to renew your tokens when that date approaches to continue participating in the trial. APIs offered as an origin trial are subject to change, so be sure to stay up-to-date with the latest changes to any origin trial you are participating in. In case of any issues, refer to the [Digital Goods API documentation](https://github.com/WICG/digital-goods/blob/main/explainer.md).
 
