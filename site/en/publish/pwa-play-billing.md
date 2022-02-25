@@ -31,7 +31,7 @@ The [Payment Request API](https://www.w3.org/TR/payment-request/) handles the ac
 
 You can detect if you’ve correctly enabled the API on your website via the origin trial by checking for the `getDigitalGoodsService` method in the `window` object.
 
-```js
+```js {title="JavaScript" .code-figure}
 if ('getDigitalGoodsService' in window) {
   // Digital Goods API is supported!
 } else {
@@ -46,7 +46,7 @@ The Digital Goods API was designed to be compatible with various browsers and di
 
 If the method throws an error, the Google Play Billing payment method is not available (e.g. the user is accessing your PWA through the browser). Instead, you should offer another payment method for transactions.
 
-```js
+```js {title="JavaScript" .code-figure}
 if ('getDigitalGoodsService' in window) {
   // Digital Goods API is supported!
   try {
@@ -66,7 +66,7 @@ The `getDetails()` method lets you get information about the items you’ve set 
 
 The `getDetails()` method will need a list of item IDs which correspond to the product IDs of the in-app products and subscriptions you created in the Play Console.
 
-```js
+```js {title="JavaScript" .code-figure}
 const itemDetails = await service.getDetails(['product_1', 'product_2', 'product_3']);
 for (const item of itemDetails) {
   // Display item information to user
@@ -76,7 +76,7 @@ for (const item of itemDetails) {
 
 To get the appropriate price for the user’s locale, you will need to do some additional formatting:
 
-```js
+```js {title="JavaScript" .code-figure}
 const localePrice = new Intl.NumberFormat(navigator.language, { style: 'currency', currency: item.price.currency }).format(item.price.value);
 ```
 
@@ -92,7 +92,7 @@ Play Billing only allows the purchase of a single item at a time; the price and 
 
 Use the `supportedMethods` member of the [`methodData`](https://www.w3.org/TR/payment-request/#dom-paymentrequest) parameter in the `PaymentRequest` to identify Google Play Billing as the payment method with the string `"https://play.google.com/billing"`. Then in the `data` member, pass along the item ID as the `sku`.
 
-```js
+```js {title="JavaScript" .code-figure}
 const paymentMethodData = [
   {
     supportedMethods: 'https://play.google.com/billing',
@@ -105,7 +105,7 @@ const paymentMethodData = [
 
 Then create the payment request and call `show()` to start the payment flow:
 
-```js
+```js {title="JavaScript" .code-figure}
 const request = new PaymentRequest(paymentMethodData);
 const paymentResponse = await request.show();
 ```
@@ -116,7 +116,7 @@ To prevent fraud, it’s critical to verify the purchase and purchase token on y
 
 After validating the purchase, call `complete()` on the payment response to finish the payment flow and close out the billing UI. You can also pass in an optional `result` string to indicate the state of the payment process. It is up to the browser whether to provide any indication of this result to the user. Chrome does not create any user-visible cues so it is recommended that you display your own error or success messages in your PWA.
 
-```js
+```js {title="JavaScript" .code-figure}
 /*
 Changes were recently made so that the PaymentResponse `details`
 property returns the purchase token as `purchaseToken`
@@ -162,7 +162,7 @@ Learn more about the different proration modes in the Google Play Billing Librar
 
 The usage of these additional fields will look something like this:
 
-```js
+```js {title="JavaScript" .code-figure}
 const paymentMethod = [
   {
     supportedMethods: 'https://play.google.com/billing',
@@ -205,7 +205,7 @@ Alternatively, the item may be something that you limit a user to one of at a ti
 
 For items that you allow a user to own multiples of, they need to be able to be purchased repeatedly without needing to be used first (we call these repeatable items). Similarly, these items need to be “consumed” before Google Play will let the user buy it again. Therefore, even if the user has not yet used the item, you need to call the `consume()` method to mark the item as consumed.
 
-```js
+```js {title="JavaScript" .code-figure}
 // After the user purchases the item, send the purchase token and item ID to your backend to grant the entitlement and acknowledge it right away
 
 . . .
