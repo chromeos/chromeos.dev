@@ -77,6 +77,39 @@ chromebook:
   cta:
     url: https://www.google.com/chromebook/
     text: Learn about Chromebook
+developers:
+  title: Hear what the community is saying
+  quotes:
+    - content:
+        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        author:
+          name: Mike C.
+          role: Head Engineer
+      image:
+        src: ix://lifestyle/HP-desk-dual-monitor.jpg
+        alt: Engineer working at their desk.
+    - content:
+        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        author:
+          name: Mike C.
+          role: Head Engineer
+      image:
+        src: https://drive.google.com/uc?id=1IhXV0ezqWGxfKn_rBNBKYs8knKR3zAZp
+        alt: Engineer working at their desk.
+      decorators:
+        - https://drive.google.com/uc?id=14cqQIV-YnbdNnlwKjsPkus8wUNy2FFPw
+        - https://drive.google.com/uc?id=1SxCyhP4uI-uoigD7UGQ56m6xAVnbwiBW
+    - content:
+        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        author:
+          name: Mike C.
+          role: Head Engineer
+      image:
+        src: https://drive.google.com/uc?id=1aGBmRUYFeusuWfdXcjfq10p8Bb0sFPky
+        alt: Engineer working at their desk.
+  modifiers:
+    variant: quote
+    subtitle: Read some testimonials from other developers and take their word for it.
 community:
   title: Developer news and resources to get you up and running
   modifiers:

@@ -1,0 +1,30 @@
+<!--{#
+  Renders a quote bubble with quote.
+
+  @param {object} content - An object with the following attributes.
+  @param {string} content.copy: The body content of the quote.
+  @param {object} content.author - An object with the following attributes.
+  @param {string} content.author.name - The name of the quote author.
+  @param {string} content.author.role - The role of the quote author.
+
+  @param {object} image - An object with the following attributes.
+  @param {string} image.src
+  @param {string} image.alt
+
+  @param {string[]} decorators - array of decorative image sources.
+#}-->
+{% macro communityQuote(content, image, decorators) %}
+  <figure class="community-quote">
+    {% for decorator in decorators %}<img class="community-quote__decorator" src="{{decorator}}" alt="" aria-hidden="true">{% endfor %}
+    <img class="community-quote__image" src="{{image.src}}" alt="{{image.alt}}">
+    <figcaption class="community-quote__caption">
+      <blockquote class="community-quote__block">
+        <p class="type--h3">{{content.copy}}</p>
+        <cite class="community-quote__citation type--caption">
+          <strong>{{content.author.name}}</strong>
+          {{content.author.role}}
+        </cite>
+      </blockquote>
+    </figcaption>
+  </figure>
+{% endmacro %}

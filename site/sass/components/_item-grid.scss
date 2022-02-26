@@ -14,13 +14,21 @@
   position: relative;
   z-index: 10;
 
+  &__title,
+  &__subtitle {
+    text-align: center;
+  }
+
   &__title {
     margin: 0 auto;
     max-width: pxRem(640px);
     padding: 0 calc(var(--shape-circle--size) / 6);
     position: relative;
-    text-align: center;
     z-index: 3;
+  }
+
+  &__subtitle {
+    margin-top: 0.75rem;
   }
 
   &__content {
@@ -56,6 +64,18 @@
     &__content {
       grid-template-columns: repeat(auto-fit, minmax(pxRem(256px), 1fr));
       justify-content: center;
+    }
+  }
+
+  &--quote & {
+    &__content {
+      grid-template-columns: repeat(auto-fit, minmax(pxRem(215px), 1fr));
+      justify-items: center;
+
+      @include mq(741px) {
+        justify-items: flex-start;
+        margin-top: 5.5rem;
+      }
     }
   }
 
