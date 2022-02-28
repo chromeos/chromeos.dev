@@ -28,11 +28,12 @@
   }
 
   &--high {
-    background-color: var(--primary-blue);
-    border: 1px solid var(--primary-blue);
+    background-color: var(--blue-700);
+    border: 1px solid var(--blue-700);
     color: var(--white);
 
-    &:hover {
+    &:hover,
+    &:active {
       background-color: var(--secondary-blue);
       border-color: var(--secondary-blue);
     }
@@ -40,11 +41,6 @@
     &:focus-visible {
       outline: var(--red-650) solid 2px;
       outline-offset: 2px;
-    }
-
-    &:active {
-      background-color: var(--tertiary-blue);
-      border-color: var(--tertiary-blue);
     }
   }
 
@@ -136,10 +132,6 @@
     &:focus-visible {
       outline: 3px solid var(--secondary-blue);
       outline-offset: 5px;
-    }
-
-    &:active {
-      color: var(--tertiary-blue);
     }
   }
 
