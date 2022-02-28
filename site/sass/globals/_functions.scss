@@ -35,7 +35,7 @@
 //    padding: fluid((744px 1140px), (20px 40px));
 //  }
 //  @returns clamp($min-value, <responsive-value>, $max-value)
-@function fluid($widths, $values, $rem: true) {
+@function generateScaling($widths, $values, $rem: true) {
   $params: (
     'min-width': pxCast(nth($widths, 1), $rem),
     'max-width': pxCast(nth($widths, 2), $rem),
