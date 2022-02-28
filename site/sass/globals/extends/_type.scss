@@ -78,7 +78,7 @@
   &--quote {
     @include fontSetup(20px, 28px, 500);
     color: var(--grey-700);
-    font-family: $font-google-sans;
+    font-family: $font-body;
   }
 
   &--eyebrow {
