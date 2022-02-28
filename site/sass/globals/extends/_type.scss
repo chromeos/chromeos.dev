@@ -37,14 +37,14 @@
   &--h4 {
     @extend %type--header;
     @include flexFont((16px 22.4px), (20px 28px), (22px 30.8px));
-    font-family: $font-google-sans;
+    font-family: $font-body;
     letter-spacing: -0.01em;
   }
 
   &--h5 {
     @extend %type--header;
     @include flexFont((14px 19.6px), (16px 19.2px), (18px 21.6px));
-    font-family: $font-google-sans;
+    font-family: $font-body;
     font-weight: 500;
     letter-spacing: -0.01em;
   }
@@ -53,13 +53,13 @@
     @extend %type--header;
 
     @include flexFont((14px 24px), (16px 28px), (16px 28px), 500);
-    font-family: $font-google-sans;
+    font-family: $font-body;
   }
 
   &--base {
     @include fontSetup(16px, 24px, 400);
     color: var(--grey-900);
-    font-family: $font-google-sans;
+    font-family: $font-body;
     letter-spacing: -0.01em;
   }
 
@@ -85,7 +85,7 @@
     @extend %type--header;
     @include fontSetup(14px, 14px, 500);
     display: inline-block;
-    font-family: $font-google-sans;
+    font-family: $font-body;
     letter-spacing: 0.01em;
     text-transform: uppercase;
   }
