@@ -9,8 +9,8 @@ authors:
   - nataliagvak
   - vivekmistry
 featured:
-  title: '2021 Recap: Web on Chrome OS'
-  desc: Learn how web developers created powerful PWAs to deliver scalable and engaging experiences for desktop users on Chrome OS.
+  title: Powerful apps fueled by the web
+  desc: How developers are engaging an expanding Chrome OS audience.
   images:
     - image: ix://posts/web-recap-2021/ChromeOS_EOY_Header.png
       alt: Illustration of three Chromebooks, one with a financial app, one with a video player, and one with a music mixing app, with a mug of coffee and a speaker on each side of the Chromebooks.
