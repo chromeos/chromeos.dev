@@ -30,7 +30,7 @@ Since the beginning of 2021, desktop PWA installs have grown by 270%.[^1]
 
 ![Animation showing 270% increase in PWA installs year-over-year](ix://posts/web-recap-2021/ChromeOS_EOY_Inline1_R4.gif)
 
-This growth has also led to increasing app usage on Chromebooks by [over 190% in the same period](https://chromeos.dev/en/posts/simple-payments-that-users-trust-monetizing-web-apps-in-google-play). When you combine PWA growth with the increasing adoption of Chromebooks — which grew 92% YOY in 2020 to become the second-highest-selling desktop computer of the year — it has never been easier for developers to reach and engage users with amazing web experiences.
+This growth has also paired with increasing app usage on Chromebooks by [over 190% in the same period](https://chromeos.dev/en/posts/simple-payments-that-users-trust-monetizing-web-apps-in-google-play). When you combine PWA growth with the increasing adoption of Chromebooks — which grew 92% YOY in 2020 to become the second-highest-selling desktop computer of the year — it has never been easier for developers to reach and engage users with amazing web experiences.
 
 As we keep rolling in 2022, we’re eager to see what developers can achieve while we continue to grow the platform. Here are Chrome OS improvements that we’ve been working on and a rundown of developers who created powerful PWAs.
 
