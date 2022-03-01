@@ -57,7 +57,7 @@ For some more PWA inspiration, here are a few more notable examples of developme
 > {cite="Hooman Skari, CTO and Co-founder, Artboard Studio "}
 
 - [BeFunky](https://www.befunky.com/), a photo editor, **doubled its average user session time** after switching to the PWA version of the editor.
-- [Clipchamp](https://clipchamp.com/en/), a video creation and editing suite, has seen a **97% monthly growth in users** after launching its PWA.
+- [Clipchamp](https://clipchamp.com/en/), a video creation and editing suite, has seen a sharp **growth in PWA installs, increasing at a rate of 97% a month** since the launch.
 - [Cloud Stop Motion](https://app.cloudstopmotion.com/), a stop-motion animation creator, saw a **quick jump in user engagement** compared to its desktop app after launching its PWA.
 
 > Cloud Stop Motion reached more users in 12 months than our desktop app reached in 10 years!
