@@ -21,7 +21,7 @@
   &__stat {
     @include statsCircle(80px, 120px, 160px);
     @include flexFont((16px 16px), (44px 44px), (60px 60px));
-    font-family: $font-google-sans-display;
+    font-family: $font-google-sans;
   }
 
   &__desc {
