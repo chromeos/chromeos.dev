@@ -165,7 +165,7 @@
     "workbox-navigation-preload": "^6.4.2",
     "workbox-precaching": "^6.4",
     "workbox-recipes": "^6.4",
-    "workbox-routing": "^6.4",
+    "workbox-routing": "^6.5",
     "workbox-strategies": "^6.4"
   },
   "private": true,
