@@ -4,7 +4,9 @@
   @param {object} navSection - Object containing the following attributes.
   @param {string} navSection.title - Nav section title.
   @param {string} navSection.desc - Nav section description.
-  @param {string} navSection.icon - Nav section icon.
+  @param {object} navSection.icon - Nav section icon.
+  @param {string} navSection.icon.name - ID of icon within spritesheet.
+  @param {string} navSection.icon.background - Color to apply to the icon's background circle.
   @param {object[]} navSection.sections - List of sections representing the sub-navigation of the site.
   @param {string} navSection.sections[].title - Title of the subnav section.
   @param {string} navSection.sections[].url - Url of the subnav section.
@@ -13,16 +15,16 @@
 {% from 'icon.njk' import icon %} {% macro cardSubnav(navSection, locale) -%}
 <article class="card-subnav">
   <header class="card-subnav__header">
-    <div class="card-subnav__icon-wrapper">
-      {{ icon(navSection.icon, 'card-subnav__icon') }}
+    <h4 class="card-subnav__title type--h3">{{ navSection.title }}</h4>
+    <div class="card-subnav__icon-wrapper card-subnav__icon-wrapper--{{navSection.icon.background}}">
+      {{ icon(navSection.icon.name, 'card-subnav__icon') }}
     </div>
-    <h4 class="card-subnav__title type--h4">{{ navSection.title }}</h4>
   </header>
-  <p class="card-subnav__body type--large">{{ navSection.desc }}</p>
+  <p class="card-subnav__body type--base">{{ navSection.desc }}</p>
   <ul class="card-subnav__sections">
     {% if navSection.sections %} {% for section in navSection.sections %}
     <li class="card-subnav__section type--h5">
-      <a href="/{{locale}}/{{section.url}}" class="card-subnav__anchor">
+      <a href="/{{locale}}/{{section.url}}" class="card-subnav__anchor type--h5">
         {{section.title}}
         <span class="card-subnav__section-icon" aria-hidden="true">
           {{ icon('arrow-forward', 'card-subnav__arrow icon--animated') }}
