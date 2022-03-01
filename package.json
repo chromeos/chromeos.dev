@@ -99,7 +99,7 @@
     "eslint-config-prettier": "^8.4",
     "eslint-plugin-ava": "^13.2",
     "eslint-plugin-import": "^2.25",
-    "eslint-plugin-prettier": "^3.4",
+    "eslint-plugin-prettier": "^4.0",
     "eslint-plugin-spellcheck": "^0.0",
     "esm": "^3.2",
     "express": "^4.17",
