@@ -159,7 +159,7 @@
     "service-worker-includes": "^1.0.1",
     "vite-plugin-pwa": "^0.11.13",
     "workbox-broadcast-update": "^6.4.2",
-    "workbox-cacheable-response": "^6.4",
+    "workbox-cacheable-response": "^6.5",
     "workbox-expiration": "^6.4",
     "workbox-google-analytics": "^6.4",
     "workbox-navigation-preload": "^6.4.2",
