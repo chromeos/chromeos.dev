@@ -21,13 +21,14 @@
 
   &__title {
     margin: 0 auto;
-    max-width: pxRem(640px);
+    max-width: 30ch;
     padding: 0 calc(var(--shape-circle--size) / 6);
     position: relative;
     z-index: 3;
   }
 
   &__subtitle {
+    color: var(--grey-650);
     margin-top: 1rem;
 
     @supports (margin-top: clamp(1px, 1vw, 2px)) {

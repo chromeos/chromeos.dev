@@ -23,7 +23,7 @@
   <p class="card-subnav__body type--base">{{ navSection.desc }}</p>
   <ul class="card-subnav__sections">
     {% if navSection.sections %} {% for section in navSection.sections %}
-    <li class="card-subnav__section type--h5">
+    <li class="card-subnav__section">
       <a href="/{{locale}}/{{section.url}}" class="card-subnav__anchor type--h5">
         {{section.title}}
         <span class="card-subnav__section-icon" aria-hidden="true">
