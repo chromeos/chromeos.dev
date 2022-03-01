@@ -23,7 +23,7 @@
 // @param {number | boolean} $weight - Font weight, or false
 @mixin flexFont($sm, $md, $lg, $weight: false) {
   // Determine scaling factor so that the large font size is reached at 1024px
-  $font-scale: math.div(nth($lg, 1), 10.24px) * 1vw;
+  $font-scale: math.div(nth($lg, 1), 14.4px) * 1vw;
   // Set up clamp function
   $font-clamp: clamp(pxEm(nth($sm, 1)), $font-scale, pxEm(nth($lg, 1)));
   // Setup basic font styling from medium size
