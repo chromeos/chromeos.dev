@@ -2,7 +2,7 @@
   $shadow-color: rgba(map-get($google-colors, 'grey-800'), 0.15);
   $this: &;
 
-  @include fontSetup(16px, 24px, 500);
+  @include fontSetup(16px, 18.32px, 500);
   align-items: center;
   border: 0;
   border-radius: 4px;
@@ -10,48 +10,37 @@
   display: flex;
   font-family: $font-google-sans;
   justify-content: center;
-  padding: 0.75em 1.5em;
+  min-width: pxRem(150px);
+  padding: 1rem 2.5rem;
   text-decoration: none;
   text-rendering: optimizeLegibility;
 
   &--left-icon {
-    padding: 0.75em 1em 0.75em 0.75em;
-
     .icon {
-      margin-right: 0.5em;
+      margin-right: 0.5rem;
     }
   }
 
   &--right-icon {
-    padding: 0.75em 0.75em 0.75em 1em;
-
     .icon {
-      margin-left: 0.5em;
+      margin-left: 0.625rem;
     }
   }
 
   &--high {
-    background-color: var(--blue-600);
-    border: 2px solid var(--blue-600);
+    background-color: var(--blue-700);
+    border: 1px solid var(--blue-700);
     color: var(--white);
 
     &:hover,
-    &:focus,
     &:active {
-      background-color: var(--blue-800);
+      background-color: var(--secondary-blue);
+      border-color: var(--secondary-blue);
     }
 
-    &:hover,
-    &:active {
-      border-color: var(--blue-800);
-    }
-
-    &:focus {
-      border-color: var(--blue-200);
-    }
-
-    &:active {
-      box-shadow: 0 1px 3px 1px $shadow-color;
+    &:focus-visible {
+      outline: var(--red-650) solid 2px;
+      outline-offset: 2px;
     }
   }
 
@@ -60,20 +49,29 @@
     text-align: center;
   }
 
+  &--high,
+  &--low {
+    letter-spacing: -0.01em;
+  }
+
   &--medium {
     background-color: var(--white);
-    border: 1px solid var(--grey-300);
+    border: 1px solid var(--grey-700);
+    color: var(--grey-900);
 
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: var(--blue-25);
-      border-color: var(--blue-600);
+    &:hover {
+      background-color: var(--grey-300);
+      border-color: var(--grey-700);
+    }
+
+    &:focus-visible {
+      background-color: var(--white);
+      border-color: var(--primary-blue);
+      outline: var(--primary-blue) solid 2px;
     }
 
     &:active {
-      background-color: var(--blue-50);
-      box-shadow: 1px 0 1px var(--blue-600), -1px 0 1px var(--blue-600), 0 1px 1px var(--blue-600), 0 -1px 1px var(--blue-600);
+      background-color: var(--grey-350);
     }
   }
 
@@ -97,8 +95,7 @@
       color: var(--blue-600);
     }
   }
-
-  &--medium,
+  /* stylelint-disable-next-line no-duplicate-selectors */
   &--low,
   &--link,
   &--back {
@@ -115,7 +112,7 @@
 
     &:hover,
     &:focus {
-      color: var(--blue-900);
+      color: var(--secondary-blue);
     }
 
     &:focus {
@@ -124,6 +121,17 @@
       &::before {
         background-color: var(--blue-50);
       }
+    }
+  }
+
+  &--low {
+    &:focus {
+      background-color: transparent;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--secondary-blue);
+      outline-offset: 5px;
     }
   }
 

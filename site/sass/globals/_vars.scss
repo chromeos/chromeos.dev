@@ -5,10 +5,9 @@ $breakpoint: (
 );
 
 // Font families used across the site.
-$font-roboto: 'Roboto', Arial, Helvetica, sans-serif;
-$font-google-sans: 'Google Sans', $font-roboto;
-$font-google-sans-display: 'Google Sans Display', $font-google-sans;
-$font-mono: 'Roboto Mono', monospace;
+$font-body: 'Google Sans Text', Arial, Helvetica, sans-serif;
+$font-google-sans: 'Google Sans', $font-body;
+$font-mono: 'Google Sans Mono', monospace;
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 
