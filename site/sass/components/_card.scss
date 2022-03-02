@@ -11,14 +11,10 @@
     display: flex;
     flex-flow: column;
     height: 100%;
-    padding: pxRem(40px);
+    padding: 2.5rem;
     position: relative;
     width: 100%;
     z-index: 1;
-
-    @include mq(0 739px) {
-      text-align: center;
-    }
 
     /* stylelint-disable no-descending-specificity */
     #{$self}--rounded & {
@@ -42,24 +38,32 @@
   }
 
   &__lead-in {
-    margin-bottom: pxRem(24px);
-
-    @include mq(740px) {
-      margin-bottom: pxRem(30px);
-    }
+    margin-bottom: 1.5rem;
   }
 
   &__eyebrow {
+    color: var(--grey-775);
     display: inline-block;
-    margin-bottom: pxRem(8px);
-    margin-left: pxRem(8px);
+
+    [dir='ltr'] & {
+      margin-left: 0.625rem;
+    }
+
+    [dir='rtl'] & {
+      margin-right: 0.625rem;
+    }
   }
 
   &__title {
-    margin-bottom: pxRem(16px);
+    margin-bottom: 0.5rem;
+  }
+
+  &__heading {
+    color: var(--grey-825);
   }
 
   &__body {
+    color: var(--grey-750);
     margin-bottom: pxRem(24px);
   }
 
@@ -104,10 +108,7 @@
   &__icon {
     align-self: flex-end;
     fill: var(--blue-600);
-
-    @include mq(0 739px) {
-      margin: 0 auto;
-    }
+    justify-content: flex-start;
 
     a:hover &,
     a:focus & {

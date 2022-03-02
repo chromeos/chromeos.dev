@@ -17,13 +17,25 @@
 
   &--left-icon {
     .icon {
-      margin-right: 0.5rem;
+      [dir='ltr'] & {
+        margin-right: 0.5rem;
+      }
+
+      [dir='rtl'] {
+        margin-left: 0.5rem;
+      }
     }
   }
 
   &--right-icon {
     .icon {
-      margin-left: 0.625rem;
+      [dir='ltr'] & {
+        margin-left: 0.625rem;
+      }
+
+      [dir='rtl'] & {
+        margin-right: 0.625rem;
+      }
     }
   }
 

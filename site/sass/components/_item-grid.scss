@@ -53,11 +53,8 @@
 
   &--posts & {
     &__content {
-      margin-top: pxRem(50px);
-
-      @supports (margin-top: clamp(1px, 1vw, 2px)) {
-        margin-top: fluid((744px 1440px), (38px 65px));
-      }
+      grid-template-columns: repeat(auto-fit, minmax(pxRem(325px), 1fr));
+      justify-items: center;
     }
   }
 
