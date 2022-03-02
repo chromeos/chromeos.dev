@@ -37,29 +37,24 @@
     /* stylelint-enable no-descending-specificity */
   }
 
-  &__lead-in {
-    margin-bottom: 1.5rem;
-  }
-
-  &__eyebrow {
-    color: var(--grey-775);
-    display: inline-block;
-
+  &__topic {
     [dir='ltr'] & {
-      margin-left: 0.625rem;
+      margin-right: 0.625rem;
     }
 
     [dir='rtl'] & {
-      margin-right: 0.625rem;
+      margin-left: 0.625rem;
     }
   }
 
-  &__title {
-    margin-bottom: 0.5rem;
+  &__eyebrow {
+    color: var(--grey-750);
+    display: inline-block;
   }
 
   &__heading {
-    color: var(--grey-825);
+    color: var(--grey-850);
+    margin: 1.5rem 0 0.5rem;
   }
 
   &__body {
