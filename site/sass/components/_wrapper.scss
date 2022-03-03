@@ -55,12 +55,12 @@
     padding-right: $inline-spacing-m;
 
     @supports (margin: clamp(1px, 1vw, 2px)) {
-      padding-left: fluid((744px 1140px), (24px 60px));
-      padding-right: fluid((744px 1140px), (24px 60px));
+      padding-left: generateScaling((744px 1140px), (24px 60px));
+      padding-right: generateScaling((744px 1140px), (24px 60px));
 
       @include mq(1140px) {
-        padding-left: fluid((1140px 1440px), (60px 80px));
-        padding-right: fluid((1140px 1440px), (60px 80px));
+        padding-left: generateScaling((1140px 1440px), (60px 80px));
+        padding-right: generateScaling((1140px 1440px), (60px 80px));
       }
     }
   }

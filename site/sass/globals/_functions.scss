@@ -12,35 +12,36 @@
   @return math.div($px, $base-font-size) * 1rem;
 }
 
-// Cast a value to a rem or em if necessary.
-@function coerce($length, $rem: true) {
-  $coerced: $length;
-  @if unitless($length) {
-    $coerced: if($rem, pxRem($length * 1px), pxEm($length * 1px));
-  } @else {
-    $coerced: if($rem, pxRem($length), pxEm($length));
+/*
+  @desc  Cast a value to a rem or em if necessary.
+
+  @param {length | number} $length - A px length or unitless number.
+  @param {boolean} $rem (optional) - Cast the provided px length or unitless number to a rem. When false, casts to em instead.
+*/
+@function pxCast($length, $rem: true) {
+  @if unitless($length) and $length != 0 {
+    @error 'pxCast: $length is unitless and non-zero.';
   }
-  @return $coerced;
+  $casted: if(unitless($length), $length * 1px, $length);
+  @return if($rem, pxRem($casted), pxEm($casted));
 }
 
-/**
-  @desc Scale a value from one screen width to another based on the difference between the minimum
-      and maximum values. Requires clamp() support.
-  @param {length()} $widths - List of lengths, in px, representing the range to scale between the min and max values.
-  @param {length()} $values - List of lengths, in px, representing the min and max values to scale between.
-  @param {boolean} $rem (optional) - output units in rems. When false, outputs units in ems.
-  @example <caption>Between screen sizes of 744px and 1140px, linearly scale the padding from 20px to 40px.</caption>
-  .selector {
-    padding: fluid((744px 1140px), (20px 40px));
-  }
-  @returns {clamp($min-value, <responsive-value>, $max-value)}
-*/
-@function fluid($widths, $values, $rem: true) {
+//  @desc Scale a value from one screen width to another based on the difference between the minimum
+//    and maximum values. Requires clamp() support.
+//  @param {length()} $widths - List of lengths, in px, representing the range to scale between the min and max values.
+//  @param {length()} $values - List of lengths, in px, representing the min and max values to scale between.
+//  @param {boolean} $rem (optional) - output units in rems. When false, outputs units in ems.
+//  @example <caption>Between screen sizes of 744px and 1140px, linearly scale the padding from 20px to 40px.</caption>
+//  .selector {
+//    padding: generateScaling((744px 1140px), (20px 40px));
+//  }
+//  @returns clamp($min-value, <responsive-value>, $max-value)
+@function generateScaling($widths, $values, $rem: true) {
   $params: (
-    'min-width': coerce(nth($widths, 1), $rem),
-    'max-width': coerce(nth($widths, 2), $rem),
-    'min-value': coerce(nth($values, 1), $rem),
-    'max-value': coerce(nth($values, 2), $rem),
+    'min-width': pxCast(nth($widths, 1), $rem),
+    'max-width': pxCast(nth($widths, 2), $rem),
+    'min-value': pxCast(nth($values, 1), $rem),
+    'max-value': pxCast(nth($values, 2), $rem),
   );
 
   $min-width: map-get($params, 'min-width');

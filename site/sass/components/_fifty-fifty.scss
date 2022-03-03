@@ -12,13 +12,13 @@
 
   @include mq(608px) {
     margin-bottom: 0;
-    padding: fluid((608px 1440px), (90px 113px)) 0 fluid((608px 1440px), (0 40px));
+    padding: generateScaling((608px 1440px), (90px 113px)) 0 generateScaling((608px 1440px), (0 40px));
   }
 
   &__content {
     margin-bottom: pxRem(30px);
-    margin-left: fluid((1140px 1600px), (0 122px));
-    max-width: fluid((744px 1440px), (340px 490px));
+    margin-left: generateScaling((1140px 1600px), (0 122px));
+    max-width: generateScaling((744px 1440px), (340px 490px));
     text-align: center;
 
     @include mq(608px) {
@@ -43,12 +43,12 @@
     position: relative;
 
     .shape--bracket-circle {
-      height: fluid((320px 1440px), (308px 420px));
+      height: generateScaling((320px 1440px), (308px 420px));
       left: calc(100% + pxRem(24px));
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: fluid((320px 1440px), (308px 420px));
+      width: generateScaling((320px 1440px), (308px 420px));
 
       @include mq(608px) {
         left: math.percentage(math.div(2, 3));
