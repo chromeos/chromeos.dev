@@ -5,16 +5,16 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  max-width: pxRem(550px);
+  max-width: 65ch;
   text-align: center;
 
   > :not(:last-child) {
-    margin-bottom: pxRem(20px);
+    margin-bottom: 1.5rem;
   }
 
   .wrapper__background--dark & {
-    .type--h4,
-    .type {
+    &__heading,
+    &__body {
       color: var(--white);
     }
   }

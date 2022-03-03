@@ -7,14 +7,14 @@
 @use 'sass:math';
 
 .wrapper {
-  $content-max-width: pxRem(1440px);
+  $content-max-width: pxRem(1600px);
 
-  $max-width: 1024px;
+  $max-width: 1440px;
   $scaler: math.div(math.div($max-width, 100), 1vw);
 
-  $block-spacing-s: 4.5rem;
-  $block-spacing-l: 5rem;
-  $inline-spacing-s: 3.75rem;
+  $block-spacing-s: 8.25rem;
+  $block-spacing-l: 10.5rem;
+  $inline-spacing-s: 1.5rem;
   $inline-spacing-l: 5rem;
 
   $bumper-s: 0.875rem;
