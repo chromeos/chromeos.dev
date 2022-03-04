@@ -1,0 +1,12 @@
+{
+    "layout": "tech-detail",
+    "tags": ["education"],
+    "section": "education",
+    "eyebrow": "Education",
+    "resources": [
+      {
+        "title": "Chrome Extensions",
+        "url": "https://developer.chrome.com/docs/extensions/"
+      }
+    ]
+  }
