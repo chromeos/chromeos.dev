@@ -1,37 +1,39 @@
 <!--{#
   Renders a fifty-fifty module.
 
-  @param {object} content - An object with the following attributes.
-  @param {string} content.title
-  @param {string} content.copy
+  @param {object} content - An object containing the following attributes.
+  @param {string} content.title - title of the content.
+  @param {string} content.copy - Body copy of the content.
 
-  @param {object} cta - An object with the following attributes.
-  @param {string} cta.url
-  @param {string} cta.text
+  @param {object} cta - An object containing the following attributes.
+  @param {string} cta.url - URL for the cta.
+  @param {string} cta.text - CTA link text.
 
-  @param {array} images - An array with images containing the following attributes.
-  @param {string} image.src
-  @param {string} image.alt
+  @param {object[]} images - An array of image objects containing the following attributes.
+  @param {string} image.src - Image source.
+  @param {string} image.alt - Image description.
 
-  @param {array} shapes - shapes to render behind the primary image.
-  @param {string} shape.type - The type of shape to be rendered.
-  @param {string} shape.fill - Fills the paths or the background of the shape with the provided CSS custom property color.
+  @param {object} modifiers (optional) - An object containing the following attributes.
+  @param {string} modifiers.class A custom class.
+  @param {boolean} modifiers.flip - Invert the order of the image and text content.
 #}-->
-{% from 'icon.njk' import icon %} {% from 'decor-shape.njk' import decorShape %}
-{% macro fiftyFifty(content, cta, images, shapes) %}
-  <article class="fifty-fifty {{modifiers.class}}">
-    <div class="fifty-fifty__content">
-      <h3 class="type--h1">{{content.title | striptags(true) | escape | nl2br}}</h3>
-      <p class="type--base">{{content.copy}}</p>
-      <a href="{{cta.url}}" class="cta cta--low cta--right-icon fifty-fifty__cta">{{cta.text}}{{ icon('arrow-forward') }}</a>
-    </div>
-    <div class="fifty-fifty__image-wrapper">
-      {% for shape in shapes %}
-        {{ decorShape(shape.type, shape.fill) }}
-      {% endfor %}
-      {% for image in images %}
-        <img src="{{image.src}}" alt="{{image.alt}}" class="fifty-fifty__image">
-      {% endfor %}
-    </div>
-  </article>
+{% from 'icon.njk' import icon %}
+{% macro fiftyFifty(content, cta, images, modifiers) %}
+{% set imageWrapper %}
+<div class="fifty-fifty__image-wrapper">
+  {% for image in images %}
+    <img src="{{image.src}}" alt="{{image.alt}}" class="fifty-fifty__image">
+  {% endfor %}
+</div>
+{% endset %}
+
+<article class="fifty-fifty {{modifiers.class}} {{ 'fifty-fifty--flip' if modifiers.flip }}">
+  {% if modifiers.flip %}{{ imageWrapper | safe }}{% endif %}
+  <div class="fifty-fifty__content">
+    <h3 class="type--h1">{{content.title | striptags(true) | escape | nl2br}}</h3>
+    <p class="type--base">{{content.copy}}</p>
+    <a href="{{cta.url}}" class="cta cta--link cta--right-icon fifty-fifty__cta">{{cta.text}}</a>
+  </div>
+  {% if not modifiers.flip %}{{ imageWrapper | safe }}{% endif %}
+</article>
 {% endmacro %}

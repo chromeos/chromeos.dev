@@ -34,15 +34,11 @@ linux:
     url: /en/linux
     text: Learn more
   images:
+  # TODO: Update to imgix sources
     - src: https://drive.google.com/uc?id=1HS77cWV8yRK6aNW2t6FxxFWQb9k8b7nB
-      alt: A Chromebook with the Vim text editor opened.
+      alt: Opened Chromebook with a birds eye view of a beach set as its background.
     - src: https://drive.google.com/uc?id=18bGh5nk3c6iOXC96VSzWYKI_Ima7ZvFo
       alt: A Vim text editor with code.
-  shapes:
-    - type: bracket-circle
-      fill: blue-600
-    - type: semicircle
-      fill: secondary-blue-light
 posts:
   title: The latest on Chrome OS
   modifiers:
