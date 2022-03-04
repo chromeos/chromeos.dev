@@ -56,19 +56,22 @@
 
     @supports (margin: clamp(1px, 1vw, 2px)) {
       padding-left: $inline-spacing-r;
-      padding-right: $inline-spacing-r;
       padding-left: fluid(pxRem(744px), pxRem(1140px), pxRem(24px), pxRem(60px));
+      padding-right: $inline-spacing-r;
       padding-right: fluid(pxRem(744px), pxRem(1140px), pxRem(24px), pxRem(60px));
 
       @include mq(1140px) {
         padding-left: fluid(pxRem(1140px), $content-max-width, pxRem(60px), pxRem(80px));
         padding-right: fluid(pxRem(1140px), $content-max-width, pxRem(60px), pxRem(80px));
       }
-
     }
   }
 
-  // sass-lint:disable no-universal-selectors
+  &__contained > * {
+    margin: 0 auto;
+    max-width: $content-max-width;
+  }
+
   &--rhythm > *:not(:last-child) {
     margin-bottom: $block-spacing-m;
 
@@ -76,7 +79,6 @@
       margin-bottom: $block-spacing-r;
     }
   }
-  // sass-lint:enable no-universal-selectors
 
   &--full-top {
     margin-top: $block-spacing-m;
@@ -184,13 +186,6 @@
     overflow-x: hidden;
   }
 
-  // sass-lint:disable no-universal-selectors
-  &__contained > * {
-    margin: 0 auto;
-    max-width: $content-max-width;
-  }
-  // sass-lint:enable no-universal-selectors
-
   &__background {
     background-color: var(--grey-50);
     overflow: hidden;
@@ -215,30 +210,31 @@
     $circle-m: math.div(($circle-l + $circle-s), 2);
 
     $medium: math.div($circle-m, (math.div(math.div($circle-l, $scaler), 100vw)));
-    #{--circle-radius}: $circle-s;
-    #{--circle-offset}: -50; // sass-lint:disable-line no-duplicate-properties
+
+    --circle-radius: #{$circle-s};
+    --circle-offset: -50;
 
     @include mq($medium) {
-      #{--circle-radius}: $circle-m;
+      --circle-radius: #{$circle-m};
     }
 
     @include mq($max-width) {
-      #{--circle-radius}: $circle-l;
-      #{--circle-offset}: 0; // sass-lint:disable-line no-duplicate-properties
+      --circle-radius: #{$circle-l};
+      --circle-offset: 0;
     }
   }
 
   &__green-circle {
-    #{--shape-color}: var(--green-500);
+    --shape-color: var(--green-500);
   }
 
   &__yellow-circle {
-    #{--shape-color}: var(--yellow-500);
+    --shape-color: var(--yellow-500);
   }
 
   &--full-circles {
-    #{--circle-type}: full-circles;
-    #{--shape-color}: var(--blue-600), var(--yellow-500); // sass-lint:disable-line no-duplicate-properties
+    --circle-type: full-circles;
+    --shape-color: var(--blue-600), var(--yellow-500);
     background-image: paint(circles);
     height: 100%;
   }

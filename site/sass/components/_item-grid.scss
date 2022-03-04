@@ -10,7 +10,7 @@
 .item-grid {
   $bkpt-grid--large: 100ch;
   // We explicitly need the three values here to match the design margin on large resolutions.
-  padding: var(--block-start-padding, 0) var(--inline-padding, 0) var(--block-end-padding, 0); // sass-lint:disable-line shorthand-values
+  padding: var(--block-start-padding, 0) var(--inline-padding, 0) var(--block-end-padding, 0);
   position: relative;
   z-index: 10;
 
@@ -28,8 +28,8 @@
   }
 
   &__subtitle {
-    max-width: pxRem(450px);
     margin: pxRem(8px) auto 0;
+    max-width: pxRem(450px);
   }
 
   &__content {
@@ -55,8 +55,8 @@
 
   &--validation & {
     &__content {
-      grid-template: auto / 1fr;
       grid-gap: pxRem(70px) pxRem(20px);
+      grid-template: auto / 1fr;
       margin-top: pxRem(80px);
 
       @include mq(725px) {
@@ -67,7 +67,7 @@
 
   &--community & {
     &__content {
-      align-items: start;
+      align-items: flex-start;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;

@@ -3,7 +3,7 @@
 .image-card {
   $content-space: pxRem(20px);
   $this: &;
-  #{'--offset-orientation'}: -1;
+  --offset-orientation: -1;
 
   align-items: center;
   display: flex;
@@ -43,14 +43,14 @@
 
   &:nth-of-type(even),
   &--flip {
-    #{'--offset-orientation'}: 1;
+    --offset-orientation: 1;
   }
 
   &--flip {
     flex-direction: row-reverse;
 
     &:nth-of-type(even) {
-      #{'--offset-orientation'}: -1;
+      --offset-orientation: -1;
       flex-direction: row;
     }
   }

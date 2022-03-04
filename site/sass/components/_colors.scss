@@ -4,6 +4,25 @@
     #{$name}: #{$v};
   }
 
-  #{'--black'}: map-get($google-colors, 'grey-900');
-  #{'--white'}: #fff;
+  $theming-colors: (
+    'primary-blue': map-get($google-colors, 'blue-650'),
+    'primary-green': map-get($google-colors, 'green-450'),
+    'primary-yellow': map-get($google-colors, 'yellow-450'),
+    'primary-red': map-get($google-colors, 'red-650'),
+    'secondary-blue': map-get($google-colors, 'blue-850'),
+    'secondary-green': map-get($google-colors, 'green-850'),
+    'secondary-yellow': map-get($google-colors, 'yellow-750'),
+    'secondary-red': map-get($google-colors, 'red-750'),
+    'tertiary-blue': map-get($google-colors, 'blue-250'),
+    'tertiary-green': map-get($google-colors, 'green-250'),
+    'tertiary-yellow': map-get($google-colors, 'yellow-250'),
+    'tertiary-red': map-get($google-colors, 'red-250'),
+    'black': map-get($google-colors, 'grey-900'),
+    'white': #ffffff,
+  );
+
+  @each $c, $v in $theming-colors {
+    $name: '--#{$c}';
+    #{$name}: #{$v};
+  }
 }

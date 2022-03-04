@@ -38,7 +38,7 @@ class OfflineSearch {
     // We can test just the one because we're going to put both in at once
     // Also want to do Promise.all instead of individual requests so they can be run in parallel
     if (!(language in this.cache_.index)) {
-      const files = await Promise.all([`/js/indexes/index-${language}.json`, `/js/indexes/preview-${language}.json`].map(f => fetch(f).then(r => r.json())));
+      const files = await Promise.all([`/js/indexes/index-${language}.json`, `/js/indexes/preview-${language}.json`].map((f) => fetch(f).then((r) => r.json())));
       this.cache_.index[language] = files[0];
       this.cache_.preview[language] = files[1];
     }
@@ -66,7 +66,10 @@ class OfflineSearch {
       result.data = searchResults;
     }
 
-    result.pagination = { items: searchResults.length, pages: Math.ceil(searchResults.length / pageSize) };
+    result.pagination = {
+      items: searchResults.length,
+      pages: Math.ceil(searchResults.length / pageSize),
+    };
     return result;
   }
 
@@ -102,7 +105,7 @@ class OfflineSearch {
 
     const idx = lunr.Index.load(data.index);
     const results = await Promise.all(
-      idx.search(query).map(async r => {
+      idx.search(query).map(async (r) => {
         const preview = data.preview[r.ref];
         preview.offline = (await this.storage_.match(preview.href)) ? true : false;
         return preview;

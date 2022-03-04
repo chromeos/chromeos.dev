@@ -8,7 +8,7 @@ export function throttle(fn) {
   /**
    * @param {Event} e
    */
-  return function(e) {
+  return function (e) {
     if (!tick) {
       window.requestAnimationFrame(() => {
         fn(e);

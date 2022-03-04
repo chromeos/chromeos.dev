@@ -1,0 +1,67 @@
+{
+  "extends": ["stylelint-config-recommended", "stylelint-config-sass-guidelines", "stylelint-config-prettier"],
+  "rules": {
+    "indentation": 2,
+    "string-quotes": "single",
+    "no-duplicate-selectors": true,
+    "color-hex-case": "lower",
+    "color-hex-length": "long",
+    "color-named": "never",
+    "selector-no-qualifying-type": true,
+    "selector-attribute-quotes": "always",
+    "declaration-block-trailing-semicolon": "always",
+    "declaration-no-important": true,
+    "property-no-vendor-prefix": true,
+    "value-no-vendor-prefix": true,
+    "number-leading-zero": "always",
+    "function-url-quotes": "always",
+    "font-weight-notation": "numeric",
+    "font-family-name-quotes": "always-where-required",
+    "at-rule-no-vendor-prefix": true,
+    "selector-pseudo-element-colon-notation": "double",
+    "selector-no-vendor-prefix": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "selector-class-pattern": [
+      "^[_a-z0-9\\-]+$",
+      {
+        "message": "Selector should be written in lowercase with hyphens (selector-class-pattern)"
+      }
+    ],
+    "scss/percent-placeholder-pattern": [
+      "^[_a-z0-9\\-]+$",
+      {
+        "message": "Placeholder selector should be written in lowercase with hyphens (selector-class-pattern)"
+      }
+    ],
+    "max-nesting-depth": [
+      3,
+      {
+        "ignoreAtRules": ["each", "media", "supports", "include", "for"]
+      }
+    ],
+    "scss/at-function-pattern": "^[a-z]+([a-zA-Z0-9-]+[a-zA-Z0-9]+)?$",
+    "scss/at-mixin-pattern": "^[a-z]+([a-zA-Z0-9-]+[a-zA-Z0-9]+)?$",
+    "order/order": [
+      [
+        "dollar-variables",
+        "custom-properties",
+        {
+          "type": "at-rule",
+          "name": "extend"
+        },
+        {
+          "type": "at-rule",
+          "name": "include",
+          "hasBlock": false
+        },
+        "declarations",
+        {
+          "type": "at-rule",
+          "name": "include",
+          "hasBlock": true
+        },
+        "rules"
+      ]
+    ]
+  }
+}
