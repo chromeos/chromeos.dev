@@ -46,17 +46,6 @@
     }
   }
 
-  &--routing & {
-    &__content {
-      grid-gap: pxRem(30px) pxRem(20px);
-      margin: 0;
-
-      @include mq(560px) {
-        grid-template-columns: repeat(auto-fit, minmax(pxRem(452px), 1fr));
-      }
-    }
-  }
-
   &--validation & {
     &__subtitle {
       margin-left: auto;
