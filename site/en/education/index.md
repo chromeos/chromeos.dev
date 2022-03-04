@@ -9,4 +9,3 @@ weight: -8
 ---
 
 Finding ChromeOS in education often occurs because education of the speed, security, and simplicity of ChromeOS and managed deployements.
-
