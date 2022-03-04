@@ -12,8 +12,8 @@
   $max-width: 1440px;
   $scaler: math.div(math.div($max-width, 100), 1vw);
 
-  $block-spacing-s: 5.75rem;
-  $block-spacing-l: 7.5rem;
+  $block-spacing-s: 8.25rem;
+  $block-spacing-l: 10.5rem;
   $inline-spacing-s: 1.5rem;
   $inline-spacing-l: 5rem;
 
@@ -56,14 +56,7 @@
 
     @supports (margin: clamp(1px, 1vw, 2px)) {
       padding-left: $inline-spacing-r;
-      padding-left: fluid(pxRem(744px), pxRem(1140px), pxRem(24px), pxRem(60px));
       padding-right: $inline-spacing-r;
-      padding-right: fluid(pxRem(744px), pxRem(1140px), pxRem(24px), pxRem(60px));
-
-      @include mq(1140px) {
-        padding-left: fluid(pxRem(1140px), $content-max-width, pxRem(60px), pxRem(80px));
-        padding-right: fluid(pxRem(1140px), $content-max-width, pxRem(60px), pxRem(80px));
-      }
     }
   }
 

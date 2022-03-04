@@ -1,80 +1,106 @@
 .validation-card {
   $transparency: rgba(255, 255, 255, 0.001);
+  $column: 0 724px;
+  $scale-range: 375px 725px;
+  $circle-l: 65;
+  $circle-s: 42.5;
+
   justify-self: center;
   max-width: pxRem(306px);
   text-align: center;
 
   &__dt {
-    color: var(--black);
+    --shape-color: var(--black);
+    @include flexFont((48px 62.4px), (60px 68.7px), (80px 91.6px), 500);
+    color: var(--grey-1000);
     display: inline-block;
-    font-size: 60px;
-    font-weight: 500;
+    font-family: $font-google-sans;
     letter-spacing: -0.01em;
-    line-height: 1.145;
     margin-bottom: pxRem(26px);
     position: relative;
     text-align: center;
+
+    &::after {
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      z-index: -1;
+    }
   }
 
-  &__shape {
-    --shape-color: var(--yellow-450);
-    left: 0;
-    position: absolute;
-    z-index: -1;
+  &__dd {
+    color: var(--grey-750);
   }
 
   &--yellow & {
-    &__shape {
-      --shape-color: var(--yellow-450);
+    &__dt::after {
+      --shape-color: var(--primary-yellow);
     }
   }
 
   &--blue & {
-    &__shape {
+    &__dt {
       --shape-color: var(--primary-blue);
     }
   }
 
   &--green & {
-    &__shape {
-      // --primary-green
+    &__dt {
       --shape-color: var(--primary-green);
     }
   }
 
   &--semicircle & {
-    &__shape {
-      --circle-radius: 65;
-      --circle-offset: 65;
+    &__dt::after {
+      #{'--circle-radius'}: $circle-l;
+      #{'--circle-offset'}: $circle-l;
       background-image: paint(circles);
-      height: pxRem(65px);
+      height: pxRem($circle-l * 1px);
       top: 100%;
       transform: translate(-50%, -0%) rotate(210deg);
       transform-origin: top center;
-      width: pxRem(130px);
+      width: pxRem($circle-l * 2px);
     }
   }
 
   &--circle & {
-    &__shape {
-      --circle-radius: 42.5;
-      --circle-offset: 42.5;
+    &__dt::after {
+      #{'--circle-radius'}: $circle-s;
+      #{'--circle-offset'}: $circle-s;
       background-image: paint(circles);
       bottom: 0;
-      height: pxRem(85px);
+      height: pxRem($circle-s * 2px);
       transform: translateX(-50%);
-      width: pxRem(85px);
+      width: pxRem($circle-s * 2px);
     }
   }
 
   &--triangle & {
-    &__shape {
+    &__dt::after {
       background-image: linear-gradient(to bottom left, var(--shape-color), var(--shape-color) 50%, $transparency 50%, $transparency);
       height: pxRem(100px);
       top: 0;
       transform: translate(-50%, -25%) rotate(-15deg);
       transform-origin: bottom right;
       width: pxRem(100px);
+    }
+  }
+
+  // Scale the left values down to zero as screen size increases, if supported.
+  &:first-of-type & {
+    &__dt::after {
+      @supports (left: clamp(1px, 1vw, 2px)) {
+        left: clamp(0rem, 20rem - 44vw, 90%);
+      }
+    }
+  }
+
+  &:last-of-type & {
+    &__dt::after {
+      @supports (left: clamp(1px, 1vw, 2px)) {
+        left: clamp(0rem, 14.5rem - 32vw, 45%);
+      }
     }
   }
 }
