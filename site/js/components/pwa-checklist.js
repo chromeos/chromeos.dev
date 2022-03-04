@@ -48,8 +48,8 @@ export class PWAChecklist {
     let usedInit = [];
 
     if (saved) {
-      availableInit = [...this.apis].filter(api => saved.available.includes(api.id));
-      usedInit = [...this.apis].filter(api => saved.used.includes(api.id));
+      availableInit = [...this.apis].filter((api) => saved.available.includes(api.id));
+      usedInit = [...this.apis].filter((api) => saved.used.includes(api.id));
       if (saved.checked) {
         this.checked = saved.checked;
       }
@@ -69,14 +69,14 @@ export class PWAChecklist {
           if (key === 'used') {
             updater();
             await preferences.set('pwa-checklist', {
-              available: target.available.map(i => i.id),
-              used: val.map(i => i.id),
+              available: target.available.map((i) => i.id),
+              used: val.map((i) => i.id),
               checked,
             });
           } else {
             await preferences.set('pwa-checklist', {
-              available: val.map(i => i.id),
-              used: target.used.map(i => i.id),
+              available: val.map((i) => i.id),
+              used: target.used.map((i) => i.id),
               checked,
             });
           }
@@ -159,18 +159,18 @@ export class PWAChecklist {
     /**
      * @param {Event} e - Event
      */
-    return e => {
+    return (e) => {
       e.preventDefault();
       const available = [...this.apis];
       const used = [];
 
       // Set up used and available
       this.apis
-        .filter(api => api.type.includes(category))
-        .forEach(api => {
+        .filter((api) => api.type.includes(category))
+        .forEach((api) => {
           used.push(api);
           available.splice(
-            available.findIndex(i => i.id === api.id),
+            available.findIndex((i) => i.id === api.id),
             1,
           );
         });
@@ -262,7 +262,7 @@ export class PWAChecklist {
       this.checked.push(target.id);
     } else {
       this.checked.splice(
-        this.checked.findIndex(c => c === target.id),
+        this.checked.findIndex((c) => c === target.id),
         1,
       );
     }
@@ -280,10 +280,10 @@ export class PWAChecklist {
     e.preventDefault();
     const parent = e.target.closest('.pwa-checklist--item');
 
-    const included = this.checklist.used.findIndex(i => i.id === parent.dataset.id);
+    const included = this.checklist.used.findIndex((i) => i.id === parent.dataset.id);
 
     if (included < 0) {
-      const item = this.checklist.available.findIndex(i => i.id === parent.dataset.id);
+      const item = this.checklist.available.findIndex((i) => i.id === parent.dataset.id);
       this.checklist.used.push(this.checklist.available[item]);
       this.checklist.available.splice(item, 1);
     } else {

@@ -5,26 +5,26 @@
   $bkpt-tablet: 744px;
   $bkpt-desktop: 1140px;
   $bkpt-desktop-lg: 1440px;
-
-  position: relative;
+  border-radius: pxRem(10px);
   display: grid;
   grid-template-rows: min-content auto;
-  border-radius: pxRem(10px);
   overflow: hidden;
+
+  position: relative;
+
+  @include mq($bkpt-desktop) {
+    grid-template: auto / fluid(pxRem($bkpt-desktop), pxRem($bkpt-desktop-lg), pxRem(240px), pxRem(294px)) 1fr;
+  }
 
   &,
   &__tile {
     background-color: var(--white);
   }
 
-  @include mq($bkpt-desktop) {
-    grid-template: auto / fluid(pxRem($bkpt-desktop), pxRem($bkpt-desktop-lg), pxRem(240px), pxRem(294px)) 1fr;
-  }
-
   &__media {
+    aspect-ratio: 2 / 1;
     height: 100%;
     object-fit: cover;
-    aspect-ratio: 2 / 1;
   }
 
   &__tile {
@@ -33,7 +33,7 @@
     height: 100%;
     padding-bottom: pxRem(32px);
 
-    @include mq(0px 419px) {
+    @include mq(0 419px) {
       text-align: center;
     }
 
@@ -53,12 +53,12 @@
 
   &__tile-logo {
     @include elevation(2);
+    border-radius: pxRem(10px);
     display: none;
-    width: pxRem(60px);
     height: pxRem(60px);
     margin: 0 auto;
-    border-radius: pxRem(10px);
-  }  
+    width: pxRem(60px);
+  }
 
   &__tile-eyebrow {
     margin-top: fluid(pxRem(375px), pxRem($bkpt-fablet), pxRem(32px), pxRem(35px));
@@ -104,9 +104,9 @@
       }
 
       @include mq($bkpt-desktop-lg) {
+        left: 0;
         position: absolute;
         top: 0;
-        left: 0;
         width: 100%;
       }
     }
@@ -116,34 +116,33 @@
       text-align: center;
 
       @include mq($bkpt-tablet) {
-        height: auto;
         align-self: center;
+        height: auto;
         margin-left: auto;
         padding: pxRem(46px) 0;
         text-align: center;
       }
 
       @include mq($bkpt-desktop-lg) {
+        border-radius: pxRem(10px);
         grid-template-columns: auto pxRem(345px) auto;
-        width: pxRem(465px);
         margin-right: pxRem(118px);
         padding: pxRem(68px) 0 pxRem(84px);
-        border-radius: pxRem(10px);
+        width: pxRem(465px);
       }
     }
-    
+
     &__tile-logo {
       display: block;
 
-      @include mq(0px 743px) {
+      @include mq(0 743px) {
         transform: translateY(-50%);
       }
     }
 
-    
     &__tile-eyebrow {
       margin-top: 0;
-      
+
       @include mq($bkpt-tablet) {
         margin-top: pxRem(30px);
       }

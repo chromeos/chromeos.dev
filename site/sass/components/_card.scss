@@ -1,23 +1,9 @@
 // Styles for card component.
 
 .card {
+  $self: &;
   display: block;
   text-decoration: none;
-
-  &--rounded & {
-    &__container {
-      border-bottom-left-radius: pxRem(24px);
-    }
-  }
-
-  &--disabled &__container {
-    background-color: var(--grey-100);
-
-    .card:focus &,
-    &:hover {
-      box-shadow: none;
-    }
-  }
 
   &__container {
     @include elevation(0);
@@ -30,10 +16,25 @@
     width: 100%;
     z-index: 1;
 
-    .card:focus &,
+    /* stylelint-disable no-descending-specificity */
+    #{$self}--rounded & {
+      border-bottom-left-radius: pxRem(24px);
+    }
+
+    #{$self}--disabled & {
+      background-color: var(--grey-100);
+
+      #{$self}:focus &,
+      &:hover {
+        box-shadow: none;
+      }
+    }
+
+    #{$self}:focus &,
     &:hover {
       @include elevation(2);
     }
+    /* stylelint-enable no-descending-specificity */
   }
 
   &__eyebrow {
@@ -91,6 +92,7 @@
     align-self: flex-end;
     fill: var(--blue-600);
 
+    /* stylelint-disable no-descending-specificity */
     [dir='ltr'] & {
       margin-left: auto;
     }
@@ -104,12 +106,14 @@
       fill: var(--blue-900);
     }
 
-    //sass-lint:disable no-qualifying-elements
+    /* stylelint-disable selector-no-qualifying-type */
     a[href^='http://'] &,
     a[href^='https://'] &,
-    a[href^='//'] & {
+    a[href^='//'] &
+    {
       transform: rotate(-45deg);
     }
+    /* stylelint-enable selector-no-qualifying-type */
 
     .card__message & {
       fill: currentColor;
@@ -122,6 +126,8 @@
         margin-right: 0.5rem;
       }
     }
+
+    /* stylelint-enable no-descending-specificity */
   }
 
   &__search {

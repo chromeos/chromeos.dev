@@ -224,7 +224,7 @@ export class Form {
    * @private
    */
   handleInvalidBackendResponse_(errors) {
-    Object.keys(errors).forEach(name => {
+    Object.keys(errors).forEach((name) => {
       const selectorField = document.querySelector(`[name=${name}]`);
       const elementWrapper = selectorField.closest(this.constants_.fieldWrapperSelector);
 
@@ -249,7 +249,7 @@ export class Form {
       },
       body: data,
     })
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
           throw Error(this.constants_.serverError);
         }

@@ -20,12 +20,12 @@ const path = require('path');
 const config = require('config');
 const { outputFile } = require('fs-extra');
 
-module.exports = function() {
+module.exports = function () {
   const l10n = fs
     .readdirSync(path.join(__dirname, '..'))
-    .filter(f => fs.lstatSync(path.join(__dirname, '..', f)).isDirectory())
-    .filter(f => ISO6391.validate(f))
-    .map(f => {
+    .filter((f) => fs.lstatSync(path.join(__dirname, '..', f)).isDirectory())
+    .filter((f) => ISO6391.validate(f))
+    .map((f) => {
       const eleventyData = path.join(__dirname, '..', f, `${f}.11tydata.js`);
 
       try {
@@ -35,16 +35,16 @@ module.exports = function() {
         return require(json);
       }
     })
-    .sort(a => {
+    .sort((a) => {
       if (a.locale.code === 'en') return -1;
       return 0;
     });
 
-  const languages = l10n.map(f => f.locale.code);
+  const languages = l10n.map((f) => f.locale.code);
 
   const l10nJS = {};
 
-  l10n.forEach(l => {
+  l10n.forEach((l) => {
     const lang = l.locale.code;
     for (const [key, value] of Object.entries(l)) {
       l10nJS[key] = l10nJS[key] || {};
@@ -56,14 +56,14 @@ module.exports = function() {
 
   const output = path.join(publicPath, 'public/js/_data/_languages_.js');
 
-  outputFile(output, `const languages = ${JSON.stringify(languages)};`, err => {
+  outputFile(output, `const languages = ${JSON.stringify(languages)};`, (err) => {
     if (err) console.error(err);
   });
 
   // Output individual data files
   for (const [key, value] of Object.entries(l10nJS)) {
     const l10nOutput = path.join(publicPath, `js/_data/${key}.js`);
-    outputFile(l10nOutput, `export default JSON.parse(\`${JSON.stringify(value)}\`);`, err => {
+    outputFile(l10nOutput, `export default JSON.parse(\`${JSON.stringify(value)}\`);`, (err) => {
       if (err) console.error(err);
     });
   }

@@ -70,11 +70,9 @@
     flex: 1 1 40ch;
     margin-bottom: 2rem;
 
-    // sass-lint:disable no-universal-selectors
     > *:not(:last-child) {
       margin-bottom: 1rem;
     }
-    // sass-lint:enable no-universal-selectors
   }
 
   &__stats {

@@ -5,18 +5,6 @@
 .toc {
   @include expandingNav($bkpt-tech-details--3-cols, 'toc', 1rem, 1rem);
 
-  &__nav {
-    margin-top: 0.75rem;
-  }
-
-  // Need to hard-override this because the links will be visited once a user's been on the page once.
-  &__link {
-    @include mq($bkpt-tech-details--3-cols) {
-      #{'--bkg'}: transparent;
-      display: inline;
-    }
-  }
-
   @include mq($bkpt-tech-details--3-cols) {
     position: sticky;
     top: 6.5rem;
@@ -32,6 +20,18 @@
       overflow-y: auto;
       padding-left: 1.75rem;
       position: relative;
+    }
+  }
+
+  &__nav {
+    margin-top: 0.75rem;
+  }
+
+  // Need to hard-override this because the links will be visited once a user's been on the page once.
+  &__link {
+    @include mq($bkpt-tech-details--3-cols) {
+      --bkg: transparent;
+      display: inline;
     }
   }
 }

@@ -47,7 +47,7 @@ Y otra cosa con _marcado en línea_
 
 ```js {title="JavaScript" .code-figure}
 let foo = 'Hello World';
-const log = arg => {
+const log = (arg) => {
   console.log(arg);
 };
 log(foo);

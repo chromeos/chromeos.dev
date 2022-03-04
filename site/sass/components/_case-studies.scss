@@ -12,7 +12,7 @@
     display: grid;
     grid-gap: fluid(pxRem(1140px), pxRem(1440px), pxRem(20px), pxRem(45px)) pxRem(20px);
     margin-top: pxRem(64px);
-    
+
     @include mq(744px) {
       grid-template: auto / repeat(2, 1fr);
     }
