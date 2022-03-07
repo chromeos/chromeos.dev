@@ -50,7 +50,7 @@ export class MainNavigation {
     // Fly-out Nav Triggers
     // Menu click
     this.menu_.addEventListener('click', this.slideMenu.bind(this));
-    document.addEventListener('keydown', e => {
+    document.addEventListener('keydown', (e) => {
       if (this.isExpanded(this.elem_)) {
         // `esc` trigger
         if (e.keyCode === 27) {
@@ -75,7 +75,7 @@ export class MainNavigation {
     // Close button trigger
     this.close_.addEventListener('click', this.slideMenu.bind(this));
     // Nav click outside primary nav area
-    this.elem_.addEventListener('click', e => {
+    this.elem_.addEventListener('click', (e) => {
       if (e.target === e.currentTarget && this.isExpanded(this.elem_)) {
         this.slideMenu();
       }
@@ -121,8 +121,8 @@ export class MainNavigation {
     }
 
     // Toggle if nav items can be tabbed based on menu visibility
-    const resizeObserver = await ponyfillResizeObserver(entries => {
-      const entry = entries.find(e => e.target === this.menu_);
+    const resizeObserver = await ponyfillResizeObserver((entries) => {
+      const entry = entries.find((e) => e.target === this.menu_);
 
       if (entry.target === this.menu_) {
         if (entry.contentRect.width > 0) {

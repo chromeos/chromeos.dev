@@ -8,7 +8,7 @@
   &__container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: flex-start;
     margin: 0 auto;
     padding: pxRem(16px) pxRem(42px) pxRem(26px);
 
@@ -48,7 +48,7 @@
     align-items: center;
     display: flex;
     flex-grow: 1;
-    justify-content: start;
+    justify-content: flex-start;
     list-style: none;
     padding: pxRem(16px) 0;
   }
@@ -65,6 +65,14 @@
     position: relative;
   }
 
+  &__help-icon {
+    fill: var(--grey-700);
+    height: pxRem(32px);
+    margin-right: pxRem(8px);
+    vertical-align: middle;
+    width: pxRem(24px);
+  }
+
   &__help-link {
     align-items: center;
     display: flex;
@@ -74,14 +82,6 @@
     &:hover .footer__help-icon {
       fill: var(--grey-900);
     }
-  }
-
-  &__help-icon {
-    fill: var(--grey-700);
-    height: pxRem(32px);
-    margin-right: pxRem(8px);
-    vertical-align: middle;
-    width: pxRem(24px);
   }
 
   &__select {

@@ -84,7 +84,10 @@ for (const item of itemDetails) {
 To get the appropriate price for the user’s locale, you will need to do some additional formatting:
 
 ```js {title="JavaScript" .code-figure}
-const localePrice = new Intl.NumberFormat(navigator.language, { style: 'currency', currency: item.price.currency }).format(item.price.value);
+const localePrice = new Intl.NumberFormat(navigator.language, {
+  style: 'currency',
+  currency: item.price.currency,
+}).format(item.price.value);
 ```
 
 !!! aside.message--note

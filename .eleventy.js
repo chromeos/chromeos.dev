@@ -22,7 +22,7 @@ const markdown = require('./lib/markdown');
 const path = require('path');
 const { folders } = require('config');
 
-module.exports = function(eleventy) {
+module.exports = function (eleventy) {
   eleventy.setLibrary('md', markdown);
 
   // Filters

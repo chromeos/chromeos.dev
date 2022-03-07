@@ -18,7 +18,7 @@ const test = require('ava');
 const AJV = require('ajv');
 const schema = require('../../lib/linting/schemas/technical');
 
-test.beforeEach(t => {
+test.beforeEach((t) => {
   const ajv = new AJV({
     allErrors: true,
   });
@@ -26,7 +26,7 @@ test.beforeEach(t => {
   t.context.validate = ajv.compile(schema);
 });
 
-test('Required Fields', t => {
+test('Required Fields', (t) => {
   const input = {
     title: 'Large screen Android',
     metadesc: 'This is the new Android content.',
@@ -37,7 +37,7 @@ test('Required Fields', t => {
   t.is(valid, true);
 });
 
-test('Optional Fields', t => {
+test('Optional Fields', (t) => {
   const input = {
     title: 'Large screen Android',
     metadesc: 'This is the new Android content.',
@@ -84,7 +84,7 @@ test('Optional Fields', t => {
   t.is(valid, true);
 });
 
-test('Missing Fields', t => {
+test('Missing Fields', (t) => {
   const input = {};
   const valid = t.context.validate(input);
 
@@ -123,7 +123,7 @@ test('Missing Fields', t => {
   t.deepEqual(t.context.validate.errors, errors);
 });
 
-test('Extra Fields', t => {
+test('Extra Fields', (t) => {
   const input = {
     title: 'Large screen Android',
     metadesc: 'This is the new Android content.',
@@ -153,7 +153,7 @@ test('Extra Fields', t => {
   t.deepEqual(t.context.validate.errors, errors);
 });
 
-test('Fields Validation', t => {
+test('Fields Validation', (t) => {
   const input = {
     title: '123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890',
     metadesc: '',

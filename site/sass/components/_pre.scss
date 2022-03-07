@@ -2,7 +2,7 @@
   direction: ltr;
   display: block;
   font-family: $font-mono;
-  font-weight: normal;
+  font-weight: $font-weight-normal;
   hyphens: none;
   letter-spacing: normal;
   overflow-y: overlay;
@@ -74,6 +74,12 @@ pre {
   color: var(--purple-200);
 }
 
+.token.atrule,
+.token.string,
+.token.attr-value {
+  color: var(--yellow-200);
+}
+
 .token.operator,
 .token.entity,
 .token.url,
@@ -81,12 +87,6 @@ pre {
 .style .token.string,
 .token.variable {
   color: var(--pink-500);
-}
-
-.token.atrule,
-.token.string,
-.token.attr-value {
-  color: var(--yellow-200);
 }
 
 .token.property {

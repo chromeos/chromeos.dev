@@ -36,10 +36,8 @@
         border-color: var(--blue-600);
       }
 
-      &:checked + #{$self}__label {
-        &::after {
-          content: '';
-        }
+      &:checked + #{$self}__label::after {
+        content: '';
       }
 
       &:focus {
@@ -99,14 +97,14 @@
     }
   }
 
-  &__item--focus:not(.form__item-checkbox):not(.form__item-radio) {
-    #{$self}__label,
-    #{$self}__helper {
-      color: var(--blue-600);
-    }
-  }
-
   &__item--focus {
+    &:not(.form__item-checkbox):not(.form__item-radio) {
+      #{$self}__label,
+      #{$self}__helper {
+        color: var(--blue-600);
+      }
+    }
+
     #{$self}__helper {
       color: var(--blue-600);
       display: block;
@@ -117,20 +115,20 @@
     }
   }
 
-  &__item--invalid:not(.form__item-checkbox):not(.form__item-radio) {
-    #{$self}__field,
-    #{$self}__field:invalid {
-      border-color: var(--red-600);
-      box-shadow: 0 0 0 1px var(--red-600);
-    }
-
-    #{$self}__helper,
-    #{$self}__label {
-      color: var(--red-600);
-    }
-  }
-
   &__item--invalid {
+    &:not(.form__item-checkbox):not(.form__item-radio) {
+      #{$self}__field,
+      #{$self}__field:invalid {
+        border-color: var(--red-600);
+        box-shadow: 0 0 0 1px var(--red-600);
+      }
+
+      #{$self}__helper,
+      #{$self}__label {
+        color: var(--red-600);
+      }
+    }
+
     #{$self}__error {
       display: block;
     }
@@ -187,7 +185,7 @@
     background-size: 1.5rem 1.5rem;
     color: var(--grey-700);
     cursor: pointer;
-    font-weight: normal;
+    font-weight: $font-weight-normal;
     line-height: normal;
     padding: 1rem 1.8rem 1rem 1rem;
     width: 100%;
