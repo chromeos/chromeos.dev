@@ -18,11 +18,11 @@
     {% if content.subtitle %}<h2 class="type--large case-studies__subtitle">{{content.subtitle}}</h2>{% endif %}
   </header>
   <div class="case-studies__content">
-    {% for study in studies %}{{cardStudy(study)}}{% endfor %}
+    {% for study in studies %}{{cardStudy(study, loop.first)}}{% endfor %}
   </div>
   {% if content.cta %}
   <footer class="case-studies__footer">
-    <a class="cta cta--secondary case-studies__cta" href="{{content.cta.url}}">{{content.cta.text}}</a>
+    <a class="cta cta--medium case-studies__cta" href="{{content.cta.url}}">{{content.cta.text}}</a>
   </footer>
   {% endif %}
 </section>

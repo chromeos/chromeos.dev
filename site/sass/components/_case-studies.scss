@@ -1,32 +1,43 @@
 .case-studies {
+  $break-feature-col: 690px;
+  $scale-max: 1600px;
+  $block-spacing-range: ($break-feature-col $scale-max);
+  $clamp-check: clamp(1px, 1vw, 2px);
+
   &__header,
   &__footer {
     text-align: center;
   }
 
   &__subtitle {
-    margin-top: pxRem(8px);
+    color: var(--grey-700);
+    margin-top: 0.625rem;
   }
 
   &__content {
     display: grid;
-    grid-gap: fluid(pxRem(1140px), pxRem(1440px), pxRem(20px), pxRem(45px)) pxRem(20px);
-    margin-top: pxRem(64px);
+    grid-gap: 2rem 1.25rem;
+    margin-top: 4rem;
 
-    @include mq(744px) {
+    @supports (grid-gap: $clamp-check) {
+      grid-gap: generateScaling($block-spacing-range, (20px 48px)) 1.25rem;
+    }
+
+    @include mq($break-feature-col) {
       grid-template: auto / repeat(2, 1fr);
     }
   }
 
   &__footer {
-    margin-top: fluid(pxRem(420px), pxRem(1140px), pxRem(48px), pxRem(56px));
+    margin-top: 2.5rem;
 
-    @include mq(1140px) {
-      margin-top: fluid(pxRem(1140px), pxRem(1440px), pxRem(56px), pxRem(64px));
+    @supports (margin-top: $clamp-check) {
+      margin-top: generateScaling((430px $scale-max), (48px 56px));
     }
   }
 
   &__cta {
+    background-color: transparent;
     display: inline-flex;
   }
 }

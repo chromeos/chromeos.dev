@@ -305,6 +305,7 @@ module.exports = {
         .sort(propSort({ prop: 'data.title', lowercase: true }))
         .sort(propSort({ prop: 'data.weight', fallback: 0 }))
         .map((i) => ({
+          eyebrow: get(i, 'data.tags[0]'),
           title: get(i, 'data.title'),
           image: get(i, 'data.app.logo'),
           logo: {

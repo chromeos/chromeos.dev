@@ -1,19 +1,20 @@
 @use 'sass:math';
 
 .card-study {
-  $bkpt-fablet: 420px;
-  $bkpt-tablet: 744px;
-  $bkpt-desktop: 1140px;
-  $bkpt-desktop-lg: 1440px;
-  border-radius: pxRem(10px);
-  display: grid;
-  grid-template-rows: min-content auto;
-  overflow: hidden;
+  $break-2-col: 980px;
+  $break-feature-col: 690px;
+  $break-featured-stack: 0 689px;
+  $scale-max: 1600px;
+  $clamp-check: clamp(1px, 1vw, 2px);
 
+  border-radius: 0.625rem;
+  display: grid;
+  grid-template-rows: min-content;
+  overflow: hidden;
   position: relative;
 
-  @include mq($bkpt-desktop) {
-    grid-template: auto / fluid(pxRem($bkpt-desktop), pxRem($bkpt-desktop-lg), pxRem(240px), pxRem(294px)) 1fr;
+  @include mq($break-2-col) {
+    grid-template: auto / 41.5% 1fr;
   }
 
   &,
@@ -28,82 +29,61 @@
   }
 
   &__tile {
-    display: grid;
-    grid-template: max-content / pxRem(32px) auto pxRem(32px);
-    height: 100%;
-    padding-bottom: pxRem(32px);
+    display: flex;
+    flex-flow: row wrap;
+    padding: 2rem 1.5rem;
 
     @include mq(0 419px) {
+      justify-content: center;
       text-align: center;
     }
 
-    @include mq($bkpt-fablet) {
-      grid-template-columns: pxRem(24px) auto pxRem(24px);
-    }
-
-    @include mq($bkpt-desktop) {
-      grid-template-columns: pxRem(24px) auto pxRem(20px);
-      padding-bottom: pxRem(32px);
-    }
-
-    > * {
-      grid-column: 2;
+    @include mq($break-2-col) {
+      grid-template-columns: 1.5rem auto 1.25rem;
+      padding-bottom: 2rem;
     }
   }
 
   &__tile-logo {
     @include elevation(2);
-    border-radius: pxRem(10px);
+    border-radius: 0.625rem;
     display: none;
-    height: pxRem(60px);
+    height: 3.75rem;
     margin: 0 auto;
-    width: pxRem(60px);
-  }
-
-  &__tile-eyebrow {
-    margin-top: fluid(pxRem(375px), pxRem($bkpt-fablet), pxRem(32px), pxRem(35px));
+    width: 3.75rem;
   }
 
   &__tile-title {
-    margin-top: pxRem(8px);
-
-    @include mq($bkpt-fablet) {
-      margin-top: fluid(pxRem(430px), pxRem($bkpt-tablet), pxRem(8px), pxRem(16px));
-    }
+    margin: 1rem 0 2rem;
   }
 
   &__tile-cta {
     align-self: flex-end;
-    margin: pxRem(24px) auto 0;
-
-    @include mq($bkpt-fablet) {
-      margin: pxRem(24px) auto 0 0;
-    }
   }
 
-  &:first-child {
-    @include mq($bkpt-tablet) {
+  &--featured {
+    @include mq(560px) {
       grid-column: 1 / 3;
-      grid-template: auto / auto fluid(pxRem($bkpt-tablet), pxRem($bkpt-desktop), pxRem(338px), pxRem(370px));
     }
-    @include mq($bkpt-desktop) {
-      grid-template-columns: auto fluid(pxRem($bkpt-desktop), pxRem($bkpt-desktop-lg), pxRem(370px), pxRem(467px));
+
+    @include mq($break-feature-col) {
+      grid-template-columns: 1fr minmax(28ch, 36.2%);
     }
-    @include mq($bkpt-desktop-lg) {
-      grid-template: auto / auto;
-      padding: pxRem(98px) 0;
+
+    @include mq($break-2-col) {
+      grid-template-columns: 1fr 32.5% 8%;
     }
   }
 
-  &:first-child & {
+  &--featured & {
     &__media {
       aspect-ratio: 327 / 284;
 
-      @include mq($bkpt-tablet) {
+      @include mq($break-feature-col) {
         aspect-ratio: 65 / 46;
       }
 
-      @include mq($bkpt-desktop-lg) {
+      @include mq($break-2-col) {
         left: 0;
         position: absolute;
         top: 0;
@@ -112,64 +92,67 @@
     }
 
     &__tile {
+      $margin-range: ($break-2-col $scale-max);
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
       position: relative;
       text-align: center;
 
-      @include mq($bkpt-tablet) {
-        align-self: center;
-        height: auto;
-        margin-left: auto;
-        padding: pxRem(46px) 0;
-        text-align: center;
+      @supports (padding: $clamp-check) {
+        padding: generateScaling($margin-range, (32px 68px)) generateScaling((630px $scale-max), (32px 56px));
       }
 
-      @include mq($bkpt-desktop-lg) {
-        border-radius: pxRem(10px);
-        grid-template-columns: auto pxRem(345px) auto;
-        margin-right: pxRem(118px);
-        padding: pxRem(68px) 0 pxRem(84px);
-        width: pxRem(465px);
+      @include mq($break-featured-stack) {
+        padding-top: 0;
+      }
+
+      @include mq($break-2-col) {
+        border-radius: 0.625rem;
+        grid-column: 2;
+        height: auto;
+        justify-self: flex-end;
+        margin: 4rem 0;
+
+        @supports (margin-top: $clamp-check) {
+          margin: generateScaling($margin-range, (32px 98px)) 0;
+        }
       }
     }
 
     &__tile-logo {
       display: block;
 
-      @include mq(0 743px) {
+      @include mq($break-featured-stack) {
         transform: translateY(-50%);
       }
     }
 
     &__tile-eyebrow {
-      margin-top: 0;
+      margin-top: -1rem;
 
-      @include mq($bkpt-tablet) {
+      @include mq($break-feature-col) {
         margin-top: pxRem(30px);
       }
     }
 
     &__tile-title {
-      margin-top: pxRem(18px);
+      margin: pxRem(18px) 0 0;
     }
 
     &__tile-cta {
-      @include mq($bkpt-fablet) {
-        margin: pxRem(24px) auto 0;
-      }
+      align-self: center;
+      margin-top: 3rem;
 
-      @include mq($bkpt-tablet) {
-        margin: pxRem(48px) auto 0;
-      }
-
-      @include mq($bkpt-desktop) {
-        margin-top: pxRem(32px);
+      @supports (margin-top: $clamp-check) {
+        margin-top: generateScaling((430px $scale-max), (32px 64px));
       }
     }
   }
 
-  &--no-logo:first-child & {
-    &__tile-eyebrow {
-      margin-top: fluid(pxRem(375px), pxRem($bkpt-fablet), pxRem(32px), pxRem(35px));
+  &--no-logo.card-study--featured {
+    .card-study__tile-eyebrow {
+      margin-top: 2rem;
     }
   }
 }
