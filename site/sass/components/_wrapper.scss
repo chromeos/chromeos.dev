@@ -12,9 +12,9 @@
   $max-width: 1440px;
   $scaler: math.div(math.div($max-width, 100), 1vw);
 
-  $block-spacing-s: 4.5rem;
-  $block-spacing-l: 5rem;
-  $inline-spacing-s: 3.75rem;
+  $block-spacing-s: 8.25rem;
+  $block-spacing-l: 10.5rem;
+  $inline-spacing-s: 1.5rem;
   $inline-spacing-l: 5rem;
 
   $bumper-s: 0.875rem;
@@ -55,13 +55,8 @@
     padding-right: $inline-spacing-m;
 
     @supports (margin: clamp(1px, 1vw, 2px)) {
-      padding-left: generateScaling((744px 1140px), (24px 60px));
-      padding-right: generateScaling((744px 1140px), (24px 60px));
-
-      @include mq(1140px) {
-        padding-left: generateScaling((1140px 1440px), (60px 80px));
-        padding-right: generateScaling((1140px 1440px), (60px 80px));
-      }
+      padding-left: $inline-spacing-r;
+      padding-right: $inline-spacing-r;
     }
   }
 
