@@ -40,8 +40,7 @@ Eric, my co-founder, had left Google a few months before to start to work on his
 I tell that story for a few reasons. I think that a lot of people think that people who go into computer science have been coding since they were in middle school and that was definitely not the case for me. I took my first class the fall of my sophomore year. Even if you don’t have that much experience with it, you can grow your career as an engineer. Don't be afraid to start late.
 
 > I think that a lot of people think that people who go into computer science have been coding since they were in middle school and that was definitely not the case for me. I took my first class the fall of my sophomore year. Even if you don’t have that much experience with it, you can grow your career as an engineer. Don't be afraid to start late.
-
-Julia Enthoven, co-founder and CEO of Kapwing {.cite}
+> {cite="Julia Enthoven, co-founder and CEO of Kapwing"}
 
 **Could you share a little bit about what a typical work day might look like for you? And what is your favorite part about your job?**
 
