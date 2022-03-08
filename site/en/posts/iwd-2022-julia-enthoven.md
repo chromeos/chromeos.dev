@@ -40,7 +40,6 @@ Eric, my co-founder, had left Google a few months before to start to work on his
 I tell that story for a few reasons. I think that a lot of people think that people who go into computer science have been coding since they were in middle school and that was definitely not the case for me. I took my first class the fall of my sophomore year. Even if you don’t have that much experience with it, you can grow your career as an engineer. Don't be afraid to start late.
 
 > I think that a lot of people think that people who go into computer science have been coding since they were in middle school and that was definitely not the case for me. I took my first class the fall of my sophomore year. Even if you don’t have that much experience with it, you can grow your career as an engineer. Don't be afraid to start late.
-> {cite="Julia Enthoven, co-founder and CEO of Kapwing"}
 
 **Could you share a little bit about what a typical work day might look like for you? And what is your favorite part about your job?**
 
@@ -85,8 +84,6 @@ There are so many things! Well, one is to don't underestimate the power of belie
 The second thing. I would say, in everything you do in life, you just have to enjoy the journey. That's also been so important to me with Kapwing too. Have fun along the way. Don't stress too much. Try to bring levity into your work and life. Having a spirit of abundance and gratitude for everything you do is so important.
 
 > If you ever catch yourself thinking that you’re just not good at that thing, try and recognize and reverse that thinking. Because it will drain your energy. It’s especially important for women in tech, because there are so many opportunities for you to feel like you’re just not cut out for it or not capable. And it's just not true.
-
-Julia Enthoven, co-founder and CEO of Kapwing {.cite}
 
 ---
 
