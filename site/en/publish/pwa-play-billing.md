@@ -2,6 +2,7 @@
 title: Implement Play Billing in your PWA
 metadesc: How to monetize your Progressive Web App in Google Play by selling digital goods with Play Billing.
 date: 2021-05-14
+updated: 2022-02-25
 weight: -4
 ---
 
@@ -13,16 +14,17 @@ If your PWA is listed in Google Play and you want to monetize it by selling in-a
 
 The [Digital Goods API](https://github.com/WICG/digital-goods/blob/main/explainer.md) is an interface between your app and Google Play. It allows you to retrieve the digital products and details you’ve entered for your in-app products and subscriptions in the Play Console as well as retrieve existing purchases a user has made. If you haven’t added in-app products or subscriptions in the Play Console yet, make sure to follow the [Play Console setup for Play Billing](/{{locale.code}}/publish/play-console-setup-for-billing).
 
-On November 30th, 2021, M96 stable will be released for Chrome OS and it will have the Digital Goods API 2.0 implementation. However, not all users will immediately update to M96, therefore it’s important to make sure that your app is compatible with both versions of the API.
+On November 30th, 2021, Chrome OS 96 was released with the Digital Goods API 2.0 implementation.
+
+The origin trial for the first version of the Digital Goods API ended on January 30, 2022. Therefore it is now deprecated and only v2 of the API is available.
 
 ### Register for the Origin Trial
 
-Note that the Digital Goods API is currently available through an [Origin Trial](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md) - a mechanism that allows developers early access to new Web APIs. You will need to register separately for each version of the API and request a token for both.
+!!! aside.message--note
+**Note:** The Digital Goods API is currently available through an [Origin Trial](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md) - a mechanism that allows developers early access to new Web APIs. You will need to register for the Digital Goods API v2 [origin trial](https://developer.chrome.com/origintrials/#/view_trial/888335026498830337) and request a token, which you will need to [provide on any pages in your origin](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md#how-do-i-enable-an-experimental-feature-on-my-origin).
+!!!
 
-- Digital Goods API [origin trial](https://developer.chrome.com/origintrials/#/view_trial/-5451607348931985407)
-- Digital Goods API v2 [origin trial](https://developer.chrome.com/origintrials/#/view_trial/888335026498830337)
-
-You will see a “Valid Until” date which is when your token is guaranteed to work until. Remember to renew your tokens when that date approaches to continue participating in the trial. APIs offered as an origin trial are subject to change, so be sure to stay up-to-date with the latest changes to any origin trial you are participating in. In case of any issues, refer to the [Digital Goods API documentation](https://github.com/WICG/digital-goods/blob/main/explainer.md).
+Upon registering for the origin trial, you will see a “Valid Until” date which is when your token is guaranteed to work until. Remember to renew your tokens when that date approaches to continue participating in the trial. APIs offered as an origin trial are subject to change, so be sure to stay up-to-date with the latest changes to any origin trial you are participating in. In case of any issues, refer to the [Digital Goods API documentation](https://github.com/WICG/digital-goods/blob/main/explainer.md).
 
 ## Payment Request API
 
@@ -30,7 +32,7 @@ The [Payment Request API](https://www.w3.org/TR/payment-request/) handles the ac
 
 ## Feature detect the Digital Goods API
 
-The Digital Goods API is currently only supported by Chrome if your PWA was installed via a Google Play app. You can detect if the API is available by checking for the `getDigitalGoodsService` method in the `window` object.
+You can detect if you’ve correctly enabled the API on your website via the origin trial by checking for the `getDigitalGoodsService` method in the `window` object.
 
 ```js {title="JavaScript" .code-figure}
 if ('getDigitalGoodsService' in window) {
@@ -45,21 +47,15 @@ if ('getDigitalGoodsService' in window) {
 
 The Digital Goods API was designed to be compatible with various browsers and digital stores, similar to how the Payment Request API is browser-agnostic and can be used with different payment providers. To obtain an instance of the service associated with Google Play Billing, pass the string `"https://play.google.com/billing"` as the payment method to `getDigitalGoodsService()`.
 
-If the Google Play Billing payment method is not available (e.g. the user is accessing your PWA through the browser), you may offer another payment method for transactions. The behavior of `getDigitalGoodsService` is slightly different in Digital Goods API 1.0 and 2.0. If the service associated with the URL is not supported, version 1.0 will return `null` while version 2.0 will throw an error.
+If the method throws an error, the Google Play Billing payment method is not available (e.g. the user is accessing your PWA through the browser). Instead, you should offer another payment method for transactions.
 
 ```js {title="JavaScript" .code-figure}
 if ('getDigitalGoodsService' in window) {
   // Digital Goods API is supported!
   try {
     const service = await window.getDigitalGoodsService('https://play.google.com/billing');
-    if (service) {
-      // Google Play Billing service is available!
-    } else {
-      // Digital Goods API 1.0
-      // Google Play Billing service is not available. Use another payment flow.
-    }
+    // Google Play Billing service is available
   } catch (error) {
-    // Digital Goods API 2.0
     // Google Play Billing service is not available. Use another payment flow.
   }
 }
@@ -190,13 +186,13 @@ Here, `item` is the `ItemDetails` of the new subscription the user is trying to 
 
 ## Acknowledge a purchase
 
-After a user purchases an item, you should grant them the proper entitlements (access to the item or content they’ve just purchased). Then, use the Digital Goods API to acknowledge the purchase. Acknowledging a purchase lets Google Play know that you’ve received and processed the purchase appropriately.
+After a user purchases an item, you should grant them the proper entitlements (access to the item or content they’ve just purchased). Then, acknowledge the purchase. Acknowledging a purchase lets Google Play know that you’ve received and processed the purchase appropriately.
 
 !!! aside.message--note
 **Note:** If a purchase is not acknowledged within 72 hours of the purchase time, the payment is refunded to the user and the purchase is revoked. The purchase token will no longer be valid, so when you [query for existing purchases](#check-existing-purchases) the revoked purchase won’t be returned. This ensures that a user isn’t improperly charged in the event of a network error which causes them to not be granted the entitlement to their item.
 !!!
 
-Previously, you could use the Digital Goods API `acknowledge()` method to acknowledge a purchase with a `PurchaseType` of either `"onetime"` or `"repeatable"`. With v2.0 of the API, the `acknowledge()` method has been deprecated. Instead, you should acknowledge purchases from your backend server using the Google Play Developer API. We recommend granting entitlements and then acknowledging the purchase together in your backend server.
+You should acknowledge purchases from your backend server using the Google Play Developer API. We recommend granting entitlements and then acknowledging the purchase together in your backend server.
 
 1.  After a user makes a purchase client-side, send the purchase token and item ID in a request to your backend server.
 1.  On your backend, to get details about the purchase to verify it, call:
@@ -211,21 +207,16 @@ Previously, you could use the Digital Goods API `acknowledge()` method to acknow
 
 When you acknowledge a purchase, this lets Google Play know that the user now owns the item and should not be allowed to purchase it again. If this is an item that the user will only need to purchase once and will own forever (e.g. a game character skin), then the item is not consumable.
 
-Alternatively, the item may be something that you limit a user to one of at a time. Then the user will need to use the item before they can purchase another one. When the user “uses” the item, to let Google Play know that the user has consumed the item, you should call the Digital Goods API 1.0 `acknowledge()` method with the `"repeatable"` purchase type. In Digital Goods API 2.0, the equivalent is the `consume()` method. Google Play will then make the item available for the user to purchase again.
+Alternatively, the item may be something that you limit a user to one of at a time. Then the user will need to use the item before they can purchase another one. When the user “uses” the item, to let Google Play know that the user has consumed the item, you should call the `consume()` method. Google Play will then make the item available for the user to purchase again.
 
-For items that you allow a user to own multiples of, they need to be able to be purchased repeatedly without needing to be used first (we call these repeatable items). Similarly, these items need to be “consumed” before Google Play will let the user buy it again. Therefore, even if the user has not yet used the item, you need to call the Digital Goods API 1.0 `acknowledge()` method with the `repeatable` purchase type or the Digital Goods API 2.0 `consume()` method to mark the item as consumed.
+For items that you allow a user to own multiples of, they need to be able to be purchased repeatedly without needing to be used first (we call these repeatable items). Similarly, these items need to be “consumed” before Google Play will let the user buy it again. Therefore, even if the user has not yet used the item, you need to call the `consume()` method to mark the item as consumed.
 
 ```js {title="JavaScript" .code-figure}
 // After the user purchases the item, send the purchase token and item ID to your backend to grant the entitlement and acknowledge it right away
 
 . . .
 // When the user uses the item or if it is a repeatable item, consume it so it’s available for purchase again.
-if ('acknowledge' in service) {
-	// Digital Goods API 1.0
-	service.acknowledge(purchaseToken, 'repeatable');
-} else {
-	// Digital Goods API 2.0
-	service.consume(purchaseToken);
+service.consume(purchaseToken);
 }
 ```
 
@@ -235,7 +226,7 @@ The last key user flow is to check for existing purchases (in-app products that 
 
 When retrieving existing purchases, you should also check the acknowledgement status and acknowledge any purchases that were previously made but did not properly get acknowledged. It is recommended that purchases get acknowledged as soon as possible so the user's entitlements are up-to-date and properly reflected in the app.
 
-The Digital Goods API `listPurchases()` method will return a list of `PurchaseDetails` that has more information about the purchases. In Digital Goods API 2.0, `PurchaseDetails` has been reduced to only contain the `itemId` and `purchaseToken` and the `acknowledge()` method has been removed. Therefore, instead of checking the state of purchases and acknowledging them client-side, you should use the Google Play Developer API on your backend server. You should:
+The Digital Goods API `listPurchases()` method will return a list of `PurchaseDetails` that contains the `itemId` and `purchaseToken` for each of the purchases. You will need to use the Google Play Developer API on your backend server to check the state of purchases and acknowledge them appropriately. You should:
 
 1.  Call the Digital Goods API `listPurchases()` method client-side to retrieve the user’s list of purchases.
 1.  For each purchase, pass the `purchaseToken` and `itemId` to your backend.
