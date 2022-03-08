@@ -23,10 +23,9 @@
   }
 
   @include minLangMQ($bkpt-map--header--large) {
-    grid-column: 1 / -1;
+    grid-column: 2;
     grid-row: 1 / span 1;
     margin-top: 0.5em;
-    padding-left: calc(185px + 3rem);
   }
 
   &--animated {
@@ -184,6 +183,7 @@
 
     @include minLangMQ($bkpt-map--header--large) {
       display: flex;
+      justify-content: center;
     }
 
     &-hidden {
