@@ -1,5 +1,13 @@
 {
   "printWidth": 10000,
   "singleQuote": true,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "overrides": [
+    {
+      "files": ["*.njk"],
+      "options": {
+        "parser": "html"
+      }
+    }
+  ]
 }

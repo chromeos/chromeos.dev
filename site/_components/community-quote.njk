@@ -14,17 +14,17 @@
   @param {string[]} decorators - array of decorative image sources.
 #}-->
 {% macro communityQuote(content, image, decorators) %}
-  <figure class="community-quote">
-    {% for decorator in decorators %}<img class="community-quote__decorator" src="{{decorator}}" alt="" aria-hidden="true">{% endfor %}
-    <img class="community-quote__image" src="{{image.src}}" alt="{{image.alt}}">
-    <figcaption class="community-quote__caption">
-      <blockquote class="community-quote__block">
-        <p class="type--h3">{{content.copy}}</p>
-        <cite class="community-quote__citation type--caption">
-          <strong>{{content.author.name}}</strong>
-          {{content.author.role}}
-        </cite>
-      </blockquote>
-    </figcaption>
-  </figure>
+<figure class="community-quote">
+  {% for decorator in decorators %}<img class="community-quote__decorator" src="{{decorator}}" alt="" aria-hidden="true" />{% endfor %}
+  <img class="community-quote__image" src="{{image.src}}" alt="{{image.alt}}" />
+  <figcaption class="community-quote__caption">
+    <blockquote class="community-quote__block">
+      <p class="type--h3">{{content.copy}}</p>
+      <cite class="community-quote__citation type--caption">
+        <strong>{{content.author.name}}</strong>
+        {{content.author.role}}
+      </cite>
+    </blockquote>
+  </figcaption>
+</figure>
 {% endmacro %}

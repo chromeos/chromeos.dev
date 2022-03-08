@@ -17,7 +17,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const config = require('config');
 const glob = require('glob');
 
 const docsRegex = new RegExp(/(?:<!--\s*?{#)(.*?)(?=#}\s*?-->)/s);
@@ -25,8 +24,8 @@ const macroRegex = new RegExp(/{%\s+?macro\s+?(\w*?)\s*?\((.*?)\)/);
 
 module.exports = function () {
   const components = {};
-  const basePath = path.join(process.cwd(), config.folders.templates, config.folders.includes);
-  const items = glob.sync(path.join(basePath, '**/*.html'));
+  const basePath = path.join(__dirname, '../_components');
+  const items = glob.sync(path.join(basePath, '**/*.njk'));
 
   for (const component of items) {
     const file = fs.readFileSync(component, 'utf-8');

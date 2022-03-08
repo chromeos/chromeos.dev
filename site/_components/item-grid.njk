@@ -18,9 +18,6 @@
 {% from 'external-community.njk' import externalCommunity %} {% from 'card-subnav.njk' import cardSubnav %} {% from 'icon-card.njk' import iconCard %} {% from 'card.njk' import card %} {% from 'community-quote.njk' import communityQuote %}{% macro itemGrid(title, items, modifiers, locale, defaultText) %} {% if items.length > 0 %}
 <section class="item-grid {{modifiers.custom}} {{'item-grid--icon-card' if modifiers.variant == 'icon'}} {{ 'item-grid--subnav' if modifiers.variant == 'subnav' }} {{'item-grid--community' if modifiers.variant == 'community'}} {{'item-grid--circled' if modifiers.shapeOn }} {{'item-grid--quote' if modifiers.variant == 'quote' }}">
   <h3 class="item-grid__title type--h3">{{title}}</h3>
-  {% if modifiers.subtitle %}<p class="item-grid__subtitle type--large">{{modifiers.subtitle}}</p>{% endif %}
-  <div class="item-grid__content">
-    {% for item in items %} {% if modifiers.variant == 'icon' %} {{iconCard(item, defaultText)}} {% elif modifiers.variant == 'subnav' %} {% if item.icon and item.desc %} {{cardSubnav(item, locale)}} {% endif %} {% elif modifiers.variant == 'community' %} {{externalCommunity(item.logo, item.cta)}} {% elif modifiers.variant == 'quote' %} {{ communityQuote(item.content, item.image, item.decorators) }} {% else %} {{ card(item) }} {% endif %} {% endfor %}
-  </div>
+  <div class="item-grid__content">{% for item in items %} {% if modifiers.variant == 'icon' %} {{iconCard(item, defaultText)}} {% elif modifiers.variant == 'subnav' %} {% if item.icon and item.desc %} {{cardSubnav(item, locale)}} {% endif %} {% elif modifiers.variant == 'community' %} {{externalCommunity(item.logo, item.cta)}} {% elif modifiers.variant == 'quote' %} {{ communityQuote(item.content, item.image, item.decorators) }} {% else %} {{ card(item) }} {% endif %} {% endfor %}</div>
 </section>
 {% endif %} {% endmacro %}
