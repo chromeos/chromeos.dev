@@ -15,13 +15,9 @@
   <select name="{{ select.name }}" {% if select.error %} aria-describedby="{{ select.error.id }}" {% endif %} id="{{ id }}" class="form__field form__field--select" {% if select.required %} required aria-required="true" {% endif %}>
     <option selected value="" class="form__select--default"></option>
     {% set countries = locale | countries %} {% for item in countries %}
-    <option value="{{ item.code }}" class="form__select--default">
-      {{ item.name }}
-    </option>
+    <option value="{{ item.code }}" class="form__select--default">{{ item.name }}</option>
     {% endfor %}
   </select>
-  <label class="form__label" for="{{ id }}">
-    {{ select.label }}
-  </label>
+  <label class="form__label" for="{{ id }}">{{ select.label }}</label>
 </span>
 {%- endmacro %}

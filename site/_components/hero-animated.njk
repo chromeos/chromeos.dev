@@ -12,9 +12,7 @@
 #}-->
 {% macro heroAnimated(heading, cta, img) -%} {% set br = joiner("<br />") %}
 <div class="hero-animated background">
-  <h1 class="hero-animated__heading type--h1">
-    {%- for title in heading -%}{{ br() | safe }}{{ title }}{%- endfor -%}
-  </h1>
+  <h1 class="hero-animated__heading type--h1">{%- for title in heading -%}{{ br() | safe }}{{ title }}{%- endfor -%}</h1>
   <div class="hero-animated__cta">
     <a class="hero-animated__link cta cta--high" href="{{ cta.url }}">{{ cta.text }}</a>
   </div>
