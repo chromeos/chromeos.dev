@@ -50,11 +50,12 @@
   &__eyebrow {
     color: var(--grey-750);
     display: inline-block;
+    margin-bottom: 1.5rem;
   }
 
   &__heading {
     color: var(--grey-850);
-    margin: 1.5rem 0 0.5rem;
+    margin-bottom: 0.5rem;
   }
 
   &__body {

@@ -19,8 +19,7 @@
 <a href="{{ data.url }}" class="card type--base {{styles}}" aria-labelledby="{{ titleId }} {{ bodyId}} {{ sourceId }}">
   <article class="card__container">
     <header id="{{ titleId }}" class="card__title">
-      {% if data.eyebrow in ['technical', 'events', 'trend', 'product news'] %}{{ icon(data.eyebrow, 'card__topic') }}{% endif %}
-      <small class="card__eyebrow type--eyebrow">{{ data.eyebrow }}</small>
+      {% if data.eyebrow in ['technical', 'events', 'trend', 'product news'] %}{{ icon(data.eyebrow, 'card__topic') }}{% endif %} {% if data.eyebrow %}<small class="card__eyebrow type--eyebrow">{{ data.eyebrow }}</small>{% endif %}
       <h4 class="card__heading type--h4">{{ data.title }}</h4>
     </header>
     <p id="{{ bodyId }}" class="card__body">{{ data.body }}</p>
