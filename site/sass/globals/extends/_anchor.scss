@@ -18,7 +18,7 @@
 
   &--page-nav {
     @include fontSetup(14px, 18px);
-    font-family: $font-roboto;
+    font-family: $font-body;
 
     &[data-active] {
       text-shadow: 0 0 0 currentColor;
@@ -55,7 +55,7 @@
   &--secondary {
     @include fontSetup(14px, 18px);
     color: var(--grey-700);
-    font-family: $font-roboto;
+    font-family: $font-body;
     text-decoration: none;
 
     &[data-active],
