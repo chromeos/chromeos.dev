@@ -94,18 +94,18 @@ developers:
           name: Mike C.
           role: Head Engineer
       image:
-        src: https://drive.google.com/uc?id=1IhXV0ezqWGxfKn_rBNBKYs8knKR3zAZp
+        src: ix://lifestyle/developer_2.png
         alt: Engineer working at their desk.
       decorators:
-        - https://drive.google.com/uc?id=14cqQIV-YnbdNnlwKjsPkus8wUNy2FFPw
-        - https://drive.google.com/uc?id=1SxCyhP4uI-uoigD7UGQ56m6xAVnbwiBW
+        - ix://lifestyle/code_sample_sudo.png
+        - ix://lifestyle/command_key.png
     - content:
         copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
         author:
           name: Mike C.
           role: Head Engineer
       image:
-        src: https://drive.google.com/uc?id=1aGBmRUYFeusuWfdXcjfq10p8Bb0sFPky
+        src: ix://lifestyle/developer_3.png
         alt: Engineer working at their desk.
   modifiers:
     variant: quote
