@@ -7,6 +7,10 @@
   justify-content: space-between;
   width: 100%;
 
+  @include minLangMQ($bkpt-map--header--large) {
+    grid-column: -3 / -2;
+  }
+
   &__close {
     display: none;
   }
@@ -47,6 +51,10 @@
 
   &-extended {
     grid-column: -3 / -1;
+
+    @include minLangMQ($bkpt-map--header--large) {
+      grid-column: -4 / -2;
+    }
 
     .search-box__close {
       display: flex;

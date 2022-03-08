@@ -20,7 +20,7 @@
 
     @include minLangMQ($bkpt-map--header--large) {
       grid-gap: 3rem;
-      grid-template-columns: 185px auto min-content;
+      grid-template-columns: 185px auto min-content 156px;
     }
   }
 
@@ -59,6 +59,14 @@
     grid-column: 1 / span 1;
     @include minLangMQ($bkpt-map--header--large) {
       display: none;
+    }
+  }
+
+  &__cta {
+    display: none;
+
+    @include minLangMQ($bkpt-map--header--large) {
+      display: flex;
     }
   }
 }
