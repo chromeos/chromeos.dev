@@ -69,16 +69,15 @@ subnav:
     variant: subnav
 chromebook:
   image:
-    # TODO: update with additional asset batch
-    # src: ix://devices/GCH_SamsungPlusV2_still_v011_computerRearPartOpenWithShadow_cropped.png
-    alt: An image of a partially opened Samsung Chromebook next to a stylus.
+    src: ix://devices/Samsung_tent_shadow.png
+    alt: A partially opened Samsung Chromebook next to a stylus.
   content:
     eyebrow: M100 Launch
     title: New Features
     copy: Coming in all shapes and sizes, Chromebooks are speedy, simple, secure, and run Chrome OS.
   cta:
-    url: https://www.google.com/chromebook/
-    text: Learn about Chromebook
+    url: /en/news
+    text: Learn more
 community:
   title: Developer news and resources to get you up and running
   modifiers:

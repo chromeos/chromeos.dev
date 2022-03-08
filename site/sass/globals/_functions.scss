@@ -53,5 +53,5 @@
   $rate: $width-difference * $value-difference;
 
   $responsive-value: unquote('#{$min-value - ($min-width * $rate)} + #{100vw * $rate}');
-  @return clamp($min-value, $responsive-value, $max-value);
+  @return clamp(if($min-value < $max-value, $min-value, $max-value), $responsive-value, if($max-value > $min-value, $max-value, $min-value));
 }
