@@ -3,11 +3,17 @@ updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
     commit-message:
       prefix: '📌 '
     ignore:
-      - dependency-name: remark-lint*
+      - dependency-name: remark*
+        update-types:
+          - version-update:semver-major
+      - dependency-name: node-fetch
+        update-types:
+          - version-update:semver-major
+      - dependency-name: ava
         update-types:
           - version-update:semver-major
       - dependency-name: unified-lint-rule
