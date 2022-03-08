@@ -6,7 +6,7 @@ tags:
   - web
 authors:
   - joycetoh
-date: 2022-03-07
+date: 2022-03-08
 ---
 
 If you’ve browsed social media recently, it’s likely that you scrolled past a couple memes and maybe even chuckled to yourself or sent it to your friends. It’s also likely that one of those memes you discovered was created with [Kapwing](https://www.kapwing.com/).
