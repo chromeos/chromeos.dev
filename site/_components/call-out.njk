@@ -12,7 +12,9 @@
 {% macro callOut(content, cta) -%}
 <aside class="call-out">
   <h2 class="call-out__heading type--h2">{{content.title}}</h2>
-  {% if content.body %}<p class="call-out__body type">{{content.body}}</p>{% endif %}
+  {% if content.body %}
+  <p class="call-out__body type">{{content.body}}</p>
+  {% endif %}
   <a class="cta cta--high" href="{{cta.url}}">{{cta.text}}</a>
 </aside>
 {%- endmacro %}
