@@ -216,7 +216,7 @@ const contributors = {
     work: {
       company: 'Google',
       org: 'Chrome OS',
-      title: 'Program Manager',
+      title: 'Developer Relations Engineer',
     },
   },
 };
