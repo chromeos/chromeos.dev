@@ -17,7 +17,7 @@
     "function-no-unknown": [
       true,
       {
-        "ignoreFunctions": ["pxRem", "pxEm", "math.div", "nth", "map-get"]
+        "ignoreFunctions": ["pxRem", "pxEm", "generateScaling", "math.percentage", "math.div", "nth", "map-get"]
       }
     ],
     "function-url-quotes": "always",
