@@ -19,7 +19,7 @@
     url: https://github.com/chromeos
     text: GitHub
 - logo: ix://landings/home/twitter-logo.png
-  topic: Chrome OS
+  topic: Web
   cta:
     url: https://twitter.com/ChromiumDev
     text: Twitter
@@ -29,17 +29,17 @@
     url: https://www.reddit.com/r/chromeos/
     text: Reddit
 - logo: ix://landings/home/stackoverflow-logo.png
-  topic: General
+  topic: Chrome OS
   cta:
     url: https://stackoverflow.com/questions/tagged/google-chrome-os
     text: Stack Overflow
 - logo: ix://landings/home/webdev-logo.png
-  topic: General
+  topic: Web
   cta:
     url: https://web.dev/
     text: web.dev
 - logo: ix://landings/home/codelabs-logo.png
-  topic: General
+  topic: Web
   cta:
     url: https://developers.google.com/web/fundamentals/codelabs/
     text: Codelabs

@@ -1,7 +1,7 @@
 // Styles for the external community with logo.
 .external-community {
   $logo-size: 3rem;
-  $max-width: 7.25rem;
+  $max-width: 7.5rem;
 
   flex: 1 0 $max-width;
   max-width: $max-width;
@@ -28,12 +28,16 @@
 
   &__copy-wrapper {
     color: var(--grey-850);
-    font-family: Helvetica, Arial, sans-serif;
     line-height: 1.3;
+  }
 
-    strong {
-      display: block;
-      margin-bottom: 0.75rem;
-    }
+  &__topic,
+  &__text {
+    display: block;
+  }
+
+  &__title {
+    font-weight: $font-weight-bold;
+    margin-bottom: 0.75rem;
   }
 }

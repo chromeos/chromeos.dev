@@ -3,7 +3,7 @@
 
   Arguments:
     @param {string} logo: Logo path.
-    @param {string} topic: Community topic
+    @param {string} topic (optional): Community topic
     @param {object} cta: Object containing the following attributes.
     @param {string} url: CTA url.
     @param {string} text: CTA text.
@@ -13,12 +13,10 @@
   <figure class="external-community__liner">
     <img class="external-community__logo" src="{{logo}}" aria-hidden="true" alt="" />
     <figcaption class="external-community__copy-wrapper">
-      {% if topic %}
-      <strong>{{topic}}</strong>
-      <span>{{cta.text}}</span>
-      {% else %}
-      <strong>{{cta.text}}</strong>
+      {% if topic is defined %}
+      <span class="external-community__topic external-community__title">{{topic}}</span>
       {% endif %}
+      <span class="external-community__text {{'external-community__title' if topic is not defined}}">{{cta.text}}</span>
     </figcaption>
   </figure>
 </a>
