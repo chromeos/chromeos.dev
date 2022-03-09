@@ -9,6 +9,8 @@ authors:
 date: 2022-03-08
 ---
 
+![Headshot of Julia](ix://posts/iwd-2022-julia-enthoven/julia.jpeg)
+
 If you’ve browsed social media recently, it’s likely that you scrolled past a couple memes and maybe even chuckled to yourself or sent it to your friends. It’s also likely that one of those memes you discovered was created with [Kapwing](https://www.kapwing.com/).
 
 Kapwing was initially a meme generator, allowing someone to overlay simple text over images. Four plus years later, it has grown to be a powerful online [video editing](https://www.kapwing.com/video-editor) platform. From creators producing their next viral hit to teachers putting together their next lesson on the Pythagorean theorem, Kapwing empowers individuals everywhere. Since it’s a powerful storytelling tool, we thought it fitting to go behind the scenes and hear the story of Julia Enthoven, CEO and co-founder of Kapwing.
@@ -49,7 +51,7 @@ One of my favorite things about my job is that it’s just constantly new learni
 
 Another big thing that I love about my job now is just the people I go to work with. It's kind of lonely in the early days of a startup. It's just you and your co-founder. But now Kapwing has 35 people, and every single person just brings so much energy, a new perspective, different skills and knowledge. That has been so energizing and fun to see our culture grow organically.
 
-**Speaking of your company culture, I did find the Kapwing company blog and really enjoyed reading some of your posts. Why did you decide to share your experience of growing a startup, and to do so with such refreshing honesty?**
+**Speaking of your company culture, I did find the [Kapwing company blog](https://www.kapwing.com/blog) and really enjoyed reading some of your posts. Why did you decide to share your experience of growing a startup, and to do so with such refreshing honesty?**
 
 The first reason that we started writing the blog way back in the day was because of SEO basically, so we wanted our website to rank on Google. In order to get people to pay attention to our website, we were telling this story of the journey of building our product.
 
@@ -75,7 +77,7 @@ We had lots of launches in February. And more coming soon around how to make vid
 
 Going forward, we’re also thinking a lot about our business model and how to sell not only to individuals but also to creative teams that are working together to create something. We’re optimizing for collaboration. How does a team work together? How do we leave comments and mentions on video so that creative teams can work together to make even better and more things.
 
-**Yes! We’re very excited for Kapwing to be on the Play Store as well!**
+**Yes! We’re very excited for [Kapwing to be on the Play Store](https://play.google.com/store/apps/details?id=com.kapwing.www.twa&hl=en_US&gl=US) as well!**
 
 **Looking back on your career so far, are there any important lessons you’ve learned that you want to share, especially as a woman in this industry?**
 
