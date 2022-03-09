@@ -17,20 +17,17 @@
   @param {object} modifiers (optional): An object containing the following attributes.
   @param {string} modifiers.class: Modifiers class/classes
 #}-->
-{% from 'icon.njk' import icon %}
-{% macro bannerInterstitial(content, image, cta, modifiers) %}
+{% from 'icon.njk' import icon %} {% macro bannerInterstitial(content, image, cta, modifiers) %}
 <article class="banner-interstitial {% if modifiers.class %}{{modifiers.class}}{% endif %}">
   <div class="banner-interstitial__content">
     <div class="banner-interstitial__text">
       <small class="banner-interstitial__eyebrow type--h1">{{content.eyebrow}}</small>
       <h2 class="banner-interstitial__title type--mega">{{content.title}}</h2>
       <p class="banner-interstitial__copy type--base">{{content.copy}}</p>
-      <a href="{{cta.url}}" class="cta cta--transparent banner-interstitial__cta">
-        {{cta.text}}
-      </a>
+      <a href="{{cta.url}}" class="cta cta--transparent banner-interstitial__cta"> {{cta.text}} </a>
     </div>
     <div class="banner-interstitial__image-wrapper">
-      <img src="{{image.src}}" alt="{{image.alt}}" class="banner-interstitial__image">
+      <img src="{{image.src}}" alt="{{image.alt}}" class="banner-interstitial__image" />
     </div>
   </div>
 </article>

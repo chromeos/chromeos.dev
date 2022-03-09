@@ -10,9 +10,7 @@
   <h2 class="form__title type--h2">{{ content.title }}</h2>
   <p class="form__copy type">{{ content.copy }}</p>
   {% for error in content.errors %}
-  <p class="message message--warning form__error form__error--{{ error.type }}">
-    {{ error.text }}
-  </p>
+  <p class="message message--warning form__error form__error--{{ error.type }}">{{ error.text }}</p>
   {% endfor %}
   <form action="{{ settings.endpoint }}" id="{{ settings.name }}" method="post" enctype="multipart/form-content" class="form__wrapper">
     {% for item in fields %} {% set id = settings.name + '-' + item.name %}
@@ -22,7 +20,7 @@
       {% endif %}
     </div>
     {% endfor %}
-    <div class="form__disclaimer type  type--small">{{ content.disclaimer | markdown | safe }}</div>
+    <div class="form__disclaimer type type--small">{{ content.disclaimer | markdown | safe }}</div>
   </form>
 </div>
 {% endmacro %}
