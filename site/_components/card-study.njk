@@ -19,21 +19,17 @@
 
   @param {boolean} featured - Indicates whether or not the card receives unique styling.
 #}-->
-{% from 'icon.njk' import icon %}
-{% macro cardStudy(study, featured) %}
-  <article class="card-study {{'card-study--featured' if featured}} {{'card-study--no-logo' if not study.logo}}">
-    <img class="card-study__media" src="{{study.media.src}}" alt="{{study.media.alt}}" />
-    <div class="card-study__tile">
-      {% if study.logo %}
-      <img class="card-study__tile-logo" src="{{study.logo.src}}" alt="{{study.logo.name}}" />
-      {% endif %}
-      {% if study.eyebrow %}
-      <small class="type--eyebrow card-study__tile-eyebrow">{{study.eyebrow}}</small>
-      {% endif %}
-      <h1 class="{{'type--h3' if featured}}{{'type--h4' if not featured}} card-study__tile-title">{{study.title}}</h1>
-      <a class="cta cta--link card-study__tile-cta" href="{{study.cta.url}}">
-        {{study.cta.text}}
-      </a>
-    </div>
-  </article>  
+{% from 'icon.njk' import icon %} {% macro cardStudy(study, featured) %}
+<article class="card-study {{'card-study--featured' if featured}} {{'card-study--no-logo' if not study.logo}}">
+  <img class="card-study__media" src="{{study.media.src}}" alt="{{study.media.alt}}" />
+  <div class="card-study__tile">
+    {% if study.logo %}
+    <img class="card-study__tile-logo" src="{{study.logo.src}}" alt="{{study.logo.name}}" />
+    {% endif %} {% if study.eyebrow %}
+    <small class="type--eyebrow card-study__tile-eyebrow">{{study.eyebrow}}</small>
+    {% endif %}
+    <h1 class="{{'type--h3' if featured}}{{'type--h4' if not featured}} card-study__tile-title">{{study.title}}</h1>
+    <a class="cta cta--link card-study__tile-cta" href="{{study.cta.url}}"> {{study.cta.text}} </a>
+  </div>
+</article>
 {% endmacro %}
