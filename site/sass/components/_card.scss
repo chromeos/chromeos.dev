@@ -105,6 +105,12 @@
     align-self: flex-end;
     fill: var(--blue-600);
     justify-content: flex-start;
+    margin-left: auto;
+    min-width: initial;
+
+    #{$self}--cta & {
+      margin-left: 0;
+    }
 
     a:hover &,
     a:focus & {
@@ -116,7 +122,9 @@
     a[href^='https://'] &,
     a[href^='//'] &
     {
-      transform: rotate(-45deg);
+      .icon {
+        transform: rotate(-45deg);
+      }
     }
     /* stylelint-enable selector-no-qualifying-type */
 

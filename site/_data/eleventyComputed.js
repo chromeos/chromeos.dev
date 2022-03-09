@@ -287,11 +287,12 @@ module.exports = {
     }
 
     if (posts && posts.length >= 1) {
-      collections.posts = posts.map((post, i) => ({
+      collections.posts = posts.map((post) => ({
         eyebrow: post.data.tags[0],
         title: post.data.title,
         body: post.data.metadesc,
         url: post.data.page.url,
+        cta: 'Learn more',
       }));
 
       collections.filteredPosts = collections.posts.filter((i) => i.url !== get(collections, 'featured.post.cta.url'));

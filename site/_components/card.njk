@@ -2,24 +2,25 @@
   Renders a clickable card.
 
   Arguments:
-    data: List of objects containing the following attributes.
-      - eyebrow (optional): Card eyebrow.
-      - title: Card title.
-      - body: Card body content.
-      - source (optional): Object containing the information source.
-        - logo: The source logo.
-        - name: The source name. i.e. Google Dev Blog.
-      - url: Card URL.
-    modifiers (optional): Object with modifier styles for the card.
-      - custom {String}: Custom modifier styles for the card.
-      - rounded {Boolean}: Rounded border style. Defaults to true.
-    idPrefix (optional): Additional identifier to prevent repeated IDs if multiple cards share the same title.
+    @param {object} data: List of objects containing the following attributes.
+    @param {string} eyebrow (optional): Card eyebrow.
+    @param {string} title: Card title.
+    @param {string} body: Card body content.
+    @param {object} source (optional): Object containing the information source.
+    @param {string} logo: The source logo.
+    @param {string} name: The source name. i.e. Google Dev Blog.
+    @param {string} url: Card URL.
+    @param {string} cta (optional): Text to use in footer when no source is provided.
+    @param modifiers (optional): Object with modifier styles for the card.
+    @param {string} modifiers.custom: Custom modifier styles for the card.
+    @param {boolean} modifiers.rounded: Rounded border style. Defaults to true.
+    @param {string} idPrefix (optional): Additional identifier to prevent repeated IDs if multiple cards share the same title.
  #}-->
-{% from 'icon.njk' import icon %} {% macro card(data, modifiers={}, idPrefix='') -%} {% set titleId %}{{(idPrefix ~ ' ' ~ data.title) | slug}}{% endset %} {% set bodyId %}{{titleId}}-body{% endset %} {% if data.source is defined %} {% set sourceId %}{{titleId}}-source{% endset %} {% endif %} {% set styles %}{{modifiers.custom}} {{'card--rounded' if modifiers.rounded is not defined else modifiers.rounded }}{% endset %}
-<a href="{{ data.url }}" class="card type--base {{styles}}" aria-labelledby="{{ titleId }} {{ bodyId}} {{ sourceId }}">
+{% from 'icon.njk' import icon %} {% macro card(data, modifiers={}, idPrefix='') -%} {% set titleId %}{{(idPrefix ~ ' ' ~ data.title) | slug}}{% endset %} {% set bodyId %}{{titleId}}-body{% endset %} {% if data.source is defined %} {% set sourceId %}{{titleId}}-source{% endset %} {% endif %} {% set styles %}{{modifiers.custom}} {{'card--rounded' if modifiers.rounded is not defined else modifiers.rounded }}{% endset %} {% set cta = data.source is not defined and data.cta is defined %}
+<a href="{{ data.url }}" class="card type--base {{styles}} {{'card--source' if data.source is defined}} {{'card--cta' if cta}}" aria-labelledby="{{ titleId }} {{ bodyId}} {{ sourceId }}">
   <article class="card__container">
     <header id="{{ titleId }}" class="card__title">
-      {% if data.eyebrow in ['technical', 'events', 'trend', 'product news'] %}{{ icon(data.eyebrow, 'card__topic') }}{% endif %} {% if data.eyebrow %}<small class="card__eyebrow type--eyebrow">{{ data.eyebrow }}</small>{% endif %}
+      {% set lowerEyebrow = data.eyebrow | lower %} {% if lowerEyebrow in ['technical', 'events', 'trend', 'product news'] %}{{ icon(lowerEyebrow, 'card__topic') }}{% endif %} {% if data.eyebrow %}<small class="card__eyebrow type--eyebrow">{{ data.eyebrow }}</small>{% endif %}
       <h4 class="card__heading type--h4">{{ data.title }}</h4>
     </header>
     <p id="{{ bodyId }}" class="card__body">{{ data.body }}</p>
@@ -28,7 +29,7 @@
       <img class="card__source-logo" src="{{data.source.logo}}" alt="" aria-hidden="true" />
       <address id="{{ sourceId }}" class="card__source type--small">{{ data.source.name }}</address>
       {% endif %}
-      <span class="card__icon cta cta--low cta--right-icon" aria-hidden="true"> Learn more {{ icon('arrow-forward') }} </span>
+      <span class="card__icon cta cta--link cta--right-icon" aria-hidden="true">{{ data.cta if cta }}{{ icon('arrow-forward') }}</span>
     </footer>
   </article>
 </a>
