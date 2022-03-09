@@ -16,14 +16,10 @@
 {% macro cookieDisclaimer(localeCode, title, content, ctas) %}
 <dialog class="cookie-disclaimer" aria-label="{{title}}" aria-describedby="cookieDisclaimer">
   {%- set settings -%}
-  <a href="{{content.settings.url}}?hl={{localeCode}}">
-    {{content.settings.text}}
-  </a>
+  <a href="{{content.settings.url}}?hl={{localeCode}}">{{content.settings.text}}</a>
   {%- endset -%}
   <div class="cookie-disclaimer__wrapper">
-    <p id="cookieDisclaimer" class="type--h5">
-      {{content.disclaimer | replace('((t))', settings) | safe}}
-    </p>
+    <p id="cookieDisclaimer" class="type--h5">{{content.disclaimer | replace('((t))', settings) | safe}}</p>
     <div class="cookie-disclaimer__buttons">
       <a href="{{ctas.info.url}}?hl={{localeCode}}" class="cta cta--medium">{{ctas.info.text}}</a>
       <button class="cta cta--high">{{ctas.accept}}</button>

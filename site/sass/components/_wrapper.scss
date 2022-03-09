@@ -195,6 +195,10 @@
         color: var(--blue-900);
       }
     }
+
+    &--dark {
+      background-color: var(--grey-850);
+    }
   }
 
   &__responsive-circle {

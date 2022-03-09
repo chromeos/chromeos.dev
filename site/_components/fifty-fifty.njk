@@ -17,18 +17,15 @@
   @param {string} modifiers.class A custom class.
   @param {boolean} modifiers.flip - Invert the order of the image and text content.
 #}-->
-{% from 'icon.njk' import icon %}
-{% macro fiftyFifty(content, cta, images, modifiers) %}
-{% set imageWrapper %}
-<div class="fifty-fifty__image-wrapper">
-  {% for image in images %}
-    <img src="{{image.src}}" alt="{{image.alt}}" class="fifty-fifty__image">
-  {% endfor %}
-</div>
-{% endset %}
-
+{% from 'icon.njk' import icon %} {% macro fiftyFifty(content, cta, images, modifiers) %}
 <article class="fifty-fifty {{modifiers.class}} {{ 'fifty-fifty--flip' if modifiers.flip }}">
-  {% if modifiers.flip %}{{ imageWrapper | safe }}{% endif %}
+  {% set imageWrapper %}
+  <div class="fifty-fifty__image-wrapper">
+    {% for image in images %}
+    <img src="{{image.src}}" alt="{{image.alt}}" class="fifty-fifty__image" />
+    {% endfor %}
+  </div>
+  {% endset %} {% if modifiers.flip %}{{ imageWrapper | safe }}{% endif %}
   <div class="fifty-fifty__content">
     <h3 class="type--h1">{{content.title | striptags(true) | escape | nl2br}}</h3>
     <p class="type--base">{{content.copy}}</p>
