@@ -15,13 +15,9 @@
     {% if select.options %}
     <option selected value="" class="form__select--default"></option>
     {% for option in select.options %} {% set value = option.value if option.value else option.text %}
-    <option value="{{ value }}">
-      {{ option.text }}
-    </option>
+    <option value="{{ value }}">{{ option.text }}</option>
     {% endfor %} {% endif %}
   </select>
-  <label class="form__label" for="{{ id }}">
-    {{ select.label }}
-  </label>
+  <label class="form__label" for="{{ id }}">{{ select.label }}</label>
 </span>
 {%- endmacro %}
