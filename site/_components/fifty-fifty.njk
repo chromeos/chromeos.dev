@@ -5,7 +5,7 @@
   @param {string} content.title - title of the content.
   @param {string} content.copy - Body copy of the content.
 
-  @param {object} cta - An object containing the following attributes.
+  @param {object} cta (optional) - An object containing the following attributes.
   @param {string} cta.url - URL for the cta.
   @param {string} cta.text - CTA link text.
 
@@ -32,7 +32,9 @@
   <div class="fifty-fifty__content">
     <h3 class="type--h1">{{content.title | striptags(true) | escape | nl2br}}</h3>
     <p class="type--base">{{content.copy}}</p>
-    <a href="{{cta.url}}" class="cta cta--link cta--right-icon fifty-fifty__cta">{{cta.text}}</a>
+    {% if cta is defined %}
+    <a href="{{cta.url}}" class="cta cta--link fifty-fifty__cta">{{cta.text}}</a>
+    {% endif %}
   </div>
   {% if not modifiers.flip %}{{ imageWrapper | safe }}{% endif %}
 </article>
