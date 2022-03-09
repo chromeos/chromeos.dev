@@ -16,9 +16,7 @@
 <article class="card-subnav">
   <header class="card-subnav__header">
     <h4 class="card-subnav__title type--h3">{{ navSection.title }}</h4>
-    <div class="card-subnav__icon-wrapper card-subnav__icon-wrapper--{{navSection.icon.background}}">
-      {{ icon(navSection.icon.name, 'card-subnav__icon') }}
-    </div>
+    <div class="card-subnav__icon-wrapper card-subnav__icon-wrapper--{{navSection.icon.background}}">{{ icon(navSection.icon.name, 'card-subnav__icon') }}</div>
   </header>
   <p class="card-subnav__body type--base">{{ navSection.desc }}</p>
   <ul class="card-subnav__sections">
@@ -26,9 +24,7 @@
     <li class="card-subnav__section">
       <a href="/{{locale}}/{{section.url}}" class="card-subnav__anchor type--h5">
         {{section.title}}
-        <span class="card-subnav__section-icon" aria-hidden="true">
-          {{ icon('arrow-forward', 'card-subnav__arrow icon--animated') }}
-        </span>
+        <span class="card-subnav__section-icon" aria-hidden="true"> {{ icon('arrow-forward', 'card-subnav__arrow icon--animated') }} </span>
       </a>
     </li>
     {% endfor %} {% else %}
@@ -36,9 +32,7 @@
       {% set url = "/" + locale + "/" + navSection.url %}
       <a href="{{url}}" class="card-subnav__anchor">
         {{ url | attrByURL('title') }}
-        <span class="card-subnav__section-icon" aria-hidden="true">
-          {{ icon('arrow-forward', 'card-subnav__arrow icon--animated') }}
-        </span>
+        <span class="card-subnav__section-icon" aria-hidden="true"> {{ icon('arrow-forward', 'card-subnav__arrow icon--animated') }} </span>
       </a>
     </li>
     {% endif %}

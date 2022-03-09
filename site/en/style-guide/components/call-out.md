@@ -9,6 +9,13 @@ examples:
       cta:
         text: Subscribe
         url: /
+  - title: Call out without body text
+    arguments:
+      content:
+        title: Chrome OS developer news and updates straight to your inbox
+      cta:
+        text: Subscribe
+        url: /
 ---
 
 Main focus of this component is to call out the action of the cta.

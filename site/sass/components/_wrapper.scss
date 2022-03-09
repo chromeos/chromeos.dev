@@ -55,13 +55,8 @@
     padding-right: $inline-spacing-m;
 
     @supports (margin: clamp(1px, 1vw, 2px)) {
-      padding-left: generateScale((744px 1140px), (24px 60px));
-      padding-right: generateScale((744px 1140px), (24px 60px));
-
-      @include mq(1140px) {
-        padding-left: generateScale((1140px 1440px), (60px 80px));
-        padding-right: generateScale((1140px 1440px), (60px 80px));
-      }
+      padding-left: $inline-spacing-r;
+      padding-right: $inline-spacing-r;
     }
   }
 
@@ -199,6 +194,10 @@
       &:focus {
         color: var(--blue-900);
       }
+    }
+
+    &--dark {
+      background-color: var(--grey-850);
     }
   }
 
