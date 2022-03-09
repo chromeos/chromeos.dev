@@ -66,16 +66,8 @@
   }
 
   &__cta {
+    display: inline-flex;
     margin-top: 2.5rem;
-
-    &,
-    &:visited {
-      color: var(--white);
-    }
-
-    &:focus {
-      background-color: transparent;
-    }
   }
 
   &__image-wrapper {

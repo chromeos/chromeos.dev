@@ -75,6 +75,33 @@
     }
   }
 
+  &--transparent {
+    background-color: transparent;
+    border: 1px solid var(--white);
+    color: var(--white);
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      color: var(--black);
+    }
+
+    &:hover {
+      background-color: var(--grey-300);
+      border-color: var(--black);
+    }
+
+    &:focus-visible {
+      background-color: var(--white);
+      border-color: var(--primary-blue);
+      outline: var(--primary-blue) solid 2px;
+    }
+
+    &:active {
+      background-color: var(--grey-350);
+    }
+  }
+
   &--low,
   &--link,
   &--back {
