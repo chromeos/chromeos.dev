@@ -8,6 +8,7 @@
   width: 100%;
 
   @include minLangMQ($bkpt-map--header--large) {
+    align-self: center;
     grid-column: -3 / -2;
   }
 

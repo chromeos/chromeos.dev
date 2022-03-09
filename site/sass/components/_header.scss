@@ -10,6 +10,8 @@
 
   @include minLangMQ($bkpt-map--header--large) {
     padding-bottom: 0;
+    padding-right: 0;
+    padding-top: 0;
   }
 
   &__container {
@@ -31,6 +33,7 @@
     z-index: 3;
 
     @include minLangMQ($bkpt-map--header--large) {
+      align-self: center;
       grid-column: 1 / span 1;
       grid-row: 1 / span 1;
     }
@@ -66,6 +69,7 @@
     display: none;
 
     @include minLangMQ($bkpt-map--header--large) {
+      border-radius: 0;
       display: flex;
     }
   }
