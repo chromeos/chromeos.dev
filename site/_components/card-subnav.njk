@@ -13,9 +13,7 @@
 {% from 'icon.njk' import icon %} {% macro cardSubnav(navSection, locale) -%}
 <article class="card-subnav">
   <header class="card-subnav__header">
-    <div class="card-subnav__icon-wrapper">
-      {{ icon(navSection.icon, 'card-subnav__icon') }}
-    </div>
+    <div class="card-subnav__icon-wrapper">{{ icon(navSection.icon, 'card-subnav__icon') }}</div>
     <h4 class="card-subnav__title type--h4">{{ navSection.title }}</h4>
   </header>
   <p class="card-subnav__body type--large">{{ navSection.desc }}</p>
@@ -24,9 +22,7 @@
     <li class="card-subnav__section type--h5">
       <a href="/{{locale}}/{{section.url}}" class="card-subnav__anchor">
         {{section.title}}
-        <span class="card-subnav__section-icon" aria-hidden="true">
-          {{ icon('arrow-forward', 'card-subnav__arrow icon--animated') }}
-        </span>
+        <span class="card-subnav__section-icon" aria-hidden="true"> {{ icon('arrow-forward', 'card-subnav__arrow icon--animated') }} </span>
       </a>
     </li>
     {% endfor %} {% else %}
@@ -34,9 +30,7 @@
       {% set url = "/" + locale + "/" + navSection.url %}
       <a href="{{url}}" class="card-subnav__anchor">
         {{ url | attrByURL('title') }}
-        <span class="card-subnav__section-icon" aria-hidden="true">
-          {{ icon('arrow-forward', 'card-subnav__arrow icon--animated') }}
-        </span>
+        <span class="card-subnav__section-icon" aria-hidden="true"> {{ icon('arrow-forward', 'card-subnav__arrow icon--animated') }} </span>
       </a>
     </li>
     {% endif %}

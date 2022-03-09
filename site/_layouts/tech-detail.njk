@@ -6,9 +6,7 @@ layout: _wrapper
 
 <article class="{{class}}">
   {% set related = collections[section + '--' + locale.code] %}
-  <aside class="tech-detail__topics-and-resources">
-    {{skipLink(microcopy.skip.content, 'content')}} {{ subnav(related, eyebrow, page.url, resources, microcopy.resources.title)}}
-  </aside>
+  <aside class="tech-detail__topics-and-resources">{{skipLink(microcopy.skip.content, 'content')}} {{ subnav(related, eyebrow, page.url, resources, microcopy.resources.title)}}</aside>
   {% if landingPage %}
   <div class="tech-detail__hero">
     {%- if hero -%}{% set position = hero.position if hero.position else 'middle' %}
@@ -29,26 +27,18 @@ layout: _wrapper
   </header>
 
   {% if (content | toc or tools) and landingPage == false %}
-  <aside class="tech-detail__versions-and-toc">
-    {{toolsMacro(tools, microcopy.tools)}} {{tableOfContents(content, microcopy.toc.title, {title: microcopy.skip.toc, id: 'article'})}}
-  </aside>
+  <aside class="tech-detail__versions-and-toc">{{toolsMacro(tools, microcopy.tools)}} {{tableOfContents(content, microcopy.toc.title, {title: microcopy.skip.toc, id: 'article'})}}</aside>
   {% endif %}
 
   <section class="tech-detail__content" id="article">
-    <div class="type">
-      {{ content | safe }}
-    </div>
+    <div class="type">{{ content | safe }}</div>
     {% if landingPage and landingPage.subnav %}
-    <div class="tech-detail__chapters">
-      {{itemGrid(microcopy.landing.chapters, landingPage.subnav.slice(1))}}
-    </div>
+    <div class="tech-detail__chapters">{{itemGrid(microcopy.landing.chapters, landingPage.subnav.slice(1))}}</div>
     {% endif %}
   </section>
 
   {% if landingPage == false %}
-  <section class="tech-detail__recommended wrapper--padding wrapper--padded wrapper__contained">
-    {{itemGrid(microcopy.recommended, title | related(locale.code, page.url))}}
-  </section>
+  <section class="tech-detail__recommended wrapper--padding wrapper--padded wrapper__contained">{{itemGrid(microcopy.recommended, title | related(locale.code, page.url))}}</section>
   {% endif %}
 </article>
 {% from 'back-to-top.njk' import backToTop %} {{ backToTop() }}

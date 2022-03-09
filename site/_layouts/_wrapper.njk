@@ -30,7 +30,7 @@
     {% from 'header.njk' import header %} {{ header(nav, search.placeholder, subscribe.cta, locale) }}
     <main class="main">
       {{ content | safe }} {% if showNewsletter and subscribe %}
-      <div class="wrapper wrapper--padded">{% from "call-out.njk" import callOut %} {{ callOut(subscribe.content, subscribe.cta) }}</div>
+      <div class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__background--dark">{% from "call-out.njk" import callOut %} {{ callOut(subscribe.content, subscribe.cta) }}</div>
       {% endif %}
     </main>
     {% from 'footer.njk' import footer %}{{ footer(locale.code, site.languages, footerContent, true) }} {% include 'inline-svg.njk' %} {% from 'cookie-disclaimer.njk' import cookieDisclaimer %}{{ cookieDisclaimer(locale.code, cookies.title, cookies.content, cookies.ctas) }}
