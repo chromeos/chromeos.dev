@@ -18,15 +18,11 @@ fixed: |-
   These type styles do not change based on screen size or where they are displayed. When rendered, `font-size`, `letter-spacing`, `padding` are converted to `em` and `line-height` is converted to a ratio.
 ---
 
-<div class="type">
-  {{ intro | safe }}
-</div>
+<div class="type">{{ intro | safe }}</div>
 
 <section class="style-guide__section">
   <h2 class="type--h3">Headlines</h2>
-  <div class="type">
-    {{ headlines | safe }}
-  </div>
+  <div class="type">{{ headlines | safe }}</div>
   <section class="style-guide__section">
     <h1 class="type--mega">Headline Mega</h1>
     <div class="type">
@@ -74,15 +70,11 @@ fixed: |-
       <p>Headline 6 grows from <code>14px</code>/<code>24px</code> to <code>16px</code>/<code>28px</code>, with a medium size of <code>16px</code>/<code>28px</code>. It's set in Google Sans with a font weight of <code>500</code>.</p>
     </div>
   </section>
-
 </section>
 
 <section class="style-guide__section">
   <h2 class="type--h3">Fixed Styles</h2>
-  <div class="type">
-    {{ fixed | safe }}
-  </div>
-
+  <div class="type">{{ fixed | safe }}</div>
   <section class="style-guide__section">
     <p class="type--base">Base copy</p>
     <p class="type type--base">This is regular-sized body copy, used for most body copy. The following is filler to help flesh out what this looks like for long stretches of text. There's also some <strong>bold</strong> and <em>italic</em> text thrown in for god measure. There's so many poorly chosen words in that sentence. I hear the jury's still out on science. That's why you always leave a note! I don't understand the question, and I won't respond to it. I care deeply for nature. I'm half machine. I'm a monster.</p>

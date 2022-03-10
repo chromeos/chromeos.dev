@@ -14,12 +14,8 @@
 {% macro validationCard(content, modifiers) %}
 <article class="validation-card {{modifiers.custom}} {% if modifiers.shape %}validation-card--{{modifiers.shape}} {% endif %}{% if modifiers.color %}validation-card--{{modifiers.color}}{% endif %}">
   <dl>
-    <dt class="validation-card__dt">
-      {{content.description}}
-    </dt>
-    <dd class="validation-card__dd type--base">
-      {{content.details}}
-    </dd>
+    <dt class="validation-card__dt">{{content.description}}</dt>
+    <dd class="validation-card__dd type--base">{{content.details}}</dd>
   </dl>
 </article>
 {% endmacro %}

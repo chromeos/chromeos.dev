@@ -4,9 +4,18 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  max-width: 65ch;
   text-align: center;
 
   > :not(:last-child) {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .wrapper__background--dark & {
+    &__heading,
+    &__body {
+      color: var(--white);
+    }
   }
 }

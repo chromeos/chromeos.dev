@@ -26,13 +26,9 @@
     <footer class="card__footer">
       {% if data.source is defined %}
       <img class="card__source-logo" src="{{data.source.logo}}" alt="" aria-hidden="true" />
-      <address id="{{ sourceId }}" class="card__source type--small">
-        {{ data.source.name }}
-      </address>
+      <address id="{{ sourceId }}" class="card__source type--small">{{ data.source.name }}</address>
       {% endif %}
-      <span class="card__icon" aria-hidden="true">
-        {% from 'icon.njk' import icon %} {{ icon('arrow-forward') }}
-      </span>
+      <span class="card__icon" aria-hidden="true"> {% from 'icon.njk' import icon %} {{ icon('arrow-forward') }} </span>
     </footer>
   </article>
 </a>
