@@ -25,7 +25,7 @@
 
   &__content {
     display: grid;
-    grid-gap: pxRem(40px) pxRem(24px);
+    grid-gap: pxRem(40px) pxRem(20px);
     margin-top: pxRem(40px);
 
     @include mq(430px) {
@@ -35,10 +35,12 @@
 
   &--community & {
     &__content {
-      align-items: flex-start;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      row-gap: 1.25rem;
     }
   }
 
