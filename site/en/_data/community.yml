@@ -1,3 +1,18 @@
+- logo: ix://landings/home/github-logo.png
+  topic: Chrome OS
+  cta:
+    url: https://github.com/chromeos
+    text: GitHub
+- logo: ix://landings/home/reddit-logo.png
+  topic: Chrome OS
+  cta:
+    url: https://www.reddit.com/r/chromeos/
+    text: Reddit
+- logo: ix://landings/home/stackoverflow-logo.png
+  topic: Chrome OS
+  cta:
+    url: https://stackoverflow.com/questions/tagged/google-chrome-os
+    text: Stack Overflow
 - logo: ix://landings/home/android-logo.png
   topic: Android
   cta:
@@ -13,26 +28,11 @@
   cta:
     url: https://www.youtube.com/user/androiddevelopers
     text: YouTube
-- logo: ix://landings/home/github-logo.png
-  topic: Chrome OS
-  cta:
-    url: https://github.com/chromeos
-    text: GitHub
 - logo: ix://landings/home/twitter-logo.png
   topic: Web
   cta:
     url: https://twitter.com/ChromiumDev
     text: Twitter
-- logo: ix://landings/home/reddit-logo.png
-  topic: Chrome OS
-  cta:
-    url: https://www.reddit.com/r/chromeos/
-    text: Reddit
-- logo: ix://landings/home/stackoverflow-logo.png
-  topic: Chrome OS
-  cta:
-    url: https://stackoverflow.com/questions/tagged/google-chrome-os
-    text: Stack Overflow
 - logo: ix://landings/home/webdev-logo.png
   topic: Web
   cta:
