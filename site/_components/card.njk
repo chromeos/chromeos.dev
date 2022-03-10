@@ -2,16 +2,16 @@
   Renders a clickable card.
 
   Arguments:
-    @param {object} data: List of objects containing the following attributes.
-    @param {string} eyebrow (optional): Card eyebrow.
-    @param {string} title: Card title.
-    @param {string} body: Card body content.
-    @param {object} source (optional): Object containing the information source.
-    @param {string} logo: The source logo.
-    @param {string} name: The source name. i.e. Google Dev Blog.
-    @param {string} url: Card URL.
-    @param {string} cta (optional): Text to use in footer when no source is provided.
-    @param modifiers (optional): Object with modifier styles for the card.
+    @param {object} data: Object to populate the card with
+    @param {string} data.eyebrow (optional): Card eyebrow.
+    @param {string} data.title: Card title.
+    @param {string} data.body: Card body content.
+    @param {object} data.source (optional): Object containing the information source.
+    @param {string} data.logo: The source logo.
+    @param {string} data.name: The source name. i.e. Google Dev Blog.
+    @param {string} data.url: Card URL.
+    @param {string} data.cta (optional): Text to use in footer when no source is provided.
+    @param {object} modifiers (optional): Object with modifier styles for the card.
     @param {string} modifiers.custom: Custom modifier styles for the card.
     @param {boolean} modifiers.rounded: Rounded border style. Defaults to true.
     @param {string} idPrefix (optional): Additional identifier to prevent repeated IDs if multiple cards share the same title.
@@ -20,7 +20,7 @@
 <a href="{{ data.url }}" class="card type--base {{styles}} {{'card--source' if data.source is defined}} {{'card--cta' if cta}}" aria-labelledby="{{ titleId }} {{ bodyId}} {{ sourceId }}">
   <article class="card__container">
     <header id="{{ titleId }}" class="card__title">
-      {% set lowerEyebrow = data.eyebrow | lower %} {% if lowerEyebrow in ['technical', 'events', 'trend', 'product news'] %}{{ icon(lowerEyebrow, 'card__topic') }}{% endif %} {% if data.eyebrow %}<small class="card__eyebrow type--eyebrow">{{ data.eyebrow }}</small>{% endif %}
+      {# TODO: add eyebrow icons under Issue #332, Card: Eyebrow Icons #} {% if data.eyebrow %}<small class="card__eyebrow type--eyebrow">{{ data.eyebrow }}</small>{% endif %}
       <h4 class="card__heading type--h4">{{ data.title }}</h4>
     </header>
     <p id="{{ bodyId }}" class="card__body">{{ data.body }}</p>

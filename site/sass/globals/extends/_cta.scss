@@ -17,12 +17,16 @@
 
   &--left-icon {
     .icon {
-      [dir='ltr'] & {
-        margin-right: 0.5rem;
-      }
+      margin-inline-end: 0.5rem;
 
-      [dir='rtl'] {
-        margin-left: 0.5rem;
+      @supports not (margin-inline-end: 1rem) {
+        [dir='ltr'] & {
+          margin-right: 0.5rem;
+        }
+
+        [dir='rtl'] {
+          margin-left: 0.5rem;
+        }
       }
     }
   }

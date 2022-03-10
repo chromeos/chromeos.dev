@@ -15,27 +15,32 @@
   z-index: 10;
 
   &__title,
-  &__subtitle {
+  &__subtitle,
+  &__footer {
     text-align: center;
   }
 
   &__title {
     margin: 0 auto;
-    max-width: pxRem(640px);
+    max-width: 30ch;
     padding: 0 calc(var(--shape-circle--size) / 6);
     position: relative;
     z-index: 3;
   }
 
   &__subtitle {
-    margin: pxRem(8px) auto 0;
-    max-width: pxRem(450px);
+    color: var(--grey-700);
+    margin-top: 1rem;
+
+    @supports (margin-top: clamp(1px, 1vw, 2px)) {
+      margin-top: clamp(0.625rem, 2.66vw, 1rem);
+    }
   }
 
   &__content {
     display: grid;
-    grid-gap: pxRem(20px) pxRem(20px);
-    margin-top: pxRem(40px);
+    gap: 2.5rem 1.5rem;
+    margin-top: 2.5rem;
 
     @include mq(430px) {
       grid-template-columns: repeat(auto-fit, minmax(pxRem(300px), 1fr));
@@ -43,8 +48,7 @@
   }
 
   &__footer {
-    margin-top: pxRem(48px);
-    text-align: center;
+    margin-top: 3rem;
 
     .cta {
       display: inline-flex;

@@ -62,7 +62,7 @@ posts:
     subtitle: Explore trends, events, and updates on our community.
     cta:
       text: All Articles
-      url: /en/news
+      url: news
 featured:
   modifiers:
     custom: landing--news-grey-overlay

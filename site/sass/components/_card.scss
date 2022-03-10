@@ -38,12 +38,16 @@
   }
 
   &__topic {
-    [dir='ltr'] & {
-      margin-right: 0.625rem;
-    }
+    margin-inline-end: 0.625rem;
 
-    [dir='rtl'] & {
-      margin-left: 0.625rem;
+    @supports not (margin-inline-end: 1rem) {
+      [dir='ltr'] & {
+        margin-right: 0.625rem;
+      }
+
+      [dir='rtl'] & {
+        margin-left: 0.625rem;
+      }
     }
   }
 
