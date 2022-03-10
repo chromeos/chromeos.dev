@@ -1,8 +1,10 @@
 <!--{#
   Renders a section with items.
+
   Arguments:
     @param {string} title: Section title.
     @param {string} items: List of item objects.
+
     @param {object} modifiers (optional): Object with modifier styles for the grid.
     @param {string} modifiers.custom: Custom modifier styles for the grid.
     @param {number} modifiers.shapeOn: Index of the nth item of the grid that will have a shape in the background.
@@ -10,7 +12,9 @@
     @param {string} modifiers.variant: If 'icon', it will render the icon-card. if 'subnav' it will render card-subnav. if 'community' it will render external-community.
     @param {string} modifiers.heading (optional): Designate the section heading typography class. Defaults to h1 treatment.
     @param {string} modifiers.subtitle (optional): Text for a subtitle beneath the primary title.
+
     @param {string} locale: Code for the current locale, used when 'modifiers.variant' is 'subnav'
+
     @param {string} defaultText: Default text used when 'modifiers.variant' is 'icon'.
  #}-->
 {% from 'external-community.njk' import externalCommunity %} {% from 'card-subnav.njk' import cardSubnav %} {% from 'icon-card.njk' import iconCard %} {% from 'card.njk' import card %} {% macro itemGrid(title, items, modifiers, locale, defaultText) %} {% if items.length > 0 %}
@@ -19,7 +23,7 @@
   {% if modifiers.subtitle %}
   <p class="type--large item-grid__subtitle">{{modifiers.subtitle}}</p>
   {% endif %}
-  <div class="item-grid__content">{% for item in items %} {% if modifiers.variant == 'icon' %} {{iconCard(item, defaultText)}} {% elif modifiers.variant == 'subnav' %} {% if item.icon and item.desc %} {{cardSubnav(item, locale)}} {% endif %} {% elif modifiers.variant == 'community' %} {{externalCommunity(item.logo, item.cta)}} {% else %} {{ card(item) }} {% endif %} {% endfor %}</div>
+  <div class="item-grid__content">{% for item in items %} {% if modifiers.variant == 'icon' %} {{iconCard(item, defaultText)}} {% elif modifiers.variant == 'subnav' %} {% if item.icon and item.desc %} {{cardSubnav(item, locale)}} {% endif %} {% elif modifiers.variant == 'community' %} {{externalCommunity(item.logo, item.topic, item.cta)}} {% else %} {{ card(item) }} {% endif %} {% endfor %}</div>
   {% if modifiers.cta %}
   <footer class="item-grid__footer">
     <a class="cta cta--medium" href="{{modifiers.cta.url}}">{{modifiers.cta.text}}</a>

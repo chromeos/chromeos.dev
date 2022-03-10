@@ -57,10 +57,12 @@
 
   &--community & {
     &__content {
-      align-items: flex-start;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      row-gap: 1.25rem;
     }
   }
 
