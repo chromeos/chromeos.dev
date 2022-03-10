@@ -51,6 +51,12 @@
     }
   }
 
+  &--red & {
+    &__dt {
+      --shape-color: var(--primary-red);
+    }
+  }
+
   &--semicircle & {
     &__dt::after {
       #{'--circle-radius'}: $circle-l;
@@ -78,17 +84,18 @@
 
   &--triangle & {
     &__dt::after {
+      $size: 6.25rem;
       background-image: linear-gradient(to bottom left, var(--shape-color), var(--shape-color) 50%, $transparency 50%, $transparency);
-      height: pxRem(100px);
+      height: $size;
       top: 0;
       transform: translate(-50%, -25%) rotate(-15deg);
       transform-origin: bottom right;
-      width: pxRem(100px);
+      width: $size;
     }
   }
 
   // Scale the left values down to zero as screen size increases, if supported.
-  &:first-of-type & {
+  &--scale-full & {
     &__dt::after {
       @supports (left: clamp(1px, 1vw, 2px)) {
         left: clamp(0rem, 20rem - 44vw, 90%);
@@ -96,7 +103,7 @@
     }
   }
 
-  &:last-of-type & {
+  &--scale-half & {
     &__dt::after {
       @supports (left: clamp(1px, 1vw, 2px)) {
         left: clamp(0rem, 14.5rem - 32vw, 45%);

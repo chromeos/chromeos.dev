@@ -36,6 +36,7 @@ validation:
       modifiers:
         shape: semicircle
         color: yellow
+        scale: full
     - description: +92%
       details: Chrome OS YoY Growth
       modifiers:
@@ -46,6 +47,7 @@ validation:
       modifiers:
         shape: triangle
         color: green
+        scale: half
 onAndWith:
   desc: Build for Chrome OS, build on Chrome OS
   cards:
