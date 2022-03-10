@@ -59,35 +59,15 @@
     cursor: pointer;
     display: inline-block;
     padding: unset;
+    position: relative;
     text-decoration: none;
     vertical-align: middle;
 
     @include maxLangMQ($bkpt-map--header--large) {
+      display: flex;
+      justify-content: space-between;
       padding: 0.875em 1.25em;
-      position: relative;
-      text-align: left;
       width: 100%;
-
-      &[aria-haspopup] {
-        &::after {
-          background-color: var(--grey-900);
-          background-size: 1em;
-          content: '';
-          display: block;
-          height: 1em;
-          mask-image: url('/images/icons/sprite.svg#expand-more');
-          position: absolute;
-          right: 0;
-          top: calc(50% - 0.5em);
-          width: 1em;
-        }
-      }
-
-      &[aria-expanded='true'] {
-        &::after {
-          transform: rotate(180deg);
-        }
-      }
     }
 
     @include minLangMQ($bkpt-map--header--large) {
@@ -134,8 +114,15 @@
       }
     }
 
+    &-icon {
+      fill: var(--grey-700);
+      pointer-events: none;
+    }
+
     &[aria-expanded='true'] {
-      position: relative;
+      .icon {
+        transform: rotate(180deg);
+      }
     }
   }
 
@@ -175,10 +162,6 @@
       transform: translateX(-100%);
       transition: var(--nav-transition);
       width: calc(100% - 5em);
-
-      &-item {
-        max-width: calc(100% - 1.5rem);
-      }
     }
 
     @include minLangMQ($bkpt-map--header--large) {
