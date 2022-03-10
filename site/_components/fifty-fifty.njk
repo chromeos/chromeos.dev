@@ -28,7 +28,7 @@
   {% endset %} {% if modifiers.flip %}{{ imageWrapper | safe }}{% endif %}
   <div class="fifty-fifty__content">
     <h3 class="type--h1">{{content.title | striptags(true) | escape | nl2br}}</h3>
-    <p class="type--base">{{content.copy}}</p>
+    <p class="type--base fifty-fifty__copy">{{content.copy}}</p>
     {% if cta is defined %}
     <a href="{{cta.url}}" class="cta cta--link fifty-fifty__cta">{{cta.text}}</a>
     {% endif %}

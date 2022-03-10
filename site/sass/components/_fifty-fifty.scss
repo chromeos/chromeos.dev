@@ -27,11 +27,16 @@
         text-align: right;
       }
     }
+  }
 
-    .type--base,
-    .cta {
-      margin-top: 1.5rem;
-    }
+  &__copy,
+  &__cta {
+    margin-top: 1.5rem;
+  }
+
+  &__copy {
+    color: var(--grey-700);
+    margin-top: 1.5rem;
   }
 
   &__image-wrapper {
