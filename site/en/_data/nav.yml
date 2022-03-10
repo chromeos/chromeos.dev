@@ -2,7 +2,7 @@
   desc: Discover resources to start building your Android apps, web apps, and games for Chrome OS.
   icon:
     name: multi-device
-    background: primary-blue
+    background: blue
   sections:
     - title: Adapting Android
       url: android
@@ -14,7 +14,7 @@
   desc: Use Chrome OS to develop apps in a fast, secure, and hassle-free environment.
   icon:
     name: bracket-monitor
-    background: primary-yellow
+    background: yellow
   alt: publish
   sections:
     - title: Linux
@@ -29,7 +29,7 @@
   desc: Learn about publishing your apps on the Google Play Store and engage millions of users on Chromebooks.
   icon:
     name: upload
-    background: primary-green
+    background: green
   url: publish
 - title: News & Stories
   url: news

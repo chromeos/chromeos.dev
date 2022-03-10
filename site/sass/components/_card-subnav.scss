@@ -14,6 +14,14 @@
   padding-bottom: 2rem;
   padding-top: 1.625rem;
 
+  @supports (grid-template-rows: subgrid) {
+    align-items: flex-start;
+    display: grid;
+    grid-row: span 4;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
+
   &__header {
     align-items: center;
     display: flex;
@@ -60,15 +68,15 @@
       width: clamp(2.5rem, 7.4vw, 3rem);
     }
 
-    &--primary-blue {
+    &--blue {
       background-color: var(--primary-blue);
     }
 
-    &--primary-yellow {
+    &--yellow {
       background-color: var(--primary-yellow);
     }
 
-    &--primary-green {
+    &--green {
       background-color: var(--primary-green);
     }
   }
@@ -84,6 +92,10 @@
     align-self: flex-start;
     list-style: none;
     width: 100%;
+
+    @supports (grid-template-rows: subgrid) {
+      grid-row: span 2;
+    }
   }
 
   &__section {

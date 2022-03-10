@@ -6,7 +6,7 @@
   @param {string} navSection.desc - Nav section description.
   @param {object} navSection.icon (optional) - Object containing the following attributes.
   @param {string} navSection.icon.name - ID of icon within spritesheet.
-  @param {('primary-blue'|'primary-yellow'|'primary-green')} navSection.icon.background - Color keyword to apply as the icon's background circle.
+  @param {('blue'|'yellow'|'green')} navSection.icon.background - Color keyword to apply as the icon's background circle.
   @param {object[]} navSection.sections - List of sections representing the sub-navigation of the site.
   @param {string} navSection.sections[].title - Title of the subnav section.
   @param {string} navSection.sections[].url - Url of the subnav section.
@@ -17,7 +17,7 @@
   <header class="card-subnav__header">
     <h4 class="card-subnav__title type--h3">{{ navSection.title }}</h4>
     {% if navSection.icon is defined %}
-    <div class="card-subnav__icon-wrapper {% if navSection.icon.background in ['primary-blue', 'primary-yellow', 'primary-green'] %} card-subnav__icon-wrapper--{{navSection.icon.background}} {% endif %}">{{ icon(navSection.icon.name, 'card-subnav__icon') }}</div>
+    <div class="card-subnav__icon-wrapper {% if navSection.icon.background in ['blue', 'yellow', 'green'] %} card-subnav__icon-wrapper--{{navSection.icon.background}} {% endif %}">{{ icon(navSection.icon.name, 'card-subnav__icon') }}</div>
     {% endif %}
   </header>
   <p class="card-subnav__body type--base">{{ navSection.desc }}</p>

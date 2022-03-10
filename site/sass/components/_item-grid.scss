@@ -15,7 +15,8 @@
   z-index: 10;
 
   &__title,
-  &__subtitle {
+  &__subtitle,
+  &__footer {
     text-align: center;
   }
 
@@ -38,11 +39,19 @@
 
   &__content {
     display: grid;
-    grid-gap: pxRem(40px) pxRem(24px);
-    margin-top: pxRem(40px);
+    gap: 2.5rem 1.5rem;
+    margin-top: 2.5rem;
 
     @include mq(430px) {
       grid-template-columns: repeat(auto-fit, minmax(pxRem(300px), 1fr));
+    }
+  }
+
+  &__footer {
+    margin-top: 3rem;
+
+    .cta {
+      display: inline-flex;
     }
   }
 
@@ -67,7 +76,7 @@
 
   &--subnav & {
     &__content {
-      grid-gap: 1.875rem 1.25rem;
+      gap: 1.875rem 1.25rem;
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
       justify-content: center;
     }
