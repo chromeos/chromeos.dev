@@ -78,9 +78,10 @@ chromebook:
     url: https://www.google.com/chromebook/
     text: Learn about Chromebook
 community:
-  title: Developer news and resources to get you up and running
+  title: Developer channels to get you started
   modifiers:
     variant: community
+    heading: h2
 footnotes:
   notes:
     - The NPD Group, Inc., U.S. Retail Tracking Service, Notebook Computers, based on unit sales, April-June 2020 and March-June 2020.
