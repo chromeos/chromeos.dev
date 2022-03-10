@@ -43,7 +43,7 @@
 
   &--h5 {
     @extend %type--header;
-    @include flexFont((14px 19.6px), (16px 19.2px), (18px 21.6px));
+    @include flexFont((16px 22.4px), (16px 19.2px), (18px 21.6px));
     font-family: $font-body;
     font-weight: 500;
     letter-spacing: -0.01em;
