@@ -42,7 +42,7 @@
     margin-top: pxRem(40px);
 
     @include mq(430px) {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(pxRem(300px), 1fr));
     }
   }
 
