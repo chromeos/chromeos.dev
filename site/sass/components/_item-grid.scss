@@ -46,24 +46,6 @@
     }
   }
 
-  &--validation & {
-    &__subtitle {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: pxRem(400px);
-    }
-
-    &__content {
-      grid-gap: pxRem(70px) pxRem(20px);
-      grid-template: auto / 1fr;
-      margin-top: pxRem(80px);
-
-      @include mq(725px) {
-        grid-template-columns: repeat(auto-fit, minmax(pxRem(190px), 1fr));
-      }
-    }
-  }
-
   &--community & {
     &__content {
       align-items: flex-start;

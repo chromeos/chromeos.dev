@@ -25,28 +25,23 @@ results:
     icon: trending-up
   footnote: 1
 validation:
-  title: Grow in good company.
   modifiers:
-    custom: item-grid--validation
-    variant: validation
+    heading: Grow in good company.
     subtitle: Keep your app—and your audience—growing, across the Chrome OS community.
   items:
-    - description: +103%
-      details: App Usage Growth YoY on Chrome OS for Android, Web, and Games
+    - stat: +103%
+      desc: App Usage Growth YoY on Chrome OS for Android, Web, and Games
       modifiers:
         shape: semicircle
-        color: yellow
         scale: full
-    - description: +92%
-      details: Chrome OS YoY Growth
+    - stat: +92%
+      desc: Chrome OS YoY Growth
       modifiers:
         shape: circle
-        color: blue
-    - description: +124%
-      details: Growth of User Engagment YoY with apps on Chrome OS
+    - stat: +124%
+      desc: Growth of User Engagment YoY with apps on Chrome OS
       modifiers:
         shape: triangle
-        color: green
         scale: half
 onAndWith:
   desc: Build for Chrome OS, build on Chrome OS
