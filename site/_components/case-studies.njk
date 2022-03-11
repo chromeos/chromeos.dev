@@ -5,12 +5,15 @@
   @param {string} content.title: Section title, displayed in a heading element.
   @param {string} content.subtitle (optional): Section subtitle, displayed beneath the heading.
   @param {string} content.modifiers (optional): Modifier classes to be applied to the section.
+
   @param {object} content.cta (optional): A CTA object containing the following required attributes.
   @param {string} content.cta.text: Text to be displayed within the CTA.
   @param {string} content.cta.url: href value for the CTA.
-  @param {array} studies: Array of 3 case studies.
+  @param {object[]} studies: Array of 3 case studies.
+
+  @param {string} locale: Code for the current locale, required when content.cta is present.
 #}-->
-{% from 'card-study.njk' import cardStudy %} {% macro caseStudies(content, studies) %}
+{% from 'card-study.njk' import cardStudy %} {% macro caseStudies(content, studies, locale) %}
 <section class="case-studies {% if content.modifiers %}{{content.modifiers}}{% endif %}">
   <header class="case-studies__header">
     <h1 class="type--h1 case-studies__title">{{content.title}}</h1>
@@ -19,9 +22,9 @@
     {% endif %}
   </header>
   <div class="case-studies__content">{% for study in studies %}{{cardStudy(study, loop.first)}}{% endfor %}</div>
-  {% if content.cta %}
+  {% if content.cta %} {% set localeCta = { 'url': '/' ~ locale ~ '/' ~ content.cta.url, 'text': content.cta.text }%}
   <footer class="case-studies__footer">
-    <a class="cta cta--medium case-studies__cta" href="{{content.cta.url}}">{{content.cta.text}}</a>
+    <a class="cta cta--medium case-studies__cta" href="{{localeCta.url}}">{{localeCta.text}}</a>
   </footer>
   {% endif %}
 </section>

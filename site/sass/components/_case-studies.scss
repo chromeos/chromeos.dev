@@ -1,7 +1,6 @@
 .case-studies {
   $break-feature-col: 690px;
   $scale-max: 1600px;
-  $block-spacing-range: ($break-feature-col $scale-max);
   $clamp-check: clamp(1px, 1vw, 2px);
 
   &__header,
@@ -16,11 +15,11 @@
 
   &__content {
     display: grid;
-    grid-gap: 2rem 1.25rem;
+    gap: 2rem 1.25rem;
     margin-top: 4rem;
 
-    @supports (grid-gap: $clamp-check) {
-      grid-gap: generateScaling($block-spacing-range, (20px 48px)) 1.25rem;
+    @supports (gap: $clamp-check) {
+      gap: generateScaling(($break-feature-col $scale-max), (20px 48px)) 1.25rem;
     }
 
     @include mq($break-feature-col) {

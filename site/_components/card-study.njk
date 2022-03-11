@@ -1,21 +1,21 @@
 <!--{#
   Renders a card for a case study.
 
-  @param {object} study: Object containing the following attributes.
+  @param {object} study - Object to populate the card with.
   @param {string} study.eyebrow - String representing the card eyebrow.
   @param {string} study.title - String representing the card title.
 
-  @param {object} study.logo - Object containing the following attributes.
-  @param {string} logo.src - Image path of the logo.
-  @param {string} logo.name - Name for the logo for use as alt text.
+  @param {object} study.logo (optional) - Object containing the following attributes.
+  @param {string} study.logo.src - Image path of the logo.
+  @param {string} study.logo.name - Name for the logo for use as alt text.
 
   @param {object} study.media - Object containing the following attributes.
-  @param {string} media.src - Image's source.
-  @param {string} media.alt - Image description.
+  @param {string} study.media.src - Image's source.
+  @param {string} study.media.alt - Image description.
 
   @param {object} study.cta - Object containing the following attributes.
-  @param {string} cta.text - CTA message.
-  @param {string} cta.url - URL for the CTA.
+  @param {string} study.cta.text - CTA message.
+  @param {string} study.cta.url - URL for the CTA.
 
   @param {boolean} featured - Indicates whether or not the card receives unique styling.
 #}-->
@@ -23,13 +23,13 @@
 <article class="card-study {{'card-study--featured' if featured}} {{'card-study--no-logo' if not study.logo}}">
   <img class="card-study__media" src="{{study.media.src}}" alt="{{study.media.alt}}" />
   <div class="card-study__tile">
-    {% if study.logo %}
+    {% if featured and study.logo is defined %}
     <img class="card-study__tile-logo" src="{{study.logo.src}}" alt="{{study.logo.name}}" />
     {% endif %} {% if study.eyebrow %}
     <small class="type--eyebrow card-study__tile-eyebrow">{{study.eyebrow}}</small>
     {% endif %}
     <h1 class="{{'type--h3' if featured}}{{'type--h4' if not featured}} card-study__tile-title">{{study.title}}</h1>
-    <a class="cta cta--link card-study__tile-cta" href="{{study.cta.url}}"> {{study.cta.text}} </a>
+    <a class="cta cta--link card-study__tile-cta" href="{{study.cta.url}}">{{study.cta.text}} </a>
   </div>
 </article>
 {% endmacro %}

@@ -16,7 +16,7 @@ hideNewsletter: true
   <header id="home__hero" class="wrapper wrapper--full-bleed wrapper--no-bottom wrapper--no-top">{{ heroAnimated(l10n.home.hero.heading, l10n.home.hero.cta, l10n.home.hero.img) }}</header>
 
   {% if landingCollections.homeCaseStudies.length > 0 %}
-  <div id="home__case-studies" class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__background wrapper__contained">{{ caseStudies(l10n.home.caseStudies, landingCollections.homeCaseStudies) }}</div>
+  <div id="home__case-studies" class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__background wrapper__contained">{{ caseStudies(l10n.home.caseStudies, landingCollections.homeCaseStudies, l10n.locale.code) }}</div>
   {% endif %}
 
   <!-- Chrome OS Stats -->

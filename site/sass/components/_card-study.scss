@@ -29,17 +29,17 @@
   }
 
   &__tile {
+    align-items: flex-start;
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: column;
     padding: 2rem 1.5rem;
 
     @include mq(0 419px) {
-      justify-content: center;
+      align-items: center;
       text-align: center;
     }
 
     @include mq($break-2-col) {
-      grid-template-columns: 1.5rem auto 1.25rem;
       padding-bottom: 2rem;
     }
   }
@@ -47,14 +47,13 @@
   &__tile-logo {
     @include elevation(2);
     border-radius: 0.625rem;
-    display: none;
     height: 3.75rem;
     margin: 0 auto;
     width: 3.75rem;
   }
 
   &__tile-eyebrow {
-    color: var(--grey-750);
+    color: var(--grey-700);
   }
 
   &__tile-title {
@@ -62,7 +61,7 @@
   }
 
   &__tile-cta {
-    align-self: flex-end;
+    margin-top: auto;
   }
 
   &--featured {
@@ -97,6 +96,7 @@
 
     &__tile {
       $margin-range: ($break-2-col $scale-max);
+      align-items: center;
       display: flex;
       flex-direction: column;
       padding: 2rem;
@@ -125,8 +125,6 @@
     }
 
     &__tile-logo {
-      display: block;
-
       @include mq($break-featured-stack) {
         transform: translateY(-50%);
       }
@@ -136,12 +134,12 @@
       margin-top: -1rem;
 
       @include mq($break-feature-col) {
-        margin-top: pxRem(30px);
+        margin-top: 2rem;
       }
     }
 
     &__tile-title {
-      margin: pxRem(18px) 0 0;
+      margin: 1rem 0 0;
     }
 
     &__tile-cta {

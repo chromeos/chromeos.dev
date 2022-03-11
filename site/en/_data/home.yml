@@ -60,7 +60,7 @@ caseStudies:
   subtitle: Explore how brands are unlocking more possibilities with Chrome OS.
   cta:
     text: All Case Studies
-    url: /en/news
+    url: news
 posts:
   title: The latest on Chrome OS
   modifiers:
