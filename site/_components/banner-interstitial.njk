@@ -1,5 +1,5 @@
 <!--{#
-  Renders a full-width banner.
+  Renders a full-width banner that transitions to a contained banner. Requires a wrapper element with the class `banner-interstitial__wrapper`.
 
   @param {object} content: An object containing the following attributes.
   @param {string} content.eyebrow
@@ -10,7 +10,7 @@
   @param {string} image.src
   @param {string} image.alt
 
-  @param {object} cta: An object containing the following attributes.
+  @param {object} cta (optional): An object containing the following attributes.
   @param {string} cta.text
   @param {string} cta.url
   
@@ -18,13 +18,13 @@
   @param {string} modifiers.class: Modifiers class/classes
 #}-->
 {% from 'icon.njk' import icon %} {% macro bannerInterstitial(content, image, cta, modifiers) %}
-<article class="banner-interstitial {% if modifiers.class %}{{modifiers.class}}{% endif %}">
+<article class="banner-interstitial {{'banner-interstitial--no-cta' if not cta}}{% if modifiers.class %} {{modifiers.class}} {% endif %}">
   <div class="banner-interstitial__content">
     <div class="banner-interstitial__text">
       <small class="banner-interstitial__eyebrow type--h1">{{content.eyebrow}}</small>
       <h2 class="banner-interstitial__title type--mega">{{content.title}}</h2>
       <p class="banner-interstitial__copy type--base">{{content.copy}}</p>
-      <a href="{{cta.url}}" class="cta cta--transparent banner-interstitial__cta"> {{cta.text}} </a>
+      {% if cta is defined %}<a href="{{cta.url}}" class="cta cta--transparent banner-interstitial__cta"> {{cta.text}} </a>{% endif %}
     </div>
     <div class="banner-interstitial__image-wrapper">
       <img src="{{image.src}}" alt="{{image.alt}}" class="banner-interstitial__image" />

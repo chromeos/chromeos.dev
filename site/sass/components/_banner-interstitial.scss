@@ -1,20 +1,24 @@
 @use 'sass:math';
 
 .banner-interstitial {
+  $self: &;
   $break-2-col: 603px;
   $scale-max: 1600px;
+  $scale-range: ($break-2-col $scale-max);
   $clamp-check: clamp(1px, 1vw, 2px);
+  $begin-color-stop: var(--primary-blue), var(--primary-blue) math.percentage(math.div(211, 696)), var(--secondary-blue) math.percentage(math.div(211, 696));
+  $gradient-angle-l: 105deg;
 
   display: grid;
   position: relative;
 
   @include mq($break-2-col) {
-    background-image: linear-gradient(105deg, var(--primary-blue), var(--primary-blue) math.percentage(math.div(211, 696)), var(--secondary-blue) math.percentage(math.div(211, 696)), var(--secondary-blue) calc(math.percentage(math.div(211, 696)) + 188px), var(--primary-blue) calc(math.percentage(math.div(211, 696)) + 188px), var(--primary-blue));
+    background-image: linear-gradient($gradient-angle-l, $begin-color-stop, var(--secondary-blue) calc(math.percentage(math.div(211, 696)) + 188px), var(--primary-blue) calc(math.percentage(math.div(211, 696)) + 188px), var(--primary-blue));
     border-radius: 0.625rem;
 
     // scale the width of the color stop if supported.
     @supports (width: min(1px, 1vw)) {
-      background-image: linear-gradient(105deg, var(--primary-blue), var(--primary-blue) math.percentage(math.div(211, 696)), var(--secondary-blue) math.percentage(math.div(211, 696)), var(--secondary-blue) calc(math.percentage(math.div(211, 696)) + min(20%, 234px)), var(--primary-blue) calc(math.percentage(math.div(211, 696)) + min(20%, 234px)), var(--primary-blue));
+      background-image: linear-gradient($gradient-angle-l, $begin-color-stop, var(--secondary-blue) calc(math.percentage(math.div(211, 696)) + min(20%, 234px)), var(--primary-blue) calc(math.percentage(math.div(211, 696)) + min(20%, 234px)), var(--primary-blue));
     }
   }
 
@@ -27,16 +31,12 @@
 
   &__content {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(pxRem(268px), 1fr));
     position: relative;
-
-    @include mq($break-2-col) {
-      grid-template-columns: repeat(2, 1fr);
-    }
   }
 
   &__text {
     $block-spacing-range: (24px 96px);
-    $block-scale-range: ($break-2-col $scale-max);
 
     padding-top: 3rem;
     z-index: 1;
@@ -46,15 +46,12 @@
       place-self: center flex-start;
 
       @supports (padding: $clamp-check) {
-        padding: generateScaling($block-scale-range, $block-spacing-range) 0 generateScaling($block-scale-range, $block-spacing-range) generateScaling((603px 1600px), (40px 124px));
+        padding: generateScaling($scale-range, $block-spacing-range) 0 generateScaling($scale-range, $block-spacing-range) generateScaling($scale-range, (40px 124px));
       }
     }
   }
 
-  &__eyebrow {
-    color: var(--white);
-  }
-
+  &__eyebrow,
   &__title,
   &__copy {
     color: var(--white);
@@ -63,6 +60,10 @@
   &__copy {
     margin-top: 1.25rem;
     max-width: 42ch;
+
+    #{$self}--no-cta & {
+      margin-bottom: 6rem;
+    }
   }
 
   &__cta {
@@ -82,9 +83,9 @@
       width: 50%;
 
       @supports (width: $clamp-check) {
-        left: calc(50% + generateScaling(($break-2-col $scale-max), (-24px -166px)));
-        top: generateScaling(($break-2-col $scale-max), (28px -56px));
-        width: generateScaling(($break-2-col $scale-max), (360px 840px));
+        left: calc(50% + generateScaling($scale-range, (-24px -166px)));
+        top: generateScaling($scale-range, (28px -56px));
+        width: generateScaling($scale-range, (360px 840px));
       }
 
       @supports not (width: $clamp-check) {
