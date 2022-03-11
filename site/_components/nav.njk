@@ -5,7 +5,7 @@
     items: Navigation item
     locale: Locale information
 #}-->
-{% from 'icon.njk' import icon %} {% macro nav(items, locale) %}
+{% from 'icon.njk' import icon %} {% macro nav(items, locale, cta) %}
 <nav class="nav">
   <div class="nav__header">
     <button class="nav__close" aria-label="close">{{icon('close')}}</button>
@@ -36,5 +36,8 @@
 
     {% endfor %}
   </ul>
+  <div class="nav__footer">
+    <a class="nav__footer-cta cta cta--high" href="{{cta.url}}">{{cta.text}}</a>
+  </div>
 </nav>
 {% endmacro %}
