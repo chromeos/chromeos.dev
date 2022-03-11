@@ -21,7 +21,7 @@
     grid-template-columns: 1.5em auto 1fr;
 
     @include minLangMQ($bkpt-map--header--large) {
-      gap: 3rem;
+      gap: 1rem;
       grid-template-columns: 185px auto min-content 156px;
     }
   }
