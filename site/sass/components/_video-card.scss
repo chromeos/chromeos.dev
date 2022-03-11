@@ -18,16 +18,20 @@
   }
 
   &__caption {
-    margin-top: pxRem(24px);
+    margin-top: 1.5rem;
     text-align: center;
 
     @include mq(1052px) {
-      text-align: left;
-    }
+      text-align: start;
 
-    [dir='rtl'] & {
-      @include mq(1052px) {
-        text-align: right;
+      @supports not (text-align: start) {
+        [dir='ltr'] & {
+          text-align: left;
+        }
+
+        [dir='rtl'] & {
+          text-align: right;
+        }
       }
     }
   }
