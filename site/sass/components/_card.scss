@@ -18,7 +18,7 @@
 
     /* stylelint-disable no-descending-specificity */
     #{$self}--rounded & {
-      border-radius: pxRem(10px);
+      border-radius: 0.625rem;
     }
 
     #{$self}--disabled & {
@@ -64,7 +64,7 @@
 
   &__body {
     color: var(--grey-750);
-    margin-bottom: pxRem(24px);
+    margin-bottom: 1.5rem;
   }
 
   &__footer {
@@ -74,12 +74,13 @@
   }
 
   &__source-logo {
+    $size: 2.5rem;
     @include elevation(0);
     border-radius: 50%;
-    height: pxRem(40px);
+    height: $size;
     object-fit: cover;
     object-position: center;
-    width: pxRem(40px);
+    width: $size;
   }
 
   &__source {
@@ -148,6 +149,6 @@
   }
 
   &__search {
-    margin-bottom: pxRem(24px);
+    margin-bottom: 1.5rem;
   }
 }
