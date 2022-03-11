@@ -79,6 +79,8 @@
   }
 
   &--featured & {
+    $spacing-s: 32px;
+
     &__media {
       aspect-ratio: 327 / 284;
 
@@ -104,7 +106,7 @@
       text-align: center;
 
       @supports (padding: $clamp-check) {
-        padding: generateScaling($margin-range, (32px 68px)) generateScaling((630px $scale-max), (32px 56px));
+        padding: generateScaling($margin-range, ($spacing-s 68px)) generateScaling((630px $scale-max), ($spacing-s 56px));
       }
 
       @include mq($break-featured-stack) {
@@ -119,7 +121,7 @@
         margin: 4rem 0;
 
         @supports (margin-top: $clamp-check) {
-          margin: generateScaling($margin-range, (32px 98px)) 0;
+          margin: generateScaling($margin-range, ($spacing-s 98px)) 0;
         }
       }
     }
@@ -147,7 +149,7 @@
       margin-top: 3rem;
 
       @supports (margin-top: $clamp-check) {
-        margin-top: generateScaling((430px $scale-max), (32px 64px));
+        margin-top: generateScaling((430px $scale-max), ($spacing-s 64px));
       }
     }
   }

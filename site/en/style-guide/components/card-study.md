@@ -6,7 +6,6 @@ examples:
       study:
         eyebrow: case study
         title: Algoriddim gives mobile users the full power of djay by optimizing for Chrome OS
-        image: ix://stories/djay/djay-icon.240.png
         logo:
           src: ix://stories/djay/djay-icon.240.png
           name: Djay
@@ -22,7 +21,6 @@ examples:
       study:
         eyebrow: case study
         title: Evernote launches on Chrome OS and sees 3X increase in time spent on larger screen devices
-        image: ix://stories/evernote/evernote-icon.240.jpg
         media:
           src: ix://stories/evernote/hero.1500.jpg
           alt: A desk with a computer showing the Evernote app
@@ -35,7 +33,6 @@ examples:
       study:
         eyebrow: case study
         title: Evernote launches on Chrome OS and sees 3X increase in time spent on larger screen devices
-        image: ix://stories/evernote/evernote-icon.240.jpg
         logo:
           src: ix://stories/evernote/evernote-icon.240.jpg
           name: Evernote

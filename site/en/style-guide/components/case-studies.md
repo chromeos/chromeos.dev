@@ -12,7 +12,6 @@ examples:
       studies:
         - eyebrow: case study
           title: Algoriddim gives mobile users the full power of djay by optimizing for Chrome OS
-          image: ix://stories/djay/djay-icon.240.png
           logo:
             src: ix://stories/djay/djay-icon.240.png
             name: Djay
@@ -25,7 +24,6 @@ examples:
             url: /en/stories/djay/
         - eyebrow: case study
           title: Evernote launches on Chrome OS and sees 3X increase in time spent on larger screen devices
-          image: ix://stories/evernote/evernote-icon.240.jpg
           logo:
             src: ix://stories/evernote/evernote-icon.240.jpg
             name: Evernote
@@ -38,7 +36,6 @@ examples:
             url: /en/stories/evernote/
         - eyebrow: case study
           title: Infinite Studio ramps up active installations after optimizing for Chrome OS
-          image: ix://stories/infinite-painter/infinite-painter-icon.240.png
           logo:
             src: ix://stories/infinite-painter/infinite-painter-icon.240.png
             name: Infinite Painter
@@ -57,7 +54,6 @@ examples:
       studies:
         - eyebrow: case study
           title: Evernote launches on Chrome OS and sees 3X increase in time spent on larger screen devices
-          image: ix://stories/evernote/evernote-icon.240.jpg
           logo:
             src: ix://stories/evernote/evernote-icon.240.jpg
             name: Evernote
@@ -78,7 +74,6 @@ examples:
       studies:
         - eyebrow: case study
           title: Infinite Studio ramps up active installations after optimizing for Chrome OS
-          image: ix://stories/infinite-painter/infinite-painter-icon.240.png
           logo:
             src: ix://stories/infinite-painter/infinite-painter-icon.240.png
             name: Infinite Painter
@@ -91,7 +86,6 @@ examples:
             url: /en/stories/infinite-painter/
         - eyebrow: case study
           title: Algoriddim gives mobile users the full power of djay by optimizing for Chrome OS
-          image: ix://stories/djay/djay-icon.240.png
           logo:
             src: ix://stories/djay/djay-icon.240.png
             name: Djay
@@ -104,7 +98,6 @@ examples:
             url: /en/stories/djay/
         - eyebrow: case study
           title: Evernote launches on Chrome OS and sees 3X increase in time spent on larger screen devices
-          image: ix://stories/evernote/evernote-icon.240.jpg
           logo:
             src: ix://stories/evernote/evernote-icon.240.jpg
             name: Evernote
@@ -117,7 +110,6 @@ examples:
             url: /en/stories/evernote/
         - eyebrow: case study
           title: Infinite Studio ramps up active installations after optimizing for Chrome OS
-          image: ix://stories/infinite-painter/infinite-painter-icon.240.png
           logo:
             src: ix://stories/infinite-painter/infinite-painter-icon.240.png
             name: Infinite Painter
@@ -130,7 +122,6 @@ examples:
             url: /en/stories/infinite-painter/
         - eyebrow: case study
           title: Algoriddim gives mobile users the full power of djay by optimizing for Chrome OS
-          image: ix://stories/djay/djay-icon.240.png
           logo:
             src: ix://stories/djay/djay-icon.240.png
             name: Djay
@@ -143,7 +134,6 @@ examples:
             url: /en/stories/djay/
         - eyebrow: case study
           title: Evernote launches on Chrome OS and sees 3X increase in time spent on larger screen devices
-          image: ix://stories/evernote/evernote-icon.240.jpg
           logo:
             src: ix://stories/evernote/evernote-icon.240.jpg
             name: Evernote
@@ -156,7 +146,6 @@ examples:
             url: /en/stories/evernote/
         - eyebrow: case study
           title: Infinite Studio ramps up active installations after optimizing for Chrome OS
-          image: ix://stories/infinite-painter/infinite-painter-icon.240.png
           logo:
             src: ix://stories/infinite-painter/infinite-painter-icon.240.png
             name: Infinite Painter
