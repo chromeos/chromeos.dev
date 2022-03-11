@@ -5,27 +5,52 @@
   $inline-padding: pxRem(28px);
 
   align-items: center;
+  background-color: var(--white);
+  border-radius: 0.625rem;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  max-width: 40ch;
+  max-width: 52ch;
+  padding-bottom: 2rem;
+  padding-top: 1.625rem;
+
+  @supports (grid-template-rows: subgrid) {
+    align-items: flex-start;
+    display: grid;
+    grid-row: span 4;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
 
   &__header {
     align-items: center;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 0.875rem;
     padding: 0 $inline-padding;
+    width: 100%;
+
+    @supports (margin-bottom: clamp(1px, 1vw, 2px)) {
+      margin-bottom: clamp(0.875rem, 2.66vw, 1.5rem);
+    }
   }
 
   &__title {
-    margin-bottom: pxRem(8px);
     text-align: center;
   }
 
+  &__title,
   &__body {
-    margin-bottom: pxRem(40px);
+    color: var(--grey-850);
+  }
+
+  &__body,
+  &__sections {
     padding: 0 $inline-padding;
-    text-align: center;
+  }
+
+  &__body {
+    margin-bottom: 1.25rem;
   }
 
   &__icon-wrapper {
@@ -33,35 +58,64 @@
     background-color: var(--blue-600);
     border-radius: 50%;
     display: flex;
-    height: pxRem(96px);
+    flex-shrink: 0;
+    height: 3rem;
     justify-content: center;
-    margin-bottom: pxRem(24px);
-    width: pxRem(96px);
+    width: 3rem;
+
+    @supports (width: clamp(1px, 1vw, 2px)) {
+      height: clamp(2.5rem, 7.4vw, 3rem);
+      width: clamp(2.5rem, 7.4vw, 3rem);
+    }
+
+    &--blue {
+      background-color: var(--primary-blue);
+    }
+
+    &--yellow {
+      background-color: var(--primary-yellow);
+    }
+
+    &--green {
+      background-color: var(--primary-green);
+    }
   }
 
   &__icon {
     fill: var(--white);
+    height: 1rem;
     transform: scale(1.5);
+    width: 1.25rem;
   }
 
   &__sections {
     align-self: flex-start;
     list-style: none;
     width: 100%;
+
+    @supports (grid-template-rows: subgrid) {
+      grid-row: span 2;
+    }
+  }
+
+  &__section {
+    border-radius: pxRem(5px);
+    margin-bottom: 1rem;
+    overflow: hidden;
   }
 
   &__section-icon {
-    color: $anchor-color--default;
     margin-left: pxRem(24px);
   }
 
   &__anchor {
     align-items: center;
-    color: var(--anchor-color, --grey-900);
+    background-color: var(--grey-150);
+    color: var(--anchor-color, var(--grey-850));
     cursor: pointer;
     display: flex;
     justify-content: space-between;
-    padding: pxRem(12px) $inline-padding;
+    padding: 1rem;
     text-decoration: none;
 
     &:hover,

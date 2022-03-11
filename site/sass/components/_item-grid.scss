@@ -64,10 +64,12 @@
 
   &--community & {
     &__content {
-      align-items: flex-start;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      row-gap: 1.25rem;
     }
   }
 
@@ -83,7 +85,8 @@
 
   &--subnav & {
     &__content {
-      grid-template-columns: repeat(auto-fit, minmax(pxRem(256px), 1fr));
+      gap: 1.875rem 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
       justify-content: center;
     }
   }

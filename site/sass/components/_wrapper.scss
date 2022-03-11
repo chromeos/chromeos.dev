@@ -12,8 +12,8 @@
   $max-width: 1440px;
   $scaler: math.div(math.div($max-width, 100), 1vw);
 
-  $block-spacing-s: 4.5rem;
-  $block-spacing-l: 5rem;
+  $block-spacing-s: 8.25rem;
+  $block-spacing-l: 10.5rem;
   $inline-spacing-s: 1.5rem;
   $inline-spacing-l: 5rem;
 
@@ -62,7 +62,7 @@
 
   &__contained > * {
     margin: 0 auto;
-    max-width: $content-max-width;
+    max-width: $max-width;
   }
 
   &--rhythm > *:not(:last-child) {
@@ -180,7 +180,7 @@
   }
 
   &__background {
-    background-color: var(--grey-50);
+    background-color: var(--grey-100);
     overflow: hidden;
 
     .cta--link {
@@ -194,6 +194,10 @@
       &:focus {
         color: var(--blue-900);
       }
+    }
+
+    &--dark {
+      background-color: var(--grey-850);
     }
   }
 
