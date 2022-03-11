@@ -49,4 +49,4 @@ examples:
           alt: Opened Chromebook with a birds eye view of a beach set as its background.
 ---
 
-This is some sample content explaining the component
+The Fifty Fifty is a general use component for landing pages. It's different from the Image Card and Featured Content components with its content ordering via 'flip' modifiers, type treatments, and parameters.

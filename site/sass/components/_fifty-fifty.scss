@@ -6,7 +6,7 @@
   $content-width-r: generateScaling(($single-column 1440px), (340px 490px));
 
   display: grid;
-  grid-gap: pxRem(30px) pxRem(20px);
+  gap: 2rem 1.25rem;
   grid-template-columns: repeat(auto-fit, minmax(pxRem(280px), 1fr));
   justify-items: center;
 
