@@ -25,7 +25,7 @@
   <p class="type--large item-grid__subtitle">{{modifiers.subtitle}}</p>
   {% endif %}
   <div class="item-grid__content">{% for item in items %} {% if modifiers.variant == 'icon' %} {{iconCard(item, defaultText)}} {% elif modifiers.variant == 'subnav' %} {% if item.icon and item.desc %} {{cardSubnav(item, locale)}} {% endif %} {% elif modifiers.variant == 'community' %} {{externalCommunity(item.logo, item.topic, item.cta)}} {% else %} {{ card(item) }} {% endif %} {% endfor %}</div>
-  {% if modifiers.cta %} {% set localeCta = { 'url': '/' ~ locale.code ~ '/' ~ modifiers.cta.url, 'text': modifiers.cta.text }%}
+  {% if modifiers.cta %} {% set localeCta = { 'url': '/' ~ locale ~ '/' ~ modifiers.cta.url, 'text': modifiers.cta.text }%}
   <footer class="item-grid__footer">
     <a class="cta cta--medium" href="{{localeCta.url}}">{{localeCta.text}}</a>
   </footer>
