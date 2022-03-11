@@ -10,7 +10,12 @@
     @param {string} modifiers.variant: If 'icon', it will render the icon-card. if 'subnav' it will render card-subnav. if 'community' it will render external-community.
     @param {string} modifiers.heading (optional): Designate the section heading typography class. Defaults to h1 treatment.
     @param {string} modifiers.subtitle (optional): Text for a subtitle beneath the primary title.
-    @param {string} locale: Code for the current locale, used when 'modifiers.variant' is 'subnav'
+
+    @param {object} modifiers.cta: An object with the following attributes. Locale is required when a cta is provided.
+    @param {string} modifiers.cta.url: Non-locale-prefixed path to an internal page.
+    @param {string} modifiers.cta.text: Text for the cta.
+
+    @param {string} locale: Code for the current locale, used when 'modifiers.variant' is 'subnav' or when 'modifiers.cta' is used.
     @param {string} defaultText: Default text used when 'modifiers.variant' is 'icon'.
  #}-->
 {% from 'external-community.njk' import externalCommunity %} {% from 'card-subnav.njk' import cardSubnav %} {% from 'icon-card.njk' import iconCard %} {% from 'card.njk' import card %} {% macro itemGrid(title, items, modifiers, locale, defaultText) %} {% if items.length > 0 %}
