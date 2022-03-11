@@ -2,7 +2,7 @@
 
 .header {
   background: var(--white);
-  border-bottom: 1px solid var(--grey-300);
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.1));
   padding: 0.75rem 1.25rem;
   position: fixed;
   width: 100%;
@@ -16,17 +16,19 @@
 
   &__container {
     display: grid;
-    grid-gap: 1.25rem;
+    gap: 0.5rem;
 
-    grid-template-columns: 1.5em auto 1fr 1.5em;
+    grid-template-columns: 1.5em auto 1fr;
 
     @include minLangMQ($bkpt-map--header--large) {
-      grid-gap: 3rem;
+      gap: 3rem;
       grid-template-columns: 185px auto min-content 156px;
     }
   }
 
   &__home {
+    grid-column: -2 / -3;
+    grid-row: 1 / span 1;
     line-height: 1;
     position: relative;
     text-decoration: none;
@@ -35,7 +37,6 @@
     @include minLangMQ($bkpt-map--header--large) {
       align-self: center;
       grid-column: 1 / span 1;
-      grid-row: 1 / span 1;
     }
   }
 
