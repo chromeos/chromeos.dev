@@ -84,18 +84,6 @@
     }
   }
 
-  &--quote & {
-    &__content {
-      grid-template-columns: repeat(auto-fit, minmax(pxRem(215px), 1fr));
-      justify-items: center;
-
-      @include mq(741px) {
-        justify-items: flex-start;
-        margin-top: 5.5rem;
-      }
-    }
-  }
-
   &--circled &__content {
     border-image-outset: 300px;
     border-image-slice: 0 fill;

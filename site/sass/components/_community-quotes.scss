@@ -85,7 +85,7 @@
   }
 
   &__image,
-  &__decorators {
+  &__decorator {
     border-radius: 50%;
   }
 
@@ -93,7 +93,7 @@
     $scale-range: ($grid-3-col $scale-max);
     display: none;
 
-    @include mq($grid-3-col) {
+    @include mq($grid-2-col) {
       display: block;
     }
 
@@ -131,7 +131,7 @@
 
         @supports (margin-bottom: $clamp-check) {
           margin-bottom: generateScaling($scale-range, (32px -24px));
-          margin-right: generateScaling((1240px $scale-max), (0 -76px));
+          margin-right: generateScaling((1240px $scale-max), (32px -76px));
         }
       }
     }

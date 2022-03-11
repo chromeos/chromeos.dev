@@ -89,8 +89,8 @@ developers:
           name: Mike C.
           role: Head Engineer
       image:
-        src: ix://lifestyle/HP-desk-dual-monitor.jpg
-        alt: Engineer working at their desk.
+        src: ix://lifestyle/developer_1.png
+        alt: Mike C. leaning against a desk.
     - content:
         copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
         author:
@@ -98,7 +98,7 @@ developers:
           role: Head Engineer
       image:
         src: ix://lifestyle/developer_2.png
-        alt: Engineer working at their desk.
+        alt: Mike C. smiling at the camera.
       decorators:
         - ix://lifestyle/code_sample_sudo.png
         - ix://lifestyle/command_key.png
@@ -109,7 +109,7 @@ developers:
           role: Head Engineer
       image:
         src: ix://lifestyle/developer_3.png
-        alt: Engineer working at their desk.
+        alt: Mike C. leaning against a desk.
 community:
   title: Developer channels to get you started
   modifiers:
