@@ -79,7 +79,9 @@ chromebook:
     url: https://www.google.com/chromebook/
     text: Learn about Chromebook
 developers:
-  title: Hear what the community is saying
+  content:
+    title: Hear what the community is saying
+    subtitle: Read some testimonials from other developers and take their word for it.
   quotes:
     - content:
         copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
@@ -108,9 +110,6 @@ developers:
       image:
         src: ix://lifestyle/developer_3.png
         alt: Engineer working at their desk.
-  modifiers:
-    variant: quote
-    subtitle: Read some testimonials from other developers and take their word for it.
 community:
   title: Developer channels to get you started
   modifiers:
