@@ -83,8 +83,9 @@ featured:
     custom: landing--news-grey-overlay
 subnav:
   content:
-    title: Start building with information and tools for Chrome OS
+    title: Helpful resources at every stage.
   modifiers:
+    subtitle: Unlock your app's potential with our extensive library of tools and resources.
     variant: subnav
 chromebook:
   image:

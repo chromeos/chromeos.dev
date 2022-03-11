@@ -6,7 +6,39 @@ examples:
       navSection:
         title: Larger screens. Real results.
         desc: This is a card with a list of links. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor est nec ante suscipit suscipit. Nullam euismod vel dui vitae pellentesque.
-        icon: phone
+        icon:
+          name: bracket-monitor
+          background: primary-yellow
+        sections:
+          - title: This is a title
+            url: '/'
+          - title: This is a title, with a longer text
+            url: '/'
+          - title: This is a title, with a longer longer longer text
+            url: '/'
+          - title: This is a title
+            url: '/'
+  - title: Default icon background
+    arguments:
+      navSection:
+        title: Larger screens. Real results.
+        desc: This is a card with a list of links. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor est nec ante suscipit suscipit. Nullam euismod vel dui vitae pellentesque.
+        icon:
+          name: multi-device
+        sections:
+          - title: This is a title
+            url: '/'
+          - title: This is a title, with a longer text
+            url: '/'
+          - title: This is a title, with a longer longer longer text
+            url: '/'
+          - title: This is a title
+            url: '/'
+  - title: No icon
+    arguments:
+      navSection:
+        title: Larger screens. Real results.
+        desc: This is a card with a list of links. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor est nec ante suscipit suscipit. Nullam euismod vel dui vitae pellentesque.
         sections:
           - title: This is a title
             url: '/'

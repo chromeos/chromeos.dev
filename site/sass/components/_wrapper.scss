@@ -62,7 +62,7 @@
 
   &__contained > * {
     margin: 0 auto;
-    max-width: $content-max-width;
+    max-width: $max-width;
   }
 
   &--rhythm > *:not(:last-child) {
@@ -180,7 +180,7 @@
   }
 
   &__background {
-    background-color: var(--grey-50);
+    background-color: var(--grey-100);
     overflow: hidden;
 
     .cta--link {

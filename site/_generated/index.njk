@@ -22,7 +22,7 @@ hideNewsletter: true
   <section id="home__stats" class="wrapper wrapper--full-bleed wrapper--no-top wrapper--no-bottom" aria-label="{{ l10n.home.results.desc }}">{{ cardStats(l10n.home.results.content, l10n.home.results.img, l10n.home.results.cta, l10n.home.results.stats, l10n.home.results.footnote) }}</section>
 
   <!-- Site Subnav -->
-  <div id="home__subnav" class="wrapper wrapper--padded">{{ itemGrid(l10n.home.subnav.content.title, l10n.nav, l10n.home.subnav.modifiers, l10n.locale.code) }}</div>
+  <div id="home__subnav" class="wrapper wrapper--full-bleed wrapper--padding wrapper--padded wrapper__background wrapper__contained">{{ itemGrid(l10n.home.subnav.content.title, l10n.nav, l10n.home.subnav.modifiers, l10n.locale.code) }}</div>
 
   <!-- Using Chrome OS -->
   <section id="home__using" class="wrapper wrapper--full-top wrapper--full-bottom wrapper--rhythm wrapper--padded" aria-label="{{ l10n.home.onAndWith.desc }}">{% for item in l10n.home.onAndWith.cards %} {{ imageCard(item.images, item.content, item.cta, item.modifiers) }} {% endfor %}</section>
