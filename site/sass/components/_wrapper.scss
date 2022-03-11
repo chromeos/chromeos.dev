@@ -180,7 +180,7 @@
   }
 
   &__background {
-    background-color: var(--grey-50);
+    background-color: var(--grey-100);
     overflow: hidden;
 
     .cta--link {
@@ -194,6 +194,10 @@
       &:focus {
         color: var(--blue-900);
       }
+    }
+
+    &--dark {
+      background-color: var(--grey-850);
     }
   }
 

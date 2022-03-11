@@ -1,40 +1,50 @@
-- logo: ix://landings/home/android-logo.png
-  cta:
-    url: https://android-developers.googleblog.com/
-    text: Android Developer Blog
-- logo: ix://landings/home/twitter-logo.png
-  cta:
-    url: https://twitter.com/AndroidDev
-    text: Android Developer Twitter Channel
-- logo: ix://landings/home/youtube-logo.png
-  cta:
-    url: https://www.youtube.com/user/androiddevelopers
-    text: Android Developer YouTube Channel
-- logo: ix://landings/home/twitter-logo.png
-  cta:
-    url: https://twitter.com/ChromiumDev
-    text: Chrome Developer Twitter Channel
 - logo: ix://landings/home/github-logo.png
+  topic: Chrome OS
   cta:
     url: https://github.com/chromeos
-    text: Chrome OS on GitHub
-- logo: ix://landings/home/codelabs-logo.png
-  cta:
-    url: https://developers.google.com/web/fundamentals/codelabs/
-    text: Codelabs & Code Samples
-- logo: ix://landings/home/medium-logo.png
-  cta:
-    url: https://medium.com/googleplaydev
-    text: Google Play on Medium
+    text: GitHub
 - logo: ix://landings/home/reddit-logo.png
+  topic: Chrome OS
   cta:
     url: https://www.reddit.com/r/chromeos/
-    text: Chrome OS Reddit Community
+    text: Reddit
 - logo: ix://landings/home/stackoverflow-logo.png
+  topic: Chrome OS
   cta:
     url: https://stackoverflow.com/questions/tagged/google-chrome-os
     text: Stack Overflow
+- logo: ix://landings/home/android-logo.png
+  topic: Android
+  cta:
+    url: https://android-developers.googleblog.com/
+    text: Blog
+- logo: ix://landings/home/twitter-logo.png
+  topic: Android
+  cta:
+    url: https://twitter.com/AndroidDev
+    text: Twitter
+- logo: ix://landings/home/youtube-logo.png
+  topic: Android
+  cta:
+    url: https://www.youtube.com/user/androiddevelopers
+    text: YouTube
+- logo: ix://landings/home/twitter-logo.png
+  topic: Web
+  cta:
+    url: https://twitter.com/ChromiumDev
+    text: Twitter
 - logo: ix://landings/home/webdev-logo.png
+  topic: Web
   cta:
     url: https://web.dev/
     text: web.dev
+- logo: ix://landings/home/codelabs-logo.png
+  topic: Web
+  cta:
+    url: https://developers.google.com/web/fundamentals/codelabs/
+    text: Codelabs
+- logo: ix://landings/home/medium-logo.png
+  topic: Google Play
+  cta:
+    url: https://medium.com/googleplaydev
+    text: Medium

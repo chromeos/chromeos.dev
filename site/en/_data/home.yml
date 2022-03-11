@@ -64,8 +64,9 @@ featured:
     custom: landing--news-grey-overlay
 subnav:
   content:
-    title: Start building with information and tools for Chrome OS
+    title: Helpful resources at every stage.
   modifiers:
+    subtitle: Unlock your app's potential with our extensive library of tools and resources.
     variant: subnav
 chromebook:
   image:
@@ -79,9 +80,10 @@ chromebook:
     url: /en/news
     text: Learn more
 community:
-  title: Developer news and resources to get you up and running
+  title: Developer channels to get you started
   modifiers:
     variant: community
+    heading: h2
 footnotes:
   notes:
     - The NPD Group, Inc., U.S. Retail Tracking Service, Notebook Computers, based on unit sales, April-June 2020 and March-June 2020.
