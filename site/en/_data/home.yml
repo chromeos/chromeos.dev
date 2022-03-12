@@ -106,6 +106,7 @@ videos:
         alt: 'Privacy Sandbox: Creating a more private internet'
   modifiers:
     variant: video
+    heading: h2
 footnotes:
   notes:
     - The NPD Group, Inc., U.S. Retail Tracking Service, Notebook Computers, based on unit sales, April-June 2020 and March-June 2020.

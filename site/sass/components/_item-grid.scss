@@ -91,6 +91,17 @@
     }
   }
 
+  &--video & {
+    &__content {
+      gap: 5rem 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+
+      @include mq(602px) {
+        row-gap: 2.75rem;
+      }
+    }
+  }
+
   &--circled &__content {
     border-image-outset: 300px;
     border-image-slice: 0 fill;
