@@ -27,9 +27,7 @@
   </div>
   <section class="card-stats__wrapper">
     <div class="card-stats__copy">
-      <h1 class="type--h2">
-        {%- for title in content.heading -%}{{ br() | safe }}{{ title }}{%- endfor -%}
-      </h1>
+      <h1 class="type--h2">{%- for title in content.heading -%}{{ br() | safe }}{{ title }}{%- endfor -%}</h1>
       <p class="type--large">{{content.desc}}</p>
       {% if cta %}
       <a class="cta cta--link" href="{{cta.url}}">{{cta.text}}</a>
@@ -40,9 +38,7 @@
         {% if stats.icon %} {{icon(stats.icon, 'card-stats__stat-icon')}} {% endif %}
         <p>{{stats.value}}</p>
       </div>
-      <figcaption class="type--h5">
-        {{stats.title}} {% if footnote %} {{footnoteComponent(footnote)}} {% endif %}
-      </figcaption>
+      <figcaption class="type--h5">{{stats.title}} {% if footnote %} {{footnoteComponent(footnote)}} {% endif %}</figcaption>
     </figure>
   </section>
 </article>

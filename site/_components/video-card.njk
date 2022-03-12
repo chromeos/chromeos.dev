@@ -8,12 +8,11 @@
   @param {string} capture.src - Image src
   @param {string} capture.alt - Alt text
 #}-->
-{% from 'icon.njk' import icon %}
-{% macro videoCard(video, capture) %}
+{% from 'icon.njk' import icon %} {% macro videoCard(video, capture) %}
 <a class="video-card" href="{{video.url}}">
   <figure>
     <div class="video-card__capture-wrapper">
-      <img src="{{capture.src}}" alt="{{capture.alt}}">
+      <img src="{{capture.src}}" alt="{{capture.alt}}" />
       {{ icon('play-button') }}
     </div>
     <figcaption class="video-card__caption">

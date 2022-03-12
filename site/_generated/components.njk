@@ -16,9 +16,7 @@ permalink: '{{ l10n.locale.code | slug }}/style-guide/components/index.html'
     <dl>
       {% for component, info in components %}
       <dt class="style-guide__list-item">
-        <h3 id="{{component | slug }}" class="type--h4">
-          {{ info.macro if info.macro is defined else component}}
-        </h3>
+        <h3 id="{{component | slug }}" class="type--h4">{{ info.macro if info.macro is defined else component}}</h3>
       </dt>
       <dd>
         <div class="type">
