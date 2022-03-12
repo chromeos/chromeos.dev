@@ -21,7 +21,7 @@
     margin-top: 1.5rem;
     text-align: center;
 
-    @include mq(1052px) {
+    @include mq(914px) {
       text-align: start;
 
       @supports not (text-align: start) {
