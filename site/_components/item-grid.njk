@@ -17,16 +17,17 @@
 
     @param {string} defaultText: Default text used when 'modifiers.variant' is 'icon'.
  #}-->
-{% from 'external-community.njk' import externalCommunity %} {% from 'card-subnav.njk' import cardSubnav %} {% from 'icon-card.njk' import iconCard %} {% from 'card.njk' import card %} {% macro itemGrid(title, items, modifiers, locale, defaultText) %} {% if items.length > 0 %}
-<section class="item-grid {{modifiers.custom}} {{'item-grid--icon-card' if modifiers.variant == 'icon'}} {{ 'item-grid--subnav' if modifiers.variant == 'subnav' }} {{'item-grid--community' if modifiers.variant == 'community'}} {{'item-grid--circled' if modifiers.shapeOn }}">
+{% from 'external-community.njk' import externalCommunity %} {% from 'card-subnav.njk' import cardSubnav %} {% from 'icon-card.njk' import iconCard %} {% from 'card.njk' import card %} {% from 'card-routing.njk' import cardRouting %} {% macro itemGrid(title, items, modifiers, locale, defaultText) %} {% if items.length > 0 %}
+<section class="item-grid {{modifiers.custom}} {{'item-grid--icon-card' if modifiers.variant == 'icon'}} {{ 'item-grid--subnav' if modifiers.variant == 'subnav' }} {{'item-grid--community' if modifiers.variant == 'community'}} {{'item-grid--video' if modifiers.variant == 'video'}} {{'item-grid--circled' if modifiers.shapeOn }} {{'item-grid--routing' if modifiers.variant == 'routing'}}">
+  {% if title %}
   <h3 class="item-grid__title {% if modifiers.heading %} type--{{modifiers.heading}} {% else %} type--h1 {% endif %}">{{title}}</h3>
-  {% if modifiers.subtitle %}
+  {% endif %} {% if modifiers.subtitle %}
   <p class="type--large item-grid__subtitle">{{modifiers.subtitle}}</p>
   {% endif %}
-  <div class="item-grid__content">{% for item in items %} {% if modifiers.variant == 'icon' %} {{iconCard(item, defaultText)}} {% elif modifiers.variant == 'subnav' %} {% if item.icon and item.desc %} {{cardSubnav(item, locale)}} {% endif %} {% elif modifiers.variant == 'community' %} {{externalCommunity(item.logo, item.topic, item.cta)}} {% else %} {{ card(item) }} {% endif %} {% endfor %}</div>
+  <div class="item-grid__content">{% for item in items %} {% if modifiers.variant == 'icon' %} {{iconCard(item, defaultText)}} {% elif modifiers.variant == 'subnav' %} {% if item.icon and item.desc %} {{cardSubnav(item, locale)}} {% endif %} {% elif modifiers.variant == 'community' %} {{externalCommunity(item.logo, item.topic, item.cta)}} {% elif modifiers.variant == 'video' %} {{videoCard(item.video, item.capture)}} {% elif modifiers.variant == 'routing'%} {{cardRouting(item.content, item.image, item.cta, locale)}} {% else %} {{ card(item) }} {% endif %} {% endfor %}</div>
   {% if modifiers.cta %}
   <footer class="item-grid__footer">
-    <a class="cta cta--medium" href="{{modifiers.cta.url}}">{{modifiers.cta.text}}</a>
+    <a class="cta cta--medium" href="{% if locale is defined %}/{{locale}}/{% endif %}{{modifiers.cta.url}}">{{modifiers.cta.text}}</a>
   </footer>
   {% endif %}
 </section>
