@@ -8,6 +8,8 @@
   --nav-transition: none;
 
   @include maxLangMQ($bkpt-map--header--large) {
+    display: flex;
+    flex-direction: column;
     height: 100vh;
     left: 0;
     position: fixed;
@@ -251,8 +253,6 @@
   &[aria-expanded='true'] {
     $bkg: var(--grey-900);
     background: $bkg;
-    display: flex;
-    flex-direction: column;
     transform: translateX(0%);
     transition: background-color $transition-space;
     z-index: 50;
