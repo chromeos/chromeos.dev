@@ -138,7 +138,6 @@
     position: relative;
 
     @include mq($bkpt-tech-details--2-cols) {
-      border-right: 1px solid var(--grey-300);
       grid-column: 1 / span 1;
       grid-row: 1 / span 3;
 
@@ -147,7 +146,6 @@
       }
 
       > .subnav {
-        border-bottom: 1px solid var(--grey-300);
         margin-bottom: -1px;
         max-height: calc(100vh - 4rem - 1px);
         overflow-y: auto;
