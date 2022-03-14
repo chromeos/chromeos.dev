@@ -3,7 +3,6 @@
   @include expandingNav($bkpt-tech-details--2-cols, 'subnav', 1.75rem, 2.5rem);
   background-color: var(--white);
   overflow: hidden;
-  padding: 0 0.75rem;
 
   @include mq($bkpt-tech-details--2-cols) {
     padding: 0 2.5rem;
