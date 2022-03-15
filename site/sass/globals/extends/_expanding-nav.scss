@@ -1,4 +1,5 @@
 %expanding-nav {
+  $block-padding: 1.75rem;
   background-color: var(--grey-100);
 
   &[open] {
@@ -10,7 +11,7 @@
     background-color: var(--grey-100);
     cursor: pointer;
     list-style: none;
-    padding: 1rem;
+    padding: 1rem $block-padding;
 
     // Chrome/Webkit needs this non-standard selector
     &::-webkit-details-marker {
@@ -24,9 +25,9 @@
   }
 
   &__nav {
-    margin-top: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    margin-top: 0.75rem;
+    padding-left: $block-padding;
+    padding-right: $block-padding;
   }
 
   &--expand {
@@ -67,6 +68,6 @@
   }
 
   li + li {
-    margin-top: 0.75rem;
+    margin-top: 1rem;
   }
 }
