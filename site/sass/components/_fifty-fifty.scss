@@ -20,16 +20,6 @@
 
     @include mq($single-column) {
       text-align: start;
-
-      @supports not (text-align: start) {
-        [dir='ltr'] & {
-          text-align: left;
-        }
-
-        [dir='rtl'] & {
-          text-align: right;
-        }
-      }
     }
   }
 
