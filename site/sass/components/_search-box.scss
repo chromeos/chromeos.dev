@@ -1,11 +1,16 @@
 .search-box {
   align-items: center;
   display: flex;
-  grid-column: -2 / -1;
+  grid-column: -1 / -1;
   grid-row: 1 / span 1;
   height: 2.5em;
   justify-content: space-between;
   width: 100%;
+
+  @include minLangMQ($bkpt-map--header--large) {
+    align-self: center;
+    grid-column: -3 / -2;
+  }
 
   &__close {
     display: none;
@@ -21,9 +26,7 @@
 
     &:hover,
     &:focus {
-      background-clip: content-box;
-      background-color: var(--grey-300);
-      border-radius: 50%;
+      fill: var(--primary-blue);
     }
   }
 
@@ -47,6 +50,11 @@
 
   &-extended {
     grid-column: -3 / -1;
+    z-index: 5;
+
+    @include minLangMQ($bkpt-map--header--large) {
+      grid-column: -4 / -2;
+    }
 
     .search-box__close {
       display: flex;
@@ -64,7 +72,7 @@
       cursor: default;
 
       &:hover {
-        background: none;
+        fill: unset;
       }
     }
   }
