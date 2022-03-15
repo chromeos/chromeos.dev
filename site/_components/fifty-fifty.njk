@@ -1,0 +1,41 @@
+<!--{#
+  Renders a Fifty Fifty module.
+
+  @param {object} content - An object containing the following attributes.
+  @param {string} content.title - title of the content.
+  @param {string} content.copy - Body copy of the content.
+
+  @param {object} cta (optional) - An object containing the following attributes.
+  @param {string} cta.url - URL for the cta.
+  @param {string} cta.text - CTA link text.
+
+  @param {object[]} images - An array of image objects containing the following attributes.
+  @param {string} images[].src - Image source.
+  @param {string} images[].alt - Image description.
+
+  @param {string} locale: Code for the current locale.
+
+  @param {object} modifiers (optional) - An object containing the following attributes.
+  @param {string} modifiers.class A custom class.
+  @param {boolean} modifiers.flip - Invert the order of the image and text content.
+#}-->
+{% from 'icon.njk' import icon %} {% macro fiftyFifty(content, cta, images, locale, modifiers) %}
+<article class="fifty-fifty {{modifiers.class}} {{ 'fifty-fifty--flip' if modifiers.flip }}">
+  <!--{# Set imageWrapper to provided HTML #}-->
+  {% set imageWrapper %}
+  <div class="fifty-fifty__image-wrapper">
+    {% for image in images %}
+    <img src="{{image.src}}" alt="{{image.alt}}" class="fifty-fifty__image" />
+    {% endfor %}
+  </div>
+  {% endset %} {% if modifiers.flip %}{{ imageWrapper | safe }}{% endif %}
+  <div class="fifty-fifty__content">
+    <h3 class="type--h1">{{content.title | striptags(true) | escape | nl2br}}</h3>
+    <p class="type--base fifty-fifty__copy">{{content.copy}}</p>
+    {% if cta is defined %}
+    <a href="{% if locale is defined %}/{{locale}}/{% endif %}{{cta.url}}" class="cta cta--link fifty-fifty__cta">{{cta.text}}</a>
+    {% endif %}
+  </div>
+  {% if not modifiers.flip %}{{ imageWrapper | safe }}{% endif %}
+</article>
+{% endmacro %}

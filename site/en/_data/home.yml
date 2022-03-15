@@ -24,6 +24,20 @@ results:
     value: 103%
     icon: trending-up
   footnote: 1
+linux:
+  content:
+    title: |
+      Keep Linux at your side
+      —anywhere.
+    copy: Your Linux environment is seamlessly built into Chrome OS, and with you even when WiFi isn't.
+  cta:
+    text: Learn more
+    url: linux
+  images:
+    - src: ix://devices/Chromebook_numpad.png
+      alt: Opened Chromebook with a birds eye view of a beach set as its background.
+    - src: ix://lifestyle/vim_window.jpg
+      alt: A Vim text editor with code.
 stats:
   modifiers:
     heading: Grow in good company.
@@ -77,7 +91,11 @@ onAndWith:
 posts:
   title: The latest on Chrome OS
   modifiers:
-    shapeOn: 1
+    custom: item-grid--posts
+    subtitle: Explore trends, events, and updates on our community.
+    cta:
+      text: All Articles
+      url: news
 featured:
   modifiers:
     custom: landing--news-grey-overlay
