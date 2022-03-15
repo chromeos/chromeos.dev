@@ -6,6 +6,7 @@
   $spacing: clamp(3.75rem, 7.8125vw, 5rem);
   $inline-padding: 1.75rem;
   $block-padding: 2.5rem;
+  $hero-bg: var(--primary-blue);
 
   // TODO check breakpoints, spacing distribution when sample content is loaded.
   // Validate with design.
@@ -36,7 +37,7 @@
   }
 
   &__hero {
-    background: linear-gradient(18deg, var(--grey-100), var(--grey-100) 50%, var(--grey-50) 50%);
+    background-color: $hero-bg;
     grid-column: 1 / -1;
     grid-row: 2 / span 1;
 
@@ -46,26 +47,40 @@
     }
 
     @include mq($bkpt-tech-details--landing) {
-      min-height: 10rem;
+      min-height: 24rem;
     }
 
     &:not(:empty) {
-      display: flex;
-      justify-content: center;
-      padding: 1rem;
-    }
-
-    &-image {
-      max-height: 20vh;
-      width: auto;
-
       @include mq($bkpt-tech-details--landing) {
-        padding-bottom: 4rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
+    &-title {
+      color: var(--white);
+      padding-bottom: 2.5rem;
+      padding-left: clamp(1.5rem, 4vw, 7.5rem);
+      padding-top: 2.5rem;
+
+      @include mq($bkpt-tech-details--landing) {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 0;
+        padding-top: 0;
+      }
+    }
+
+    &-image {
+      display: block;
+      margin-left: auto;
+      max-height: 20vh;
+      width: auto;
+    }
+
     &:empty {
-      background: var(--blue-600);
+      background: $hero-bg;
     }
   }
 
@@ -77,7 +92,6 @@
   }
 
   &__content {
-    margin-top: -5rem;
     padding: 0 $inline-padding $block-padding;
     padding-top: 5rem;
 

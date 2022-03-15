@@ -9,24 +9,19 @@ layout: _wrapper
   <aside class="tech-detail__topics-and-resources">{{skipLink(microcopy.skip.content, 'content')}} {{ subnav(related, eyebrow, page.url, resources, microcopy.resources.title)}}</aside>
   {% if landingPage %}
   <div class="tech-detail__hero">
-    {%- if hero -%}{% set position = hero.position if hero.position else 'middle' %}
-    <img class="tech-detail__hero-image tech-detail__hero-image--{{position}}" src="{{hero.image}}" alt="{{hero.alt}}" />
+    <h1 class="tech-detail__hero-title type--mega">{{title}}</h1>
+    {%- if hero -%}
+    <img class="tech-detail__hero-image tech-detail__hero-image--right" src="{{hero.image}}" alt="{{hero.alt}}" />
     {%- endif -%}
   </div>
-  {% endif %}
+  {% endif %} {% if landingPage == false %}
   <header class="tech-detail__header" id="content">
-    {% if landingPage %}
-    <div class="tech-detail__eyebrow-wrapper">
-      {% endif %} {% if eyebrow %}
-      <small class="type--eyebrow">{{eyebrow}}</small>
-      {% endif %}
-      <h1 class="type--h2">{{title}}</h1>
-      {% if landingPage %}
-    </div>
+    {% if eyebrow %}
+    <small class="type--eyebrow">{{eyebrow}}</small>
     {% endif %}
+    <h1 class="type--h2">{{title}}</h1>
   </header>
-
-  {% if (content | toc or tools) and landingPage == false %}
+  {% endif %} {% if (content | toc or tools) and landingPage == false %}
   <aside class="tech-detail__versions-and-toc">{{toolsMacro(tools, microcopy.tools)}} {{tableOfContents(content, microcopy.toc.title, {title: microcopy.skip.toc, id: 'article'})}}</aside>
   {% endif %}
 
