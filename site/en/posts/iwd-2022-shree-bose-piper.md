@@ -61,6 +61,6 @@ The reason I bring it up is that when I think about what I would tell a brillian
 
 ---
 
-I’m so grateful to have had the opportunity to talk with Shree and I cannot wait to try out some of the upcoming kits myself. Check out [Piper and Piper Make](https://www.playpiper.in/) today with your Chromebook!
+I am so grateful to have had the opportunity to talk with Shree and I cannot wait to try out some of the upcoming kits myself. Check out [Piper and Piper Make](https://www.playpiper.in/) today with your Chromebook!
 
 Emilie Roberts, Developer Relations Engineer, Google Chrome OS
