@@ -144,14 +144,12 @@
 
   &__link {
     --space: #{$small-space};
-    --bkg: var(--grey-200);
+    --bkg: var(--blue-50);
     --padding: 0.75rem;
     @extend %expanding-nav__link;
 
     @include mq($bkpt) {
       --space: #{$large-space};
-      --bkg: var(--grey-100);
-      --padding: 0.5rem;
     }
 
     &::after {

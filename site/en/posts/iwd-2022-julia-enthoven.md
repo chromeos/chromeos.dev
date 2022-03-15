@@ -9,6 +9,8 @@ authors:
 date: 2022-03-08
 ---
 
+![Headshot of Julia](ix://posts/iwd-2022-julia-enthoven/julia.jpeg)
+
 If you’ve browsed social media recently, it’s likely that you scrolled past a couple memes and maybe even chuckled to yourself or sent it to your friends. It’s also likely that one of those memes you discovered was created with [Kapwing](https://www.kapwing.com/).
 
 Kapwing was initially a meme generator, allowing someone to overlay simple text over images. Four plus years later, it has grown to be a powerful online [video editing](https://www.kapwing.com/video-editor) platform. From creators producing their next viral hit to teachers putting together their next lesson on the Pythagorean theorem, Kapwing empowers individuals everywhere. Since it’s a powerful storytelling tool, we thought it fitting to go behind the scenes and hear the story of Julia Enthoven, CEO and co-founder of Kapwing.
@@ -39,6 +41,8 @@ Eric, my co-founder, had left Google a few months before to start to work on his
 
 I tell that story for a few reasons. I think that a lot of people think that people who go into computer science have been coding since they were in middle school and that was definitely not the case for me. I took my first class the fall of my sophomore year. Even if you don’t have that much experience with it, you can grow your career as an engineer. Don't be afraid to start late.
 
+> I think that a lot of people think that people who go into computer science have been coding since they were in middle school and that was definitely not the case for me. I took my first class the fall of my sophomore year. Even if you don’t have that much experience with it, you can grow your career as an engineer. Don't be afraid to start late.
+
 **Could you share a little bit about what a typical work day might look like for you? And what is your favorite part about your job?**
 
 Yes, I love so many things about my job! I always wake up in the morning and go for a head-clearing run. Most of the time, I’ll do a little bit of work from home, then come into the office from 10 till 6. The majority of my day, I have meetings, and then a bit of heads down time, responding to emails and writing up docs. Four years into Kapwing, I don’t code almost at all. Whereas in the early days, we were coding basically a hundred percent of our time. So my job has shifted a lot.
@@ -47,7 +51,7 @@ One of my favorite things about my job is that it’s just constantly new learni
 
 Another big thing that I love about my job now is just the people I go to work with. It's kind of lonely in the early days of a startup. It's just you and your co-founder. But now Kapwing has 35 people, and every single person just brings so much energy, a new perspective, different skills and knowledge. That has been so energizing and fun to see our culture grow organically.
 
-**Speaking of your company culture, I did find the Kapwing company blog and really enjoyed reading some of your posts. Why did you decide to share your experience of growing a startup, and to do so with such refreshing honesty?**
+**Speaking of your company culture, I did find the [Kapwing company blog](https://www.kapwing.com/blog) and really enjoyed reading some of your posts. Why did you decide to share your experience of growing a startup, and to do so with such refreshing honesty?**
 
 The first reason that we started writing the blog way back in the day was because of SEO basically, so we wanted our website to rank on Google. In order to get people to pay attention to our website, we were telling this story of the journey of building our product.
 
@@ -73,13 +77,15 @@ We had lots of launches in February. And more coming soon around how to make vid
 
 Going forward, we’re also thinking a lot about our business model and how to sell not only to individuals but also to creative teams that are working together to create something. We’re optimizing for collaboration. How does a team work together? How do we leave comments and mentions on video so that creative teams can work together to make even better and more things.
 
-**Yes! We’re very excited for Kapwing to be on the Play Store as well!**
+**Yes! We’re very excited for [Kapwing to be on the Play Store](https://play.google.com/store/apps/details?id=com.kapwing.www.twa&hl=en_US&gl=US) as well!**
 
 **Looking back on your career so far, are there any important lessons you’ve learned that you want to share, especially as a woman in this industry?**
 
 There are so many things! Well, one is to don't underestimate the power of believing that you can learn something. Believing that every skill you have is something you develop through practice and you can get better at over time. Having a growth mindset is so important in life and career. If you ever catch yourself thinking that you’re just not good at that thing, try and recognize and reverse that thinking. Because it will drain your energy. It’s especially important for women in tech, because there are so many opportunities for you to feel like you’re just not cut out for it or not capable. And it's just not true.
 
 The second thing. I would say, in everything you do in life, you just have to enjoy the journey. That's also been so important to me with Kapwing too. Have fun along the way. Don't stress too much. Try to bring levity into your work and life. Having a spirit of abundance and gratitude for everything you do is so important.
+
+> If you ever catch yourself thinking that you’re just not good at that thing, try and recognize and reverse that thinking. Because it will drain your energy. It’s especially important for women in tech, because there are so many opportunities for you to feel like you’re just not cut out for it or not capable. And it's just not true.
 
 ---
 

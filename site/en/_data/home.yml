@@ -55,6 +55,25 @@ results:
     value: 103%
     icon: trending-up
   footnote: 1
+stats:
+  modifiers:
+    heading: Grow in good company.
+    subtitle: Keep your app—and your audience—growing, across the Chrome OS community.
+  items:
+    - stat: +103%
+      desc: App Usage Growth YoY on Chrome OS for Android, Web, and Games
+      modifiers:
+        shape: semicircle
+        scale: full
+    - stat: +92%
+      desc: Chrome OS YoY Growth
+      modifiers:
+        shape: circle
+    - stat: +124%
+      desc: Growth of User Engagment YoY with apps on Chrome OS
+      modifiers:
+        shape: triangle
+        scale: half
 onAndWith:
   desc: Build for Chrome OS, build on Chrome OS
   cards:
@@ -89,7 +108,11 @@ onAndWith:
 posts:
   title: The latest on Chrome OS
   modifiers:
-    shapeOn: 1
+    custom: item-grid--posts
+    subtitle: Explore trends, events, and updates on our community.
+    cta:
+      text: All Articles
+      url: news
 featured:
   modifiers:
     custom: landing--news-grey-overlay

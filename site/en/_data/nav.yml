@@ -10,12 +10,11 @@
       url: web
     - title: Games
       url: games
-- title: Develop
+- title: Build
   desc: Use Chrome OS to develop apps in a fast, secure, and hassle-free environment.
   icon:
     name: bracket-monitor
     background: yellow
-  alt: publish
   sections:
     - title: Linux
       url: linux
@@ -31,6 +30,7 @@
     name: upload
     background: green
   url: publish
-- title: News & Stories
+- title: Stories
+  url: stories
+- title: News
   url: news
-  alt: stories
