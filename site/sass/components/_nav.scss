@@ -238,7 +238,7 @@
 
   &__primary-item {
     @include minLangMQ($bkpt-map--header--large) {
-      padding-bottom: 1.18rem;
+      padding-bottom: 1.25rem;
 
       &:not(.nav--highlighted) {
         position: static;
