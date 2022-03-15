@@ -9,9 +9,7 @@ authors:
 date: 2022-03-15
 ---
 
-<!--
 ![Photo of Shree Bose wearing scrubs and a stethoscope, setting an infant into a crib in a hospital setting.](ix://posts/iwd-2022-shree-bose-piper/shree.jpeg)
--->
 
 Shree Bose is on the home stretch of becoming a medical scientist with a PhD and a MD from Duke University, aiming for a career as a practicing oncologist. This will be the fulfilment of a career goal [indicated to former president of the United States, Barack Obama](https://youtu.be/rip9hnppY2g) after winning the Google Global Science fair back in 2011. Shree is also the co-founder of [Piper](https://www.playpiper.in/), an amazing set of microprocessor kits and curricula to help learners explore computer hardware, circuits, and programming in a fun and engaging way.
 
