@@ -1,5 +1,5 @@
 ---
-title: 'Helping students fall in love with building technology - Shree Bose of Piper'
+title: Helping students fall in love with building technology with Piper's Shree Bose
 metadesc: In honor of International Women's Day we interviewed Shree Bose, co-founder of Piper, about her quest to help people become passionate about creating technology.
 tags:
   - success story
@@ -9,9 +9,9 @@ authors:
 date: 2022-03-15
 ---
 
-![Photo of Shree Bose wearing scrubs and a stethoscope, setting an infant into a crib in a hospital setting.](ix://posts/iwd-2022-shree-bose-piper/shree.jpeg)
+![Photo of Shree Bose wearing scrubs and a stethoscope, setting an infant into a crib in a hospital setting.](ix://posts/iwd-2022-shree-bose/shree.jpeg)
 
-Shree Bose is on the home stretch of becoming a medical scientist with a PhD and a MD from Duke University, aiming for a career as a practicing oncologist. This will be the fulfilment of a career goal [indicated to former president of the United States, Barack Obama](https://youtu.be/rip9hnppY2g) after winning the Google Global Science fair back in 2011. Shree is also the co-founder of [Piper](https://www.playpiper.in/), an amazing set of microprocessor kits and curricula to help learners explore computer hardware, circuits, and programming in a fun and engaging way.
+Shree Bose is on the home stretch of becoming a medical scientist with a PhD and a MD from Duke University, aiming for a career as a practicing oncologist. This will be the fulfilment of a career goal [indicated to former president of the United States Barack Obama](https://youtu.be/rip9hnppY2g) after winning the Google Global Science fair back in 2011. Shree is also the co-founder of [Piper](https://www.playpiper.in/), an amazing set of microprocessor kits and curricula to help learners explore computer hardware, circuits, and programming in a fun and engaging way.
 
 As a developer advocate for Chrome OS, and a fellow woman in tech, it was inspiring to speak with Shree. Read on for more about her story, vision, and the success of Piper in bringing engaging learning experiences to students.
 
@@ -62,5 +62,3 @@ The reason I bring it up is that when I think about what I would tell a brillian
 ---
 
 I am so grateful to have had the opportunity to talk with Shree and I cannot wait to try out some of the upcoming kits myself. Check out [Piper and Piper Make](https://www.playpiper.in/) today with your Chromebook!
-
-Emilie Roberts, Developer Relations Engineer, Google Chrome OS
