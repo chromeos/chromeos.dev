@@ -24,7 +24,7 @@ results:
     value: 103%
     icon: trending-up
   footnote: 1
-validation:
+stats:
   modifiers:
     heading: Grow in good company.
     subtitle: Keep your app—and your audience—growing, across the Chrome OS community.

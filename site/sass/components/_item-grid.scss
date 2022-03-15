@@ -55,13 +55,6 @@
     }
   }
 
-  &--posts & {
-    &__content {
-      grid-template-columns: repeat(auto-fit, minmax(pxRem(325px), 1fr));
-      justify-items: center;
-    }
-  }
-
   &--community & {
     &__content {
       display: flex;

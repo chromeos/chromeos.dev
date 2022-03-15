@@ -23,9 +23,9 @@
   </header>
   {% endif %}
   <dl class="stats__list">
-    {% for item in items %} {% if item.modifiers.shape is not defined %} {% set defaults = ['semicircle', 'circle', 'triangle'] %} {% set defaultShape = 'semicircle' %} {% set parentIndex = loop.index0 %} {% for shape in defaults %} {% if loop.index0 == parentIndex %} {% set defaultShape = shape %} {% endif %} {% endfor %} {% endif %}
+    {% set defaults = ['semicircle', 'circle', 'triangle'] %} {% for item in items %} {% set shape = '' %} {% if item.modifiers.shape is not defined %} {% set shape = defaults[loop.index0] %} {% else %} {% set shape = item.modifiers.shape %} {% endif %}
     <div class="stats__item">
-      <dt class="stats__stat {% if item.modifiers.shape is defined %} stats__stat--{{item.modifiers.shape}} {% else %} stats__stat--{{defaultShape}} {% endif %}{% if item.modifiers.scale is defined %} stats__stat--scale-{{item.modifiers.scale}} {% endif %}"><span>{{item.stat}}</span></dt>
+      <dt class="stats__stat stats__stat--{{shape}} {% if item.modifiers.scale is defined %} stats__stat--scale-{{item.modifiers.scale}} {% endif %}"><span>{{item.stat}}</span></dt>
       <dd class="stats__desc type--base">{{item.desc}}</dd>
     </div>
     {% endfor %}
