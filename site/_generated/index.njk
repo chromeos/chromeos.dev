@@ -10,20 +10,20 @@ metadesc: Deliver rich, engaging Android, and Web apps for Chromebook with just 
 hideNewsletter: true
 ---
 
-{% from 'hero-animated.njk' import heroAnimated %} {% from 'card-stats.njk' import cardStats %} {% from 'image-card.njk' import imageCard %} {% from 'hero--cta.njk' import heroCta %} {% from 'item-grid.njk' import itemGrid %} {% from 'featured-content.njk' import featuredContent %} {% from 'call-out.njk' import callOut %} {% from 'footnotes.njk' import footnotes %}
+{% from 'hero-animated.njk' import heroAnimated %} {% from 'card-stats.njk' import cardStats %} {% from 'image-card.njk' import imageCard %} {% from 'hero--cta.njk' import heroCta %} {% from 'item-grid.njk' import itemGrid %} {% from 'featured-content.njk' import featuredContent %} {% from 'call-out.njk' import callOut %} {% from 'footnotes.njk' import footnotes %} {% from 'stats.njk' import stats %}
 <div id="home" class="wrapper--hidden-x">
   <!-- Hero Animation -->
   <header id="home__hero" class="wrapper wrapper--full-bleed wrapper--no-bottom wrapper--no-top">{{ heroAnimated(l10n.home.hero.heading, l10n.home.hero.cta, l10n.home.hero.img) }}</header>
 
   <!-- Chrome OS Stats -->
-  <section id="home__stats" class="wrapper wrapper--full-bleed wrapper--no-top wrapper--no-bottom" aria-label="{{ l10n.home.results.desc }}">{{ cardStats(l10n.home.results.content, l10n.home.results.img, l10n.home.results.cta, l10n.home.results.stats, l10n.home.results.footnote) }}</section>
+  <div id="home__stats" class="wrapper wrapper--padded wrapper--padding">{{ stats(l10n.home.stats.items, l10n.home.stats.modifiers) }}</div>
 
   <!-- Using Chrome OS -->
   <section id="home__using" class="wrapper wrapper--full-top wrapper--full-bottom wrapper--rhythm wrapper--padded" aria-label="{{ l10n.home.onAndWith.desc }}">{% for item in l10n.home.onAndWith.cards %} {{ imageCard(item.images, item.content, item.cta, item.modifiers) }} {% endfor %}</section>
 
   <!-- Recent Articles -->
   {% if landingCollections.posts.length > 0 %}
-  <div id="home__articles" class="wrapper wrapper--full-bleed wrapper--padding wrapper__contained wrapper__background wrapper__green-circle wrapper--bumper-top wrapper--bumper-bottom wrapper--padded wrapper__responsive-circle">{{ itemGrid(l10n.home.posts.title, landingCollections.homePosts , l10n.home.posts.modifiers) }}</div>
+  <div id="home__articles" class="wrapper wrapper--padding wrapper--padded">{{ itemGrid(l10n.home.posts.title, landingCollections.homePosts, l10n.home.posts.modifiers, l10n.locale.code) }}</div>
   {% endif %}
 
   <!-- Featured Case Story -->
