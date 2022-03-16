@@ -45,11 +45,10 @@ exports.plugins = [
     { no: '(grandfather)(-|\s)?(clause|ed|ing)' },
     { no: '(mom|girlfriend|grandma|grandmother)(-|\s)?(test)' },
     { no: '(build)(-|\s)?(cop|sheriff)' },
-    { no: 'ADD' },
     { no: 'open(-|\s)?the(-|\s)?kimono' },
     { no: 's?he' },
-    { no: 'final(-|\s)?solution'},
-    { no: 'WTF(-|\s)?error'},
+    { no: 'final(-|\s)?solution' },
+    { no: '(WTF|wtf)(-|\s)?(error)?' },
     { no: 'ninja' },
     { no: 'guru' },
     { no: '^h(is|er(s?))$' },
@@ -58,7 +57,6 @@ exports.plugins = [
     { no: 'redline' },
     { no: '(black|white|gray|grey|dark|light)(-|\s)?(hat|list|glove|label)' },
     { no: 'rtfm' },
-    { no: 'wtf' }],
     { no: 'post(-|\s)?mortem' },
     { no: 'retarded' },
     { no: 'demented' },
@@ -78,4 +76,5 @@ exports.plugins = [
   // Custom
   [require('./lib/linting/content-models.js'), [2]],
   [require('./lib/linting/md-name-lint'), [2]],
+],
 ];
