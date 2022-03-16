@@ -5,7 +5,7 @@
 
 .article {
   $default-eyebrow-color: map-get($google-colors, 'blue-600');
-  --col-padding: #{pxRem(28px)};
+  --col-padding: 1.5rem;
 
   display: grid;
 
@@ -132,25 +132,6 @@
     }
   }
 
-  &__info {
-    margin-bottom: pxRem(24px);
-    padding: 0 var(--col-padding);
-
-    @include mq($bkpt-articles--2-cols) {
-      background-color: var(--grey-100);
-      border-bottom: 1px solid var(--grey-300);
-      grid-column: 1 / span 1;
-      grid-row: 3 / span 3;
-      margin-bottom: 0;
-      padding-top: var(--col-padding);
-    }
-
-    @include mq($bkpt-articles--3-cols) {
-      grid-column: 2 / span 1;
-      grid-row: 3 / span 2;
-    }
-  }
-
   &__toc {
     margin-bottom: pxRem(48px);
     padding: 0 var(--col-padding);
@@ -162,8 +143,6 @@
     }
 
     @include mq($bkpt-articles--3-cols) {
-      background-color: var(--grey-100);
-      border-bottom: 1px solid var(--grey-300);
       grid-column: 4 / span 1;
       grid-row: 3 / span 2;
       margin-bottom: 0;

@@ -1,8 +1,16 @@
 // Styles for date-time label.
 
 .date-time {
+  margin-bottom: 2rem;
+
+  @include mq($bkpt-articles--3-cols) {
+    padding-left: 1.25rem;
+  }
+
   &__label {
+    color: var(--grey-500);
     display: block;
+    margin-bottom: 0.5rem;
   }
 
   &--inline & {
