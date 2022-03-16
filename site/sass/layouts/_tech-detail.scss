@@ -74,9 +74,11 @@
 
     &-image {
       display: block;
+      height: 24rem;
       margin-left: auto;
-      max-height: 20vh;
-      width: auto;
+      object-fit: none;
+      object-position: 0 50%;
+      width: 100%;
     }
 
     &:empty {

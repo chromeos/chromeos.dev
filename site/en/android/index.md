@@ -2,7 +2,7 @@
 title: Android apps on Chrome OS
 metadesc: An introduction to the Play Store and Android Applications on Chrome OS.
 hero:
-  image: ix://landings/adapting-android.svg
+  image: https://drive.google.com/uc?id=1qWA8A_KlUqFYD1WunB9Z2lbOyh9P8Kff
   alt: Illustration of an Android phone and Chrome OS device showing the same application running on both.
 date: 2020-05-27
 weight: -8
