@@ -71,8 +71,8 @@
 
   &--small {
     @extend %type--base;
-
     @include fontSetup(12px, 16px, 400);
+    color: var(--grey-700);
   }
 
   &--quote {
@@ -91,7 +91,7 @@
   }
 
   &--label {
-    @include fontSetup(11px, 16px, 600);
+    @include fontSetup(12px, 16px, 600);
     color: var(--grey-900);
     text-rendering: optimizeLegibility;
     text-transform: uppercase;
