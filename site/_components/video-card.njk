@@ -3,20 +3,21 @@
 
   @param {object} video - An object with the following attributes.
   @param {string} video.title - Text displayed beneath the video capture.
-  @param {string} video.url - Link to the video.
-  @param {object} capture - An object with the following attributes.
-  @param {string} capture.src - Image src
-  @param {string} capture.alt - Alt text
+  @param {string} video.id - The ID of the YouTube video.
 #}-->
-{% from 'icon.njk' import icon %} {% macro videoCard(video, capture) %}
-<a class="video-card" href="{{video.url}}">
+{% from 'icon.njk' import icon %} {% macro videoCard(video) %}
+<a class="video-card" href="https://www.youtube.com/watch?v={{video.id}}">
   <figure>
-    <div class="video-card__capture-wrapper">
-      <img src="{{capture.src}}" alt="{{capture.alt}}" />
-      {{ icon('play-button') }}
+    <div class="video-card__thumbnail-wrapper">
+      <picture>
+        <source srcset="https://img.youtube.com/vi_webp/{{video.id}}/hqdefault.webp" type="image/webp" />
+        <source srcset="https://img.youtube.com/vi/{{video.id}}/hqdefault.jpg" type="image/jpeg" />
+        <img class="video-card__thumbnail" src="https://img.youtube.com/vi/{{video.id}}/hqdefault.jpg" alt="{{video.title}}" loading="lazy" />
+      </picture>
+      {{ icon('play-button', 'video-card__play-icon') }}
     </div>
     <figcaption class="video-card__caption">
-      <span class="type--h4">{{video.title}}</span>
+      <p class="type--h4">{{video.title}}</p>
     </figcaption>
   </figure>
 </a>
