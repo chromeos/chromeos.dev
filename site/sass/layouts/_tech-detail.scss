@@ -4,7 +4,7 @@
 .tech-detail {
   $root: &;
   $spacing: clamp(3.75rem, 7.8125vw, 5rem);
-  $inline-padding: 1.75rem;
+  $inline-padding: 1.5rem;
   $block-padding: 2.5rem;
   $hero-bg: var(--primary-blue);
 
@@ -40,6 +40,7 @@
     background-color: $hero-bg;
     grid-column: 1 / -1;
     grid-row: 2 / span 1;
+    overflow: hidden;
 
     @include mq($bkpt-tech-details--2-cols) {
       grid-column: 2 / -1;
@@ -51,7 +52,7 @@
     }
 
     &:not(:empty) {
-      @include mq($bkpt-tech-details--landing) {
+      @include mq($bkpt-tech-details--2-cols) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
       }
@@ -59,26 +60,35 @@
 
     &-title {
       color: var(--white);
-      padding-bottom: 2.5rem;
-      padding-left: clamp(1.5rem, 4vw, 7.5rem);
-      padding-top: 2.5rem;
+      padding: $block-padding clamp(1.5rem, 4vw, 7.5rem);
 
-      @include mq($bkpt-tech-details--landing) {
+      @include mq($bkpt-tech-details--2-cols) {
         align-items: center;
         display: flex;
         justify-content: center;
         padding-bottom: 0;
+        padding-right: 0;
         padding-top: 0;
       }
     }
 
     &-image {
       display: block;
-      height: 24rem;
       margin-left: auto;
-      object-fit: none;
-      object-position: 0 50%;
-      width: 100%;
+      margin-right: -3.75rem;
+      width: auto;
+
+      @include mq($bkpt-tech-details--2-cols) {
+        height: 16.25rem;
+        margin-right: 0;
+      }
+
+      @include mq($bkpt-tech-details--landing) {
+        height: 24rem;
+        object-fit: none;
+        object-position: 0 50%;
+        width: 100%;
+      }
     }
 
     &:empty {
