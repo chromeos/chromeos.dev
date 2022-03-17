@@ -42,7 +42,7 @@
     margin-top: 1rem;
     max-width: 32ch;
 
-    @supports (margin-top: clamp(1px, 1vw, 2px)) {
+    @supports (margin-top: $clamp-check) {
       margin-top: clamp(0.625rem, 2.66vw, 1rem);
     }
   }
