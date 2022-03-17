@@ -10,13 +10,16 @@ metadesc: Deliver rich, engaging Android, and Web apps for Chromebook with just 
 hideNewsletter: true
 ---
 
-{% from 'hero-animated.njk' import heroAnimated %} {% from 'card-stats.njk' import cardStats %} {% from 'image-card.njk' import imageCard %} {% from 'hero--cta.njk' import heroCta %} {% from 'item-grid.njk' import itemGrid %} {% from 'featured-content.njk' import featuredContent %} {% from 'call-out.njk' import callOut %} {% from 'footnotes.njk' import footnotes %} {% from 'stats.njk' import stats %}
+{% from 'hero-animated.njk' import heroAnimated %} {% from 'card-stats.njk' import cardStats %} {% from 'image-card.njk' import imageCard %} {% from 'hero--cta.njk' import heroCta %} {% from 'item-grid.njk' import itemGrid %} {% from 'featured-content.njk' import featuredContent %} {% from 'call-out.njk' import callOut %} {% from 'footnotes.njk' import footnotes %} {% from 'stats.njk' import stats %} {% from 'fifty-fifty.njk' import fiftyFifty %}
 <div id="home" class="wrapper--hidden-x">
   <!-- Hero Animation -->
   <header id="home__hero" class="wrapper wrapper--full-bleed wrapper--no-bottom wrapper--no-top">{{ heroAnimated(l10n.home.hero.heading, l10n.home.hero.cta, l10n.home.hero.img) }}</header>
 
   <!-- Routing Cards -->
   <div id="home__routing" class="wrapper wrapper--full-bleed wrapper--no-top wrapper--padding wrapper--padded wrapper__contained wrapper__background--color-stop">{{ itemGrid('', l10n.home.routing.items, l10n.home.routing.modifiers, l10n.locale.code) }}</div>
+
+  <!-- Linux -->
+  <section id="home__linux" class="wrapper wrapper--padded wrapper--padding">{{ fiftyFifty(l10n.home.linux.content, l10n.home.linux.cta, l10n.home.linux.images, l10n.locale.code) }}</section>
 
   <!-- Chrome OS Stats -->
   <div id="home__stats" class="wrapper wrapper--padded wrapper--padding">{{ stats(l10n.home.stats.items, l10n.home.stats.modifiers) }}</div>
