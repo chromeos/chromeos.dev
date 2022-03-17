@@ -33,6 +33,7 @@ layout: _wrapper
   <section class="tech-detail__content" id="article">
     <div class="type">{{ content | safe }}</div>
     {% if landingPage and landingPage.subnav %}
+    <div class="tech-detail__interest-form type">{{ interest | markdown | safe }}</div>
     <div class="tech-detail__chapters">{{itemGrid(microcopy.landing.chapters, landingPage.subnav.slice(1))}}</div>
     {% endif %}
   </section>

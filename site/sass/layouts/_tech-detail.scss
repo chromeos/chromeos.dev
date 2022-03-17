@@ -69,6 +69,18 @@
     }
   }
 
+  &__interest-form {
+    background-color: var(--grey-50);
+    border-radius: 0.625rem;
+    margin: $spacing auto;
+    max-width: 60ch;
+    padding: 2rem 2rem 2.5rem;
+
+    p {
+      color: var(--grey-700);
+    }
+  }
+
   &__chapters {
     border-top: 1px solid var(--grey-300);
     margin-bottom: $spacing;
