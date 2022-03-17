@@ -1,7 +1,7 @@
 posts:
   title: Chrome OS news and stories
   modifiers:
-    shapeOn: 1
+    custom: item-grid--posts
 featured:
   modifiers:
     custom: landing--news-grey-overlay
