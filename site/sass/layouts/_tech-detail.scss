@@ -6,9 +6,9 @@
   $spacing: clamp(3.75rem, 7.8125vw, 5rem);
   $inline-padding: 1.5rem;
   $block-padding: 2.5rem;
-  $yellow-bg: var(--yellow-750);
-  $blue-bg: var(--blue-650);
-  $green-bg: var(--green-450);
+  $yellow-bg: var(--secondary-yellow);
+  $blue-bg: var(--primary-blue);
+  $green-bg: var(--primary-green);
 
   // TODO check breakpoints, spacing distribution when sample content is loaded.
   // Validate with design.
