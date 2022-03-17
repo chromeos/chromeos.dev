@@ -14,11 +14,11 @@
  #}-->
 {% macro hero(content) -%}
 <article class="hero">
-  <section class="hero__copy-wrapper">
+  <section class="hero__copy-wrapper hero__copy-wrapper--padded">
     <small class="hero__eyebrow type--eyebrow">{{content.eyebrow}}</small>
     <h1 class="type--h1">{{content.title}}</h1>
-    <p class="type--h3">{{content.desc}}</p>
-    <a class="hero__link cta cta--high" href="{{content.cta.url}}">{{content.cta.text}}</a>
+    <p class="type--h4">{{content.desc}}</p>
+    <a class="hero__link cta cta--link cta--right-icon" href="{{content.cta.url}}">{{content.cta.text}}</a>
   </section>
   {% for image in content.images %}
   <img class="hero__image" src="{{image.image}}" alt="{{image.alt}}" />

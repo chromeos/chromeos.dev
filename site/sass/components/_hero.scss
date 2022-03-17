@@ -1,22 +1,27 @@
 // Styles for the hero 50 - 50, copy and images stacked on mobile, side by side on large.
+@use 'sass:math';
 
 .hero {
+  $max-width: 1440px;
+  $scaler: math.div(math.div($max-width, 100), 1vw);
+
+  $inline-spacing-s: 1.5rem;
+  $inline-spacing-l: 5rem;
+  $spacing: clamp($inline-spacing-s, (math.div($inline-spacing-l, 1rem) * math.div(16px, $scaler)), $inline-spacing-l);
+
   align-items: center;
-  column-gap: 2.75rem;
+  background-color: var(--yellow-50);
   display: grid;
-  grid-row-gap: 2.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(10ch, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
 
-  @supports (column-gap: clamp(2.5rem, 1vw, 3rem)) {
-    column-gap: clamp(2.5rem, 1vw, 3rem);
-  }
-
-  @supports (grid-template-columns: repeat(auto-fit, minmax(clamp(10ch, 45vw, 30ch), 1fr))) {
-    grid-template-columns: repeat(auto-fit, minmax(clamp(10ch, 45vw, 30ch), 1fr));
+  &__copy-wrapper {
+    &--padded {
+      padding: $spacing;
+    }
   }
 
   &__eyebrow {
-    margin-bottom: pxRem(8px);
+    margin-bottom: 1rem;
   }
 
   &__title,
@@ -26,7 +31,7 @@
 
   &__link {
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
 
   &__image {
