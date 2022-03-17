@@ -30,8 +30,7 @@ exports.plugins = [
     { no: 'nitty(-|\s)?gritty' },
     { no: 'voodoo' },
     { no: 'off(-|\s)?the(-|\s)?reservation' },
-    { no: '(the(-|\s)?)?natives'},
-    { no: 'natives' },
+    { no: '(-|\s)natives'},
     { no: 'first(-|\s)?class' },
     { no: 'quatum(-|\s)?supremacy'},
     { no: 'supremacy' },
@@ -70,7 +69,7 @@ exports.plugins = [
     { no: 'imbecil' },
     { no: 'stupid' },
     { no: 'moronic' },
-    { no: '(-|\s)?tard(ed)?' }
+    { no: '(-|\w)tard(ed)?' }
   ]],
 
   // Custom
