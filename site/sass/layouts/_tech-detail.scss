@@ -6,7 +6,9 @@
   $spacing: clamp(3.75rem, 7.8125vw, 5rem);
   $inline-padding: 1.5rem;
   $block-padding: 2.5rem;
-  $hero-bg: var(--primary-blue);
+  $yellow-bg: var(--yellow-750);
+  $blue-bg: var(--blue-650);
+  $green-bg: var(--green-450);
 
   // TODO check breakpoints, spacing distribution when sample content is loaded.
   // Validate with design.
@@ -37,7 +39,6 @@
   }
 
   &__hero {
-    background-color: $hero-bg;
     grid-column: 1 / -1;
     grid-row: 2 / span 1;
     overflow: hidden;
@@ -92,7 +93,7 @@
     }
 
     &:empty {
-      background: $hero-bg;
+      background: $blue-bg;
     }
   }
 
@@ -220,6 +221,29 @@
 
     &:empty {
       padding: 0;
+    }
+  }
+
+  &.productivity,
+  &.android-environment,
+  &.linux,
+  &.web-environment {
+    .tech-detail__hero {
+      background-color: $yellow-bg;
+    }
+  }
+
+  &.android,
+  &.games,
+  &.web {
+    .tech-detail__hero {
+      background-color: $blue-bg;
+    }
+  }
+
+  &.publish {
+    .tech-detail__hero {
+      background-color: $green-bg;
     }
   }
 }

@@ -4,7 +4,7 @@ layout: _wrapper
 
 {% from 'skip-link.njk' import skipLink %} {% from 'toc.njk' import toc as tableOfContents %} {% from 'tools.njk' import tools as toolsMacro %} {% from 'subnav.njk' import subnav %} {% from 'resources.njk' import resources as resourcesMacro %} {% from 'item-grid.njk' import itemGrid %} {% set class="tech-detail" %} {% if landingPage %} {% set class = "tech-detail tech-detail--landing" %} {% endif %}
 
-<article class="{{class}}">
+<article class="{{class}} {{section}}">
   {% set related = collections[section + '--' + locale.code] %}
   <aside class="tech-detail__topics-and-resources">{{skipLink(microcopy.skip.content, 'content')}} {{ subnav(related, eyebrow, page.url, resources, microcopy.resources.title)}}</aside>
   {% if landingPage %}
