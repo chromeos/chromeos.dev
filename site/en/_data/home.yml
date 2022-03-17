@@ -8,6 +8,37 @@ hero:
   img:
     src: ix://landings/home/hero.png
     alt: 'Chromebook, tablet, mobile phone, foldable phone, stylus, and a mouse are shown. The devices with screens show the same image: a mix of colored circles, rounded bars, and lines in red, yellow, blue, and green colors. These objects cycle in unison.'
+routing:
+  items:
+    - content:
+        title: Build a better web experience.
+        copy: Expand your reach to millions of desktop users when you adapt your web app for Chrome OS.
+      image:
+        src: ix://home/2022/better_experience.png
+        alt: A person using a chromebook with a stylus at their desk.
+      cta:
+        url: web
+        text: Learn more
+    - content:
+        title: Say Hello to Android users.
+        copy: Easily adapt your existing app to work across more devices and reach more people.
+      image:
+        src: ix://home/2022/hello_android.png
+        alt: An android device using the Evernote app.
+      cta:
+        url: android
+        text: Learn more
+    - content:
+        title: Get more gamers.
+        copy: Get your game played on more screens when you adapt it for Chrome OS.
+      image:
+        src: ix://home/2022/more_gamers.png
+        alt: An assortment of characters created by Riot games.
+      cta:
+        url: games
+        text: Learn more
+  modifiers:
+    variant: routing
 results:
   desc: Get results with Chrome OS
   content:
