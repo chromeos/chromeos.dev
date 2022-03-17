@@ -199,6 +199,29 @@
     &--dark {
       background-color: var(--grey-850);
     }
+
+    &--color-stop {
+      background: var(--secondary-blue);
+      position: relative;
+
+      &::after {
+        $stop-pos-s: calc(100% - 300px);
+        $stop-pos-l: 50%;
+        background-image: linear-gradient(335deg, var(--white), var(--white) $stop-pos-s, transparent $stop-pos-s, transparent);
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        width: 100%;
+
+        @include mq(631px) {
+          background-image: linear-gradient(to top left, var(--white), var(--white) $stop-pos-l, transparent $stop-pos-l, transparent);
+          height: math.percentage(math.div(450, 772));
+        }
+      }
+    }
   }
 
   &__responsive-circle {

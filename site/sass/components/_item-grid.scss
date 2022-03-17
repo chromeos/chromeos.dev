@@ -91,6 +91,18 @@
     }
   }
 
+  &--routing & {
+    &__content {
+      gap: 3rem 1.25rem;
+      margin-top: 0;
+      padding-top: 3rem;
+
+      @supports (row-gap: clamp(1px, 1vw, 2px)) {
+        row-gap: generateScaling((430px 631px), (48px 16px));
+      }
+    }
+  }
+
   &--circled &__content {
     border-image-outset: 300px;
     border-image-slice: 0 fill;
