@@ -91,17 +91,6 @@
     }
   }
 
-  &--video & {
-    &__content {
-      gap: 5rem 1.25rem;
-      grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-
-      @include mq(602px) {
-        row-gap: 2.75rem;
-      }
-    }
-  }
-
   &--routing & {
     &__content {
       gap: 3rem 1.25rem;

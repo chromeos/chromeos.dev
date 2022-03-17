@@ -20,6 +20,12 @@
         "ignoreFunctions": ["pxRem", "pxEm", "generateScaling", "if", "pxCast", "unquote", "unitless", "math.percentage", "math.div", "nth", "map-get"]
       }
     ],
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": ["container-name", "container-type"]
+      }
+    ],
     "function-url-quotes": "always",
     "font-weight-notation": "numeric",
     "font-family-name-quotes": "always-where-required",
@@ -42,11 +48,17 @@
     "max-nesting-depth": [
       3,
       {
-        "ignoreAtRules": ["each", "media", "supports", "include", "for"]
+        "ignoreAtRules": ["each", "media", "supports", "include", "for", "container"]
       }
     ],
     "scss/at-function-pattern": "^[a-z]+([a-zA-Z0-9-]+[a-zA-Z0-9]+)?$",
     "scss/at-mixin-pattern": "^[a-z]+([a-zA-Z0-9-]+[a-zA-Z0-9]+)?$",
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["container"]
+      }
+    ],
     "order/order": [
       [
         "dollar-variables",

@@ -9,6 +9,8 @@
   border-radius: 0.625rem;
   box-shadow: 0 0.25rem 1.25rem rgb(0, 0, 0, 0.15);
   column-gap: 1.5rem;
+  container-name: card-routing;
+  container-type: inline-size;
   display: grid;
   grid-template: max-content / repeat(auto-fit, minmax(pxRem(240px), 1fr));
   justify-items: center;
@@ -20,22 +22,16 @@
   }
 
   &__image {
+    margin: 0 auto 2rem;
     max-width: pxRem(218px);
 
     @supports (width: $clamp-check) {
+      margin-bottom: generateScaling(($grid-2-card-1-col $scale-max), (20px 48px));
       width: generateScaling((420px $scale-max), (205px 218px));
     }
 
-    @include mq(0 $card-2-col - 1px) {
-      order: 3;
-    }
-
-    @include mq($grid-2-card-1-col) {
-      margin-bottom: 2rem;
-
-      @supports (margin: $clamp-check) {
-        margin-bottom: generateScaling(($grid-2-card-1-col $scale-max), (20px 48px));
-      }
+    @container card-routing (min-width: 504px) {
+      margin-bottom: 0;
     }
   }
 
@@ -44,19 +40,9 @@
     display: flex;
     flex-direction: column;
 
-    @include mq($card-2-col 697px) {
+    @container card-routing (min-width: 504px) {
       align-items: start;
       text-align: start;
-
-      @supports not (text-align: start) {
-        [dir='ltr'] & {
-          text-align: left;
-        }
-
-        [dir='rtl'] & {
-          text-align: right;
-        }
-      }
     }
   }
 
