@@ -10,6 +10,7 @@ hero:
   alt: A desk with a computer showing the Evernote app
   position: center
 tags:
+  - android
   - productivity
   - stylus support
   - keyboard support

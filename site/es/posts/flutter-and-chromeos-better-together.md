@@ -2,13 +2,13 @@
 title: Flutter y Chrome OS van mejor juntos
 metadesc: Android alimenta las aplicaciones móviles en dispositivos que van mucho más allá de su típico teléfono inteligente de pantalla pequeña.
 tags:
+  - android
   - tendencia
   - flutter
   - soporte de teclado
   - soporte para mouse
   - pantalla grande
   - gestión de ventanas
-  - android
   - android studio
   - linux
   - gráficos de alto rendimiento

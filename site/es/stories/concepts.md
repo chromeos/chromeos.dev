@@ -10,6 +10,7 @@ hero:
   image: ix://stories/concepts/hero.1500.jpg
   alt: Bosquejo de un coche que muestra la rueda de color en Concepts
 tags:
+  - android
   - diseño
   - soporte para lápiz óptico
   - gráficos de alto rendimiento
