@@ -3,7 +3,7 @@
 // Breakpoints are tied to tech-detail layout, so before reusing it some adjustments may be necessary.
 
 .toc {
-  $shadow-color: rgba(map-get($google-colors, 'grey-900'), 0.1);
+  $shadow-color: var(--grey-200);
   $block-padding: 1.25rem;
   @include expandingNav($bkpt-tech-details--3-cols, 'toc', 1.75rem, $block-padding);
 
