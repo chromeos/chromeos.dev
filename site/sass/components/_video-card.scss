@@ -8,11 +8,13 @@
     position: relative;
 
     // Use the same aspect ratio as YouTube does for thumbnails to minimize letterboxing.
-    &::before {
-      content: '';
-      display: block;
+    @supports (aspect-ratio: 16 / 9) {
+      aspect-ratio: 16 / 9;
+    }
+
+    // Only use padding hack when aspect-ratio isn't supported.
+    @supports not (aspect-ratio: 16 / 9) {
       padding-top: 56.25%;
-      width: 100%;
     }
 
     .icon {
