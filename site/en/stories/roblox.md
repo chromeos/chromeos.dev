@@ -10,7 +10,7 @@ hero:
   alt: A group of Roblox characters in the world game.
   position: top
 tags:
-  - gaming
+  - games
   - keyboard support
   - device configuration
 date: 2018-11-19

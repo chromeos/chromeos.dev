@@ -2,6 +2,7 @@
 title: Google & Unity partner to support Chromebooks
 metadesc: Google is partnering with Unity to bring x86 build support and input and windowing improvements starting in Unity 2021.2.0a14.
 tags:
+  - announcement
   - product news
   - gaming
   - unity

@@ -2,6 +2,7 @@
 title: ¿Qué hay de nuevo en Chrome OS? Un entorno más rápido, más simple y más seguro para desarrolladores web y Android
 metadesc: Nuevas funciones en Chrome OS para una experiencia de desarrollador más optimizada.
 tags:
+  - evento
   - noticias de producto
   - historia exitosa
   - android studio
