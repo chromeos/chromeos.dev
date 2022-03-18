@@ -9,23 +9,23 @@
   $begin-color-stop: var(--primary-blue), var(--primary-blue) math.percentage(math.div(211, 696)), var(--secondary-blue) math.percentage(math.div(211, 696));
   $gradient-angle-l: 105deg;
 
-  display: grid;
-  position: relative;
-
-  @include mq($break-2-col) {
-    background-image: linear-gradient($gradient-angle-l, $begin-color-stop, var(--secondary-blue) calc(math.percentage(math.div(211, 696)) + 188px), var(--primary-blue) calc(math.percentage(math.div(211, 696)) + 188px), var(--primary-blue));
-    border-radius: 0.625rem;
-
-    // scale the width of the color stop if supported.
-    @supports (width: min(1px, 1vw)) {
-      background-image: linear-gradient($gradient-angle-l, $begin-color-stop, var(--secondary-blue) calc(math.percentage(math.div(211, 696)) + min(20%, 234px)), var(--primary-blue) calc(math.percentage(math.div(211, 696)) + min(20%, 234px)), var(--primary-blue));
-    }
+  @include mq(0 $break-2-col - 1px) {
+    background-image: linear-gradient(65deg, var(--secondary-blue), var(--secondary-blue) 115px, var(--primary-blue) 115px, var(--primary-blue));
+    overflow: hidden;
   }
 
-  &__wrapper {
-    @include mq(0 $break-2-col - 1px) {
-      background-image: linear-gradient(65deg, var(--secondary-blue), var(--secondary-blue) 115px, var(--primary-blue) 115px, var(--primary-blue));
-      overflow: hidden;
+  &__inner {
+    display: grid;
+    position: relative;
+
+    @include mq($break-2-col) {
+      background-image: linear-gradient($gradient-angle-l, $begin-color-stop, var(--secondary-blue) calc(math.percentage(math.div(211, 696)) + 188px), var(--primary-blue) calc(math.percentage(math.div(211, 696)) + 188px), var(--primary-blue));
+      border-radius: 0.625rem;
+
+      // scale the width of the color stop if supported.
+      @supports (width: min(1px, 1vw)) {
+        background-image: linear-gradient($gradient-angle-l, $begin-color-stop, var(--secondary-blue) calc(math.percentage(math.div(211, 696)) + min(20%, 234px)), var(--primary-blue) calc(math.percentage(math.div(211, 696)) + min(20%, 234px)), var(--primary-blue));
+      }
     }
   }
 
@@ -60,6 +60,8 @@
   &__copy {
     margin-top: 1.25rem;
     max-width: 42ch;
+    min-width: 24ch;
+    width: 38vw;
 
     #{$self}--no-cta & {
       margin-bottom: 6rem;
@@ -73,7 +75,8 @@
 
   &__image-wrapper {
     position: relative;
-    width: math.percentage(math.div(456, 327));
+    // Pull image wrapper outside of the banner's wrapper.
+    width: math.percentage(math.div(456px, 327px));
     z-index: 1;
 
     @include mq($break-2-col) {

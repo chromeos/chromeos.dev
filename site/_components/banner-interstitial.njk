@@ -18,16 +18,18 @@
   @param {string} modifiers.class: Modifiers class/classes
 #}-->
 {% from 'icon.njk' import icon %} {% macro bannerInterstitial(content, image, cta, modifiers) %}
-<article class="banner-interstitial {{'banner-interstitial--no-cta' if not cta}}{% if modifiers.class %} {{modifiers.class}} {% endif %}">
-  <div class="banner-interstitial__content">
-    <div class="banner-interstitial__text">
-      <small class="banner-interstitial__eyebrow type--h1">{{content.eyebrow}}</small>
-      <h2 class="banner-interstitial__title type--mega">{{content.title}}</h2>
-      <p class="banner-interstitial__copy type--base">{{content.copy}}</p>
-      {% if cta is defined %}<a href="{{cta.url}}" class="cta cta--transparent banner-interstitial__cta"> {{cta.text}} </a>{% endif %}
-    </div>
-    <div class="banner-interstitial__image-wrapper">
-      <img src="{{image.src}}" alt="{{image.alt}}" class="banner-interstitial__image" />
+<article class="banner-interstitial wrapper wrapper--padded wrapper--full-bleed wrapper__contained {{'banner-interstitial--no-cta' if not cta}}{% if modifiers.class %} {{modifiers.class}} {% endif %}">
+  <div class="banner-interstitial__inner">
+    <div class="banner-interstitial__content">
+      <div class="banner-interstitial__text">
+        <small class="banner-interstitial__eyebrow type--h1">{{content.eyebrow}}</small>
+        <h2 class="banner-interstitial__title type--mega">{{content.title}}</h2>
+        <p class="banner-interstitial__copy type--base">{{content.copy}}</p>
+        {% if cta is defined %}<a href="{{cta.url}}" class="cta cta--transparent banner-interstitial__cta"> {{cta.text}} </a>{% endif %}
+      </div>
+      <div class="banner-interstitial__image-wrapper">
+        <img src="{{image.src}}" alt="{{image.alt}}" class="banner-interstitial__image" />
+      </div>
     </div>
   </div>
 </article>
