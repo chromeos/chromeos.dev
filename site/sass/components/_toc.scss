@@ -5,7 +5,7 @@
 .toc {
   $shadow-color: var(--grey-200);
   $block-padding: 1.25rem;
-  @include expandingNav($bkpt-tech-details--3-cols, 'toc', 1.75rem, $block-padding);
+  @include expandingNav($bkpt-tech-details--3-cols, 'toc', 1.75rem, 1.33rem);
 
   @include mq($bkpt-tech-details--3-cols) {
     position: sticky;
@@ -16,11 +16,11 @@
     }
 
     &__nav {
-      border-left: 2px solid $shadow-color;
+      border-left: 1px solid $shadow-color;
       margin-bottom: 2.5rem;
       max-height: calc(100vh - 11.5rem);
-      overflow-x: hidden;
-      overflow-y: auto;
+      // overflow-x: hidden;
+      // overflow-y: auto;
       padding-left: $block-padding;
       position: relative;
     }
