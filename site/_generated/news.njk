@@ -13,7 +13,9 @@ metadesc: Get the latest news, stories, resource articles, and case studies for 
 
 <div class="wrapper--hidden-x">
   <!-- Featured Post -->
-  <div class="wrapper--full-bleed wrapper__background wrapper__background--light wrapper__contained">{% if landingCollections.featured.post %} {{ hero(landingCollections.featured.post) }} {% endif %}</div>
+  {% if landingCollections.featured.post %}
+  <div class="wrapper--full-bleed wrapper__background wrapper__background--light wrapper__contained">{{ hero(landingCollections.featured.post) }}</div>
+  {% endif %}
 
   <!-- Posts -->
   {% if landingCollections.filteredPosts.length > 0 %}
