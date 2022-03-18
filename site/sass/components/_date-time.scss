@@ -1,8 +1,12 @@
 // Styles for date-time label.
 
 .date-time {
+  margin-bottom: 2rem;
+
   &__label {
+    color: var(--grey-500);
     display: block;
+    margin-bottom: 0.5rem;
   }
 
   &--inline & {

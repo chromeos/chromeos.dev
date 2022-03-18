@@ -19,10 +19,15 @@ layout: _wrapper
 
   <h1 class="article__header type--h2">{{title}}</h1>
 
-  <aside class="article__info">{% if section == 'posts' %}{{ dateTime(microcopy.datePosted, page.date, locale.code, options={ year: 'numeric', month: 'long', day: 'numeric' }) }}{{ authorsList(authors, contributors, microcopy) }}{% elif section == 'case-studies' %}{{ appInfo(app) }}{% endif %}</aside>
-
-  {% if content | toc %}
-  <aside class="article__toc">{{ tableOfContents(content, microcopy.toc.title, {title: microcopy.skip.toc, id: 'article'}) }}</aside>
+  {% if content | toc or authors %}
+  <aside class="article__toc">
+    {% if section == 'posts' %}
+    <section class="article__section">{{ authorsList(microcopy.posted, authors, contributors, microcopy) }}</section>
+    <section class="article__section">{{ dateTime(microcopy.datePosted, page.date, locale.code, options={ year: 'numeric', month: 'long', day: 'numeric' }) }}</section>
+    {% elif section == 'case-studies' %}
+    <section class="article__section">{{ appInfo(app) }}</section>
+    {% endif %} {{ tableOfContents(content, microcopy.toc.title, {title: microcopy.skip.toc, id: 'article'}) }}
+  </aside>
   {% endif %} {% set topics = { label: microcopy.topics, items: tags } %}{% if section == 'case-studies' %}{% set updated = { label: microcopy.lastUpdated, date: page.date, locale: locale.code } %} {% endif %}
   <section class="article__body" id="article">
     <div class="article__content type">{{ content | safe }}</div>
