@@ -3,10 +3,6 @@
 .date-time {
   margin-bottom: 2rem;
 
-  @include mq($bkpt-articles--3-cols) {
-    padding-left: 1.25rem;
-  }
-
   &__label {
     color: var(--grey-500);
     display: block;

@@ -5,6 +5,7 @@
 
 .article {
   $default-eyebrow-color: map-get($google-colors, 'blue-600');
+  $block-padding: 1.25rem;
   --col-padding: 1.5rem;
 
   display: grid;
@@ -147,6 +148,12 @@
       grid-row: 3 / span 2;
       margin-bottom: 0;
       padding-top: var(--col-padding);
+    }
+  }
+
+  &__section {
+    @include mq($bkpt-articles--3-cols) {
+      padding-left: $block-padding;
     }
   }
 

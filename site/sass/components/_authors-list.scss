@@ -1,13 +1,7 @@
 // Styles for authors list info used in news and stories.
 .authors-list {
-  $block-padding: 1.25rem;
-
   list-style: none;
   margin: 0.5rem 0 1.5rem;
-
-  @include mq($bkpt-articles--3-cols) {
-    padding-left: $block-padding;
-  }
 
   &__author {
     margin-bottom: 1rem;
@@ -16,9 +10,5 @@
   &__label {
     color: var(--grey-500);
     display: block;
-
-    @include mq($bkpt-articles--3-cols) {
-      padding-left: $block-padding;
-    }
   }
 }

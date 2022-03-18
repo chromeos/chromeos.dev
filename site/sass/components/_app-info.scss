@@ -9,7 +9,6 @@
 
   @include mq($bkpt-articles--3-cols) {
     flex-direction: column;
-    padding-left: 1.25rem;
   }
 
   &__logo {
