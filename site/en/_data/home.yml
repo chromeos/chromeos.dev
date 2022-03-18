@@ -8,6 +8,37 @@ hero:
   img:
     src: ix://landings/home/hero.png
     alt: 'Chromebook, tablet, mobile phone, foldable phone, stylus, and a mouse are shown. The devices with screens show the same image: a mix of colored circles, rounded bars, and lines in red, yellow, blue, and green colors. These objects cycle in unison.'
+routing:
+  items:
+    - content:
+        title: Build a better web experience.
+        copy: Expand your reach to millions of desktop users when you adapt your web app for Chrome OS.
+      image:
+        src: ix://home/2022/better_experience.png
+        alt: A person using a chromebook with a stylus at their desk.
+      cta:
+        url: web
+        text: Learn more
+    - content:
+        title: Say Hello to Android users.
+        copy: Easily adapt your existing app to work across more devices and reach more people.
+      image:
+        src: ix://home/2022/hello_android.png
+        alt: An android device using the Evernote app.
+      cta:
+        url: android
+        text: Learn more
+    - content:
+        title: Get more gamers.
+        copy: Get your game played on more screens when you adapt it for Chrome OS.
+      image:
+        src: ix://home/2022/more_gamers.png
+        alt: An assortment of characters created by Riot games.
+      cta:
+        url: games
+        text: Learn more
+  modifiers:
+    variant: routing
 results:
   desc: Get results with Chrome OS
   content:
@@ -24,6 +55,39 @@ results:
     value: 103%
     icon: trending-up
   footnote: 1
+linux:
+  content:
+    title: |
+      Keep Linux at your side
+      —anywhere.
+    copy: Your Linux environment is seamlessly built into Chrome OS, and with you even when WiFi isn't.
+  cta:
+    text: Learn more
+    url: linux
+  images:
+    - src: ix://devices/Chromebook_numpad.png
+      alt: Opened Chromebook with a birds eye view of a beach set as its background.
+    - src: ix://lifestyle/vim_window.jpg
+      alt: A Vim text editor with code.
+stats:
+  modifiers:
+    heading: Grow in good company.
+    subtitle: Keep your app—and your audience—growing, across the Chrome OS community.
+  items:
+    - stat: +103%
+      desc: App Usage Growth YoY on Chrome OS for Android, Web, and Games
+      modifiers:
+        shape: semicircle
+        scale: full
+    - stat: +92%
+      desc: Chrome OS YoY Growth
+      modifiers:
+        shape: circle
+    - stat: +124%
+      desc: Growth of User Engagment YoY with apps on Chrome OS
+      modifiers:
+        shape: triangle
+        scale: half
 onAndWith:
   desc: Build for Chrome OS, build on Chrome OS
   cards:
@@ -58,7 +122,11 @@ onAndWith:
 posts:
   title: The latest on Chrome OS
   modifiers:
-    shapeOn: 1
+    custom: item-grid--posts
+    subtitle: Explore trends, events, and updates on our community.
+    cta:
+      text: All Articles
+      url: news
 featured:
   modifiers:
     custom: landing--news-grey-overlay
@@ -79,6 +147,38 @@ chromebook:
   cta:
     url: /en/news
     text: Learn more
+developers:
+  content:
+    title: Hear what the community is saying
+    subtitle: Read some testimonials from other developers and take their word for it.
+  quotes:
+    - content:
+        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        author:
+          name: Mike C.
+          role: Head Engineer
+      image:
+        src: ix://lifestyle/developer_1.png
+        alt: Mike C. leaning against a desk.
+    - content:
+        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        author:
+          name: Mike C.
+          role: Head Engineer
+      image:
+        src: ix://lifestyle/developer_2.png
+        alt: Mike C. smiling at the camera.
+      decorators:
+        - ix://lifestyle/code_sample_sudo.png
+        - ix://lifestyle/command_key.png
+    - content:
+        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        author:
+          name: Mike C.
+          role: Head Engineer
+      image:
+        src: ix://lifestyle/developer_3.png
+        alt: Mike C. leaning against a desk.
 community:
   title: Developer channels to get you started
   modifiers:

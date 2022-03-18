@@ -55,6 +55,13 @@
     }
   }
 
+  &--posts & {
+    &__content {
+      grid-template-columns: repeat(auto-fit, minmax(pxRem(325px), 1fr));
+      justify-items: center;
+    }
+  }
+
   &--community & {
     &__content {
       display: flex;
@@ -81,6 +88,18 @@
       gap: 1.875rem 1.25rem;
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
       justify-content: center;
+    }
+  }
+
+  &--routing & {
+    &__content {
+      gap: 3rem 1.25rem;
+      margin-top: 0;
+      padding-top: 3rem;
+
+      @supports (row-gap: clamp(1px, 1vw, 2px)) {
+        row-gap: generateScaling((430px 631px), (48px 16px));
+      }
     }
   }
 

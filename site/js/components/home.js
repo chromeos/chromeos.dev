@@ -25,7 +25,7 @@ export class Home {
    * @param {DOMElement} elem - The Home element
    */
   constructor(elem) {
-    const sections = ['stats', 'subnav', 'using', 'articles', 'featured', 'chromebooks', 'community'].map((i) => `#home__${i}`).reduce((acc, cur) => Object.assign(acc, { [cur.replace('#home__', '')]: cur }), {});
+    const sections = ['subnav', 'using', 'articles', 'featured', 'chromebooks', 'community'].map((i) => `#home__${i}`).reduce((acc, cur) => Object.assign(acc, { [cur.replace('#home__', '')]: cur }), {});
 
     this.elem_ = elem;
     this.constants_ = Object.freeze({
@@ -72,8 +72,6 @@ export class Home {
 
           this.observer_.observe(card);
         }
-      } else if (key === 'stats') {
-        this.observer_.observe(element.querySelector('.card-stats__wrapper'));
       } else {
         this.observer_.observe(element);
       }
@@ -98,10 +96,6 @@ export class Home {
   fadeSetup_(id, elem, flip = false) {
     let fades = [];
     switch (id) {
-      case 'stats':
-        fades.push(elem.querySelector('.card-stats__wrapper'));
-        fades.push(elem.querySelector('.card-stats__copy'));
-        break;
       case 'subnav':
         fades.push(elem.querySelector('.item-grid__title'));
         fades = fades.concat([...elem.querySelectorAll('.card-subnav')]);

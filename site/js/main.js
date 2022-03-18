@@ -18,6 +18,7 @@ import { preferences } from 'service-worker-i18n-redirect/preferences';
 import { MainNavigation } from './components/nav';
 import { CookieDisclaimer } from './components/cookie-disclaimer';
 import circleWorklet from './worklets/circles.js?url';
+import shapeWorklet from './worklets/shape.js?url';
 
 // Components that are critical to user experience should be loaded on `DomContentLoaded`
 window.addEventListener('DOMContentLoaded', async () => {
@@ -32,6 +33,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const home = document.querySelector('#home');
   const offlineSearch = document.querySelector('[data-offline-search]');
   const powerfulPWAs = document.querySelector('[data-pwa-checklist]');
+  const containerQueries = 'container' in document.documentElement.style;
 
   // Set default language if no language is set
   const language = await preferences.get('lang');
@@ -82,6 +84,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   if (CSS.paintWorklet) {
     await CSS.paintWorklet.addModule(circleWorklet);
+    await CSS.paintWorklet.addModule(shapeWorklet);
+  }
+
+  // Polyfill container queries
+  if (!containerQueries) {
+    await import('container-query-polyfill');
   }
 
   // Table of Contents
