@@ -3,22 +3,23 @@
 // Breakpoints are tied to tech-detail layout, so before reusing it some adjustments may be necessary.
 
 .toc {
-  @include expandingNav($bkpt-tech-details--3-cols, 'toc', 1rem, 1rem);
+  $shadow-color: var(--grey-200);
+  $block-padding: 1.25rem;
+  @include expandingNav($bkpt-tech-details--3-cols, 'toc', 1.75rem, 1.33rem);
 
   @include mq($bkpt-tech-details--3-cols) {
     position: sticky;
     top: 6.5rem;
 
     &__summary {
-      padding-left: 1.75rem;
+      padding-left: $block-padding;
     }
 
     &__nav {
+      border-left: 2px solid $shadow-color;
       margin-bottom: 2.5rem;
       max-height: calc(100vh - 11.5rem);
-      overflow-x: hidden;
-      overflow-y: auto;
-      padding-left: 1.75rem;
+      padding-left: $block-padding;
       position: relative;
     }
   }
