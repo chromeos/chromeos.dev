@@ -10,7 +10,6 @@
   $spacing: clamp($inline-spacing-s, (math.div($inline-spacing-l, 1rem) * math.div(16px, $scaler)), $inline-spacing-l);
 
   align-items: center;
-  background-color: var(--yellow-50);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
 
@@ -30,7 +29,6 @@
   }
 
   &__link {
-    display: inline-block;
     margin-top: 1.5rem;
   }
 
