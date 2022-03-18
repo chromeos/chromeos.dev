@@ -10,10 +10,13 @@ metadesc: Deliver rich, engaging Android, and Web apps for Chromebook with just 
 hideNewsletter: true
 ---
 
-{% from 'hero-animated.njk' import heroAnimated %} {% from 'card-stats.njk' import cardStats %} {% from 'image-card.njk' import imageCard %} {% from 'hero--cta.njk' import heroCta %} {% from 'item-grid.njk' import itemGrid %} {% from 'featured-content.njk' import featuredContent %} {% from 'call-out.njk' import callOut %} {% from 'footnotes.njk' import footnotes %} {% from 'stats.njk' import stats %} {% from 'fifty-fifty.njk' import fiftyFifty %}
+{% from 'hero-animated.njk' import heroAnimated %} {% from 'card-stats.njk' import cardStats %} {% from 'image-card.njk' import imageCard %} {% from 'hero--cta.njk' import heroCta %} {% from 'item-grid.njk' import itemGrid %} {% from 'featured-content.njk' import featuredContent %} {% from 'call-out.njk' import callOut %} {% from 'footnotes.njk' import footnotes %} {% from 'stats.njk' import stats %} {% from 'fifty-fifty.njk' import fiftyFifty %} {% from 'community-quotes.njk' import communityQuotes %}
 <div id="home" class="wrapper--hidden-x">
   <!-- Hero Animation -->
   <header id="home__hero" class="wrapper wrapper--full-bleed wrapper--no-bottom wrapper--no-top">{{ heroAnimated(l10n.home.hero.heading, l10n.home.hero.cta, l10n.home.hero.img) }}</header>
+
+  <!-- Routing Cards -->
+  <div id="home__routing" class="wrapper wrapper--full-bleed wrapper--no-top wrapper--padding wrapper--padded wrapper__contained wrapper__background--color-stop">{{ itemGrid('', l10n.home.routing.items, l10n.home.routing.modifiers, l10n.locale.code) }}</div>
 
   <!-- Linux -->
   <section id="home__linux" class="wrapper wrapper--padded wrapper--padding">{{ fiftyFifty(l10n.home.linux.content, l10n.home.linux.cta, l10n.home.linux.images, l10n.locale.code) }}</section>
@@ -39,6 +42,9 @@ hideNewsletter: true
 
   <!-- Chromebooks -->
   <div id="home__chromebooks" class="wrapper wrapper--background wrapper--no-bottom wrapper--padded">{{ heroCta(l10n.home.chromebook.content, l10n.home.chromebook.image, l10n.home.chromebook.cta) }}</div>
+
+  <!-- Developers -->
+  <div id="home__developers" class="wrapper wrapper--padding wrapper--padded">{{ communityQuotes(l10n.home.developers.content, l10n.home.developers.quotes) }}</div>
 
   <!-- Community -->
   <div id="home__community" class="wrapper wrapper--padding wrapper--padded">{{ itemGrid(l10n.home.community.title, l10n.community, l10n.home.community.modifiers) }}</div>

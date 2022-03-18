@@ -1,0 +1,77 @@
+.card-routing {
+  $clamp-check: clamp(1px, 1vw, 2px);
+  $scale-max: 1600px;
+  $grid-3-col: 1058px;
+  $card-2-col: 631px;
+  $grid-2-card-1-col: 698px;
+
+  background: var(--white);
+  border-radius: 0.625rem;
+  box-shadow: 0 0.25rem 1.25rem rgb(0, 0, 0, 0.15);
+  column-gap: 1.5rem;
+  container-name: card-routing;
+  container-type: inline-size;
+  display: grid;
+  grid-template: max-content / repeat(auto-fit, minmax(pxRem(240px), 1fr));
+  justify-items: center;
+  padding: 3.75rem 1.5rem;
+  text-align: center;
+
+  @supports (padding: $clamp-check) {
+    padding: generateScaling(($grid-3-col $scale-max), (32px 60px)) generateScaling((420px $scale-max), (24px 48px));
+  }
+
+  &__image {
+    margin: 0 auto 2rem;
+    max-width: pxRem(218px);
+
+    @supports (width: $clamp-check) {
+      margin-bottom: generateScaling(($grid-2-card-1-col $scale-max), (20px 48px));
+      width: generateScaling((420px $scale-max), (205px 218px));
+    }
+
+    @container card-routing (min-width: 504px) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    @container card-routing (min-width: 504px) {
+      align-items: start;
+      text-align: start;
+    }
+  }
+
+  &__header {
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    @include mq($grid-3-col) {
+      max-width: 12ch;
+    }
+  }
+
+  &__body {
+    color: var(--grey-700);
+    margin-bottom: 2rem;
+    max-width: 34ch;
+
+    @include mq($card-2-col) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__footer {
+    margin-bottom: 2rem;
+
+    @include mq($card-2-col) {
+      margin-bottom: 1rem;
+      margin-top: auto;
+    }
+  }
+}

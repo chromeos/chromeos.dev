@@ -33,6 +33,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const home = document.querySelector('#home');
   const offlineSearch = document.querySelector('[data-offline-search]');
   const powerfulPWAs = document.querySelector('[data-pwa-checklist]');
+  const containerQueries = 'container' in document.documentElement.style;
 
   // Set default language if no language is set
   const language = await preferences.get('lang');
@@ -84,6 +85,11 @@ window.addEventListener('DOMContentLoaded', async () => {
   if (CSS.paintWorklet) {
     await CSS.paintWorklet.addModule(circleWorklet);
     await CSS.paintWorklet.addModule(shapeWorklet);
+  }
+
+  // Polyfill container queries
+  if (!containerQueries) {
+    await import('container-query-polyfill');
   }
 
   // Table of Contents
