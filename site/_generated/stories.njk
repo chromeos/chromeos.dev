@@ -1,0 +1,24 @@
+---
+layout: _wrapper
+pagination:
+  data: site.l10n
+  size: 1
+  alias: l10n
+permalink: '{{ l10n.locale.code | slug }}/stories/index.html'
+title: Stories
+metadesc: Get the latest news, stories, resource articles, and case studies for Chrome OS.
+---
+
+{% from 'item-grid.njk' import itemGrid %} {% from 'featured-content.njk' import featuredContent %}
+
+<div class="wrapper--hidden-x">
+  <!-- Featured Case Story -->
+  {% if landingCollections.featured.second %}
+  <div class="wrapper--padded">{{ featuredContent(landingCollections.featured.second , l10n.stories.featured.modifiers) }}</div>
+  {% endif %}
+
+  <!-- Case Studies -->
+  {% if landingCollections.stories.length > 0 %}
+  <div class="wrapper wrapper--padded">{{ itemGrid(l10n.stories.sections.title, landingCollections.stories, l10n.stories.sections.modifiers) }}</div>
+  {% endif %}
+</div>
