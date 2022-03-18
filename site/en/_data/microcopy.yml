@@ -39,6 +39,7 @@ styleGuide:
   content: Content
   components: Components
   typography: Typography
+  shapes: Shapes
 author:
   alt: Profile picture of ((t))
 sw:
