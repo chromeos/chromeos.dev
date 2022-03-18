@@ -10,21 +10,27 @@
   $gradient-angle-l: 105deg;
 
   @include mq(0 $break-2-col - 1px) {
-    background-image: linear-gradient(65deg, var(--secondary-blue), var(--secondary-blue) 115px, var(--primary-blue) 115px, var(--primary-blue));
+    // Use a very small gradient for antialiasing.
+    background-image: radial-gradient(circle at 115% 80%, var(--primary-yellow), var(--primary-yellow) 27.5%, transparent 27.6%, transparent), radial-gradient(circle at 54% 76%, var(--primary-red), var(--primary-red) 27.5%, transparent 27.6%, transparent), linear-gradient(65deg, var(--secondary-blue), var(--secondary-blue) 115px, var(--primary-blue) 115px, var(--primary-blue));
     overflow: hidden;
+
+    // Add scaling to background '100' if supported.
+    @supports (width: $clamp-check) {
+      background-image: radial-gradient(circle at generateScaling((300px $break-2-col), (400px 660px)) generateScaling((300px $break-2-col), (480px 640px)), var(--primary-yellow), var(--primary-yellow) 30%, transparent 30.05%, transparent), radial-gradient(circle at generateScaling((300px $break-2-col), (168px 244px)) generateScaling((300px $break-2-col), (440px 700px)), var(--primary-red), var(--primary-red) 22.5%, transparent 22.55%, transparent), linear-gradient(65deg, var(--secondary-blue), var(--secondary-blue) 115px, var(--primary-blue) 115px, var(--primary-blue));
+    }
   }
 
   &__inner {
     display: grid;
     position: relative;
 
+    // The background '100' moves to the inner once the banner is no longer full bleed.
     @include mq($break-2-col) {
-      background-image: linear-gradient($gradient-angle-l, $begin-color-stop, var(--secondary-blue) calc(math.percentage(math.div(211, 696)) + 188px), var(--primary-blue) calc(math.percentage(math.div(211, 696)) + 188px), var(--primary-blue));
+      background-image: radial-gradient(circle at 110% 40%, var(--primary-yellow), var(--primary-yellow) 22%, transparent 22.05%, transparent), radial-gradient(circle at 68% 85%, var(--primary-red), var(--primary-red) 26%, transparent 26.05%, transparent), linear-gradient($gradient-angle-l, $begin-color-stop, var(--secondary-blue) calc(math.percentage(math.div(211, 696)) + min(20%, 234px)), var(--primary-blue) calc(math.percentage(math.div(211, 696)) + min(20%, 234px)), var(--primary-blue));
       border-radius: 0.625rem;
 
-      // scale the width of the color stop if supported.
-      @supports (width: min(1px, 1vw)) {
-        background-image: linear-gradient($gradient-angle-l, $begin-color-stop, var(--secondary-blue) calc(math.percentage(math.div(211, 696)) + min(20%, 234px)), var(--primary-blue) calc(math.percentage(math.div(211, 696)) + min(20%, 234px)), var(--primary-blue));
+      @supports (width: $clamp-check) {
+        background-image: radial-gradient(circle at generateScaling(($break-2-col $scale-max), (550px 1525px)) generateScaling(($break-2-col $scale-max), (50px 140px)), var(--primary-yellow), var(--primary-yellow) 20%, transparent 20.05%, transparent), radial-gradient(circle at generateScaling(($break-2-col $scale-max), (400px 940px)) generateScaling(($break-2-col $scale-max), (170px 330px)), var(--primary-red), var(--primary-red) 30%, transparent 30.05%, transparent), linear-gradient($gradient-angle-l, $begin-color-stop, var(--secondary-blue) calc(math.percentage(math.div(211, 696)) + min(20%, 234px)), var(--primary-blue) calc(math.percentage(math.div(211, 696)) + min(20%, 234px)), var(--primary-blue));
       }
     }
   }
@@ -74,24 +80,21 @@
   }
 
   &__image-wrapper {
-    position: relative;
-    // Pull image wrapper outside of the banner's wrapper.
+    // Stretch image wrapper outside of the banner's wrapper.
     width: math.percentage(math.div(456px, 327px));
-    z-index: 1;
 
     @include mq($break-2-col) {
       left: 50%;
       position: absolute;
-      top: 50%;
       width: 50%;
 
       @supports (width: $clamp-check) {
-        left: calc(50% + generateScaling($scale-range, (-24px -166px)));
-        top: generateScaling($scale-range, (28px -56px));
+        transform: translate(generateScaling($scale-range, (-24px -166px)), generateScaling($scale-range, (28px -56px)));
         width: generateScaling($scale-range, (360px 840px));
       }
 
       @supports not (width: $clamp-check) {
+        top: 50%;
         transform: translateY(-50%);
       }
     }
@@ -99,7 +102,5 @@
 
   &__image {
     object-fit: cover;
-    position: relative;
-    z-index: 1;
   }
 }

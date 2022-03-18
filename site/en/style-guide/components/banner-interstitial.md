@@ -24,4 +24,4 @@ examples:
         alt: A partially opened Samsung Chromebook next to a stylus.
 ---
 
-A banner component with a color stop background that changes from full bleed to contained across device sizes. It requires a wrapper component with the class `banner-interstitial__wrapper` to handle the transition from full bleed to contained.
+A banner component with a color stop background that changes from full bleed to contained across device sizes. It handles switching from full bleed to contained within its own block, so no surrounding wrapper element is needed.

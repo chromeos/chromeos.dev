@@ -25,7 +25,7 @@ export class Home {
    * @param {DOMElement} elem - The Home element
    */
   constructor(elem) {
-    const sections = ['subnav', 'using', 'articles', 'featured', 'chromebooks', 'community'].map((i) => `#home__${i}`).reduce((acc, cur) => Object.assign(acc, { [cur.replace('#home__', '')]: cur }), {});
+    const sections = ['subnav', 'using', 'articles', 'featured', 'community'].map((i) => `#home__${i}`).reduce((acc, cur) => Object.assign(acc, { [cur.replace('#home__', '')]: cur }), {});
 
     this.elem_ = elem;
     this.constants_ = Object.freeze({
@@ -116,10 +116,6 @@ export class Home {
       case 'featured':
         fades.push(elem.querySelector('.featured-content__copy-wrapper'));
         fades.push(elem.querySelector('.featured-content__ilustrations-wrapper'));
-        break;
-      case 'chromebooks':
-        fades.push(elem.querySelector('.hero--cta__wrapper'));
-        fades.push(elem.querySelector('.hero--cta__image'));
         break;
       case 'community':
         fades.push(elem.querySelector('.item-grid__title'));
