@@ -2,6 +2,7 @@
 title: ChromeOS.dev Refactor Retrospective
 metadesc: We've just completed a major refactor of the ChromeOS.dev codebase. This is why we did it and what we learned along the way.
 tags:
+  - web
   - technical
 authors:
   - samrichard
