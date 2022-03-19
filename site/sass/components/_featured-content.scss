@@ -80,6 +80,7 @@
     max-height: 15rem;
     min-height: 10vh;
     object-fit: cover;
+    width: 100%;
 
     @include mq($bkpt-articles--2-cols) {
       height: 100%;

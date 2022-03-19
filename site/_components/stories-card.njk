@@ -1,0 +1,34 @@
+<!--{#
+  Renders a section with title, subtitle and items.
+  Arguments:
+    @param {string} title (optional): Section title.
+    @param {string} subtitle (optional): Text for a subtitle beneath the primary title.
+    @param {array} items: List of item objects.
+ #}-->
+{% from 'icon.njk' import icon %} {% macro storiesCard(items) %} {% if items.length > 0 %}
+<section class="stories-card">
+  {% if title %}
+  <h3 class="stories-card__title type--h2">{{title}}</h3>
+  {% endif %} {% if subtitle %}
+  <p class="type--base stories-card__subtitle">{{subtitle}}</p>
+  {% endif %}
+
+  <div class="stories-card__grid">
+    {% for item in items %}
+    <a href="{% if locale is defined %}/{{locale}}/{% endif %}{{item.cta.url}}" class="stories-card__item" aria-labelledby="{{ titleId }}">
+      <article>
+        <img class="stories-card__item--image" src="{{item.image}}" alt="{{item.alt}}" />
+        <div class="stories-card__item--content">
+          <header id="{{ titleId }}" class="stories-card__item--header">
+            <h2 class="stories-card__item--title type--h4">{{item.title}}</h2>
+          </header>
+          <footer class="stories-card__item--footer">
+            <span class="cta cta--link cta--right-icon" aria-hidden="true">{{ item.cta.text }}{{ icon('arrow-forward') }}</span>
+          </footer>
+        </div>
+      </article>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %} {% endmacro %}
