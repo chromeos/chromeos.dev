@@ -25,19 +25,19 @@
 
  #}-->
 {% macro featuredContent(data, modifiers) -%}
-<article class="featured-content {{modifiers.custom}}">
-  <section class="featured-content__copy-wrapper">
-    <small class="featured-content__eyebrow type--eyebrow">{{ data.eyebrow }}</small>
-    <h2 class="featured-content__title type--h2">{{ data.title }}</h2>
-    <p class="featured-content__copy type--large">{{ data.desc }}</p>
-    <a href="{{ data.cta.url }}" class="cta cta--link">{{ data.cta.text }}</a>
-  </section>
-  <div class="featured-content__ilustrations-wrapper">
-    <figure class="featured-content__image-wrapper">
-      {% for image in data.images %}
-      <img class="featured-content__image" src="{{image.image}}" alt="{{image.alt}}" />
-      {% endfor %}
-    </figure>
+<div class="featured-content">
+  {% for image in data.images %}
+  <img class="featured-content__image" src="{{image.image}}" alt="{{image.alt}}" />
+  {% endfor %}
+  <div class="wrapper--padded featured-content__wrapper">
+    <article class="featured-content__container {{modifiers.custom}}">
+      <section class="featured-content__copy-wrapper">
+        <small class="featured-content__eyebrow type--eyebrow">{{ data.eyebrow }}</small>
+        <h2 class="featured-content__title type--h2">{{ data.title }}</h2>
+        <p class="featured-content__copy type--large">{{ data.desc }}</p>
+        <a href="{{ data.cta.url }}" class="cta cta--link">{{ data.cta.text }}</a>
+      </section>
+    </article>
   </div>
-</article>
+</div>
 {%- endmacro %}
