@@ -2,8 +2,8 @@
 title: 'Easy to build, monetize, and discover: List your web app on Google Play'
 metadesc: Build Android apps for devices other than mobile to reach more users.
 tags:
-  - product news
   - web
+  - product news
   - trend
 authors:
   - pjmclachlan
