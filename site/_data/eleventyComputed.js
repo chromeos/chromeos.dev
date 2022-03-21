@@ -307,7 +307,7 @@ module.exports = {
         .sort(propSort({ prop: 'data.weight', fallback: 0 }))
         .map((i) => ({
           title: get(i, 'data.title'),
-          image: get(i, 'data.app.logo'),
+          image: get(i, 'data.hero.image'),
           cta: {
             text: l10nFallback('microcopy.more')(data),
             url: get(i, 'data.page.url'),
