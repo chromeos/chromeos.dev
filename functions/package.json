@@ -5,7 +5,7 @@
     "node": "14"
   },
   "dependencies": {
-    "firebase-functions": "^3.18.1",
+    "firebase-functions": "^3.19.0",
     "firebase-admin": "^10.0.2",
     "iso-639-1": "^2.1.13",
     "lunr": "^2.3.8"

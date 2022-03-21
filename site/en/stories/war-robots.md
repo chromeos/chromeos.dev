@@ -11,7 +11,7 @@ hero:
   alt: War robots gameplay.
   position: center
 tags:
-  - gaming
+  - games
   - keyboard support
   - mouse support
   - touchscreen support
