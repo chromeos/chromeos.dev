@@ -7,14 +7,14 @@
 @use 'sass:math';
 
 .wrapper {
-  $content-max-width: pxRem(1440px);
+  $content-max-width: pxRem(1600px);
 
-  $max-width: 1024px;
+  $max-width: 1440px;
   $scaler: math.div(math.div($max-width, 100), 1vw);
 
-  $block-spacing-s: 5.75rem;
-  $block-spacing-l: 7.5rem;
-  $inline-spacing-s: 3.75rem;
+  $block-spacing-s: 8.25rem;
+  $block-spacing-l: 10.5rem;
+  $inline-spacing-s: 1.5rem;
   $inline-spacing-l: 5rem;
 
   $bumper-s: 0.875rem;
@@ -62,7 +62,7 @@
 
   &__contained > * {
     margin: 0 auto;
-    max-width: $content-max-width;
+    max-width: $max-width;
   }
 
   &--rhythm > *:not(:last-child) {
@@ -180,7 +180,7 @@
   }
 
   &__background {
-    background-color: var(--grey-50);
+    background-color: var(--grey-100);
     overflow: hidden;
 
     .cta--link {
@@ -193,6 +193,33 @@
       &:hover,
       &:focus {
         color: var(--blue-900);
+      }
+    }
+
+    &--dark {
+      background-color: var(--grey-850);
+    }
+
+    &--color-stop {
+      background: var(--secondary-blue);
+      position: relative;
+
+      &::after {
+        $stop-pos-s: calc(100% - 300px);
+        $stop-pos-l: 50%;
+        background-image: linear-gradient(335deg, var(--white), var(--white) $stop-pos-s, transparent $stop-pos-s, transparent);
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        width: 100%;
+
+        @include mq(631px) {
+          background-image: linear-gradient(to top left, var(--white), var(--white) $stop-pos-l, transparent $stop-pos-l, transparent);
+          height: math.percentage(math.div(450, 772));
+        }
       }
     }
   }
