@@ -5,13 +5,13 @@
     border-radius: 0.625rem;
     display: grid;
     overflow: hidden;
+    padding-top: 56.25%;
     position: relative;
 
-    padding-top: 56.25%;
     // Use the same aspect ratio as YouTube does for thumbnails to minimize letterboxing.
     @supports (aspect-ratio: 16 / 9) {
-      padding-top: 0;
       aspect-ratio: 16 / 9;
+      padding-top: 0;
     }
 
     .icon {
