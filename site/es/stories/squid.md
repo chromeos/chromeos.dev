@@ -12,6 +12,7 @@ hero:
   alt: Notas de estudio de matemáticas en Squid.
   position: top
 tags:
+  - android
   - productividad
   - soporte para teclado
   - soporte para trackpad

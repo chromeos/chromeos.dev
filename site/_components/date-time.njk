@@ -9,12 +9,14 @@
   @param {boolean} modifiers.inline - Use the inline modifier.
 #}-->
 {% macro dateTime(label, value, locale, options=undefined, modifiers={}) %}
+
+<h4 class="date-time__label type--label">{{ label }}</h4>
 <p class="date-time {{'date-time--inline' if modifiers.inline}}">
-  <span class="date-time__label type--label">{{ label }}</span>
   {% if modifiers.inline %}
   <time class="type--small" datetime="{{ value }}">{{ value | date(locale, options) }}</time>
   {% else %}
   <time class="type--h6" datetime="{{ value }}">{{ value | date(locale, options) }}</time>
   {% endif %}
 </p>
+
 {% endmacro %}

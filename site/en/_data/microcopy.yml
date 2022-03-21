@@ -1,7 +1,7 @@
 topics: Topics
 lastUpdated: Last updated
 breadcrumbs: Back to ((t))
-posted: Posted by ((t))
+posted: Written by
 datePosted: Date posted
 more: Read more
 recommended: Recommended
@@ -39,6 +39,7 @@ styleGuide:
   content: Content
   components: Components
   typography: Typography
+  shapes: Shapes
 author:
   alt: Profile picture of ((t))
 sw:

@@ -7,6 +7,7 @@ app:
   logo: ix://stories/vlc/vlc-icon.240.png
   company: VideoLAN
 tags:
+  - android
   - video and media
   - large screens
   - mouse support

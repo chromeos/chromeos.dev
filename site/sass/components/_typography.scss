@@ -56,6 +56,10 @@ $section-block-margin: 3.75rem;
     }
   }
 
+  &--mega {
+    @extend %type--mega;
+  }
+
   &--link {
     @extend %anchor;
   }

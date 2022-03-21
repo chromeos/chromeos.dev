@@ -10,6 +10,7 @@ hero:
   image: ix://stories/djay/hero.1500.jpg
   alt: Screenshot of Djay command controls
 tags:
+  - android
   - music
   - large screens
   - keyboard support

@@ -2,13 +2,13 @@
 title: 'Flutter and Chrome OS: Better together'
 metadesc: Android fuels mobile apps on devices that range far beyond your typical small-screen smartphone.
 tags:
+  - android
   - trend
   - flutter
   - keyboard support
   - mouse support
   - large screen
   - window management
-  - android
   - android studio
   - linux
   - high-performance graphics

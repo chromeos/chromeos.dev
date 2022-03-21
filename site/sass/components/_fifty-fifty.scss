@@ -1,0 +1,51 @@
+@use 'sass:math';
+
+.fifty-fifty {
+  $single-column: 653px;
+  $content-width-m: pxRem(415px);
+  $content-width-r: generateScaling(($single-column 1440px), (340px 490px));
+
+  display: grid;
+  gap: 2rem 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(pxRem(280px), 1fr));
+  justify-items: center;
+
+  &__content {
+    max-width: $content-width-m;
+    text-align: center;
+
+    @supports (margin-left: clamp(1px, 1vw, 2px)) {
+      max-width: $content-width-r;
+    }
+
+    @include mq($single-column) {
+      text-align: start;
+    }
+  }
+
+  &__copy,
+  &__cta {
+    margin-top: 1.5rem;
+  }
+
+  &__copy {
+    color: var(--grey-700);
+    margin-top: 1.5rem;
+  }
+
+  &__image-wrapper {
+    max-width: pxRem(570px);
+    position: relative;
+  }
+
+  &__image {
+    position: relative;
+
+    &:not(:first-of-type) {
+      left: 0;
+      position: absolute;
+      top: -15%;
+      transform: scale(0.5);
+    }
+  }
+}

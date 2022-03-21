@@ -1,0 +1,31 @@
+<!--{#
+  Renders a routing card.
+
+  @param {object} content - An object with the following attributes.
+  @param {string} content.title - Text to be used as the card heading.
+  @param {string} content.copy - Text to be used as the card body text.
+
+  @param {object} image - An object with the following attributes.
+  @param {string} image.src - Image source.
+  @param {string} image.alt - Image description.
+
+  @param {object} cta - An object with the following attributes.
+  @param {string} cta.url - URL for the cta.
+  @param {string} cta.text - Text for the cta.
+
+  @param {string} locale: Code for the current locale.
+ #}-->
+{% macro cardRouting(content, image, cta, locale) %}
+<article class="card-routing">
+  <img class="card-routing__image" src="{{image.src}}" alt="{{image.alt}}" />
+  <div class="card-routing__content">
+    <header class="card-routing__header">
+      <h2 class="card-routing__title type--h2">{{content.title}}</h2>
+    </header>
+    <p class="card-routing__body type--base">{{content.copy}}</p>
+    <footer class="card-routing__footer">
+      <a class="cta cta--link" href="{% if locale is defined %}/{{locale}}/{% endif %}{{cta.url}}">{{cta.text}}</a>
+    </footer>
+  </div>
+</article>
+{% endmacro %}

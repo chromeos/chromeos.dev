@@ -2,7 +2,7 @@
 title: 'GDC 2019 recap: Optimizing Android games for larger screens & foldables'
 metadesc: A recap of Google at the Game Developer Conference 2019 with some helpful coding tips and tricks.
 tags:
-  - events
+  - event
   - technical
   - success story
   - gaming

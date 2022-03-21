@@ -2,7 +2,7 @@
 title: 'What’s new in Chrome OS: Announcements, news, and resources from I/O ‘21'
 metadesc: Learn about the latest for Chrome OS from I/O '21
 tags:
-  - events
+  - event
   - success story
   - web
   - android
