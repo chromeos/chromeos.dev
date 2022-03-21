@@ -4,8 +4,10 @@
     @param {string} title (optional): Section title.
     @param {string} subtitle (optional): Text for a subtitle beneath the primary title.
     @param {array} items: List of item objects.
+    @param {object} modifiers (optional): Object with modifier styles for the grid.
+    @param {string} modifiers.variant: if 'stories' it will render stories-card.
  #}-->
-{% from 'icon.njk' import icon %} {% macro storiesSection(items) %} {% if items.length > 0 %}
+{% from 'item-grid.njk' import itemGrid %} {% macro storiesSection(items, modifiers) %} {% if items.length > 0 %}
 <section class="stories-section">
   {% if title %}
   <h3 class="stories-section__title type--h2">{{title}}</h3>
@@ -13,22 +15,6 @@
   <p class="type--base stories-section__subtitle">{{subtitle}}</p>
   {% endif %}
 
-  <div class="stories-section__grid">
-    {% for item in items %}
-    <a href="{% if locale is defined %}/{{locale}}/{% endif %}{{item.cta.url}}" class="stories-section__item" aria-labelledby="{{ titleId }}">
-      <article>
-        <img class="stories-section__item--image" src="{{item.image}}" alt="{{item.alt}}" />
-        <div class="stories-section__item--content">
-          <header id="{{ titleId }}" class="stories-section__item--header">
-            <h2 class="stories-section__item--title type--h4">{{item.title}}</h2>
-          </header>
-          <footer class="stories-section__item--footer">
-            <span class="cta cta--link cta--right-icon" aria-hidden="true">{{ item.cta.text }}{{ icon('arrow-forward') }}</span>
-          </footer>
-        </div>
-      </article>
-    </a>
-    {% endfor %}
-  </div>
+  <div class="stories-section__grid">{{ itemGrid('', items, modifiers) }}</div>
 </section>
 {% endif %} {% endmacro %}

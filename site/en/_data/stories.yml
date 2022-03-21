@@ -1,3 +1,6 @@
 featured:
   modifiers:
     custom: landing--stories-full-bleed
+sections:
+  modifiers:
+    variant: stories

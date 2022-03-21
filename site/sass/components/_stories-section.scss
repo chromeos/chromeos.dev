@@ -1,4 +1,4 @@
-// Styles for stories card component.
+// Styles for stories section component.
 @use 'sass:math';
 
 .stories-section {
@@ -10,56 +10,5 @@
   &__subtitle {
     color: var(--grey-700);
     margin-top: 0.5rem;
-  }
-
-  &__grid {
-    display: grid;
-    gap: 2.5rem 1.25rem;
-    margin-bottom: 1.5rem;
-    margin-top: 1.5rem;
-    width: 100%;
-
-    @include mq($bkpt-articles--2-cols) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  &__item {
-    @include elevation(0);
-    background-color: var(--white);
-    border-radius: 0.625rem;
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    text-decoration: none;
-    width: 100%;
-    z-index: 1;
-
-    &:focus,
-    &:hover {
-      @include elevation(2);
-    }
-
-    &--image {
-      height: 36vh;
-      max-height: 10rem;
-      object-fit: cover;
-      width: 100%;
-
-      @include mq($bkpt-articles--2-cols) {
-        height: 45vh;
-        max-height: 20rem;
-      }
-    }
-
-    &--content {
-      padding: clamp(1.5rem, 4vw, 2.5rem);
-    }
-
-    &--footer {
-      margin-top: 1.25rem;
-    }
   }
 }
