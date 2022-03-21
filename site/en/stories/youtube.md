@@ -9,6 +9,7 @@ hero:
   image: ix://stories/youtube/banner.png
   alt: Illustration of being able to download a recipe video from YouTube and watch it while offline
 tags:
+  - pwa
   - touchscreen support
   - web
   - video and media

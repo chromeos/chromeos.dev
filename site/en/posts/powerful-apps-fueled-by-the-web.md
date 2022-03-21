@@ -2,6 +2,7 @@
 title: 'Powerful apps fueled by the web: How developers are engaging an expanding Chrome OS audience'
 metadesc: Learn how web developers created powerful PWAs to deliver scalable and engaging experiences for desktop users on Chrome OS.
 tags:
+  - web
   - technical
   - trend
   - pwa

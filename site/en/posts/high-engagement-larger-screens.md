@@ -2,6 +2,7 @@
 title: High engagement, larger screens
 metadesc: Android fuels mobile apps on devices that range far beyond your typical small-screen smartphone.
 tags:
+  - leader's corner
   - trend
   - large screens
   - window management

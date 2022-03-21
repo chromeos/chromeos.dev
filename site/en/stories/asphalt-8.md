@@ -9,7 +9,7 @@ hero:
   image: ix://stories/asphalt-8/hero.1500.jpg
   alt: Game illustration of a car jumping to a navy aircraft carrier.
 tags:
-  - gaming
+  - games
   - keyboard support
   - high-performance graphics
 date: 2018-11-01
