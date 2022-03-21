@@ -10,6 +10,7 @@ hero:
   image: ix://stories/djay/hero.1500.jpg
   alt: Captura de pantalla de los controles de comando de Djay
 tags:
+  - android
   - música
   - pantallas grandes
   - soporte para teclado

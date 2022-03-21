@@ -2,6 +2,7 @@
 title: 'Android en general: cómo llevar experiencias optimizadas a la pantalla grande'
 metadesc: 'Descubra cómo crear excelentes experiencias para los dispositivos con pantallas más grandes: tabletas, plegables, computadoras portátiles y dispositivos de escritorio.'
 tags:
+  - android
   - técnico
   - tendencia
   - pantalla grande
@@ -9,7 +10,6 @@ tags:
   - dispositivos de entrada
   - modo de dispositivo
   - soporte para mouse
-  - android
   - android studio
 authors:
   - kennethford

@@ -2,6 +2,7 @@
 title: 'Android at large: how to bring optimized experiences to the big screen'
 metadesc: 'Discover how to build great experiences for the larger display devices: tablets, foldables, laptops, and desktop devices.'
 tags:
+  - android
   - technical
   - trend
   - large screen
@@ -9,7 +10,6 @@ tags:
   - input devices
   - device configuration
   - mouse support
-  - android
   - android studio
 authors:
   - kennethford

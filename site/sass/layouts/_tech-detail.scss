@@ -4,7 +4,7 @@
 .tech-detail {
   $root: &;
   $spacing: clamp(3.75rem, 7.8125vw, 5rem);
-  $inline-padding: 1.75rem;
+  $inline-padding: 1.5rem;
   $block-padding: 2.5rem;
 
   // TODO check breakpoints, spacing distribution when sample content is loaded.
