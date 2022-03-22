@@ -1,0 +1,87 @@
+// Styles for feature story component.
+
+.featured-story {
+  $story-query: 700px;
+
+  position: relative;
+  width: 100%;
+
+  @include mq($story-query) {
+    height: 40vh;
+    min-height: 30rem;
+  }
+
+  &__wrapper {
+    @include mq($story-query) {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  &__container {
+    align-items: center;
+    background-color: var(--white);
+    border: 1px solid var(--grey-300);
+    border-radius: 0.625rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -2.5rem;
+    padding: 2.5rem 2.25rem;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+
+    @include mq($story-query) {
+      margin-top: 0;
+      max-width: 44ch;
+      text-align: left;
+    }
+  }
+
+  &__logo {
+    background-color: var(--white);
+    border: 1px solid var(--grey-300);
+    border-radius: 0.3125rem;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.1));
+    margin: 0 auto 1rem;
+    padding: 0.5rem;
+    width: clamp(3rem, 100vw, 3.75rem);
+
+    @include mq($story-query) {
+      margin-left: unset;
+      margin-right: unset;
+    }
+
+    &--image {
+      display: block;
+    }
+  }
+
+  &__eyebrow {
+    color: var(--grey-700);
+    margin-bottom: 0.75rem;
+  }
+
+  &__title,
+  &__copy {
+    margin-bottom: 1rem;
+  }
+
+  &__image {
+    display: block;
+    height: 36vh;
+    max-height: 15rem;
+    min-height: 10vh;
+    object-fit: cover;
+    width: 100%;
+
+    @include mq($story-query) {
+      height: 100%;
+      max-height: unset;
+    }
+  }
+}

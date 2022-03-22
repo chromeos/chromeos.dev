@@ -9,12 +9,12 @@ title: Stories
 metadesc: Get the latest news, stories, resource articles, and case studies for Chrome OS.
 ---
 
-{% from 'featured-content.njk' import featuredContent %} {% from 'item-grid.njk' import itemGrid %} {% from 'stories-section.njk' import storiesSection %}
+{% from 'featured-story.njk' import featuredStory %} {% from 'item-grid.njk' import itemGrid %} {% from 'stories-section.njk' import storiesSection %}
 
 <div class="wrapper--hidden-x">
   <!-- Featured Case Story -->
   {% if landingCollections.featured.first %}
-  <div class="wrapper--full-bleed">{{ featuredContent(landingCollections.featured.first , l10n.stories.featured.modifiers) }}</div>
+  <div class="wrapper--full-bleed">{{ featuredStory(landingCollections.featured.first , l10n.stories.featured.modifiers) }}</div>
   {% endif %}
 
   <!-- Case Studies -->

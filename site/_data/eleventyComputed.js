@@ -231,6 +231,10 @@ module.exports = {
   featured: (data) => {
     if (data.featured) {
       const featured = {
+        app: {
+          name: dataFallback('app.name')(data),
+          logo: dataFallback('app.logo')(data),
+        },
         eyebrow: dataFallback('featured.eyebrow', 'microcopy.featured.eyebrow')(data),
         title: dataFallback('featured.title', 'title')(data),
         desc: dataFallback('featured.desc', 'metadesc')(data),

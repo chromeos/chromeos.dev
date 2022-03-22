@@ -2,55 +2,21 @@
 // For more information about --shape-circle--size, --shape-circle--transform and --shape-color check background.scss
 
 .featured-content {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
-  width: 100%;
-
-  @include mq($bkpt-articles--2-cols) {
-    height: 40vh;
-    min-height: 30rem;
-  }
-
-  &__wrapper {
-    @include mq($bkpt-articles--2-cols) {
-      align-items: center;
-      display: flex;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-    }
-  }
-
-  &__container {
-    align-items: center;
-    background-color: var(--white);
-    border: 1px solid var(--grey-300);
-    border-radius: 0.625rem;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: -2.5rem;
-    position: relative;
-
-    @include mq($bkpt-articles--2-cols) {
-      margin-top: 0;
-    }
-  }
 
   &__copy-wrapper {
-    padding: 2.5rem 2.25rem;
+    flex: 1 1 35ch;
+    margin-bottom: 1rem;
+    max-width: 40ch;
     position: relative;
-    text-align: center;
     z-index: 1;
-
-    @include mq($bkpt-articles--2-cols) {
-      max-width: 44ch;
-      text-align: left;
-    }
   }
 
   &__eyebrow {
-    color: var(--grey-700);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
   }
 
   &__title,
@@ -74,17 +40,20 @@
     }
   }
 
-  &__image {
-    display: block;
-    height: 36vh;
-    max-height: 15rem;
-    min-height: 10vh;
-    object-fit: cover;
-    width: 100%;
+  &__image-wrapper {
+    --circle-type: featured;
+    border-image-outset: 300px;
+    border-image-slice: 0 fill;
+    border-image-source: paint(circles);
 
-    @include mq($bkpt-articles--2-cols) {
-      height: 100%;
-      max-height: unset;
+    img {
+      display: block;
+    }
+
+    > img:not(:first-of-type) {
+      left: 0;
+      position: absolute;
+      top: 0;
     }
   }
 }
