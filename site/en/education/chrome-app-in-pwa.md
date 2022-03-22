@@ -49,7 +49,7 @@ The manifest for the extension can be configured to allow external function call
 
 This is the minimum amount of code required in an extension to listen for messages from a web app.
 
-## Web App Setup
+### Web App Setup
 
 To call the extension from a web app, we would need to know our static extension id. This id can be found in the `chrome://extensions` page, shown when we install our Chrome extension, or from the Chrome Web Store after the extension has been uploaded. This allows our web app to specify the exact extension that they wish to communicate with. After that, all we need to do is call [chrome.runtime.sendMessage](https://developer.chrome.com/docs/extensions/reference/runtime/#method-sendMessage) and pass in the extension id with a message that we wish to send and we have called a kiosk API from a web app.
 
