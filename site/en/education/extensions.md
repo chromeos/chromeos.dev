@@ -14,9 +14,9 @@ Extensions are run in a sandboxed environment but can interact with web content,
 - browser filtering and monitoring
 - inserting specialized characters such as mathematical symbols and equations
 - content enrichment, for example for identifying spelling and grammatical errors
-- improve productivity (e.g. limiting time on social media)
+- policy enforcement (e.g. limiting time on social media)
 
-When building solutions for education use cases on Chromebooks, you can create an extension, a web app, or both. If you only plan to serve a single and specific purpose, then an extension is a good option to consider. Your extension can interact with web apps that you don’t own. For example, an extension may detect grammatical errors on a Google doc and provide comments and recommendations to fix them. Another extension may help students with note-taking by accumulating text the student highlights on any web page into one doc.
+When building solutions for education use cases on Chromebooks, you can create an extension, a web app, or both. If you need to run your program in a cross-site context, then an extension is a good option to consider. Your extension can interact with web apps that you don’t own. For example, an extension may detect grammatical errors on a Google doc and provide comments and recommendations to fix them. Another extension may help students with note-taking by accumulating text the student highlights on any web page into one doc.
 
 However, if you’re planning to have multiple functionalities, then creating a web app might be a better option. If you have a web app, an accompanying extension can enhance your user’s experience by bringing functionality and APIs that may not be available on the web platform.
 
@@ -25,7 +25,6 @@ However, if you’re planning to have multiple functionalities, then creating a 
 If you previously had a Chrome app, we strongly recommend [migrating to web apps](https://developer.chrome.com/docs/apps/migration/). Chrome apps are being deprecated, but will be [supported until at least January 2025 for Chrome OS](https://blog.chromium.org/2021/10/extending-chrome-app-support-on-chrome.html). During this transition period, some Chrome app features may not have a suitable web platform equivalent. For these, you may need to implement an extension along with your web app to achieve similar results via [message passing](https://developer.chrome.com/docs/extensions/mv3/messaging/). One specific example of this is if you want to [utilize kiosk mode-specific APIs in your PWA kiosk application](/{{locale.code}}/education/chrome-app-in-pwa).
 
 ## Developing Chrome OS extensions
-
 
 The Chrome Developers website has an excellent [getting started guide](https://developer.chrome.com/docs/extensions/mv3/getstarted/) to begin Chrome extension development. You should also check out samples available on the official Chrome [GitHub repository](https://github.com/GoogleChrome/chrome-extensions-samples).
 
