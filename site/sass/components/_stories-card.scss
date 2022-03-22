@@ -25,8 +25,7 @@
   }
 
   &__image {
-    height: clamp(10rem, 24vh, 20rem);
-    object-fit: cover;
+    aspect-ratio: 16 / 10;
     width: 100%;
   }
 

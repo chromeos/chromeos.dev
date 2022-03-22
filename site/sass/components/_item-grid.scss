@@ -115,6 +115,15 @@
   }
 
   &--stories & {
+    &__title {
+      max-width: unset;
+    }
+
+    &__title,
+    &__subtitle {
+      text-align: left;
+    }
+
     &__content {
       gap: 2.5rem 1.25rem;
       margin-bottom: 1.5rem;

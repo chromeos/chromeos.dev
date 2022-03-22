@@ -310,8 +310,10 @@ module.exports = {
         .sort(propSort({ prop: 'data.title', lowercase: true }))
         .sort(propSort({ prop: 'data.weight', fallback: 0 }))
         .map((i) => ({
+          tag: i.data.tags[1],
           title: get(i, 'data.title'),
           image: get(i, 'data.hero.image'),
+          alt: get(i, 'data.hero.alt'),
           cta: {
             text: l10nFallback('microcopy.more')(data),
             url: get(i, 'data.page.url'),

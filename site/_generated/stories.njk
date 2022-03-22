@@ -9,7 +9,7 @@ title: Stories
 metadesc: Get the latest news, stories, resource articles, and case studies for Chrome OS.
 ---
 
-{% from 'featured-story.njk' import featuredStory %} {% from 'item-grid.njk' import itemGrid %} {% from 'stories-section.njk' import storiesSection %}
+{% from 'featured-story.njk' import featuredStory %} {% from 'item-grid.njk' import itemGrid %}
 
 <div class="wrapper--hidden-x">
   <!-- Featured Case Story -->
@@ -19,6 +19,6 @@ metadesc: Get the latest news, stories, resource articles, and case studies for 
 
   <!-- Case Studies -->
   {% if landingCollections.stories.length > 0 %}
-  <div class="wrapper wrapper--padded wrapper--padding">{{ storiesSection(landingCollections.stories, l10n.stories.sections.modifiers) }}</div>
+  <div class="wrapper wrapper--padded wrapper--padding">{{ itemGrid('Progressive web applications', landingCollections.stories, l10n.stories.sections.modifiers) }}</div>
   {% endif %}
 </div>

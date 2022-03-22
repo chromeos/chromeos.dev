@@ -3,4 +3,7 @@ featured:
     custom: landing--stories-full-bleed
 sections:
   modifiers:
+    custom: stories-section
     variant: stories
+    heading: h2
+    subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id elit vestibulum, vehicula massa quis, molestie tellus.
