@@ -5,7 +5,9 @@
   display: flex;
 
   &__ball {
+    border-radius: 50%;
     height: 2.5rem;
+    overflow: hidden;
     width: 2.5rem;
   }
 
