@@ -72,6 +72,7 @@ thankYou:
 subscribe:
   content:
     title: Chrome OS developer news and updates straight to your inbox
+    body: Find the latest news, tips, releases, updates, and more on Chrome OS.
   cta:
     text: Subscribe
     url: /en/subscribe
