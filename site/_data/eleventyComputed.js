@@ -349,7 +349,9 @@ module.exports = {
     }
 
     if (stories && stories.length >= 1) {
-      collections.stories = stories.map((i) => ({
+      collections.stories = stories
+        .filter((i) => i.data.page.url !== get(collections, 'featured.landing.cta.url'))
+        .map((i) => ({
           tag: i.data.tags[1],
           title: get(i, 'data.title'),
           image: get(i, 'data.hero.image'),
