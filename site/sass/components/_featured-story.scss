@@ -6,11 +6,6 @@
   position: relative;
   width: 100%;
 
-  @include mq($story-query) {
-    height: 40vh;
-    min-height: 30rem;
-  }
-
   &__wrapper {
     @include mq($story-query) {
       align-items: center;
@@ -73,15 +68,8 @@
 
   &__image {
     display: block;
-    height: 36vh;
-    max-height: 15rem;
-    min-height: 10vh;
+    height: clamp(10rem, 60vw, 30rem);
     object-fit: cover;
     width: 100%;
-
-    @include mq($story-query) {
-      height: 100%;
-      max-height: unset;
-    }
   }
 }
