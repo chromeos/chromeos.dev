@@ -16,7 +16,48 @@
 /* eslint-env node */
 
 const get = require('lodash.get');
-const { propSort, dateSort } = require('../../lib/helpers/sort');
+const { dateSort } = require('../../lib/helpers/sort');
+
+/**
+ * Determines
+ * @param {Object[]} content Array of content objects
+ * @return {Object} Object containing the featured stories, in order, for the home and landing pages
+ */
+function determineFeaturedStories(content) {
+  const home = [];
+  let landing = content[0].data.featured;
+
+  const homeTags = [];
+  const homeFiles = [];
+
+  for (const c of content) {
+    const type = get(c, 'data.tags[1]');
+    if (type) {
+      if (homeTags.length < 3) {
+        home.push(get(c, 'data.featured'));
+        homeTags.push(type);
+        homeFiles.push(get(c, 'outputPath'));
+      } else if (!homeTags.includes(type)) {
+        home.push(get(c, 'data.featured'));
+        homeTags.push(type);
+        homeFiles.push(get(c, 'outputPath'));
+        break;
+      }
+    }
+  }
+
+  for (const c of content) {
+    if (!homeFiles.includes(get(c, 'outputPath'))) {
+      landing = get(c, 'data.featured');
+      break;
+    }
+  }
+
+  return {
+    home,
+    landing,
+  };
+}
 
 /**
  * Gets the l10n version, if available, otherwise falls back to the existing value
@@ -274,15 +315,18 @@ module.exports = {
     const posts = (localeCollection('posts')(data) || []).sort(dateSort(false));
     const featured = (localeCollection('case-studies__featured')(data) || []).sort(dateSort(false));
     const featuredPost = (localeCollection('posts__featured')(data) || []).sort(dateSort(false));
-    const stories = localeCollection('case-studies')(data) || [];
+    const stories = (localeCollection('case-studies')(data) || []).sort(dateSort(false));
 
     const collections = {};
 
     if (featured && featured.length >= 1) {
+      const featuredStories = determineFeaturedStories(featured);
       collections.featured = {
         first: get(featured[0] || {}, 'data.featured'),
         second: get(featured[1] || {}, 'data.featured'),
         post: get(featuredPost[0] || {}, 'data.featured'),
+        home: featuredStories.home,
+        landing: featuredStories.landing,
       };
     }
 
@@ -301,18 +345,14 @@ module.exports = {
     }
 
     if (stories && stories.length >= 1) {
-      collections.stories = stories
-        .filter((i) => i.data.page.url !== get(collections, 'featured.second.cta.url'))
-        .sort(propSort({ prop: 'data.title', lowercase: true }))
-        .sort(propSort({ prop: 'data.weight', fallback: 0 }))
-        .map((i) => ({
-          title: get(i, 'data.title'),
-          image: get(i, 'data.app.logo'),
-          cta: {
-            text: l10nFallback('microcopy.more')(data),
-            url: get(i, 'data.page.url'),
-          },
-        }));
+      collections.stories = stories.map((i) => ({
+        title: get(i, 'data.title'),
+        image: get(i, 'data.app.logo'),
+        cta: {
+          text: l10nFallback('microcopy.more')(data),
+          url: get(i, 'data.page.url'),
+        },
+      }));
     }
 
     return collections;
