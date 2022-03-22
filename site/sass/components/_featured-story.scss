@@ -1,7 +1,9 @@
 // Styles for feature story component.
+@use 'sass:math';
 
 .featured-story {
-  $story-query: 700px;
+  $content-max-width: 100rem;
+  $story-query: 698px;
 
   position: relative;
   width: 100%;
@@ -11,9 +13,11 @@
       align-items: center;
       display: flex;
       height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
+      margin: 0 auto;
+      max-width: $content-max-width;
+      padding-bottom: clamp(2.25rem, 80vw, 3rem);
+      padding-top: clamp(2.25rem, 80vw, 3rem);
+      position: relative;
     }
   }
 
@@ -61,8 +65,7 @@
     margin-bottom: 0.75rem;
   }
 
-  &__title,
-  &__copy {
+  &__title {
     margin-bottom: 1rem;
   }
 
@@ -71,5 +74,9 @@
     height: clamp(10rem, 60vw, 30rem);
     object-fit: cover;
     width: 100%;
+
+    @include mq($story-query) {
+      position: absolute;
+    }
   }
 }

@@ -119,6 +119,10 @@
       gap: 2.5rem 1.25rem;
       margin-bottom: 1.5rem;
       margin-top: 1.5rem;
+
+      @include mq(1058px) {
+        grid-template-columns: repeat(auto-fit, minmax(pxRem(400px), 1fr));
+      }
     }
   }
 
