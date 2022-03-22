@@ -4,7 +4,9 @@
   @param {object} navSection - Object containing the following attributes.
   @param {string} navSection.title - Nav section title.
   @param {string} navSection.desc - Nav section description.
-  @param {string} navSection.icon - Nav section icon.
+  @param {object} navSection.icon (optional) - Object containing the following attributes.
+  @param {string} navSection.icon.name - ID of icon within spritesheet.
+  @param {('blue'|'yellow'|'green')} navSection.icon.background - Color keyword to apply as the icon's background circle.
   @param {object[]} navSection.sections - List of sections representing the sub-navigation of the site.
   @param {string} navSection.sections[].title - Title of the subnav section.
   @param {string} navSection.sections[].url - Url of the subnav section.
@@ -13,14 +15,16 @@
 {% from 'icon.njk' import icon %} {% macro cardSubnav(navSection, locale) -%}
 <article class="card-subnav">
   <header class="card-subnav__header">
-    <div class="card-subnav__icon-wrapper">{{ icon(navSection.icon, 'card-subnav__icon') }}</div>
-    <h4 class="card-subnav__title type--h4">{{ navSection.title }}</h4>
+    <h4 class="card-subnav__title type--h3">{{ navSection.title }}</h4>
+    {% if navSection.icon is defined %}
+    <div class="card-subnav__icon-wrapper {% if navSection.icon.background in ['blue', 'yellow', 'green'] %} card-subnav__icon-wrapper--{{navSection.icon.background}} {% endif %}">{{ icon(navSection.icon.name, 'card-subnav__icon') }}</div>
+    {% endif %}
   </header>
-  <p class="card-subnav__body type--large">{{ navSection.desc }}</p>
+  <p class="card-subnav__body type--base">{{ navSection.desc }}</p>
   <ul class="card-subnav__sections">
     {% if navSection.sections %} {% for section in navSection.sections %}
-    <li class="card-subnav__section type--h5">
-      <a href="/{{locale}}/{{section.url}}" class="card-subnav__anchor">
+    <li class="card-subnav__section">
+      <a href="/{{locale}}/{{section.url}}" class="card-subnav__anchor type--h5">
         {{section.title}}
         <span class="card-subnav__section-icon" aria-hidden="true"> {{ icon('arrow-forward', 'card-subnav__arrow icon--animated') }} </span>
       </a>

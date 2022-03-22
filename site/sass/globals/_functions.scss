@@ -32,7 +32,7 @@
 //  @param {boolean} $rem (optional) - output units in rems. When false, outputs units in ems.
 //  @example <caption>Between screen sizes of 744px and 1140px, linearly scale the padding from 20px to 40px.</caption>
 //  .selector {
-//    padding: fluid((744px 1140px), (20px 40px));
+//    padding: generateScaling((744px 1140px), (20px 40px));
 //  }
 //  @returns clamp($min-value, <responsive-value>, $max-value)
 @function generateScaling($widths, $values, $rem: true) {
@@ -53,5 +53,5 @@
   $rate: $width-difference * $value-difference;
 
   $responsive-value: unquote('#{$min-value - ($min-width * $rate)} + #{100vw * $rate}');
-  @return clamp($min-value, $responsive-value, $max-value);
+  @return clamp(if($min-value < $max-value, $min-value, $max-value), $responsive-value, if($max-value > $min-value, $max-value, $min-value));
 }

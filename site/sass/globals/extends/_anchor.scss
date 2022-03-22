@@ -18,15 +18,18 @@
 
   &--page-nav {
     @include fontSetup(14px, 18px);
+    color: var(--grey-700);
     font-family: $font-body;
+    text-decoration: none;
+
+    &[data-active],
+    &:hover,
+    &:focus {
+      color: var(--grey-900);
+    }
 
     &[data-active] {
       text-shadow: 0 0 0 currentColor;
-    }
-
-    &:hover {
-      background-color: transparent;
-      text-decoration: none;
     }
 
     &:focus {
@@ -34,7 +37,7 @@
     }
 
     &:visited {
-      color: $anchor-color--default;
+      color: var(--grey-700);
     }
   }
 

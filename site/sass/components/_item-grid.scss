@@ -14,31 +14,62 @@
   position: relative;
   z-index: 10;
 
+  &__title,
+  &__subtitle,
+  &__footer {
+    text-align: center;
+  }
+
   &__title {
     margin: 0 auto;
-    max-width: pxRem(640px);
+    max-width: 30ch;
     padding: 0 calc(var(--shape-circle--size) / 6);
     position: relative;
-    text-align: center;
     z-index: 3;
+  }
+
+  &__subtitle {
+    color: var(--grey-700);
+    margin-top: 1rem;
+
+    @supports (margin-top: clamp(1px, 1vw, 2px)) {
+      margin-top: clamp(0.625rem, 2.66vw, 1rem);
+    }
   }
 
   &__content {
     display: grid;
-    grid-gap: pxRem(40px) pxRem(24px);
-    margin-top: pxRem(40px);
+    gap: 2.5rem 1.5rem;
+    margin-top: 2.5rem;
 
     @include mq(430px) {
       grid-template-columns: repeat(auto-fit, minmax(pxRem(300px), 1fr));
     }
   }
 
+  &__footer {
+    margin-top: 3rem;
+
+    .cta {
+      display: inline-flex;
+    }
+  }
+
+  &--posts & {
+    &__content {
+      grid-template-columns: repeat(auto-fit, minmax(pxRem(325px), 1fr));
+      justify-items: center;
+    }
+  }
+
   &--community & {
     &__content {
-      align-items: flex-start;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      row-gap: 1.25rem;
     }
   }
 
@@ -54,8 +85,32 @@
 
   &--subnav & {
     &__content {
-      grid-template-columns: repeat(auto-fit, minmax(pxRem(256px), 1fr));
+      gap: 1.875rem 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
       justify-content: center;
+    }
+  }
+
+  &--video & {
+    &__content {
+      gap: 5rem 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+
+      @include mq(602px) {
+        row-gap: 2.75rem;
+      }
+    }
+  }
+
+  &--routing & {
+    &__content {
+      gap: 3rem 1.25rem;
+      margin-top: 0;
+      padding-top: 3rem;
+
+      @supports (row-gap: clamp(1px, 1vw, 2px)) {
+        row-gap: generateScaling((430px 631px), (48px 16px));
+      }
     }
   }
 

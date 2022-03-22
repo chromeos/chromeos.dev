@@ -292,6 +292,7 @@ module.exports = {
         title: post.data.title,
         body: post.data.metadesc,
         url: post.data.page.url,
+        cta: 'Learn more',
       }));
 
       collections.filteredPosts = collections.posts.filter((i) => i.url !== get(collections, 'featured.post.cta.url'));

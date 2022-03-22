@@ -79,6 +79,7 @@
   }
 
   &__tile-eyebrow {
+    color: var(--grey-700);
     margin-top: -1rem;
 
     @include mq($break-feature-col) {

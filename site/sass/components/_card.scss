@@ -11,14 +11,14 @@
     display: flex;
     flex-flow: column;
     height: 100%;
-    padding: pxRem(40px) pxRem(24px) pxRem(24px);
+    padding: 2.5rem;
     position: relative;
     width: 100%;
     z-index: 1;
 
     /* stylelint-disable no-descending-specificity */
     #{$self}--rounded & {
-      border-bottom-left-radius: pxRem(24px);
+      border-radius: 0.625rem;
     }
 
     #{$self}--disabled & {
@@ -37,17 +37,34 @@
     /* stylelint-enable no-descending-specificity */
   }
 
-  &__eyebrow {
-    display: ∫inline-block;
-    margin-bottom: pxRem(8px);
+  &__topic {
+    margin-inline-end: 0.625rem;
+
+    @supports not (margin-inline-end: 1rem) {
+      [dir='ltr'] & {
+        margin-right: 0.625rem;
+      }
+
+      [dir='rtl'] & {
+        margin-left: 0.625rem;
+      }
+    }
   }
 
-  &__title {
-    margin-bottom: pxRem(16px);
+  &__eyebrow {
+    color: var(--grey-750);
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+
+  &__heading {
+    color: var(--grey-850);
+    margin-bottom: 0.5rem;
   }
 
   &__body {
-    margin-bottom: pxRem(24px);
+    color: var(--grey-750);
+    margin-bottom: 1.5rem;
   }
 
   &__footer {
@@ -57,12 +74,13 @@
   }
 
   &__source-logo {
+    $size: 2.5rem;
     @include elevation(0);
     border-radius: 50%;
-    height: pxRem(40px);
+    height: $size;
     object-fit: cover;
     object-position: center;
-    width: pxRem(40px);
+    width: $size;
   }
 
   &__source {
@@ -91,14 +109,12 @@
   &__icon {
     align-self: flex-end;
     fill: var(--blue-600);
+    justify-content: flex-start;
+    margin-left: auto;
+    min-width: initial;
 
-    /* stylelint-disable no-descending-specificity */
-    [dir='ltr'] & {
-      margin-left: auto;
-    }
-
-    [dir='rtl'] & {
-      margin-right: auto;
+    #{$self}--cta & {
+      margin-left: 0;
     }
 
     a:hover &,
@@ -111,10 +127,13 @@
     a[href^='https://'] &,
     a[href^='//'] &
     {
-      transform: rotate(-45deg);
+      .icon {
+        transform: rotate(-45deg);
+      }
     }
     /* stylelint-enable selector-no-qualifying-type */
 
+    /* stylelint-disable no-descending-specificity */
     .card__message & {
       fill: currentColor;
 
@@ -126,11 +145,10 @@
         margin-right: 0.5rem;
       }
     }
-
     /* stylelint-enable no-descending-specificity */
   }
 
   &__search {
-    margin-bottom: pxRem(24px);
+    margin-bottom: 1.5rem;
   }
 }

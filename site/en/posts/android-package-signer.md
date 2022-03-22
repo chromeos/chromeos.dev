@@ -2,6 +2,8 @@
 title: Introducing Android Package Signer
 metadesc: Learn about signing Android packages client side in your browser with this new library.
 tags:
+  - announcement
+  - android
   - technical
 authors:
   - nohe

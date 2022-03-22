@@ -5,7 +5,7 @@
     items: Navigation item
     locale: Locale information
 #}-->
-{% from 'icon.njk' import icon %} {% macro nav(items, locale) %}
+{% from 'icon.njk' import icon %} {% macro nav(items, locale, cta) %}
 <nav class="nav">
   <div class="nav__header">
     <button class="nav__close" aria-label="close">{{icon('close')}}</button>
@@ -15,7 +15,7 @@
     {% for item in items %}
     <li class="nav__primary-item">
       {% if item.sections %}
-      <button class="nav__link type--primary-nav" aria-expanded="false" aria-haspopup="true" id="nav--{{item.title | slug}}" aria-controls="nav--{{item.title | slug}}-menu">{{item.title}}</button>
+      <button class="nav__link type--primary-nav" aria-expanded="false" aria-haspopup="true" id="nav--{{item.title | slug}}" aria-controls="nav--{{item.title | slug}}-menu">{{item.title}} {{ icon('expand-more', 'nav__link-icon')}}</button>
       <ul id="nav--{{item.title | slug}}-menu" class="nav__secondary" hidden aria-labelledby="nav--{{item.title | slug}}">
         {% for section in item.sections %}
         <li class="nav__secondary-item">
@@ -36,5 +36,8 @@
 
     {% endfor %}
   </ul>
+  <div class="nav__footer">
+    <a class="nav__footer-cta cta cta--high" href="{{cta.url}}">{{cta.text}}</a>
+  </div>
 </nav>
 {% endmacro %}

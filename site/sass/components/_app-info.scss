@@ -5,8 +5,9 @@
   $logo-size: pxRem(80px);
 
   display: flex;
+  margin-bottom: 2rem;
 
-  @include mq($bkpt-articles--2-cols) {
+  @include mq($bkpt-articles--3-cols) {
     flex-direction: column;
   }
 
@@ -22,7 +23,7 @@
     justify-content: center;
     margin-left: pxRem(24px);
 
-    @include mq($bkpt-articles--2-cols) {
+    @include mq($bkpt-articles--3-cols) {
       margin-left: 0;
       margin-top: pxRem(24px);
     }

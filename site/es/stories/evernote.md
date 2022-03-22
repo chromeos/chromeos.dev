@@ -10,6 +10,7 @@ hero:
   alt: Un escritorio con una computadora que muestra la aplicación Evernote
   position: center
 tags:
+  - android
   - productividad
   - soporte para lápiz óptico
   - soporte para teclado
