@@ -14,13 +14,9 @@
   <article class="stories-card__container">
     {% if item.image %}
     <img class="stories-card__image" src="{{item.image}}" alt="{{item.alt}}" />
-    {% else %} {% if item.tag == "pwa" %}
-    <img class="stories-card__image" src="https://drive.google.com/uc?id=1hc1fjFKEM6H1LXl6tNM6149ywi2ZPoup" alt="Placeholder Image for {{ item.tag }}" />
-    {% endif %} {% if item.tag == "games" %}
-    <img class="stories-card__image" src="https://drive.google.com/uc?id=1RapjBVev9FwPxLuafGxRJMKGI11-rwVX" alt="Placeholder Image for {{ item.tag }}" />
-    {% endif %} {% if item.tag == "android" %}
-    <img class="stories-card__image" src="https://drive.google.com/uc?id=1jiLbp9rxM48SDDRJEiahNX5xAc9rPfvL" alt="Placeholder Image for {{ item.tag }}" />
-    {% endif %} {% endif %}
+    {% else %}
+    <img class="stories-card__image" src="ix://landings/stories/placeholder-{{item.tag}}.png" alt="Placeholder Image for {{ item.tag }}" />
+    {% endif %}
 
     <div class="stories-card__content">
       <header id="{{titleId}}" class="stories-card__header">
