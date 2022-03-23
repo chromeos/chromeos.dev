@@ -30,7 +30,7 @@ The latest version of ARC, ARCVM, launched in 2021 with Android 11 and is curren
 
 ARCVM is the evolution of our previous Android offering on Chrome OS, ARC++. There are many reasons why we decided to evolve to use VMs, but the two largest reasons are security and upgradeability.
 
-#[ARCVM adds a new layer of protection by leveraging VMs (crosvm and KVM) to separate the Android environment completely into an isolated virtual machine. This also enables us to use a separate kernel for the guest environment.](ix://posts/making-android-more-secure-with-arcvm/ARCPP_TO_ARCVM.svg)
+![Diagram showing the separate layer of protection that ARCVM adds. It leverages VMs (crosvm and KVM) to separate the Android environment completely into an isolated virtual machine. This also enables us to use a separate kernel for the guest environment.](ix://posts/making-android-more-secure-with-arcvm/ARCPP_TO_ARCVM.svg)
 
 ARCVM is a special VM appliance that has a tight integration with the host so that the user experience is transparent, allowing all apps running within it to look and behave as if they are native applications. To achieve this seamless consolidation, we are deeply involved in multiple layers from top to bottom: the guest (Android) framework, the host operating system (Chrome OS), the virtual machine monitor (VMM, crosvm), and the host and the guest kernels.
 
