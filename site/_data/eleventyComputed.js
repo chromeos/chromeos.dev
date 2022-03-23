@@ -231,6 +231,10 @@ module.exports = {
   featured: (data) => {
     if (data.featured) {
       const featured = {
+        app: {
+          name: dataFallback('app.name')(data),
+          logo: dataFallback('app.logo')(data),
+        },
         eyebrow: dataFallback('featured.eyebrow', 'microcopy.featured.eyebrow')(data),
         title: dataFallback('featured.title', 'title')(data),
         desc: dataFallback('featured.desc', 'metadesc')(data),
@@ -314,6 +318,7 @@ module.exports = {
             company: get(i, 'data.app.company'),
           },
           media: get(i, 'data.featured.images[0]') ? get(i, 'data.featured.images[0]') : { image: get(i, 'data.hero.image'), alt: get(i, 'data.hero.alt') },
+          tag: i.data.tags[1],
           cta: {
             text: l10nFallback('microcopy.more')(data),
             url: get(i, 'data.page.url'),
