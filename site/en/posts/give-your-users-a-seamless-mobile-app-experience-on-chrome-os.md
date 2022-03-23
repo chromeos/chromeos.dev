@@ -2,8 +2,8 @@
 title: 'Give your users a seamless mobile app experience on Chrome OS'
 metadesc: Learn about the latest improvements for Android mobile apps on Chrome
 tags:
-  - product news
   - android
+  - product news
 authors:
   - fahdi
 featured:
