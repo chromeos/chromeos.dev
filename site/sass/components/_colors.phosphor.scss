@@ -1,5 +1,5 @@
 .phosphor {
-  @each $c, $v in $google-colors {
+  @each $c, $v in $phosphor-colors {
     $name: '--#{$c}';
     #{$name}: #{$v};
   }
