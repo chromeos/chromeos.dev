@@ -35,7 +35,7 @@ function determineFeaturedStories(content) {
   for (const c of content) {
     const type = get(c, 'data.tags[1]');
     if (type) {
-      if (home < 3) {
+      if (home.length < 3) {
         home.push(get(c, 'data.featured'));
         homeFiles.push(get(c, 'outputPath'));
 
