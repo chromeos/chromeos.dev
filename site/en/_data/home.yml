@@ -111,7 +111,7 @@ m100:
     title: New Features
     copy: Coming in all shapes and sizes, Chromebooks are speedy, simple, secure, and run Chrome OS.
   cta:
-    url: /en/news
+    url: news
     text: Learn more
 chromebook:
   image:

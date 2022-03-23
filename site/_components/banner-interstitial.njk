@@ -13,6 +13,8 @@
   @param {object} cta (optional): An object containing the following attributes.
   @param {string} cta.text
   @param {string} cta.url
+
+  @param {string} locale - Code for the current locale.
 #}-->
 {% from 'icon.njk' import icon %} {% macro bannerInterstitial(content, image, cta, locale) %}
 <article class="banner-interstitial wrapper wrapper--padded wrapper--full-bleed wrapper__contained {{'banner-interstitial--no-cta' if not cta}}">
