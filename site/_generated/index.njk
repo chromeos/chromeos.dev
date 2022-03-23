@@ -24,8 +24,8 @@ hideNewsletter: true
   <!-- Chrome OS Stats -->
   <div id="home__stats" class="wrapper wrapper--padded wrapper--padding">{{ stats(l10n.home.stats.items, l10n.home.stats.modifiers) }}</div>
 
-  {% if landingCollections.homeCaseStudies.length > 0 %}
-  <div id="home__case-studies" class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__background wrapper__contained">{{ caseStudies(l10n.home.caseStudies, landingCollections.homeCaseStudies, l10n.locale.code) }}</div>
+  {% if landingCollections.featured.home.length > 0 %}
+  <div id="home__case-studies" class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__background wrapper__contained">{{ caseStudies(l10n.home.caseStudies, landingCollections.featured.home, l10n.locale.code) }}</div>
   {% endif %}
 
   <!-- M100 Banner -->
