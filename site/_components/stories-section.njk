@@ -11,5 +11,5 @@
 <p class="item-grid__subtitle type--large">{{title.subtitle}}</p>
 {% endif %}
 
-<div class="item-grid__content">{% for item in items %} {% if title.tag == 'pwa' %} {% if item.tag == 'pwa' %} {{storiesCard(item)}} {% endif %} {% endif %} {% if title.tag == 'games' %} {% if item.tag == 'games' %} {{storiesCard(item)}} {% endif %} {% endif %} {% if title.tag == 'android' %} {% if item.tag == 'android' %} {{storiesCard(item)}} {% endif %} {% endif %} {% endfor %}</div>
+<div class="item-grid__content">{% for item in items %} {% if title.tag == item.tag %} {{storiesCard(item)}} {% endif %} {% endfor %}</div>
 {% endfor %} {% endmacro %}
