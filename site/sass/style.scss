@@ -25,6 +25,11 @@
 @import 'globals/mixins';
 @import 'globals/extends';
 
+// Phosphor Theme
+@import 'globals/colors.phosphor';
+@import 'globals/vars.phosphor';
+@import 'components/colors.phosphor';
+
 // Main Components
 @import 'components/fonts';
 @import 'components/colors';
