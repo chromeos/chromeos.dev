@@ -44,8 +44,15 @@
     }
   }
 
-  &__separate-items > :not(:first-of-type) {
-    margin-top: 1rem;
+  &__separate-items {
+    > :not(:first-of-type) {
+      margin-top: 1rem;
+    }
+
+    &--dark {
+      background-color: var(--black);
+      padding: 1rem;
+    }
   }
 
   &__eyebrow {
