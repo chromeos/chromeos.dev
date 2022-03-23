@@ -8,7 +8,8 @@ examples:
         title: New Features
         copy: Coming in all shapes and sizes, Chromebooks are speedy, simple, secure, and run Chrome OS.
       image:
-        src: ix://devices/Samsung_tent_shadow.png
+        #TODO src: ix://devices/HP_color_chromebook_stylus.png
+        src: https://drive.google.com/uc?id=1fVu1AaaEbJCEy-HWy4lEcjC7qPznavJC
         alt: A partially opened Samsung Chromebook next to a stylus.
       cta:
         url: /en/news
@@ -20,7 +21,8 @@ examples:
         title: New Features
         copy: Coming in all shapes and sizes, Chromebooks are speedy, simple, secure, and run Chrome OS.
       image:
-        src: ix://devices/Samsung_tent_shadow.png
+        #TODO src: ix://devices/HP_color_chromebook_stylus.png
+        src: https://drive.google.com/uc?id=1fVu1AaaEbJCEy-HWy4lEcjC7qPznavJC
         alt: A partially opened Samsung Chromebook next to a stylus.
 ---
 

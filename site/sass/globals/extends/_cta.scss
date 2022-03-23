@@ -99,22 +99,13 @@
     &:hover,
     &:focus-visible,
     &:active {
-      color: var(--black);
-    }
-
-    &:hover {
-      background-color: var(--grey-300);
-      border-color: var(--black);
+      background-color: var(--white);
+      color: var(--secondary-blue);
     }
 
     &:focus-visible {
-      background-color: var(--white);
-      border-color: var(--primary-blue);
-      outline: var(--primary-blue) solid 2px;
-    }
-
-    &:active {
-      background-color: var(--grey-350);
+      outline: var(--red-650) solid 2px;
+      outline-offset: 2px;
     }
   }
 
