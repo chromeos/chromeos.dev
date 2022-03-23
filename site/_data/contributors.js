@@ -230,6 +230,28 @@ const contributors = {
       title: 'Developer Relations Engineer',
     },
   },
+  dstockwell: {
+    name: {
+      given: 'Douglas',
+      family: 'Stockwell',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Staff Software Engineer',
+    },
+  },
+  edwintay: {
+    name: {
+      given: 'Edwin',
+      family: 'Tay',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Senior Software Engineer',
+    },
+  },
   hikalium: {
     name: {
       given: 'Hikaru',
