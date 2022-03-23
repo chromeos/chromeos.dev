@@ -40,7 +40,7 @@ Chrome OS has [four core principles](https://www.chromium.org/developers/core-pr
 
 Among these principles, Security is an essential pillar that we in Chrome OS consider a necessity, not a luxury. This is where VMs become valuable. While containers (cgroups) provide some level of security, after careful evaluation, we decided that containers do not meet our strict security standards. In particular, as Android is capable of running untrusted third-party code, encapsulating the executables in a VM boundary is a necessary evolution to guarantee [the security promises](https://www.youtube.com/watch?v=A9WVmNfgjtQ) we have been providing so far.
 
-Also, we are pushing forward the usage of Rust programming language not only in crosvm but also other services in ChromeOS to improve reliability while keeping performance.
+We are also pushing forward the usage of the Rust programming language not only in crosvm, but also in other services in Chrome OS to improve reliability while preserving performance.
 
 ### Simplicity means upgradability
 
