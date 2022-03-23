@@ -299,6 +299,7 @@ module.exports = {
 
       if (Array.isArray(images)) {
         featured.images = images;
+        featured.media = images[0];
       } else {
         featured.images = [images.image, images.alt];
       }
@@ -376,8 +377,6 @@ module.exports = {
             url: get(i, 'data.page.url'),
           },
         }));
-
-      collections.homeCaseStudies = collections.stories.slice(0, 3);
     }
 
     return collections;
