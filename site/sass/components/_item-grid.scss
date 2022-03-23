@@ -91,6 +91,17 @@
     }
   }
 
+  &--video & {
+    &__content {
+      gap: 5rem 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+
+      @include mq(602px) {
+        row-gap: 2.75rem;
+      }
+    }
+  }
+
   &--routing & {
     &__content {
       gap: 3rem 1.25rem;
@@ -99,6 +110,27 @@
 
       @supports (row-gap: clamp(1px, 1vw, 2px)) {
         row-gap: generateScaling((430px 631px), (48px 16px));
+      }
+    }
+  }
+
+  &--stories & {
+    &__title {
+      max-width: unset;
+    }
+
+    &__title,
+    &__subtitle {
+      text-align: left;
+    }
+
+    &__content {
+      gap: 2.5rem 1.25rem;
+      margin-bottom: 1.5rem;
+      margin-top: 1.5rem;
+
+      @include mq(1058px) {
+        grid-template-columns: repeat(auto-fit, minmax(pxRem(400px), 1fr));
       }
     }
   }

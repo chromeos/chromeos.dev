@@ -160,6 +160,21 @@ community:
   modifiers:
     variant: community
     heading: h2
+videos:
+  title: Watch the latest videos
+  items:
+    - video:
+        title: Developer Keynote at Google I/O '21
+        id: FPuaaYpUd5s
+    - video:
+        title: Chrome OS Demo Day
+        id: 7JvD7Zamv9A
+    - video:
+        title: Creating a more private internet
+        id: _u9_3umb5LY
+  modifiers:
+    variant: video
+    heading: h2
 footnotes:
   notes:
     - The NPD Group, Inc., U.S. Retail Tracking Service, Notebook Computers, based on unit sales, April-June 2020 and March-June 2020.
