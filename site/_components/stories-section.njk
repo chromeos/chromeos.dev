@@ -1,0 +1,15 @@
+<!--{#
+  Renders a section with title, subtitle and items.
+  Arguments:
+    @param {array} titles: Section titles.
+    @param {string} subtitle (optional): Text for a subtitle beneath the primary title.
+    @param {array} items: List of item objects.
+ #}-->
+{% from 'stories-card.njk' import storiesCard %} {% macro storiesSection(titles, items) %} {% for title in titles %}
+<h2 class="item-grid__title type--h2">{{title.title}}</h2>
+{% if title.subtitle %}
+<p class="item-grid__subtitle type--large">{{title.subtitle}}</p>
+{% endif %}
+
+<div class="item-grid__content">{% for item in items %} {% if title.tag == 'pwa' %} {% if item.tag == 'pwa' %} {{storiesCard(item)}} {% endif %} {% endif %} {% if title.tag == 'games' %} {% if item.tag == 'games' %} {{storiesCard(item)}} {% endif %} {% endif %} {% if title.tag == 'android' %} {% if item.tag == 'android' %} {{storiesCard(item)}} {% endif %} {% endif %} {% endfor %}</div>
+{% endfor %} {% endmacro %}
