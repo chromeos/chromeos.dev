@@ -17,10 +17,8 @@ tags:
 date: 2021-11-17
 featured:
   images:
-    - image: ix://stories/youtube/device.png
-      alt: A Chromebook
-    - image: ix://stories/youtube/browser.png
-      alt: The YouTube PWA installed on a Chromebook
+    - image: ix://stories/youtube/banner.png
+      alt: Illustration of being able to download a recipe video from YouTube and watch it while offline
 ---
 
 YouTube’s mission is to give everyone a voice and show them the world. But without an internet connection, users had to put the conversation on pause.
