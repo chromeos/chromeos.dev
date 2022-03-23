@@ -19,7 +19,9 @@ const get = require('lodash.get');
 const { dateSort } = require('../../lib/helpers/sort');
 
 /**
- * Determines
+ * Determines what stories to feature.
+ * For the home page, up to three stories can be feature, looking to ensure that at least two of the stories are of different types.
+ * For the landing page, the most recent featured story that is not featured on the home page is used, falling back to the most recent featured story if all featured stories are used on the home page.
  * @param {Object[]} content Array of content objects
  * @return {Object} Object containing the featured stories, in order, for the home and landing pages
  */
@@ -33,17 +35,25 @@ function determineFeaturedStories(content) {
   for (const c of content) {
     const type = get(c, 'data.tags[1]');
     if (type) {
-      if (homeTags.length < 3) {
+      if (home < 3) {
         home.push(get(c, 'data.featured'));
-        homeTags.push(type);
         homeFiles.push(get(c, 'outputPath'));
-      } else if (!homeTags.includes(type)) {
+
+        // Only want to count unique tags.
+        if (!homeTags.includes(type)) {
+          homeTags.push(type);
+        }
+      } else if (homeTags.length > 1 || !homeTags.includes(type)) {
         home.push(get(c, 'data.featured'));
-        homeTags.push(type);
         homeFiles.push(get(c, 'outputPath'));
         break;
       }
     }
+  }
+
+  // If there are 3 or more featured stories, and they all have the same type, feature the first three on the homepage
+  if (content.length >= 3 && home.length < 3) {
+    home.push(get(content[2], 'data.featured'));
   }
 
   for (const c of content) {
