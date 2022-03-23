@@ -148,6 +148,9 @@ window.addEventListener('load', async () => {
       navigator.serviceWorker.register('/sw.js');
     }
   }
+
+  const { M100 } = await import('./components/ee');
+  window.m100 = new M100();
 });
 
 if ('serviceWorker' in navigator) {

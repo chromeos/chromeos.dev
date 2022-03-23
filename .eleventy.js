@@ -25,9 +25,6 @@ const { folders } = require('config');
 module.exports = function (eleventy) {
   eleventy.setLibrary('md', markdown);
 
-  // Copy passthrough JavaScript files
-  eleventy.addPassthroughCopy({ './site/js/passthrough/': 'scripts' });
-
   // Filters
   discoverPlugins('filters', eleventy);
 
