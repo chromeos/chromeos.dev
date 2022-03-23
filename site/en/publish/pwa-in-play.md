@@ -78,7 +78,7 @@ You can now release your app to Google Play! We recommend first releasing to a [
 
 ### List a PWA for Chrome OS and a platform specific Android app under one listing
 
-If you already have a well established Android presence with a platform specific Android application and would like to release a PWA to Google Play that is targeted just for Chromebooks, you can do it all in the same listing. Make sure that when you package your PWA, use the aforementioned [Chrome OS only flag](#chrome-os-only). This will ensure that the PWA version will only be available to Chromebooks.
+If you already have a well established Android presence with a platform specific Android application and would like to release a PWA to Google Play that is targeted just for Chromebooks, you can do it all in the same listing. Make sure that when you package your PWA, use the aforementioned [Chrome OS only flag](#chrome-os-only). This will ensure that the PWA version will only be available to Chromebooks. The same signing key needs to be used for both the PWA and Android app that are going to be sharing a Play Store listing.
 
 !!! aside.message--warning
 **Warning:** Uploading a mobile Android app with a higher version number than your Chrome OS only app _will replace your Chrome OS only app_ if the Android app is also compatible with Chromebooks! As a best practice, set the Chrome OS app several versions higher than your mobile Android app. For instance 1000 for Chrome OS if the Android version is 1. Then as you create new releases for each, you can increment the version numbers accordingly as long as the Chrome OS version is always larger. When Play distributes your app, it uses the highest version available that is compatible with the given device.
