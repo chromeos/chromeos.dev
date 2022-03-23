@@ -1,0 +1,17 @@
+featured:
+  modifiers:
+    custom: landing--stories-full-bleed
+sections:
+  headings:
+    - tag: pwa
+      title: Progressive Web Applications
+      subtitle:
+    - tag: juegos
+      title: Juegos
+      subtitle:
+    - tag: android
+      title: Android
+      subtitle:
+  modifiers:
+    custom: stories-section
+    variant: stories
