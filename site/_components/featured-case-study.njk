@@ -1,0 +1,32 @@
+<!--{#
+  Renders a card for a featured case study.
+
+  @param {object} study - Object to populate the card with.
+  @param {string} study.eyebrow - String representing the card eyebrow.
+  @param {string} study.title - String representing the card title.
+
+  @param {object} study.logo (optional) - Object containing the following attributes.
+  @param {string} study.logo.src - Image path of the logo.
+  @param {string} study.logo.name - Name for the logo.
+
+  @param {object} study.media - An Object containing the following attributes.
+  @param {string} study.media.image - Image's source.
+  @param {string} study.media.alt - Image description.
+
+  @param {object} study.cta - Object containing the following attributes.
+  @param {string} study.cta.text - CTA message.
+  @param {string} study.cta.url - URL for the CTA.
+#}-->
+{% from 'icon.njk' import icon %} {% macro featuredCaseStudy(study) %}
+<article class="featured-case-study {{'featured-case-study--no-logo' if not study.logo}}">
+  <img class="featured-case-study__media" src="{{study.media.image}}" alt="{{study.media.alt}}" />
+  <div class="featured-case-study__tile">
+    {% if study.logo is defined %}
+    <img class="featured-case-study__tile-logo" src="{{study.logo.src}}" alt="{{study.logo.name}}" />
+    {% endif %}
+    <small class="type--eyebrow featured-case-study__tile-eyebrow">{{study.eyebrow}}</small>
+    <h1 class="type--h3 featured-case-study__tile-title">{{study.title}}</h1>
+    <a class="cta cta--link featured-case-study__tile-cta" href="{{study.cta.url}}">{{study.cta.text}} </a>
+  </div>
+</article>
+{% endmacro %}
