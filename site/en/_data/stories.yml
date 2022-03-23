@@ -4,13 +4,14 @@ featured:
 sections:
   headings:
     - tag: pwa
-      title: Progressive web applications
-      subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id elit vestibulum, vehicula massa quis, molestie tellus.
+      title: Progressive Web Applications
+      subtitle:
     - tag: games
       title: Games
+      subtitle:
     - tag: android
       title: Android
+      subtitle:
   modifiers:
     custom: stories-section
     variant: stories
-    subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id elit vestibulum, vehicula massa quis, molestie tellus.
