@@ -10,7 +10,7 @@ metadesc: Deliver rich, engaging Android, and Web apps for Chromebook with just 
 hideNewsletter: true
 ---
 
-{% from 'hero-animated.njk' import heroAnimated %} {% from 'card-stats.njk' import cardStats %} {% from 'image-card.njk' import imageCard %} {% from 'hero--cta.njk' import heroCta %} {% from 'item-grid.njk' import itemGrid %} {% from 'featured-content.njk' import featuredContent %} {% from 'call-out.njk' import callOut %} {% from 'footnotes.njk' import footnotes %} {% from 'stats.njk' import stats %} {% from 'fifty-fifty.njk' import fiftyFifty %} {% from 'community-quotes.njk' import communityQuotes %}
+{% from 'hero-animated.njk' import heroAnimated %} {% from 'card-stats.njk' import cardStats %} {% from 'image-card.njk' import imageCard %} {% from 'hero--cta.njk' import heroCta %} {% from 'item-grid.njk' import itemGrid %} {% from 'featured-content.njk' import featuredContent %} {% from 'call-out.njk' import callOut %} {% from 'footnotes.njk' import footnotes %} {% from 'stats.njk' import stats %} {% from 'fifty-fifty.njk' import fiftyFifty %} {% from 'community-quotes.njk' import communityQuotes %} {% from 'case-studies.njk' import caseStudies %}
 <div id="home" class="wrapper--hidden-x">
   <!-- Hero Animation -->
   <header id="home__hero" class="wrapper wrapper--full-bleed wrapper--no-bottom wrapper--no-top">{{ heroAnimated(l10n.home.hero.heading, l10n.home.hero.cta, l10n.home.hero.img) }}</header>
@@ -23,6 +23,10 @@ hideNewsletter: true
 
   <!-- Chrome OS Stats -->
   <div id="home__stats" class="wrapper wrapper--padded wrapper--padding">{{ stats(l10n.home.stats.items, l10n.home.stats.modifiers) }}</div>
+
+  {% if landingCollections.homeCaseStudies.length > 0 %}
+  <div id="home__case-studies" class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__background wrapper__contained">{{ caseStudies(l10n.home.caseStudies, landingCollections.homeCaseStudies, l10n.locale.code) }}</div>
+  {% endif %}
 
   <!-- Using Chrome OS -->
   <section id="home__using" class="wrapper wrapper--full-top wrapper--full-bottom wrapper--rhythm wrapper--padded" aria-label="{{ l10n.home.onAndWith.desc }}">{% for item in l10n.home.onAndWith.cards %} {{ imageCard(item.images, item.content, item.cta, item.modifiers) }} {% endfor %}</section>
