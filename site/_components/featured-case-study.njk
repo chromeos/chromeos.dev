@@ -18,11 +18,11 @@
   @param {string} study.cta.url - URL for the CTA.
 #}-->
 {% from 'icon.njk' import icon %} {% macro featuredCaseStudy(study) %}
-<article class="featured-case-study {{'featured-case-study--no-logo' if not study.logo}}">
+<article class="featured-case-study {{'featured-case-study--no-logo' if not study.app}}">
   <img class="featured-case-study__media" src="{{study.media.image}}" alt="{{study.media.alt}}" />
   <div class="featured-case-study__tile">
-    {% if study.logo is defined %}
-    <img class="featured-case-study__tile-logo" src="{{study.logo.src}}" alt="{{study.logo.name}}" />
+    {% if study.app is defined %}
+    <img class="featured-case-study__tile-logo" src="{{study.app.logo}}" alt="{{study.app.name}}" />
     {% endif %}
     <small class="type--eyebrow featured-case-study__tile-eyebrow">{{study.eyebrow}}</small>
     <h1 class="type--h3 featured-case-study__tile-title">{{study.title}}</h1>
