@@ -76,7 +76,7 @@ export class M100 {
 
   /**
    * Answer
-   * @param {string} value - Submit an answer to a prompted question
+   * @param {string|number} value - Submit an answer to a prompted question
    * @return {void}
    */
   answer(value) {
