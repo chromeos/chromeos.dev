@@ -326,7 +326,7 @@ const contributors = {
     work: {
       company: 'Google',
       org: 'Chrome OS',
-      title: '"Product Lead, Apps Platforms',
+      title: 'Product Lead, Apps Platforms',
     },
   },
 };
