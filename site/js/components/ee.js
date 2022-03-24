@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 /**
  * TO-DO
  *
@@ -10,9 +8,14 @@
  * Bootstrap the M100 Console Quiz
  */
 export class M100 {
+  /**
+   *
+   * @return {void}
+   */
   constructor() {
+    this._body = document.querySelector('#body');
     this._current = this._getCurrent() || 0;
-    this._started = this._isStarted();
+    this._started = this._isStarted() || false;
 
     this._intro = {
       headline: 'Ace our quiz for a surprise.',
@@ -53,15 +56,15 @@ export class M100 {
       body: ["You're officially a Chrome OS insider. We've got more exciting things coming your way for our 100th software release. To stay in the know, sign up for our newsletter, and keep exploring the all-new ChromeOS.dev to help you build your next big idea.", "Thank you for all of your support, we couldn't have reached this milestone without you!", 'The Chrome OS team'],
     };
 
-    if (!this._started) {
-      console.warn('%c%s', 'font-weight: bold;', 'm100.start()');
+    if (this._started.toString() === 'true') {
+      if (this._current < this._prompts.length) {
+        this._promptQuestion(this._current);
+      } else {
+        console.warn('%c%s', 'font-weight: bold;', 'm100.help()');
+      }
     } else {
-      this._promptQuestion(this._current);
+      console.warn('%c%s', 'font-weight: bold;', 'm100.start()');
     }
-  }
-
-  r() {
-    this._promptReward();
   }
 
   /**
@@ -69,14 +72,14 @@ export class M100 {
    * @return {void}
    */
   start() {
-    if (!this._started) {
+    if (this._started.toString() !== 'true') {
       this._setStarted(true);
       console.info('%c%s', 'font-weight: bold; background: #174ea6; color: white; padding: .25em;', this._intro.headline);
       for (const iterator of this._intro.body) {
         console.info(iterator);
       }
     }
-    console.warn('Hint: to answer a question use: %c%s', 'font-family: monospace; font-weight: bold;', 'm100.answer(value);');
+    console.warn('Hint: for help try: %c%s', 'font-family: monospace; font-weight: bold;', 'm100.help();');
     this._promptQuestion(this._current);
   }
 
@@ -86,7 +89,7 @@ export class M100 {
    * @return {void}
    */
   answer(value) {
-    if (!this._started) {
+    if (this._started.toString() !== 'true') {
       console.error('Hmmm... what are you trying to answer?');
     } else {
       this._checkAnswer(this._current, value);
@@ -97,9 +100,21 @@ export class M100 {
    * Start over
    * @return {void}
    */
-  restart() {
-    this._clearStarted();
-    this._clearCurrent();
+  reset() {
+    this._setStarted(false);
+    this._setCurrent(0);
+    this._setTheme(false);
+  }
+
+  /**
+   * Help me...
+   * @return {void}
+   */
+  help() {
+    console.warn("I'm here to help:");
+    console.info('To get started: %c%s', 'font-weight: bold;', 'm100.start();');
+    console.info('To answer a question: %c%s', 'font-weight: bold;', "m100.answer('value');");
+    console.info('To start over: %c%s', 'font-weight: bold;', 'm100.reset();');
   }
 
   /**
@@ -121,20 +136,11 @@ export class M100 {
   }
 
   /**
-   * Clear the current prompt value.
-   * @return {void}
-   */
-  _clearCurrent() {
-    localStorage.removeItem('chromeos-m100-current-prompt');
-    this._current = 0;
-  }
-
-  /**
    * Gets the current quiz start value from local storage.
    * @return {number} - current quiz start value
    */
   _isStarted() {
-    return !!localStorage.getItem('chromeos-m100-quiz-start');
+    return localStorage.getItem('chromeos-m100-quiz-start');
   }
 
   /**
@@ -148,33 +154,19 @@ export class M100 {
   }
 
   /**
-   * Clear the current quiz start value.
+   * Prompt current question
+   * @param {number} current
    * @return {void}
    */
-  _clearStarted() {
-    localStorage.removeItem('chromeos-m100-quiz-start');
-    this._started = false;
-  }
-
-  /**
-   * Prompt the question to the user
-   * @param {number} prompt
-   * @param {boolean} ret - return text (true) vs prompt text (false|default)
-   * @return {string|void}
-   */
-  _promptQuestion(prompt = 0, ret = false) {
-    if (prompt < this._prompts.length && this._prompts[prompt].question.length > 0) {
-      if (ret) {
-        return this._prompts[prompt].question;
-      }
-      console.info('Question #%s: %c%s', prompt + 1, 'font-weight: bold;', this._prompts[prompt].question);
-    } else if ((prompt = this._prompts.length)) {
-      this._promptReward();
+  _promptQuestion(current = 0) {
+    if (typeof this._prompts[current] !== 'undefined') {
+      const prompts = this._prompts[current];
+      console.info('Question #%s: %c%s', current + 1, 'font-weight: bold;', prompts.question);
     }
   }
 
   /**
-   * Prompt the hint to the user
+   * Prompt a hint
    * @param {string} hint
    * @return {void}
    */
@@ -186,34 +178,41 @@ export class M100 {
 
   /**
    * Prompt reward
+   * @param {boolean} giveYouUp
    * @return {void}
    */
-  async _promptReward() {
+  _promptReward(giveYouUp = false) {
     console.info('%c%s', 'font-weight: bold; font-size: 1.25em;', this._reward.headline);
     for (const iterator of this._reward.body) {
       console.info(iterator);
     }
-    this._delay(1000);
-    // location= 'https://www.youtube.com/v/dQw4w9WgXcQ';
+    this._setTheme('phosphor');
+    if (giveYouUp) {
+      const delay = 3;
+      this._countdown(delay);
+      setTimeout(() => {
+        this._giveYouUp();
+      }, delay * 1000);
+    }
   }
 
   /**
    * Check the answer
-   * @param {number} prompt
+   * @param {number} current
    * @param {string} value
    * @return {void}
    */
-  _checkAnswer(prompt, value) {
-    const prompts = this._prompts[prompt];
+  _checkAnswer(current, value) {
+    const prompts = this._prompts[current];
     if (value.toString().toLowerCase() == prompts.answer.toString().toLowerCase()) {
       // Correct
       console.info('You answered: %c%s', 'font-weight: bold; font-style: italic; background: #0d652d; color: white; padding: .25em;', value.toString());
       console.info(prompts.responseCorrect);
-      this._setCurrent(prompt + 1);
+      this._setCurrent(current + 1);
       if (this._current < this._prompts.length) {
         this._promptQuestion(this._current);
       } else if ((this._current = this._prompts.length)) {
-        this._promptReward();
+        this._promptReward(true);
       }
     } else {
       // Incorrect
@@ -221,6 +220,23 @@ export class M100 {
       console.info('%c%s', 'font-weight: bold;', prompts.responseIncorrect);
       this._promptHint(prompts.hint);
     }
+  }
+
+  /**
+   * Toggle ChromeOS theme
+   * @param {string} theme
+   * @return {void}
+   */
+  _setTheme(theme = null) {
+    localStorage.setItem('chromeos-theme', theme);
+  }
+
+  /**
+   * You know the rules and so do I
+   * @return {void}
+   */
+  _giveYouUp() {
+    window.location = 'https://www.youtube.com/v/dQw4w9WgXcQ';
   }
 
   /**
@@ -232,5 +248,20 @@ export class M100 {
     return new Promise((resolve) => {
       setTimeout(resolve, milliseconds);
     });
+  }
+
+  /**
+   * Countdown...
+   * @param {number} count
+   * @param {number} interval
+   */
+  _countdown(count, interval = 1000) {
+    const timer = setInterval(function () {
+      console.log(count);
+      count = count - 1;
+      if (count <= 0) {
+        clearInterval(timer);
+      }
+    }, interval);
   }
 }
