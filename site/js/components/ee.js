@@ -198,7 +198,7 @@ export class M100 {
    * @return {void}
    */
   _checkAnswer(prompt, value) {
-    const prompts = this._promtps[prompt];
+    const prompts = this._prompts[prompt];
     if (value.toString().toLowerCase() == prompts.answer.toString().toLowerCase()) {
       // Correct
       console.info('You answered: %c%s', 'font-weight: bold; font-style: italic; background: #0d652d; color: white; padding: .25em;', value.toString());
