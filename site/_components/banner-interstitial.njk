@@ -1,0 +1,35 @@
+<!--{#
+  Renders a full-width banner that transitions to a contained banner.
+
+  @param {object} content: An object containing the following attributes.
+  @param {string} content.eyebrow
+  @param {string} content.title
+  @param {string} content.copy
+
+  @param {object} image
+  @param {string} image.src
+  @param {string} image.alt
+
+  @param {object} cta (optional): An object containing the following attributes.
+  @param {string} cta.text
+  @param {string} cta.url
+
+  @param {string} locale - Code for the current locale.
+#}-->
+{% from 'icon.njk' import icon %} {% macro bannerInterstitial(content, image, cta, locale) %}
+<article class="banner-interstitial wrapper wrapper--padded wrapper--full-bleed wrapper__contained {{'banner-interstitial--no-cta' if not cta}}">
+  <div class="banner-interstitial__inner">
+    <div class="banner-interstitial__content">
+      <div class="banner-interstitial__text">
+        <small class="banner-interstitial__eyebrow type--h1">{{content.eyebrow}}</small>
+        <h2 class="banner-interstitial__title type--mega">{{content.title}}</h2>
+        <p class="banner-interstitial__copy type--large">{{content.copy}}</p>
+        {% if cta is defined %}<a href="{% if locale is defined %}/{{locale}}/{% endif %}{{cta.url}}" class="cta cta--transparent banner-interstitial__cta"> {{cta.text}} </a>{% endif %}
+      </div>
+      <div class="banner-interstitial__image-wrapper">
+        <img src="{{image.src}}" alt="{{image.alt}}" class="banner-interstitial__image" />
+      </div>
+    </div>
+  </div>
+</article>
+{% endmacro %}

@@ -2,8 +2,8 @@
 title: Helping students fall in love with building technology with Piper's Shree Bose
 metadesc: In honor of International Women's Day we interviewed Shree Bose, co-founder of Piper, about her quest to help people become passionate about creating technology.
 tags:
-  - success story
   - web
+  - success story
 authors:
   - hadrosaur
 date: 2022-03-15
