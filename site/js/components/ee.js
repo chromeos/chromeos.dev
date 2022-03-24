@@ -196,9 +196,9 @@ export class M100 {
    */
   _checkAnswer(prompt, value) {
     // console.info('Question #%s: %c%s', prompt + 1, 'font-weight: bold; font-style: italic;', this._promptQuestion(prompt, true));
-    if (value == this.text.answers[prompt]) {
+    if (value.toString().toLowerCase() == this.text.answers[prompt].toString().toLowerCase()) {
       // Correct
-      console.info('You answered: %c%s', 'font-weight: bold; font-style: italic; background: #0d652d; color: white; padding: .25em;', value);
+      console.info('You answered: %c%s', 'font-weight: bold; font-style: italic; background: #0d652d; color: white; padding: .25em;', value.toString());
       console.info(this.text.prompts[prompt].responseCorrect);
       this._setCurrentPrompt(prompt + 1);
       if (this.curPrompt < this.text.prompts.length) {
