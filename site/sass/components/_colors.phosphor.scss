@@ -18,7 +18,7 @@
     'tertiary-yellow': map-get($phosphor-colors, 'yellow-250'),
     'tertiary-red': map-get($phosphor-colors, 'red-250'),
     'black': map-get($phosphor-colors, 'grey-900'),
-    'white': #ffffff,
+    'white': map-get($phosphor-colors, 'grey-50'),
   );
 
   @each $c, $v in $theming-colors {

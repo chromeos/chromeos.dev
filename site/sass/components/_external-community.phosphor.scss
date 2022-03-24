@@ -1,0 +1,44 @@
+// Styles for the external community with logo.
+
+.external-community {
+  $logo-size: 3rem;
+  $max-width: 7.5rem;
+
+  flex: 1 0 $max-width;
+  max-width: $max-width;
+  text-decoration: none;
+
+  &__liner {
+    align-items: center;
+    border: 1px solid var(--blue-850);
+    border-radius: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-self: center;
+    padding: 1rem 0.25rem;
+    text-align: center;
+  }
+
+  &__logo {
+    height: $logo-size;
+    margin-bottom: 1rem;
+    max-height: initial;
+    width: $logo-size;
+  }
+
+  &__copy-wrapper {
+    color: var(--grey-850);
+    line-height: 1.3;
+  }
+
+  &__topic,
+  &__text {
+    display: block;
+  }
+
+  &__title {
+    font-weight: $font-weight-bold;
+    margin-bottom: 0.75rem;
+  }
+}
