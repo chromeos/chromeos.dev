@@ -98,7 +98,7 @@ export class M100 {
 
   /**
    * Gets the current prompt value from local storage.
-   * @return {int} - current prompt value
+   * @return {number} - current prompt value
    */
   _getCurrentPrompt() {
     const curPrompt = parseInt(localStorage.getItem('chromeos-m100-current-prompt'));
@@ -107,7 +107,7 @@ export class M100 {
 
   /**
    * Sets the current prompt value.
-   * @param {int} value - the current prompt integer value
+   * @param {number} value - the current prompt integer value
    * @return {void}
    */
   _setCurrentPrompt(value) {
@@ -126,7 +126,7 @@ export class M100 {
 
   /**
    * Gets the current quiz start value from local storage.
-   * @return {int} - current quiz start value
+   * @return {number} - current quiz start value
    */
   _getQuizStart() {
     const quizStart = !!localStorage.getItem('chromeos-m100-quiz-start');
@@ -135,7 +135,7 @@ export class M100 {
 
   /**
    * Sets the current quiz start value.
-   * @param {int} value - the current quiz start integer value
+   * @param {number} value - the current quiz start integer value
    * @return {void}
    */
   _setQuizStart(value) {
@@ -154,7 +154,9 @@ export class M100 {
 
   /**
    * Prompt the question to the user
-   * @param {int} prompt
+   * @param {number} prompt
+   * @param {boolean} ret - return text (true) vs prompt text (false|default)
+   * @return {string|void}
    */
   _promptQuestion(prompt = 0, ret = false) {
     if (prompt < this.text.prompts.length && this.text.prompts[prompt].question.length > 0) {
@@ -169,7 +171,8 @@ export class M100 {
 
   /**
    * Prompt the hint to the user
-   * @param {int} prompt
+   * @param {number} prompt
+   * @return {void}
    */
   _promptHint(prompt) {
     if (this.text.prompts[prompt].hint.length > 0) {
@@ -179,7 +182,7 @@ export class M100 {
 
   /**
    * Prompt reward
-   * @param {int} prompt
+   * @return {void}
    */
   _promptReward() {
     console.info('%c%s', 'font-weight: bold; font-size: 1.25em;', this.text.reward.headline);
@@ -190,7 +193,7 @@ export class M100 {
 
   /**
    * Check the answer
-   * @param {int} prompt
+   * @param {number} prompt
    * @param {string} value
    * @return {void}
    */
@@ -216,7 +219,7 @@ export class M100 {
 
   /**
    * Set a delay timer
-   * @param {int} milliseconds
+   * @param {number} milliseconds
    * @return {void}
    */
   _delay(milliseconds) {
