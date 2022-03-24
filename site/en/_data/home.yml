@@ -88,37 +88,12 @@ stats:
       modifiers:
         shape: triangle
         scale: half
-onAndWith:
-  desc: Build for Chrome OS, build on Chrome OS
-  cards:
-    - images:
-        - src: ix://landings/home/linux-laptop-base.png
-          alt: A Chromebook.
-        - src: ix://landings/home/android-studio.png
-          alt: Android Studio running on Chrome OS.
-        - src: ix://landings/home/terminal.png
-          alt: The Terminal app for Linux on Chrome OS.
-      content:
-        title: Bring ideas to life with Linux on Chrome OS
-        copy: Linux on Chrome OS gives you the power to use a single machine to build and run Android, Web, and Linux apps using your favorite editors, IDES, and world-class devs tools. Just set up Linux on Chrome OS to start building.
-      cta:
-        url: /en/linux
-        text: Start with Linux
-      modifiers:
-        offset: true
-    - images:
-        - src: ix://landings/home/design-resources-laptop.png
-          alt: A large-screen app on a laptop showing how specific elements, highlighted in blue, yellow, green, and red, have been adapted from a small-screen app on a phone (the following image).
-        - src: ix://landings/home/design-resources-phone.png
-          alt: A small-screen app on a phone with blue and yellow highlighted elements prior to adapting to a large-screen app (the previous image).
-      content:
-        title: Jumpstart your latest project with design resources for Chrome OS
-        copy: Find everything you need to know about designing your app for and on Chrome OS with app guidelines including information on user experience, visual design, UI components, navigation, fonts, and more.
-      cta:
-        url: /en/android/design
-        text: See design resources
-      modifiers:
-        offset: true
+caseStudies:
+  title: Get inspired
+  subtitle: Explore how brands are unlocking more possibilities with Chrome OS.
+  cta:
+    text: All Case Studies
+    url: news
 posts:
   title: The latest on Chrome OS
   modifiers:
@@ -127,15 +102,23 @@ posts:
     cta:
       text: All Articles
       url: news
-featured:
-  modifiers:
-    custom: landing--news-grey-overlay
 subnav:
   content:
     title: Helpful resources at every stage.
   modifiers:
     subtitle: Unlock your app's potential with our extensive library of tools and resources.
     variant: subnav
+m100:
+  image:
+    src: ix://devices/HP_color_chromebook_stylus.png
+    alt: A partially opened Samsung Chromebook next to a stylus.
+  content:
+    eyebrow: M100 Launch
+    title: New Features
+    copy: Coming in all shapes and sizes, Chromebooks are speedy, simple, secure, and run Chrome OS.
+  cta:
+    url: news
+    text: Learn more
 chromebook:
   image:
     src: ix://home/chromebooks-device.1500.png
