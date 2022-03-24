@@ -7,15 +7,15 @@ tags:
   - web
 ---
 
-[Chrome OS LTS](https://support.google.com/chrome/a/answer/11333726?hl=en) is the long term support channel (LTS) for Chrome OS devices that is targeted by education and enterprise users of Chrome OS. Normally, Chrome OS receives a new update every four weeks to their stable channel. The long-term support channels have a slower release cadence than the Stable channel. Devices still continue to receive frequent security fixes, but they only get feature updates every 6 months. Many schools have already moved to the LTS channel as it lowers the burden on schools to certify that the version of Chrome OS that they have deployed works with all their application needs.
+[Chrome OS LTS](https://support.google.com/chrome/a/answer/11333726?hl=en) is the long term support channel (LTS) for Chrome OS devices that is targeted to education and enterprise users of Chrome OS. Normally, Chrome OS receives a new update every four weeks to their stable channel. The long-term support channels have a slower release cadence than the Stable channel. Devices still continue to receive frequent security fixes, but they only get feature updates every 6 months. Many schools have already moved to the LTS channel as it lowers the burden on schools to certify that the version of Chrome OS that they have deployed works with all their application needs.
 
-## How should I test my app for schools?
+## How should I test my app for LTS users?
 
 To ensure that your app works for schools and enterprises, you will want to make sure that your app can be deployed on an LTS channel and then certify that all functionality works within that LTS channel and the previous LTS channel. The LTS channel is updated every six months with a six version difference and the [current release schedule can be found here](https://chromiumdash.appspot.com/schedule). That means that if today the LTS channel is on Chrome 96, we can expect that the next LTS release will be on Chrome 102. There is also a long-term support candidate (LTC) release that occurs every six months as well. Three months after the LTS release, the LTC release is updated until the next LTS release. We encourage education developers to start testing their application on the dev channel of a Chromebook to prepare for the next LTC candidate three months after release of the LTS channel.
 
 ### How can I install a Chrome OS LTS/LTC version on my Chromebook for testing?
 
-If you are interested in using an LTS/LTC release on your Chromebook to test your application, you will can follow the [instructions here](https://support.google.com/chrome/a/answer/11333726) to deploy a LTS license to a device.
+If you are interested in using an LTS/LTC release on your Chromebook to test your application, you can follow the [instructions here](https://support.google.com/chrome/a/answer/11333726) to deploy a LTS license to a device.
 
 ## What happens if I implement new features in my app or extension?
 
