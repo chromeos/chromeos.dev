@@ -60,6 +60,10 @@ export class M100 {
     }
   }
 
+  r() {
+    this._promptReward();
+  }
+
   /**
    * Get started
    * @return {void}
@@ -184,11 +188,13 @@ export class M100 {
    * Prompt reward
    * @return {void}
    */
-  _promptReward() {
+  async _promptReward() {
     console.info('%c%s', 'font-weight: bold; font-size: 1.25em;', this._reward.headline);
     for (const iterator of this._reward.body) {
       console.info(iterator);
     }
+    this._delay(1000);
+    // location= 'https://www.youtube.com/v/dQw4w9WgXcQ';
   }
 
   /**
