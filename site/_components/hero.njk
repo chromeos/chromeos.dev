@@ -12,11 +12,14 @@
   @param {string} content.cta.url: String representing the CTA url.
   @param {string} content.cta.text: String representing the CTA text.
  #}-->
-{% macro hero(content) -%}
-<article class="hero">
-  <section class="hero__copy-wrapper hero__copy-wrapper--padded">
-    <small class="hero__eyebrow type--eyebrow">{{content.eyebrow}}</small>
-    <h1 class="type--h1">{{content.title}}</h1>
+{% from 'icon.njk' import icon %} {% macro hero(content) -%} {% set tagSlug = content.tag | slugify %}
+<article class="hero {% if content.tag %}hero__background--{{tagSlug}}{% endif %}">
+  <section class="hero__copy-wrapper">
+    <header class="hero__header">
+      {% if content.tag %} {{icon(tagSlug, 'hero__icon')}} {% endif %}
+      <small class="hero__eyebrow type--eyebrow">{{content.eyebrow}}</small>
+      <h1 class="type--h1">{{content.title}}</h1>
+    </header>
     <p class="type--h4">{{content.desc}}</p>
     <a class="hero__link cta cta--link cta--right-icon" href="{{content.cta.url}}">{{content.cta.text}}</a>
   </section>

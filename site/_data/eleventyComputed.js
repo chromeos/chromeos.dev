@@ -293,6 +293,7 @@ module.exports = {
           text: get(data, 'microcopy.more'),
           url: get(data, 'page.url'),
         },
+        tag: get(data, 'tags[0]'),
       };
 
       const images = dataFallback('featured.images', 'hero')(data);

@@ -2,20 +2,37 @@
 @use 'sass:math';
 
 .hero {
-  $max-width: 1440px;
-  $scaler: math.div(math.div($max-width, 100), 1vw);
-
-  $inline-spacing-s: 1.5rem;
-  $inline-spacing-l: 5rem;
-  $spacing: clamp($inline-spacing-s, (math.div($inline-spacing-l, 1rem) * math.div(16px, $scaler)), $inline-spacing-l);
-
   align-items: center;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
 
-  &__copy-wrapper {
-    &--padded {
-      padding: $spacing;
+  &__background {
+    &--games {
+      background-color: var(--pink-25);
+    }
+
+    &--web {
+      background-color: var(--blue-30);
+    }
+
+    &--base-os {
+      background-color: var(--yellow-75);
+    }
+
+    &--android {
+      background-color: var(--green-25);
+    }
+
+    &--event {
+      background-color: var(--yellow-80);
+    }
+
+    &--announcement {
+      background-color: var(--red-25);
+    }
+
+    &--leader-s-corner {
+      background-color: var(--purple-75);
     }
   }
 
@@ -29,6 +46,7 @@
   }
 
   &__link {
+    color: var(--secondary-blue);
     margin-top: 1.5rem;
   }
 
