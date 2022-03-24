@@ -100,13 +100,17 @@
 @import 'globals/colors.phosphor';
 @import 'globals/vars.phosphor';
 @import 'components/colors.phosphor';
-@import 'components/wrapper.phosphor';
-@import 'components/card-routing.phosphor';
-@import 'components/card-subnav.phosphor';
-@import 'components/card.phosphor';
-@import 'components/external-community.phosphor';
-@import 'components/header.phosphor';
-@import 'components/stats.phosphor';
-@import 'components/search-box.phosphor';
-@import 'components/call-out.phosphor';
-@import 'components/body.phosphor';
+
+.phosphor {
+  /* stylelint-disable no-invalid-position-at-import-rule */
+  @import 'components/wrapper.phosphor';
+  @import 'components/card-routing.phosphor';
+  @import 'components/card-subnav.phosphor';
+  @import 'components/card.phosphor';
+  @import 'components/external-community.phosphor';
+  @import 'components/header.phosphor';
+  @import 'components/stats.phosphor';
+  @import 'components/search-box.phosphor';
+  @import 'components/call-out.phosphor';
+  @import 'components/body.phosphor';
+}
