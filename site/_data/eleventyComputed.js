@@ -16,7 +16,58 @@
 /* eslint-env node */
 
 const get = require('lodash.get');
-const { propSort, dateSort } = require('../../lib/helpers/sort');
+const { dateSort } = require('../../lib/helpers/sort');
+
+/**
+ * Determines what stories to feature.
+ * For the home page, up to three stories can be feature, looking to ensure that at least two of the stories are of different types.
+ * For the landing page, the most recent featured story that is not featured on the home page is used, falling back to the most recent featured story if all featured stories are used on the home page.
+ * @param {Object[]} content Array of content objects
+ * @return {Object} Object containing the featured stories, in order, for the home and landing pages
+ */
+function determineFeaturedStories(content) {
+  const home = [];
+  let landing = content[0].data.featured;
+
+  const homeTags = [];
+  const homeFiles = [];
+
+  for (const c of content) {
+    const type = get(c, 'data.tags[1]');
+    if (type) {
+      if (home.length < 3) {
+        home.push(get(c, 'data.featured'));
+        homeFiles.push(get(c, 'outputPath'));
+
+        // Only want to count unique tags.
+        if (!homeTags.includes(type)) {
+          homeTags.push(type);
+        }
+      } else if (homeTags.length > 1 || !homeTags.includes(type)) {
+        home.push(get(c, 'data.featured'));
+        homeFiles.push(get(c, 'outputPath'));
+        break;
+      }
+    }
+  }
+
+  // If there are 3 or more featured stories, and they all have the same type, feature the first three on the homepage
+  if (content.length >= 3 && home.length < 3) {
+    home.push(get(content[2], 'data.featured'));
+  }
+
+  for (const c of content) {
+    if (!homeFiles.includes(get(c, 'outputPath'))) {
+      landing = get(c, 'data.featured');
+      break;
+    }
+  }
+
+  return {
+    home,
+    landing,
+  };
+}
 
 /**
  * Gets the l10n version, if available, otherwise falls back to the existing value
@@ -248,6 +299,7 @@ module.exports = {
 
       if (Array.isArray(images)) {
         featured.images = images;
+        featured.media = images[0];
       } else {
         featured.images = [images.image, images.alt];
       }
@@ -278,15 +330,18 @@ module.exports = {
     const posts = (localeCollection('posts')(data) || []).sort(dateSort(false));
     const featured = (localeCollection('case-studies__featured')(data) || []).sort(dateSort(false));
     const featuredPost = (localeCollection('posts__featured')(data) || []).sort(dateSort(false));
-    const stories = localeCollection('case-studies')(data) || [];
+    const stories = (localeCollection('case-studies')(data) || []).sort(dateSort(false));
 
     const collections = {};
 
     if (featured && featured.length >= 1) {
+      const featuredStories = determineFeaturedStories(featured);
       collections.featured = {
         first: get(featured[0] || {}, 'data.featured'),
         second: get(featured[1] || {}, 'data.featured'),
         post: get(featuredPost[0] || {}, 'data.featured'),
+        home: featuredStories.home,
+        landing: featuredStories.landing,
       };
     }
 
@@ -306,9 +361,7 @@ module.exports = {
 
     if (stories && stories.length >= 1) {
       collections.stories = stories
-        .filter((i) => i.data.page.url !== get(collections, 'featured.second.cta.url'))
-        .sort(propSort({ prop: 'data.title', lowercase: true }))
-        .sort(propSort({ prop: 'data.weight', fallback: 0 }))
+        .filter((i) => i.data.page.url !== get(collections, 'featured.landing.cta.url'))
         .map((i) => ({
           eyebrow: get(i, 'data.tags[1]'),
           title: get(i, 'data.title'),
@@ -324,8 +377,6 @@ module.exports = {
             url: get(i, 'data.page.url'),
           },
         }));
-
-      collections.homeCaseStudies = collections.stories.slice(0, 3);
     }
 
     return collections;
