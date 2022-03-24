@@ -24,7 +24,7 @@ export class M100 {
         question: 'What year did Chrome OS and the first Chromebooks launch?',
         hint: 'We wrote a blog post about it.',
         responseCorrect: 'Nice!',
-        responseIncorrect: 'Let’s try that again.',
+        responseIncorrect: "Let's try that again.",
       },
       {
         question: 'How many millions of students and educators use Chromebooks?',
@@ -42,18 +42,17 @@ export class M100 {
         question: 'How many weeks are there between Chrome OS releases?',
         hint: 'Refer to Chromium Dash.',
         responseCorrect: 'Nice!',
-        responseIncorrect: 'You’re almost there!',
+        responseIncorrect: "You're almost there!",
       },
     ];
     this.text.answers = ['2011', '50', 'Crostini', '4'];
     this.text.reward = {
       headline: 'Huzzah!',
-      body: ["You're officially a Chrome OS insider. We've got more exciting things coming your way for our 100th software release. To stay in the know, sign up for our newsletter, and keep exploring the all-new ChromeOS.dev to help you build your next big idea.", "Thank you for all of your support, we couldn't have reached this milestone without you!"],
-      citation: 'The Chrome OS team',
+      body: ["You're officially a Chrome OS insider. We've got more exciting things coming your way for our 100th software release. To stay in the know, sign up for our newsletter, and keep exploring the all-new ChromeOS.dev to help you build your next big idea.", "Thank you for all of your support, we couldn't have reached this milestone without you!", 'The Chrome OS team'],
     };
 
     if (!this.quizStart) {
-      console.info('%c%s', 'font-weight: bold;', 'm100.start()');
+      console.warn('%c%s', 'font-weight: bold;', 'm100.start()');
     } else {
       this._promptQuestion(this.curPrompt);
     }
@@ -63,17 +62,15 @@ export class M100 {
    * Get started
    * @return {void}
    */
-  async start() {
-    await this.delay(200);
+  start() {
     if (!this.quizStart) {
       this._setQuizStart(true);
-      console.info('%c%s', 'font-weight: bold;', this.text.intro.headline);
-      await this.delay(500);
+      console.info('%c%s', 'font-weight: bold; background: #174ea6; color: white; padding: .25em;', this.text.intro.headline);
       for (const iterator of this.text.intro.body) {
         console.info(iterator);
-        await this.delay(500);
       }
     }
+    console.warn('Hint: to answer a question use: %c%s', 'font-family: monospace; font-weight: bold;', 'm100.answer(value);');
     this._promptQuestion(this.curPrompt);
   }
 
@@ -84,10 +81,10 @@ export class M100 {
    */
   answer(value) {
     if (!this.quizStart) {
-      console.error("I'm not sure what you are trying to answer.");
-      console.info('m100.start();');
+      console.error('Hmmm... what are you trying to answer?');
+    } else {
+      this._checkAnswer(this.curPrompt, value);
     }
-    this._checkAnswer(this.curPrompt, value);
   }
 
   /**
@@ -95,7 +92,7 @@ export class M100 {
    * @return {void}
    */
   clear() {
-    localStorage.removeItem('chromeos-m100-quiz-start');
+    this._clearQuizStart();
     this._clearCurrentPrompt();
   }
 
@@ -124,7 +121,7 @@ export class M100 {
    */
   _clearCurrentPrompt() {
     localStorage.removeItem('chromeos-m100-current-prompt');
-    this.curPrompt = false;
+    this.curPrompt = 0;
   }
 
   /**
@@ -159,12 +156,14 @@ export class M100 {
    * Prompt the question to the user
    * @param {int} prompt
    */
-  _promptQuestion(prompt, ret = false) {
-    if (this.text.prompts[prompt].question.length > 0) {
+  _promptQuestion(prompt = 0, ret = false) {
+    if (prompt < this.text.prompts.length && this.text.prompts[prompt].question.length > 0) {
       if (ret) {
         return this.text.prompts[prompt].question;
       }
-      console.info('%c%s', 'font-weight: bold;', this.text.prompts[prompt].question);
+      console.info('Question #%s: %c%s', prompt + 1, 'font-weight: bold;', this.text.prompts[prompt].question);
+    } else if ((prompt = this.text.prompts.length)) {
+      this._promptReward();
     }
   }
 
@@ -179,26 +178,38 @@ export class M100 {
   }
 
   /**
+   * Prompt reward
+   * @param {int} prompt
+   */
+  _promptReward() {
+    console.info('%c%s', 'font-weight: bold; font-size: 1.25em;', this.text.reward.headline);
+    for (const iterator of this.text.reward.body) {
+      console.info(iterator);
+    }
+  }
+
+  /**
    * Check the answer
    * @param {int} prompt
    * @param {string} value
    * @return {void}
    */
-  async _checkAnswer(prompt, value) {
-    await this.delay(200);
-    console.info('Question: %c%s', 'font-weight: bold; font-style: italic;', this._promptQuestion(prompt, true));
-    console.info('You answered: %c%s', 'font-weight: bold; font-style: italic;', value);
-    await this.delay(500);
+  _checkAnswer(prompt, value) {
+    // console.info('Question #%s: %c%s', prompt + 1, 'font-weight: bold; font-style: italic;', this._promptQuestion(prompt, true));
     if (value == this.text.answers[prompt]) {
       // Correct
+      console.info('You answered: %c%s', 'font-weight: bold; font-style: italic; background: #0d652d; color: white; padding: .25em;', value);
       console.info(this.text.prompts[prompt].responseCorrect);
       this._setCurrentPrompt(prompt + 1);
-      await this.delay(500);
-      console.info('Next question: %c%s', 'font-weight: bold; font-style: italic;', this._promptQuestion(this.curPrompt, true));
+      if (this.curPrompt < this.text.prompts.length) {
+        console.info('Question #%s: %c%s', this.curPrompt + 1, 'font-weight: bold;', this._promptQuestion(this.curPrompt, true));
+      } else if ((this.curPrompt = this.text.prompts.length)) {
+        this._promptReward();
+      }
     } else {
       // Incorrect
-      console.info(this.text.prompts[prompt].responseIncorrect);
-      await this.delay(1000);
+      console.info('You answered: %c%s', 'font-weight: bold; background: #a50e0e; color: white; padding: .25em;', value);
+      console.info('%c%s', 'font-weight: bold;', this.text.prompts[prompt].responseIncorrect);
       this._promptHint(prompt);
     }
   }
@@ -208,7 +219,7 @@ export class M100 {
    * @param {int} milliseconds
    * @return {void}
    */
-  delay(milliseconds) {
+  _delay(milliseconds) {
     return new Promise((resolve) => {
       setTimeout(resolve, milliseconds);
     });
