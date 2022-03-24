@@ -2,8 +2,16 @@ featured:
   modifiers:
     custom: landing--stories-full-bleed
 sections:
+  headings:
+    - tag: pwa
+      title: Progressive Web Applications
+      subtitle: A more powerful web. See how web developers big and small are taking advantage of new web capabilities and Google’s Play Store to deliver next-level user experiences.
+    - tag: games
+      title: Games
+      subtitle: Play on! See how companies are optimizing their games for Chrome OS to bring joy to even more people.
+    - tag: android
+      title: Android
+      subtitle: Watch your app grow. Learn how companies are adapting their Android apps to work across millions of large screens and new form factors.
   modifiers:
     custom: stories-section
     variant: stories
-    heading: h2
-    subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id elit vestibulum, vehicula massa quis, molestie tellus.
