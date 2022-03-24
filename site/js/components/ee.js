@@ -184,6 +184,17 @@ export class M100 {
   }
 
   /**
+   * Prompt the hint to the user
+   * @param {number} prompt
+   * @return {void}
+   */
+  _promptHint(prompt) {
+    if (this.text.prompts[prompt].hint.length > 0) {
+      console.info('Hint: %c%s', 'font-style: italic;', this.text.prompts[prompt].hint);
+    }
+  }
+
+  /**
    * Prompt reward
    * @return {void}
    */
@@ -201,7 +212,6 @@ export class M100 {
    * @return {void}
    */
   _checkAnswer(prompt, value) {
-    // console.info('Question #%s: %c%s', prompt + 1, 'font-weight: bold; font-style: italic;', this._promptQuestion(prompt, true));
     if (value.toString().toLowerCase() == this.text.promtps[prompt].answer.toString().toLowerCase()) {
       // Correct
       console.info('You answered: %c%s', 'font-weight: bold; font-style: italic; background: #0d652d; color: white; padding: .25em;', value.toString());
