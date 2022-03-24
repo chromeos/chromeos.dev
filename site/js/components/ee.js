@@ -11,38 +11,51 @@
  */
 export class M100 {
   constructor() {
-    this.curPrompt = this.getCurrentPrompt();
+    this.curPrompt = this._getCurrentPrompt() || 0;
+    this.quizStart = this._getQuizStart();
 
-    this.i1 = 'Ace our quiz for a surprise.';
-    this.i2 = 'Head on a short scavenger hunt to celebrate Chrome OS’s 100th release with us. All four answers can be found here on ChromeOS.dev; get them right for a fun surprise.';
-    this.i3 = 'Let’s go!';
-    this.q1 = 'What year did Chrome OS and the first Chromebooks launch?';
-    this.h1 = 'We wrote a blog post about it.';
-    this.a1 = '2011';
-    this.q2 = 'How many millions of students and educators use Chromebooks?';
-    this.h2 = 'Check the homepage.';
-    this.a2 = '50';
-    this.q3 = 'What’s the codename for Linux on Chrome OS?';
-    this.h3 = 'We mention it on the Linux page.';
-    this.a3 = 'Crostini';
-    this.q4 = 'How many weeks are there between Chrome OS releases?';
-    this.h4 = 'Refer to Chromium Dash.';
-    this.a4 = '4';
-    this.r1 = 'Huzzah!';
-    this.r2 = 'You’re officially a Chrome OS insider. We’ve got more exciting things coming your way for our 100th software release. To stay in the know, sign up for our newsletter, and keep exploring the all-new ChromeOS.dev to help you build your next big idea.';
-    this.r3 = 'Thank you for all of your support, we couldn’t have reached this milestone without you!';
-    this.r4 = 'The Chrome OS team';
-    this.e1 = 'It looks like you have already started the quiz.';
-    this.e2 = '';
+    this.text = {};
+    this.text.intro = {
+      headline: 'Ace our quiz for a surprise.',
+      body: ["Head on a short scavenger hunt to celebrate Chrome OS's 100th release with us. All four answers can be found here on ChromeOS.dev; get them right for a fun surprise.", "Let's go!"],
+    };
+    this.text.prompts = [
+      {
+        question: 'What year did Chrome OS and the first Chromebooks launch?',
+        hint: 'We wrote a blog post about it.',
+        responseCorrect: 'Nice!',
+        responseIncorrect: 'Let’s try that again.',
+      },
+      {
+        question: 'How many millions of students and educators use Chromebooks?',
+        hint: 'Check the homepage.',
+        responseCorrect: 'Nice!',
+        responseIncorrect: 'Not quite.',
+      },
+      {
+        question: "What's the codename for Linux on Chrome OS?",
+        hint: 'We mention it on the Linux page.',
+        responseCorrect: 'Nice!',
+        responseIncorrect: 'Hmm, try again.',
+      },
+      {
+        question: 'How many weeks are there between Chrome OS releases?',
+        hint: 'Refer to Chromium Dash.',
+        responseCorrect: 'Nice!',
+        responseIncorrect: 'You’re almost there!',
+      },
+    ];
+    this.text.answers = ['2011', '50', 'Crostini', '4'];
+    this.text.reward = {
+      headline: 'Huzzah!',
+      body: ["You're officially a Chrome OS insider. We've got more exciting things coming your way for our 100th software release. To stay in the know, sign up for our newsletter, and keep exploring the all-new ChromeOS.dev to help you build your next big idea.", "Thank you for all of your support, we couldn't have reached this milestone without you!"],
+      citation: 'The Chrome OS team',
+    };
 
-    if (!this.curPrompt) {
-      // Quiz not started
-      console.info('%c%s', 'font-weight: bold;', this.i1);
-      console.info(this.i2);
-      console.info(this.i3);
-      console.info('Run %c%s', 'font-weight: bold; font-family: monospace;', 'm100.start()', 'to get started.');
+    if (!this.quizStart) {
+      console.info('%c%s', 'font-weight: bold;', 'm100.start()');
     } else {
-      this.promptQuestion(this.curPrompt);
+      this._promptQuestion(this.curPrompt);
     }
   }
 
@@ -50,14 +63,18 @@ export class M100 {
    * Get started
    * @return {void}
    */
-  start() {
-    if (!this.curPrompt) {
-      // Quiz not started
-      this.setCurrentPrompt(1);
-    } else {
-      console.info(this.e1);
+  async start() {
+    await this.delay(200);
+    if (!this.quizStart) {
+      this._setQuizStart(true);
+      console.info('%c%s', 'font-weight: bold;', this.text.intro.headline);
+      await this.delay(500);
+      for (const iterator of this.text.intro.body) {
+        console.info(iterator);
+        await this.delay(500);
+      }
     }
-    this.promptQuestion(this.curPrompt);
+    this._promptQuestion(this.curPrompt);
   }
 
   /**
@@ -66,22 +83,28 @@ export class M100 {
    * @return {void}
    */
   answer(value) {
-    if (!this.curPrompt) {
-      console.error('uh oh!');
-      return null;
+    if (!this.quizStart) {
+      console.error("I'm not sure what you are trying to answer.");
+      console.info('m100.start();');
     }
-    this.checkAnswer(this.curPrompt, value);
+    this._checkAnswer(this.curPrompt, value);
+  }
+
+  /**
+   * Start over
+   * @return {void}
+   */
+  clear() {
+    localStorage.removeItem('chromeos-m100-quiz-start');
+    this._clearCurrentPrompt();
   }
 
   /**
    * Gets the current prompt value from local storage.
    * @return {int} - current prompt value
    */
-  getCurrentPrompt() {
+  _getCurrentPrompt() {
     const curPrompt = parseInt(localStorage.getItem('chromeos-m100-current-prompt'));
-    if (!curPrompt) {
-      return false;
-    }
     return curPrompt;
   }
 
@@ -90,7 +113,7 @@ export class M100 {
    * @param {int} value - the current prompt integer value
    * @return {void}
    */
-  setCurrentPrompt(value) {
+  _setCurrentPrompt(value) {
     localStorage.setItem('chromeos-m100-current-prompt', value);
     this.curPrompt = value;
   }
@@ -99,31 +122,49 @@ export class M100 {
    * Clear the current prompt value.
    * @return {void}
    */
-  clearCurrentPrompt() {
+  _clearCurrentPrompt() {
     localStorage.removeItem('chromeos-m100-current-prompt');
     this.curPrompt = false;
+  }
+
+  /**
+   * Gets the current quiz start value from local storage.
+   * @return {int} - current quiz start value
+   */
+  _getQuizStart() {
+    const quizStart = !!localStorage.getItem('chromeos-m100-quiz-start');
+    return quizStart;
+  }
+
+  /**
+   * Sets the current quiz start value.
+   * @param {int} value - the current quiz start integer value
+   * @return {void}
+   */
+  _setQuizStart(value) {
+    localStorage.setItem('chromeos-m100-quiz-start', value);
+    this.quizStart = value;
+  }
+
+  /**
+   * Clear the current quiz start value.
+   * @return {void}
+   */
+  _clearQuizStart() {
+    localStorage.removeItem('chromeos-m100-quiz-start');
+    this.quizStart = false;
   }
 
   /**
    * Prompt the question to the user
    * @param {int} prompt
    */
-  promptQuestion(prompt) {
-    switch (prompt) {
-      case 1:
-        console.info(this.q1);
-        break;
-      case 2:
-        console.info(this.q2);
-        break;
-      case 3:
-        console.info(this.q3);
-        break;
-      case 4:
-        console.info(this.q4);
-        break;
-      default:
-        console.info('Prompt: ', prompt);
+  _promptQuestion(prompt, ret = false) {
+    if (this.text.prompts[prompt].question.length > 0) {
+      if (ret) {
+        return this.text.prompts[prompt].question;
+      }
+      console.info('%c%s', 'font-weight: bold;', this.text.prompts[prompt].question);
     }
   }
 
@@ -131,72 +172,45 @@ export class M100 {
    * Prompt the hint to the user
    * @param {int} prompt
    */
-  promptHint(prompt) {
-    var hint = null;
-    switch (prompt) {
-      case 1:
-        hint = this.h1;
-        break;
-      case 2:
-        hint = this.h2;
-        break;
-      case 3:
-        hint = this.h3;
-        break;
-      case 4:
-        hint = this.h4;
-        break;
-      default:
-        hint = 'No hints available at this time.';
+  _promptHint(prompt) {
+    if (this.text.prompts[prompt].hint.length > 0) {
+      console.info('Hint: %c%s', 'font-style: italic;', this.text.prompts[prompt].hint);
     }
-    console.info('Hint: %c%s', 'font-style: italic;', hint);
   }
 
-  checkAnswer(prompt, value) {
-    var isCorrect = false;
-    var showHint = false;
-    switch (prompt) {
-      case 1:
-        if (value == this.a1) {
-          isCorrect = true;
-          this.setCurrentPrompt(2);
-        } else {
-          showHint = true;
-        }
-        break;
-      case 2:
-        if (value == this.a2) {
-          isCorrect = true;
-          this.setCurrentPrompt(3);
-        } else {
-          showHint = true;
-        }
-        break;
-      case 3:
-        if (value == this.a3) {
-          isCorrect = true;
-          this.setCurrentPrompt(4);
-        } else {
-          showHint = true;
-        }
-        break;
-      case 4:
-        if (value == this.a4) {
-          isCorrect = true;
-          this.setCurrentPrompt(5);
-        } else {
-          showHint = true;
-        }
-        break;
-    }
-    if (isCorrect) {
-      console.info('Correct!');
+  /**
+   * Check the answer
+   * @param {int} prompt
+   * @param {string} value
+   * @return {void}
+   */
+  async _checkAnswer(prompt, value) {
+    await this.delay(200);
+    console.info('Question: %c%s', 'font-weight: bold; font-style: italic;', this._promptQuestion(prompt, true));
+    console.info('You answered: %c%s', 'font-weight: bold; font-style: italic;', value);
+    await this.delay(500);
+    if (value == this.text.answers[prompt]) {
+      // Correct
+      console.info(this.text.prompts[prompt].responseCorrect);
+      this._setCurrentPrompt(prompt + 1);
+      await this.delay(500);
+      console.info('Next question: %c%s', 'font-weight: bold; font-style: italic;', this._promptQuestion(this.curPrompt, true));
     } else {
-      console.info('That is not correct. Try again.');
+      // Incorrect
+      console.info(this.text.prompts[prompt].responseIncorrect);
+      await this.delay(1000);
+      this._promptHint(prompt);
     }
-    this.promptQuestion(this.curPrompt);
-    if (showHint) {
-      this.promptHint(this.curPrompt);
-    }
+  }
+
+  /**
+   * Set a delay timer
+   * @param {int} milliseconds
+   * @return {void}
+   */
+  delay(milliseconds) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, milliseconds);
+    });
   }
 }
