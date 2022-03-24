@@ -25,27 +25,30 @@ export class M100 {
         hint: 'We wrote a blog post about it.',
         responseCorrect: 'Nice!',
         responseIncorrect: "Let's try that again.",
+        answer: 2011,
       },
       {
         question: 'How many millions of students and educators use Chromebooks?',
         hint: 'Check the homepage.',
         responseCorrect: 'Nice!',
         responseIncorrect: 'Not quite.',
+        answer: 50,
       },
       {
         question: "What's the codename for Linux on Chrome OS?",
         hint: 'We mention it on the Linux page.',
         responseCorrect: 'Nice!',
         responseIncorrect: 'Hmm, try again.',
+        answer: 'Crostini',
       },
       {
         question: 'How many weeks are there between Chrome OS releases?',
         hint: 'Refer to Chromium Dash.',
         responseCorrect: 'Nice!',
         responseIncorrect: "You're almost there!",
+        answer: 4,
       },
     ];
-    this.text.answers = ['2011', '50', 'Crostini', '4'];
     this.text.reward = {
       headline: 'Huzzah!',
       body: ["You're officially a Chrome OS insider. We've got more exciting things coming your way for our 100th software release. To stay in the know, sign up for our newsletter, and keep exploring the all-new ChromeOS.dev to help you build your next big idea.", "Thank you for all of your support, we couldn't have reached this milestone without you!", 'The Chrome OS team'],
@@ -199,7 +202,7 @@ export class M100 {
    */
   _checkAnswer(prompt, value) {
     // console.info('Question #%s: %c%s', prompt + 1, 'font-weight: bold; font-style: italic;', this._promptQuestion(prompt, true));
-    if (value.toString().toLowerCase() == this.text.answers[prompt].toString().toLowerCase()) {
+    if (value.toString().toLowerCase() == this.text.promtps[prompt].answer.toString().toLowerCase()) {
       // Correct
       console.info('You answered: %c%s', 'font-weight: bold; font-style: italic; background: #0d652d; color: white; padding: .25em;', value.toString());
       console.info(this.text.prompts[prompt].responseCorrect);
