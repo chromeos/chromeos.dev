@@ -271,7 +271,7 @@ const contributors = {
     work: {
       company: 'Google',
       org: 'Chrome OS',
-      title: 'Staff Software Engineer',
+      title: 'Software Engineer',
     },
   },
   edwintay: {
@@ -282,7 +282,7 @@ const contributors = {
     work: {
       company: 'Google',
       org: 'Chrome OS',
-      title: 'Senior Software Engineer',
+      title: 'Software Engineer',
     },
   },
   hikalium: {

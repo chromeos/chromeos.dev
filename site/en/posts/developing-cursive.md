@@ -1,6 +1,6 @@
 ---
-title: Developing Chrome Cursive, a PWA for Chrome OS
-metadesc: Learn about how the Chrome Cursive team built a Progressive Web App to offer a snappy note-taking app for Chromebooks.
+title: Developing Cursive, a PWA for Chrome OS
+metadesc: Learn about how the Cursive team built a Progressive Web App to offer a snappy note-taking app for Chromebooks.
 tags:
   - web
   - technical
@@ -14,11 +14,11 @@ authors:
 date: 2022-03-29
 ---
 
-_Since its creation, Chrome OS has showcased the best apps that the Web has to offer. However, there are certain experiences that users expect to have built-in on their devices but were missing on Chrome OS. We started building our own apps to meet these needs. While we have all sorts of technologies available to us as part of the operating system, we decided that the best way to meet user needs was building a Progressive Web App (PWA) using all the same technologies available outside of Google. Today we want to share some of the details behind building our latest app, [Chrome Cursive](http://cursive.apps.chrome)._
+_Since its creation, Chrome OS has showcased the best apps that the Web has to offer. However, there are certain experiences that users expect to have built-in on their devices but were missing on Chrome OS. We started building our own apps to meet these needs. While we have all sorts of technologies available to us as part of the operating system, we decided that the best way to meet user needs was building a Progressive Web App (PWA) using all the same technologies available outside of Google. Today we want to share some of the details behind building our latest app, [Cursive](http://cursive.apps.chrome)._
 
-[Chrome Cursive](http://cursive.apps.chrome) is a note-taking app built for the growing number of Chromebook owners using a stylus. As we looked at our requirements, we realized that a Progressive Web App was the best fit, allowing us to rely on the web platform for many of our features and make it easier to build stylus apps on the web at the same time.
+[Cursive](http://cursive.apps.chrome) is a note-taking app built for the growing number of Chromebook owners using a stylus. As we looked at our requirements, we realized that a Progressive Web App was the best fit, allowing us to rely on the web platform for many of our features and make it easier to build stylus apps on the web at the same time.
 
-![Animation of Chrome Cursive being used. First, a stylus circles a hand-written word, the circle starts to glow, then the stylus is used to drag and drop the word elsewhere in the canvas. Next, a hand written word is scribbled over by a stylus, the scribble stats to glow, then the stylus taps the scribble and the underlying word and scribble are removed from the canvas. Finally, a straight line is drawn with a stylus at the top of the canvas, it starts to glow, the stylus presses down in the middle and an anchor with up and down becomes visible on the line, and the stylus drags the anchor down, pushing the drawings below the line in the canvas down and adding whitespace on top.](ix://posts/developing-chrome-cursive/R_GIf2.gif)
+![Animation of Cursive being used. First, a stylus circles a hand-written word, the circle starts to glow, then the stylus is used to drag and drop the word elsewhere in the canvas. Next, a hand written word is scribbled over by a stylus, the scribble stats to glow, then the stylus taps the scribble and the underlying word and scribble are removed from the canvas. Finally, a straight line is drawn with a stylus at the top of the canvas, it starts to glow, the stylus presses down in the middle and an anchor with up and down becomes visible on the line, and the stylus drags the anchor down, pushing the drawings below the line in the canvas down and adding whitespace on top.](ix://posts/developing-chrome-cursive/R_GIf2.gif)
 
 ## App performance
 
@@ -36,4 +36,4 @@ Finally, let's switch to another type of performance – developer velocity. In 
 
 ## #UseThePlatform
 
-Both the web platform and ChromeOS have provided solutions for each of Chrome Cursive’s requirements. Each of the technologies we’ve used continue to see investment and improvement. As they evolve, we’re excited to take advantage of [new capabilities](https://chromeos.dev/en/web) the web and ChromeOS continue to offer, and to see what new apps you’ll be building on top of these platforms.
+Both the web platform and ChromeOS have provided solutions for each of Cursive’s requirements. Each of the technologies we’ve used continue to see investment and improvement. As they evolve, we’re excited to take advantage of [new capabilities](https://chromeos.dev/en/web) the web and ChromeOS continue to offer, and to see what new apps you’ll be building on top of these platforms.
