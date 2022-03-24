@@ -2,7 +2,7 @@
 
 .hero-animated {
   $scale-max: 1600px;
-  $flex-row: 792px;
+  $flex-row: 788px;
   $scale-range: ($flex-row $scale-max);
   column-gap: 2.5rem;
 
@@ -58,7 +58,10 @@
     flex: 1 1 pxRem(380px);
     margin: 0 auto;
     max-width: pxRem(768px);
-    transform: scale(1.25);
+
+    @include mq($flex-row) {
+      transform: scale(1.25);
+    }
   }
 
   &__background,
