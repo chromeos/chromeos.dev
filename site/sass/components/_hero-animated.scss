@@ -1,64 +1,49 @@
 // Styles for the animated hero.
 
 .hero-animated {
-  $bkpt-hero--medium: 600px;
-  $bkpt-hero--large: 1200px;
-  --heading-margin-start: pxRem(48px);
-  --wrapper-padding: pxRem(24px);
+  $scale-max: 1600px;
+  $flex-row: 792px;
+  $scale-range: ($flex-row $scale-max);
+  column-gap: 2.5rem;
 
-  display: grid;
-  grid-row-gap: 1rem;
-  grid-template-rows: repeat(3, min-content);
-  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
+  row-gap: 1.25rem;
 
-  @include mq($bkpt-hero--medium) {
-    --wrapper-padding: #{pxRem(40px)};
-  }
+  &__content {
+    align-self: center;
+    margin: pxRem(90px) auto 0;
+    max-width: 50ch;
+    text-align: center;
 
-  @include mq($bkpt-hero--large) {
-    grid-template-columns: 1fr repeat(3, minmax(min-content, pxRem(480px))) 1fr;
-    grid-template-rows: auto 1fr;
-  }
+    // Set flex after the content's width is already greater than flex-basis
+    @include mq(430px) {
+      flex: 1 0 pxRem(280px);
+    }
 
-  &.background::before {
-    background-color: var(--grey-100);
-    bottom: 0;
-    content: '';
-    display: block;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transform: translateY(var(--background-position, 125%)) rotate(-30deg) scaleX(4) scaleY(2);
-    z-index: -2;
-
-    @include mq($bkpt-hero--medium) {
-      --background-position: 120%;
+    @include mq($flex-row) {
+      margin-left: generateScaling($scale-range, (0 120px));
+      margin-top: 0;
+      text-align: revert;
     }
   }
 
-  &__heading {
-    margin-top: var(--heading-margin-start);
-    padding: 0 var(--wrapper-padding);
-    text-shadow: 1px 1px 1px var(--white);
-
-    @include mq($bkpt-hero--large) {
-      grid-column: 2 / span 2;
-      grid-row: 1;
-    }
+  &__heading,
+  &__copy {
+    color: var(--white);
   }
 
-  &__cta {
-    padding: 0 var(--wrapper-padding);
+  &__heading--accent {
+    color: var(--tertiary-blue);
+  }
 
-    @include mq($bkpt-hero--medium) {
-      grid-column: 1;
-      grid-row: 2;
-    }
+  &__copy {
+    margin: 0.75rem auto 0;
+    max-width: 38ch;
 
-    @include mq($bkpt-hero--large) {
-      grid-column: 2;
+    @include mq($flex-row) {
+      margin-left: 0;
     }
   }
 
@@ -68,19 +53,9 @@
 
   &__wrapper {
     display: grid;
-    padding: 0 var(--wrapper-padding) var(--wrapper-padding);
-
-    @include mq($bkpt-hero--medium) {
-      grid-column: 1;
-      grid-row: 2 / span 2;
-      z-index: -1;
-    }
-
-    @include mq($bkpt-hero--large) {
-      grid-column: 3 / span 2;
-      grid-row: 1 / span 2;
-      padding: var(--wrapper-padding) var(--wrapper-padding) var(--wrapper-padding) 0;
-    }
+    flex: 1 1 pxRem(380px);
+    margin: 0 auto;
+    max-width: pxRem(768px);
   }
 
   &__background,
@@ -89,19 +64,15 @@
     grid-row: 1;
   }
 
-  // Picture elements are added automatically by the build.
-  // We want to make sure all elements of the animation are equally set.
-  &__background picture,
   &__animation-item {
     animation: 0.5s ease-in-out 0.25s backwards hero-animated__page-load;
     display: block;
     height: 100%;
     width: 100%;
-  }
 
-  // @supports (--heading-margin-start: clamp(3rem, 7vw, 7.5rem)) was failing in safari.
-  @supports (margin: clamp(3rem, 7vw, 7.5rem)) {
-    --heading-margin-start: clamp(3rem, 7vw, 7.5rem);
+    &--hide {
+      opacity: 0;
+    }
   }
 
   // Animation setup

@@ -25,16 +25,19 @@ export class HeroAnimated {
   constructor(element) {
     // Create a set of constants to be reused throughout the class.
     const constants = {
-      wrapperSelector: '.hero-animated__animation',
-      animationItemClass: 'hero-animated__animation-item',
-      animationDelay: 2000,
-      animationName: 'Hero',
+      animation: {
+        delay: 2000,
+        name: 'Hero',
+      },
+      selectors: {
+        wrapper: '[data-wrapper]',
+        img: '[data-static]',
+      },
     };
-    constants.backgroundImageSelector = `img.${constants.animationItemClass}`;
     this.constants_ = Object.freeze(constants);
 
     this.elem_ = element;
-    this.backgroundImage_ = this.elem_.querySelector(this.constants_.backgroundImageSelector);
+    this.backgroundImage_ = this.elem_.querySelector(this.constants_.selectors.img);
     this.animation_ = {};
 
     // Start the animation in case lottie loaded before the background image.
@@ -53,15 +56,14 @@ export class HeroAnimated {
 
     /** @type {AnimationConfig} */
     this.animationConfig_ = {
-      container: this.elem_.querySelector(this.constants_.wrapperSelector),
+      container: this.elem_.querySelector(this.constants_.selectors.wrapper),
       animType: 'svg',
       loop: true,
       animationData: animationData,
       autoplay: false,
-      name: this.constants_.animationName,
+      name: this.constants_.animation.name,
       rendererSettings: {
         progressiveLoad: true,
-        className: this.constants_.animationItemClass,
       },
     };
 
@@ -96,9 +98,10 @@ export class HeroAnimated {
   startIfReady_() {
     if (this.backgroundImage_.complete && this.animation_.isLoaded) {
       setTimeout(() => {
+        this.backgroundImage_.classList.add('hero-animated__animation-item--hide');
         this.animation_.show();
         this.animation_.play();
-      }, this.constants_.animationDelay);
+      }, this.constants_.animation.delay);
     }
   }
 }

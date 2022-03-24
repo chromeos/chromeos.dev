@@ -2,7 +2,9 @@
   Renders a hero with an animation.
 
   Arguments:
-    @param {string[]} heading: List of strings representing heading lines. Each line will break with a <br/> tag.
+    @param {object} heading: An object with the following attributes.
+    @param {string} heading.default: Standard text, displayed in white.
+    @param {string} heading.accent (optional): Accented text, displayed in blue.
     @param {Object} cta: Object containing the CTA info.
     @param {string} cta.text: The CTA's text.
     @param {string} cta.url: The CTA's URL.
@@ -10,17 +12,23 @@
     @param {string} img.src: The image's source path.
     @param {string} img.alt: The image's atl text.
 #}-->
-{% macro heroAnimated(heading, cta, img) -%} {% set br = joiner("<br />") %}
-<div class="hero-animated background">
-  <h1 class="hero-animated__heading type--h1">{%- for title in heading -%}{{ br() | safe }}{{ title }}{%- endfor -%}</h1>
-  <div class="hero-animated__cta">
-    <a class="hero-animated__link cta cta--high" href="{{ cta.url }}">{{ cta.text }}</a>
+{% macro heroAnimated(heading, copy, cta, img) -%} {% set br = joiner("<br />") %}
+<div class="hero-animated">
+  <div class="hero-animated__content">
+    <h1 class="hero-animated__heading type--mega">{{heading.default}}{% if heading.accent is defined %} <span class="hero-animated__heading--accent">{{heading.accent}}</span>{% endif %}</h1>
+    {% if copy is defined %}
+    <h2 class="hero-animated__copy type--large">{{ copy }}</h2>
+    {% endif %} {% if cta is defined %}
+    <div class="hero-animated__cta">
+      <a class="hero-animated__link cta cta--transparent" href="{{ cta.url }}">{{ cta.text }}</a>
+    </div>
+    {% endif %}
   </div>
   <div class="hero-animated__wrapper">
     <div class="hero-animated__background">
-      <img class="hero-animated__animation-item" src="{{ img.src }}" alt="{{ img.alt }}" />
+      <img class="hero-animated__animation-item" src="{{ img.src }}" alt="{{ img.alt }}" data-static />
     </div>
-    <div class="hero-animated__animation"></div>
+    <div class="hero-animated__animation" data-wrapper></div>
   </div>
 </div>
 {%- endmacro %}
