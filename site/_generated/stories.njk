@@ -19,6 +19,6 @@ metadesc: Get the latest news, stories, resource articles, and case studies for 
 
   <!-- Case Studies -->
   {% if landingCollections.stories.length > 0 %}
-  <div class="wrapper wrapper--padded wrapper--padding">{{ itemGrid('Progressive web applications', landingCollections.stories, l10n.stories.sections.modifiers) }}</div>
+  <div class="wrapper wrapper--padded wrapper--padding">{{ itemGrid(l10n.stories.sections.headings, landingCollections.stories, l10n.stories.sections.modifiers) }}</div>
   {% endif %}
 </div>
