@@ -25,6 +25,6 @@ For web developers, you’ll find all your favorite Linux tools at your disposal
 
 Just like Chrome OS, Crostini doesn't limit you to one app platform — whether you're developing an Android app, Web app, or Linux app, you can run all the developer tools you need on your Chromebook. Any code editor or IDE that will run on Linux will run on Chrome OS. Visual Studio Code, Sublime Text, IntelliJ, and others are all [a few simple clicks away](https://chromeos.dev/en/web-environment).
 
-Lastly, to develop anything, you need a great device. We’ve recently released some exciting new convertible laptops such as the HP Chromebook Elite c1030 and Asus Chromebook Flip CX5. They’re two of the most powerful Chromebooks ever released and are both packaged in beautiful, lightweight designs. We highly recommend them for development. Check them out here.
+Lastly, to develop anything, you need a great device. We’ve recently released some exciting new convertible laptops such as the HP Chromebook Elite c1030 and Asus Chromebook Flip CX5. They’re two of the most powerful Chromebooks ever released and are both packaged in beautiful, lightweight designs. We highly recommend them for development. Check them out [here](https://www.google.com/chromebook/shop/).
 
-We can’t see what you build next!
+We can’t wait to see what you build next!
