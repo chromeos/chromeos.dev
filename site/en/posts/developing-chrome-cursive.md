@@ -18,6 +18,8 @@ _Since its creation, Chrome OS has showcased the best apps that the Web has to o
 
 [Chrome Cursive](http://cursive.apps.chrome) is a note-taking app built for the growing number of Chromebook owners using a stylus. As we looked at our requirements, we realized that a Progressive Web App was the best fit, allowing us to rely on the web platform for many of our features and make it easier to build stylus apps on the web at the same time.
 
+![Animation of Chrome Cursive being used. First, a stylus circles a hand-written word, the circle starts to glow, then the stylus is used to drag and drop the word elsewhere in the canvas. Next, a hand written word is scribbled over by a stylus, the scribble stats to glow, then the stylus taps the scribble and the underlying word and scribble are removed from the canvas. Finally, a straight line is drawn with a stylus at the top of the canvas, it starts to glow, the stylus presses down in the middle and an anchor with up and down becomes visible on the line, and the stylus drags the anchor down, pushing the drawings below the line in the canvas down and adding whitespace on top.](ix://posts/developing-chrome-cursive/R_GIf2.gif)
+
 ## App performance
 
 For a note-taking app, nothing is more critical than speed. Whether you're trying to capture a fleeting idea or searching for a specific subject, you don't want your tool to get in the way. Cursive took advantage of multiple existing web platform technologies to ensure it would keep up with our users' thoughts.
