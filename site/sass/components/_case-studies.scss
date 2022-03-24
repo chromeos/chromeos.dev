@@ -1,0 +1,42 @@
+.case-studies {
+  $break-feature-col: 690px;
+  $scale-max: 1600px;
+  $clamp-check: clamp(1px, 1vw, 2px);
+
+  &__header,
+  &__footer {
+    text-align: center;
+  }
+
+  &__subtitle {
+    color: var(--grey-700);
+    margin-top: 0.625rem;
+  }
+
+  &__content {
+    display: grid;
+    gap: 2rem 1.25rem;
+    margin-top: 4rem;
+
+    @supports (gap: $clamp-check) {
+      gap: generateScaling(($break-feature-col $scale-max), (20px 48px)) 1.25rem;
+    }
+
+    @include mq($break-feature-col) {
+      grid-template: auto / repeat(2, 1fr);
+    }
+  }
+
+  &__footer {
+    margin-top: 2.5rem;
+
+    @supports (margin-top: $clamp-check) {
+      margin-top: generateScaling((430px $scale-max), (48px 56px));
+    }
+  }
+
+  &__cta {
+    background-color: transparent;
+    display: inline-flex;
+  }
+}

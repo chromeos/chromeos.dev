@@ -114,6 +114,27 @@
     }
   }
 
+  &--stories & {
+    &__title {
+      max-width: unset;
+    }
+
+    &__title,
+    &__subtitle {
+      text-align: left;
+    }
+
+    &__content {
+      gap: 2.5rem 1.25rem;
+      margin-bottom: 1.5rem;
+      margin-top: 1.5rem;
+
+      @include mq(1058px) {
+        grid-template-columns: repeat(auto-fit, minmax(pxRem(400px), 1fr));
+      }
+    }
+  }
+
   &--circled &__content {
     border-image-outset: 300px;
     border-image-slice: 0 fill;
