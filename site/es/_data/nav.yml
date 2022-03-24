@@ -1,4 +1,4 @@
-- title: Apps & Juegos
+- title: Aprender
   desc: Descubra recursos para comenzar a crear sus aplicaciones de Android, aplicaciones web y juegos para Chrome OS.
   icon: game-controller
   sections:
@@ -25,6 +25,7 @@
       url: web-environment
     - title: Productividad
       url: productivity
-- title: Historias & Noticias
+- title: Historias
+  url: stories
+- title: Noticias
   url: news
-  alt: stories
