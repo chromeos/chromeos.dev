@@ -29,6 +29,6 @@ You should now see your kiosk application listed in your organizational unit wit
 
 We have the app set to “installed” but not to be launched automatically on our enterprise enrolled devices. This allows us to continue to use the Chrome OS device as usual with a normal boot and login sequence and then selectively launch our Chrome OS apps as we want to test them by clicking on the apps icon in the bottom left corner of the login screen on the Chrome OS device.
 
-![Home Screen Launch App Button](ix://education/testing-kiosk-apps/launch-apps-button.png 'Home Screen Launch App Button')
+![Home Screen Launch App Button](ix://education/testing-kiosk-apps/appLauncher.png 'Home Screen Launch App Button')
 
 Now that you have the Chrome Admin console configured, it is time to enterprise enroll your Chromebook and then assign that Chromebook into the organizational unit. To enroll a Chrome OS device, [this document](https://support.google.com/chrome/a/answer/1360534?hl=en) provides the most up to date information. After your device is enrolled, visiting `Devices > Chrome > Devices` will provide the opportunity to move the device to the organizational unit that you originally configured kiosk mode for. This then provides the Apps icon that we see in the figure above. If you do not see the Apps icon, login to the Chrome OS device and visit `chrome://policy` and click the **Reload Policies** button to reload the policies and then logout of the device. You should see the apps button appear. Otherwise, you can set the app to autolaunch in the Chrome Admin Console.
