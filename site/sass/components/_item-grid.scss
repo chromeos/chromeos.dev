@@ -120,6 +120,7 @@
       margin-right: unset;
       margin-top: 0.625rem;
       max-width: unset;
+      text-align: left;
 
       @include mq(430px) {
         margin-left: 1rem;
@@ -127,8 +128,8 @@
       }
     }
 
-    &__title,
     &__subtitle {
+      max-width: 60ch;
       text-align: left;
     }
 
