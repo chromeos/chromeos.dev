@@ -5,7 +5,8 @@
     @param {string} subtitle (optional): Text for a subtitle beneath the primary title.
     @param {array} items: List of item objects.
  #}-->
-{% from 'icon.njk' import icon %} {% from 'stories-card.njk' import storiesCard %} {% macro storiesSection(titles, items) %} {% for title in titles %}
+{% from 'icon.njk' import icon %} {% from 'stories-card.njk' import storiesCard %} {% macro storiesSection(titles, items) %} {% for title in titles %} {% for tag, item in items | groupby("tag") %} {% if title.tag == tag %}
+
 <header class="item-grid__header">
   {{ icon(title.tag, 'item-grid__icon') }}
   <h2 class="item-grid__title type--h2">{{title.title}}</h2>
@@ -15,4 +16,5 @@
 {% endif %}
 
 <div class="item-grid__content">{% for item in items %} {% if title.tag == item.tag %} {{storiesCard(item)}} {% endif %} {% endfor %}</div>
-{% endfor %} {% endmacro %}
+
+{% endif %} {% endfor %} {% endfor %} {% endmacro %}
