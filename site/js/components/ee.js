@@ -240,17 +240,6 @@ export class M100 {
   }
 
   /**
-   * Set a delay timer
-   * @param {number} milliseconds
-   * @return {void}
-   */
-  _delay(milliseconds) {
-    return new Promise((resolve) => {
-      setTimeout(resolve, milliseconds);
-    });
-  }
-
-  /**
    * Countdown...
    * @param {number} count
    * @param {number} interval
