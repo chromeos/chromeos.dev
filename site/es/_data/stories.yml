@@ -11,7 +11,7 @@ sections:
       subtitle:
     - tag: android
       title: Android
-      subtitle:
+      subtitle: Mira como crece tu aplicación. Aprende cómo distintas compañías están adaptando sus aplicaciones Android para que funcionen en millones de pantallas grandes y en nuevos tipos de dispositivos.
   modifiers:
     custom: stories-section
     variant: stories
