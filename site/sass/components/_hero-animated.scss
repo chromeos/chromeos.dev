@@ -44,11 +44,13 @@
 
     @include mq($flex-row) {
       margin-left: 0;
+      margin-top: generateScaling($scale-range, (20px 48px));
     }
   }
 
-  &__link {
-    display: inline-block;
+  &__cta {
+    display: inline-flex;
+    margin-top: generateScaling($scale-range, (20px 32px));
   }
 
   &__wrapper {
@@ -56,6 +58,7 @@
     flex: 1 1 pxRem(380px);
     margin: 0 auto;
     max-width: pxRem(768px);
+    transform: scale(1.25);
   }
 
   &__background,

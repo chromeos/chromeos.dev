@@ -4,7 +4,7 @@ hero:
     accent: engages with your app.
   copy: Tap into millions of users when you bring your apps and games to Chrome OS.
   img:
-    # TODO: swap with static asset of updated animation, src: ix://home/2022/static-hero.svg
+    # TODO: swap with static ix:// asset, src: ix://home/2022/static-hero.svg
     src: https://drive.google.com/uc?id=1mZhUcyVPbUf9KxvJFKQVumhOWZo7cUsd
     alt: 'Chromebook, tablet, mobile phone, foldable phone, stylus, and a mouse are shown. The devices with screens show the same image: a mix of colored circles, rounded bars, and lines in red, yellow, blue, and green colors. These objects cycle in unison.'
 routing:
