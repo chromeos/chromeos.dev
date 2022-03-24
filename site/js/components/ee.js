@@ -1,10 +1,4 @@
 /**
- * TO-DO
- *
- * Need a HELP function - to show question, available commands etc.
- */
-
-/**
  * Bootstrap the M100 Console Quiz
  */
 export class M100 {
