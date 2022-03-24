@@ -219,6 +219,116 @@ const contributors = {
       title: 'Developer Relations Engineer',
     },
   },
+  hadrosaur: {
+    name: {
+      given: 'Emilie',
+      family: 'Roberts',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Developer Relations Engineer',
+    },
+  },
+  bgeffon: {
+    name: {
+      given: 'Brian',
+      family: 'Geffon',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
+    },
+  },
+  joelaf: {
+    name: {
+      given: 'Joel',
+      family: 'Fernandes',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
+    },
+  },
+  jsbarnes: {
+    name: {
+      given: 'Jesse',
+      family: 'Barnes',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Engineering Manager',
+    },
+  },
+  dstockwell: {
+    name: {
+      given: 'Douglas',
+      family: 'Stockwell',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
+    },
+  },
+  edwintay: {
+    name: {
+      given: 'Edwin',
+      family: 'Tay',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
+    },
+  },
+  hikalium: {
+    name: {
+      given: 'Hikaru',
+      family: 'Nishida',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
+    },
+  },
+  suleiman: {
+    name: {
+      given: 'Suleiman',
+      family: 'Souhlal',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
+    },
+  },
+  sxm: {
+    name: {
+      given: 'Sangwhan',
+      family: 'Moon',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineering Manager',
+    },
+  },
+  kenh: {
+    name: {
+      given: 'Ken',
+      family: 'Hoetmer',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Product Lead, Apps Platforms',
+    },
+  },
 };
 
 module.exports = () => contributors; // By making this a function, it'll force Eleventy to reevaluate it every time it gets recompiled
