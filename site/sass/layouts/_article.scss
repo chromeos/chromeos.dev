@@ -1,12 +1,9 @@
 // Styles for the article layout.
-//
-// Customizations.
-//   --eyebrow-color: changes the top border color of the eyebrow, defaults to blue-600.
 
 .article {
   $default-eyebrow-color: map-get($google-colors, 'blue-600');
   $block-padding: 1.25rem;
-  --col-padding: 1.5rem;
+  --col-padding: 2.5rem;
 
   display: grid;
 
@@ -20,32 +17,12 @@
     grid-template-columns:
       1fr minmax(min-content, pxRem(300px)) minmax(50ch, 90ch)
       minmax(min-content, pxRem(300px)) 1fr;
-
-    // Background color for wider screens
-    &::before,
-    &::after {
-      background-color: var(--grey-100);
-      border-bottom: 1px solid var(--grey-300);
-      content: '';
-      grid-row: 3 / span 2;
-    }
-
-    &::before {
-      grid-column: 1 / span 1;
-    }
-
-    &::after {
-      grid-column: 5 / span 1;
-    }
   }
 
   &__hero {
-    background-color: var(--grey-900);
-
     @include mq($bkpt-articles--2-cols) {
       grid-column: 1 / span 2;
       grid-row: 1 / span 2;
-      min-height: pxRem(160px);
     }
 
     @include mq($bkpt-articles--3-cols) {
@@ -58,89 +35,14 @@
     }
   }
 
-  &__hero-image {
-    display: block;
-    height: 20vh;
-    max-height: pxRem(240px);
-    min-height: 10vh;
-    object-fit: cover;
-    width: 100%;
-
-    @include mq($bkpt-articles--2-cols) {
-      min-height: pxRem(160px);
-    }
-
-    @include mq($bkpt-articles--3-cols) {
-      height: 25vh;
-    }
-
-    &--opaque {
-      opacity: 0.8;
-    }
-
-    &--top {
-      object-position: 0% 0%;
-    }
-
-    &--middle {
-      object-position: 0% 50%;
-    }
-
-    &--bottom {
-      object-position: 0% 100%;
-    }
-
-    &--large {
-      height: 30vh;
-      max-height: pxRem(480px);
-
-      @include mq($bkpt-articles--3-cols) {
-        height: 40vh;
-        min-height: pxRem(240px);
-      }
-    }
-  }
-
-  &__eyebrow {
-    background-color: var(--white);
-    border-top: pxRem(8px) solid var(--eyebrow-color, $default-eyebrow-color);
-    padding: pxRem(24px) var(--col-padding);
-    position: relative;
-
-    @include mq($bkpt-articles--2-cols) {
-      grid-column: 2 / span 1;
-      grid-row: 2 / span 1;
-    }
-
-    @include mq($bkpt-articles--3-cols) {
-      grid-column: 3 / span 1;
-      padding-top: 2rem;
-    }
-  }
-
-  &__header {
-    color: var(--grey-900);
-    margin-bottom: pxRem(24px);
-    padding: 0 var(--col-padding);
-
-    @include mq($bkpt-articles--2-cols) {
-      grid-column: 2 / span 1;
-      grid-row: 3 / span 1;
-    }
-
-    @include mq($bkpt-articles--3-cols) {
-      grid-column: 3 / span 1;
-    }
-  }
-
   &__toc {
     margin-bottom: pxRem(48px);
-    padding: 0 var(--col-padding);
+    padding-top: var(--col-padding);
     position: relative;
 
     @include mq($bkpt-articles--2-cols) {
-      grid-column: 2 / span 1;
-      grid-row: 4 / span 1;
+      grid-column: 1 / span 2;
+      grid-row: 3 / span 1;
     }
 
     @include mq($bkpt-articles--3-cols) {
@@ -158,24 +60,16 @@
   }
 
   &__body {
-    border-bottom: 1px solid var(--grey-300);
-    margin-top: -5rem;
-    padding-top: 5rem;
-
     @include mq($bkpt-articles--2-cols) {
-      grid-column: 2 / span 1;
-      grid-row: 5 / span 1;
+      grid-column: 1 / span 2;
+      grid-row: 4 / span 1;
     }
 
     @include mq($bkpt-articles--3-cols) {
-      grid-column: 3 / span 1;
+      grid-column: 2 / span 2;
       grid-row: 4 / span 1;
+      padding-top: var(--col-padding);
     }
-  }
-
-  &__content {
-    padding-left: var(--col-padding);
-    padding-right: var(--col-padding);
   }
 
   &__content:not(:last-child) {

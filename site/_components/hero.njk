@@ -13,7 +13,7 @@
   @param {string} content.cta.text: String representing the CTA text.
  #}-->
 {% from 'icon.njk' import icon %} {% macro hero(content) -%} {% set tagSlug = content.tag | slugify %}
-<article class="hero {% if content.tag %}hero__background--{{tagSlug}}{% endif %}">
+<article class="hero {% if content.tag %}bg-pattern--{{tagSlug}}{% endif %}">
   <div class="wrapper--padded hero__content">
     <div class="hero__content-wrapper">
       {% if content.tag %}{{icon(tagSlug, 'hero__icon')}}{% endif %}

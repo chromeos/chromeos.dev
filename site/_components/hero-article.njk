@@ -1,0 +1,34 @@
+<!--{#
+  Renders a Hero with copy and an image (bottom in mobile, rigth desktop).
+
+  @param {object} content: Object containing the post's information
+  @param {string} content.eyebrow: String representing the hero eyebrow.
+  @param {string} content.title: String representing the page main title.
+  @param {string} content.copy: String with some additional text for the hero.
+  @param {object[]} content.images: Images to use
+  @param {string} content.images.image: String representing image path.
+  @param {string} content.images.alt: String representing the image alt.
+  @param {object} content.cta: Object representing the CTA information.
+  @param {string} content.cta.url: String representing the CTA url.
+  @param {string} content.cta.text: String representing the CTA text.
+ #}-->
+{% from 'icon.njk' import icon %} {% macro heroArticle(locale, parent, microcopy, tag, title, app={}) -%} {% set tagSlug = tag | slugify %}
+<article class="hero-article {% if tag %}bg-pattern--{{tagSlug}}{% endif %}">
+  {% if parent %}
+  <div class="wrapper--padded hero-article__back">
+    <a class="cta cta--back" href="/{{locale.code}}/{{ parent.url }}">{{ microcopy.breadcrumbs.replace('((t))', parent.title) }}</a>
+  </div>
+  {% endif %}
+  <div class="wrapper--padded hero-article__content">
+    <div class="hero-article__content-wrapper">
+      {% if tag %} {{icon(tagSlug, 'hero-article__icon')}}
+      <small class="hero-article__eyebrow type--eyebrow">{{tag}}</small>
+      {% endif %}
+      <h1 class="hero-article__title type--h1">{{title}}</h1>
+    </div>
+  </div>
+  <div class="hero-article__images">
+    <img class="hero-article__images--background-pattern" src="ix://landings/{{ parent.url }}/banner-{{tagSlug}}.svg" alt="" />
+  </div>
+</article>
+{%- endmacro %}
