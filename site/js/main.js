@@ -57,6 +57,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     offlineSearch.style.display = 'block';
   }
 
+  const { Theme } = await import('./components/theme');
+  new Theme();
+
   if (home) {
     const { Home } = await import('./components/home');
     new Home(home);
@@ -148,6 +151,9 @@ window.addEventListener('load', async () => {
       navigator.serviceWorker.register('/sw.js');
     }
   }
+
+  const { M100 } = await import('./components/ee');
+  window.m100 = new M100();
 });
 
 if ('serviceWorker' in navigator) {
