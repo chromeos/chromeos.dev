@@ -1,10 +1,12 @@
-// Styles for the hero 50 - 50, copy and images stacked on mobile, side by side on large.
+// Styles for the hero, copy and images stacked on mobile, side by side on large.
 @use 'sass:math';
 
 .hero {
-  align-items: center;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
+  $content-max-width: 100rem;
+
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 
   &__background {
     &--games {
@@ -36,23 +38,76 @@
     }
   }
 
+  &__content {
+    margin: 0 auto;
+    max-width: $content-max-width;
+    padding: clamp(2rem, 6vw, 3rem) 0;
+    position: relative;
+  }
+
+  &__images {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    @include mq(750px) {
+      bottom: 0;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      width: 50vw;
+      z-index: 0;
+    }
+
+    &--image {
+      height: 20vh;
+      position: absolute;
+      right: -3rem;
+      width: auto;
+      z-index: 2;
+
+      @include mq(750px) {
+        object-fit: contain;
+        position: relative;
+        right: unset;
+        width: 30vw;
+      }
+    }
+
+    &--background-pattern {
+      display: block;
+      height: 100%;
+      margin-left: auto;
+
+      @include mq(750px) {
+        bottom: 0;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+
+  &__content-wrapper {
+    max-width: 40ch;
+  }
+
+  &__icon {
+    height: 2rem;
+    margin-inline-end: 0.625rem;
+    width: 2rem;
+  }
+
   &__eyebrow {
     margin-bottom: 1rem;
   }
 
-  &__title,
-  &__copy {
-    margin-bottom: 1rem;
+  &__title {
+    margin: 1rem 0;
   }
 
   &__link {
     color: var(--secondary-blue);
     margin-top: 1.5rem;
-  }
-
-  &__image {
-    display: block;
-    margin: 0 auto;
-    max-height: initial;
   }
 }
