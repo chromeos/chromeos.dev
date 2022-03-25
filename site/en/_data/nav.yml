@@ -1,16 +1,22 @@
-- title: Adapt
-  desc: Discover resources to start building your Android apps, web apps, and games for Chrome OS.
+- title: Learn
+  desc: Discover resources to start building apps for Chrome OS
   icon:
     name: multi-device
     background: blue
   sections:
-    - title: Adapting Android
+    - title: Android
       url: android
-    - title: Adapting Web
+    - title: Web
       url: web
     - title: Games
       url: games
-- title: Build
+- title: Publish
+  desc: Learn about publishing your apps on the Google Play Store and engage millions of users on Chromebooks.
+  icon:
+    name: upload
+    background: green
+  url: publish
+- title: Develop
   desc: Use Chrome OS to develop apps in a fast, secure, and hassle-free environment.
   icon:
     name: bracket-monitor
@@ -24,13 +30,7 @@
       url: web-environment
     - title: Productivity
       url: productivity
-- title: Publish
-  desc: Learn about publishing your apps on the Google Play Store and engage millions of users on Chromebooks.
-  icon:
-    name: upload
-    background: green
-  url: publish
-- title: Stories
-  url: stories
 - title: News
   url: news
+- title: Stories
+  url: stories

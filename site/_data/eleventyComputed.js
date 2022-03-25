@@ -35,7 +35,7 @@ function determineFeaturedStories(content) {
   for (const c of content) {
     const type = get(c, 'data.tags[1]');
     if (type) {
-      if (home.length < 3) {
+      if (home.length < 2) {
         home.push(get(c, 'data.featured'));
         homeFiles.push(get(c, 'outputPath'));
 
@@ -303,6 +303,10 @@ module.exports = {
         featured.media = images[0];
       } else {
         featured.images = [images.image, images.alt];
+        featured.media = {
+          image: images.image,
+          alt: images.alt,
+        };
       }
 
       return featured;
