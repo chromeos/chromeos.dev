@@ -1,4 +1,9 @@
 /**
+ * Import them getter/setter
+ */
+const { Theme } = import('./theme');
+
+/**
  * Bootstrap the M100 Console Quiz
  */
 export class M100 {
@@ -7,8 +12,9 @@ export class M100 {
    * @return {void}
    */
   constructor() {
-    this._body = document.querySelector('#body');
-    this._current = this._getCurrent() || 0;
+    this._theme = new Theme();
+    this._body = document.body;
+    this._current = parseInt(this._getCurrent()) || 0;
     this._started = this._isStarted() || false;
 
     this._intro = {
@@ -97,7 +103,7 @@ export class M100 {
   reset() {
     this._setStarted(false);
     this._setCurrent(0);
-    this._setTheme(false);
+    this._theme.name = null;
   }
 
   /**
@@ -175,19 +181,15 @@ export class M100 {
    * @param {boolean} giveYouUp
    * @return {void}
    */
-  _promptReward(giveYouUp = false) {
+  _promptReward() {
     console.info('%c%s', 'font-weight: bold; font-size: 1.25em;', this._reward.headline);
     for (const iterator of this._reward.body) {
       console.info(iterator);
     }
-    this._setTheme('phosphor');
-    if (giveYouUp) {
-      const delay = 3;
-      this._countdown(delay);
-      setTimeout(() => {
-        this._giveYouUp();
-      }, delay * 1000);
-    }
+    this._countdown(3).then(() => {
+      this._theme.name = 'phosphor';
+      this._giveYouUp();
+    });
   }
 
   /**
@@ -205,8 +207,8 @@ export class M100 {
       this._setCurrent(current + 1);
       if (this._current < this._prompts.length) {
         this._promptQuestion(this._current);
-      } else if ((this._current = this._prompts.length)) {
-        this._promptReward(true);
+      } else if (this._current === this._prompts.length) {
+        this._promptReward();
       }
     } else {
       // Incorrect
@@ -237,14 +239,19 @@ export class M100 {
    * Countdown...
    * @param {number} count
    * @param {number} interval
+   * @return {void}
    */
   _countdown(count, interval = 1000) {
-    const timer = setInterval(function () {
-      console.log(count);
-      count = count - 1;
-      if (count <= 0) {
-        clearInterval(timer);
-      }
-    }, interval);
+    return new Promise((resolve, reject) => {
+      const timer = setInterval(function () {
+        console.log(count);
+        count = count - 1;
+        if (count < 0) {
+          clearInterval(timer);
+          resolve(true);
+          return;
+        }
+      }, interval);
+    });
   }
 }

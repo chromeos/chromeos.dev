@@ -21,14 +21,14 @@ export class Theme {
   }
   /**
    *
-   * @param {string} newName
+   * @param {string} value
    * @return {void}
    */
-  set name(newName) {
-    newName = newName.trim();
-    this._name = newName;
-    this._elem.setAttribute('data-theme', newName);
-    localStorage.setItem('chromeos-theme', newName);
+  set name(value) {
+    value = value?.trim();
+    this._name = value;
+    this._elem.setAttribute('data-theme', value);
+    localStorage.setItem('chromeos-theme', value);
   }
 
   /**
