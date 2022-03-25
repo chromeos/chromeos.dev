@@ -89,7 +89,7 @@
   }
 
   &__content-wrapper {
-    max-width: 40ch;
+    max-width: clamp(40ch, 50vw, 60ch);
   }
 
   &__icon {
