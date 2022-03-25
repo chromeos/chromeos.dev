@@ -11,6 +11,7 @@ export class Theme {
     this._elem = document.body;
     this._name = name || this._getStoredTheme();
     this._elem.setAttribute('data-theme', this._name);
+    this.dispatch();
   }
   /**
    *
@@ -29,6 +30,21 @@ export class Theme {
     this._name = value;
     this._elem.setAttribute('data-theme', value);
     localStorage.setItem('chromeos-theme', value);
+    this.dispatch();
+  }
+
+  /**
+   * Dispatch a custom event with the current name.
+   * @return {void}
+   */
+  dispatch() {
+    this._elem.dispatchEvent(
+      new CustomEvent('themeApplied', {
+        detail: {
+          name: this._name,
+        },
+      }),
+    );
   }
 
   /**

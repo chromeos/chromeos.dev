@@ -7,6 +7,9 @@ hero:
     placeholder:
       src: ix://home/2022/static-hero.svg
       alt: A single screen morphing between mobile, tablet, and laptop devices.
+    phosphor:
+      src: ix://home/2022/phosphor-hero.svg
+      alt: A single screen morphing between mobile, tablet, and laptop devices.
     static:
       src: ix://home/2022/storyboard-hero.png
       alt: A series of mobile, tablet, and laptop devices filled  with shapes.

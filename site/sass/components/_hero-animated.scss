@@ -9,7 +9,6 @@
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  row-gap: 1.25rem;
 
   &__content {
     align-self: center;
@@ -70,6 +69,10 @@
     grid-row: 1;
   }
 
+  &__background {
+    display: grid;
+  }
+
   &__animation-item {
     animation: 0.5s ease-in-out 0.25s backwards hero-animated__page-load;
     display: block;
@@ -77,6 +80,21 @@
     width: 100%;
 
     &--hide {
+      display: none;
+    }
+
+    &--chrome-os,
+    &--phosphor {
+      grid-area: 1 / -1;
+    }
+
+    &--chrome-os {
+      [data-theme='phosphor'] & {
+        display: none;
+      }
+    }
+
+    &--phosphor:not([data-theme='phosphor'] &) {
       display: none;
     }
 
