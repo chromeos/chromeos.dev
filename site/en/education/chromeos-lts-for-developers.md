@@ -15,7 +15,7 @@ To ensure that your app works for schools and enterprises, you will want to make
 
 ### How can I install a Chrome OS LTS/LTC version on my Chromebook for testing?
 
-If you are interested in using an LTS/LTC release on your Chromebook to test your application, you can follow the [instructions here](https://support.google.com/chrome/a/answer/11333726) to deploy an LTS license to a device.
+If you are interested in using an LTS/LTC release on your Chromebook to test your application, you can follow [these instructions](https://support.google.com/chrome/a/answer/11333726) to deploy an LTS license to a device.
 
 ## What happens if I implement new features in my app or extension?
 
