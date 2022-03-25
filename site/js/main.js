@@ -19,12 +19,10 @@ import { MainNavigation } from './components/nav';
 import { CookieDisclaimer } from './components/cookie-disclaimer';
 import circleWorklet from './worklets/circles.js?url';
 import shapeWorklet from './worklets/shape.js?url';
-import { Theme } from './components/theme';
 
 // Components that are critical to user experience should be loaded on `DomContentLoaded`
 window.addEventListener('DOMContentLoaded', async () => {
   new MainNavigation();
-  new Theme();
 
   const lang = document.querySelector('#lang');
   const form = document.querySelector('.form');
