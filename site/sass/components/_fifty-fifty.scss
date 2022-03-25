@@ -74,7 +74,7 @@
       aspect-ratio: 1;
       left: 50%;
       top: 50%;
-      transform: scale(1.25) translate(25%, -50%);
+      transform: scale(1.25) translate(15%, -55%);
       z-index: 0;
 
       @include mq($single-row) {
