@@ -15,14 +15,14 @@
 {% from 'icon.njk' import icon %} {% macro hero(content) -%} {% set tagSlug = content.tag | slugify %}
 <article class="hero {% if content.tag %}hero__background--{{tagSlug}}{% endif %}">
   <div class="wrapper--padded hero__content">
-    <section class="hero__content-wrapper">
+    <div class="hero__content-wrapper">
       {% if content.tag %}{{icon(tagSlug, 'hero__icon')}}{% endif %}
       <small class="hero__eyebrow type--eyebrow">{{content.eyebrow}}</small>
       <h1 class="hero__title type--h1">{{content.title}}</h1>
 
       <p class="hero__copy type--h4">{{content.desc}}</p>
       <a class="hero__link cta cta--link cta--right-icon" href="{{content.cta.url}}">{{content.cta.text}}</a>
-    </section>
+    </div>
   </div>
   <div class="hero__images">
     {% for image in content.images %}
