@@ -102,7 +102,6 @@
 
 // Phosphor Theme
 @import 'globals/colors.phosphor';
-@import 'globals/vars.phosphor';
 @import 'components/colors.phosphor';
 @import 'components/body.phosphor';
 
@@ -119,5 +118,6 @@
   @import 'components/call-out.phosphor';
   @import 'components/nav.phosphor';
   @import 'components/subnav.phosphor';
+  @import 'components/typography.phosphor';
 }
 /* stylelint-enable no-invalid-position-at-import-rule */
