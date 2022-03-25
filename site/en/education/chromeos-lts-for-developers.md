@@ -49,7 +49,7 @@ Android applications are also meant to be backwards compatible with previous ver
 
 #### Multiple Android Applications
 
-An alternative to the approach above is to release an LTS version of your application to the Play Store. The caveat to this is that it could potentially confuse your users on why there are multiple instances of your application in Play and which one to use. If you are releasing an LTS version of your application only for Chrome OS, you will want to specify that the application is only for Chrome OS by placing the following in your AndroidManifest.xml file.
+An alternative to the approach is to release an LTS version of your application to the Play Store. The caveat to this is that it could potentially confuse your users as there would be multiple instances of your application in Play and they might not know which one to choose. If you are releasing an LTS version of your application only for Chrome OS, you will want to specify that the application is only for Chrome OS by placing the following in your `AndroidManifest.xml` file:
 
 ```xml {title="AndroidManifest.xml" .code-figure}
 <uses-feature android:name="org.chromium.arc" android:required="true" />
@@ -61,4 +61,4 @@ This line specifies to Play that this app can only be delivered to Chrome OS dev
 
 #### Extension Version Pinning
 
-If you want your Chrome extension to be compatible with LTS versions, you can ask your customers to pin that version of the Chrome Extension in the Chrome Admin Console. You can refer your customers to the [documentation here](https://support.google.com/chrome/a/answer/11190170?hl=en) which explains how to pin extensions and some caveats associated with pinning.
+If you want your Chrome extension to be compatible with LTS versions, you can ask your customers to pin that version of the Chrome Extension in the Chrome Admin Console. You can refer your customers to [this documentation](https://support.google.com/chrome/a/answer/11190170?hl=en) which explains how to pin extensions and some caveats associated with pinning.
