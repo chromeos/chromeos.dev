@@ -33,7 +33,7 @@ if ('gpu' in navigator) {
 }
 ```
 
-This allows you to focus on only one application and ensures that you are not only compatible with Chrome but all browsers and is a recommended way to handle new web features.
+This allows you to focus on only one application and ensures that you are not only compatible with Chrome but all browsers and is the recommended way to handle new web features.
 
 #### Separate hosted instances
 
