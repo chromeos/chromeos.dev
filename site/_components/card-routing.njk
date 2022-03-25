@@ -14,10 +14,15 @@
   @param {string} cta.text - Text for the cta.
 
   @param {string} locale: Code for the current locale.
+
+  @param {object} modifiers (optional) - AN object with the following attributes.
+  @param {('primary' | 'secondary' | 'tertiary' | 'quaternary')} modifiers.shapes - The set of shapes to render.
  #}-->
-{% macro cardRouting(content, image, cta, locale) %}
+{% from 'icon.njk' import icon %} {% macro cardRouting(content, image, cta, locale, modifiers) %}
 <article class="card-routing">
-  <img class="card-routing__image" src="{{image.src}}" alt="{{image.alt}}" />
+  <div class="card-routing__image-wrapper {% if modifiers.shapes is defined %}card-routing__image-wrapper--{{modifiers.shapes}}{% endif %}">
+    <img class="card-routing__image" src="{{image.src}}" alt="{{image.alt}}" />
+  </div>
   <div class="card-routing__content">
     <header class="card-routing__header">
       <h2 class="card-routing__title type--h2">{{content.title}}</h2>

@@ -108,6 +108,10 @@
       margin-top: 0;
       padding-top: 3rem;
 
+      @include mq(430px) {
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      }
+
       @supports (row-gap: clamp(1px, 1vw, 2px)) {
         row-gap: generateScaling((430px 631px), (48px 16px));
       }
