@@ -1,13 +1,18 @@
 hero:
   heading:
-    - Your app + Chrome OS.
-    - See what’s possible.
-  cta:
-    text: Start building
-    url: '#home__subnav'
-  img:
-    src: ix://landings/home/hero.png
-    alt: 'Chromebook, tablet, mobile phone, foldable phone, stylus, and a mouse are shown. The devices with screens show the same image: a mix of colored circles, rounded bars, and lines in red, yellow, blue, and green colors. These objects cycle in unison.'
+    default: Expand how the world
+    accent: engages with your app.
+  copy: Tap into millions of users when you bring your apps and games to Chrome OS.
+  media:
+    placeholder:
+      src: ix://home/2022/static-hero.svg
+      alt: A single screen morphing between mobile, tablet, and laptop devices.
+    phosphor:
+      src: ix://home/2022/phosphor-hero.svg
+      alt: A single screen morphing between mobile, tablet, and laptop devices.
+    static:
+      src: ix://home/2022/storyboard-hero.png
+      alt: A series of mobile, tablet, and laptop devices filled  with shapes.
 routing:
   items:
     - content:
@@ -75,6 +80,8 @@ linux:
       alt: Opened Chromebook with a birds eye view of a beach set as its background.
     - src: ix://lifestyle/vim_window.jpg
       alt: A Vim text editor with code.
+    - src: ix://home/2022/m100start.svg
+      alt: '"m100.start()" appears inside a repeating pattern of curly braces.'
 stats:
   modifiers:
     heading: Grow in good company.
