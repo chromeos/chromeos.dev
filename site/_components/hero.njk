@@ -12,7 +12,7 @@
   @param {string} content.cta.url: String representing the CTA url.
   @param {string} content.cta.text: String representing the CTA text.
  #}-->
-{% from 'icon.njk' import icon %} {% macro hero(content) -%} {% set tagSlug = content.tag | slugify %}
+{% from 'icon.njk' import icon %} {% macro hero(content) %} {% set tagSlug = content.tag | slugify %}
 <article class="hero {% if content.tag %}hero__background--{{tagSlug}}{% endif %}">
   <div class="wrapper--padded hero__content">
     <section class="hero__content-wrapper">
@@ -31,4 +31,4 @@
     <img class="hero__images--background-pattern" src="https://drive.google.com/uc?id=1ZKVUpomzXHbIMyWL6DqCiiKTZX6KEX2p" alt="" />
   </div>
 </article>
-{%- endmacro %}
+{% endmacro %}
