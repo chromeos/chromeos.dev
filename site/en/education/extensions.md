@@ -2,7 +2,7 @@
 title: Extension development
 metadesc: An overview of Chrome extensions development for education on Chrome OS
 date: 2021-03-29
-weight: -1
+weight: -6
 tags:
   - web
 ---
@@ -11,14 +11,14 @@ tags:
 
 Extensions are run in a sandboxed environment but can interact with web content, which makes them suitable for some education use cases like:
 
-- browser filtering and monitoring
-- inserting specialized characters such as mathematical symbols and equations
-- content enrichment, for example for identifying spelling and grammatical errors
-- policy enforcement (e.g. limiting time on social media)
+- Browser filtering and monitoring
+- Inserting specialized characters such as mathematical symbols and equations
+- Content enrichment, for example identifying spelling and grammatical errors
+- Policy enforcement (e.g. limiting time on social media)
 
 When building solutions for education use cases on Chromebooks, you can create an extension, a web app, or both. If you need to run your program in a cross-site context, then an extension is a good option to consider. Your extension can interact with web apps that you don’t own. For example, an extension may detect grammatical errors on a Google doc and provide comments and recommendations to fix them. Another extension may help students with note-taking by accumulating text the student highlights on any web page into one doc.
 
-However, if you’re planning to have multiple functionalities, then creating a web app might be a better option. If you have a web app, an accompanying extension can enhance your user’s experience by bringing functionality and APIs that may not be available on the web platform.
+If your program does not need to run on other websites, then creating a web app might be a better option. If you have a web app, an accompanying extension can enhance your user’s experience by bringing functionality and APIs that may not be available on the web platform.
 
 ## Chrome apps migration
 
@@ -41,7 +41,7 @@ Additionally, there are a few Chrome OS-only APIs to keep in mind as well:
 
 ## Publishing and hosting
 
-When you’re done building your extension, you’ll want to publish it so users can install and use. There are two officially [supported distribution mechanisms](https://developer.chrome.com/docs/extensions/mv3/hosting/): Chrome Web Store and self-hosting.
+When you’re done building your extension, you’ll want to publish it it can be installed and used. There are two officially [supported distribution mechanisms](https://developer.chrome.com/docs/extensions/mv3/hosting/): Chrome Web Store and self-hosting.
 
 The Chrome Web Store lets you make your extension available to users everywhere. Since your extension will be hosted and signed by the Chrome Web Store, you will also need to comply with the [store policies](https://developer.chrome.com/docs/webstore/program_policies/). One policy to keep in mind is the “single purpose” policy which requires extensions to have only a single purpose with respect to its subject matter or browser function. If you don’t want to make your extension available to the public, you also have the option to list your extension as [private or unlisted](https://docs.google.com/document/d/1pT0ZSbGdrbGvuCsVD2jjxrw-GVz-80rMS2dgkkquhTY/edit#heading=h.575t72ucj4bh). This lets you restrict access to users in your domain or a group of trusted testers you can set up.
 
@@ -51,7 +51,7 @@ The Chrome Web Store lets you make your extension available to users everywhere.
 
 Oftentimes, your extension may be used by students on managed devices. It’s important to understand the following [management policies](https://chromeenterprise.google/policies/#Extensions) that administrators may put on student devices and how they can affect the functionality of your extension:
 
-- Admins can pin an extension to a specific version.
-- Admins can block external extensions (extensions not on the Chrome Web Store) from being installed.
-- Admins can add a list of blocked or allowed hosts, which controls whether an [extension can alter the webpages at those URLs](https://support.google.com/chrome/a/answer/9031935#all-apps&zippy=%2Cstep-prevent-or-allow-all-apps-from-altering-pages).
-- Admins can [block extensions that request certain permissions](https://support.google.com/chrome/a/answer/6177431#permissions&zippy=%2Cblock-apps-and-extensions-based-on-permissions).
+- Pin an extension to a specific version.
+- Block external extensions (extensions not on the Chrome Web Store) from being installed.
+- Add a list of blocked or allowed hosts, which controls whether an [extension can alter the webpages at those URLs](https://support.google.com/chrome/a/answer/9031935#all-apps&zippy=%2Cstep-prevent-or-allow-all-apps-from-altering-pages).
+- Block extensions that [request certain permissions](https://support.google.com/chrome/a/answer/6177431#permissions&zippy=%2Cblock-apps-and-extensions-based-on-permissions).
