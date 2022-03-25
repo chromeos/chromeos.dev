@@ -27,12 +27,33 @@
 
     @include mq($bkpt-articles--3-cols) {
       grid-column: 1 / span 5;
-      grid-row: 1 / span 2;
+      grid-row: 1 / span 1;
     }
 
     &:empty {
       background-color: var(--blue-600);
     }
+  }
+
+  &__hero-image-wrapper {
+    margin-top: clamp(-3rem, 10vw, -10rem);
+
+    @include mq($bkpt-articles--2-cols) {
+      grid-column: 1 / span 2;
+      grid-row: 3 / span 1;
+    }
+
+    @include mq($bkpt-articles--3-cols) {
+      grid-column: 2 / span 3;
+      grid-row: 2 / span 2;
+    }
+  }
+
+  &__hero-image {
+    border-radius: 0.3125rem;
+    filter: drop-shadow(0 2px 50px rgba(0, 0, 0, 0.2));
+    overflow: hidden;
+    width: 100%;
   }
 
   &__toc {
@@ -42,12 +63,12 @@
 
     @include mq($bkpt-articles--2-cols) {
       grid-column: 1 / span 2;
-      grid-row: 3 / span 1;
+      grid-row: 4 / span 1;
     }
 
     @include mq($bkpt-articles--3-cols) {
       grid-column: 4 / span 1;
-      grid-row: 3 / span 2;
+      grid-row: 4 / span 4;
       margin-bottom: 0;
       padding-top: var(--col-padding);
     }
@@ -62,7 +83,7 @@
   &__body {
     @include mq($bkpt-articles--2-cols) {
       grid-column: 1 / span 2;
-      grid-row: 4 / span 1;
+      grid-row: 5 / span 1;
     }
 
     @include mq($bkpt-articles--3-cols) {
