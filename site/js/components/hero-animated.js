@@ -26,7 +26,6 @@ export class HeroAnimated {
     // Create a set of constants to be reused throughout the class.
     const constants = {
       animation: {
-        delay: 2000,
         name: 'Hero',
       },
       selectors: {
@@ -50,7 +49,7 @@ export class HeroAnimated {
       this.backgroundImage_.addEventListener('load', this.startIfReady_.bind(this));
     }
 
-    document.body.addEventListener('themeApplied', ({ detail }) => {
+    document.body.addEventListener('themechange', ({ detail }) => {
       this.useTheme(detail?.name);
     });
   }
@@ -81,10 +80,12 @@ export class HeroAnimated {
 
   /**
    * Check for user preferences and use the theme to apply the corresponding animation.
+   * @param {string} name - Name of current theme.
+   * @return {void}
    */
-  async useTheme() {
+  async useTheme(name) {
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const phosphor = document.body.dataset.theme === 'phosphor';
+      const phosphor = name === 'phosphor';
       let lottie;
       let animationData;
 
@@ -106,6 +107,7 @@ export class HeroAnimated {
   showMotionFallback() {
     this.fallbackImage_.classList.remove(this.constants_.hideClass);
     this.backgroundImage_.classList.add(this.constants_.hideClass);
+    this.phosphorImage_.classList.add(this.constants_.hideClass);
   }
 
   /**
@@ -138,12 +140,10 @@ export class HeroAnimated {
    */
   startIfReady_() {
     if (this.backgroundImage_.complete && this.animation_.isLoaded) {
-      setTimeout(() => {
-        this.backgroundImage_.classList.add(this.constants_.hideClass);
-        this.phosphorImage_.classList.add(this.constants_.hideClass);
-        this.animation_.show();
-        this.animation_.play();
-      }, this.constants_.animation.delay);
+      this.backgroundImage_.classList.add(this.constants_.hideClass);
+      this.phosphorImage_.classList.add(this.constants_.hideClass);
+      this.animation_.show();
+      this.animation_.play();
     }
   }
 }

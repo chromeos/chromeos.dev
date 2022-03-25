@@ -39,7 +39,7 @@ export class Theme {
    */
   dispatch() {
     this._elem.dispatchEvent(
-      new CustomEvent('themeApplied', {
+      new CustomEvent('themechange', {
         detail: {
           name: this._name,
         },
