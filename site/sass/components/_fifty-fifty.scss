@@ -1,9 +1,10 @@
 @use 'sass:math';
 
 .fifty-fifty {
-  $single-column: 653px;
+  $single-row: 653px;
   $content-width-m: pxRem(415px);
-  $content-width-r: generateScaling(($single-column 1440px), (340px 490px));
+  $content-width-r: generateScaling(($single-row 1440px), (340px 490px));
+  $scale-max: 1600px;
 
   display: grid;
   gap: 2rem 1.25rem;
@@ -18,7 +19,7 @@
       max-width: $content-width-r;
     }
 
-    @include mq($single-column) {
+    @include mq($single-row) {
       text-align: start;
     }
   }
@@ -36,10 +37,48 @@
   &__image-wrapper {
     max-width: pxRem(570px);
     position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    &::before {
+      --shape: moon;
+      --shape-color: var(--tertiary-blue);
+      --shape-size: (100% 200%);
+      --shape-offset: (0 -100%);
+      background-image: paint(shape);
+      height: 46%;
+      transform: translateY(50%) rotate(-30deg);
+      width: 60%;
+    }
+
+    &::after {
+      $size: generateScaling(($single-row $scale-max), (308px 412px));
+      --shape: circle;
+      --shape-size: (100% 100%);
+      background-image: url('/images/icons/sprite.svg#bracket-blue');
+      height: $size;
+      left: 50%;
+      mask-image: paint(shape);
+      top: 50%;
+      transform: translate(25%, -50%);
+      width: $size;
+
+      @include mq($single-row) {
+        transform: translate(-25%, -66%);
+      }
+    }
   }
 
   &__image {
     position: relative;
+    z-index: 1;
 
     &:not(:first-of-type) {
       left: 0;
