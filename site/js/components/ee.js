@@ -13,7 +13,6 @@ export class M100 {
    */
   constructor() {
     this._theme = new Theme();
-    this._body = document.body;
     this._current = parseInt(this._getCurrent()) || 0;
     this._started = this._isStarted() || false;
 
