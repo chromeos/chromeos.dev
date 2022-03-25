@@ -211,3 +211,20 @@
   white-space: nowrap;
   width: 1px;
 }
+
+// Sets top, left, width, and height as percentage values from a common divisor for a psuedo element shape.
+//
+// @param {length()} $params - List of lengths, in px, representing the top, left, width, and height dividends, respectively.
+// @param {length} $size - px value to be used as the divisor.
+@mixin pseudoShape($params, $size) {
+  $measurements: (
+    'top': nth($params, 1),
+    'left': nth($params, 2),
+    'width': nth($params, 3),
+    'height': nth($params, 4),
+  );
+
+  @each $prop, $value in $measurements {
+    #{$prop}: math.percentage(math.div($value, $size));
+  }
+}
