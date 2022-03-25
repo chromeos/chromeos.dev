@@ -57,6 +57,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     offlineSearch.style.display = 'block';
   }
 
+  const { Theme } = await import('./components/theme');
+  new Theme();
+
   if (home) {
     const { Home } = await import('./components/home');
     new Home(home);

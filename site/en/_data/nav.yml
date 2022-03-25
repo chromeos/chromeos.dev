@@ -10,6 +10,8 @@
       url: web
     - title: Games
       url: games
+    - title: Education
+      url: education
 - title: Publish
   desc: Learn about publishing your apps on the Google Play Store and engage millions of users on Chromebooks.
   icon:
