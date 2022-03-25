@@ -121,16 +121,16 @@
     word-break: break-word;
 
     a & {
-      color: $anchor-color--default;
+      color: var(--blue-850);
     }
 
     a:hover &,
     a:focus & {
-      color: $anchor-color--hover;
+      color: var(--blue-850);
     }
 
     a:visited & {
-      color: $anchor-color--visited;
+      color: var(--blue-850);
     }
   }
 

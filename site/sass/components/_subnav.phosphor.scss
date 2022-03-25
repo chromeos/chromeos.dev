@@ -1,0 +1,36 @@
+// Styling for Subnav component
+.subnav {
+  @include expandingNav($bkpt-tech-details--2-cols, 'subnav', 1.75rem, 2.5rem);
+  background-color: var(--white);
+  overflow: hidden;
+
+  @include mq($bkpt-tech-details--2-cols) {
+    padding: 0 2.5rem;
+    padding-bottom: 2.5rem;
+
+    &[open] {
+      padding-bottom: 2.5rem;
+    }
+  }
+
+  &__summary {
+    background-color: var(--blue-50);
+
+    @include mq($bkpt-tech-details--2-cols) {
+      background-color: unset;
+    }
+  }
+
+  &__link {
+    &[data-active] {
+      &::after {
+        background-color: var(--white);
+        border-bottom: solid 2px var(--blue-850);
+        border-left: 0;
+        border-radius: 0 1.25rem 1.25rem 0;
+        border-right: solid 2px var(--blue-850);
+        border-top: solid 2px var(--blue-850);
+      }
+    }
+  }
+}
