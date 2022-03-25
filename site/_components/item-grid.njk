@@ -25,7 +25,7 @@
   {% endif %} {% if modifiers.subtitle %}
   <p class="item-grid__subtitle type--large">{{modifiers.subtitle}}</p>
   {% endif %}
-  <div class="item-grid__content">{% for item in items %} {% if modifiers.variant == 'icon' %} {{iconCard(item, defaultText)}} {% elif modifiers.variant == 'subnav' %} {% if item.icon and item.desc %} {{cardSubnav(item, locale)}} {% endif %} {% elif modifiers.variant == 'community' %} {{externalCommunity(item.logo, item.topic, item.cta)}} {% elif modifiers.variant == 'video' %} {{videoCard(item.video)}} {% elif modifiers.variant == 'routing'%} {{cardRouting(item.content, item.image, item.cta, locale)}} {% else %} {{ card(item) }} {% endif %} {% endfor %}</div>
+  <div class="item-grid__content">{% for item in items %} {% if modifiers.variant == 'icon' %} {{iconCard(item, defaultText)}} {% elif modifiers.variant == 'subnav' %} {% if item.icon and item.desc %} {{cardSubnav(item, locale)}} {% endif %} {% elif modifiers.variant == 'community' %} {{externalCommunity(item.logo, item.topic, item.cta)}} {% elif modifiers.variant == 'video' %} {{videoCard(item.video)}} {% elif modifiers.variant == 'routing'%} {{cardRouting(item.content, item.image, item.cta, locale, item.modifiers)}} {% else %} {{ card(item) }} {% endif %} {% endfor %}</div>
   {% if modifiers.cta %}
   <footer class="item-grid__footer">
     <a class="cta cta--medium" href="{% if locale is defined %}/{{locale}}/{% endif %}{{modifiers.cta.url}}">{{modifiers.cta.text}}</a>
