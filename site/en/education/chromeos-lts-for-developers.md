@@ -45,7 +45,7 @@ If you would rather have multiple instances of your application, you can alterna
 
 #### Backwards compatibility
 
-Android applications are also meant to be backwards compatible with previous versions of Android since there are multiple versions and form factors of Android released. The benefit of releasing your application this way is that you have one application to manage rather than multiple applications. If you are building an Android application, it is important to continue to certify your release of the application against LTS and LTC to make sure that it is compatible with both versions of Chrome OS.
+Android applications are also meant to be backwards compatible with previous versions of Android since there are multiple versions and form factors of Android released. The benefit of releasing your application this way is that you have one application to manage rather than multiple applications. If you are building an Android application, it is important to continue to certify your releases against LTS and LTC to make sure that it is compatible with both versions of Chrome OS.
 
 #### Multiple Android Applications
 
