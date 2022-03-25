@@ -12,10 +12,8 @@
     margin-bottom: 1.5rem;
   }
 
-  .phosphor & {
-    &__heading,
-    &__body {
-      color: var(--blue-850);
-    }
+  &__heading,
+  &__body {
+    color: var(--blue-850);
   }
 }

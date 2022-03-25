@@ -26,7 +26,7 @@
     <script type="module" defer src="/js/main.js"></script>
     <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-168234575-1" type="module"></script>
   </head>
-  <body id="body" class="phosphor">
+  <body id="body" data-theme="phosphor">
     {% from 'header.njk' import header %} {{ header(nav, search.placeholder, subscribe.cta, locale) }}
     <main class="main">
       {{ content | safe }} {% if showNewsletter and subscribe %}
