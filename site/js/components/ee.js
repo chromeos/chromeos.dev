@@ -1,7 +1,7 @@
 /**
- * Import them getter/setter
+ * Import Theme
  */
-const { Theme } = import('./theme');
+import { Theme } from './theme';
 
 /**
  * Bootstrap the M100 Console Quiz
