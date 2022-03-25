@@ -7,7 +7,7 @@ tags:
   - web
 ---
 
-[Chrome OS LTS](https://support.google.com/chrome/a/answer/11333726?hl=en) is the long term support channel (LTS) for Chrome OS devices that is targeted to education and enterprise users of Chrome OS. Normally, Chrome OS receives a new update every four weeks to their stable channel. The long-term support channels have a slower release cadence than the Stable channel. Devices still continue to receive frequent security fixes, but they only get feature updates every 6 months. Many schools have already moved to the LTS channel as it lowers the burden on schools to certify that the version of Chrome OS that they have deployed works with all their applications.
+[Chrome OS LTS](https://support.google.com/chrome/a/answer/11333726?hl=en) is the long term support channel (LTS) for Chrome OS devices and is targeted to education and enterprise users of Chrome OS. Normally, Chrome OS receives a new update every four weeks to its stable channel. The long-term support channel has a slower release cadence; devices still continue to receive frequent security fixes, but they only get feature updates every 6 months. Many schools have already moved to the LTS channel as it lowers their burden to certify that the version of Chrome OS that they have deployed works with all their applications.
 
 ## How should I test my app for LTS users?
 
