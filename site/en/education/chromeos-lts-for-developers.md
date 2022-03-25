@@ -37,7 +37,7 @@ This allows you to focus on only one application and ensures that you are not on
 
 #### Separate hosted instances
 
-If you would rather have multiple instances of your application, you could alternatively serve the LTS version to users that have paid for an LTS version of your application after they login. This raises the burden on your organization to serve the right content to the right users, but may be a better approach as organizations know that the application won’t be changing during the six months of the LTS deployment. You could then update your application that is served every six months or whenever a new update is ready based on the subscribers preference.
+If you would rather have multiple instances of your application, you can alternatively serve the LTS version to users that have paid for an LTS version of your application after they login. This raises the burden on your organization to serve the right content to the right users, but may be a better approach as organizations know that the application won’t be changing during the six months of the LTS deployment. You can then update your application based on the subscribers' preference.
 
 ### Android Applications
 
