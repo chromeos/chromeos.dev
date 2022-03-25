@@ -19,6 +19,8 @@ routing:
       cta:
         url: web
         text: Learn more
+      modifiers:
+        shapes: primary
     - content:
         title: Say Hello to Android users.
         copy: Easily adapt your existing app to work across more devices and reach more people.
@@ -28,6 +30,8 @@ routing:
       cta:
         url: android
         text: Learn more
+      modifiers:
+        shapes: secondary
     - content:
         title: Get more gamers.
         copy: Get your game played on more screens when you adapt it for Chrome OS.
@@ -37,6 +41,8 @@ routing:
       cta:
         url: games
         text: Learn more
+      modifiers:
+        shapes: tertiary
   modifiers:
     variant: routing
 results:
