@@ -2,7 +2,7 @@
 title: Chrome OS LTS for Developers
 metadesc: Understand how to validate your application works with the way schools deploy Chrome OS.
 date: 2021-03-21
-weight: -1
+weight: -7
 tags:
   - web
 ---
