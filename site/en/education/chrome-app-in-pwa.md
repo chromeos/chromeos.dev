@@ -2,7 +2,7 @@
 title: Communicate with a Chrome Extension in a Chrome PWA Kiosk App
 metadesc: Understand how to bridge the gap between Chrome Extensions and PWAs.
 date: 2021-03-21
-weight: -1
+weight: -5
 tags:
   - web
 ---
