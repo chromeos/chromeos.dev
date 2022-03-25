@@ -1,5 +1,5 @@
 ---
-title: Test Chrome OS Kiosk Mode
+title: Testing Chrome OS Kiosk Mode
 metadesc: Understand how to test your Chrome OS kiosk apps.
 date: 2021-03-21
 weight: -3
