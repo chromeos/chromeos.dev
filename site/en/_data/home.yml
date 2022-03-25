@@ -80,6 +80,8 @@ linux:
       alt: Opened Chromebook with a birds eye view of a beach set as its background.
     - src: ix://lifestyle/vim_window.jpg
       alt: A Vim text editor with code.
+    - src: ix://home/2022/m100start.svg
+      alt: '"m100.start()" appears inside a repeating pattern of curly braces.'
 stats:
   modifiers:
     heading: Grow in good company.

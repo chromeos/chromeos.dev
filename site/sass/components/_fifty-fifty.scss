@@ -57,23 +57,6 @@
       transform: translateY(50%) rotate(-30deg);
       width: 60%;
     }
-
-    &::after {
-      $size: generateScaling(($single-row $scale-max), (308px 412px));
-      --shape: circle;
-      --shape-size: (100% 100%);
-      background-image: url('/images/icons/sprite.svg#bracket-blue');
-      height: $size;
-      left: 50%;
-      mask-image: paint(shape);
-      top: 50%;
-      transform: translate(25%, -50%);
-      width: $size;
-
-      @include mq($single-row) {
-        transform: translate(-25%, -66%);
-      }
-    }
   }
 
   &__image {
@@ -85,6 +68,18 @@
       position: absolute;
       top: -15%;
       transform: scale(0.5);
+    }
+
+    &:last-of-type {
+      aspect-ratio: 1;
+      left: 50%;
+      top: 50%;
+      transform: scale(1.25) translate(15%, -55%);
+      z-index: 0;
+
+      @include mq($single-row) {
+        transform: scale(1.1) translate(-21%, -64.3%);
+      }
     }
   }
 }
