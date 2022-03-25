@@ -102,8 +102,8 @@
 @import 'components/colors.phosphor';
 @import 'components/body.phosphor';
 
-.phosphor {
-  /* stylelint-disable no-invalid-position-at-import-rule */
+/* stylelint-disable no-invalid-position-at-import-rule */
+[data-theme='phosphor'] {
   @import 'components/wrapper.phosphor';
   @import 'components/card-routing.phosphor';
   @import 'components/card-subnav.phosphor';
@@ -114,3 +114,4 @@
   @import 'components/search-box.phosphor';
   @import 'components/call-out.phosphor';
 }
+/* stylelint-enable no-invalid-position-at-import-rule */
