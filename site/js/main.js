@@ -129,6 +129,8 @@ window.addEventListener('load', async () => {
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const [{ default: lottie }, { animationData }] = await Promise.all([import('lottie-web/build/player/lottie_svg.min.js'), import('./animations/home')]);
       heroAnimated.loadAnimation(lottie, animationData);
+    } else {
+      heroAnimated.showMotionFallback();
     }
   }
 

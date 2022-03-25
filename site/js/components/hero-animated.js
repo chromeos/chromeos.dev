@@ -31,13 +31,16 @@ export class HeroAnimated {
       },
       selectors: {
         wrapper: '[data-wrapper]',
+        fallback: '[data-fallback]',
         img: '[data-static]',
       },
+      hideClass: 'hero-animated__animation-item--hide',
     };
     this.constants_ = Object.freeze(constants);
 
     this.elem_ = element;
     this.backgroundImage_ = this.elem_.querySelector(this.constants_.selectors.img);
+    this.fallbackImage_ = this.elem_.querySelector(this.constants_.selectors.fallback);
     this.animation_ = {};
 
     // Start the animation in case lottie loaded before the background image.
@@ -71,6 +74,14 @@ export class HeroAnimated {
   }
 
   /**
+   * Removes the class that hides the fallback asset and adds it to the background Image.
+   */
+  showMotionFallback() {
+    this.fallbackImage_.classList.remove(this.constants_.hideClass);
+    this.backgroundImage_.classList.add(this.constants_.hideClass);
+  }
+
+  /**
    * Inits the animation and sets the event handlers.
    */
   init_() {
@@ -98,7 +109,7 @@ export class HeroAnimated {
   startIfReady_() {
     if (this.backgroundImage_.complete && this.animation_.isLoaded) {
       setTimeout(() => {
-        this.backgroundImage_.classList.add('hero-animated__animation-item--hide');
+        this.backgroundImage_.classList.add(this.constants_.hideClass);
         this.animation_.show();
         this.animation_.play();
       }, this.constants_.animation.delay);

@@ -8,11 +8,17 @@
     @param {Object} cta (optional): Object containing the CTA info.
     @param {string} cta.text: The CTA's text.
     @param {string} cta.url: The CTA's URL.
-    @param {Object} img: Object containing the background image.
-    @param {string} img.src: The image's source path.
-    @param {string} img.alt: The image's atl text.
+    @param {Object} media: Object containing static and placeholder images.
+
+    @param {Object} media.placeholder - Object containing the following attributes.
+    @param {string} media.placeholder.src - Image source
+    @param {string} media.placeholder.alt - Image description
+
+    @param {Object} media.static - Object containing the following attributes.
+    @param {string} media.static.src - Image source
+    @param {string} media.static.alt - Image description
 #}-->
-{% macro heroAnimated(heading, copy, cta, img) -%} {% set br = joiner("<br />") %}
+{% macro heroAnimated(heading, copy, cta, media) -%} {% set br = joiner("<br />") %}
 <div class="hero-animated">
   <div class="hero-animated__content">
     <h1 class="hero-animated__heading type--mega">{{heading.default}}{% if heading.accent is defined %} <span class="hero-animated__heading--accent">{{heading.accent}}</span>{% endif %}</h1>
@@ -26,7 +32,8 @@
   </div>
   <div class="hero-animated__wrapper">
     <div class="hero-animated__background">
-      <img class="hero-animated__animation-item" src="{{ img.src }}" alt="{{ img.alt }}" data-static />
+      <img class="hero-animated__animation-item" src="{{media.placeholder.src}}" alt="{{media.placeholder.alt}}" data-static />
+      <img class="hero-animated__animation-item hero-animated__animation-item--hide" src="{{media.static.src}}" alt="{{media.static.alt}}" data-fallback />
     </div>
     <div class="hero-animated__animation" data-wrapper></div>
   </div>

@@ -13,7 +13,7 @@ hideNewsletter: true
 {% from 'hero-animated.njk' import heroAnimated %} {% from 'card-stats.njk' import cardStats %} {% from 'image-card.njk' import imageCard %} {% from 'hero--cta.njk' import heroCta %} {% from 'item-grid.njk' import itemGrid %} {% from 'featured-content.njk' import featuredContent %} {% from 'call-out.njk' import callOut %} {% from 'footnotes.njk' import footnotes %} {% from 'stats.njk' import stats %} {% from 'fifty-fifty.njk' import fiftyFifty %} {% from 'community-quotes.njk' import communityQuotes %} {% from 'case-studies.njk' import caseStudies %} {% from 'banner-interstitial.njk' import bannerInterstitial %}
 <div id="home" class="wrapper--hidden-x">
   <!-- Hero Animation -->
-  <header id="home__hero" class="wrapper wrapper--full-bleed wrapper--no-bottom wrapper--no-top wrapper--padded wrapper__contained wrapper__background--blue">{{ heroAnimated(l10n.home.hero.heading, l10n.home.hero.copy, l10n.home.hero.cta, l10n.home.hero.img) }}</header>
+  <header id="home__hero" class="wrapper wrapper--full-bleed wrapper--bottom-bleed wrapper--no-bottom wrapper--no-top wrapper--padded wrapper__contained wrapper__background--blue">{{ heroAnimated(l10n.home.hero.heading, l10n.home.hero.copy, l10n.home.hero.cta, l10n.home.hero.media) }}</header>
 
   <!-- Routing Cards -->
   <div id="home__routing" class="wrapper wrapper--full-bleed wrapper--no-top wrapper--padding wrapper--padded wrapper__contained wrapper__background--color-stop">{{ itemGrid('', l10n.home.routing.items, l10n.home.routing.modifiers, l10n.locale.code) }}</div>

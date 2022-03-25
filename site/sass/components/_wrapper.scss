@@ -262,4 +262,9 @@
     background-image: paint(circles);
     height: 100%;
   }
+
+  &--bottom-bleed {
+    position: relative;
+    z-index: 1;
+  }
 }
