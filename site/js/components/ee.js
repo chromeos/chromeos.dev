@@ -1,5 +1,5 @@
 /**
- * Import them getter/setter
+ * Import Theme
  */
 import { Theme } from './theme';
 
