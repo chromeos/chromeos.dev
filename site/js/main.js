@@ -24,7 +24,6 @@ import shapeWorklet from './worklets/shape.js?url';
 window.addEventListener('DOMContentLoaded', async () => {
   new MainNavigation();
 
-  const body = document.querySelector('#body');
   const lang = document.querySelector('#lang');
   const form = document.querySelector('.form');
   const toc = document.querySelector('.toc');
@@ -58,12 +57,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     offlineSearch.style.display = 'block';
   }
 
-  if (body) {
-    const { Theme } = await import('./worklets/theme');
-    const theme = new Theme(body);
-    const storedTheme = theme._getStoredTheme();
-    theme.name = storedTheme;
-  }
+  const { Theme } = await import('./lib/theme');
+  new Theme();
 
   if (home) {
     const { Home } = await import('./components/home');

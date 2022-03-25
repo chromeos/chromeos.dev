@@ -4,12 +4,11 @@
 export class Theme {
   /**
    *
-   * @param {DOMElement} elem
    * @param {string} name
    * @return {void}
    */
-  constructor(elem, name) {
-    this._elem = elem;
+  constructor(name) {
+    this._elem = document.body;
     this._name = name || this._getStoredTheme();
     this._elem.setAttribute('data-theme', this._name);
   }
