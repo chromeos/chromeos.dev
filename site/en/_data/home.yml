@@ -16,8 +16,8 @@ hero:
 routing:
   items:
     - content:
-        title: Build a better web experience.
-        copy: Expand your reach to millions of desktop users when you adapt your web app for Chrome OS.
+        title: Unlock the next level of web apps.
+        copy: Build more powerful experiences with the latest tools and APIs for web built right in.
       image:
         src: ix://home/2022/better_experience.png
         alt: A person using a chromebook with a stylus at their desk.
@@ -27,8 +27,8 @@ routing:
       modifiers:
         shapes: primary
     - content:
-        title: Say Hello to Android users.
-        copy: Easily adapt your existing app to work across more devices and reach more people.
+        title: Take it to the big screen.
+        copy: Easily adapt your existing mobile app for large-screen devices to reach more Android users.
       image:
         src: ix://home/2022/hello_android.png
         alt: An android device using the Evernote app.
@@ -38,8 +38,8 @@ routing:
       modifiers:
         shapes: secondary
     - content:
-        title: Get more gamers.
-        copy: Get your game played on more screens when you adapt it for Chrome OS.
+        title: Invite more gamers to play along.
+        copy: Engage millions of players looking for their next favorite challenge—it's a win win.
       image:
         src: ix://home/2022/more_gamers.png
         alt: An assortment of characters created by Riot games.
@@ -50,28 +50,12 @@ routing:
         shapes: tertiary
   modifiers:
     variant: routing
-results:
-  desc: Get results with Chrome OS
-  content:
-    heading:
-      - More devices.
-      - New audiences.
-      - Real results.
-    desc: Deliver rich, engaging experiences to more people by adapting your Android and web apps for Chromebooks. With a few changes to your existing app, you can reach new audiences on different formats and devices — anytime, anywhere.
-  img:
-    src: ix://home/intro.1500.png
-    alt: Birds eye view of a wooden desk with a Chromebook and Pixel phone. Two people sit across the table from each other, collaborating.
-  stats:
-    title: YoY Chromebook unit sales growth
-    value: 103%
-    icon: trending-up
-  footnote: 1
 linux:
   content:
     title: |
-      Keep Linux at your side
-      —anywhere.
-    copy: Your Linux environment is seamlessly built into Chrome OS, and with you even when WiFi isn't.
+      Impressively versatile.
+      Exceptionally easy.
+    copy: Linux is seamlessly built into Chrome OS so you’ll always be ready whenever inspiration hits.
   cta:
     text: Learn more
     url: linux
@@ -87,40 +71,26 @@ stats:
     heading: Grow in good company.
     subtitle: Keep your app—and your audience—growing, across the Chrome OS community.
   items:
-    - stat: +103%
-      desc: App Usage Growth YoY on Chrome OS for Android, Web, and Games
+    - stat: +270%
+      desc: Desktop PWA installs, YoY
       modifiers:
         shape: semicircle
         scale: full
-    - stat: +92%
-      desc: Chrome OS YoY Growth
+    - stat: +50%
+      desc: Chromebook users engaging with Android apps, YoY
       modifiers:
         shape: circle
-    - stat: +124%
-      desc: Growth of User Engagment YoY with apps on Chrome OS
+    - stat: 50M
+      desc: Students and educators using Chromebooks worldwide
       modifiers:
         shape: triangle
         scale: half
 caseStudies:
-  title: Get inspired
+  title: Get inspired.
   subtitle: Explore how brands are unlocking more possibilities with Chrome OS.
   cta:
     text: All Case Studies
     url: news
-posts:
-  title: The latest on Chrome OS
-  modifiers:
-    custom: item-grid--posts
-    subtitle: Explore trends, events, and updates on our community.
-    cta:
-      text: All Articles
-      url: news
-subnav:
-  content:
-    title: Helpful resources at every stage.
-  modifiers:
-    subtitle: Unlock your app's potential with our extensive library of tools and resources.
-    variant: subnav
 m100:
   image:
     src: ix://devices/HP_color_chromebook_stylus.png
@@ -132,20 +102,30 @@ m100:
   cta:
     url: news
     text: Learn more
-chromebook:
-  image:
-    src: ix://home/chromebooks-device.1500.png
-    alt: An image displaying three Chromebooks. One Samsung Chromebook is folded down. Another Acer Chromebook is folded back as a tablet. The last is open for standard laptop use.
+posts:
+  title: The latest on Chrome OS.
+  modifiers:
+    custom: item-grid--posts
+    subtitle: Explore trends, events, and updates on our community.
+    cta:
+      text: All Articles
+      url: news
+educators:
   content:
-    title: Get to know Chromebook
-    copy: Coming in all shapes and sizes, Chromebooks are speedy, simple, secure, and run Chrome OS.
+    title: Empower millions of students and educators.
+    copy: Learn how your app can power learning experiences for 50 million Chromebooks in the classrooms.
   cta:
-    url: https://www.google.com/chromebook/
-    text: Learn about Chromebook
+    text: Learn more
+    url: education
+  images:
+    - src: ix://lifestyle/education.png
+      alt: Two children using a chromebook.
+  modifiers:
+    class: fifty-fifty--educators
 developers:
   content:
-    title: Hear what the community is saying
-    subtitle: Read some testimonials from other developers and take their word for it.
+    title: Why they build with Chrome OS.
+    subtitle: Here's what our community has to say.
   quotes:
     - content:
         copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
@@ -175,12 +155,28 @@ developers:
         src: ix://lifestyle/developer_3.png
         alt: Mike C. leaning against a desk.
 community:
-  title: Developer channels to get you started
+  title: Developer channels to get you started.
   modifiers:
     variant: community
     heading: h2
+chromebook:
+  image:
+    src: ix://home/chromebooks-device.1500.png
+    alt: An image displaying three Chromebooks. One Samsung Chromebook is folded down. Another Acer Chromebook is folded back as a tablet. The last is open for standard laptop use.
+  content:
+    title: Get to know Chromebook
+    copy: Coming in all shapes and sizes, Chromebooks are speedy, simple, secure, and run Chrome OS.
+  cta:
+    url: https://www.google.com/chromebook/
+    text: Learn about Chromebook
+subnav:
+  content:
+    title: Helpful resources at every stage.
+  modifiers:
+    subtitle: Unlock your app's potential with our extensive library of tools and resources.
+    variant: subnav
 videos:
-  title: Watch the latest videos
+  title: Watch the latest videos.
   items:
     - video:
         title: Developer Keynote at Google I/O '21
