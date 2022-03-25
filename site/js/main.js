@@ -124,12 +124,7 @@ window.addEventListener('load', async () => {
   if (hero) {
     // Loads the component first to track changes in the HTML elements, then loads the library and the animation data.
     const { HeroAnimated } = await import('./components/hero-animated');
-    const heroAnimated = new HeroAnimated(hero);
-
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const [{ default: lottie }, { animationData }] = await Promise.all([import('lottie-web/build/player/lottie_svg.min.js'), import('./animations/home')]);
-      heroAnimated.loadAnimation(lottie, animationData);
-    }
+    new HeroAnimated(hero);
   }
 
   if (tables) {
@@ -148,6 +143,9 @@ window.addEventListener('load', async () => {
       navigator.serviceWorker.register('/sw.js');
     }
   }
+
+  const { M100 } = await import('./components/ee');
+  window.m100 = new M100();
 });
 
 if ('serviceWorker' in navigator) {

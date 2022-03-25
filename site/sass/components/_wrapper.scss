@@ -200,6 +200,10 @@
       background-color: var(--grey-850);
     }
 
+    &--blue {
+      background-color: var(--secondary-blue);
+    }
+
     &--color-stop {
       background: var(--secondary-blue);
       position: relative;
@@ -257,5 +261,10 @@
     --shape-color: var(--blue-600), var(--yellow-500);
     background-image: paint(circles);
     height: 100%;
+  }
+
+  &--bottom-bleed {
+    position: relative;
+    z-index: 1;
   }
 }
