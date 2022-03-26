@@ -25,22 +25,33 @@ export class HeroAnimated {
   constructor(element) {
     // Create a set of constants to be reused throughout the class.
     const constants = {
-      wrapperSelector: '.hero-animated__animation',
-      animationItemClass: 'hero-animated__animation-item',
-      animationDelay: 2000,
-      animationName: 'Hero',
+      animation: {
+        name: 'Hero',
+      },
+      selectors: {
+        wrapper: '[data-wrapper]',
+        fallback: '[data-fallback]',
+        img: '[data-static]',
+        phosphor: '[data-phosphor]',
+      },
+      hideClass: 'hero-animated__animation-item--hide',
     };
-    constants.backgroundImageSelector = `img.${constants.animationItemClass}`;
     this.constants_ = Object.freeze(constants);
 
     this.elem_ = element;
-    this.backgroundImage_ = this.elem_.querySelector(this.constants_.backgroundImageSelector);
+    this.backgroundImage_ = this.elem_.querySelector(this.constants_.selectors.img);
+    this.fallbackImage_ = this.elem_.querySelector(this.constants_.selectors.fallback);
+    this.phosphorImage_ = this.elem_.querySelector(this.constants_.selectors.phosphor);
     this.animation_ = {};
 
     // Start the animation in case lottie loaded before the background image.
     if (!this.backgroundImage_.complete) {
       this.backgroundImage_.addEventListener('load', this.startIfReady_.bind(this));
     }
+
+    document.body.addEventListener('themechange', ({ detail }) => {
+      this.useTheme(detail?.name);
+    });
   }
 
   /**
@@ -53,15 +64,14 @@ export class HeroAnimated {
 
     /** @type {AnimationConfig} */
     this.animationConfig_ = {
-      container: this.elem_.querySelector(this.constants_.wrapperSelector),
+      container: this.elem_.querySelector(this.constants_.selectors.wrapper),
       animType: 'svg',
       loop: true,
       animationData: animationData,
       autoplay: false,
-      name: this.constants_.animationName,
+      name: this.constants_.animation.name,
       rendererSettings: {
         progressiveLoad: true,
-        className: this.constants_.animationItemClass,
       },
     };
 
@@ -69,9 +79,44 @@ export class HeroAnimated {
   }
 
   /**
-   * Inits the animation and sets the event handlers.
+   * Check for user preferences and use the theme to apply the corresponding animation.
+   * @param {string} name - Name of current theme.
+   * @return {void}
+   */
+  async useTheme(name) {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const phosphor = name === 'phosphor';
+      let lottie;
+      let animationData;
+
+      if (phosphor) {
+        [{ default: lottie }, { animationData }] = await Promise.all([import('lottie-web/build/player/lottie_svg.min.js'), import('../animations/phosphor')]);
+      } else {
+        [{ default: lottie }, { animationData }] = await Promise.all([import('lottie-web/build/player/lottie_svg.min.js'), import('../animations/home')]);
+      }
+
+      this.loadAnimation(lottie, animationData);
+    } else {
+      this.showMotionFallback();
+    }
+  }
+
+  /**
+   * Removes the class that hides the fallback asset and adds it to the background Image.
+   */
+  showMotionFallback() {
+    this.fallbackImage_.classList.remove(this.constants_.hideClass);
+    this.backgroundImage_.classList.add(this.constants_.hideClass);
+    this.phosphorImage_.classList.add(this.constants_.hideClass);
+  }
+
+  /**
+   * Inits the animation and sets the event handlers. Destroys the previous animation if applicable.
    */
   init_() {
+    if (Object.keys(this.animation_).length) {
+      this.animation_.destroy();
+    }
     this.animation_ = this.lottie_.loadAnimation(this.animationConfig_);
     this.animation_.hide();
 
@@ -95,10 +140,10 @@ export class HeroAnimated {
    */
   startIfReady_() {
     if (this.backgroundImage_.complete && this.animation_.isLoaded) {
-      setTimeout(() => {
-        this.animation_.show();
-        this.animation_.play();
-      }, this.constants_.animationDelay);
+      this.backgroundImage_.classList.add(this.constants_.hideClass);
+      this.phosphorImage_.classList.add(this.constants_.hideClass);
+      this.animation_.show();
+      this.animation_.play();
     }
   }
 }

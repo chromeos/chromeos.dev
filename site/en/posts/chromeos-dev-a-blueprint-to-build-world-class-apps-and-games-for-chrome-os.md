@@ -5,6 +5,7 @@ hero:
   image: ix://posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/hero.svg
   alt: An illustration of a Chromebook and new Chrome OS features.
 tags:
+  - announcement
   - product news
   - large screens
   - android studio

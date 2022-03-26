@@ -1,0 +1,173 @@
+@use 'sass:math';
+
+.card-routing {
+  $clamp-check: clamp(1px, 1vw, 2px);
+  $scale-max: 1600px;
+  $grid-3-col: 1193px;
+  $card-2-col: 631px;
+  $grid-2-card-1-col: 788px;
+  $mask-scale: ($grid-3-col $scale-max);
+
+  background-color: var(--white);
+  border-radius: 0.625rem;
+  box-shadow: 0 0.25rem 1.25rem rgb(0, 0, 0, 0.15);
+  column-gap: 1.5rem;
+  container-name: card-routing;
+  container-type: inline-size;
+  display: grid;
+  grid-template: max-content / repeat(auto-fit, minmax(pxRem(240px), 1fr));
+  justify-items: center;
+  padding: generateScaling($mask-scale, (32px 60px)) generateScaling((420px $scale-max), (24px 48px));
+  text-align: center;
+
+  &__image-wrapper {
+    // used for shape math. Not to be used directly as a value.
+    $wrapper-size: 266px;
+
+    aspect-ratio: 1;
+    margin: 0 auto generateScaling(($grid-2-card-1-col $scale-max), (20px 48px));
+    position: relative;
+
+    @container card-routing (min-width: 504px) {
+      margin-bottom: 0;
+    }
+
+    &--primary,
+    &--secondary,
+    &--tertiary {
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+      }
+
+      &::before {
+        left: 0;
+        mask-image: paint(shape);
+        top: 0;
+      }
+
+      &::after {
+        background-image: paint(shape);
+      }
+    }
+
+    &--primary {
+      &::before,
+      &::after {
+        --shape-size: (100% 100%);
+      }
+
+      &::before {
+        $size: generateScaling($mask-scale, (222px 278px));
+        --shape: triangle;
+        --shape-color: var(--primary-yellow);
+        background-image: url('/images/icons/sprite.svg#angle-yellow');
+        height: $size;
+        transform: rotate(-17deg) translate(-1rem, 0.5rem);
+        width: $size;
+      }
+
+      &::after {
+        --shape: circle;
+        --shape-color: var(--primary-red);
+        @include pseudoShape((45px 210px 60px 60px), $wrapper-size);
+      }
+    }
+
+    &--secondary {
+      &::before,
+      &::after {
+        --shape: moon;
+        --shape-size: (100% 200%);
+        --shape-offset: (0% -100%);
+      }
+
+      &::before {
+        --shape-color: var(--secondary-green);
+        @include pseudoShape((64px -60px 356px 180px), $wrapper-size);
+        background-image: url('/images/icons/sprite.svg#bracket-green');
+        transform: rotate(20deg);
+      }
+
+      &::after {
+        --shape-color: var(--tertiary-green);
+        @include pseudoShape((84px 134px 156px 78px), $wrapper-size);
+        transform: rotate(-30deg);
+      }
+    }
+
+    &--tertiary {
+      &::before,
+      &::after {
+        --shape: triangle;
+        --shape-size: (100% 100%);
+      }
+
+      &::before {
+        $size: generateScaling($mask-scale, (207px $wrapper-size));
+        --shape-color: var(--primary-blue);
+        background-image: url('/images/icons/sprite.svg#slash-blue');
+        height: $size;
+        left: 0;
+        top: 0;
+        transform: translate(1rem, -1rem) rotate(168deg);
+        width: $size;
+      }
+
+      &::after {
+        --shape-color: var(--tertiary-blue);
+        @include pseudoShape((50px 196px 66px 66px), $wrapper-size);
+        transform: rotate(73deg);
+      }
+    }
+  }
+
+  &__image {
+    max-width: pxRem(260px);
+    position: relative;
+    width: generateScaling((420px $scale-max), (205px 260px));
+    z-index: 1;
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    @container card-routing (min-width: 504px) {
+      align-items: start;
+      text-align: start;
+    }
+  }
+
+  &__header {
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    @include mq($grid-3-col) {
+      max-width: 12ch;
+    }
+  }
+
+  &__body {
+    color: var(--grey-700);
+    margin-bottom: 2rem;
+    max-width: 34ch;
+
+    @include mq($card-2-col) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__footer {
+    margin-bottom: 2rem;
+
+    @include mq($card-2-col) {
+      margin-bottom: 1rem;
+      margin-top: auto;
+    }
+  }
+}

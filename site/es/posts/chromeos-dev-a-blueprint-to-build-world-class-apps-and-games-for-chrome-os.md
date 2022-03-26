@@ -11,6 +11,7 @@ featured:
     - image: ix://posts/chromeos-dev-a-blueprint-to-build-world-class-apps-and-games-for-chrome-os/featured.svg
       alt: Una ilustración de una Chromebook y nueva funcionalidad de Chrome OS.
 tags:
+  - anuncio
   - noticias de producto
   - pantallas grandes
   - android studio

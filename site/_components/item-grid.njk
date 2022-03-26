@@ -7,7 +7,7 @@
     @param {string} modifiers.custom: Custom modifier styles for the grid.
     @param {number} modifiers.shapeOn: Index of the nth item of the grid that will have a shape in the background.
         A value equals to 0 will turn off the shape. Defaults to 0.
-    @param {string} modifiers.variant: If 'icon', it will render the icon-card. if 'subnav' it will render card-subnav. if 'community' it will render external-community.
+    @param {string} modifiers.variant: If 'icon', it will render the icon-card. if 'subnav' it will render card-subnav. if 'community' it will render external-community. if 'stories' it will render stories-card.
     @param {string} modifiers.heading (optional): Designate the section heading typography class. Defaults to h1 treatment.
     @param {string} modifiers.subtitle (optional): Text for a subtitle beneath the primary title.
 
@@ -18,17 +18,18 @@
     @param {string} locale: Code for the current locale, used when 'modifiers.variant' is 'subnav' or when 'modifiers.cta' is used.
     @param {string} defaultText: Default text used when 'modifiers.variant' is 'icon'.
  #}-->
-{% from 'external-community.njk' import externalCommunity %} {% from 'card-subnav.njk' import cardSubnav %} {% from 'icon-card.njk' import iconCard %} {% from 'card.njk' import card %} {% macro itemGrid(title, items, modifiers, locale, defaultText) %} {% if items.length > 0 %}
-<section class="item-grid {{modifiers.custom}} {{'item-grid--icon-card' if modifiers.variant == 'icon'}} {{ 'item-grid--subnav' if modifiers.variant == 'subnav' }} {{'item-grid--community' if modifiers.variant == 'community'}} {{'item-grid--circled' if modifiers.shapeOn }}">
+{% from 'external-community.njk' import externalCommunity %} {% from 'card-subnav.njk' import cardSubnav %} {% from 'icon-card.njk' import iconCard %} {% from 'card.njk' import card %} {% from 'card-routing.njk' import cardRouting %} {% from 'video-card.njk' import videoCard %} {% from 'stories-section.njk' import storiesSection %} {% macro itemGrid(title, items, modifiers, locale, defaultText) %} {% if items.length > 0 %}
+<section class="item-grid {{modifiers.custom}} {{'item-grid--icon-card' if modifiers.variant == 'icon'}} {{ 'item-grid--subnav' if modifiers.variant == 'subnav' }} {{'item-grid--community' if modifiers.variant == 'community'}} {{'item-grid--video' if modifiers.variant == 'video'}} {{'item-grid--circled' if modifiers.shapeOn }} {{'item-grid--routing' if modifiers.variant == 'routing'}} {{'item-grid--stories' if modifiers.variant == 'stories'}}">
+  {% if modifiers.variant == 'stories' %} {{storiesSection(title, items, modifiers)}} {% else %} {% if title %}
   <h3 class="item-grid__title {% if modifiers.heading %} type--{{modifiers.heading}} {% else %} type--h1 {% endif %}">{{title}}</h3>
-  {% if modifiers.subtitle %}
-  <p class="type--large item-grid__subtitle">{{modifiers.subtitle}}</p>
+  {% endif %} {% if modifiers.subtitle %}
+  <p class="item-grid__subtitle type--large">{{modifiers.subtitle}}</p>
   {% endif %}
-  <div class="item-grid__content">{% for item in items %} {% if modifiers.variant == 'icon' %} {{iconCard(item, defaultText)}} {% elif modifiers.variant == 'subnav' %} {% if item.icon and item.desc %} {{cardSubnav(item, locale)}} {% endif %} {% elif modifiers.variant == 'community' %} {{externalCommunity(item.logo, item.topic, item.cta)}} {% else %} {{ card(item) }} {% endif %} {% endfor %}</div>
+  <div class="item-grid__content">{% for item in items %} {% if modifiers.variant == 'icon' %} {{iconCard(item, defaultText)}} {% elif modifiers.variant == 'subnav' %} {% if item.icon and item.desc %} {{cardSubnav(item, locale)}} {% endif %} {% elif modifiers.variant == 'community' %} {{externalCommunity(item.logo, item.topic, item.cta)}} {% elif modifiers.variant == 'video' %} {{videoCard(item.video)}} {% elif modifiers.variant == 'routing'%} {{cardRouting(item.content, item.image, item.cta, locale, item.modifiers)}} {% else %} {{ card(item) }} {% endif %} {% endfor %}</div>
   {% if modifiers.cta %}
   <footer class="item-grid__footer">
     <a class="cta cta--medium" href="{% if locale is defined %}/{{locale}}/{% endif %}{{modifiers.cta.url}}">{{modifiers.cta.text}}</a>
   </footer>
-  {% endif %}
+  {% endif %} {% endif %}
 </section>
 {% endif %} {% endmacro %}

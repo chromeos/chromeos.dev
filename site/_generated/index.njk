@@ -10,10 +10,13 @@ metadesc: Deliver rich, engaging Android, and Web apps for Chromebook with just 
 hideNewsletter: true
 ---
 
-{% from 'hero-animated.njk' import heroAnimated %} {% from 'card-stats.njk' import cardStats %} {% from 'image-card.njk' import imageCard %} {% from 'hero--cta.njk' import heroCta %} {% from 'item-grid.njk' import itemGrid %} {% from 'featured-content.njk' import featuredContent %} {% from 'call-out.njk' import callOut %} {% from 'footnotes.njk' import footnotes %} {% from 'stats.njk' import stats %} {% from 'fifty-fifty.njk' import fiftyFifty %}
+{% from 'hero-animated.njk' import heroAnimated %} {% from 'card-stats.njk' import cardStats %} {% from 'image-card.njk' import imageCard %} {% from 'hero--cta.njk' import heroCta %} {% from 'item-grid.njk' import itemGrid %} {% from 'featured-content.njk' import featuredContent %} {% from 'call-out.njk' import callOut %} {% from 'footnotes.njk' import footnotes %} {% from 'stats.njk' import stats %} {% from 'fifty-fifty.njk' import fiftyFifty %} {% from 'community-quotes.njk' import communityQuotes %} {% from 'case-studies.njk' import caseStudies %} {% from 'banner-interstitial.njk' import bannerInterstitial %}
 <div id="home" class="wrapper--hidden-x">
   <!-- Hero Animation -->
-  <header id="home__hero" class="wrapper wrapper--full-bleed wrapper--no-bottom wrapper--no-top">{{ heroAnimated(l10n.home.hero.heading, l10n.home.hero.cta, l10n.home.hero.img) }}</header>
+  <header id="home__hero" class="wrapper wrapper--full-bleed wrapper--bottom-bleed wrapper--no-bottom wrapper--no-top wrapper--padded wrapper__contained wrapper__background--blue">{{ heroAnimated(l10n.home.hero.heading, l10n.home.hero.copy, l10n.home.hero.cta, l10n.home.hero.media) }}</header>
+
+  <!-- Routing Cards -->
+  <div id="home__routing" class="wrapper wrapper--full-bleed wrapper--no-top wrapper--padding wrapper--padded wrapper__contained wrapper__background--color-stop">{{ itemGrid('', l10n.home.routing.items, l10n.home.routing.modifiers, l10n.locale.code) }}</div>
 
   <!-- Linux -->
   <section id="home__linux" class="wrapper wrapper--padded wrapper--padding">{{ fiftyFifty(l10n.home.linux.content, l10n.home.linux.cta, l10n.home.linux.images, l10n.locale.code) }}</section>
@@ -21,27 +24,34 @@ hideNewsletter: true
   <!-- Chrome OS Stats -->
   <div id="home__stats" class="wrapper wrapper--padded wrapper--padding">{{ stats(l10n.home.stats.items, l10n.home.stats.modifiers) }}</div>
 
-  <!-- Site Subnav -->
-  <div id="home__subnav" class="wrapper wrapper--full-bleed wrapper--padding wrapper--padded wrapper__background wrapper__contained">{{ itemGrid(l10n.home.subnav.content.title, l10n.nav, l10n.home.subnav.modifiers, l10n.locale.code) }}</div>
+  {% if landingCollections.featured.home.length > 0 %}
+  <div id="home__case-studies" class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__background wrapper__contained">{{ caseStudies(l10n.home.caseStudies, landingCollections.featured.home, l10n.locale.code) }}</div>
+  {% endif %}
 
-  <!-- Using Chrome OS -->
-  <section id="home__using" class="wrapper wrapper--full-top wrapper--full-bottom wrapper--rhythm wrapper--padded" aria-label="{{ l10n.home.onAndWith.desc }}">{% for item in l10n.home.onAndWith.cards %} {{ imageCard(item.images, item.content, item.cta, item.modifiers) }} {% endfor %}</section>
+  <!-- M100 Banner -->
+  <div id="home__banner">{{ bannerInterstitial(l10n.home.m100.content, l10n.home.m100.image, l10n.home.m100.cta, locale.code) }}</div>
 
   <!-- Recent Articles -->
   {% if landingCollections.posts.length > 0 %}
   <div id="home__articles" class="wrapper wrapper--padding wrapper--padded">{{ itemGrid(l10n.home.posts.title, landingCollections.homePosts, l10n.home.posts.modifiers, l10n.locale.code) }}</div>
   {% endif %}
 
-  <!-- Featured Case Story -->
-  {% if landingCollections.featured %}
-  <div id="home__featured" class="wrapper wrapper__yellow-circle wrapper--padded wrapper--bumper-top wrapper--full-bottom">{{ featuredContent(landingCollections.featured.first , l10n.home.featured.modifiers) }}</div>
-  {% endif %}
+  <div id="home__educators" class="wrapper wrapper--padded wrapper--padding">{{ fiftyFifty(l10n.home.educators.content, l10n.home.educators.cta, l10n.home.educators.images, l10n.locale.code, l10n.home.educators.modifiers) }}</div>
 
-  <!-- Chromebooks -->
-  <div id="home__chromebooks" class="wrapper wrapper--background wrapper--no-bottom wrapper--padded">{{ heroCta(l10n.home.chromebook.content, l10n.home.chromebook.image, l10n.home.chromebook.cta) }}</div>
+  <!-- Developers -->
+  <div id="home__developers" class="wrapper wrapper--padding wrapper--padded">{{ communityQuotes(l10n.home.developers.content, l10n.home.developers.quotes) }}</div>
 
   <!-- Community -->
   <div id="home__community" class="wrapper wrapper--padding wrapper--padded">{{ itemGrid(l10n.home.community.title, l10n.community, l10n.home.community.modifiers) }}</div>
+
+  <!-- Chromebooks -->
+  <div id="home__chromebooks" class="wrapper wrapper--no-top wrapper--padded">{{ heroCta(l10n.home.chromebook.content, l10n.home.chromebook.image, l10n.home.chromebook.cta) }}</div>
+
+  <!-- Site Subnav -->
+  <div id="home__subnav" class="wrapper wrapper--full-bleed wrapper--padding wrapper--padded wrapper__background wrapper__contained">{{ itemGrid(l10n.home.subnav.content.title, l10n.nav, l10n.home.subnav.modifiers, l10n.locale.code) }}</div>
+
+  <!-- Videos -->
+  <div class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__contained wrapper__background">{{ itemGrid(l10n.home.videos.title, l10n.home.videos.items, l10n.home.videos.modifiers) }}</div>
 
   <!-- Subscribe -->
   <div class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__background--dark">{{ callOut(l10n.newsletter.subscribe.content, l10n.newsletter.subscribe.cta) }}</div>

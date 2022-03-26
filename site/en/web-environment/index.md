@@ -19,7 +19,7 @@ Developing web apps on Chrome OS is almost the same as developing web apps on an
 
 ## Code editors and IDEs
 
-Any code editor or IDE that will run on Linux will run on Chrome OS. [Linux on Chrome OS](/{{locale.code}}/linux) on Chrome OS is a [Debian](https://www.debian.org/) install, and code editors and IDEs for Debian are usually installed in one of three ways. Visual Studio Code, for instance, [provides a`.deb`file](https://code.visualstudio.com/#alt-downloads) that you can double-click to install from the Files app. IntelliJ, on the other hand, [has you download a tar file](https://www.jetbrains.com/idea/download/#section=linux) containing its executable that you can extract into your Linux container and run. Sublime Text has you [install it from`apt`](https://www.sublimetext.com/docs/3/linux_repositories.html#apt).
+Any code editor or IDE that will run on Linux will run on Chrome OS. [Linux on Chrome OS](/{{locale.code}}/linux) is a [Debian](https://www.debian.org/) install, and code editors and IDEs for Debian are usually installed in one of three ways. Visual Studio Code, for instance, [provides a`.deb`file](https://code.visualstudio.com/#alt-downloads) that you can double-click to install from the Files app. IntelliJ, on the other hand, [has you download a tar file](https://www.jetbrains.com/idea/download/#section=linux) containing its executable that you can extract into your Linux container and run. Sublime Text has you [install it from`apt`](https://www.sublimetext.com/docs/3/linux_repositories.html#apt).
 
 ## Languages and tools
 
