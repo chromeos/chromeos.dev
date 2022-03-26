@@ -1,5 +1,11 @@
 // Styling for Subnav component
 .subnav {
+  &--expand {
+    @include mq($bkpt-tech-details--2-cols) {
+      filter: invert(1);
+    }
+  }
+
   &__link {
     &[data-active] {
       &::after {
@@ -8,6 +14,15 @@
         border-right: solid 2px var(--phosphor-green);
         border-top: solid 2px var(--phosphor-green);
       }
+    }
+  }
+
+  &__title {
+    color: var(--phosphor-gray);
+    width: inherit;
+
+    @include mq($bkpt-tech-details--2-cols) {
+      color: var(--phosphor-green);
     }
   }
 }

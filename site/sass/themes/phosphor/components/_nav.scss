@@ -26,12 +26,11 @@
   }
 
   &__secondary {
-    border: solid 2px var(--phosphor-green);
-    // margin: 0 20px;
-
     @include minLangMQ($bkpt-map--header--large) {
-      margin: 0 10px;
-      width: calc(100vw - 40px);
+      border: 2px solid var(--phosphor-green);
+      box-shadow: none;
+      left: -0.1rem;
+      width: calc(100% + 0.2rem);
     }
   }
 }
