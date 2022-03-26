@@ -62,6 +62,6 @@ export class Theme {
    * @return {string}
    */
   _getStoredTheme() {
-    return localStorage.getItem('chromeos-theme');
+    return localStorage.getItem('chromeos-theme') || '';
   }
 }
