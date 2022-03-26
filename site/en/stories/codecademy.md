@@ -54,7 +54,7 @@ When Codecademy beginners are ready to level up on Chromebooks, they can easily 
 
 Plus, Codecademy has made the PWA even more discoverable by setting up promotion placements in Play and targeted messaging on the website to encourage Chrome OS users to download the app.
 
-> “At Codecademy, we believe anyone should have the opportunity to learn the skills of the future in an engaging and accessible way. By supporting our users who want to learn from Codecademy on their Chromebooks, we’re doubling down on that mission.”
-> Arpan Somani, Strategic Partnerships, Codecademy
+> At Codecademy, we believe anyone should have the opportunity to learn the skills of the future in an engaging and accessible way. By supporting our users who want to learn from Codecademy on their Chromebooks, we’re doubling down on that mission.
+> {cite="Arpan Somani, Strategic Partnerships, Codecademy"}
 
 Thanks to the new PWA, more Chrome OS users are finding and exploring Codecademy’s web experience than ever before. Now, signing up for coding classes and embarking on an exciting learning journey is just a few clicks away.
