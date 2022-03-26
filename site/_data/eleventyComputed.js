@@ -335,7 +335,7 @@ module.exports = {
 
     if (posts && posts.length >= 1) {
       collections.posts = posts.map((post) => ({
-        eyebrow: post.data.tags[0],
+        eyebrow: post.data.tags[1],
         title: post.data.title,
         body: post.data.metadesc,
         url: post.data.page.url,
