@@ -3,16 +3,15 @@ title: 'Coding class is in session: How Codecademy’s  Progressive Web App enha
 metadesc: Find out how Codecademy built a PWA to make its online coding education platform more discoverable, installable, and immersive for Chrome OS users.
 date: 2022-03-29
 app:
-  name: Simplifi
+  name: Codecademy
   logo: ix://stories/simplifi/logo.png
-  company: Quicken
 hero:
-  image: ix://stories/simplifi/hero.png
-  alt: Different screenshots of the Simplifi user interface, focusing in on the Reports and Spending Plan screens.
+  image: ix://stories/codecademy/hero.png
+  alt: Screenshot of the Codecademy, showing the most popular page with a mosaic of topics, including Python, Front-End Engineering, Learn JavaScript, Learn HTML, Web Development, and Data Science.
 featured: true
 tags:
-  - web
   - pwa
+  - web
 ---
 
 Since 2018, Codecademy has helped millions of people unlock modern technical skills and reach their full potential through code. In a world filled with software job opportunities but limited resources, Codecademy bridges that gap with interactive classes on the web and a mobile app — Codecademy Go — with practice problems and quizzes.
