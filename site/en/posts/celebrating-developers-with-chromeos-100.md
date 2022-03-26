@@ -8,6 +8,14 @@ tags:
   - productivity
   - web
   - android
+hero:
+  image: ix://posts/m100/crostini-laptop.png
+  alt: Chromebook with a Linux on Chrome OS terminal opened and visible on the desktop.
+theme:
+  eyebrow: Chrome OS 100
+  icon: ix://posts/m100/icon.svg
+  theme: m100
+  background: ix://posts/m100/crostini_bottom.svg
 authors:
   - kenh
 date: 2022-03-30
