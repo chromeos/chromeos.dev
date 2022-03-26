@@ -19,9 +19,7 @@
  #}-->
 {% macro featuredStory(data, modifiers) -%}
 <div class="featured-story">
-  {% for image in data.images %}
-  <img class="featured-story__image" src="{{image.image}}" alt="{{image.alt}}" />
-  {% endfor %}
+  <img class="featured-story__image" src="{{data.media.image}}" alt="{{data.media.alt}}" />
 
   <div class="wrapper--padded featured-story__wrapper">
     <article class="featured-story__container {{modifiers.custom}}">
