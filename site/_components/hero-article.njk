@@ -9,7 +9,7 @@
   @param {string} title: String representing the title.
   @param {object} app: Object representing the app.
  #}-->
-{% from 'icon.njk' import icon %} {% from 'app-info.njk' import appInfo %} {% macro heroArticle(section, locale, parent, microcopy, tag, title, app={}) -%} {% set tagSlug = tag | slugify %}
+{% from 'icon.njk' import icon %} {% from 'app-info.njk' import appInfo %} {% macro heroArticle(section, locale, parent, microcopy, tag, title, app={}) -%} {% set tagSlug = tag | normalizeTag | slugify %}
 <article class="hero-article {% if section == 'posts' %}background-color--{{tagSlug}}{% elif section == 'case-studies' %}hero-article__stories hero-article__stories--background-color{% endif %}">
   {% if parent %}
   <div class="wrapper--padded hero-article__back">

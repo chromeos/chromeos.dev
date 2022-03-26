@@ -17,6 +17,7 @@
 
 const get = require('lodash.get');
 const { dateSort } = require('../../lib/helpers/sort');
+const { normalizeTag } = require('../../lib/helpers/tags');
 
 /**
  * Determines what stories to feature.
@@ -289,6 +290,8 @@ module.exports = {
         };
       }
 
+      featured.normalizedTag = normalizeTag(get(data, 'tags[1]'));
+
       return featured;
     }
     return null;
@@ -361,6 +364,7 @@ module.exports = {
             text: l10nFallback('microcopy.more')(data),
             url: get(i, 'data.page.url'),
           },
+          normalizedTag: normalizeTag(get(data, 'tags[1]')),
         }));
     }
 

@@ -20,7 +20,7 @@
 <a href="{{ data.url }}" class="card type--base {{styles}} {{'card--source' if data.source is defined}} {{'card--cta' if cta}}" aria-labelledby="{{ titleId }} {{ bodyId}} {{ sourceId }}">
   <article class="card__container">
     <header id="{{ titleId }}" class="card__title">
-      {% if data.eyebrow %} {% set tagSlug = data.eyebrow | slugify %} {{icon(tagSlug, 'card__topic')}}
+      {% if data.eyebrow %} {% set tagSlug = data.eyebrow | normalizeTag | slugify %} {{icon(tagSlug, 'card__topic')}}
       <small class="card__eyebrow type--eyebrow">{{ data.eyebrow }}</small>
       {% endif %}
       <h4 class="card__heading type--h4">{{ data.title }}</h4>
