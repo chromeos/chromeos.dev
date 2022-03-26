@@ -2,38 +2,26 @@
 layout: _wrapper
 ---
 
-{% from 'skip-link.njk' import skipLink %} {% from 'app-info.njk' import appInfo %} {% from 'article-footer.njk' import articleFooter %} {% from 'authors-list.njk' import authorsList %} {% from 'back-to-top.njk' import backToTop %} {% from 'item-grid.njk' import itemGrid %} {% from 'date-time.njk' import dateTime %} {% from 'icon.njk' import icon %} {% from 'toc.njk' import toc as tableOfContents %}
+{% from 'skip-link.njk' import skipLink %} {% from 'article-footer.njk' import articleFooter %} {% from 'authors-list.njk' import authorsList %} {% from 'back-to-top.njk' import backToTop %} {% from 'item-grid.njk' import itemGrid %} {% from 'date-time.njk' import dateTime %} {% from 'toc.njk' import toc as tableOfContents %} {% from 'hero-article.njk' import heroArticle %}
 
 <article class="article">
-  <div class="article__hero">
-    {%- if hero -%}{% set position = hero.position if hero.position else 'middle' %}
-    <img class="article__hero-image article__hero-image--{{position}} {{'article__hero-image--large' if section == 'case-studies'}}" src="{{hero.image}}" alt="{{hero.alt}}" />
-    {%- endif -%}
+  <div class="article__hero">{{skipLink(microcopy.skip.content, 'article')}} {% if section == 'posts' %} {{ heroArticle(section, locale, parent, microcopy, tags[0], title) }} {% elif section == 'case-studies' %} {{ heroArticle(section, locale, parent, microcopy, tags[0], title, app) }} {% endif %}</div>
+  {% if section == 'case-studies' %}
+  <div class="wrapper--padded wrapper--full-bleed article__hero-image-wrapper">
+    <img class="article__hero-image" src="{{hero.image}}" alt="{{hero.alt}}" />
   </div>
-
-  <div class="article__eyebrow">
-    {% if parent %}
-    <a class="cta cta--back" href="/{{locale.code}}/{{ parent.url }}">{{ microcopy.breadcrumbs.replace('((t))', parent.title) }}</a>
-    {% endif %}
-  </div>
-
-  <h1 class="article__header type--h2">{{title}}</h1>
-
-  {% if content | toc or authors %}
-  <aside class="article__toc">
+  {% endif %} {% if content | toc or authors %}
+  <aside class="wrapper--padded article__toc">
     {% if section == 'posts' %}
     <section class="article__section">{{ authorsList(microcopy.posted, authors, contributors, microcopy) }}</section>
     <section class="article__section">{{ dateTime(microcopy.datePosted, page.date, locale.code, options={ year: 'numeric', month: 'long', day: 'numeric' }) }}</section>
-    {% elif section == 'case-studies' %}
-    <section class="article__section">{{ appInfo(app) }}</section>
     {% endif %} {{ tableOfContents(content, microcopy.toc.title, {title: microcopy.skip.toc, id: 'article'}) }}
   </aside>
   {% endif %} {% set topics = { label: microcopy.topics, items: tags } %}{% if section == 'case-studies' %}{% set updated = { label: microcopy.lastUpdated, date: page.date, locale: locale.code } %} {% endif %}
-  <section class="article__body" id="article">
+  <section class="wrapper--padded article__body" id="article">
     <div class="article__content type">{{ content | safe }}</div>
     {{ articleFooter(locale.code,topics, updated, modifiers={custom:'article__content'}) }}
   </section>
-
-  <section class="article__recommended wrapper__contained wrapper--padding wrapper--padded">{{itemGrid(microcopy.recommended, title | related(locale.code, page.url))}}</section>
 </article>
+<section class="article__recommended wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__contained wrapper__background">{{itemGrid(microcopy.recommended, title | related(locale.code, page.url))}}</section>
 {{ backToTop() }}

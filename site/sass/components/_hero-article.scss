@@ -1,0 +1,182 @@
+// Styles for the hero, copy and images stacked on mobile, side by side on large.
+@use 'sass:math';
+
+.hero-article {
+  $content-max-width: 100rem;
+
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &__back {
+    background-color: var(--white);
+    margin: 0 auto;
+    max-width: $content-max-width;
+    padding-bottom: clamp(1rem, 6vw, 2.5rem);
+    padding-top: clamp(1rem, 6vw, 2rem);
+
+    @include mq(750px) {
+      background-color: transparent;
+      padding-bottom: 0;
+    }
+  }
+
+  &__content {
+    margin: 0 auto;
+    max-width: $content-max-width;
+    padding: 2.5rem 0 clamp(3rem, 6vw, 4.5rem);
+    position: relative;
+    z-index: 1;
+  }
+
+  &__images {
+    align-items: center;
+    display: flex;
+    height: 30vh;
+    justify-content: center;
+    margin-top: -20vh;
+    position: relative;
+
+    @include mq(750px) {
+      bottom: 0;
+      height: 100%;
+      margin-top: unset;
+      position: absolute;
+      right: 0;
+      width: 58vw;
+      z-index: 0;
+    }
+
+    &--background-pattern {
+      display: block;
+      height: 100%;
+      margin-left: auto;
+
+      @include mq(750px) {
+        bottom: 0;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+
+  &__content-wrapper {
+    max-width: clamp(35ch, 50vw, 70ch);
+  }
+
+  &__icon {
+    height: 2rem;
+    margin-inline-end: 0.625rem;
+    width: 2rem;
+  }
+
+  &__eyebrow {
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    margin-top: 1rem;
+  }
+
+  &__link {
+    color: var(--secondary-blue);
+    margin-top: 1.5rem;
+  }
+
+  &__stories {
+    &--background-color {
+      background-color: var(--primary-blue);
+    }
+
+    &--content {
+      display: flex;
+      flex-direction: column;
+      padding: clamp(5rem, 6vw, 3rem) 0 clamp(5rem, 10vw, 8rem);
+
+      @include mq($bkpt-articles--2-cols) {
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 3rem 8vw;
+      }
+    }
+
+    &--app-wrapper {
+      .type--small,
+      .type--h6 {
+        @include fontSetup(16px, 24px);
+        color: var(--white);
+      }
+
+      .app-info {
+        margin-bottom: 0;
+
+        @include mq($bkpt-articles--2-cols) {
+          flex-direction: row;
+        }
+      }
+
+      .app-info__copy-wrapper {
+        @include mq($bkpt-articles--2-cols) {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-left: 1.5rem;
+          margin-top: 0;
+        }
+      }
+
+      .app-info__logo {
+        background-color: var(--white);
+        border: 1px solid var(--grey-150);
+        border-radius: 0.3125rem;
+        filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+        height: clamp(3rem, 100vw, 3.75rem);
+        object-fit: contain;
+        width: clamp(3rem, 100vw, 3.75rem);
+      }
+    }
+
+    .hero-article__images {
+      display: none;
+
+      @include mq(766px) {
+        display: flex;
+      }
+    }
+
+    &--background-pattern {
+      height: 25vh;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
+
+      @include mq(766px) {
+        display: none;
+      }
+    }
+
+    .hero-article__eyebrow {
+      color: var(--white);
+    }
+
+    .hero-article__title {
+      color: var(--white);
+      margin-bottom: 2rem;
+      margin-top: 0;
+
+      @include mq($bkpt-articles--2-cols) {
+        margin-bottom: 0;
+      }
+    }
+
+    .cta--back {
+      color: var(--blue-600);
+
+      @include mq(750px) {
+        color: var(--white);
+      }
+    }
+  }
+}
