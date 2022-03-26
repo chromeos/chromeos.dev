@@ -26,6 +26,7 @@
     max-width: $content-max-width;
     padding: 2.5rem 0 clamp(3rem, 6vw, 4.5rem);
     position: relative;
+    z-index: 1;
   }
 
   &__images {
@@ -90,7 +91,7 @@
     &--content {
       display: flex;
       flex-direction: column;
-      padding: clamp(5rem, 6vw, 3rem) 0 clamp(1rem, 10vw, 8rem);
+      padding: clamp(5rem, 6vw, 3rem) 0 clamp(5rem, 10vw, 8rem);
 
       @include mq($bkpt-articles--2-cols) {
         align-items: center;
@@ -133,6 +134,26 @@
         height: clamp(3rem, 100vw, 3.75rem);
         object-fit: contain;
         width: clamp(3rem, 100vw, 3.75rem);
+      }
+    }
+
+    .hero-article__images {
+      display: none;
+
+      @include mq(766px) {
+        display: flex;
+      }
+    }
+
+    &--background-pattern {
+      height: 25vh;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
+
+      @include mq(766px) {
+        display: none;
       }
     }
 

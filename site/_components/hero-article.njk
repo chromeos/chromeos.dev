@@ -25,8 +25,10 @@
     </div>
     {% if section == 'case-studies' %}
     <div class="hero-article__stories--app-wrapper">{{ appInfo(app) }}</div>
+    <img class="hero-article__stories--background-pattern" src="ix://landings/{{ parent.url }}/banner-{{tagSlug}}.svg" alt="" />
     {% endif %}
   </div>
+
   <div class="hero-article__images">
     <img class="hero-article__images--background-pattern" src="ix://landings/{{ parent.url }}/banner-{{tagSlug}}.svg" alt="" />
   </div>
