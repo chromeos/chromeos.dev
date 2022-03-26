@@ -1,0 +1,12 @@
+// Site Header
+
+.header {
+  border: solid var(--phosphor-green) 2px;
+  margin: 20px;
+  width: calc(100vw - 40px);
+
+  &__cta {
+    border: 1px solid var(--phosphor-gray);
+    border-left: 2px solid var(--phosphor-green);
+  }
+}

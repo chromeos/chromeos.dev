@@ -9,15 +9,15 @@
 .wrapper {
   &__background {
     &--dark {
-      background-color: var(--grey-50);
+      background-color: var(--phosphor-gray);
     }
 
     &--blue {
-      background-color: var(--grey-50);
+      background-color: var(--phosphor-gray);
     }
 
     &--color-stop {
-      background: var(--grey-50);
+      background: var(--phosphor-gray);
 
       &::after {
         background-image: none;

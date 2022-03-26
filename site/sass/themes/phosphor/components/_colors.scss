@@ -1,4 +1,4 @@
-[data-theme='phosphor'] {
+:root & {
   @each $c, $v in $phosphor-colors {
     $name: '--#{$c}';
     #{$name}: #{$v};
@@ -19,6 +19,8 @@
     'tertiary-red': map-get($phosphor-colors, 'red-250'),
     'black': map-get($phosphor-colors, 'grey-900'),
     'white': map-get($phosphor-colors, 'grey-50'),
+    'phosphor-green': $phosphor-green,
+    'phosphor-gray': $phosphor-gray,
   );
 
   @each $c, $v in $theming-colors {

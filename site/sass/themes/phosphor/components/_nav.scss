@@ -15,18 +15,18 @@
 
       &[aria-expanded='true'] {
         &::after {
-          border-color: transparent transparent var(--blue-850);
+          border-color: transparent transparent var(--phosphor-green);
         }
 
         &::before {
-          border-color: transparent transparent var(--blue-850);
+          border-color: transparent transparent var(--phosphor-green);
         }
       }
     }
   }
 
   &__secondary {
-    border: solid 2px var(--blue-850);
+    border: solid 2px var(--phosphor-green);
     // margin: 0 20px;
 
     @include minLangMQ($bkpt-map--header--large) {

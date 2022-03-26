@@ -1,6 +1,6 @@
-@use 'sass:math';
+.type {
+  font-family: $font-mono;
 
-[data-theme='phosphor'] %type {
   &--header {
     color: var(--black);
   }

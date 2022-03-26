@@ -1,0 +1,13 @@
+// Styling for Subnav component
+.subnav {
+  &__link {
+    &[data-active] {
+      &::after {
+        background-color: var(--phosphor-gray);
+        border-bottom: solid 2px var(--phosphor-green);
+        border-right: solid 2px var(--phosphor-green);
+        border-top: solid 2px var(--phosphor-green);
+      }
+    }
+  }
+}

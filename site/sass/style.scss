@@ -101,26 +101,4 @@
 @import 'layouts/thank-you';
 
 // Phosphor Theme
-@import 'globals/colors.phosphor';
-@import 'components/colors.phosphor';
-@import 'components/body.phosphor';
-
-/* stylelint-disable no-invalid-position-at-import-rule */
-[data-theme='phosphor'] {
-  @import 'components/wrapper.phosphor';
-  @import 'components/card-routing.phosphor';
-  @import 'components/card-subnav.phosphor';
-  @import 'components/card.phosphor';
-  @import 'components/external-community.phosphor';
-  @import 'components/header.phosphor';
-  @import 'components/stats.phosphor';
-  @import 'components/search-box.phosphor';
-  @import 'components/call-out.phosphor';
-  @import 'components/nav.phosphor';
-  @import 'components/subnav.phosphor';
-  @import 'components/typography.phosphor';
-  @import 'components/hero-animated.phosphor';
-  @import 'components/banner-interstitial.phosphor';
-  @import 'components/card-study.phosphor';
-}
-/* stylelint-enable no-invalid-position-at-import-rule */
+@import 'themes/phosphor/style';
