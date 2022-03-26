@@ -16,9 +16,6 @@ tags:
   - productivity
 authors:
   - nataliagvak
-hero:
-  image: ix://posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/hero.png
-  alt: Illustration of laptop with gaming and productivity icons.
 date: 2018-10-29
 ---
 

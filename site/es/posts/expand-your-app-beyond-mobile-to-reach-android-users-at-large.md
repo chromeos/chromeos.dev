@@ -8,10 +8,6 @@ tags:
   - android
 authors:
   - ssamat
-hero:
-  image: ix://posts/expand-your-app-beyond-mobile-to-reach-android-users-at-large/hero.png
-  alt: Banner genérico de Android
-  position: bottom
 date: 2019-09-05
 ---
 

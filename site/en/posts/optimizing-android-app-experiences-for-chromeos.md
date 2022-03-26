@@ -10,9 +10,6 @@ tags:
   - large screens
 authors:
   - nataliagvak
-hero:
-  image: ix://posts/optimizing-android-app-experiences-for-chromeos/hero.png
-  alt: Illustration of smartphone, laptop, and tablet devices with dotted line connections.
 date: 2019-09-09
 ---
 

@@ -16,9 +16,6 @@ tags:
   - soporte para mouse
 authors:
   - bgable
-hero:
-  image: ix://posts/gdc-2019-recap/hero.png
-  alt: Ilustración de la computadora portátil y dispositivo plegable.
 date: 2019-05-02
 ---
 
