@@ -11,8 +11,8 @@ hero:
   alt: Different screenshots of the Simplifi user interface, focusing in on the Reports and Spending Plan screens.
 featured: true
 tags:
-  - web
   - pwa
+  - web
 ---
 
 Quicken's no stranger to user-friendly digital tools. After all, its desktop and cloud product suite has helped over 17 million people manage their finances for more than 30 years. In 2020, the brand further expanded its lineup of products tailored to different devices and financial needs with its mobile and web app, Simplifi.
