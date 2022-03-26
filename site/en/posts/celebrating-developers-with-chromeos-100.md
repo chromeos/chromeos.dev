@@ -15,7 +15,9 @@ theme:
   eyebrow: Chrome OS 100
   icon: ix://posts/m100/icon.svg
   theme: m100
-  background: ix://posts/m100/crostini_bottom.svg
+  background:
+    top: ix://posts/m100/crostini-top.svg
+    bottom: ix://posts/m100/crostini-bottom.svg
 authors:
   - kenh
 date: 2022-03-30
