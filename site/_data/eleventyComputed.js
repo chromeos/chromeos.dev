@@ -267,7 +267,7 @@ module.exports = {
           name: dataFallback('app.name')(data),
           logo: dataFallback('app.logo')(data),
         },
-        eyebrow: dataFallback('featured.eyebrow', 'microcopy.featured.eyebrow')(data),
+        eyebrow: dataFallback('featured.eyebrow', 'theme.eyebrow')(data) || get(data, 'microcopy.featured.eyebrow'),
         title: dataFallback('featured.title', 'title')(data),
         desc: dataFallback('featured.desc', 'metadesc')(data),
         cta: {
@@ -275,6 +275,7 @@ module.exports = {
           url: get(data, 'page.url'),
         },
         tag: get(data, 'tags[0]'),
+        theme: get(data, 'theme'),
       };
 
       const images = dataFallback('featured.images', 'hero')(data);
@@ -335,11 +336,12 @@ module.exports = {
 
     if (posts && posts.length >= 1) {
       collections.posts = posts.map((post) => ({
-        eyebrow: post.data.tags[1],
+        eyebrow: dataFallback('theme.eyebrow', 'tags[1]')(post.data),
         title: post.data.title,
         body: post.data.metadesc,
         url: post.data.page.url,
         cta: 'Learn more',
+        icon: post.data.theme?.icon,
       }));
 
       collections.filteredPosts = collections.posts.filter((i) => i.url !== get(collections, 'featured.post.cta.url'));

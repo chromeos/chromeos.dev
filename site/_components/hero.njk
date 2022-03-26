@@ -13,10 +13,12 @@
   @param {string} content.cta.text: String representing the CTA text.
  #}-->
 {% from 'icon.njk' import icon %} {% macro hero(content) -%} {% set tagSlug = content.normalizedTag | slugify %}
-<article class="hero {% if content.tag %}background-color--{{tagSlug}}{% endif %}">
+<article class="hero {% if content.theme.theme %}hero--theme__{{content.theme.theme}}{% elif content.tag %}background-color--{{tagSlug}}{% endif %}">
   <div class="wrapper--padded hero__content">
     <div class="hero__content-wrapper">
-      {% if content.tag %}{{icon(tagSlug, 'hero__icon')}}{% endif %}
+      {% if content.theme.icon %}
+      <img src="{{content.theme.icon}}" alt="" class="hero__icon icon" aria-hidden="true" />
+      {% elif content.tag %} {{icon(tagSlug, 'hero__icon')}} {% endif %}
       <small class="hero__eyebrow type--eyebrow">{{content.eyebrow}}</small>
       <h1 class="hero__title type--h1">{{content.title}}</h1>
 
@@ -25,10 +27,12 @@
     </div>
   </div>
   <div class="hero__images">
-    {% for image in content.images %}
-    <img class="hero__images--image" src="{{image.image}}" alt="{{image.alt}}" />
-    {% endfor %}
+    <img class="hero__images--image" src="{{content.media.image}}" alt="{{content.media.alt}}" />
+    {% if content.theme.background %}
+    <img class="hero__images--background-pattern" src="{{content.theme.background}}" alt="" />
+    {% else %}
     <img class="hero__images--background-pattern" src="ix://landings/news/banner-{{tagSlug}}.svg" alt="" />
+    {% endif %}
   </div>
 </article>
 {%- endmacro %}
