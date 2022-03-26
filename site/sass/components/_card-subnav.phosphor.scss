@@ -4,6 +4,11 @@
 .card-subnav {
   border: solid 2px var(--blue-850);
 
+  &__icon-wrapper {
+    background-color: var(--grey-50);
+    border: solid 1px var(--blue-850);
+  }
+
   &__icon {
     fill: var(--grey-50);
   }

@@ -1,0 +1,19 @@
+@use 'sass:math';
+
+.card-study {
+  &,
+  &__tile {
+    background-color: var(--grey-50);
+    border-radius: 0 0.625rem 0.625rem 0;
+  }
+
+  &__media {
+    border-bottom: solid 2px var(--blue-850);
+    border-left: solid 2px var(--blue-850);
+    border-top: solid 2px var(--blue-850);
+  }
+
+  &__tile {
+    border: solid 2px var(--blue-850);
+  }
+}
