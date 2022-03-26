@@ -1,0 +1,7 @@
+// Styles for card component.
+
+.card {
+  &__container {
+    border: solid 2px var(--phosphor-green);
+  }
+}

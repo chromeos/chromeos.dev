@@ -1,0 +1,31 @@
+// Styles for landing pages.
+//
+// Customizations.
+// On wider screens (width > $content-max-width) if you have a component with a
+// full-bleed background use --alter-background-color to set it.
+
+@use 'sass:math';
+
+.wrapper {
+  &__background {
+    &--dark {
+      background-color: var(--phosphor-gray);
+    }
+
+    &--blue {
+      background-color: var(--phosphor-gray);
+    }
+
+    &--color-stop {
+      background: var(--phosphor-gray);
+
+      &::after {
+        background-image: none;
+
+        @include mq(631px) {
+          background-image: none;
+        }
+      }
+    }
+  }
+}
