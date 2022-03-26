@@ -49,6 +49,8 @@
       display: block;
       height: 100%;
       margin-left: auto;
+      max-width: unset;
+      z-index: 0;
 
       @include mq(750px) {
         bottom: 0;
@@ -60,6 +62,8 @@
 
   &__content-wrapper {
     max-width: clamp(40ch, 50vw, 60ch);
+    position: relative;
+    z-index: 1;
   }
 
   &__icon {
