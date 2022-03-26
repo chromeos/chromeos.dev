@@ -355,7 +355,7 @@ module.exports = {
             name: get(i, 'data.app.name'),
             company: get(i, 'data.app.company'),
           },
-          media: get(i, 'data.featured.images[0]') ? get(i, 'data.featured.images[0]') : { image: get(i, 'data.hero.image'), alt: get(i, 'data.hero.alt') },
+          media: get(i, 'data.featured.media') ? get(i, 'data.featured.media') : { image: get(i, 'data.hero.image'), alt: get(i, 'data.hero.alt') },
           tag: i.data.tags[1],
           cta: {
             text: l10nFallback('microcopy.more')(data),
