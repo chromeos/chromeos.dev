@@ -128,32 +128,32 @@ developers:
     subtitle: Here's what our community has to say.
   quotes:
     - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        copy: “Cloud Stop Motion PWA reached more users in 12 months than our desktop app reached in 10 years!”
         author:
-          name: Mike C.
-          role: Head Engineer
+          name: David Henley
+          role: CEO, Cloud Stop motion
       image:
-        src: ix://lifestyle/developer_1.png
-        alt: Mike C. leaning against a desk.
+        src: ix://home/quotes/david-henley-0.jpg
+        alt: David Henley, looking to the side of the camera, in front of a full bookcase.
     - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        copy: “Piper Make saw a 38% increase in its user base after introducing an offline-enabled, streamlined PWA.”
         author:
-          name: Mike C.
-          role: Head Engineer
+          name: Shree Bose
+          role: Co-Founder, Piper Make
       image:
-        src: ix://lifestyle/developer_2.png
-        alt: Mike C. smiling at the camera.
+        src: ix://posts/iwd-2022-shree-bose/shree.jpeg
+        alt: Shree Bose wearing scrubs and a stethoscope, setting an infant into a crib in a hospital setting.
       decorators:
         - ix://lifestyle/code_sample_sudo.png
         - ix://lifestyle/command_key.png
     - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        copy: “Our ability to closely collaborate with the Chrome OS team has enabled Dropbox to expand our offerings to Chromebooks and provide a seamless user experience.”
         author:
-          name: Mike C.
-          role: Head Engineer
+          name: Sam Edwards
+          role: Staff Mobile Engineer, Dropbox
       image:
-        src: ix://lifestyle/developer_3.png
-        alt: Mike C. leaning against a desk.
+        src: ix://home/quotes/sam-edwards-0.jpg
+        alt: Sam Edwards, looking straight ahead but not at the camera, working on a Chromebook.
 community:
   title: Developer channels to get you started.
   modifiers:
