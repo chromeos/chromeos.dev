@@ -5,8 +5,6 @@
   $content-max-width: 100rem;
 
   overflow: hidden;
-  // padding-bottom: clamp(1rem, 6vw, 2rem)
-
   padding-bottom: 15vh;
   position: relative;
   width: 100%;
@@ -52,7 +50,6 @@
     @include mq(750px) {
       align-items: center;
     }
-    // padding: 2rem;
 
     &--background-pattern {
       bottom: 0;
