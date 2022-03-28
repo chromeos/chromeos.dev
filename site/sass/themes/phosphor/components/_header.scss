@@ -1,0 +1,14 @@
+// Site Header
+
+.header {
+  border: 2px solid var(--phosphor-green);
+
+  &__cta {
+    border: 1px solid var(--phosphor-gray);
+    border-left: 2px solid var(--phosphor-green);
+  }
+
+  &__menu-icon {
+    filter: invert(1) hue-rotate(90deg);
+  }
+}

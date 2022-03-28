@@ -7,10 +7,13 @@
   @param {string} microcopy.author.alt - String to describe the author's photo
 
  #}-->
-{% from 'author.njk' import author as authorMacro %} {% macro authorsList(authors, contributors, microcopy) -%}
+{% from 'author.njk' import author as authorMacro %} {% macro authorsList(label, authors, contributors, microcopy) -%}
+
+<h4 class="authors-list__label type--label">{{ label }}</h4>
 <ul class="authors-list">
   {% for author in authors %}
   <li class="authors-list__author">{{authorMacro(contributors[author], microcopy.author.alt, author)}}</li>
   {% endfor %}
 </ul>
+
 {%- endmacro %}

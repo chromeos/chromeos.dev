@@ -2,8 +2,9 @@
 title: 'Digital Goods API 1.0 to 2.0 Migration Guide'
 metadesc: Digital Goods API 2.0 is coming in Chrome 96. Make sure you update your app to ensure it continues to work.
 tags:
-  - product news
+  - announcement
   - web
+  - product news
 authors:
   - ikarahan
 date: 2021-10-01

@@ -2,6 +2,7 @@
 title: What's new in Chrome OS? A faster, simpler, and more secure environment for Web and Android developers
 metadesc: New features in Chrome OS for a more streamlined developer experience.
 tags:
+  - event
   - product news
   - success story
   - android studio

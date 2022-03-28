@@ -1,9 +1,11 @@
 @use 'sass:math';
 
 .fifty-fifty {
-  $single-column: 653px;
+  $self: &;
+  $single-row: 653px;
   $content-width-m: pxRem(415px);
-  $content-width-r: generateScaling(($single-column 1440px), (340px 490px));
+  $content-width-r: generateScaling(($single-row 1440px), (340px 490px));
+  $scale-max: 1600px;
 
   display: grid;
   gap: 2rem 1.25rem;
@@ -18,7 +20,7 @@
       max-width: $content-width-r;
     }
 
-    @include mq($single-column) {
+    @include mq($single-row) {
       text-align: start;
     }
   }
@@ -34,18 +36,85 @@
   }
 
   &__image-wrapper {
-    max-width: pxRem(570px);
+    max-width: min(pxRem(570px), 100%);
     position: relative;
+
+    #{$self}--educators & {
+      aspect-ratio: 1;
+      max-width: min(pxRem(420px), 100%);
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    &::before {
+      --shape: moon;
+      --shape-color: var(--tertiary-blue);
+      --shape-size: (100% 200%);
+      --shape-offset: (0 -100%);
+      background-image: paint(shape);
+      height: 46%;
+      transform: translateY(50%) rotate(-30deg);
+      width: 60%;
+
+      #{$self}--educators & {
+        --shape: triangle;
+        --shape-color: var(--primary-yellow);
+        --shape-size: (100% 100%);
+        --shape-offset: (0% 0%);
+        @include pseudoShape((140px 365px 70px 70px), 426px);
+        transform: rotate(73deg);
+      }
+    }
+
+    &::after {
+      #{$self}--educators & {
+        --shape: moon;
+        --shape-size: (100% 200%);
+        --shape-offset: (0% -100%);
+        @include pseudoShape((140px -70px 530px 282px), 426px);
+        background-image: url('/images/icons/sprite.svg#bracket-red');
+        mask-image: paint(shape);
+        transform: rotate(20deg);
+      }
+    }
   }
 
   &__image {
     position: relative;
+    z-index: 1;
 
-    &:not(:first-of-type) {
-      left: 0;
+    #{$self}--educators & {
+      max-width: min(pxRem(420px), 100%);
+    }
+
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
       position: absolute;
+    }
+
+    &:nth-of-type(2) {
+      left: 0;
       top: -15%;
       transform: scale(0.5);
+    }
+
+    &:nth-of-type(3) {
+      aspect-ratio: 1;
+      left: 50%;
+      top: 50%;
+      transform: scale(1.25) translate(15%, -55%);
+      z-index: 0;
+
+      @include mq($single-row) {
+        transform: scale(1.1) translate(-21%, -64.3%);
+      }
     }
   }
 }

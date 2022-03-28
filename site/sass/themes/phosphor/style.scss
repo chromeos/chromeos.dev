@@ -1,0 +1,27 @@
+/* stylelint-disable no-invalid-position-at-import-rule */
+[data-theme='phosphor'] {
+  @import './globals/colors';
+  @import './components/colors';
+  @import './components/body';
+  @import './components/wrapper';
+  @import './components/card-routing';
+  @import './components/card-subnav';
+  @import './components/card';
+  @import './components/external-community';
+  @import './components/header';
+  @import './components/stats';
+  @import './components/search-box';
+  @import './components/call-out';
+  @import './components/nav';
+  @import './components/subnav';
+  @import './components/typography';
+  @import './components/hero-animated';
+  @import './components/banner-interstitial';
+  @import './components/card-study';
+  @import './components/footnotes';
+
+  @import './components/type';
+  @import './components/cta';
+}
+
+/* stylelint-enable no-invalid-position-at-import-rule */

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { scrollListener, resizeListener } from '../lib/throttle';
+import { scrollListener } from '../lib/throttle';
 
 /**
  * Manages home page navigation
@@ -25,13 +25,12 @@ export class Home {
    * @param {DOMElement} elem - The Home element
    */
   constructor(elem) {
-    const sections = ['subnav', 'using', 'articles', 'featured', 'chromebooks', 'community'].map((i) => `#home__${i}`).reduce((acc, cur) => Object.assign(acc, { [cur.replace('#home__', '')]: cur }), {});
+    const sections = ['subnav', 'articles', 'community'].map((i) => `#home__${i}`).reduce((acc, cur) => Object.assign(acc, { [cur.replace('#home__', '')]: cur }), {});
 
     this.elem_ = elem;
     this.constants_ = Object.freeze({
       time: 250,
       speed: 45,
-      usingBreak: 829,
       sections,
       off: 'ApplePaySession' in window,
     });
@@ -55,36 +54,14 @@ export class Home {
     });
 
     this.articles_ = elem.querySelector('#home__articles');
-    this.featured_ = elem.querySelectorAll('.featured-content__image-wrapper .featured-content__image');
-    this.using_ = [...elem.querySelectorAll('.image-card')].map((e) => [...e.querySelectorAll('img')]);
 
     for (const [key, value] of Object.entries(this.constants_.sections)) {
       const element = elem.querySelector(value);
       this.fadeSetup_(key, element);
-      if (key === 'using') {
-        const cards = element.querySelectorAll('.image-card');
-        for (const [i, card] of cards.entries()) {
-          if (i % 2 === 1) {
-            this.fadeSetup_(key, card, true);
-          } else {
-            this.fadeSetup_(key, card);
-          }
-
-          this.observer_.observe(card);
-        }
-      } else {
-        this.observer_.observe(element);
-      }
+      this.observer_.observe(element);
     }
 
     scrollListener(this.scroll_.bind(this));
-    resizeListener(() => {
-      if (window.innerWidth < this.constants_.usingBreak) {
-        for (const item of this.using_.flat().values()) {
-          item.style.transform = `translateY(0px)`;
-        }
-      }
-    });
   }
 
   /**
@@ -100,26 +77,9 @@ export class Home {
         fades.push(elem.querySelector('.item-grid__title'));
         fades = fades.concat([...elem.querySelectorAll('.card-subnav')]);
         break;
-      case 'using':
-        if (flip) {
-          fades.push(elem.querySelector('.image-card__wrapper'));
-          fades = fades.concat([...elem.querySelectorAll('.image-card__animation-wrapper')]);
-        } else {
-          fades = fades.concat([...elem.querySelectorAll('.image-card__animation-wrapper')]);
-          fades.push(elem.querySelector('.image-card__wrapper'));
-        }
-        break;
       case 'articles':
         fades.push(elem.querySelector('.item-grid__title'));
         fades = fades.concat([...elem.querySelectorAll('.card')]);
-        break;
-      case 'featured':
-        fades.push(elem.querySelector('.featured-content__copy-wrapper'));
-        fades.push(elem.querySelector('.featured-content__ilustrations-wrapper'));
-        break;
-      case 'chromebooks':
-        fades.push(elem.querySelector('.hero--cta__wrapper'));
-        fades.push(elem.querySelector('.hero--cta__image'));
         break;
       case 'community':
         fades.push(elem.querySelector('.item-grid__title'));
@@ -167,40 +127,6 @@ export class Home {
    */
   scroll_() {
     if (!this.reducedMotion_.matches || !this.constants_.off) {
-      // Using Parallax, only when items are side-by-side
-      if (this.using_.length) {
-        if (window.innerWidth >= this.constants_.usingBreak) {
-          for (const elems of this.using_) {
-            const parent = elems[0].parentNode;
-            const pBox = parent.getBoundingClientRect();
-
-            for (const [i, item] of elems.entries()) {
-              const speed = this.constants_.speed * (1 + i);
-              const offset = this.offset_(speed, pBox.top);
-              item.style.transform = `translateY(${offset}px)`;
-            }
-          }
-        } else {
-          for (const item of this.using_.flat().values()) {
-            item.style.transform = `translateY(0px)`;
-          }
-        }
-      }
-
-      // Featured Parallax
-      if (this.featured_.length) {
-        const parent = this.featured_[0].parentNode;
-        const pBox = parent.getBoundingClientRect();
-
-        parent.style.setProperty('--parallax-top', this.offset_(this.constants_.speed / 2, pBox.top));
-
-        for (const [i, item] of this.featured_.entries()) {
-          const speed = this.constants_.speed * (1 + i);
-          const offset = this.offset_(speed, pBox.top);
-          item.style.transform = `translateY(${offset}px)`;
-        }
-      }
-
       // Article
       if (this.articles_) {
         const article = this.articles_.getBoundingClientRect();
@@ -209,21 +135,6 @@ export class Home {
         this.articles_.style.setProperty('--parallax-top', offset);
       }
     } else {
-      // Using
-      if (this.using_.length) {
-        for (const item of this.using_.flat().values()) {
-          item.style.transform = `translateY(0px)`;
-        }
-      }
-
-      // Featured Parallax
-      if (this.featured_.length) {
-        this.featured_[0].parentNode.style.setProperty('--parallax-top', 0);
-        for (const item of this.featured_.values()) {
-          item.style.transform = `translateY(0px)`;
-        }
-      }
-
       // Article
       if (this.articles_) {
         this.articles_.style.setProperty('--parallax-top', 0);

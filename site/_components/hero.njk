@@ -12,16 +12,23 @@
   @param {string} content.cta.url: String representing the CTA url.
   @param {string} content.cta.text: String representing the CTA text.
  #}-->
-{% macro hero(content) -%}
-<article class="hero">
-  <section class="hero__copy-wrapper">
-    <small class="hero__eyebrow type--eyebrow">{{content.eyebrow}}</small>
-    <h1 class="type--h1">{{content.title}}</h1>
-    <p class="type--h3">{{content.desc}}</p>
-    <a class="hero__link cta cta--high" href="{{content.cta.url}}">{{content.cta.text}}</a>
-  </section>
-  {% for image in content.images %}
-  <img class="hero__image" src="{{image.image}}" alt="{{image.alt}}" />
-  {% endfor %}
+{% from 'icon.njk' import icon %} {% macro hero(content) -%} {% set tagSlug = content.tag | slugify %}
+<article class="hero {% if content.tag %}background-color--{{tagSlug}}{% endif %}">
+  <div class="wrapper--padded hero__content">
+    <div class="hero__content-wrapper">
+      {% if content.tag %}{{icon(tagSlug, 'hero__icon')}}{% endif %}
+      <small class="hero__eyebrow type--eyebrow">{{content.eyebrow}}</small>
+      <h1 class="hero__title type--h1">{{content.title}}</h1>
+
+      <p class="hero__copy type--h4">{{content.desc}}</p>
+      <a class="hero__link cta cta--link cta--right-icon" href="{{content.cta.url}}">{{content.cta.text}}</a>
+    </div>
+  </div>
+  <div class="hero__images">
+    {% for image in content.images %}
+    <img class="hero__images--image" src="{{image.image}}" alt="{{image.alt}}" />
+    {% endfor %}
+    <img class="hero__images--background-pattern" src="ix://landings/news/banner-{{tagSlug}}.svg" alt="" />
+  </div>
 </article>
 {%- endmacro %}

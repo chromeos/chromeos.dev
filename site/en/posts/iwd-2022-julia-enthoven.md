@@ -2,8 +2,8 @@
 title: 'Empowering creators, educators, and entrepreneurs with Kapwing’s Julia Enthoven'
 metadesc: In honor of International Women's Day, we interviewed Kapwing's CEO, Julia Enthoven on her path to co-founding Kapwing.
 tags:
-  - success story
   - web
+  - success story
 authors:
   - joycetoh
 date: 2022-03-08

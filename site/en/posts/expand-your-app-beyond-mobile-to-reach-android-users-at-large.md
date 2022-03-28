@@ -2,6 +2,7 @@
 title: Expand your app beyond mobile to reach Android users at large
 metadesc: Build Android apps for devices other than mobile to reach more users.
 tags:
+  - leader's corner
   - trend
   - large screens
   - android

@@ -1,0 +1,50 @@
+.video-card {
+  text-decoration: none;
+
+  &__thumbnail-wrapper {
+    border-radius: 0.625rem;
+    display: grid;
+    overflow: hidden;
+    padding-top: 56.25%;
+    position: relative;
+
+    // Use the same aspect ratio as YouTube does for thumbnails to minimize letterboxing.
+    @supports (aspect-ratio: 16 / 9) {
+      aspect-ratio: 16 / 9;
+      padding-top: 0;
+    }
+
+    .icon {
+      height: 3.625rem;
+      place-self: center;
+      width: 3.625rem;
+    }
+  }
+
+  &__thumbnail,
+  &__play-icon {
+    position: absolute;
+  }
+
+  &__thumbnail {
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    top: 0;
+    width: 100%;
+  }
+
+  &__play-icon {
+    background-color: var(--primary-blue);
+    border-radius: 50%;
+  }
+
+  &__caption {
+    margin-top: 1.5rem;
+    text-align: center;
+
+    @include mq(914px) {
+      text-align: start;
+    }
+  }
+}

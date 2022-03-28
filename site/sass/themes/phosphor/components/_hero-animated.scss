@@ -1,0 +1,8 @@
+// Styles for the animated hero.
+
+.hero-animated {
+  &__heading,
+  &__copy {
+    color: var(--phosphor-green);
+  }
+}

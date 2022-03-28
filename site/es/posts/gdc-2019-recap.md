@@ -2,7 +2,7 @@
 title: Resumen de GDC 2019 Optimización de juegos de Android para pantallas más grandes y plegables
 metadesc: Un resumen de Google en la Conferencia de Game Developer 2019 con algunos consejos y trucos útiles de codificación.
 tags:
-  - eventos
+  - evento
   - técnico
   - historia exitosa
   - juegos

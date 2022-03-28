@@ -2,6 +2,7 @@
 title: Alta interacción, pantallas más grandes
 metadesc: Android alimenta las aplicaciones móviles en dispositivos que van mucho más allá de su típico teléfono inteligente de pantalla pequeña.
 tags:
+  - rincón del líder
   - tendencia
   - pantallas grandes
   - gestión de ventanas
