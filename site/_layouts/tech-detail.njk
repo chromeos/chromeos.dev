@@ -27,7 +27,7 @@ layout: _wrapper
   <aside class="tech-detail__versions-and-toc">{{toolsMacro(tools, microcopy.tools)}} {{tableOfContents(content, microcopy.toc.title, {title: microcopy.skip.toc, id: 'article'})}}</aside>
   {% endif %}
 
-  <section class="tech-detail__content" id="article">
+  <section class="tech-detail__content {% if landingPage %}tech-detail__content--landing{% endif %}" id="article">
     <div class="type">{{ content | safe }}</div>
     {% if landingPage and landingPage.subnav %}
     <div class="tech-detail__chapters">{{itemGrid(microcopy.landing.chapters, landingPage.subnav.slice(1))}}</div>

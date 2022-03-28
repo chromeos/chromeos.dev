@@ -99,7 +99,6 @@
 
   &__content {
     padding: 0 $inline-padding $block-padding;
-    padding-top: 5rem;
 
     @include mq($bkpt-tech-details--2-cols) {
       grid-column: 3 / span 1;
@@ -108,6 +107,10 @@
         padding-left: $spacing;
         padding-right: $spacing;
       }
+    }
+
+    &--landing {
+      padding: 3.5rem $inline-padding $block-padding;
     }
   }
 
