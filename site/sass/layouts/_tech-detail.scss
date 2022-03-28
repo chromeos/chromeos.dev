@@ -48,10 +48,6 @@
       grid-row: 1 / span 2;
     }
 
-    @include mq($bkpt-tech-details--landing) {
-      min-height: 24rem;
-    }
-
     &:not(:empty) {
       @include mq($bkpt-tech-details--2-cols) {
         display: grid;
@@ -74,21 +70,18 @@
     }
 
     &-image {
-      display: block;
-      margin-left: auto;
-      margin-right: -3.75rem;
-      width: auto;
+      display: flex;
+      height: 25vh;
+      justify-content: flex-end;
+      padding-left: 2rem;
 
       @include mq($bkpt-tech-details--2-cols) {
-        height: 16.25rem;
-        margin-right: 0;
+        height: 100%;
+        padding-left: 0;
       }
 
-      @include mq($bkpt-tech-details--landing) {
-        height: 24rem;
-        object-fit: none;
-        object-position: right;
-        width: 100%;
+      @include mq($bkpt-tech-details--3-cols) {
+        height: 40vh;
       }
     }
 
@@ -228,21 +221,22 @@
   &.android-environment,
   &.linux,
   &.web-environment {
-    .tech-detail__hero {
+    [class*='hero'] {
       background-color: $yellow-bg;
     }
   }
 
+  &.education,
   &.android,
   &.games,
   &.web {
-    .tech-detail__hero {
+    [class*='hero'] {
       background-color: $blue-bg;
     }
   }
 
   &.publish {
-    .tech-detail__hero {
+    [class*='hero'] {
       background-color: $green-bg;
     }
   }

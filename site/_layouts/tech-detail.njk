@@ -11,7 +11,9 @@ layout: _wrapper
   <div class="tech-detail__hero">
     <h1 class="tech-detail__hero-title type--mega">{{title}}</h1>
     {%- if hero -%}
-    <img class="tech-detail__hero-image tech-detail__hero-image" src="{{hero.image}}" alt="{{hero.alt}}" />
+    <div class="tech-detail__hero-image">
+      <img class="tech-detail__hero-image--background-pattern" src="{{hero.image}}" alt="{{hero.alt}}" />
+    </div>
     {%- endif -%}
   </div>
   {% endif %} {% if landingPage == false %}
