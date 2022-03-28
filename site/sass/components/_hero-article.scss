@@ -16,7 +16,7 @@
   }
 
   &__back {
-    background-color: var(--hero-theme-background, --white);
+    background-color: var(--hero-theme-background, var(--white));
     color: var(--hero-theme-color, inherit);
     margin: 0 auto;
     max-width: $content-max-width;
