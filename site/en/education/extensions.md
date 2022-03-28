@@ -22,7 +22,7 @@ If your program does not need to run on other websites, then creating a web app 
 
 ## Chrome apps migration
 
-If you previously had a Chrome app, we strongly recommend [migrating to web apps](https://developer.chrome.com/docs/apps/migration/). Chrome apps are being deprecated, but will be [supported until at least January 2025 for Chrome OS](https://blog.chromium.org/2021/10/extending-chrome-app-support-on-chrome.html). During this transition period, some Chrome app features may not have a suitable web platform equivalent. For these, you may need to implement an extension along with your web app to achieve similar results via [message passing](https://developer.chrome.com/docs/extensions/mv3/messaging/). One specific example of this is if you want to [utilize kiosk mode-specific APIs in your PWA kiosk application](/{{locale.code}}/education/chrome-app-in-pwa).
+If you previously had a Chrome app, we strongly recommend [migrating to web apps](https://developer.chrome.com/docs/apps/migration/). Chrome apps are being deprecated, but will be [supported until at least January 2025 for Chrome OS](https://blog.chromium.org/2021/10/extending-chrome-app-support-on-chrome.html). During this transition period, some Chrome app features may not have a suitable web platform equivalent. For these, you may need to implement an extension along with your web app to achieve similar results via [message passing](https://developer.chrome.com/docs/extensions/mv3/messaging/). One specific example of this is if you want to [utilize kiosk mode-specific APIs in your PWA kiosk application](/{{locale.code}}/education/communicate-with-extension-in-pwa-kiosk-app).
 
 ## Developing Chrome OS extensions
 
