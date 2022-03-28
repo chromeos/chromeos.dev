@@ -76,15 +76,18 @@ stats:
       modifiers:
         shape: semicircle
         scale: full
+      footnote: 1
     - stat: +50%
       desc: Chromebook users engaging with Android apps, YoY
       modifiers:
         shape: circle
+      footnote: 2
     - stat: 50M
       desc: Students and educators using Chromebooks worldwide
       modifiers:
         shape: triangle
         scale: half
+      footnote: 3
 caseStudies:
   title: Get inspired.
   subtitle: Explore how brands are unlocking more possibilities with Chrome OS.
@@ -190,3 +193,9 @@ videos:
   modifiers:
     variant: video
     heading: h2
+footnotes:
+  notes:
+    - The first source
+    - Google Internal Data, 2020-2021.
+    - Google Internal Data, January 2022.
+  variant: landing
