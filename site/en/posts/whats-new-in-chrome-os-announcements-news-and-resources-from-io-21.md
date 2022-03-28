@@ -2,7 +2,7 @@
 title: 'What’s new in Chrome OS: Announcements, news, and resources from I/O ‘21'
 metadesc: Learn about the latest for Chrome OS from I/O '21
 tags:
-  - events
+  - event
   - success story
   - web
   - android
@@ -17,10 +17,6 @@ featured:
   images:
     - image: ix://posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/hero.png
       alt: Chrome OS I/O '21 banner
-hero:
-  image: ix://posts/whats-new-in-chrome-os-announcements-news-and-resources-from-io-21/hero.png
-  alt: Chrome OS I/O '21 banner
-  position: center
 date: 2021-05-19
 ---
 

@@ -1,0 +1,19 @@
+// Styles for footnotes component.
+.footnotes {
+  &-sep {
+    border-top: 1px solid var(--phosphor-green);
+  }
+
+  &-list {
+    &--grey-bkg {
+      background-color: var(--phosphor-gray);
+    }
+  }
+}
+
+.footnote-item {
+  &__p {
+    color: var(--phosphor-green);
+    font-family: $font-mono;
+  }
+}

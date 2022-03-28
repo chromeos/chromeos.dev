@@ -2,6 +2,7 @@
 title: 'Powerful apps fueled by the web: How developers are engaging an expanding Chrome OS audience'
 metadesc: Learn how web developers created powerful PWAs to deliver scalable and engaging experiences for desktop users on Chrome OS.
 tags:
+  - web
   - technical
   - trend
   - pwa
@@ -14,9 +15,6 @@ featured:
   images:
     - image: ix://posts/web-recap-2021/ChromeOS_EOY_Header.png
       alt: Illustration of three Chromebooks, one with a financial app, one with a video player, and one with a music mixing app, with a mug of coffee and a speaker on each side of the Chromebooks.
-hero:
-  image: ix://posts/web-recap-2021/ChromeOS_EOY_Header.png
-  alt: Illustration of three Chromebooks, one with a financial app, one with a video player, and one with a music mixing app, with a mug of coffee and a speaker on each side of the Chromebooks.
 date: 2022-03-01
 ---
 

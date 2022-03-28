@@ -2,8 +2,8 @@
 title: 'Give your users a seamless mobile app experience on Chrome OS'
 metadesc: Learn about the latest improvements for Android mobile apps on Chrome
 tags:
-  - product news
   - android
+  - product news
 authors:
   - fahdi
 featured:
@@ -12,10 +12,6 @@ featured:
   images:
     - image: ix://posts/give-your-users-a-seamless-mobile-app-experience-on-chrome-os/hero.png
       alt: An app shown on phone, tablet, and Chromebook
-hero:
-  image: ix://posts/give-your-users-a-seamless-mobile-app-experience-on-chrome-os/hero.png
-  alt: An app shown on phone, tablet, and Chromebook
-  position: center
 date: 2021-09-10
 ---
 

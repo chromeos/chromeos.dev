@@ -10,6 +10,7 @@ hero:
   image: ix://stories/concepts/hero.1500.jpg
   alt: Concepts Car sketch showing color wheel
 tags:
+  - android
   - design
   - stylus support
   - high-performance graphics

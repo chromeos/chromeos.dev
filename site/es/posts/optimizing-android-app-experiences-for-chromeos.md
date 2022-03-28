@@ -2,17 +2,14 @@
 title: Optimización de experiencias de aplicaciones de Android para Chrome OS
 metadesc: Obtenga información sobre formas de optimizar su aplicación de Android para una mejor experiencia de usuario en Chrome OS.
 tags:
+  - android
   - técnico
   - tendencia
-  - android
   - soporte de teclado
   - soporte de trackpad
   - pantallas grandes
 authors:
   - nataliagvak
-hero:
-  image: ix://posts/optimizing-android-app-experiences-for-chromeos/hero.png
-  alt: Ilustración de teléfonos inteligentes, computadoras portátiles y tabletas con conexiones de línea de puntos.
 date: 2019-09-09
 ---
 

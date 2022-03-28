@@ -2,7 +2,7 @@
 title: Resumen de GDC 2019 Optimización de juegos de Android para pantallas más grandes y plegables
 metadesc: Un resumen de Google en la Conferencia de Game Developer 2019 con algunos consejos y trucos útiles de codificación.
 tags:
-  - eventos
+  - evento
   - técnico
   - historia exitosa
   - juegos
@@ -16,9 +16,6 @@ tags:
   - soporte para mouse
 authors:
   - bgable
-hero:
-  image: ix://posts/gdc-2019-recap/hero.png
-  alt: Ilustración de la computadora portátil y dispositivo plegable.
 date: 2019-05-02
 ---
 

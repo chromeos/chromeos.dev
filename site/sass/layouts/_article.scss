@@ -1,202 +1,64 @@
 // Styles for the article layout.
-//
-// Customizations.
-//   --eyebrow-color: changes the top border color of the eyebrow, defaults to blue-600.
 
 .article {
+  $self: &;
   $default-eyebrow-color: map-get($google-colors, 'blue-600');
-  --col-padding: #{pxRem(28px)};
+  $block-padding: 1.25rem;
+  --col-padding: 2.5rem;
 
   display: grid;
 
   @include mq($bkpt-articles--2-cols) {
-    grid-template-columns: 1fr 2fr;
-  }
-
-  @include mq($bkpt-articles--3-cols) {
-    --col-padding: #{pxRem(60px)};
-
-    grid-template-columns:
-      1fr minmax(min-content, pxRem(300px)) minmax(50ch, 90ch)
-      minmax(min-content, pxRem(300px)) 1fr;
-
-    // Background color for wider screens
-    &::before,
-    &::after {
-      background-color: var(--grey-100);
-      border-bottom: 1px solid var(--grey-300);
-      content: '';
-      grid-row: 3 / span 2;
-    }
-
-    &::before {
-      grid-column: 1 / span 1;
-    }
-
-    &::after {
-      grid-column: 5 / span 1;
-    }
+    grid-template-columns: calc((100vw - min(100%, 100rem)) / 2) minmax(45ch, 90ch) minmax(min-content, 18.75rem) 1fr;
   }
 
   &__hero {
-    background-color: var(--grey-900);
-
-    @include mq($bkpt-articles--2-cols) {
-      grid-column: 1 / span 2;
-      grid-row: 1 / span 2;
-      min-height: pxRem(160px);
-    }
-
-    @include mq($bkpt-articles--3-cols) {
-      grid-column: 1 / span 5;
-      grid-row: 1 / span 2;
-    }
+    grid-column: 1 / -1;
 
     &:empty {
       background-color: var(--blue-600);
     }
   }
 
-  &__hero-image {
-    display: block;
-    height: 20vh;
-    max-height: pxRem(240px);
-    min-height: 10vh;
-    object-fit: cover;
-    width: 100%;
+  &__hero-image-wrapper {
+    margin-top: clamp(-3rem, 10vw, -10rem);
 
     @include mq($bkpt-articles--2-cols) {
-      min-height: pxRem(160px);
+      grid-column: 2 / span 2;
+      grid-row: 2 / span 1;
     }
+  }
 
-    @include mq($bkpt-articles--3-cols) {
-      height: 25vh;
-    }
+  &__hero-image {
+    border-radius: 0.3125rem;
+    filter: drop-shadow(0 2px 50px rgba(0, 0, 0, 0.2));
+    overflow: hidden;
+    width: 100%;
+  }
 
-    &--opaque {
-      opacity: 0.8;
-    }
+  &__body {
+    padding-top: var(--col-padding);
+    @include mq($bkpt-articles--2-cols) {
+      grid-column: 2 / span 1;
+      grid-row: 2;
 
-    &--top {
-      object-position: 0% 0%;
-    }
-
-    &--middle {
-      object-position: 0% 50%;
-    }
-
-    &--bottom {
-      object-position: 0% 100%;
-    }
-
-    &--large {
-      height: 30vh;
-      max-height: pxRem(480px);
-
-      @include mq($bkpt-articles--3-cols) {
-        height: 40vh;
-        min-height: pxRem(240px);
+      #{$self}__hero-image-wrapper ~ & {
+        grid-row: 3;
       }
     }
   }
 
-  &__eyebrow {
-    background-color: var(--white);
-    border-top: pxRem(8px) solid var(--eyebrow-color, $default-eyebrow-color);
-    padding: pxRem(24px) var(--col-padding);
-    position: relative;
-
-    @include mq($bkpt-articles--2-cols) {
-      grid-column: 2 / span 1;
-      grid-row: 2 / span 1;
-    }
-
-    @include mq($bkpt-articles--3-cols) {
-      grid-column: 3 / span 1;
-      padding-top: 2rem;
-    }
-  }
-
-  &__header {
-    color: var(--grey-900);
-    margin-bottom: pxRem(24px);
-    padding: 0 var(--col-padding);
-
-    @include mq($bkpt-articles--2-cols) {
-      grid-column: 2 / span 1;
-      grid-row: 3 / span 1;
-    }
-
-    @include mq($bkpt-articles--3-cols) {
-      grid-column: 3 / span 1;
-    }
-  }
-
-  &__info {
-    margin-bottom: pxRem(24px);
-    padding: 0 var(--col-padding);
-
-    @include mq($bkpt-articles--2-cols) {
-      background-color: var(--grey-100);
-      border-bottom: 1px solid var(--grey-300);
-      grid-column: 1 / span 1;
-      grid-row: 3 / span 3;
-      margin-bottom: 0;
-      padding-top: var(--col-padding);
-    }
-
-    @include mq($bkpt-articles--3-cols) {
-      grid-column: 2 / span 1;
-      grid-row: 3 / span 2;
-    }
-  }
-
   &__toc {
-    margin-bottom: pxRem(48px);
-    padding: 0 var(--col-padding);
+    padding-top: var(--col-padding);
     position: relative;
 
     @include mq($bkpt-articles--2-cols) {
-      grid-column: 2 / span 1;
-      grid-row: 4 / span 1;
-    }
-
-    @include mq($bkpt-articles--3-cols) {
-      background-color: var(--grey-100);
-      border-bottom: 1px solid var(--grey-300);
-      grid-column: 4 / span 1;
-      grid-row: 3 / span 2;
-      margin-bottom: 0;
-      padding-top: var(--col-padding);
-    }
-  }
-
-  &__body {
-    border-bottom: 1px solid var(--grey-300);
-    margin-top: -5rem;
-    padding-top: 5rem;
-
-    @include mq($bkpt-articles--2-cols) {
-      grid-column: 2 / span 1;
-      grid-row: 5 / span 1;
-    }
-
-    @include mq($bkpt-articles--3-cols) {
       grid-column: 3 / span 1;
-      grid-row: 4 / span 1;
+      grid-row: 2;
+
+      #{$self}__hero-image-wrapper ~ & {
+        grid-row: 3;
+      }
     }
-  }
-
-  &__content {
-    padding-left: var(--col-padding);
-    padding-right: var(--col-padding);
-  }
-
-  &__content:not(:last-child) {
-    margin-bottom: pxRem(40px);
-  }
-
-  &__recommended {
-    grid-column: 1 / -1;
   }
 }

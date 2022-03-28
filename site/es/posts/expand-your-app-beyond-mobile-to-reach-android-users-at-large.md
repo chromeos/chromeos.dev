@@ -2,15 +2,12 @@
 title: Expanda su aplicación más allá del móvil para llegar a los usuarios de Android en pantallas grandes
 metadesc: Cree aplicaciones de Android para dispositivos que no sean móviles para llegar a más usuarios.
 tags:
+  - rincón del líder
   - tendencia
   - pantallas grandes
   - android
 authors:
   - ssamat
-hero:
-  image: ix://posts/expand-your-app-beyond-mobile-to-reach-android-users-at-large/hero.png
-  alt: Banner genérico de Android
-  position: bottom
 date: 2019-09-05
 ---
 

@@ -35,6 +35,7 @@
 @import 'components/pre';
 @import 'components/body';
 @import 'components/cta';
+@import 'components/background-color';
 @import 'components/switch';
 @import 'components/card';
 @import 'components/back-to-top';
@@ -64,6 +65,7 @@
 @import 'components/image-card';
 @import 'components/card-subnav';
 @import 'components/hero';
+@import 'components/hero-article';
 @import 'components/call-out';
 @import 'components/external-community';
 @import 'components/cookie-disclaimer';
@@ -83,12 +85,22 @@
 @import 'components/pagination';
 @import 'components/page-not-found';
 @import 'components/pwa-checklist';
+@import 'components/banner-interstitial';
+@import 'components/case-studies';
+@import 'components/card-study';
+@import 'components/featured-case-study';
+@import 'components/video-card';
 @import 'components/community-quotes';
 @import 'components/card-routing';
 @import 'components/fifty-fifty';
+@import 'components/featured-story';
+@import 'components/stories-card';
 
 // Page Layouts
 @import 'layouts/tech-detail';
 @import 'layouts/article';
 @import 'layouts/style-guide';
 @import 'layouts/thank-you';
+
+// Phosphor Theme
+@import 'themes/phosphor/style';

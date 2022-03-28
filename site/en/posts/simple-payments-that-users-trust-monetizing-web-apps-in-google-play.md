@@ -2,18 +2,14 @@
 title: 'Simple payments that users trust: Monetizing web apps in Google Play'
 metadesc: Learn about how to monetize your web app published in Google Play
 tags:
-  - product news
   - web
+  - product news
   - publishing
   - optimization
   - developer tools
 authors:
   - pjmclachlan
   - tbuckley
-hero:
-  image: ix://posts/simple-payments-that-users-trust-monetizing-web-apps-in-google-play/hero.png
-  alt: Chrome OS Google Play monetization banner
-  position: center
 date: 2021-05-19
 ---
 

@@ -2,13 +2,13 @@
 title: 'From made-for-mobile to made-for-all: A roundup of tools to adapt your Android apps for Chrome OS'
 metadesc: From creating games that instantly adapt to different devices to making styluses feel just like drawing on paper, here’s a wrap-up of the latest improvements in Chrome OS for 2021.
 tags:
+  - android
   - technical
   - trend
   - large screen
   - window management
   - input devices
   - device configuration
-  - android
   - android studio
   - gaming
 authors:
@@ -20,9 +20,6 @@ featured:
   images:
     - image: ix://posts/android-recap-2021/hero.png
       alt: Illustration of a Chromebook with stylized windows with the Android "droid" logo in the middle.
-hero:
-  image: ix://posts/android-recap-2021/hero.png
-  alt: Illustration of a Chromebook with stylized windows with the Android "droid" logo in the middle.
 date: 2021-12-20
 ---
 

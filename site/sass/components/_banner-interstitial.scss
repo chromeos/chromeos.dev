@@ -1,0 +1,103 @@
+@use 'sass:math';
+
+.banner-interstitial {
+  $self: &;
+  $break-2-col: 720px;
+  $scale-max: 1600px;
+  $scale-range: ($break-2-col $scale-max);
+  $clamp-check: clamp(1px, 1vw, 2px);
+  $gradient-angle-l: 105deg;
+
+  // Use a very small gradient on radials for antialiasing.
+  background-image:
+    // yellow circle
+    radial-gradient(circle at generateScaling((300px $break-2-col), (422px 660px)) generateScaling((300px $break-2-col), (480px 640px)), var(--primary-yellow), var(--primary-yellow) 30%, transparent 30.05%, transparent),
+    // red circle
+    radial-gradient(circle at generateScaling((300px $break-2-col), (135px 220px)) generateScaling((300px $break-2-col), (440px 700px)), var(--primary-red), var(--primary-red) 22.5%, transparent 22.55%, transparent),
+    // color stop
+    linear-gradient(65deg, var(--primary-blue), var(--primary-blue) generateScaling((375px 623px), (115px 130px)), var(--secondary-blue) generateScaling((375px 623px), (115px 130px)), var(--secondary-blue));
+  overflow: hidden;
+
+  @include mq($break-2-col) {
+    background-image: none;
+    overflow: revert;
+  }
+
+  &__inner {
+    $color-stop-scaling: generateScaling($scale-range, (350px 525px));
+    $color-stop-start: var(--secondary-blue), var(--secondary-blue) $color-stop-scaling, var(--primary-blue) $color-stop-scaling;
+    $color-stop-end: calc($color-stop-scaling + generateScaling($scale-range, (105px 210px)));
+    $circle-size: generateScaling($scale-range, (109px 272px));
+    display: grid;
+    position: relative;
+
+    // The background '100' moves to the inner once the banner is no longer full bleed.
+    @include mq($break-2-col) {
+      background-image:
+        // yellow circle
+        radial-gradient(circle at generateScaling($scale-range, (680px 1450px)) 165px, var(--primary-yellow), var(--primary-yellow) $circle-size, transparent calc($circle-size + 1px), transparent),
+        // red circle
+        radial-gradient(circle at generateScaling($scale-range, (508px 949px)) generateScaling($scale-range, (300px 350px)), var(--primary-red), var(--primary-red) $circle-size, transparent calc($circle-size + 1px), transparent),
+        // color stop
+        linear-gradient($gradient-angle-l, $color-stop-start, var(--primary-blue) $color-stop-end, var(--secondary-blue) $color-stop-end, var(--secondary-blue));
+      border-radius: 0.625rem;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(pxRem(320px), 1fr));
+    position: relative;
+  }
+
+  &__text {
+    $spacing-range: (24px 96px);
+
+    padding-top: 3rem;
+    z-index: 1;
+
+    @include mq($break-2-col) {
+      padding: generateScaling($scale-range, $spacing-range) 0 generateScaling($scale-range, $spacing-range) generateScaling($scale-range, (nth($spacing-range, 1) 80px));
+      place-self: center flex-start;
+    }
+  }
+
+  &__eyebrow,
+  &__title,
+  &__copy {
+    color: var(--white);
+  }
+
+  &__copy {
+    margin-top: 1.25rem;
+    width: clamp(24ch, 24vw, 32ch);
+
+    #{$self}--no-cta & {
+      margin-bottom: 6rem;
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    margin-top: 1.75rem;
+  }
+
+  &__image-wrapper {
+    max-width: pxRem(746px);
+    // Stretch image wrapper outside of the banner's wrapper.
+    width: math.percentage(math.div(456px, 327px));
+
+    @include mq($break-2-col) {
+      max-width: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(generateScaling($scale-range, (60px -24px)), generateScaling($scale-range, (-20px -120px)));
+      width: 63%;
+    }
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+}

@@ -31,7 +31,7 @@ test('Required Fields', (t) => {
   const input = {
     title: 'High engagement, larger screens',
     metadesc: 'Android fuels mobile apps on devices that range far beyond your typical small-screen smartphone.',
-    tags: ['trend', 'large screens', 'window management', 'mouse support', 'keyboard support', 'android'],
+    tags: ["leader's corner", 'trend', 'large screens', 'window management', 'mouse support', 'keyboard support', 'android'],
     authors: ['allanl'],
     date: '2019-10-24T00:00:00.000Z',
   };
@@ -159,7 +159,7 @@ test('Extra Fields', (t) => {
   const input = {
     title: 'High engagement, larger screens',
     metadesc: 'Android fuels mobile apps on devices that range far beyond your typical small-screen smartphone.',
-    tags: ['trend', 'large screens', 'window management', 'mouse support', 'keyboard support', 'android'],
+    tags: ["leader's corner", 'trend', 'large screens', 'window management', 'mouse support', 'keyboard support', 'android'],
     authors: ['allanl'],
     date: '2019-10-24T00:00:00.000Z',
     banana: 'bob',

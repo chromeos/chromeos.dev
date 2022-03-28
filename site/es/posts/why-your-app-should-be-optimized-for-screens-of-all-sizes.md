@@ -2,6 +2,7 @@
 title: ¿Por qué su aplicación debe optimizarse para pantallas de todos los tamaños?
 metadesc: Vea cómo Gameloft, Evernote, Slack y 1Password se han optimizado para Chrome OS.
 tags:
+  - android
   - tendencia
   - historia exitosa
   - pantallas grandes
@@ -13,12 +14,8 @@ tags:
   - soporte de trackpad
   - juegos
   - productividad
-  - android
 authors:
   - nataliagvak
-hero:
-  image: ix://posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/hero.png
-  alt: Ilustración de la computadora portátil con iconos de juegos y productividad.
 date: 2018-10-29
 ---
 

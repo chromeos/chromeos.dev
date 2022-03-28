@@ -1,7 +1,7 @@
 posts:
   title: Historias y noticias sobre Chrome OS
   modifiers:
-    shapeOn: 1
+    custom: item-grid--posts
 featured:
   modifiers:
     custom: landing--news-grey-overlay

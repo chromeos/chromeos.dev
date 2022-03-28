@@ -16,7 +16,39 @@
 /* eslint-env node */
 
 const get = require('lodash.get');
-const { propSort, dateSort } = require('../../lib/helpers/sort');
+const { dateSort } = require('../../lib/helpers/sort');
+const { normalizeTag } = require('../../lib/helpers/tags');
+
+/**
+ * Determines what stories to feature.
+ * For the home page, up to three stories can be featured
+ * For the landing page, if there is more than one featured story, the second featured story is used. Otherwise, it's the main featured story
+ * @param {Object[]} content Array of content objects
+ * @return {Object} Object containing the featured stories, in order, for the home and landing pages
+ */
+function determineFeaturedStories(content) {
+  const home = [];
+  let landing;
+
+  for (const c of content) {
+    if (home.length < 3) {
+      home.push(get(c, 'data.featured'));
+    } else {
+      break;
+    }
+  }
+
+  if (home.length > 1) {
+    landing = home[1];
+  } else {
+    landing = home[0];
+  }
+
+  return {
+    home,
+    landing,
+  };
+}
 
 /**
  * Gets the l10n version, if available, otherwise falls back to the existing value
@@ -231,22 +263,35 @@ module.exports = {
   featured: (data) => {
     if (data.featured) {
       const featured = {
-        eyebrow: dataFallback('featured.eyebrow', 'microcopy.featured.eyebrow')(data),
+        app: {
+          name: dataFallback('app.name')(data),
+          logo: dataFallback('app.logo')(data),
+        },
+        eyebrow: dataFallback('featured.eyebrow', 'theme.eyebrow')(data) || get(data, 'microcopy.featured.eyebrow'),
         title: dataFallback('featured.title', 'title')(data),
         desc: dataFallback('featured.desc', 'metadesc')(data),
         cta: {
           text: get(data, 'microcopy.more'),
           url: get(data, 'page.url'),
         },
+        tag: get(data, 'tags[0]'),
+        theme: get(data, 'theme'),
       };
 
       const images = dataFallback('featured.images', 'hero')(data);
 
       if (Array.isArray(images)) {
         featured.images = images;
+        featured.media = images[0];
       } else {
         featured.images = [images.image, images.alt];
+        featured.media = {
+          image: images.image,
+          alt: images.alt,
+        };
       }
+
+      featured.normalizedTag = normalizeTag(get(data, 'tags[1]'));
 
       return featured;
     }
@@ -274,25 +319,29 @@ module.exports = {
     const posts = (localeCollection('posts')(data) || []).sort(dateSort(false));
     const featured = (localeCollection('case-studies__featured')(data) || []).sort(dateSort(false));
     const featuredPost = (localeCollection('posts__featured')(data) || []).sort(dateSort(false));
-    const stories = localeCollection('case-studies')(data) || [];
+    const stories = (localeCollection('case-studies')(data) || []).sort(dateSort(false));
 
     const collections = {};
 
     if (featured && featured.length >= 1) {
+      const featuredStories = determineFeaturedStories(featured);
       collections.featured = {
         first: get(featured[0] || {}, 'data.featured'),
         second: get(featured[1] || {}, 'data.featured'),
         post: get(featuredPost[0] || {}, 'data.featured'),
+        home: featuredStories.home,
+        landing: featuredStories.landing,
       };
     }
 
     if (posts && posts.length >= 1) {
       collections.posts = posts.map((post) => ({
-        eyebrow: post.data.tags[0],
+        eyebrow: dataFallback('theme.eyebrow', 'tags[1]')(post.data),
         title: post.data.title,
         body: post.data.metadesc,
         url: post.data.page.url,
         cta: 'Learn more',
+        icon: post.data.theme?.icon,
       }));
 
       collections.filteredPosts = collections.posts.filter((i) => i.url !== get(collections, 'featured.post.cta.url'));
@@ -302,16 +351,22 @@ module.exports = {
 
     if (stories && stories.length >= 1) {
       collections.stories = stories
-        .filter((i) => i.data.page.url !== get(collections, 'featured.second.cta.url'))
-        .sort(propSort({ prop: 'data.title', lowercase: true }))
-        .sort(propSort({ prop: 'data.weight', fallback: 0 }))
+        .filter((i) => i.data.page.url !== get(collections, 'featured.landing.cta.url'))
         .map((i) => ({
+          eyebrow: get(i, 'data.tags[1]'),
           title: get(i, 'data.title'),
-          image: get(i, 'data.app.logo'),
+          logo: {
+            src: get(i, 'data.app.logo'),
+            name: get(i, 'data.app.name'),
+            company: get(i, 'data.app.company'),
+          },
+          media: get(i, 'data.featured.media') ? get(i, 'data.featured.media') : { image: get(i, 'data.hero.image'), alt: get(i, 'data.hero.alt') },
+          tag: i.data.tags[1],
           cta: {
             text: l10nFallback('microcopy.more')(data),
             url: get(i, 'data.page.url'),
           },
+          normalizedTag: normalizeTag(get(data, 'tags[1]')),
         }));
     }
 

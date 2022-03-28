@@ -21,6 +21,10 @@
     @extend %cta--low;
   }
 
+  &--transparent {
+    @extend %cta--transparent;
+  }
+
   &--link {
     @extend %cta--link;
   }
