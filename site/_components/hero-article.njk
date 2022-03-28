@@ -11,7 +11,7 @@
   @param {object} theme: Article theme
   @param {object} app: Object representing the app.
  #}-->
-{% from 'icon.njk' import icon %} {% from 'app-info.njk' import appInfo %} {% macro heroArticle(section, locale, parent, microcopy, tag, title, hero={}, theme={}, app={}) -%} {% set tagSlug = tag | normalizeTag | slugify %}
+{% from 'app-info.njk' import appInfo %} {% macro heroArticle(section, locale, parent, microcopy, tag, title, hero={}, theme={}, app={}) -%} {% set tagSlug = tag | normalizeTag | slugify %}
 <article
   class="hero-article {% if section == 'posts' %}
   {% if theme and theme.theme %}
@@ -31,8 +31,8 @@
   <div class="wrapper--padded hero-article__content {% if section == 'case-studies' %}hero-article__stories--content{% endif %}">
     <div class="hero-article__content-wrapper">
       {% if section == 'posts' %} {% if theme and theme.icon %}
-      <img src="{{theme.icon}}" alt="" class="article__icon icon" aria-hidden="true" />
-      {% elif tag %} {{icon(tagSlug, 'hero-article__icon')}} {% endif %} {% if theme.eyebrow %}
+      <img src="{{theme.icon}}" alt="" class="hero-article__icon icon" aria-hidden="true" />
+      {% elif tag %} <img src="ix://icons/eyebrows/{{tagSlug}}.svg" alt="" class="hero-article__icon icon" aria-hidden="true" /> {% endif %} {% if theme.eyebrow %}
       <small class="hero-article__eyebrow type--eyebrow">{{theme.eyebrow}}</small>
       {% else %}
       <small class="hero-article__eyebrow type--eyebrow">{{tag}}</small>
