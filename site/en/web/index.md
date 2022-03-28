@@ -2,8 +2,7 @@
 title: Web apps on Chrome OS
 metadesc: An introduction to building desktop PWAs for Chrome OS.
 hero:
-  image: ix://landings/adapting-web.svg
-  alt: Illustration of a web application running on a Chrome OS device.
+  image: ix://landings/web.svg
 date: 2020-05-26
 weight: -10
 ---
