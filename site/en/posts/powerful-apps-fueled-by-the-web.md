@@ -15,9 +15,6 @@ featured:
   images:
     - image: ix://posts/web-recap-2021/ChromeOS_EOY_Header.png
       alt: Illustration of three Chromebooks, one with a financial app, one with a video player, and one with a music mixing app, with a mug of coffee and a speaker on each side of the Chromebooks.
-hero:
-  image: ix://posts/web-recap-2021/ChromeOS_EOY_Header.png
-  alt: Illustration of three Chromebooks, one with a financial app, one with a video player, and one with a music mixing app, with a mug of coffee and a speaker on each side of the Chromebooks.
 date: 2022-03-01
 ---
 

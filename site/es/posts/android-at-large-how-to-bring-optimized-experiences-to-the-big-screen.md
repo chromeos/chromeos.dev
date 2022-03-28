@@ -13,9 +13,6 @@ tags:
   - android studio
 authors:
   - kennethford
-hero:
-  image: ix://posts/android-at-large/hero.jpg
-  alt: Diseño que muestra varios dispositivos Android y equipos de tamaño variable.
 date: 2020-04-21
 ---
 

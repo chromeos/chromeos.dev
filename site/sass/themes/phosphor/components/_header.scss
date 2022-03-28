@@ -9,6 +9,6 @@
   }
 
   &__menu-icon {
-    filter: invert(1) hue-rotate(90deg);
+    fill: var(--phosphor-green);
   }
 }

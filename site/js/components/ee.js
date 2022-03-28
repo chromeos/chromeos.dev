@@ -103,6 +103,7 @@ export class M100 {
     this._setStarted(false);
     this._setCurrent(0);
     this._theme.name = null;
+    this._theme.update();
   }
 
   /**

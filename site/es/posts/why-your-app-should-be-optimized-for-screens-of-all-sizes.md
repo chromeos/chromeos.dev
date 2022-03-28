@@ -16,9 +16,6 @@ tags:
   - productividad
 authors:
   - nataliagvak
-hero:
-  image: ix://posts/why-your-app-should-be-optimized-for-screens-of-all-sizes/hero.png
-  alt: Ilustración de la computadora portátil con iconos de juegos y productividad.
 date: 2018-10-29
 ---
 

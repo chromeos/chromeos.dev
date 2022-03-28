@@ -2,7 +2,7 @@
 .subnav {
   &--expand {
     @include mq($bkpt-tech-details--2-cols) {
-      filter: invert(1);
+      fill: var(--phosphor-green);
     }
   }
 

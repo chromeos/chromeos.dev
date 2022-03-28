@@ -16,7 +16,7 @@
     {% if item.media.image is defined %}
     <img class="stories-card__image" src="{{item.media.image}}" alt="{{item.media.alt}}" />
     {% else %}
-    <img class="stories-card__image" src="ix://landings/stories/placeholder-{{item.tag}}.jpg" alt="Placeholder Image for {{ item.tag }}" />
+    <img class="stories-card__image" src="ix://landings/stories/placeholder-{{item.tag | normalizeTag}}.jpg" aria-hidden="true" />
     {% endif %}
 
     <div class="stories-card__content">
