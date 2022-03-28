@@ -4,7 +4,7 @@ metadesc: Find out how Codecademy built a PWA to make its online coding educatio
 date: 2022-03-29
 app:
   name: Codecademy
-  logo: ix://stories/simplifi/logo.png
+  logo: ix://stories/codecademy/codecademy.png
 hero:
   image: ix://stories/codecademy/hero.png
   alt: Screenshot of the Codecademy, showing the most popular page with a mosaic of topics, including Python, Front-End Engineering, Learn JavaScript, Learn HTML, Web Development, and Data Science.
