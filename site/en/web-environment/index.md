@@ -2,7 +2,7 @@
 title: Web development
 metadesc: How to set up your Chrome OS device for developing web apps and how to configure port forwarding to access them on other devices.
 hero:
-  image: ix://landings/web-environment.svg
+  image: ix://landings/heroes/web-environment.svg
 date: 2020-06-01
 weight: -8
 tags:

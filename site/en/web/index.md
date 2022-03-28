@@ -2,7 +2,7 @@
 title: Web apps on Chrome OS
 metadesc: An introduction to building desktop PWAs for Chrome OS.
 hero:
-  image: ix://landings/web.svg
+  image: ix://landings/heroes/web.svg
 date: 2020-05-26
 weight: -10
 ---

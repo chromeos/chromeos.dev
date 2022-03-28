@@ -2,7 +2,7 @@
 title: Overview
 metadesc: An introduction to Linux on Chrome OS.
 hero:
-  image: ix://landings/linux.svg
+  image: ix://landings/heroes/linux.svg
 date: 2020-06-10
 weight: -8
 tags:
