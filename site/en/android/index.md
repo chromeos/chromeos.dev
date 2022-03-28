@@ -6,6 +6,16 @@ hero:
   alt: Illustration of an Android phone and Chrome OS device showing the same application running on both.
 date: 2020-05-27
 weight: -8
+started:
+  title: Get started with Chrome OS
+  desc: Arcu commodo ac phasellus dui, tortor libero sit aliquet non liat sit sed et nisl.
+  cards:
+    - title: Publishing
+      body: |-
+        Publishing your app for Chrome OS devices can seem challenging or confusing, but it is the same APK that you ship for phones and tablets. For more information check out our resources on publishing through the [Google Play Store](https://developer.android.com/distribute/google-play) including [optimizing for x86](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices) if you use the NDK.
+    - title: Label nim et nunc
+      body: |-
+        Bibendum quisque arcu ipsum elementum pellentesque porttitor morbi hendrerit. Enim rutrum elit ut mauris, vitae amet nisl fames feugiat. Ultricies hendrerit sit lacus dignissim morbi id. Sed ut dictumst nec tincidunt eu et.
 interest: |-
   ## Developer interest form
 

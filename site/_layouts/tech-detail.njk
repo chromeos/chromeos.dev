@@ -33,6 +33,22 @@ layout: _wrapper
   <section class="tech-detail__content" id="article">
     <div class="type">{{ content | safe }}</div>
     {% if landingPage and landingPage.subnav %}
+    <div class="tech-detail__get-started">
+      <h2 class="type--h1 tech-detail__get-started--title">{{started.title}}</h2>
+      {% if started.desc %}
+      <p class="type--large tech-detail__get-started--desc">{{started.desc}}</p>
+      {% endif %}
+      <div class="tech-detail__get-started--grid">
+        {% for card in started.cards %}
+        <div class="tech-detail__get-started--grid-item">
+          <header class="tech-detail__get-started--heading">
+            <h3 class="type--h4">{{ card.title }}</h3>
+          </header>
+          {{ card.body | markdown | safe }}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
     <div class="tech-detail__interest-form type">{{ interest | markdown | safe }}</div>
     <div class="tech-detail__chapters">{{itemGrid(microcopy.landing.chapters, landingPage.subnav.slice(1))}}</div>
     {% endif %}
