@@ -10,12 +10,17 @@
   }
 
   &--inline {
-    margin-bottom: 0;
+    align-items: center;
+    display: flex;
   }
 
   &--inline & {
+    margin-bottom: 0;
+
     &__label {
+      color: var(--grey-900);
       display: inline;
+      margin-bottom: 0;
       margin-right: 0.5rem;
 
       @supports (margin-right: clamp(0.5rem, 1vw, 0.75rem)) {
