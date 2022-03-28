@@ -17,50 +17,31 @@
 
 const get = require('lodash.get');
 const { dateSort } = require('../../lib/helpers/sort');
+const { normalizeTag } = require('../../lib/helpers/tags');
 
 /**
  * Determines what stories to feature.
- * For the home page, up to three stories can be feature, looking to ensure that at least two of the stories are of different types.
- * For the landing page, the most recent featured story that is not featured on the home page is used, falling back to the most recent featured story if all featured stories are used on the home page.
+ * For the home page, up to three stories can be featured
+ * For the landing page, if there is more than one featured story, the second featured story is used. Otherwise, it's the main featured story
  * @param {Object[]} content Array of content objects
  * @return {Object} Object containing the featured stories, in order, for the home and landing pages
  */
 function determineFeaturedStories(content) {
   const home = [];
-  let landing = content[0].data.featured;
-
-  const homeTags = [];
-  const homeFiles = [];
+  let landing;
 
   for (const c of content) {
-    const type = get(c, 'data.tags[1]');
-    if (type) {
-      if (home.length < 2) {
-        home.push(get(c, 'data.featured'));
-        homeFiles.push(get(c, 'outputPath'));
-
-        // Only want to count unique tags.
-        if (!homeTags.includes(type)) {
-          homeTags.push(type);
-        }
-      } else if (homeTags.length > 1 || !homeTags.includes(type)) {
-        home.push(get(c, 'data.featured'));
-        homeFiles.push(get(c, 'outputPath'));
-        break;
-      }
-    }
-  }
-
-  // If there are 3 or more featured stories, and they all have the same type, feature the first three on the homepage
-  if (content.length >= 3 && home.length < 3) {
-    home.push(get(content[2], 'data.featured'));
-  }
-
-  for (const c of content) {
-    if (!homeFiles.includes(get(c, 'outputPath'))) {
-      landing = get(c, 'data.featured');
+    if (home.length < 3) {
+      home.push(get(c, 'data.featured'));
+    } else {
       break;
     }
+  }
+
+  if (home.length > 1) {
+    landing = home[1];
+  } else {
+    landing = home[0];
   }
 
   return {
@@ -286,7 +267,7 @@ module.exports = {
           name: dataFallback('app.name')(data),
           logo: dataFallback('app.logo')(data),
         },
-        eyebrow: dataFallback('featured.eyebrow', 'microcopy.featured.eyebrow')(data),
+        eyebrow: dataFallback('featured.eyebrow', 'theme.eyebrow')(data) || get(data, 'microcopy.featured.eyebrow'),
         title: dataFallback('featured.title', 'title')(data),
         desc: dataFallback('featured.desc', 'metadesc')(data),
         cta: {
@@ -294,6 +275,7 @@ module.exports = {
           url: get(data, 'page.url'),
         },
         tag: get(data, 'tags[0]'),
+        theme: get(data, 'theme'),
       };
 
       const images = dataFallback('featured.images', 'hero')(data);
@@ -308,6 +290,8 @@ module.exports = {
           alt: images.alt,
         };
       }
+
+      featured.normalizedTag = normalizeTag(get(data, 'tags[1]'));
 
       return featured;
     }
@@ -352,11 +336,12 @@ module.exports = {
 
     if (posts && posts.length >= 1) {
       collections.posts = posts.map((post) => ({
-        eyebrow: post.data.tags[0],
+        eyebrow: dataFallback('theme.eyebrow', 'tags[1]')(post.data),
         title: post.data.title,
         body: post.data.metadesc,
         url: post.data.page.url,
         cta: 'Learn more',
+        icon: post.data.theme?.icon,
       }));
 
       collections.filteredPosts = collections.posts.filter((i) => i.url !== get(collections, 'featured.post.cta.url'));
@@ -375,12 +360,13 @@ module.exports = {
             name: get(i, 'data.app.name'),
             company: get(i, 'data.app.company'),
           },
-          media: get(i, 'data.featured.images[0]') ? get(i, 'data.featured.images[0]') : { image: get(i, 'data.hero.image'), alt: get(i, 'data.hero.alt') },
+          media: get(i, 'data.featured.media') ? get(i, 'data.featured.media') : { image: get(i, 'data.hero.image'), alt: get(i, 'data.hero.alt') },
           tag: i.data.tags[1],
           cta: {
             text: l10nFallback('microcopy.more')(data),
             url: get(i, 'data.page.url'),
           },
+          normalizedTag: normalizeTag(get(data, 'tags[1]')),
         }));
     }
 

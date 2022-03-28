@@ -49,6 +49,8 @@
       display: block;
       height: 100%;
       margin-left: auto;
+      max-width: unset;
+      z-index: 0;
 
       @include mq(750px) {
         bottom: 0;
@@ -60,6 +62,8 @@
 
   &__content-wrapper {
     max-width: clamp(40ch, 50vw, 60ch);
+    position: relative;
+    z-index: 1;
   }
 
   &__icon {
@@ -79,5 +83,20 @@
   &__link {
     color: var(--secondary-blue);
     margin-top: 1.5rem;
+  }
+
+  &--theme {
+    &__m100 {
+      --hero-theme-color: var(--white);
+      --hero-theme-background: var(--blue-850);
+      background-color: var(--hero-theme-background);
+
+      [class*='type'],
+      [class*='link'],
+      [class*='icon'] {
+        color: var(--hero-theme-color);
+        fill: var(--hero-theme-color);
+      }
+    }
   }
 }

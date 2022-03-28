@@ -1,7 +1,7 @@
 ---
 title: How Simplifi by Quicken is giving Chrome OS users a fit-for-Chromebook experience with its Progressive Web App
-metadesc:
-date: 2022-03-28
+metadesc: Learn how Quicken built a Progressive Web App to offer Chrome OS users a more responsive, reliable in-browser experience backed by the power of modern APIs.
+date: 2022-03-30
 app:
   name: Simplifi
   logo: ix://stories/simplifi/logo.png

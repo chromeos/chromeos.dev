@@ -10,9 +10,6 @@ tags:
   - pantallas grandes
 authors:
   - nataliagvak
-hero:
-  image: ix://posts/optimizing-android-app-experiences-for-chromeos/hero.png
-  alt: Ilustración de teléfonos inteligentes, computadoras portátiles y tabletas con conexiones de línea de puntos.
 date: 2019-09-09
 ---
 

@@ -22,10 +22,6 @@ featured:
   images:
     - image: ix://posts/google-unity-partner-to-support-chromebooks/featured.png
       alt: Chrome OS gaming banner
-hero:
-  image: ix://posts/google-unity-partner-to-support-chromebooks/hero.png
-  alt: Chrome OS gaming banner
-  position: center
 date: 2021-04-21
 ---
 

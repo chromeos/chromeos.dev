@@ -1,0 +1,9 @@
+.toc {
+  &--expand {
+    fill: var(--phosphor-green);
+  }
+
+  &__link[data-active] {
+    color: var(--phosphor-gray);
+  }
+}

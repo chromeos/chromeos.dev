@@ -2,9 +2,9 @@
   desc: Descubra recursos para comenzar a crear sus aplicaciones de Android, aplicaciones web y juegos para Chrome OS.
   icon: game-controller
   sections:
-    - title: Adaptar Android
+    - title: Android
       url: android
-    - title: Adaptar Web
+    - title: Web
       url: web
     - title: Juegos
       url: games

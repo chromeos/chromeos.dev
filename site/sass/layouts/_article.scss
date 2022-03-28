@@ -1,6 +1,7 @@
 // Styles for the article layout.
 
 .article {
+  $self: &;
   $default-eyebrow-color: map-get($google-colors, 'blue-600');
   $block-padding: 1.25rem;
   --col-padding: 2.5rem;
@@ -8,27 +9,11 @@
   display: grid;
 
   @include mq($bkpt-articles--2-cols) {
-    grid-template-columns: 1fr 2fr;
-  }
-
-  @include mq($bkpt-articles--3-cols) {
-    --col-padding: #{pxRem(60px)};
-
-    grid-template-columns:
-      1fr minmax(min-content, pxRem(300px)) minmax(50ch, 90ch)
-      minmax(min-content, pxRem(300px)) 1fr;
+    grid-template-columns: calc((100vw - min(100%, 100rem)) / 2) minmax(45ch, 90ch) minmax(min-content, 18.75rem) 1fr;
   }
 
   &__hero {
-    @include mq($bkpt-articles--2-cols) {
-      grid-column: 1 / span 2;
-      grid-row: 1 / span 2;
-    }
-
-    @include mq($bkpt-articles--3-cols) {
-      grid-column: 1 / span 5;
-      grid-row: 1 / span 1;
-    }
+    grid-column: 1 / -1;
 
     &:empty {
       background-color: var(--blue-600);
@@ -39,13 +24,8 @@
     margin-top: clamp(-3rem, 10vw, -10rem);
 
     @include mq($bkpt-articles--2-cols) {
-      grid-column: 1 / span 2;
-      grid-row: 3 / span 1;
-    }
-
-    @include mq($bkpt-articles--3-cols) {
-      grid-column: 2 / span 3;
-      grid-row: 2 / span 2;
+      grid-column: 2 / span 2;
+      grid-row: 2 / span 1;
     }
   }
 
@@ -56,44 +36,29 @@
     width: 100%;
   }
 
+  &__body {
+    padding-top: var(--col-padding);
+    @include mq($bkpt-articles--2-cols) {
+      grid-column: 2 / span 1;
+      grid-row: 2;
+
+      #{$self}__hero-image-wrapper ~ & {
+        grid-row: 3;
+      }
+    }
+  }
+
   &__toc {
-    margin-bottom: pxRem(48px);
     padding-top: var(--col-padding);
     position: relative;
 
     @include mq($bkpt-articles--2-cols) {
-      grid-column: 1 / span 2;
-      grid-row: 4 / span 1;
-    }
+      grid-column: 3 / span 1;
+      grid-row: 2;
 
-    @include mq($bkpt-articles--3-cols) {
-      grid-column: 4 / span 1;
-      grid-row: 4 / span 4;
-      margin-bottom: 0;
-      padding-top: var(--col-padding);
+      #{$self}__hero-image-wrapper ~ & {
+        grid-row: 3;
+      }
     }
-  }
-
-  &__section {
-    @include mq($bkpt-articles--3-cols) {
-      padding-left: $block-padding;
-    }
-  }
-
-  &__body {
-    @include mq($bkpt-articles--2-cols) {
-      grid-column: 1 / span 2;
-      grid-row: 5 / span 1;
-    }
-
-    @include mq($bkpt-articles--3-cols) {
-      grid-column: 2 / span 2;
-      grid-row: 4 / span 1;
-      padding-top: var(--col-padding);
-    }
-  }
-
-  &__content:not(:last-child) {
-    margin-bottom: pxRem(40px);
   }
 }
