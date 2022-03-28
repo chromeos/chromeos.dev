@@ -150,8 +150,12 @@ registerRoute(({ request, url }) => {
     .map((lang) => [`/${lang}/news/`, `/${lang}/news`])
     .flat()
     .includes(url.pathname);
+  const isStories = languages
+    .map((lang) => [`/${lang}/stories/`, `/${lang}/stories`])
+    .flat()
+    .includes(url.pathname);
 
-  return isIndex || isNews;
+  return isIndex || isNews || isStories;
 }, i18nHandler(languages, preferences, liveHTMLStrategy));
 
 // Long-term HTML
