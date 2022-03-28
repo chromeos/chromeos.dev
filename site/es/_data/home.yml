@@ -192,8 +192,3 @@ videos:
   modifiers:
     variant: video
     heading: h2
-footnotes:
-  notes:
-    - The NPD Group, Inc., Servicio de seguimiento minorista de EE. UU., Computadoras
-      portátiles, basadas en ventas de unidades, abril-junio 2020 y marzo-junio 2020.
-  variant: landing
