@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Linux on Chrome OS
 metadesc: An introduction to Linux on Chrome OS.
 hero:
   image: ix://landings/heroes/linux.svg
