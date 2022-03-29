@@ -82,7 +82,7 @@ export class M100 {
       for (const iterator of this._intro.body) {
         console.info(iterator);
       }
-      window.tracking?.sendEvent('m100_quiz_start');
+      window.tracking?.sendEvent('m100_quiz_start')();
     }
     console.warn('Hint: for help try: %c%s', 'font-family: monospace; font-weight: bold;', 'm100.help();');
     this._promptQuestion(this._current);
@@ -188,7 +188,7 @@ export class M100 {
    * @return {void}
    */
   _promptReward() {
-    window.tracking?.sendEvent('m100_quiz_complete');
+    window.tracking?.sendEvent('m100_quiz_complete')();
     console.info('%c%s', 'font-weight: bold; font-size: 1.25em;', this._reward.headline);
     for (const iterator of this._reward.body) {
       console.info(iterator);
