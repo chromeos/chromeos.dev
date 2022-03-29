@@ -74,6 +74,7 @@
     border-radius: 0.625rem;
     margin: $spacing auto;
     padding: clamp(3.5rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 4.5rem);
+    text-align: center;
     width: 100%;
 
     &--desc {
@@ -96,6 +97,7 @@
       height: 100%;
       padding: 2.5rem;
       position: relative;
+      text-align: left;
       width: 100%;
       z-index: 1;
 

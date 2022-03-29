@@ -12,10 +12,16 @@ started:
   cards:
     - title: Publishing
       body: |-
-        Publishing your app for Chrome OS devices can seem challenging or confusing, but it is the same APK that you ship for phones and tablets. For more information check out our resources on publishing through the [Google Play Store](https://developer.android.com/distribute/google-play) including [optimizing for x86](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices) if you use the NDK.
-    - title: Label nim et nunc
+        Publishing your app for Chrome OS devices can seem challenging or confusing, but it is the same APK that you ship for phones and tablets. For more information check out our resources on publishing through the [Play Store for Chrome OS](/{{locale.code}}/publish) including [optimizing for x86](/{{locale.code}}/games/optimizing-games-publishing) if you use the NDK.
+    - title: Optimize
       body: |-
-        Bibendum quisque arcu ipsum elementum pellentesque porttitor morbi hendrerit. Enim rutrum elit ut mauris, vitae amet nisl fames feugiat. Ultricies hendrerit sit lacus dignissim morbi id. Sed ut dictumst nec tincidunt eu et.
+        Chrome OS allows your app to bring new experiences and patterns to your users, but it does come with some challenges. Read what is involved to [optimize your app](/{{locale.code}}/android/optimizing) or check out a [blog post](https://medium.com/androiddevelopers/android-at-large-how-to-bring-optimized-experiences-to-the-big-screen-a50a6784e59d) for more information on what your app on Chrome OS and other larger screen devices involves.
+    - title: Design
+      body: |-
+        There are design considerations to keep in mind on larger screen devices, and we've created some [recommendations and guidelines](/{{locale.code}}/android/design) to keep in mind when thinking about how your app looks and behaves on Chrome OS.
+    - title: Build
+      body: |-
+        There are a few ways to develop for Chrome OS, you can build [directly on your Chrome OS device](/{{locale.code}}/android-environment/deploying-apps#deploy-from-chrome-os) using the Linux for Chrome OS or you can connect your [Chrome OS device to your main workstation](/{{locale.code}}/android-environment/deploying-apps#deploy-from-another-device) and develop that way.
 interest: |-
   ## Developer interest form
 
@@ -30,10 +36,3 @@ In 2016, the Google Play Store was brought to Chrome OS, allowing the same apps 
 - Keyboard, mice, & trackpads as first class input methods
 
 To jump in to how you can start building Android apps for Chrome OS, [learn more here](/{{locale.code}}/android/start). Read below for more information on resources we have and topics to keep in mind.
-
-## Where do I start?
-
-- Publishing your app for Chrome OS devices can seem challenging or confusing, but it is the same APK that you ship for phones and tablets. For more information check out our resources on publishing through the [Play Store for Chrome OS](/{{locale.code}}/publish) including [optimizing for x86](/{{locale.code}}/games/optimizing-games-publishing) if you use the NDK.
-- Chrome OS allows your app to bring new experiences and patterns to your users, but it does come with some challenges. Read what is involved to [optimize your app](/{{locale.code}}/android/optimizing) or check out a [blog post](https://medium.com/androiddevelopers/android-at-large-how-to-bring-optimized-experiences-to-the-big-screen-a50a6784e59d) for more information on what your app on Chrome OS and other larger screen devices involves.
-- There are design considerations to keep in mind on larger screen devices, and we've created some [recommendations and guidelines](/{{locale.code}}/android/design) to keep in mind when thinking about how your app looks and behaves on Chrome OS.
-- There are a few ways to develop for Chrome OS, you can build [directly on your Chrome OS device](/{{locale.code}}/android-environment/deploying-apps#deploy-from-chrome-os) using the Linux for Chrome OS or you can connect your [Chrome OS device to your main workstation](/{{locale.code}}/android-environment/deploying-apps#deploy-from-another-device) and develop that way.

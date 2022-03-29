@@ -32,7 +32,7 @@ layout: _wrapper
 
   <section class="tech-detail__content" id="article">
     <div class="type">{{ content | safe }}</div>
-    {% if landingPage and landingPage.subnav %}
+    {% if landingPage and landingPage.subnav %} {% if started %}
     <div class="tech-detail__get-started">
       <h2 class="type--h1 tech-detail__get-started--title">{{started.title}}</h2>
       {% if started.desc %}
@@ -49,7 +49,9 @@ layout: _wrapper
         {% endfor %}
       </div>
     </div>
+    {% endif %} {% if interest %}
     <div class="tech-detail__interest-form type">{{ interest | markdown | safe }}</div>
+    {% endif %}
     <div class="tech-detail__chapters">{{itemGrid(microcopy.landing.chapters, landingPage.subnav.slice(1))}}</div>
     {% endif %}
   </section>
