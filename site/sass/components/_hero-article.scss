@@ -64,11 +64,16 @@
 
     &--hero {
       height: auto;
+      margin-bottom: 2rem;
       max-height: 15vh;
       max-width: 30vw;
 
       width: auto;
       z-index: 1;
+
+      @include mq(871px) {
+        margin-bottom: 0;
+      }
     }
   }
 
