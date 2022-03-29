@@ -9,7 +9,7 @@
   position: relative;
   width: 100%;
 
-  @include mq(750px) {
+  @include mq(871px) {
     padding-bottom: 0;
   }
 
@@ -21,7 +21,7 @@
     padding-bottom: clamp(1rem, 6vw, 2.5rem);
     padding-top: clamp(1rem, 6vw, 2rem);
 
-    @include mq(750px) {
+    @include mq(871px) {
       background-color: transparent;
       padding-bottom: 0;
     }
@@ -47,7 +47,7 @@
     right: 0;
     width: 58vw;
 
-    @include mq(750px) {
+    @include mq(871px) {
       align-items: center;
     }
 
@@ -57,7 +57,7 @@
       position: absolute;
       right: 0;
 
-      @include mq(750px) {
+      @include mq(871px) {
         height: 100%;
       }
     }
@@ -186,7 +186,7 @@
     .cta--back {
       color: var(--blue-600);
 
-      @include mq(750px) {
+      @include mq(871px) {
         color: var(--white);
       }
     }

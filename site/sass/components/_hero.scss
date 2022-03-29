@@ -19,9 +19,10 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    min-height: 20vh;
     position: relative;
 
-    @include mq(750px) {
+    @include mq(871px) {
       bottom: 0;
       height: 100%;
       position: absolute;
@@ -31,13 +32,15 @@
     }
 
     &--image {
-      height: 20vh;
+      max-width: 18rem; // Based on width of the bottom banner images
       position: absolute;
-      right: -3rem;
+      right: 0;
+      width: 50%;
       width: auto;
       z-index: 2;
 
-      @include mq(750px) {
+      @include mq(871px) {
+        max-width: unset;
         object-fit: contain;
         position: relative;
         right: unset;
@@ -46,24 +49,25 @@
     }
 
     &--background-pattern {
+      bottom: 0;
       display: block;
       height: 100%;
       margin-left: auto;
       max-width: unset;
+      position: absolute;
+      right: 0;
       z-index: 0;
-
-      @include mq(750px) {
-        bottom: 0;
-        position: absolute;
-        right: 0;
-      }
     }
   }
 
   &__content-wrapper {
-    max-width: clamp(40ch, 50vw, 60ch);
+    max-width: 80ch;
     position: relative;
     z-index: 1;
+
+    @include mq(871px) {
+      max-width: clamp(40ch, 50vw, 60ch);
+    }
   }
 
   &__icon {
@@ -96,6 +100,10 @@
       [class*='icon'] {
         color: var(--hero-theme-color);
         fill: var(--hero-theme-color);
+      }
+
+      .cta:focus {
+        background-color: var(--blue-900);
       }
     }
   }
