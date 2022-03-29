@@ -3,8 +3,8 @@ title: Desarrollo web
 metadesc: Cómo configurar su dispositivo Chrome OS para desarrollar aplicaciones web, cómo configurar el reenvío de puertos para acceder a ellos en otros dispositivos.
 hero:
   image:
-    top: ix://landings/heros/web-environment.svg
-    bottom: ix://landings/heros/web-environment-small.svg
+    top: ix://landings/heroes/web-environment.svg
+    bottom: ix://landings/heroes/web-environment-small.svg
 date: 2020-06-01
 weight: -8
 ---

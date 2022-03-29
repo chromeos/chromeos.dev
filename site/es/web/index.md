@@ -3,8 +3,8 @@ title: Aplicaciones web en Chrome OS
 metadesc: Una introducción a la creación de PWAs de escritorio para Chrome OS.
 hero:
   image:
-    top: ix://landings/heros/web.svg
-    bottom: ix://landings/heros/web-small.svg
+    top: ix://landings/heroes/web.svg
+    bottom: ix://landings/heroes/web-small.svg
 date: 2020-05-26
 weight: -10
 ---

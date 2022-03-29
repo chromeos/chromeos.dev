@@ -3,8 +3,8 @@ title: Introducción
 metadesc: Una introducción a Linux en Chrome OS.
 hero:
   image:
-    top: ix://landings/heros/linux.svg
-    bottom: ix://landings/heros/linux-small.svg
+    top: ix://landings/heroes/linux.svg
+    bottom: ix://landings/heroes/linux-small.svg
 date: 2020-06-10
 weight: -8
 ---
