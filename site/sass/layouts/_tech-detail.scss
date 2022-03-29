@@ -6,6 +6,9 @@
   $spacing: clamp(3.75rem, 7.8125vw, 5rem);
   $inline-padding: 1.5rem;
   $block-padding: 2.5rem;
+  $yellow-bg: var(--secondary-yellow);
+  $blue-bg: var(--primary-blue);
+  $green-bg: var(--primary-green);
 
   // TODO check breakpoints, spacing distribution when sample content is loaded.
   // Validate with design.
@@ -36,36 +39,56 @@
   }
 
   &__hero {
-    background: linear-gradient(18deg, var(--grey-100), var(--grey-100) 50%, var(--grey-50) 50%);
     grid-column: 1 / -1;
     grid-row: 2 / span 1;
+    overflow: hidden;
+    position: relative;
 
     @include mq($bkpt-tech-details--2-cols) {
       grid-column: 2 / -1;
       grid-row: 1 / span 2;
     }
 
-    @include mq($bkpt-tech-details--landing) {
-      min-height: 10rem;
-    }
+    &-title {
+      color: var(--white);
+      padding: $block-padding clamp(1.5rem, 4vw, 7.5rem);
+      position: relative;
+      z-index: 1;
 
-    &:not(:empty) {
-      display: flex;
-      justify-content: center;
-      padding: 1rem;
+      @include mq($bkpt-tech-details--2-cols) {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        max-width: 15ch;
+      }
     }
 
     &-image {
-      max-height: 20vh;
-      width: auto;
+      display: flex;
+      justify-content: flex-end;
+      padding-left: 2rem;
 
-      @include mq($bkpt-tech-details--landing) {
-        padding-bottom: 4rem;
+      @include mq($bkpt-tech-details--2-cols) {
+        height: 100%;
+        padding-left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 0;
+      }
+
+      @include mq($bkpt-tech-details--3-cols) {
+        max-height: 40vh;
+      }
+
+      &--background-pattern {
+        height: 100%;
+        object-fit: cover;
       }
     }
 
     &:empty {
-      background: var(--blue-600);
+      background: $blue-bg;
     }
   }
 
@@ -131,9 +154,7 @@
   }
 
   &__content {
-    margin-top: -5rem;
     padding: 0 $inline-padding $block-padding;
-    padding-top: 5rem;
 
     @include mq($bkpt-tech-details--2-cols) {
       grid-column: 3 / span 1;
@@ -142,6 +163,10 @@
         padding-left: $spacing;
         padding-right: $spacing;
       }
+    }
+
+    &--landing {
+      padding: 3.5rem $inline-padding $block-padding;
     }
   }
 
@@ -215,21 +240,6 @@
     }
   }
 
-  &__recommended {
-    border-top: 1px solid var(--grey-300);
-    grid-column: 1 / -1;
-  }
-
-  &__recommended-items {
-    margin: 0 auto;
-    max-width: 1409px;
-    padding: 5rem 1.75rem;
-
-    @include mq($bkpt-tech-details--3-cols) {
-      padding: 5rem 3.75rem;
-    }
-  }
-
   &__versions-and-toc {
     margin-bottom: $block-padding;
     padding: 0 $inline-padding;
@@ -248,6 +258,31 @@
 
     &:empty {
       padding: 0;
+    }
+  }
+
+  // TODO: Build nav filter for section
+  &.productivity,
+  &.android-environment,
+  &.linux,
+  &.web-environment {
+    #{$root}__hero {
+      background-color: $yellow-bg;
+    }
+  }
+
+  &.education,
+  &.android,
+  &.games,
+  &.web {
+    #{$root}__hero {
+      background-color: $blue-bg;
+    }
+  }
+
+  &.publish {
+    #{$root}__hero {
+      background-color: $green-bg;
     }
   }
 }

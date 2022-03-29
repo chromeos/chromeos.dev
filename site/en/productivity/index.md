@@ -1,9 +1,10 @@
 ---
-title: Overview
+title: Productivity features
 metadesc: Tools, tips, tricks, and resources for being more productive while developing on Chrome OS.
 hero:
-  image: ix://landings/productivity-hero.svg
-  alt: Illustration of a Chrome OS device's productivity icons.
+  image:
+    top: ix://landings/heroes/productivity.svg
+    bottom: ix://landings/heroes/productivity-small.svg
 date: 2020-05-18
 weight: -2
 ---
