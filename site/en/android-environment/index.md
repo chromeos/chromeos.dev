@@ -2,7 +2,9 @@
 title: Android development
 metadesc: This document will teach you how to install Android Studio and Flutter on Chrome OS.
 hero:
-  image: ix://landings/heroes/android-environment.svg
+  image:
+    top: ix://landings/heros/android-environment.svg
+    bottom: ix://landings/heros/android-environment-small.svg
 date: 2020-06-08
 weight: -7
 tools:

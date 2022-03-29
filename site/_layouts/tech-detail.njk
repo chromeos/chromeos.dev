@@ -12,7 +12,10 @@ layout: _wrapper
     <h1 class="tech-detail__hero-title type--mega">{{title}}</h1>
     {%- if hero -%}
     <div class="tech-detail__hero-image">
-      <img class="tech-detail__hero-image--background-pattern" src="{{hero.image}}" alt="" aria-hidden="true" />
+      <picture>
+        <source media="(min-width: 758px)" srcset="{{hero.image.top}}" />
+        <img class="tech-detail__hero-image--background-pattern" src="{{hero.image.bottom}}" alt="" />
+      </picture>
     </div>
     {%- endif -%}
   </div>
