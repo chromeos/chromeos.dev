@@ -77,7 +77,7 @@ Coding education platform [Codecademy’s PWA](/{{locale.code}}/stories/codecade
 
 Here are some other brands that have created engaging PWAs:
 
-![10 logos](ix://posts/m100/inline/logos.png)
+#[Pixlr, Sumo Beatport, Wideo, Cloud Stop Motion, Colorcinch, Simplifi by Quicken, Codecademy, Tinkercad, Tiktok](ix://posts/m100/inline/logos.png)
 
 ## Making Chrome OS a top destination for gamers
 
