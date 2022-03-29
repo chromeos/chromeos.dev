@@ -144,7 +144,7 @@ developers:
           name: Shree Bose
           role: Co-Founder, Piper
       image:
-        src: ix://home/quotes/shree.jpeg
+        src: ix://home/quotes/shree-0.jpeg
         alt: Shree Bose wearing scrubs and a stethoscope, setting an infant into a crib in a hospital setting.
       decorators:
         - ix://lifestyle/code_sample_sudo.png
@@ -155,7 +155,7 @@ developers:
           name: Sam Edwards
           role: Staff Mobile Engineer, Dropbox
       image:
-        src: ix://home/quotes/sam-edwards-0.jpg
+        src: ix://home/quotes/sam-edwards-1.jpg
         alt: Sam Edwards, looking straight ahead but not at the camera, working on a Chromebook.
 community:
   title: Developer channels to get you started.
@@ -195,7 +195,7 @@ videos:
     heading: h2
 footnotes:
   notes:
-    - The first source
+    - Google Internal Data, Feb 1 2021 to Feb 1 2022.
     - Google Internal Data, 2020-2021.
     - Google Internal Data, January 2022.
   variant: landing
