@@ -41,7 +41,7 @@ routing:
         title: Invite more gamers to play along.
         copy: Engage millions of players looking for their next favorite challenge—it's a win win.
       image:
-        src: ix://home/2022/more_gamers.png
+        src: ix://home/2022/gamers.png
         alt: An assortment of characters created by Riot games.
       cta:
         url: games
