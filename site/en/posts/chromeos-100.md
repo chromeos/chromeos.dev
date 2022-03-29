@@ -17,8 +17,8 @@ theme:
   icon: ix://posts/m100/icon.svg
   theme: m100
   background:
-    top: /images/posts/m100/m100-top.svg
-    bottom: /images/posts/m100/m100-bottom.svg
+    top: ix://posts/m100/m100-top.svg
+    bottom: ix://posts/m100/m100-bottom.svg
 featured: true
 authors:
   - ieinvaldez
@@ -43,7 +43,7 @@ Every new feature we launch is designed to empower developers to keep growing an
 
 We're excited to announce ChromeOS.dev has a new look and a lot more great content on the way — including dedicated resources for developers building apps for education, and content for enterprise coming later this year. There will also be a series of posts focused on the foundational tech behind Chrome OS … and there might even be a fun Easter egg for developers to discover. So be sure to check out the site, explore the latest content, and look for clues.
 
-![Chromebook showing the redesigned ChromeOS.dev homepage](ix://posts/m100/inline/laptop.png)
+![Chromebook showing the redesigned ChromeOS.dev homepage](ix://posts/m100/inline/m100-laptop.png)
 
 To mark the Chrome OS 100 milestone, here’s a recap of some features and tooling updates that have helped developers do what they do best.
 
@@ -77,7 +77,7 @@ Coding education platform [Codecademy’s PWA](/{{locale.code}}/stories/codecade
 
 Here are some other brands that have created engaging PWAs:
 
-#[Pixlr, Sumo Beatport, Wideo, Cloud Stop Motion, Colorcinch, Simplifi by Quicken, Codecademy, Tinkercad, Tiktok](ix://posts/m100/inline/logos.png)
+#[Pixlr, Sumo Beatport, Wideo, Cloud Stop Motion, Colorcinch, Simplifi by Quicken, Codecademy, Tinkercad, Tiktok](ix://posts/m100/inline/m100-logos.png)
 
 ## Making Chrome OS a top destination for gamers
 
