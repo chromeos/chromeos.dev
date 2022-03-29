@@ -81,9 +81,9 @@ Here are some other brands that have created engaging PWAs:
 
 ## Making Chrome OS a top destination for gamers
 
-Gaming has always been a huge draw for Chrome OS users, and we’ve expanded that capability so people can stream their favorite games directly on their Chromebooks. Cloud Gaming from Stadia, GeForce NOW, and Amazon Luna offer more than 1,400 gaming titles on Chromebooks. To serve the growing popularity of gaming on Chrome OS, we’ve unveiled a number of updates to help developers create desktop-competitive gaming experiences.
+Gaming has always been a huge draw for Chrome OS users, and we’ve expanded that capability so people can stream their favorite games directly on their Chromebooks. Cloud gaming allows users to play the latest AAA games on Chromebooks. With NVIDIA GeForce NOW, Chromebooks can stream more than 1,200 PC games including PC exclusives like Rust, New World and Valheim. Stadia and Amazon Luna also offer an ever-growing library of games — such as Cyberpunk 2077, Destiny 2 and Control — available through their services.
 
-Just recently, we announced the [Steam on Chrome OS alpha release](https://www.chromium.org/chromium-os/steam-on-chromeos/), which brings games like Portal 2, Skyrim, and The Witcher to supported Chrome OS devices.
+To serve the growing popularity of gaming on Chrome OS, we’ve unveiled a number of updates to help developers create desktop-competitive gaming experiences. Just recently, we announced the [Steam on Chrome OS alpha release](https://www.chromium.org/chromium-os/steam-on-chromeos/), which brings games like Portal 2, Skyrim, and The Witcher to [supported Chrome OS devices](https://www.chromium.org/chromium-os/steam-on-chromeos/#supported-devices).
 
 Last year, we announced our partnership with Unity to fully support Chromebooks. Today, Unity 2019 LTS and onward allows game developers to bring their Android titles to Chrome OS with support for x86 32/64 Chromebooks, and a streamlined publishing process.
 
