@@ -2,8 +2,9 @@
 title: Introducción
 metadesc: Herramientas, consejos, trucos y recursos para ser más productivo mientras se desarrolla en Chrome OS.
 hero:
-  image: ix://landings/productivity-hero.svg
-  alt: Ilustración de los íconos de productividad de Chrome OS.
+  image:
+    top: ix://landings/heroes/productivity.svg
+    bottom: ix://landings/heroes/productivity-small.svg
 date: 2020-05-18
 weight: -1
 ---
