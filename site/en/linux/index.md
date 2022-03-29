@@ -1,9 +1,10 @@
 ---
-title: Overview
+title: Linux on Chrome OS
 metadesc: An introduction to Linux on Chrome OS.
 hero:
-  image: ix://landings/linux-hero.svg
-  alt: Illustration of a terminal application running on a Chrome OS device.
+  image:
+    top: ix://landings/heroes/linux.svg
+    bottom: ix://landings/heroes/linux-small.svg
 date: 2020-06-10
 weight: -8
 tags:
