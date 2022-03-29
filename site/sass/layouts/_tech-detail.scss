@@ -42,27 +42,24 @@
     grid-column: 1 / -1;
     grid-row: 2 / span 1;
     overflow: hidden;
+    position: relative;
 
     @include mq($bkpt-tech-details--2-cols) {
       grid-column: 2 / -1;
       grid-row: 1 / span 2;
     }
 
-    &:not(:empty) {
-      @include mq($bkpt-tech-details--2-cols) {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     &-title {
       color: var(--white);
       padding: $block-padding clamp(1.5rem, 4vw, 7.5rem);
+      position: relative;
+      z-index: 1;
 
       @include mq($bkpt-tech-details--2-cols) {
         align-items: center;
         display: flex;
         justify-content: center;
+        max-width: 15ch;
       }
     }
 
@@ -74,6 +71,10 @@
       @include mq($bkpt-tech-details--2-cols) {
         height: 100%;
         padding-left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 0;
       }
 
       @include mq($bkpt-tech-details--3-cols) {
@@ -211,7 +212,7 @@
   &.android-environment,
   &.linux,
   &.web-environment {
-    [class*='hero'] {
+    #{$root}__hero {
       background-color: $yellow-bg;
     }
   }
@@ -220,13 +221,13 @@
   &.android,
   &.games,
   &.web {
-    [class*='hero'] {
+    #{$root}__hero {
       background-color: $blue-bg;
     }
   }
 
   &.publish {
-    [class*='hero'] {
+    #{$root}__hero {
       background-color: $green-bg;
     }
   }
