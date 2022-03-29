@@ -73,6 +73,7 @@
 
       @include mq(871px) {
         margin-bottom: 0;
+        max-height: 60%;
       }
     }
   }
