@@ -142,9 +142,9 @@ developers:
         copy: “Piper Make saw a 38% increase in its user base after introducing an offline-enabled, streamlined PWA.”
         author:
           name: Shree Bose
-          role: Co-Founder, Piper Make
+          role: Co-Founder, Piper
       image:
-        src: ix://posts/iwd-2022-shree-bose/shree.jpeg
+        src: ix://home/quotes/shree.jpeg
         alt: Shree Bose wearing scrubs and a stethoscope, setting an infant into a crib in a hospital setting.
       decorators:
         - ix://lifestyle/code_sample_sudo.png
