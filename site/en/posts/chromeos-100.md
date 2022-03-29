@@ -91,6 +91,10 @@ Many developers have found success adapting gaming experiences for Chrome OS. Br
 
 And hit title Minecraft created an experience [optimized for Chrome OS](https://education.minecraft.net/en-us/chromebook) — Minecraft: Education Edition — to connect with millions of students on Chromebooks.
 
+## Help us build the future of Chrome OS
+
+We’ve accomplished a lot since our first software release, but we’re just getting started. Developers’ innovation continues to inspire us, so keep creating the experiences users love, and we’ll keep working hard to make the next 100 channel releases even more capable.
+
 And don’t miss these in-depth case studies on some of the incredible work from fellow Chrome OS developers:
 
 - [Celebrating developers with Chrome OS's 100th release](/{{locale.code}}/posts/celebrating-developers-with-chromeos-100)
