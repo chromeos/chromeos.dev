@@ -2,43 +2,41 @@
 layout: _wrapper
 ---
 
-{% from 'skip-link.njk' import skipLink %} {% from 'toc.njk' import toc as tableOfContents %} {% from 'tools.njk' import tools as toolsMacro %} {% from 'subnav.njk' import subnav %} {% from 'resources.njk' import resources as resourcesMacro %} {% from 'item-grid.njk' import itemGrid %} {% set class="tech-detail" %} {% if landingPage %} {% set class = "tech-detail tech-detail--landing" %} {% endif %}
+{% from 'skip-link.njk' import skipLink %} {% from 'back-to-top.njk' import backToTop %} {% from 'toc.njk' import toc as tableOfContents %} {% from 'tools.njk' import tools as toolsMacro %} {% from 'subnav.njk' import subnav %} {% from 'resources.njk' import resources as resourcesMacro %} {% from 'item-grid.njk' import itemGrid %} {% set class="tech-detail" %} {% if landingPage %} {% set class = "tech-detail tech-detail--landing" %} {% endif %}
 
-<article class="{{class}}">
+<article class="{{class}} {{section}}">
   {% set related = collections[section + '--' + locale.code] %}
   <aside class="tech-detail__topics-and-resources">{{skipLink(microcopy.skip.content, 'content')}} {{ subnav(related, eyebrow, page.url, resources, microcopy.resources.title)}}</aside>
   {% if landingPage %}
   <div class="tech-detail__hero">
-    {%- if hero -%}{% set position = hero.position if hero.position else 'middle' %}
-    <img class="tech-detail__hero-image tech-detail__hero-image--{{position}}" src="{{hero.image}}" alt="{{hero.alt}}" />
+    <h1 class="tech-detail__hero-title type--mega">{{title}}</h1>
+    {%- if hero -%}
+    <div class="tech-detail__hero-image">
+      <picture>
+        <source media="(min-width: 758px)" srcset="{{hero.image.top}}" />
+        <img class="tech-detail__hero-image--background-pattern" src="{{hero.image.bottom}}" alt="" />
+      </picture>
+    </div>
     {%- endif -%}
   </div>
-  {% endif %}
+  {% endif %} {% if landingPage == false %}
   <header class="tech-detail__header" id="content">
-    {% if landingPage %}
-    <div class="tech-detail__eyebrow-wrapper">
-      {% endif %} {% if eyebrow %}
-      <small class="type--eyebrow">{{eyebrow}}</small>
-      {% endif %}
-      <h1 class="type--h2">{{title}}</h1>
-      {% if landingPage %}
-    </div>
+    {% if eyebrow %}
+    <small class="type--eyebrow">{{eyebrow}}</small>
     {% endif %}
+    <h1 class="type--h2">{{title}}</h1>
   </header>
-
-  {% if (content | toc or tools) and landingPage == false %}
+  {% endif %} {% if (content | toc or tools) and landingPage == false %}
   <aside class="tech-detail__versions-and-toc">{{toolsMacro(tools, microcopy.tools)}} {{tableOfContents(content, microcopy.toc.title, {title: microcopy.skip.toc, id: 'article'})}}</aside>
   {% endif %}
 
-  <section class="tech-detail__content" id="article">
+  <section class="tech-detail__content {% if landingPage %}tech-detail__content--landing{% endif %}" id="article">
     <div class="type">{{ content | safe }}</div>
     {% if landingPage and landingPage.subnav %}
     <div class="tech-detail__chapters">{{itemGrid(microcopy.landing.chapters, landingPage.subnav.slice(1))}}</div>
     {% endif %}
   </section>
-
-  {% if landingPage == false %}
-  <section class="tech-detail__recommended wrapper--padding wrapper--padded wrapper__contained">{{itemGrid(microcopy.recommended, title | related(locale.code, page.url))}}</section>
-  {% endif %}
 </article>
-{% from 'back-to-top.njk' import backToTop %} {{ backToTop() }}
+{% if landingPage == false %}
+<aside class="tech-detail__recommended wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__contained wrapper__background">{{itemGrid(microcopy.recommended, title | related(locale.code, page.url))}}</aside>
+{% endif %} {{ backToTop() }}
