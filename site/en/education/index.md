@@ -2,7 +2,9 @@
 title: Education apps on Chrome OS
 metadesc: Developing apps for education on Chrome OS.
 hero:
-  image: ix://landings/heroes/education.svg
+  image:
+    top: ix://landings/heros/education.svg
+    bottom: ix://landings/heros/education-small.svg
 date: 2022-03-21
 weight: -8
 ---

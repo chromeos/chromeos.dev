@@ -2,8 +2,9 @@
 title: Juegos en Chrome OS
 metadesc: Crea juegos para Chrome OS.
 hero:
-  image: ix://landings/games-hero.svg
-  alt: Ilustración de varias entradas conectadas a un dispositivo Chrome OS.
+  image:
+    top: ix://landings/heros/games.svg
+    bottom: ix://landings/heros/games-small.svg
 date: 2020-06-16
 weight: -10
 ---

@@ -2,7 +2,9 @@
 title: Productivity features
 metadesc: Tools, tips, tricks, and resources for being more productive while developing on Chrome OS.
 hero:
-  image: ix://landings/heroes/productivity.svg
+  image:
+    top: ix://landings/heros/productivity.svg
+    bottom: ix://landings/heros/productivity-small.svg
 date: 2020-05-18
 weight: -2
 ---

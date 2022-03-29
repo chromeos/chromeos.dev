@@ -2,7 +2,9 @@
 title: Linux on Chrome OS
 metadesc: An introduction to Linux on Chrome OS.
 hero:
-  image: ix://landings/heroes/linux.svg
+  image:
+    top: ix://landings/heros/linux.svg
+    bottom: ix://landings/heros/linux-small.svg
 date: 2020-06-10
 weight: -8
 tags:

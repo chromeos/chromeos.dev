@@ -2,7 +2,9 @@
 title: Android apps on Chrome OS
 metadesc: An introduction to the Play Store and Android Applications on Chrome OS.
 hero:
-  image: ix://landings/heroes/android.svg
+  image:
+    top: ix://landings/heros/android.svg
+    bottom: ix://landings/heros/android-small.svg
 date: 2020-05-27
 weight: -8
 ---
