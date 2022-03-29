@@ -63,7 +63,7 @@
         $size: generateScaling($mask-scale, (222px 278px));
         --shape: triangle;
         --shape-color: var(--primary-yellow);
-        background-image: url('/images/icons/sprite.svg#angle-yellow');
+        background-image: url('https://chromeos-dev.imgix.net/icons/patterns/angle-yellow.svg');
         height: $size;
         transform: rotate(-17deg) translate(-1rem, 0.5rem);
         width: $size;
@@ -87,7 +87,7 @@
       &::before {
         --shape-color: var(--secondary-green);
         @include pseudoShape((64px -60px 356px 180px), $wrapper-size);
-        background-image: url('/images/icons/sprite.svg#bracket-green');
+        background-image: url('https://chromeos-dev.imgix.net/icons/patterns/bracket-green.svg');
         transform: rotate(20deg);
       }
 
@@ -108,7 +108,7 @@
       &::before {
         $size: generateScaling($mask-scale, (207px $wrapper-size));
         --shape-color: var(--primary-blue);
-        background-image: url('/images/icons/sprite.svg#slash-blue');
+        background-image: url('https://chromeos-dev.imgix.net/icons/patterns/slash-blue.svg');
         height: $size;
         left: 0;
         top: 0;

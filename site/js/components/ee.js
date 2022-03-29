@@ -57,9 +57,14 @@ export class M100 {
 
     if (this._started.toString() === 'true') {
       if (this._current < this._prompts.length) {
+        console.warn('%c%s', 'font-weight: bold;', 'm100.help()');
         this._promptQuestion(this._current);
       } else {
-        console.warn('%c%s', 'font-weight: bold;', 'm100.help()');
+        if (this._theme.name === 'phosphor') {
+          console.warn('%c%s', 'font-weight: bold;', 'm100.reset()');
+        } else {
+          console.warn('%c%s', 'font-weight: bold;', 'm100.help()');
+        }
       }
     } else {
       console.warn('%c%s', 'font-weight: bold;', 'm100.start()');
@@ -241,7 +246,7 @@ export class M100 {
    * @param {number} interval
    * @return {void}
    */
-  _countdown(count, interval = 1000) {
+  _countdown(count, interval = 750) {
     return new Promise((resolve, reject) => {
       const timer = setInterval(function () {
         console.log(count);

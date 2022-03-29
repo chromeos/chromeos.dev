@@ -79,7 +79,7 @@
         --shape-size: (100% 200%);
         --shape-offset: (0% -100%);
         @include pseudoShape((140px -70px 530px 282px), 426px);
-        background-image: url('/images/icons/sprite.svg#bracket-red');
+        background-image: url('https://chromeos-dev.imgix.net/icons/patterns/bracket-red.svg');
         mask-image: paint(shape);
         transform: rotate(20deg);
       }
