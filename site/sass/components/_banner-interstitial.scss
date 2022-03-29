@@ -57,6 +57,7 @@
     z-index: 1;
 
     @include mq($break-2-col) {
+      max-width: 50%;
       padding: generateScaling($scale-range, $spacing-range) 0 generateScaling($scale-range, $spacing-range) generateScaling($scale-range, (nth($spacing-range, 1) 80px));
       place-self: center flex-start;
     }

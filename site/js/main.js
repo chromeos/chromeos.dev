@@ -137,7 +137,7 @@ window.addEventListener('load', async () => {
   }
 
   const { Tracking } = await import('./lib/tracking');
-  new Tracking(gtag);
+  window.tracking = new Tracking(gtag);
 
   if (import.meta.env.MODE === 'production') {
     if ('serviceWorker' in navigator) {
