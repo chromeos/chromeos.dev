@@ -81,7 +81,7 @@
       }
 
       @include mq($bkpt-tech-details--3-cols) {
-        height: 40vh;
+        max-height: 40vh;
       }
     }
 
