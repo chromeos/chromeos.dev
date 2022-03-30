@@ -14,7 +14,7 @@ tags:
   - web
 ---
 
-Since 2018, Codecademy has helped millions of people unlock modern technical skills and reach their full potential through code. In a world filled with software job opportunities but limited resources, Codecademy bridges that gap with interactive classes on the web and a mobile app — Codecademy Go — with practice problems and quizzes.
+Since 2011, Codecademy has helped millions of people unlock modern technical skills and reach their full potential through code. In a world filled with software job opportunities but limited resources, Codecademy bridges that gap with interactive classes on the web and a mobile app — Codecademy Go — with practice problems and quizzes.
 
 Codecademy’s web-based platform is ideal for teaching users on all devices within a real, integrated coding environment. After joining Chromebook’s [exclusive perks](https://www.google.com/intl/en_us/chromebook/perks/), the brand noticed an uptick of Chrome OS users engaging with its content. Plus, many were activating a discount for Codecademy Pro, a membership plan that includes access to real-world projects and the full catalog, beyond introductory courses. That’s when Codecademy saw an opportunity to build a more engaging and capable web experience for Chrome OS — and reach even more Chromebook users down the line.
 
