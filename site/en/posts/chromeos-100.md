@@ -25,7 +25,7 @@ authors:
 date: 2022-03-30
 ---
 
-On March 31, Chrome OS reaches its 100th software release. Along the way, we’ve continued to grow and evolve into a versatile platform for building amazing app and game experiences — and for connecting all kinds of developers with users worldwide.
+On March 31, Chrome OS reaches its 100th stable channel release. Along the way, we’ve continued to grow and evolve into a versatile platform for building amazing app and game experiences — and for connecting all kinds of developers with users worldwide.
 
 Thanks to partnerships with top OEMs like Acer, Asus, Samsung, Dell, HP, and Lenovo, our hardware suite has expanded far beyond traditional laptops. Since we introduced our [first two Samsung and Acer Chromebooks](https://chrome.googleblog.com/2011/05/new-kind-of-computer-chromebook.html) in 2011, Chromebooks are now available in thousands of retail stores across the world. And we’ve continued to reach even more segments, particularly education: Chromebooks are now the No. 1 device in K-12 education globally and used by 50 million students and educators.[^1]
 
