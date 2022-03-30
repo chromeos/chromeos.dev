@@ -93,7 +93,7 @@ caseStudies:
   subtitle: Explore how brands are unlocking more possibilities with Chrome OS.
   cta:
     text: All Case Studies
-    url: news
+    url: stories
 m100:
   image:
     src: ix://devices/HP_color_chromebook_stylus.png
