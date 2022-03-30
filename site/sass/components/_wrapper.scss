@@ -196,6 +196,10 @@
       }
     }
 
+    &--light {
+      background-color: var(--grey-50);
+    }
+
     &--dark {
       background-color: var(--grey-850);
     }

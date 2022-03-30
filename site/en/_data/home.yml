@@ -41,7 +41,7 @@ routing:
         title: Invite more gamers to play along.
         copy: Engage millions of players looking for their next favorite challenge—it's a win win.
       image:
-        src: ix://home/2022/more_gamers.png
+        src: ix://home/2022/gamers.png
         alt: An assortment of characters created by Riot games.
       cta:
         url: games
@@ -76,15 +76,18 @@ stats:
       modifiers:
         shape: semicircle
         scale: full
+      footnote: 1
     - stat: +50%
       desc: Chromebook users engaging with Android apps, YoY
       modifiers:
         shape: circle
+      footnote: 2
     - stat: 50M
       desc: Students and educators using Chromebooks worldwide
       modifiers:
         shape: triangle
         scale: half
+      footnote: 3
 caseStudies:
   title: Get inspired.
   subtitle: Explore how brands are unlocking more possibilities with Chrome OS.
@@ -96,12 +99,12 @@ m100:
     src: ix://devices/HP_color_chromebook_stylus.png
     alt: A partially opened Samsung Chromebook next to a stylus.
   content:
-    eyebrow: M100 Launch
-    title: New Features
-    copy: Coming in all shapes and sizes, Chromebooks are speedy, simple, secure, and run Chrome OS.
+    eyebrow: Featured story
+    title: Celebrating Chrome OS 100
+    copy: Recapping how we've grown with developers over the years
   cta:
-    url: news
-    text: Learn more
+    url: posts/chromeos-100
+    text: Read more
 posts:
   title: The latest on Chrome OS.
   modifiers:
@@ -128,32 +131,32 @@ developers:
     subtitle: Here's what our community has to say.
   quotes:
     - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        copy: “Cloud Stop Motion PWA reached more users in 12 months than our desktop app reached in 10 years!”
         author:
-          name: Mike C.
-          role: Head Engineer
+          name: David Henley
+          role: CEO, Cloud Stop Motion
       image:
-        src: ix://lifestyle/developer_1.png
-        alt: Mike C. leaning against a desk.
+        src: ix://home/quotes/david-henley-0.jpg
+        alt: David Henley, looking to the side of the camera, in front of a full bookcase.
     - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        copy: “Piper Make saw a 38% increase in its user base after introducing an offline-enabled, streamlined PWA.”
         author:
-          name: Mike C.
-          role: Head Engineer
+          name: Shree Bose
+          role: Co-Founder, Piper
       image:
-        src: ix://lifestyle/developer_2.png
-        alt: Mike C. smiling at the camera.
+        src: ix://home/quotes/shree-0.jpeg
+        alt: Shree Bose wearing scrubs and a stethoscope, setting an infant into a crib in a hospital setting.
       decorators:
         - ix://lifestyle/code_sample_sudo.png
         - ix://lifestyle/command_key.png
     - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        copy: “Our ability to closely collaborate with the Chrome OS team has enabled Dropbox to expand our offerings to Chromebooks and provide a seamless user experience.”
         author:
-          name: Mike C.
-          role: Head Engineer
+          name: Sam Edwards
+          role: Staff Mobile Engineer, Dropbox
       image:
-        src: ix://lifestyle/developer_3.png
-        alt: Mike C. leaning against a desk.
+        src: ix://home/quotes/sam-edwards-1.jpg
+        alt: Sam Edwards, looking straight ahead but not at the camera, working on a Chromebook.
 community:
   title: Developer channels to get you started.
   modifiers:
@@ -190,3 +193,9 @@ videos:
   modifiers:
     variant: video
     heading: h2
+footnotes:
+  notes:
+    - Google Internal Data, Feb 1 2021 to Feb 1 2022.
+    - Google Internal Data, 2020-2021.
+    - Google Internal Data, January 2022.
+  variant: landing

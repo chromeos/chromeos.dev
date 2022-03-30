@@ -125,15 +125,15 @@
     display: inline-block;
 
     &:visited {
-      --visited-color: var(--blue-600);
-      color: var(--blue-600);
+      --visited-color: var(--blue-700);
+      color: var(--blue-700);
     }
   }
   /* stylelint-disable-next-line no-duplicate-selectors */
   &--low,
   &--link,
   &--back {
-    color: var(--blue-600);
+    color: var(--blue-700);
   }
 
   /* stylelint-disable-next-line no-duplicate-selectors */
