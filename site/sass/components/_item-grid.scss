@@ -108,9 +108,61 @@
       margin-top: 0;
       padding-top: 3rem;
 
+      @include mq(430px) {
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      }
+
       @supports (row-gap: clamp(1px, 1vw, 2px)) {
         row-gap: generateScaling((430px 631px), (48px 16px));
       }
+    }
+  }
+
+  &--stories & {
+    &__title {
+      margin-left: 0;
+      margin-right: unset;
+      margin-top: 0.625rem;
+      max-width: unset;
+      text-align: left;
+
+      @include mq(430px) {
+        margin-left: 1rem;
+        margin-top: 0;
+      }
+    }
+
+    &__subtitle {
+      max-width: 60ch;
+      text-align: left;
+    }
+
+    &__content {
+      gap: 2.5rem 1.25rem;
+      margin: clamp(2.5rem, 6vw, 3.5rem) 0;
+
+      @include mq(1058px) {
+        grid-template-columns: repeat(auto-fill, minmax(pxRem(400px), 1fr));
+      }
+    }
+
+    &__header {
+      display: flex;
+      flex-direction: column;
+
+      @include mq(430px) {
+        align-items: center;
+        flex-direction: row;
+      }
+
+      &:not(:first-child) {
+        margin-top: clamp(2.5rem, 6vw, 5rem);
+      }
+    }
+
+    &__icon {
+      height: 2.25rem;
+      width: 2.25rem;
     }
   }
 

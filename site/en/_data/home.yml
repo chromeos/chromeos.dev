@@ -1,66 +1,61 @@
 hero:
   heading:
-    - Your app + Chrome OS.
-    - See what’s possible.
-  cta:
-    text: Start building
-    url: '#home__subnav'
-  img:
-    src: ix://landings/home/hero.png
-    alt: 'Chromebook, tablet, mobile phone, foldable phone, stylus, and a mouse are shown. The devices with screens show the same image: a mix of colored circles, rounded bars, and lines in red, yellow, blue, and green colors. These objects cycle in unison.'
+    default: Expand how the world
+    accent: engages with your app.
+  copy: Tap into millions of users when you bring your apps and games to Chrome OS.
+  media:
+    placeholder:
+      src: ix://home/2022/static-hero.svg
+      alt: A single screen morphing between mobile, tablet, and laptop devices.
+    phosphor:
+      src: ix://home/2022/phosphor-hero.svg
+      alt: A single screen morphing between mobile, tablet, and laptop devices.
+    static:
+      src: ix://home/2022/storyboard-hero.png
+      alt: A series of mobile, tablet, and laptop devices filled  with shapes.
 routing:
   items:
     - content:
-        title: Build a better web experience.
-        copy: Expand your reach to millions of desktop users when you adapt your web app for Chrome OS.
+        title: Unlock the next level of web apps.
+        copy: Build more powerful experiences with the latest tools and APIs for web built right in.
       image:
         src: ix://home/2022/better_experience.png
         alt: A person using a chromebook with a stylus at their desk.
       cta:
         url: web
         text: Learn more
+      modifiers:
+        shapes: primary
     - content:
-        title: Say Hello to Android users.
-        copy: Easily adapt your existing app to work across more devices and reach more people.
+        title: Take it to the big screen.
+        copy: Easily adapt your existing mobile app for large-screen devices to reach more Android users.
       image:
         src: ix://home/2022/hello_android.png
         alt: An android device using the Evernote app.
       cta:
         url: android
         text: Learn more
+      modifiers:
+        shapes: secondary
     - content:
-        title: Get more gamers.
-        copy: Get your game played on more screens when you adapt it for Chrome OS.
+        title: Invite more gamers to play along.
+        copy: Engage millions of players looking for their next favorite challenge—it's a win win.
       image:
-        src: ix://home/2022/more_gamers.png
+        src: ix://home/2022/gamers.png
         alt: An assortment of characters created by Riot games.
       cta:
         url: games
         text: Learn more
+      modifiers:
+        shapes: tertiary
   modifiers:
     variant: routing
-results:
-  desc: Get results with Chrome OS
-  content:
-    heading:
-      - More devices.
-      - New audiences.
-      - Real results.
-    desc: Deliver rich, engaging experiences to more people by adapting your Android and web apps for Chromebooks. With a few changes to your existing app, you can reach new audiences on different formats and devices — anytime, anywhere.
-  img:
-    src: ix://home/intro.1500.png
-    alt: Birds eye view of a wooden desk with a Chromebook and Pixel phone. Two people sit across the table from each other, collaborating.
-  stats:
-    title: YoY Chromebook unit sales growth
-    value: 103%
-    icon: trending-up
-  footnote: 1
 linux:
   content:
     title: |
-      Keep Linux at your side
-      —anywhere.
-    copy: Your Linux environment is seamlessly built into Chrome OS, and with you even when WiFi isn't.
+      Impressively versatile.
+      Exceptionally easy.
+    copy: Linux is seamlessly built into Chrome OS so you’ll always be ready whenever inspiration hits.
   cta:
     text: Learn more
     url: linux
@@ -69,73 +64,104 @@ linux:
       alt: Opened Chromebook with a birds eye view of a beach set as its background.
     - src: ix://lifestyle/vim_window.jpg
       alt: A Vim text editor with code.
+    - src: ix://home/2022/m100start.svg
+      alt: '"m100.start()" appears inside a repeating pattern of curly braces.'
 stats:
   modifiers:
     heading: Grow in good company.
     subtitle: Keep your app—and your audience—growing, across the Chrome OS community.
   items:
-    - stat: +103%
-      desc: App Usage Growth YoY on Chrome OS for Android, Web, and Games
+    - stat: +270%
+      desc: Desktop PWA installs, YoY
       modifiers:
         shape: semicircle
         scale: full
-    - stat: +92%
-      desc: Chrome OS YoY Growth
+      footnote: 1
+    - stat: +50%
+      desc: Chromebook users engaging with Android apps, YoY
       modifiers:
         shape: circle
-    - stat: +124%
-      desc: Growth of User Engagment YoY with apps on Chrome OS
+      footnote: 2
+    - stat: 50M
+      desc: Students and educators using Chromebooks worldwide
       modifiers:
         shape: triangle
         scale: half
-onAndWith:
-  desc: Build for Chrome OS, build on Chrome OS
-  cards:
-    - images:
-        - src: ix://landings/home/linux-laptop-base.png
-          alt: A Chromebook.
-        - src: ix://landings/home/android-studio.png
-          alt: Android Studio running on Chrome OS.
-        - src: ix://landings/home/terminal.png
-          alt: The Terminal app for Linux on Chrome OS.
-      content:
-        title: Bring ideas to life with Linux on Chrome OS
-        copy: Linux on Chrome OS gives you the power to use a single machine to build and run Android, Web, and Linux apps using your favorite editors, IDES, and world-class devs tools. Just set up Linux on Chrome OS to start building.
-      cta:
-        url: /en/linux
-        text: Start with Linux
-      modifiers:
-        offset: true
-    - images:
-        - src: ix://landings/home/design-resources-laptop.png
-          alt: A large-screen app on a laptop showing how specific elements, highlighted in blue, yellow, green, and red, have been adapted from a small-screen app on a phone (the following image).
-        - src: ix://landings/home/design-resources-phone.png
-          alt: A small-screen app on a phone with blue and yellow highlighted elements prior to adapting to a large-screen app (the previous image).
-      content:
-        title: Jumpstart your latest project with design resources for Chrome OS
-        copy: Find everything you need to know about designing your app for and on Chrome OS with app guidelines including information on user experience, visual design, UI components, navigation, fonts, and more.
-      cta:
-        url: /en/android/design
-        text: See design resources
-      modifiers:
-        offset: true
+      footnote: 3
+caseStudies:
+  title: Get inspired.
+  subtitle: Explore how brands are unlocking more possibilities with Chrome OS.
+  cta:
+    text: All Case Studies
+    url: stories
+m100:
+  image:
+    src: ix://devices/HP_color_chromebook_stylus.png
+    alt: A partially opened Samsung Chromebook next to a stylus.
+  content:
+    eyebrow: Featured story
+    title: Celebrating Chrome OS 100
+    copy: Recapping how we've grown with developers over the years
+  cta:
+    url: posts/chromeos-100
+    text: Read more
 posts:
-  title: The latest on Chrome OS
+  title: The latest on Chrome OS.
   modifiers:
     custom: item-grid--posts
     subtitle: Explore trends, events, and updates on our community.
     cta:
       text: All Articles
       url: news
-featured:
-  modifiers:
-    custom: landing--news-grey-overlay
-subnav:
+educators:
   content:
-    title: Helpful resources at every stage.
+    title: Empower millions of students and educators.
+    copy: Learn how your app can power learning experiences for 50 million Chromebooks in the classrooms.
+  cta:
+    text: Learn more
+    url: education
+  images:
+    - src: ix://lifestyle/education.png
+      alt: Two children using a chromebook.
   modifiers:
-    subtitle: Unlock your app's potential with our extensive library of tools and resources.
-    variant: subnav
+    class: fifty-fifty--educators
+developers:
+  content:
+    title: Why they build with Chrome OS.
+    subtitle: Here's what our community has to say.
+  quotes:
+    - content:
+        copy: “Cloud Stop Motion PWA reached more users in 12 months than our desktop app reached in 10 years!”
+        author:
+          name: David Henley
+          role: CEO, Cloud Stop Motion
+      image:
+        src: ix://home/quotes/david-henley-0.jpg
+        alt: David Henley, looking to the side of the camera, in front of a full bookcase.
+    - content:
+        copy: “Piper Make saw a 38% increase in its user base after introducing an offline-enabled, streamlined PWA.”
+        author:
+          name: Shree Bose
+          role: Co-Founder, Piper
+      image:
+        src: ix://home/quotes/shree-0.jpeg
+        alt: Shree Bose wearing scrubs and a stethoscope, setting an infant into a crib in a hospital setting.
+      decorators:
+        - ix://lifestyle/code_sample_sudo.png
+        - ix://lifestyle/command_key.png
+    - content:
+        copy: “Our ability to closely collaborate with the Chrome OS team has enabled Dropbox to expand our offerings to Chromebooks and provide a seamless user experience.”
+        author:
+          name: Sam Edwards
+          role: Staff Mobile Engineer, Dropbox
+      image:
+        src: ix://home/quotes/sam-edwards-1.jpg
+        alt: Sam Edwards, looking straight ahead but not at the camera, working on a Chromebook.
+community:
+  title: Developer channels to get you started.
+  modifiers:
+    variant: community
+    heading: h2
 chromebook:
   image:
     src: ix://home/chromebooks-device.1500.png
@@ -146,45 +172,14 @@ chromebook:
   cta:
     url: https://www.google.com/chromebook/
     text: Learn about Chromebook
-developers:
+subnav:
   content:
-    title: Hear what the community is saying
-    subtitle: Read some testimonials from other developers and take their word for it.
-  quotes:
-    - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
-        author:
-          name: Mike C.
-          role: Head Engineer
-      image:
-        src: ix://lifestyle/developer_1.png
-        alt: Mike C. leaning against a desk.
-    - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
-        author:
-          name: Mike C.
-          role: Head Engineer
-      image:
-        src: ix://lifestyle/developer_2.png
-        alt: Mike C. smiling at the camera.
-      decorators:
-        - ix://lifestyle/code_sample_sudo.png
-        - ix://lifestyle/command_key.png
-    - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
-        author:
-          name: Mike C.
-          role: Head Engineer
-      image:
-        src: ix://lifestyle/developer_3.png
-        alt: Mike C. leaning against a desk.
-community:
-  title: Developer channels to get you started
+    title: Helpful resources at every stage.
   modifiers:
-    variant: community
-    heading: h2
+    subtitle: Unlock your app's potential with our extensive library of tools and resources.
+    variant: subnav
 videos:
-  title: Watch the latest videos
+  title: Watch the latest videos.
   items:
     - video:
         title: Developer Keynote at Google I/O '21
@@ -200,5 +195,7 @@ videos:
     heading: h2
 footnotes:
   notes:
-    - The NPD Group, Inc., U.S. Retail Tracking Service, Notebook Computers, based on unit sales, April-June 2020 and March-June 2020.
+    - Google Internal Data, Feb 1 2021 to Feb 1 2022.
+    - Google Internal Data, 2020-2021.
+    - Google Internal Data, January 2022.
   variant: landing

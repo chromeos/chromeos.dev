@@ -1,0 +1,40 @@
+// Styles for stories card component.
+@use 'sass:math';
+
+.stories-card {
+  display: block;
+  text-decoration: none;
+
+  &__container {
+    @include elevation(0);
+    background-color: var(--white);
+    border-radius: 0.625rem;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+    z-index: 1;
+
+    &:focus,
+    &:hover {
+      @include elevation(2);
+    }
+  }
+
+  &__image {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &__content {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  &__footer {
+    margin-top: 1.25rem;
+  }
+}

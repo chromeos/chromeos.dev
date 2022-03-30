@@ -16,9 +16,6 @@ tags:
   - mouse support
 authors:
   - bgable
-hero:
-  image: ix://posts/gdc-2019-recap/hero.png
-  alt: Illustration of laptop and foldable device.
 date: 2019-05-02
 ---
 

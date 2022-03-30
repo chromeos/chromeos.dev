@@ -10,10 +10,6 @@ tags:
 authors:
   - pjmclachlan
   - tbuckley
-hero:
-  image: ix://posts/simple-payments-that-users-trust-monetizing-web-apps-in-google-play/hero.png
-  alt: Chrome OS Google Play monetization banner
-  position: center
 date: 2021-05-19
 ---
 

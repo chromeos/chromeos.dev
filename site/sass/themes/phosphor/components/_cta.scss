@@ -1,0 +1,34 @@
+.cta {
+  font-family: $font-mono;
+
+  &--high {
+    background-color: var(--primary-yellow);
+    border: 2px solid var(--phosphor-gray);
+    color: var(--phosphor-gray);
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: var(--phosphor-green);
+      border-color: var(--phosphor-gray);
+      color: var(--phosphor-gray);
+    }
+  }
+
+  &--link {
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: var(--phosphor-green);
+      color: var(--phosphor-gray);
+    }
+  }
+
+  &--medium {
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: var(--primary-blue);
+    }
+  }
+}

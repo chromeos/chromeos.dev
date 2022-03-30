@@ -13,9 +13,6 @@ tags:
   - android studio
 authors:
   - kennethford
-hero:
-  image: ix://posts/android-at-large/hero.jpg
-  alt: Blueprint design showing various android devices and formfactors.
 date: 2020-04-21
 ---
 

@@ -1,0 +1,20 @@
+<!--{#
+  Renders a section with title, subtitle and items.
+  Arguments:
+    @param {array} titles: Section titles.
+    @param {string} subtitle (optional): Text for a subtitle beneath the primary title.
+    @param {array} items: List of item objects.
+ #}-->
+{% from 'icon.njk' import icon %} {% from 'stories-card.njk' import storiesCard %} {% macro storiesSection(titles, items) %} {% for title in titles %} {% for tag, item in items | groupby("tag") %} {% if title.tag == tag %}
+
+<header class="item-grid__header">
+  <img src="ix://icons/eyebrows/{{title.tag | normalizeTag | slugify}}.svg" alt="" class="item-grid__icon icon" aria-hidden="true" />
+  <h2 class="item-grid__title type--h2">{{title.title}}</h2>
+</header>
+{% if title.subtitle %}
+<p class="item-grid__subtitle type--large">{{title.subtitle}}</p>
+{% endif %}
+
+<div class="item-grid__content">{% for item in items %} {% if title.tag == item.tag %} {{storiesCard(item)}} {% endif %} {% endfor %}</div>
+
+{% endif %} {% endfor %} {% endfor %} {% endmacro %}

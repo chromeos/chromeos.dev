@@ -14,12 +14,6 @@ tags:
   - high-performance graphics
 date: 2018-11-01
 updated: 2020-05-01
-featured:
-  images:
-    - image: ix://featured/gaming-laptop.1500.png
-      alt: Chromebook showing Asphalt 8 being played.
-    - image: ix://featured/car.1500.png
-      alt: A car from Asphalt 8.
 ---
 
 [Gameloft](https://play.google.com/store/apps/dev?id=4826827787946964969) always strives to be among the first developers to publish games on the latest portable hardware in order to provide gamers with heart-pounding experiences on the go. That’s why Gameloft knew Chrome OS was the right home for _Asphalt 8: Airborne_, the latest entry in its mobile racing series.

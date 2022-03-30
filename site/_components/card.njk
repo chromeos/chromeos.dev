@@ -20,7 +20,11 @@
 <a href="{{ data.url }}" class="card type--base {{styles}} {{'card--source' if data.source is defined}} {{'card--cta' if cta}}" aria-labelledby="{{ titleId }} {{ bodyId}} {{ sourceId }}">
   <article class="card__container">
     <header id="{{ titleId }}" class="card__title">
-      {# TODO: add eyebrow icons under Issue #332, Card: Eyebrow Icons #} {% if data.eyebrow %}<small class="card__eyebrow type--eyebrow">{{ data.eyebrow }}</small>{% endif %}
+      {% if data.eyebrow %} {% if data.icon %}
+      <img src="{{data.icon}}" alt="" class="card__topic icon" aria-hidden="true" />
+      {% else %} {% set tagSlug = data.eyebrow | normalizeTag | slugify %} <img src="ix://icons/eyebrows/{{tagSlug}}.svg" alt="" class="card__topic icon" aria-hidden="true" /> {% endif %}
+      <small class="card__eyebrow type--eyebrow">{{ data.eyebrow }}</small>
+      {% endif %}
       <h4 class="card__heading type--h4">{{ data.title }}</h4>
     </header>
     <p id="{{ bodyId }}" class="card__body">{{ data.body }}</p>

@@ -12,10 +12,6 @@ featured:
   images:
     - image: ix://posts/give-your-users-a-seamless-mobile-app-experience-on-chrome-os/hero.png
       alt: An app shown on phone, tablet, and Chromebook
-hero:
-  image: ix://posts/give-your-users-a-seamless-mobile-app-experience-on-chrome-os/hero.png
-  alt: An app shown on phone, tablet, and Chromebook
-  position: center
 date: 2021-09-10
 ---
 

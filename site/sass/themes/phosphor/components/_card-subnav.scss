@@ -1,0 +1,26 @@
+// Styles for card-subnav component.
+// Might not need this component
+
+.card-subnav {
+  border: solid 2px var(--phosphor-green);
+
+  &__icon-wrapper {
+    background-color: var(--phosphor-gray);
+    border: solid 1px var(--phosphor-green);
+  }
+
+  &__icon {
+    fill: var(--phosphor-green);
+  }
+
+  &__anchor {
+    border: solid 2px var(--phosphor-green);
+
+    &:hover,
+    &:focus {
+      background-color: var(--phosphor-gray);
+      border: solid 2px var(--phosphor-green);
+      color: var(--phosphor-green);
+    }
+  }
+}

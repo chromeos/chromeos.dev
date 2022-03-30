@@ -18,10 +18,6 @@ tags:
   - large screens
 date: 2019-12-26
 updated: 2020-04-01
-featured:
-  images:
-    - image: ix://featured/evernote-featured-flat.1500.png
-      alt: Laptop device.
 ---
 
 [Evernote's](https://play.google.com/store/apps/details?id=com.evernote) mission is to help individuals and groups remember everything, turn ideas into action, and work effortlessly together. Their Android app gives people the tools they need to get organized, take and save notes, and collaborate with others.
