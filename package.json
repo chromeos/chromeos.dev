@@ -149,7 +149,7 @@
   "dependencies": {
     "comlink": "^4.3",
     "container-query-polyfill": "^0.1.2",
-    "css-paint-polyfill": "^3.0",
+    "css-paint-polyfill": "^3.4",
     "dynamic-import-polyfill": "^0.1",
     "i18n-iso-countries": "^7.3",
     "iso-639-1": "^2.1",

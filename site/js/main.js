@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const search = document.querySelector('.search-results');
   const searchBox = document.querySelector('.search-box-header');
   const navPrimary = document.querySelector('.nav__primary');
-  const home = document.querySelector('#home');
+  // const home = document.querySelector('#home');
   const offlineSearch = document.querySelector('[data-offline-search]');
   const powerfulPWAs = document.querySelector('[data-pwa-checklist]');
   const containerQueries = 'container' in document.documentElement.style;
@@ -57,10 +57,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     offlineSearch.style.display = 'block';
   }
 
-  if (home) {
-    const { Home } = await import('./components/home');
-    new Home(home);
-  }
+  // TODO: Add back in when we re-implement parallax for the new home page design
+  // if (home) {
+  //   const { Home } = await import('./components/home');
+  //   new Home(home);
+  // }
 
   if (form) {
     const { Form } = await import('./components/form');
@@ -124,12 +125,7 @@ window.addEventListener('load', async () => {
   if (hero) {
     // Loads the component first to track changes in the HTML elements, then loads the library and the animation data.
     const { HeroAnimated } = await import('./components/hero-animated');
-    const heroAnimated = new HeroAnimated(hero);
-
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const [{ default: lottie }, { animationData }] = await Promise.all([import('lottie-web/build/player/lottie_svg.min.js'), import('./animations/home')]);
-      heroAnimated.loadAnimation(lottie, animationData);
-    }
+    new HeroAnimated(hero);
   }
 
   if (tables) {
@@ -141,13 +137,16 @@ window.addEventListener('load', async () => {
   }
 
   const { Tracking } = await import('./lib/tracking');
-  new Tracking(gtag);
+  window.tracking = new Tracking(gtag);
 
   if (import.meta.env.MODE === 'production') {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
     }
   }
+
+  const { M100 } = await import('./components/ee');
+  window.m100 = new M100();
 });
 
 if ('serviceWorker' in navigator) {

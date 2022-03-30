@@ -1,11 +1,4 @@
 posts:
-  title: Chrome OS news and stories
+  title: Chrome OS news
   modifiers:
-    shapeOn: 1
-featured:
-  modifiers:
-    custom: landing--news-grey-overlay
-stories:
-  title: See how brands are opening new opportunities with Chrome OS
-  modifiers:
-    variant: icon
+    custom: item-grid--posts

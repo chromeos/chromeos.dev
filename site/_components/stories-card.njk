@@ -1,0 +1,33 @@
+<!--{#
+  Renders a clickable card.
+
+  Arguments:
+    @param {object} item: Object to populate the stories card with
+    @param {object} item.media: An object containing the following attributes.
+    @param {string} item.media.image: Stories Card image.
+    @param {string} item.media.alt: Image description.
+    @param {string} item.title: Stories Card title.  
+    @param {string} item.cta.url: Stories Card URL.
+    @param {string} item.cta.text: Stories Card cta text.
+ #}-->
+{% from 'icon.njk' import icon %} {% macro storiesCard(item) %} {% set titleId %}{{ item.title | slug }}{% endset %}
+<a href="{{ item.cta.url }}" class="stories-card" aria-labelledby="{{titleId}}">
+  <article class="stories-card__container">
+    {% if item.media.image is defined %}
+    <img class="stories-card__image" src="{{item.media.image}}" alt="{{item.media.alt}}" />
+    {% else %}
+    <img class="stories-card__image" src="ix://landings/stories/placeholder-{{item.tag | normalizeTag}}.svg" aria-hidden="true" />
+    {% endif %}
+
+    <div class="stories-card__content">
+      <header id="{{titleId}}" class="stories-card__header">
+        <h2 class="stories-card__title type--h4">{{item.title}}</h2>
+      </header>
+
+      <footer class="stories-card__footer">
+        <span class="cta cta--link cta--right-icon" aria-hidden="true">{{ item.cta.text }}{{ icon('arrow-forward') }}</span>
+      </footer>
+    </div>
+  </article>
+</a>
+{%- endmacro %}

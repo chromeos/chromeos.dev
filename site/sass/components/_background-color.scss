@@ -1,0 +1,29 @@
+.background-color {
+  &--games {
+    background-color: var(--pink-25);
+  }
+
+  &--web {
+    background-color: var(--blue-30);
+  }
+
+  &--base-os {
+    background-color: var(--yellow-75);
+  }
+
+  &--android {
+    background-color: var(--green-25);
+  }
+
+  &--event {
+    background-color: var(--yellow-80);
+  }
+
+  &--announcement {
+    background-color: var(--red-25);
+  }
+
+  &--leader-s-corner {
+    background-color: var(--purple-50);
+  }
+}

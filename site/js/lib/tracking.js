@@ -28,7 +28,11 @@ export class Tracking {
       cta.addEventListener('click', this.sendEvent('click_subscribe_cta'));
     }
 
-    this.google = google;
+    if (typeof google === 'function') {
+      this.google = google;
+    } else {
+      this.google = () => {};
+    }
   }
 
   /**

@@ -1,9 +1,10 @@
 // Styles for the article footer.
 
 .article-footer {
-  border-top: 1px solid var(--grey-300);
-  margin-bottom: pxRem(40px);
-  padding-top: pxRem(40px);
+  border: 1px solid var(--grey-300);
+  border-radius: 5px;
+  margin: 2.5rem 0;
+  padding: 2.5rem;
 
   &__item:not(:last-child) {
     margin-bottom: 1rem;

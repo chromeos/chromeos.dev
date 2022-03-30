@@ -20,9 +20,6 @@ featured:
   images:
     - image: ix://posts/android-recap-2021/hero.png
       alt: Illustration of a Chromebook with stylized windows with the Android "droid" logo in the middle.
-hero:
-  image: ix://posts/android-recap-2021/hero.png
-  alt: Illustration of a Chromebook with stylized windows with the Android "droid" logo in the middle.
 date: 2021-12-20
 ---
 

@@ -14,8 +14,8 @@
 {% macro heroCta(content, image, cta) %}
 <article class="hero--cta">
   <div class="hero--cta__wrapper">
-    <h2 class="type--h2">{{content.title}}</h2>
-    <p class="type--large">{{content.copy}}</p>
+    <h2 class="type--h1">{{content.title}}</h2>
+    <p class="type--base">{{content.copy}}</p>
     <a class="cta cta--link" href="{{cta.url}}">{{cta.text}}</a>
   </div>
   <img class="hero--cta__image" src="{{image.src}}" alt="{{image.alt}}" />

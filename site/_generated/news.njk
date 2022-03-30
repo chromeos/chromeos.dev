@@ -5,7 +5,7 @@ pagination:
   size: 1
   alias: l10n
 permalink: '{{ l10n.locale.code | slug }}/news/index.html'
-title: News & Stories
+title: News
 metadesc: Get the latest news, stories, resource articles, and case studies for Chrome OS.
 ---
 
@@ -14,21 +14,11 @@ metadesc: Get the latest news, stories, resource articles, and case studies for 
 <div class="wrapper--hidden-x">
   <!-- Featured Post -->
   {% if landingCollections.featured.post %}
-  <div class="wrapper wrapper--padded" aria-label="{{l10n.news.hero.desc}}">{{ hero(landingCollections.featured.post) }}</div>
+  <div class="wrapper--full-bleed">{{ hero(landingCollections.featured.post) }}</div>
   {% endif %}
 
   <!-- Posts -->
   {% if landingCollections.filteredPosts.length > 0 %}
-  <div class="wrapper wrapper--full-bleed wrapper--padding wrapper__contained wrapper__background wrapper--bumper-top wrapper--bumper-bottom wrapper--padded wrapper__responsive-circle wrapper__yellow-circle">{{ itemGrid(l10n.news.posts.title, landingCollections.filteredPosts , l10n.news.posts.modifiers) }}</div>
-  {% endif %}
-
-  <!-- Featured Case Story -->
-  {% if landingCollections.featured.second %}
-  <div class="wrapper wrapper__green-circle wrapper--padded wrapper--bumper-top wrapper--full-bottom">{{ featuredContent(landingCollections.featured.second , l10n.news.featured.modifiers) }}</div>
-  {% endif %}
-
-  <!-- Case Studies -->
-  {% if landingCollections.stories.length > 0 %}
-  <div class="wrapper wrapper--padded">{{ itemGrid(l10n.news.stories.title, landingCollections.stories, l10n.news.stories.modifiers) }}</div>
+  <div class="wrapper wrapper--full-bleed wrapper--padding wrapper--padded wrapper__background wrapper__contained">{{ itemGrid(l10n.news.posts.title, landingCollections.filteredPosts , l10n.news.posts.modifiers) }}</div>
   {% endif %}
 </div>

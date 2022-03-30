@@ -2,8 +2,9 @@
 title: Introducción
 metadesc: Una introducción a Linux en Chrome OS.
 hero:
-  image: ix://landings/linux-hero.svg
-  alt: Ilustración de una aplicación de terminal que se ejecuta en un dispositivo Chrome OS.
+  image:
+    top: ix://landings/heroes/linux.svg
+    bottom: ix://landings/heroes/linux-small.svg
 date: 2020-06-10
 weight: -8
 ---

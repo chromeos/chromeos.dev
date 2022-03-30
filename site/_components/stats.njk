@@ -26,7 +26,10 @@
     {% set defaults = ['semicircle', 'circle', 'triangle'] %} {% for item in items %} {% set shape = '' %} {% if item.modifiers.shape is not defined %} {% set shape = defaults[loop.index0] %} {% else %} {% set shape = item.modifiers.shape %} {% endif %}
     <div class="stats__item">
       <dt class="stats__stat stats__stat--{{shape}} {% if item.modifiers.scale is defined %} stats__stat--scale-{{item.modifiers.scale}} {% endif %}"><span>{{item.stat}}</span></dt>
-      <dd class="stats__desc type--base">{{item.desc}}</dd>
+      <dd class="stats__desc type--base">
+        {{item.desc}}{% if item.footnote %}<sup class="footnote-ref"><a id="fnref{{item.footnote}}" href="#fn{{item.footnote}}">[{{item.footnote}}]</a></sup
+        >{% endif %}
+      </dd>
     </div>
     {% endfor %}
   </dl>

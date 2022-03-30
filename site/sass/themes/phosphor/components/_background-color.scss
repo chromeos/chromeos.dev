@@ -1,0 +1,11 @@
+.background-color {
+  &--games,
+  &--web,
+  &--base-os,
+  &--android,
+  &--event,
+  &--announcement,
+  &--leader-s-corner {
+    background-color: var(--phosphor-grey);
+  }
+}

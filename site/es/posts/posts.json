@@ -1,5 +1,6 @@
 {
   "layout": "article",
   "section": "posts",
-  "parent": "news"
+  "parent": "news",
+  "tags": ["blog"]
 }

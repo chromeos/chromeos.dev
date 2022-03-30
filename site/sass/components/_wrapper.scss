@@ -196,8 +196,16 @@
       }
     }
 
+    &--light {
+      background-color: var(--grey-50);
+    }
+
     &--dark {
       background-color: var(--grey-850);
+    }
+
+    &--blue {
+      background-color: var(--secondary-blue);
     }
 
     &--color-stop {
@@ -257,5 +265,10 @@
     --shape-color: var(--blue-600), var(--yellow-500);
     background-image: paint(circles);
     height: 100%;
+  }
+
+  &--bottom-bleed {
+    position: relative;
+    z-index: 1;
   }
 }

@@ -1,0 +1,68 @@
+<!--{#
+  Renders the Hero for Aticle pages.
+
+  @param {object} section: Object containing the page section
+  @param {object} locale: Code for the current locale.
+  @param {object} parent: Object representing the page url and title.
+  @param {object} microcopy: Object with some additional text for the back link.
+  @param {string} tag: String representing the eyebrow.
+  @param {string} title: String representing the title.
+  @param {object} hero: Article hero
+  @param {object} theme: Article theme
+  @param {object} app: Object representing the app.
+ #}-->
+{% from 'app-info.njk' import appInfo %} {% macro heroArticle(section, locale, parent, microcopy, tag, title, hero={}, theme={}, app={}) -%} {% set tagSlug = tag | normalizeTag | slugify %}
+<article
+  class="hero-article {% if section == 'posts' %}
+  {% if theme and theme.theme %}
+    hero--theme__{{theme.theme}}
+  {% else %}
+    background-color--{{tagSlug}}
+  {% endif %}
+{% elif section == 'case-studies' %}
+  hero-article__stories hero-article__stories--background-color
+{% endif %}"
+>
+  {% if parent %}
+  <div class="wrapper--padded hero-article__back">
+    <a class="cta cta--back" href="/{{locale.code}}/{{ parent.url }}">{{ microcopy.breadcrumbs.replace('((t))', parent.title) }}</a>
+  </div>
+  {% endif %}
+  <div class="wrapper--padded hero-article__content {% if section == 'case-studies' %}hero-article__stories--content{% endif %}">
+    <div class="hero-article__content-wrapper">
+      {% if section == 'posts' %} {% if theme and theme.icon %}
+      <img src="{{theme.icon}}" alt="" class="hero-article__icon icon" aria-hidden="true" />
+      {% elif tag %} <img src="ix://icons/eyebrows/{{tagSlug}}.svg" alt="" class="hero-article__icon icon" aria-hidden="true" /> {% endif %} {% if theme.eyebrow %}
+      <small class="hero-article__eyebrow type--eyebrow">{{theme.eyebrow}}</small>
+      {% else %}
+      <small class="hero-article__eyebrow type--eyebrow">{{tag}}</small>
+      {% endif %} {% endif %}
+      <h1 class="hero-article__title type--h1">{{title}}</h1>
+    </div>
+    {% if section == 'case-studies' %}
+    <div class="hero-article__stories--app-wrapper">{{ appInfo(app) }}</div>
+    <img class="hero-article__stories--background-pattern" src="ix://landings/{{ parent.url }}/banner-{{tagSlug}}.svg" alt="" />
+    {% endif %}
+  </div>
+
+  <div class="hero-article__images">
+    {% if section === 'posts' and hero.image %}
+    <img class="hero-article__images--hero" src="{{hero.image}}" alt="{{hero.alt}}" />
+    {% endif %} {% if theme.background %} {% if theme.background.top %}
+    <picture>
+      <source media="(min-width: 871px)" srcset="{{theme.background.top}}" />
+      <img class="hero-article__images--background-pattern" src="{{theme.background.bottom}}" alt="" />
+    </picture>
+    {% else %}
+    <img class="hero-article__images--background-pattern" src="{{theme.background}}" alt="" />
+    {% endif %} {% elif section == 'posts' %}
+    <picture>
+      <source media="(min-width: 871px)" srcset="ix://landings/{{ parent.url }}/top/banner-{{tagSlug}}.svg" />
+      <img class="hero-article__images--background-pattern" src="ix://landings/{{ parent.url }}/banner-{{tagSlug}}.svg" alt="" />
+    </picture>
+    {% else %}
+    <img class="hero-article__images--background-pattern" src="ix://landings/{{ parent.url }}/banner-{{tagSlug}}.svg" alt="" />
+    {% endif %}
+  </div>
+</article>
+{%- endmacro %}

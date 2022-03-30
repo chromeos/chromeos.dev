@@ -1,0 +1,40 @@
+// Navigation Styling
+// This is pretty complex as we have two almost entirely separate sets of styling represented here
+
+.nav {
+  &__link {
+    @include minLangMQ($bkpt-map--header--large) {
+      &:hover,
+      &:focus {
+        box-shadow: none;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &[aria-expanded='true'] {
+        &::after {
+          border-color: transparent transparent var(--phosphor-green);
+        }
+
+        &::before {
+          border-color: transparent transparent var(--phosphor-green);
+        }
+      }
+    }
+  }
+
+  &__secondary {
+    @include minLangMQ($bkpt-map--header--large) {
+      border: 2px solid var(--phosphor-green);
+      box-shadow: none;
+      left: -0.1rem;
+      width: calc(100% + 0.2rem);
+    }
+  }
+
+  &__close {
+    fill: var(--phosphor-green);
+  }
+}

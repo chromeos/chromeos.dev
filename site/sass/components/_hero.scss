@@ -1,37 +1,110 @@
-// Styles for the hero 50 - 50, copy and images stacked on mobile, side by side on large.
+// Styles for the hero, copy and images stacked on mobile, side by side on large.
+@use 'sass:math';
 
 .hero {
-  align-items: center;
-  column-gap: 2.75rem;
-  display: grid;
-  grid-row-gap: 2.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(10ch, 1fr));
+  $content-max-width: 100rem;
 
-  @supports (column-gap: clamp(2.5rem, 1vw, 3rem)) {
-    column-gap: clamp(2.5rem, 1vw, 3rem);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &__content {
+    margin: 0 auto;
+    max-width: $content-max-width;
+    padding: clamp(2rem, 6vw, 3rem) 0;
+    position: relative;
   }
 
-  @supports (grid-template-columns: repeat(auto-fit, minmax(clamp(10ch, 45vw, 30ch), 1fr))) {
-    grid-template-columns: repeat(auto-fit, minmax(clamp(10ch, 45vw, 30ch), 1fr));
+  &__images {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 20vh;
+    position: relative;
+
+    @include mq(871px) {
+      bottom: 0;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      width: 50vw;
+      z-index: 0;
+    }
+
+    &--image {
+      max-width: 18rem; // Based on width of the bottom banner images
+      position: absolute;
+      right: 0;
+      width: 50%;
+      width: auto;
+      z-index: 2;
+
+      @include mq(871px) {
+        max-width: unset;
+        object-fit: contain;
+        position: relative;
+        right: unset;
+        width: 30vw;
+      }
+    }
+
+    &--background-pattern {
+      bottom: 0;
+      display: block;
+      height: 100%;
+      margin-left: auto;
+      max-width: unset;
+      position: absolute;
+      right: 0;
+      z-index: 0;
+    }
+  }
+
+  &__content-wrapper {
+    max-width: 80ch;
+    position: relative;
+    z-index: 1;
+
+    @include mq(871px) {
+      max-width: clamp(40ch, 50vw, 60ch);
+    }
+  }
+
+  &__icon {
+    height: 2rem;
+    margin-inline-end: 0.625rem;
+    width: 2rem;
   }
 
   &__eyebrow {
-    margin-bottom: pxRem(8px);
-  }
-
-  &__title,
-  &__copy {
     margin-bottom: 1rem;
   }
 
-  &__link {
-    display: inline-block;
-    margin-top: 1rem;
+  &__title {
+    margin: 1rem 0;
   }
 
-  &__image {
-    display: block;
-    margin: 0 auto;
-    max-height: initial;
+  &__link {
+    color: var(--secondary-blue);
+    margin-top: 1.5rem;
+  }
+
+  &--theme {
+    &__m100 {
+      --hero-theme-color: var(--white);
+      --hero-theme-background: var(--blue-850);
+      background-color: var(--hero-theme-background);
+
+      [class*='type'],
+      [class*='link'],
+      [class*='icon'] {
+        color: var(--hero-theme-color);
+        fill: var(--hero-theme-color);
+      }
+
+      .cta:focus {
+        background-color: transparent;
+      }
+    }
   }
 }
