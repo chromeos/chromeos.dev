@@ -98,9 +98,9 @@ class OfflineSearch {
 
     const data = await this.getData(language);
 
-    let query = q.replace(':', '\\:');
+    let query = q.replace(/:/g, ' ');
     if (field) {
-      query = `${query.field}:${query}`;
+      query = `+${query.field}:${query}`;
     }
 
     const idx = lunr.Index.load(data.index);

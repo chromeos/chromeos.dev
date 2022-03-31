@@ -9,7 +9,7 @@ const previewCache = {};
 const PAGE_SIZE = 10;
 
 exports.search = functions.https.onRequest((request, response) => {
-  let query = request.query.q.replace(':', '\\:');
+  let query = request.query.q.replace(/:/g, ' ');
   let locale = request.query.locale;
 
   if (!ISO6391.validate(locale)) {
@@ -17,7 +17,7 @@ exports.search = functions.https.onRequest((request, response) => {
   }
 
   if (request.query.field) {
-    query = `${request.query.field}:${query}`;
+    query = `+${request.query.field}:${query}`;
   }
 
   try {
@@ -30,6 +30,7 @@ exports.search = functions.https.onRequest((request, response) => {
     const returnResult = paginate(searchResults, page, PAGE_SIZE);
     response.status(200).json(returnResult);
   } catch (error) {
+    console.error(error);
     response.status(500).send(error);
   }
 });
