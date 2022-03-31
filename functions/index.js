@@ -17,7 +17,7 @@ exports.search = functions.https.onRequest((request, response) => {
   }
 
   if (request.query.field) {
-    query = `+${request.query.field}:${query}`;
+    query = `+${request.query.field}:${query.replace(/\s/g, '%%')}`;
   }
 
   try {

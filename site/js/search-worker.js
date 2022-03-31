@@ -100,7 +100,7 @@ class OfflineSearch {
 
     let query = q.replace(/:/g, ' ');
     if (field) {
-      query = `+${query.field}:${query}`;
+      query = `+${query.field}:${query.replace(/\s/g, '%%')}`;
     }
 
     const idx = lunr.Index.load(data.index);
