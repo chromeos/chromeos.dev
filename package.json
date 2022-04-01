@@ -151,7 +151,7 @@
     "container-query-polyfill": "^0.1.2",
     "css-paint-polyfill": "^3.4",
     "dynamic-import-polyfill": "^0.1",
-    "i18n-iso-countries": "^7.3",
+    "i18n-iso-countries": "^7.4",
     "iso-639-1": "^2.1",
     "lottie-web": "^5.8",
     "lunr": "^2.3",
