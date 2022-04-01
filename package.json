@@ -106,7 +106,7 @@
     "firebase-tools": "^10.2.1",
     "front-matter": "^4.0",
     "fs-extra": "^10.0",
-    "fuse.js": "^3.4",
+    "fuse.js": "^6.5",
     "glob": "^7.2",
     "husky": "^7.0.4",
     "js-yaml": "^4.1",
