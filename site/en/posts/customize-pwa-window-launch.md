@@ -38,12 +38,16 @@ As was previously mentioned, one of the more common ways for your PWA to be laun
 
 Users will get visual cues from Chrome browser to opt-in to link capturing. The current UI and UX may change in the future as the team continues to work on improvements to make the feature more discoverable to users.
 
-By default, links are set to open in the Chrome browser. There are two ways for a user to change their preference:
+By default, links are set to open in the Chrome browser. There are two ways for a user to change their preference, through either the omnibox or system settings.
 
-- In the browser, a user can navigate to an in-scope link and in the omnibox select the “Open with” icon. This will show an intent picker asking them to choose which app to open the link with and a checkbox to remember their choice. If your PWA is installed, it will be available as an option.
+### Setting preferences through the omnibox
+
+In the browser, a user can navigate to an in-scope link and in the omnibox select the “Open with” icon. This will show an intent picker asking them to choose which app to open the link with and a checkbox to remember their choice. If your PWA is installed, it will be available as an option.
 
 ![Screen capture of link capturing preferences in the "Open with" intent picker](ix://posts/customize-pwa-window-launch/link_capturing_open_with.gif)
 
-- In the Chrome OS Settings app, a user can go to the “Apps” menu, select “Manage your apps” and find the app they’re interested in (your PWA). Under “Opening supported links”, there are radio button options for opening links in the app or in the Chrome browser.
+### Setting preferences through system settings
+
+In the Chrome OS Settings app, a user can go to the “Apps” menu, select “Manage your apps” and find the app they’re interested in (your PWA). Under “Opening supported links”, there are radio button options for opening links in the app or in the Chrome browser.
 
 ![Screen capture of link capturing preferences in the settings app](ix://posts/customize-pwa-window-launch/link_capturing_settings_menu.gif)
