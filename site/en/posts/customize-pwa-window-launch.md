@@ -2,7 +2,6 @@
 title: 'Customize how your PWA window launches'
 metadesc: The Launch Handler API lets you choose how your PWA handles all launch triggers, including from in-scope links.
 tags:
-  - announcement
   - web
   - product news
 authors:
