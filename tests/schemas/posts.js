@@ -43,7 +43,7 @@ test('Required Fields', (t) => {
 test('Optional Fields', (t) => {
   const input = {
     title: 'Large screen Android',
-    metadesc: 'This is the new Android content.',
+    metadesc: 'This is the new Android content. Its great.',
     authors: ['allanl'],
     hero: {
       image: '/images/hero/awesome-fun-time.jpg',
@@ -410,3 +410,5 @@ test('Fields Validation', (t) => {
   t.is(isValid, false);
   t.deepEqual(t.context.validate.errors, featuredErrors);
 });
+
+// TODO - Add tests for theme

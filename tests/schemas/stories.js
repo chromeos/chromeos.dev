@@ -30,7 +30,7 @@ test.beforeEach((t) => {
 test('Required Fields', (t) => {
   const input = {
     title: 'Large screen Android',
-    metadesc: 'This is the new Android content.',
+    metadesc: 'This is the new Android content. Its great.',
     date: '2019-10-24T00:00:00.000Z',
     app: {
       name: 'Awesome Fun Time',
@@ -46,7 +46,7 @@ test('Required Fields', (t) => {
 test('Optional Fields', (t) => {
   const input = {
     title: 'Large screen Android',
-    metadesc: 'This is the new Android content.',
+    metadesc: 'This is the new Android content. Its great.',
     app: {
       name: 'Awesome Fun Time',
       logo: '/images/logos/awesome-fun-time.jpg',
@@ -165,7 +165,7 @@ test('Missing Fields', (t) => {
 test('Extra Fields', (t) => {
   const input = {
     title: 'Large screen Android',
-    metadesc: 'This is the new Android content.',
+    metadesc: 'This is the new Android content. Its great.',
     date: '2019-10-24T00:00:00.000Z',
     app: {
       name: 'Awesome Fun Time',
@@ -266,13 +266,6 @@ test('Field Validation', (t) => {
       schemaPath: '#/definitions/app/required',
       params: { missingProperty: 'logo' },
       message: "should have required property 'logo'",
-    },
-    {
-      keyword: 'required',
-      dataPath: '.app',
-      schemaPath: '#/definitions/app/required',
-      params: { missingProperty: 'company' },
-      message: "should have required property 'company'",
     },
     {
       keyword: 'type',
@@ -413,13 +406,6 @@ test('Field Validation', (t) => {
       schemaPath: '#/definitions/app/required',
       params: { missingProperty: 'logo' },
       message: "should have required property 'logo'",
-    },
-    {
-      keyword: 'required',
-      dataPath: '.app',
-      schemaPath: '#/definitions/app/required',
-      params: { missingProperty: 'company' },
-      message: "should have required property 'company'",
     },
     {
       keyword: 'additionalProperties',
