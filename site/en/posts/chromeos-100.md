@@ -3,7 +3,7 @@ title: 'Celebrating Chrome OS 100: Recapping how we’ve grown with developers o
 metadesc: In honor of the 100th stable channel release on Chrome OS, we’ve highlighted some new announcements and the best features for developers to date.
 tags:
   - announcement
-  - trends
+  - trend
   - technical
   - android
   - web
