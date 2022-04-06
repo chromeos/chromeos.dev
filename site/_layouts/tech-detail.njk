@@ -44,7 +44,7 @@ layout: _wrapper
           <header class="tech-detail__get-started--heading">
             <h3 class="type--h4">{{ card.title }}</h3>
           </header>
-          {{ card.body | markdown | safe }}
+          <div class="tech-detail__get-started--body type">{{ card.body | markdown | safe }}</div>
         </div>
         {% endfor %}
       </div>
@@ -53,7 +53,7 @@ layout: _wrapper
     <aside class="tech-detail__interest-form type">
       <h2>{{ interest.title }}</h2>
       <div class="tech-detail__interest-form--cta">
-        <p>{{ interest.body }}</p>
+        <p class="tech-detail__interest-form--cta-body">{{ interest.body }}</p>
         {% if interest.cta %} <a class="cta cta--medium" href="{{interest.cta.url}}">{{interest.cta.text}}</a> {% endif %}
       </div>
     </aside>

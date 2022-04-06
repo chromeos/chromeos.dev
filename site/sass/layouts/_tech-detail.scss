@@ -123,14 +123,14 @@
       text-align: left;
       width: 100%;
       z-index: 1;
-
-      p {
-        color: var(--grey-700);
-      }
     }
 
     &--heading {
       margin-bottom: 1rem;
+    }
+
+    &--body {
+      color: var(--grey-700);
     }
   }
 
@@ -141,8 +141,10 @@
     max-width: 60ch;
     padding: 2rem 2rem 2.5rem;
 
-    p {
-      color: var(--grey-700);
+    &--cta {
+      &-body {
+        color: var(--grey-700);
+      }
     }
   }
 
