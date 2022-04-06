@@ -24,7 +24,7 @@ started:
         There are a few ways to develop for Chrome OS, you can build [directly on your Chrome OS device](/en/android-environment/deploying-apps#deploy-from-chrome-os) using the Linux for Chrome OS or you can connect your [Chrome OS device to your main workstation](/en/android-environment/deploying-apps#deploy-from-another-device) and develop that way.
 interest:
   title: Developer interest form
-  body: If you're planning on optimizing your Android app or game for desktop, and need help from Google -- please fill out our developer interest form. Google may reach out to you to further clarify your feedback or app needs. Please note that filling out this form does not constitute automatic inclusion in this program.
+  body: If you're planning on optimizing your Android app or game for desktop, and need help from Google, please fill out our developer interest form. Google may reach out to you to further clarify your feedback or app needs. Please note that filling out this form does not constitute automatic inclusion in this program.
   cta:
     url: https://forms.gle/wPUjwhLgLnqvsqDG6
     text: Visit Form
