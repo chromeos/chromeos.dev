@@ -97,9 +97,9 @@ m100:
     src: ix://devices/HP_color_chromebook_stylus.png
     alt: Una Samsung Chromebook abierta parcialmenta a la par de un stylus.
   content:
-    eyebrow: M100 Launch
-    title: New Features
-    copy: En todas las formas y tamaños, las Chromebooks son rápidas, simples, seguras, y corren Chrome OS.
+    eyebrow: Historia destacada
+    title: Celebrando Chrome OS 100
+    copy: Recapitulando como hemos crecido con los desarrolladores a través de los años
   cta:
     url: news
     text: Más información
@@ -127,34 +127,34 @@ developers:
   content:
     title: Porque están creando para Chrome OS.
     subtitle: Mira lo que la comunidad comenta.
-  quotes:
-    - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
-        author:
-          name: Mike C.
-          role: Head Engineer
-      image:
-        src: ix://lifestyle/developer_1.png
-        alt: Mike C. recostado en un escritorio.
-    - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
-        author:
-          name: Mike C.
-          role: Head Engineer
-      image:
-        src: ix://lifestyle/developer_2.png
-        alt: Mike C. sonriendo a la cámara.
-      decorators:
-        - ix://lifestyle/code_sample_sudo.png
-        - ix://lifestyle/command_key.png
-    - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
-        author:
-          name: Mike C.
-          role: Head Engineer
-      image:
-        src: ix://lifestyle/developer_3.png
-        alt: Mike C. recostado en un escritorio.
+quotes:
+  - content:
+      copy: “La PWA de Cloud Stop Motion alcanzó más usuarios en 12 meses de lo que nuestra app para escritorio alcanzó en 10 años!”
+      author:
+        name: David Henley
+        role: CEO, Cloud Stop Motion
+    image:
+      src: ix://home/quotes/david-henley-0.jpg
+      alt: David Henley, mirando hacia el lado de la cámara, al frente de un librero.
+  - content:
+      copy: “Piper Make vio un aumento del 38% en la cantidad de usuarias después de introducir una PWA aerodinámica, con funcionalidad offline.”
+      author:
+        name: Shree Bose
+        role: Co-Founder, Piper
+    image:
+      src: ix://home/quotes/shree-0.jpeg
+      alt: Shree Bose vistiendo scrubs y un estetoscopio, poniendo un bebé en una cuna en un hospital.
+    decorators:
+      - ix://lifestyle/code_sample_sudo.png
+      - ix://lifestyle/command_key.png
+  - content:
+      copy: “Nuestra abilidad de colaborar de cerca con el equipo de Chrome OS le permitió a Dropbox expandir nuestra oferta a las Chromebooks y proveer una experiencia de usario integrada.”
+      author:
+        name: Sam Edwards
+        role: Staff Mobile Engineer, Dropbox
+    image:
+      src: ix://home/quotes/sam-edwards-1.jpg
+      alt: Sam Edwards, mirando directamente al frente pero no a la cámara, tranbajando en una Chromebook.
 community:
   title: Noticias y recursos para desarrolladores para que puedan empezar a trabajar
   modifiers:
