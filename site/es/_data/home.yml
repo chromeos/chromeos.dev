@@ -12,7 +12,7 @@ hero:
       alt: Una única pantalla cambiando de tamaño entre dispositivos móviles, tablets, y laptops..
     static:
       src: ix://home/2022/storyboard-hero.png
-      alt: Una serie de dispositivos móviles, tables y laptops con contenido de diferentes figuras.
+      alt: Una serie de dispositivos móviles, tablets y laptops con contenido de diferentes figuras.
 routing:
   items:
     - content:
@@ -55,7 +55,8 @@ linux:
     title: |
       Impresionantemente versátil.
       Excepcionalmente fácil.
-    copy: Linux is seamlessly built into Chrome OS so you’ll always be ready whenever inspiration hits.
+    copy: Linux esta completamente integrado en Chrome OS así siempre estarás estarás listo cuando llega la inspiración.
+
   cta:
     text: Más información
     url: linux
@@ -68,16 +69,16 @@ linux:
       alt: '"m100.start()" se muestra dentro de un patrón de paréntesis que se repiten'
 stats:
   modifiers:
-    heading: Grow in good company.
-    subtitle: Keep your app—and your audience—growing, across the Chrome OS community.
+    heading: Crece al lado de buena compañía.
+    subtitle: Mantén el crecimiento de tu appKeep your app—and your audience—growing, across the Chrome OS community.
   items:
     - stat: +270%
-      desc: Desktop PWA installs , YoY
+      desc: Installaciones en Desktop PWAs, YoY
       modifiers:
         shape: semicircle
         scale: full
     - stat: +50%
-      desc: Chromebook users engaging with Android apps, YoY
+      desc: Usarios de Chromebook users interactúando con Android apps, YoY
       modifiers:
         shape: circle
     - stat: 50M
@@ -87,21 +88,21 @@ stats:
         scale: half
 caseStudies:
   title: Encuentra inspiración.
-  subtitle: Explore how brands are unlocking more possibilities with Chrome OS.
+  subtitle: Descubre como algunas marcas están desbloqueando nuevas posibilidades con Chrome OS.
   cta:
     text: Casos de estudio
     url: stories
 m100:
   image:
     src: ix://devices/HP_color_chromebook_stylus.png
-    alt: A partially opened Samsung Chromebook next to a stylus.
+    alt: Una Samsung Chromebook abierta parcialmenta a la par de un stylus.
   content:
     eyebrow: M100 Launch
     title: New Features
-    copy: Coming in all shapes and sizes, Chromebooks are speedy, simple, secure, and run Chrome OS.
+    copy: En todas las formas y tamaños, las Chromebooks son rápidas, simples, seguras, y corren Chrome OS.
   cta:
     url: news
-    text: Learn more
+    text: Más información
 posts:
   title: Lo último sobre Chrome OS
   modifiers:
@@ -113,9 +114,9 @@ posts:
 educators:
   content:
     title: Empodera a millones de estudiantes y educadores.
-    copy: Learn how your app can power learning experiences for 50 million Chromebooks in the classrooms.
+    copy: Aprende como tu app pueda empodarar experiencias educativas para 50 millones de Chromebooks en salones de clase.
   cta:
-    text: Learn more
+    text: Más información
     url: education
   images:
     - src: ix://lifestyle/education.png
@@ -155,7 +156,7 @@ developers:
         src: ix://lifestyle/developer_3.png
         alt: Mike C. recostado en un escritorio.
 community:
-  title: Noticias y recursos para desarrolladores para que pueda empezar a trabajar
+  title: Noticias y recursos para desarrolladores para que puedan empezar a trabajar
   modifiers:
     variant: community
     heading: h2
