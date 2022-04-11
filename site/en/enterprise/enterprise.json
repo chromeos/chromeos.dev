@@ -1,0 +1,12 @@
+{
+  "layout": "tech-detail",
+  "tags": ["enterprise"],
+  "section": "enterprise",
+  "eyebrow": "Enterprise",
+  "resources": [
+    {
+      "title": "Chrome Extensions",
+      "url": "https://developer.chrome.com/docs/extensions/"
+    }
+  ]
+}
