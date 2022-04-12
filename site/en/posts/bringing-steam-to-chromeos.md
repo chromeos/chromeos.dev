@@ -17,7 +17,7 @@ Steam is coming to Chrome OS! Chrome OS users can look forward to playing favori
 
 ## Leveraging virtual machines
 
-Steam on Chrome OS leverages the work we've been doing for years with Crostini and Chrome OS' own virtual machine monitor (VMM), [crosvm](https://chromium.googlesource.com/chromiumos/platform/crosvm/+/HEAD/README.md). Running Steam, and its games, within a VM is the best way to deliver on Chrome OS' goals of speed, security, and simplicity. Having a clear security boundary allows us to keep our users and their data safe. Games don't get direct access to a user's files, host GPU, or host kernel. Instead, separation is maintained by our proven VMM used for Crostini, Android, and Parallels. This provides another layer of security above normal Linux systems.
+Steam on Chrome OS leverages the work we've been doing for years with Crostini and Chrome OS's own virtual machine monitor (VMM), [crosvm](https://chromium.googlesource.com/chromiumos/platform/crosvm/+/HEAD/README.md). Running Steam, and its games, within a VM is the best way to deliver on Chrome OS's goals of speed, security, and simplicity. Having a clear security boundary allows us to keep our users and their data safe. Games don't get direct access to a user's files, host GPU, or host kernel. Instead, separation is maintained by our proven VMM used for Crostini, Android, and Parallels. This provides another layer of security above normal Linux systems.
 
 Building off of Valve's great work to make games compatible with the [Steam Deck](https://store.steampowered.com/steamdeck), our VM runs a modified version of [Arch Linux](https://archlinux.org/) designed specifically for gaming. This image, codenamed “Borealis”, is automatically kept up to date and updated with each Chrome OS release, ensuring users don’t need to deal with updating drivers or libraries themselves. Because Steam and all of its games are kept within a single VM image, if a user ever needs to uninstall it, they know everything will be removed in a single step, in keeping with Chrome OS’s goal of simplicity.
 
@@ -25,7 +25,7 @@ To guarantee high levels of performance, we have aimed to make the VM invisible 
 
 ## Distributing Steam on-demand
 
-Borealis is distributed through Chrome OS' [Downloadable Content (DLC) system](https://chromium.googlesource.com/chromiumos/platform2/+/HEAD/dlcservice/docs/developer.md), and only downloaded if a user chooses to install Steam. Once installed, the DLC system automatically keeps the VM image up to date with every Chrome OS release. Just like the main Chrome OS image, the DLC payload is fully verified to ensure it hasn't been tampered with or modified. Finally, since the host OS and the guest OS are updated together, they are fully tested together with each release; there’s never a question of drivers not matching after an OS update.
+Borealis is distributed through Chrome OS's [Downloadable Content (DLC) system](https://chromium.googlesource.com/chromiumos/platform2/+/HEAD/dlcservice/docs/developer.md), and only downloaded if a user chooses to install Steam. Once installed, the DLC system automatically keeps the VM image up to date with every Chrome OS release. Just like the main Chrome OS image, the DLC payload is fully verified to ensure it hasn't been tampered with or modified. Finally, since the host OS and the guest OS are updated together, they are fully tested together with each release; there’s never a question of drivers not matching after an OS update.
 
 ## Borealis vs Crostini
 
