@@ -10,18 +10,18 @@ weight: -8
 started:
   title: Get started with Chrome OS
   cards:
-    - title: Publishing
+    - title: Publish
       body: |-
-        Publishing your app for Chrome OS devices can seem challenging or confusing, but it is the same APK that you ship for phones and tablets. For more information check out our resources on publishing through the [Play Store for Chrome OS](/en/publish) including [optimizing for x86](/en/games/optimizing-games-publishing) if you use the NDK.
+        Publishing your app for Chrome OS devices can seem challenging or confusing, but it is the same APK that you ship for phones and tablets. For more information check out our resources on publishing through the [Play Store for Chrome OS](./publish) including [optimizing for x86](./games/optimizing-games-publishing) if you use the NDK.
     - title: Optimize
       body: |-
-        Chrome OS allows your app to bring new experiences and patterns to your users, but it does come with some challenges. Read what is involved to [optimize your app](/en/android/optimizing) or check out a [blog post](https://medium.com/androiddevelopers/android-at-large-how-to-bring-optimized-experiences-to-the-big-screen-a50a6784e59d) for more information on what your app on Chrome OS and other larger screen devices involves.
+        Chrome OS allows your app to bring new experiences and patterns to your users, but it does come with some challenges. Read what is involved to [optimize your app](./android/optimizing) or check out a [blog post](https://medium.com/androiddevelopers/android-at-large-how-to-bring-optimized-experiences-to-the-big-screen-a50a6784e59d) for more information on what your app on Chrome OS and other larger screen devices involves.
     - title: Design
       body: |-
-        There are design considerations to keep in mind on larger screen devices, and we've created some [recommendations and guidelines](/en/android/design) to keep in mind when thinking about how your app looks and behaves on Chrome OS.
+        There are design considerations to keep in mind on larger screen devices, and we've created some [recommendations and guidelines](./android/design) to keep in mind when thinking about how your app looks and behaves on Chrome OS.
     - title: Build
       body: |-
-        There are a few ways to develop for Chrome OS, you can build [directly on your Chrome OS device](/en/android-environment/deploying-apps#deploy-from-chrome-os) using the Linux for Chrome OS or you can connect your [Chrome OS device to your main workstation](/en/android-environment/deploying-apps#deploy-from-another-device) and develop that way.
+        There are a few ways to develop for Chrome OS, you can build [directly on your Chrome OS device](./android-environment/deploying-apps#deploy-from-chrome-os) using the Linux for Chrome OS or you can connect your [Chrome OS device to your main workstation](./android-environment/deploying-apps#deploy-from-another-device) and develop that way.
 interest:
   title: Developer interest form
   body: If you're planning on optimizing your Android app or game for desktop, and need help from Google, please fill out our developer interest form. Google may reach out to you to further clarify your feedback or app needs. Please note that filling out this form does not constitute automatic inclusion in this program.
