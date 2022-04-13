@@ -70,10 +70,9 @@ exports.plugins = [
     { no: 'stupid' },
     { no: 'moronic' },
     { no: '(-|\w)tard(ed)?' }
-  ]],
+  ]]],
 
   // Custom
   [require('./lib/linting/content-models.js'), [2]],
   [require('./lib/linting/md-name-lint'), [2]],
-],
 ];

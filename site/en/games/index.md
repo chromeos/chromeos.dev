@@ -1,6 +1,6 @@
 ---
 title: Games on Chrome OS
-metadesc: Create games for Chrome OS
+metadesc: Adapt your Android and web games for Chrome OS
 hero:
   image:
     top: ix://landings/heroes/games.svg
