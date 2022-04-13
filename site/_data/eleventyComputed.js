@@ -238,7 +238,7 @@ module.exports = {
       og.push([
         {
           property: 'image',
-          content: 'ix://icons/social.png',
+          content: 'ix://icons/social-2022.png',
         },
         {
           property: 'image:alt',
