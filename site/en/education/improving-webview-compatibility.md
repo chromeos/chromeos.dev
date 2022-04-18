@@ -31,8 +31,8 @@ In Chrome Apps, links to content not owned by you should be opened in a new tab 
 <a href=”https://google.com” target=”_blank”>External Site</a>
 ```
 
-!!! aside.message--warning
-If you need to use a WebView in a Chrome App for single sign on authentication, ensure that the identity provider you choose to use either opens new links in new tabs using the aforementioned target attribute of `_blank` or does not link to any content that allows them to escape to a search engine or other content that could give them broad internet access.
+!!! aside.message--note
+**Note:** If you need to use a WebView in a Chrome App for single sign on authentication, ensure that the identity provider you choose to use either opens new links in new tabs using the aforementioned target attribute of `_blank` or does not link to any content that allows them to escape to a search engine or other content that could give them broad internet access.
 !!!
 
 ## Use Google Sign In
