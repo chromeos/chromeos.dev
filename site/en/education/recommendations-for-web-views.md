@@ -19,7 +19,7 @@ If your app uses WebViews to allow students to login to your service or to displ
 
 By reducing the amount of browser based content shown in your application, you can reduce the likelihood of unwanted content being accessible within your application. If this is not possible, then ensure your WebView only serves content you want and does not link out to a search engine or the open web.
 
-### Ristrict content in your WebViews
+### Restrict content in your WebViews
 
 If your app requires a WebView, make sure that the content within your WebView is not able to escape your application and navigate to content that you do not own or control. This can be done by modifying the [WebView client to override loading certain URLs via an allowlist](<https://developer.android.com/reference/android/webkit/WebViewClient#shouldOverrideUrlLoading(android.webkit.WebView,%20android.webkit.WebResourceRequest)>) on Android or by manually parsing through your site and validating that the links do not link out to third party content that you cannot control as this may enable your users to go to inappropriate content. For Chrome Apps, you can use the [WebRequestEventInterface](https://developer.chrome.com/docs/extensions/reference/webviewTag/#type-WebRequestEventInterface) to also modify requests and validate that they are allowed to navigate to your allowed list of sites.
 
