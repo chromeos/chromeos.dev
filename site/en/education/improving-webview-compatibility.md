@@ -21,7 +21,7 @@ If your app requires a WebView, make sure that the content within your WebView i
 
 ## Launch external sites in the browser
 
-You can reduce the risk of users getting past content filtering if you open web content in their built-in web browsers.
+You can reduce the risk of users getting past content filtering if you open web content in the devices built-in web browsers.
 
 In Android apps, consider using [Chrome Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/) instead of WebViews. On Android, the custom tab will open a browser tab that is themed like your application. For Chrome OS, this will launch the normal browser and allow users to navigate within the page as normal, but because it’s their normal browser, it will allow the enforcement of browser policies on the content that the students are accessing. For most educational organizations, this means that the content that would be displayed would be visible to content filtering extensions running on the browser. This is especially useful for third party identity providers that rely on implementing OAuth in a WebView.
 
@@ -37,4 +37,4 @@ In Chrome Apps, links to content not owned by you should be opened in a new tab 
 
 ## Use Google Sign In
 
-If your application only uses Google Sign in, do not use a WebView to sign in. Instead, handle it with the [One Tap sign-in and sign-up flow](https://developers.google.com/identity/one-tap). Links in this sign-in flow start from the browser instead of an embedded WebView, which may not have the same filtering controls applied to it.
+If your application only uses Google Sign in, do not use a WebView to sign in. Instead, handle it with the [One Tap sign-in and sign-up flow](https://developers.google.com/identity/one-tap) on Android. If you are using chrome apps, continue to use the [`chrome.identity`](https://developer.chrome.com/docs/extensions/reference/identity/) API. Links in this sign-in flow start from the browser instead of an embedded WebView, which may not have the same filtering controls applied to it.
