@@ -337,7 +337,7 @@ const contributors = {
     work: {
       company: 'Google',
       org: 'Chrome OS',
-      title: 'Softare Engineer',
+      title: 'Software Engineer',
     },
   },
   cpelling: {
