@@ -39,4 +39,4 @@ If your project cannot support large screen improvements in the same project or 
    - When creating the Chrome OS release, make sure to include the latest Android App Bundle. In the “Previous release” section, find the APK or AAB that corresponds to the latest Android mobile version and select “Include”.
 1. Add the following Chrome OS-specific feature to the app manifest in order to restrict your large screen version to only be discoverable on Chromebooks.  
    `<uses-feature android:name="org.chromium.arc" android:required="true" />`
-1. Upload the new build in Default track alongside the phone build.
+1. Upload the new build in the Production track for the Standard release type alongside the phone build.
