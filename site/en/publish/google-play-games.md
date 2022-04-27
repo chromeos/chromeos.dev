@@ -14,7 +14,7 @@ _If you already have a Google Play Games title built and want to bring it to Chr
 ## Optimizing and Publishing for Google Play Games
 
 1. Build a version of your game that works on large screen devices. The [documentation](https://developer.android.com/games/playgames/start) details how to build for Google Play Games and [test on a ChromeOS device](https://developer.android.com/games/playgames/development-test).
-   - Optimizing for Google Play Games is similar to optimizing for Chromebooks. If you've done the work for Google Play Games, you're game is already prepared for Chromebooks!
+   - Optimizing for Google Play Games is similar to optimizing for Chromebooks. If you've done the work for Google Play Games, you're game is already prepared for Chromebooks! If you originally optimized for Chromebooks, be sure to check the [requirements](https://developer.android.com/games/playgames/start) of Google Play Games as there might still be some items to address.
 1. When [packaging](https://developer.android.com/games/playgames/development-package) a game for Google Play Games or ChromeOS, please ensure you include x86 or x86-64 binaries. When possible, you should use the same APK or App Bundle on PC as you do for mobile builds.
 1. Once testing and packaging is complete, please follow the [steps to publish](https://developer.android.com/games/playgames/development-submit) the game to the “Google Play Games for PC” track within the Play Console.
 
