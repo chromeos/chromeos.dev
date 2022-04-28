@@ -19,7 +19,7 @@ Publishing to the Google Play Games track will not automatically make your game 
 
 ### Combined project
 
-We recommend that you maintain a single code base for both your mobile game and large screen platforms like PC and Chromebooks. This will streamline your publishing process and reduce the maintenance overhead of maintaining continuity and parity across screens. With a single codebase, as long as you haven’t restricted Chromebooks from the Production track of the standard release type, Chrome OS devices will get your Google Play Games for PC optimized game whenever you publish an update for this track. If your game isn’t showing up, review [publishing for Chrome OS quickstart]({{locale.code}}/publish#quickstart) to help you debug
+We recommend that you maintain a single code base for both your mobile game and large screen platforms like PC and Chromebooks. This will streamline your publishing process and reduce the maintenance overhead of maintaining continuity and parity across screens. With a single codebase, as long as you haven’t restricted Chromebooks from the Production track of the standard release type, Chrome OS devices will get your Google Play Games for PC optimized game whenever you publish an update for this track. If your game isn’t showing up, review [publishing for Chrome OS quickstart](/{{locale.code}}/publish#quickstart) to help you debug.
 
 ### Separated projects
 
