@@ -1,6 +1,6 @@
 ---
 title: Web Managed Configuration
-metadesc: Developing apps for enterprises on Chrome OS.
+metadesc: Using the Managed Configuration API to give Chrome Enterprise admins the ability to dynamically configure your web app.
 date: 2022-04-30
 weight: -6
 ---

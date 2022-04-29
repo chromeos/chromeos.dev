@@ -1,6 +1,6 @@
 ---
 title: App Distribution
-metadesc: Developing apps for enterprises on Chrome OS.
+metadesc: Recommendations for managing and distributing your enterprise web apps, PWAs, and Chrome extensions.
 date: 2022-04-30
 weight: -7
 ---
