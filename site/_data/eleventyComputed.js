@@ -131,10 +131,6 @@ module.exports = {
   og: (data) => {
     const og = [
       {
-        property: 'title',
-        content: data.title,
-      },
-      {
         property: 'locale',
         content: data.locale.code,
       },
@@ -215,7 +211,26 @@ module.exports = {
       });
     }
 
-    if (data.metadesc) {
+    // OG Title {
+    if (data?.share?.title) {
+      og.push({
+        property: 'title',
+        content: data.share.title,
+      });
+    } else {
+      og.push({
+        property: 'title',
+        content: data.title,
+      });
+    }
+
+    // OG Description
+    if (data?.share?.description) {
+      og.push({
+        property: 'description',
+        content: data.share.description,
+      });
+    } else if (data.metadesc) {
       og.push({
         property: 'description',
         content: data.metadesc,
@@ -223,22 +238,33 @@ module.exports = {
     }
 
     // OG Image
-    if (data.hero) {
+    if (data?.share?.image) {
       og.push([
         {
           property: 'image',
-          content: `https://chromeos.dev${data.hero.image}`,
+          content: data.share.image.url,
         },
         {
           property: 'image:alt',
-          content: `https://chromeos.dev${data.hero.alt}`,
+          content: data.share.image.alt,
+        },
+      ]);
+    } else if (data.hero) {
+      og.push([
+        {
+          property: 'image',
+          content: data.hero.image,
+        },
+        {
+          property: 'image:alt',
+          content: data.hero.alt,
         },
       ]);
     } else {
       og.push([
         {
           property: 'image',
-          content: 'ix://icons/social.png',
+          content: 'ix://icons/social-2022.png',
         },
         {
           property: 'image:alt',

@@ -29,7 +29,7 @@ test.beforeEach((t) => {
 test('Required Fields', (t) => {
   const input = {
     title: 'Large screen Android',
-    metadesc: 'This is the new Android content.',
+    metadesc: 'This is the new Android content. Its great.',
     date: '2019-10-24T00:00:00.000Z',
   };
   const valid = t.context.validate(input);
@@ -40,7 +40,7 @@ test('Required Fields', (t) => {
 test('Optional Fields', (t) => {
   const input = {
     title: 'Large screen Android',
-    metadesc: 'This is the new Android content.',
+    metadesc: 'This is the new Android content. Its great.',
     weight: -1,
     date: '2019-10-24T00:00:00.000Z',
     tools: [
@@ -126,7 +126,7 @@ test('Missing Fields', (t) => {
 test('Extra Fields', (t) => {
   const input = {
     title: 'Large screen Android',
-    metadesc: 'This is the new Android content.',
+    metadesc: 'This is the new Android content. Its great.',
     date: '2019-10-24T00:00:00.000Z',
     banana: 'foo',
   };
@@ -188,15 +188,15 @@ test('Fields Validation', (t) => {
       keyword: 'maxLength',
       dataPath: '.title',
       schemaPath: '#/properties/title/maxLength',
-      params: { limit: 100 },
-      message: 'should NOT be longer than 100 characters',
+      params: { limit: 115 },
+      message: 'should NOT be longer than 115 characters',
     },
     {
       keyword: 'minLength',
       dataPath: '.metadesc',
       schemaPath: '#/properties/metadesc/minLength',
-      params: { limit: 5 },
-      message: 'should NOT be shorter than 5 characters',
+      params: { limit: 35 },
+      message: 'should NOT be shorter than 35 characters',
     },
     {
       keyword: 'format',
@@ -280,3 +280,5 @@ test('Fields Validation', (t) => {
   t.is(valid, false);
   t.deepEqual(t.context.validate.errors, errors);
 });
+
+// TODO - Add tests for technical hero
