@@ -4,6 +4,10 @@ metadesc: In honor of International Women's Day we interviewed Shree Bose, co-fo
 tags:
   - web
   - success story
+share:
+  image:
+    url: ix://posts/iwd-2022-shree-bose/shree.jpeg
+    alt: Photo of Shree Bose wearing scrubs and a stethoscope, setting an infant into a crib in a hospital setting.
 authors:
   - hadrosaur
 date: 2022-03-15
