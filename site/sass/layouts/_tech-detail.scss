@@ -92,6 +92,62 @@
     }
   }
 
+  &__get-started {
+    background-color: var(--grey-50);
+    border-radius: 0.625rem;
+    margin: $spacing auto;
+    padding: clamp(3.5rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 4.5rem);
+    text-align: center;
+    width: 100%;
+
+    &--desc {
+      margin-top: 1rem;
+    }
+
+    &--grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      margin-top: clamp(2.5rem, 5vw, 3rem);
+    }
+
+    &--grid-item {
+      background-color: var(--white);
+      border: 1px solid var(--grey-300);
+      border-radius: 0.625rem;
+      display: flex;
+      flex-flow: column;
+      height: 100%;
+      padding: 2.5rem;
+      position: relative;
+      text-align: left;
+      width: 100%;
+      z-index: 1;
+    }
+
+    &--heading {
+      margin-bottom: 1rem;
+    }
+
+    &--body {
+      color: var(--grey-700);
+    }
+  }
+
+  &__interest-form {
+    background-color: var(--grey-50);
+    border-radius: 0.625rem;
+    margin: $spacing auto;
+    max-width: 60ch;
+    padding: 2rem 2rem 2.5rem;
+
+    &--cta {
+      &-body {
+        color: var(--grey-700);
+      }
+    }
+  }
+
   &__chapters {
     border-top: 1px solid var(--grey-300);
     margin-bottom: $spacing;
