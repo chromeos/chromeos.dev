@@ -2,7 +2,7 @@
 title: Cross-publishing Google Play Games for PC
 metadesc: How to ensure the Play Store will surface your Google Play Games titles listed on PC.
 date: 2022-05-02
-weight: -8
+weight: -7
 ---
 
 Chromebooks are not the only large screen platform where Android games can be played. Google also provides a platform to play your Android games on PC through [Google Play Games](https://developer.android.com/games/playgames/overview). The requirements are similar enough that if you optimize your game for Google Play Games, you'll have done the work of optimizing for Chrome OS.
