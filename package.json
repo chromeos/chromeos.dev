@@ -152,7 +152,7 @@
     "dynamic-import-polyfill": "^0.1",
     "i18n-iso-countries": "^7.4",
     "iso-639-1": "^2.1",
-    "lottie-web": "^5.8",
+    "lottie-web": "^5.9",
     "lunr": "^2.3",
     "resize-observer-polyfill": "^1.5",
     "service-worker-i18n-redirect": "^1.0.0",
