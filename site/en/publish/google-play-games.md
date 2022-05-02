@@ -1,6 +1,6 @@
 ---
 title: Cross-publishing Google Play Games for PC
-metadesc: How to ensure the Play Store will surface your Google Play Games titles listed on PC.
+metadesc: How to optimize and publish simultaneously for Google Play Games on PC and Chrome OS.
 date: 2022-05-02
 weight: -8
 ---
