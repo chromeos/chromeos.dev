@@ -7,8 +7,21 @@ layout: _wrapper
 <article class="article">
   <div class="article__hero">{{skipLink(microcopy.skip.content, 'article')}} {{ heroArticle(section, locale, parent, microcopy, tags[1], title, hero, theme, app) }}</div>
   {% if section == 'case-studies' %}
+  <div class="wrapper--padded wrapper--full-bleed article__hero-image-wrapper"></div>
+  {% endif %} {% if section == 'posts' and hero.youtube %}
   <div class="wrapper--padded wrapper--full-bleed article__hero-image-wrapper">
-    <img class="article__hero-image" src="{{hero.image}}" alt="{{hero.alt}}" />
+    <div class="article__video">
+      <a href="https://www.youtube.com/watch?v={{hero.youtube}}" target="_blank" class="article__video-link">
+        <picture>
+          <source srcset="https://img.youtube.com/vi_webp/{{hero.youtube}}/maxresdefault.webp" type="image/webp" />
+          <source srcset="https://img.youtube.com/vi/{{hero.youtube}}/maxresdefault.jpg" type="image/jpeg" />
+          <img class="article__hero-image" src="https://img.youtube.com/vi/{{hero.youtube}}/maxresdefault.jpg" alt="{{hero.alt}}" />
+        </picture>
+        <svg role="img" aria-hidden="true" class="icon article__video--play">
+          <use href="/images/icons/sprite.svg#play-button"></use>
+        </svg>
+      </a>
+    </div>
   </div>
   {% endif %} {% if content | toc or authors %}
   <aside class="wrapper--padded article__toc">
