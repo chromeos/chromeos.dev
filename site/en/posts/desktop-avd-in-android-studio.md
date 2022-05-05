@@ -68,7 +68,7 @@ On phones, tablets, and foldables, app notifications are typically accessed by s
 
 We bet you’re excited to try this out. Follow these steps to get Desktop AVD today:
 
-- Install the [canary version of Electric Eel](https://developer.android.com/studio/preview?gclid=Cj0KCQjw06OTBhC_ARIsAAU1yOV0YRMFpeau4kIouhC7wcv7spuc3nyR-S0bgdcvIJuJNKP-EC-KrVwaAohAEALw_wcB&gclsrc=aw.ds)
+- Install the [canary version of Android Studio (Electric Eel release)](https://developer.android.com/studio/preview?gclid=Cj0KCQjw06OTBhC_ARIsAAU1yOV0YRMFpeau4kIouhC7wcv7spuc3nyR-S0bgdcvIJuJNKP-EC-KrVwaAohAEALw_wcB&gclsrc=aw.ds)
 - Navigate to **Tools > AVD Manager**
 - Click on **Create device**
 - Select **Desktop** in the category list
