@@ -130,34 +130,34 @@ developers:
   content:
     title: Porque están creando para Chrome OS.
     subtitle: Mira lo que la comunidad comenta.
-quotes:
-  - content:
-      copy: “La PWA de Cloud Stop Motion alcanzó más usuarios en 12 meses de lo que nuestra app para escritorio alcanzó en 10 años!”
-      author:
-        name: David Henley
-        role: CEO, Cloud Stop Motion
-    image:
-      src: ix://home/quotes/david-henley-0.jpg
-      alt: David Henley, mirando hacia el lado de la cámara, al frente de un librero.
-  - content:
-      copy: “Piper Make vio un aumento del 38% en la cantidad de usuarias después de introducir una PWA aerodinámica, con funcionalidad offline.”
-      author:
-        name: Shree Bose
-        role: Co-Founder, Piper
-    image:
-      src: ix://home/quotes/shree-0.jpeg
-      alt: Shree Bose vistiendo scrubs y un estetoscopio, poniendo un bebé en una cuna en un hospital.
-    decorators:
-      - ix://lifestyle/code_sample_sudo.png
-      - ix://lifestyle/command_key.png
-  - content:
-      copy: “Nuestra abilidad de colaborar de cerca con el equipo de Chrome OS le permitió a Dropbox expandir nuestra oferta a las Chromebooks y proveer una experiencia de usario integrada.”
-      author:
-        name: Sam Edwards
-        role: Staff Mobile Engineer, Dropbox
-    image:
-      src: ix://home/quotes/sam-edwards-1.jpg
-      alt: Sam Edwards, mirando directamente al frente pero no a la cámara, tranbajando en una Chromebook.
+  quotes:
+    - content:
+        copy: “La PWA de Cloud Stop Motion alcanzó más usuarios en 12 meses de lo que nuestra app para escritorio alcanzó en 10 años!”
+        author:
+          name: David Henley
+          role: CEO, Cloud Stop Motion
+      image:
+        src: ix://home/quotes/david-henley-0.jpg
+        alt: David Henley, mirando hacia el lado de la cámara, al frente de un librero.
+    - content:
+        copy: “Piper Make vio un aumento del 38% en la cantidad de usuarias después de introducir una PWA aerodinámica, con funcionalidad offline.”
+        author:
+          name: Shree Bose
+          role: Co-Founder, Piper
+      image:
+        src: ix://home/quotes/shree-0.jpeg
+        alt: Shree Bose vistiendo scrubs y un estetoscopio, poniendo un bebé en una cuna en un hospital.
+      decorators:
+        - ix://lifestyle/code_sample_sudo.png
+        - ix://lifestyle/command_key.png
+    - content:
+        copy: “Nuestra abilidad de colaborar de cerca con el equipo de Chrome OS le permitió a Dropbox expandir nuestra oferta a las Chromebooks y proveer una experiencia de usario integrada.”
+        author:
+          name: Sam Edwards
+          role: Staff Mobile Engineer, Dropbox
+      image:
+        src: ix://home/quotes/sam-edwards-1.jpg
+        alt: Sam Edwards, mirando directamente al frente pero no a la cámara, tranbajando en una Chromebook.
 community:
   title: Noticias y recursos para desarrolladores para que puedan empezar a trabajar
   modifiers:
@@ -196,9 +196,9 @@ videos:
   modifiers:
     variant: video
     heading: h2
-  footnotes:
-    notes:
-      - Datos Internos de Google, 1 Feb 2021 a 1 Feb 2022.
-      - Datos Internos de Google, 2020-2021.
-      - Datos Internos de Google, Enero 2022.
-    variant: landing
+footnotes:
+  notes:
+    - Datos Internos de Google, 1 Feb 2021 a 1 Feb 2022.
+    - Datos Internos de Google, 2020-2021.
+    - Datos Internos de Google, Enero 2022.
+  variant: landing
