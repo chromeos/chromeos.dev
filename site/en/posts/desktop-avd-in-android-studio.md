@@ -18,7 +18,7 @@ date: 2022-05-05
 
 We, at Chrome OS, are committed to enhancing developer tools and frameworks that enable Android app developers to optimize their apps for Chromebooks seamlessly. Today, we’re thrilled to add to their developer tools with the addition of a Desktop Android Virtual Device (AVD) running Android 12 with the Electric Eel canary release of Android Studio.
 
-For years, Chrome OS has offered users the ability to easily install and enjoy Android apps. Be it watching the latest TV series, listening to your favorite music playlist or podcast, or playing a game with your friends, Chrome OS has got them covered with the apps they love.
+For years, Chrome OS has offered users the ability to easily install and enjoy Android apps. Be it watching the latest TV series on Netflix, listening to your favorite music playlist or podcast on Spotify, or playing Roblox, Chrome OS has got them covered with the apps they love.
 
 Large screen Android devices are becoming an increasingly popular way for users to run Android apps, with a 50% YoY growth[^1] of users engaging with Android apps on Chrome OS last year. However, the Android app experience on Chromebooks is not always completely satisfying for users, as most Android apps and games are not optimized for large screens. Apps run into a variety of compatibility issues which directly impact user experience and satisfaction.
 
