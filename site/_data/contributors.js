@@ -164,6 +164,17 @@ const contributors = {
       title: 'Product Manager',
     },
   },
+  hirono: {
+    name: {
+      given: 'Daichi',
+      family: 'Hirono',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
+    },
+  },
   ikarahan: {
     name: {
       given: 'Ibrahim',
@@ -355,6 +366,17 @@ const contributors = {
     name: {
       given: 'Stéphane',
       family: 'Marchesin',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
+    },
+  },
+  apronin: {
+    name: {
+      given: 'Andrey',
+      family: 'Pronin',
     },
     work: {
       company: 'Google',
