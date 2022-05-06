@@ -111,14 +111,11 @@ test('Optional Fields', (t) => {
 
 test('YouTube or Image Hero', (t) => {
   const input = {
-    title: 'Large screen Android',
-    metadesc: 'This is the new Android content. Its great.',
+    title: 'High engagement, larger screens',
+    metadesc: 'Android fuels mobile apps on devices that range far beyond your typical small-screen smartphone.',
+    tags: ["leader's corner", 'trend', 'large screens', 'window management', 'mouse support', 'keyboard support', 'android'],
+    authors: ['allanl'],
     date: '2019-10-24T00:00:00.000Z',
-    app: {
-      name: 'Awesome Fun Time',
-      logo: '/images/logos/awesome-fun-time.jpg',
-      company: 'Awesome Fun Time Co',
-    },
     hero: {
       youtube: 'nfWlot6h_JM',
       image: '/images/logos/awesome-fun-time.jpg',
