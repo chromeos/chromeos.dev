@@ -109,6 +109,43 @@ test('Optional Fields', (t) => {
   t.is(isValid, true);
 });
 
+test('YouTube or Image Hero', (t) => {
+  const input = {
+    title: 'Large screen Android',
+    metadesc: 'This is the new Android content. Its great.',
+    date: '2019-10-24T00:00:00.000Z',
+    app: {
+      name: 'Awesome Fun Time',
+      logo: '/images/logos/awesome-fun-time.jpg',
+      company: 'Awesome Fun Time Co',
+    },
+    hero: {
+      youtube: 'nfWlot6h_JM',
+      image: '/images/logos/awesome-fun-time.jpg',
+      alt: 'Awesome Fun Time',
+    },
+  };
+  const valid = t.context.validate(input);
+
+  t.is(valid, false);
+  t.deepEqual(t.context.validate.errors, [
+    {
+      keyword: 'oneOf',
+      dataPath: '.hero',
+      schemaPath: '#/definitions/hero/oneOf',
+      params: { passingSchemas: [0, 1] },
+      message: 'should match exactly one schema in oneOf',
+    },
+    {
+      keyword: '$merge',
+      dataPath: '',
+      schemaPath: '#/$merge',
+      params: { keyword: '$merge' },
+      message: 'should pass "$merge" keyword validation',
+    },
+  ]);
+});
+
 test('Missing Fields', (t) => {
   const input = {};
   const valid = t.context.validate(input);
@@ -402,15 +439,29 @@ test('Fields Validation', (t) => {
       keyword: 'required',
       dataPath: '.hero',
       schemaPath: '#/definitions/hero/required',
+      params: { missingProperty: 'alt' },
+      message: "should have required property 'alt'",
+    },
+    {
+      keyword: 'required',
+      dataPath: '.hero',
+      schemaPath: '#/definitions/hero/oneOf/0/required',
       params: { missingProperty: 'image' },
       message: "should have required property 'image'",
     },
     {
       keyword: 'required',
       dataPath: '.hero',
-      schemaPath: '#/definitions/hero/required',
-      params: { missingProperty: 'alt' },
-      message: "should have required property 'alt'",
+      schemaPath: '#/definitions/hero/oneOf/1/required',
+      params: { missingProperty: 'youtube' },
+      message: "should have required property 'youtube'",
+    },
+    {
+      keyword: 'oneOf',
+      dataPath: '.hero',
+      schemaPath: '#/definitions/hero/oneOf',
+      params: { passingSchemas: null },
+      message: 'should match exactly one schema in oneOf',
     },
     {
       keyword: '$merge',
