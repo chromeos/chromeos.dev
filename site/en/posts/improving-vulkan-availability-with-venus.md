@@ -1,5 +1,5 @@
 ---
-title: Improving Vulkan availability with venus
+title: Improving Vulkan availability with Venus
 metadesc: We recently launched Venus to enable better native graphics performance for Borealis Steam games, Android ARCVM and other virtual machine applications in Chrome OS.
 tags:
   - games
