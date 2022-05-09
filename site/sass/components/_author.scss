@@ -1,24 +1,17 @@
 // Styles for authors info used in news and stories.
 .author {
-  $photo-size: pxRem(40px);
+  $photo-size: 2.5rem;
+  column-gap: 0.5rem;
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
-
-  // This style is needed because the picture tag is created automatically.
-  img {
-    height: $photo-size;
-    margin-bottom: 0.5rem;
-    margin-right: 1rem;
-    width: $photo-size;
-  }
+  row-gap: 0.5rem;
 
   &__photo {
+    border: 1px solid var(--grey-300);
     border-radius: 50%;
-    flex-basis: 40%;
-    flex-grow: 0;
-    flex-shrink: 1;
-    max-height: initial;
+    height: $photo-size;
+    width: $photo-size;
   }
 
   &__copy {
