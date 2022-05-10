@@ -27,8 +27,9 @@
     </div>
   </div>
   <div class="hero__images">
+    {% if content.media.image %}
     <img class="hero__images--image" src="{{content.media.image}}" alt="{{content.media.alt}}" />
-    {% if content.theme.background %} {% if content.theme.background.top %}
+    {% endif %} {% if content.theme.background %} {% if content.theme.background.top %}
     <picture>
       <source media="(min-width: 871px)" srcset="{{content.theme.background.top}}" />
       <img class="hero__images--background-pattern" src="{{content.theme.background.bottom}}" alt="" />
