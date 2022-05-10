@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 Google LLC
+ * Copyright 2022 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -111,6 +111,12 @@ window.addEventListener('load', async () => {
   const hero = document.querySelector('.hero-animated');
   const thankYou = document.querySelector('.thank-you');
   const tables = document.querySelectorAll('table');
+  const embeddedVideo = document.querySelectorAll('.article__video-link');
+
+  if (embeddedVideo) {
+    const { VideoHotswap } = await import('./components/video-hotswap');
+    new VideoHotswap(embeddedVideo);
+  }
 
   if (thankYou) {
     const { ThankYou } = await import('./components/thank-you');
