@@ -1,51 +1,51 @@
 hero:
   heading:
-    default: Expand how the world
-    accent: engages with your app.
-  copy: Tap into millions of users when you bring your apps and games to Chrome OS.
+    default: Aumenta la manera en que el mundo
+    accent: interactúa con tu app.
+  copy: Accede a millones de usuarios  trayendo tu aplicación a Chrome OS.
   media:
     placeholder:
       src: ix://home/2022/static-hero.svg
-      alt: A single screen morphing between mobile, tablet, and laptop devices.
+      alt: Una única pantalla cambiando de tamaño entre dispositivos móviles, tablets, y laptops.
     phosphor:
       src: ix://home/2022/phosphor-hero.svg
-      alt: A single screen morphing between mobile, tablet, and laptop devices.
+      alt: Una única pantalla cambiando de tamaño entre dispositivos móviles, tablets, y laptops..
     static:
       src: ix://home/2022/storyboard-hero.png
-      alt: A series of mobile, tablet, and laptop devices filled  with shapes.
+      alt: Una serie de dispositivos móviles, tablets y laptops con contenido de diferentes figuras.
 routing:
   items:
     - content:
-        title: Unlock the next level of web apps.
-        copy: Build more powerful experiences with the latest tools and APIs for web built right in.
+        title: Alcanza el siguiente nivel en aplicaciones web.
+        copy: Crea experiencias más poderosas con las últimas herramientas y APIs para la web completamente integradas.
       image:
         src: ix://home/2022/better_experience.png
-        alt: A person using a chromebook with a stylus at their desk.
+        alt: Una persona usando una chromebooks con un stylus en su escritorio.
       cta:
         url: web
-        text: Learn more
+        text: Más información
       modifiers:
         shapes: primary
     - content:
-        title: Take it to the big screen.
-        copy: Easily adapt your existing mobile app for large-screen devices to reach more Android users.
+        title: Alcanza la gran pantalla.
+        copy: Adapta fácilmente tu aplicación móvil actual para dipositivos con pantallas grandes para atraer más usuarios de Android.
       image:
         src: ix://home/2022/hello_android.png
-        alt: An android device using the Evernote app.
+        alt: Un dispositivo Android usando Evernote.
       cta:
         url: android
-        text: Learn more
+        text: Más información
       modifiers:
         shapes: secondary
     - content:
-        title: Invite more gamers to play along.
-        copy: Engage millions of players looking for their next favorite challenge—it's a win win.
+        title: Una invitación a más juegos, más diversión.
+        copy: Invita a millones de jugadores en búsqueda de su próximo desafío favorito— ganancia para todos.
       image:
         src: ix://home/2022/more_gamers.png
-        alt: An assortment of characters created by Riot games.
+        alt: Un grupo de personajes creados por juegos Riot.
       cta:
         url: games
-        text: Learn more
+        text: Más información
       modifiers:
         shapes: tertiary
   modifiers:
@@ -53,109 +53,113 @@ routing:
 linux:
   content:
     title: |
-      Impressively versatile.
-      Exceptionally easy.
-    copy: Linux is seamlessly built into Chrome OS so you’ll always be ready whenever inspiration hits.
+      Impresionantemente versátil.
+      Excepcionalmente fácil.
+    copy: Linux esta completamente integrado en Chrome OS así siempre estarás estarás listo cuando llega la inspiración.
+
   cta:
-    text: Learn more
+    text: Más información
     url: linux
   images:
     - src: ix://devices/Chromebook_numpad.png
-      alt: Opened Chromebook with a birds eye view of a beach set as its background.
+      alt: Chromebook abierta con una vista panóramica de una playa configurada como fonde de pantalla.
     - src: ix://lifestyle/vim_window.jpg
-      alt: A Vim text editor with code.
+      alt: Un editor de texto Vim con código.
     - src: ix://home/2022/m100start.svg
-      alt: '"m100.start()" appears inside a repeating pattern of curly braces.'
+      alt: '"m100.start()" se muestra dentro de un patrón de paréntesis que se repiten'
 stats:
   modifiers:
-    heading: Grow in good company.
-    subtitle: Keep your app—and your audience—growing, across the Chrome OS community.
+    heading: Crece al lado de buena compañía.
+    subtitle: Mantén el crecimiento de tu appKeep your app—and your audience—growing, across the Chrome OS community.
   items:
     - stat: +270%
-      desc: Desktop PWA installs, YoY
+      desc: Installaciones en Desktop PWAs, YoY
       modifiers:
         shape: semicircle
         scale: full
+      footnote: 1
     - stat: +50%
-      desc: Chromebook users engaging with Android apps, YoY
+      desc: Usarios de Chromebook users interactúando con Android apps, YoY
       modifiers:
         shape: circle
+      footnote: 2
     - stat: 50M
-      desc: Students and educators using Chromebooks worldwide
+      desc: Estudiantes y educadores usando Chromebooks alrededor del mundo
       modifiers:
         shape: triangle
         scale: half
+      footnote: 3
 caseStudies:
-  title: Get inspired.
-  subtitle: Explore how brands are unlocking more possibilities with Chrome OS.
+  title: Encuentra inspiración.
+  subtitle: Descubre como algunas marcas están desbloqueando nuevas posibilidades con Chrome OS.
   cta:
-    text: All Case Studies
+    text: Casos de estudio
     url: stories
 m100:
   image:
     src: ix://devices/HP_color_chromebook_stylus.png
-    alt: A partially opened Samsung Chromebook next to a stylus.
+    alt: Una Samsung Chromebook abierta parcialmenta a la par de un stylus.
   content:
-    eyebrow: M100 Launch
-    title: New Features
-    copy: Coming in all shapes and sizes, Chromebooks are speedy, simple, secure, and run Chrome OS.
+    eyebrow: Historia destacada
+    title: Celebrando Chrome OS 100
+    copy: Recapitulando como hemos crecido con los desarrolladores a través de los años
   cta:
     url: news
-    text: Learn more
+    text: Más información
 posts:
   title: Lo último sobre Chrome OS
   modifiers:
     custom: item-grid--posts
-    subtitle: Explore trends, events, and updates on our community.
+    subtitle: Descubre tendencias, eventos, y actualizaciones en nuestra comunidad.
     cta:
-      text: All Articles
+      text: Todos los artículos
       url: news
 educators:
   content:
-    title: Empower millions of students and educators.
-    copy: Learn how your app can power learning experiences for 50 million Chromebooks in the classrooms.
+    title: Empodera a millones de estudiantes y educadores.
+    copy: Aprende como tu app pueda empodarar experiencias educativas para 50 millones de Chromebooks en salones de clase.
   cta:
-    text: Learn more
+    text: Más información
     url: education
   images:
     - src: ix://lifestyle/education.png
-      alt: Two children using a chromebook.
+      alt: Dos niños usando una chromebook.
   modifiers:
     class: fifty-fifty--educators
 developers:
   content:
-    title: Why they build with Chrome OS.
-    subtitle: Here's what our community has to say.
+    title: Porque están creando para Chrome OS.
+    subtitle: Mira lo que la comunidad comenta.
   quotes:
     - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        copy: “La PWA de Cloud Stop Motion alcanzó más usuarios en 12 meses de lo que nuestra app para escritorio alcanzó en 10 años!”
         author:
-          name: Mike C.
-          role: Head Engineer
+          name: David Henley
+          role: CEO, Cloud Stop Motion
       image:
-        src: ix://lifestyle/developer_1.png
-        alt: Mike C. leaning against a desk.
+        src: ix://home/quotes/david-henley-0.jpg
+        alt: David Henley, mirando hacia el lado de la cámara, al frente de un librero.
     - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        copy: “Piper Make vio un aumento del 38% en la cantidad de usuarias después de introducir una PWA aerodinámica, con funcionalidad offline.”
         author:
-          name: Mike C.
-          role: Head Engineer
+          name: Shree Bose
+          role: Co-Founder, Piper
       image:
-        src: ix://lifestyle/developer_2.png
-        alt: Mike C. smiling at the camera.
+        src: ix://home/quotes/shree-0.jpeg
+        alt: Shree Bose vistiendo scrubs y un estetoscopio, poniendo un bebé en una cuna en un hospital.
       decorators:
         - ix://lifestyle/code_sample_sudo.png
         - ix://lifestyle/command_key.png
     - content:
-        copy: “Lorem ipsum dolor sit amet adipiscing elit ipsum dolor sit amet adipiscing elit.”
+        copy: “Nuestra abilidad de colaborar de cerca con el equipo de Chrome OS le permitió a Dropbox expandir nuestra oferta a las Chromebooks y proveer una experiencia de usario integrada.”
         author:
-          name: Mike C.
-          role: Head Engineer
+          name: Sam Edwards
+          role: Staff Mobile Engineer, Dropbox
       image:
-        src: ix://lifestyle/developer_3.png
-        alt: Mike C. leaning against a desk.
+        src: ix://home/quotes/sam-edwards-1.jpg
+        alt: Sam Edwards, mirando directamente al frente pero no a la cámara, tranbajando en una Chromebook.
 community:
-  title: Noticias y recursos para desarrolladores para que pueda empezar a trabajar
+  title: Noticias y recursos para desarrolladores para que puedan empezar a trabajar
   modifiers:
     variant: community
     heading: h2
@@ -178,17 +182,23 @@ subnav:
   modifiers:
     variant: subnav
 videos:
-  title: Watch the latest videos.
+  title: Mira los vídeos más recientes.
   items:
     - video:
-        title: Developer Keynote at Google I/O '21
+        title: Keynote para developers en Google I/O '21
         id: FPuaaYpUd5s
     - video:
         title: Chrome OS Demo Day
         id: 7JvD7Zamv9A
     - video:
-        title: Creating a more private internet
+        title: Creando un internet más privado
         id: _u9_3umb5LY
   modifiers:
     variant: video
     heading: h2
+footnotes:
+  notes:
+    - Datos Internos de Google, 1 Feb 2021 a 1 Feb 2022.
+    - Datos Internos de Google, 2020-2021.
+    - Datos Internos de Google, Enero 2022.
+  variant: landing

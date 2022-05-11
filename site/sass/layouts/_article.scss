@@ -36,6 +36,33 @@
     width: 100%;
   }
 
+  &__video {
+    aspect-ratio: 16 / 9;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+
+    &-link {
+      text-decoration: none;
+    }
+
+    &--embed {
+      height: 100%;
+      width: 100%;
+    }
+
+    &--play {
+      background-color: var(--primary-blue);
+      border-radius: 50%;
+      bottom: 1.5rem;
+      height: 4.5rem;
+      position: absolute;
+      right: 1.5rem;
+      width: 4.5rem;
+    }
+  }
+
   &__body {
     padding-top: var(--col-padding);
     @include mq($bkpt-articles--2-cols) {

@@ -4,6 +4,10 @@ metadesc: In honor of International Women's Day, we interviewed Kapwing's CEO, J
 tags:
   - web
   - success story
+share:
+  image:
+    url: ix://posts/iwd-2022-julia-enthoven/julia.jpeg
+    alt: Headshot of Julia
 authors:
   - joycetoh
 date: 2022-03-08

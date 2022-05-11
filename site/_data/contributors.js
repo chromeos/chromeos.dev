@@ -164,6 +164,17 @@ const contributors = {
       title: 'Product Manager',
     },
   },
+  hirono: {
+    name: {
+      given: 'Daichi',
+      family: 'Hirono',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
+    },
+  },
   ikarahan: {
     name: {
       given: 'Ibrahim',
@@ -327,6 +338,72 @@ const contributors = {
       company: 'Google',
       org: 'Chrome OS',
       title: 'Product Lead, Apps Platforms',
+    },
+  },
+  davidriley: {
+    name: {
+      given: 'David',
+      family: 'Riley',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
+    },
+  },
+  cpelling: {
+    name: {
+      given: 'Chloe',
+      family: 'Pelling',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
+    },
+  },
+  marcheu: {
+    name: {
+      given: 'Stéphane',
+      family: 'Marchesin',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
+    },
+  },
+  apronin: {
+    name: {
+      given: 'Andrey',
+      family: 'Pronin',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
+    },
+  },
+  jbates: {
+    name: {
+      given: 'John',
+      family: 'Bates',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
+    },
+  },
+  ryanneph: {
+    name: {
+      given: 'Ryan',
+      family: 'Neph',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome OS',
+      title: 'Software Engineer',
     },
   },
 };

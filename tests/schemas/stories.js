@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 Google LLC
+ * Copyright 2022 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ test.beforeEach((t) => {
 test('Required Fields', (t) => {
   const input = {
     title: 'Large screen Android',
-    metadesc: 'This is the new Android content.',
+    metadesc: 'This is the new Android content. Its great.',
     date: '2019-10-24T00:00:00.000Z',
     app: {
       name: 'Awesome Fun Time',
@@ -46,7 +46,7 @@ test('Required Fields', (t) => {
 test('Optional Fields', (t) => {
   const input = {
     title: 'Large screen Android',
-    metadesc: 'This is the new Android content.',
+    metadesc: 'This is the new Android content. Its great.',
     app: {
       name: 'Awesome Fun Time',
       logo: '/images/logos/awesome-fun-time.jpg',
@@ -165,7 +165,7 @@ test('Missing Fields', (t) => {
 test('Extra Fields', (t) => {
   const input = {
     title: 'Large screen Android',
-    metadesc: 'This is the new Android content.',
+    metadesc: 'This is the new Android content. Its great.',
     date: '2019-10-24T00:00:00.000Z',
     app: {
       name: 'Awesome Fun Time',
@@ -268,13 +268,6 @@ test('Field Validation', (t) => {
       message: "should have required property 'logo'",
     },
     {
-      keyword: 'required',
-      dataPath: '.app',
-      schemaPath: '#/definitions/app/required',
-      params: { missingProperty: 'company' },
-      message: "should have required property 'company'",
-    },
-    {
       keyword: 'type',
       dataPath: '.featured',
       schemaPath: '#/definitions/featured/type',
@@ -292,15 +285,29 @@ test('Field Validation', (t) => {
       keyword: 'required',
       dataPath: '.hero',
       schemaPath: '#/definitions/hero/required',
+      params: { missingProperty: 'alt' },
+      message: "should have required property 'alt'",
+    },
+    {
+      keyword: 'required',
+      dataPath: '.hero',
+      schemaPath: '#/definitions/hero/oneOf/0/required',
       params: { missingProperty: 'image' },
       message: "should have required property 'image'",
     },
     {
       keyword: 'required',
       dataPath: '.hero',
-      schemaPath: '#/definitions/hero/required',
-      params: { missingProperty: 'alt' },
-      message: "should have required property 'alt'",
+      schemaPath: '#/definitions/hero/oneOf/1/required',
+      params: { missingProperty: 'youtube' },
+      message: "should have required property 'youtube'",
+    },
+    {
+      keyword: 'oneOf',
+      dataPath: '.hero',
+      schemaPath: '#/definitions/hero/oneOf',
+      params: { passingSchemas: null },
+      message: 'should match exactly one schema in oneOf',
     },
     {
       keyword: 'additionalProperties',
@@ -415,13 +422,6 @@ test('Field Validation', (t) => {
       message: "should have required property 'logo'",
     },
     {
-      keyword: 'required',
-      dataPath: '.app',
-      schemaPath: '#/definitions/app/required',
-      params: { missingProperty: 'company' },
-      message: "should have required property 'company'",
-    },
-    {
       keyword: 'additionalProperties',
       dataPath: '.featured',
       schemaPath: '#/definitions/featured/additionalProperties',
@@ -474,15 +474,29 @@ test('Field Validation', (t) => {
       keyword: 'required',
       dataPath: '.hero',
       schemaPath: '#/definitions/hero/required',
+      params: { missingProperty: 'alt' },
+      message: "should have required property 'alt'",
+    },
+    {
+      keyword: 'required',
+      dataPath: '.hero',
+      schemaPath: '#/definitions/hero/oneOf/0/required',
       params: { missingProperty: 'image' },
       message: "should have required property 'image'",
     },
     {
       keyword: 'required',
       dataPath: '.hero',
-      schemaPath: '#/definitions/hero/required',
-      params: { missingProperty: 'alt' },
-      message: "should have required property 'alt'",
+      schemaPath: '#/definitions/hero/oneOf/1/required',
+      params: { missingProperty: 'youtube' },
+      message: "should have required property 'youtube'",
+    },
+    {
+      keyword: 'oneOf',
+      dataPath: '.hero',
+      schemaPath: '#/definitions/hero/oneOf',
+      params: { passingSchemas: null },
+      message: 'should match exactly one schema in oneOf',
     },
     {
       keyword: 'additionalProperties',

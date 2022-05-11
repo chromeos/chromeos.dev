@@ -32,7 +32,32 @@ layout: _wrapper
 
   <section class="tech-detail__content {% if landingPage %}tech-detail__content--landing{% endif %}" id="article">
     <div class="type">{{ content | safe }}</div>
-    {% if landingPage and landingPage.subnav %}
+    {% if landingPage and landingPage.subnav %} {% if started %}
+    <section class="tech-detail__get-started">
+      <h2 class="type--h1 tech-detail__get-started--title">{{started.title}}</h2>
+      {% if started.desc %}
+      <p class="type--large tech-detail__get-started--desc">{{started.desc}}</p>
+      {% endif %}
+      <div class="tech-detail__get-started--grid">
+        {% for card in started.cards %}
+        <div class="tech-detail__get-started--grid-item">
+          <header class="tech-detail__get-started--heading">
+            <h3 class="type--h4">{{ card.title }}</h3>
+          </header>
+          <div class="tech-detail__get-started--body type">{{ card.body | markdown | safe }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %} {% if interest %}
+    <aside class="tech-detail__interest-form type">
+      <h2>{{ interest.title }}</h2>
+      <div class="tech-detail__interest-form--cta">
+        <p class="tech-detail__interest-form--cta-body">{{ interest.body }}</p>
+        {% if interest.cta %} <a class="cta cta--medium" href="{{interest.cta.url}}">{{interest.cta.text}}</a> {% endif %}
+      </div>
+    </aside>
+    {% endif %}
     <div class="tech-detail__chapters">{{itemGrid(microcopy.landing.chapters, landingPage.subnav.slice(1))}}</div>
     {% endif %}
   </section>
