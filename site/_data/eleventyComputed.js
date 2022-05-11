@@ -310,10 +310,10 @@ module.exports = {
         featured.images = images;
         featured.media = images[0];
       } else {
-        featured.images = [images.image, images.alt];
+        featured.images = [images?.image, images?.alt];
         featured.media = {
-          image: images.image,
-          alt: images.alt,
+          image: images?.image,
+          alt: images?.alt,
         };
       }
 

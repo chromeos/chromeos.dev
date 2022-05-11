@@ -298,8 +298,8 @@ const contributors = {
   },
   hikalium: {
     name: {
-      given: 'Hikaru',
-      family: 'Nishida',
+      given: 'hikalium',
+      family: '',
     },
     work: {
       company: 'Google',
