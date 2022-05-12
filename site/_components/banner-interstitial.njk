@@ -16,15 +16,16 @@
 
   @param {string} locale - Code for the current locale.
 #}-->
-{% from 'icon.njk' import icon %} {% macro bannerInterstitial(content, image, cta, locale) %}
-<article class="banner-interstitial wrapper wrapper--padded wrapper--full-bleed wrapper__contained {{'banner-interstitial--no-cta' if not cta}}">
-  <div class="banner-interstitial__inner">
+{% from 'icon.njk' import icon %} {% macro bannerInterstitial(content, microcopy) %}
+<article class="banner-interstitial wrapper wrapper--full-bleed wrapper__contained {{'banner-interstitial--no-cta' if not content.cta}}">
+  {{content | dump}}
+  <div class="banner-interstitial__inner {{'theme theme__' + content.theme.theme if content.theme}}">
     <div class="banner-interstitial__content">
       <div class="banner-interstitial__text">
-        <small class="banner-interstitial__eyebrow type--h1">{{content.eyebrow}}</small>
-        <h2 class="banner-interstitial__title type--mega">{{content.title}}</h2>
-        <p class="banner-interstitial__copy type--large">{{content.copy}}</p>
-        {% if cta is defined %}<a href="{% if locale is defined %}/{{locale}}/{% endif %}{{cta.url}}" class="cta cta--transparent banner-interstitial__cta"> {{cta.text}} </a>{% endif %}
+        <small class="banner-interstitial__eyebrow type--h2">{{microcopy.featured.eyebrow}}</small>
+        <h2 class="banner-interstitial__title type--h1">{{content.title}}</h2>
+        <p class="banner-interstitial__copy type--large">{{content.desc}}</p>
+        <a href="{{content.cta.url}}" class="cta cta--transparent banner-interstitial__cta"> {{content.cta.text}} </a>
       </div>
       <div class="banner-interstitial__image-wrapper">
         <img src="{{image.src}}" alt="{{image.alt}}" class="banner-interstitial__image" />

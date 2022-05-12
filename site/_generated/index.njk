@@ -29,7 +29,7 @@ hideNewsletter: true
   {% endif %}
 
   <!-- M100 Banner -->
-  <div id="home__banner">{{ bannerInterstitial(l10n.home.m100.content, l10n.home.m100.image, l10n.home.m100.cta, locale.code) }}</div>
+  <div id="home__banner">{{ bannerInterstitial(landingCollections.featured.post, l10n.microcopy) }}</div>
 
   <!-- Recent Articles -->
   {% if landingCollections.posts.length > 0 %}

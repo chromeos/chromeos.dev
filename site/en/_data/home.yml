@@ -94,17 +94,6 @@ caseStudies:
   cta:
     text: All Case Studies
     url: stories
-m100:
-  image:
-    src: ix://devices/HP_color_chromebook_stylus.png
-    alt: A partially opened Samsung Chromebook next to a stylus.
-  content:
-    eyebrow: Featured story
-    title: Celebrating Chrome OS 100
-    copy: Recapping how we've grown with developers over the years
-  cta:
-    url: posts/chromeos-100
-    text: Read more
 posts:
   title: The latest on Chrome OS.
   modifiers:
