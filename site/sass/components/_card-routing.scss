@@ -74,6 +74,14 @@
         --shape-color: var(--primary-red);
         @include pseudoShape((45px 210px 60px 60px), $wrapper-size);
       }
+
+      &.alt::before {
+        background-image: url('https://chromeos-dev.imgix.net/icons/patterns/angle-green.svg');
+      }
+
+      &.alt::after {
+        --shape-color: var(--primary-blue);
+      }
     }
 
     &--secondary {
@@ -81,7 +89,7 @@
       &::after {
         --shape: moon;
         --shape-size: (100% 200%);
-        --shape-offset: (0% -100%);
+        --shape-offset: (-1% -100%);
       }
 
       &::before {
@@ -93,8 +101,19 @@
 
       &::after {
         --shape-color: var(--tertiary-green);
+
         @include pseudoShape((84px 134px 156px 78px), $wrapper-size);
         transform: rotate(-30deg);
+      }
+
+      &.alt::before {
+        background-image: url('https://chromeos-dev.imgix.net/icons/patterns/bracket-blue.svg');
+      }
+
+      &.alt::after {
+        --shape: triangle;
+        --shape-color: var(--primary-yellow);
+        transform: rotate(60deg) translate(-2rem, -3rem) scale(0.6);
       }
     }
 

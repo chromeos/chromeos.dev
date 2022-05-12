@@ -36,7 +36,8 @@ hideNewsletter: true
   <div id="home__articles" class="wrapper wrapper--padding wrapper--padded">{{ itemGrid(l10n.home.posts.title, landingCollections.homePosts, l10n.home.posts.modifiers, l10n.locale.code) }}</div>
   {% endif %}
 
-  <div id="home__educators" class="wrapper wrapper--padded wrapper--padding">{{ fiftyFifty(l10n.home.educators.content, l10n.home.educators.cta, l10n.home.educators.images, l10n.locale.code, l10n.home.educators.modifiers) }}</div>
+  <!-- Ent and EDU -->
+  <div id="home__ent-edu" class="wrapper wrapper--full-bleed wrapper--padding wrapper--padded wrapper__contained wrapper__background">{{ itemGrid(l10n.home.business.title, l10n.home.business.items, l10n.home.business.modifiers, l10n.locale.code) }}</div>
 
   <!-- Developers -->
   <div id="home__developers" class="wrapper wrapper--padding wrapper--padded">{{ communityQuotes(l10n.home.developers.content, l10n.home.developers.quotes) }}</div>
