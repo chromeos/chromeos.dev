@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* global grecaptcha */
 /**
  * Bootstraps form
  */
@@ -52,6 +53,28 @@ export class Form {
     this.loader_ = this.elem_.querySelector(this.constants_.loaderSelector);
     this.copy_ = element.querySelector(this.constants_.formCopy);
     this.success_ = document.getElementById('message--success').content.cloneNode(true);
+
+    // Add reCAPTCHA
+    const recaptchaJS = document.createElement('script');
+    recaptchaJS.src = 'https://www.google.com/recaptcha/api.js';
+    recaptchaJS.async = true;
+
+    const recaptcha = document.createElement('div');
+    recaptcha.id = 'recaptcha';
+
+    console.log(this.button_);
+
+    recaptchaJS.addEventListener('load', (e) => {
+      if (grecaptcha) {
+        grecaptcha.ready(() => {
+          grecaptcha.render('recaptcha', {
+            sitekey: '',
+          });
+        });
+      }
+    });
+    this.parent_.appendChild(recaptchaJS);
+    this.parent_.appendChild(recaptcha);
 
     this.init_();
     this.toggleOnline_();
@@ -168,6 +191,7 @@ export class Form {
 
     offline.classList.remove(this.constants_.showErrorClass);
     this.enableFormElements_();
+    this.button_.setAttribute('disabled', 'disabled');
     return true;
   }
 
