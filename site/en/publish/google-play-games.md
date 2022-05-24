@@ -36,9 +36,9 @@ If you need to separate your large screen version from your mobile version, ther
 !!! aside.message--warning
 **Warning:** Uploading a mobile Android app with a higher version number than your Chrome OS only app _will replace your Chrome OS only app_ if the mobile Android app is also compatible with Chromebooks! As a best practice, set the Chrome OS app several versions higher than your mobile Android app. For instance 1000 for Chrome OS if the Android version is 1. Then as you create new releases for each, you can increment the version numbers accordingly as long as the Chrome OS version is always larger. When Play distributes your app, it uses the highest version available that is compatible with the given device.
 
-When creating the Chrome OS release, make sure to include the latest Android App Bundle. In the “Previous release” section, find the APK or AAB that corresponds to the latest Android mobile version and select “Include”.
+When creating the Chrome OS release, make sure to include the latest released Android App Bundle. If the latest mobile package is not included in the Chrome OS release, users on mobile Android devices will not be able to install your app. In the “Previous release” section, find the APK or AAB that corresponds to the latest Android mobile version and select “Include”.
 
 ![When you create a new release in the Play Console, you can include APKs or AABs from previous releases.](ix://publish/pwa-in-play/play-console-include.png)
 
-If the latest mobile package is not included in the Chrome OS release, users on mobile Android devices will not be able to install your app.
+Similarly, when creating an Android release, you also need to include the latest released App Bundle for Chrome OS. Otherwise, users on Chrome OS will get the Android app when installing your app for the first time on their device, instead of the Chrome OS app.
 !!!
