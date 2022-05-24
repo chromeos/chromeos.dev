@@ -14,9 +14,8 @@
  #}-->
 {% macro author(author, alt, contribid) -%}
 <figure class="author">
-  {% set imagePath = 'contributors/' + contribid + '.jpg' %} {% if imagePath | existingImage %}
-  <img src="ix://{{imagePath}}" class="author__photo" alt="{{alt}}" />
-  {% endif %}
+  {% set imagePath = 'contributors/' + contribid + '.jpg' %}
+  <img src="ix://{{imagePath}}" class="author__photo" alt="" sizes="50px" />
   <figcaption class="author__copy">
     <p class="type--h6">{{author.name | name}}</p>
     {% if author.work | role %}

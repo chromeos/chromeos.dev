@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 Google LLC
+ * Copyright 2022 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -285,15 +285,29 @@ test('Field Validation', (t) => {
       keyword: 'required',
       dataPath: '.hero',
       schemaPath: '#/definitions/hero/required',
+      params: { missingProperty: 'alt' },
+      message: "should have required property 'alt'",
+    },
+    {
+      keyword: 'required',
+      dataPath: '.hero',
+      schemaPath: '#/definitions/hero/oneOf/0/required',
       params: { missingProperty: 'image' },
       message: "should have required property 'image'",
     },
     {
       keyword: 'required',
       dataPath: '.hero',
-      schemaPath: '#/definitions/hero/required',
-      params: { missingProperty: 'alt' },
-      message: "should have required property 'alt'",
+      schemaPath: '#/definitions/hero/oneOf/1/required',
+      params: { missingProperty: 'youtube' },
+      message: "should have required property 'youtube'",
+    },
+    {
+      keyword: 'oneOf',
+      dataPath: '.hero',
+      schemaPath: '#/definitions/hero/oneOf',
+      params: { passingSchemas: null },
+      message: 'should match exactly one schema in oneOf',
     },
     {
       keyword: 'additionalProperties',
@@ -460,15 +474,29 @@ test('Field Validation', (t) => {
       keyword: 'required',
       dataPath: '.hero',
       schemaPath: '#/definitions/hero/required',
+      params: { missingProperty: 'alt' },
+      message: "should have required property 'alt'",
+    },
+    {
+      keyword: 'required',
+      dataPath: '.hero',
+      schemaPath: '#/definitions/hero/oneOf/0/required',
       params: { missingProperty: 'image' },
       message: "should have required property 'image'",
     },
     {
       keyword: 'required',
       dataPath: '.hero',
-      schemaPath: '#/definitions/hero/required',
-      params: { missingProperty: 'alt' },
-      message: "should have required property 'alt'",
+      schemaPath: '#/definitions/hero/oneOf/1/required',
+      params: { missingProperty: 'youtube' },
+      message: "should have required property 'youtube'",
+    },
+    {
+      keyword: 'oneOf',
+      dataPath: '.hero',
+      schemaPath: '#/definitions/hero/oneOf',
+      params: { passingSchemas: null },
+      message: 'should match exactly one schema in oneOf',
     },
     {
       keyword: 'additionalProperties',
