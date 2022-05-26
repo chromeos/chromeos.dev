@@ -144,6 +144,7 @@
   }
 
   &__image {
+    border-radius: 50%;
     max-width: pxRem(260px);
     position: relative;
     width: generateScaling((420px $scale-max), (205px 260px));
