@@ -42,7 +42,7 @@ The [Web Share Target API](https://web.dev/web-share-target/) lets your PWA regi
 
 The [File Handling API](https://web.dev/file-handling/) lets a PWA register itself as a file handler for certain file types. This allows a user to see the app as an option to "Open with…" when they try to open a file. Much like with the Web Share Target API, it’s recommended that the action page that handles the incoming file should work offline in the scenario when a user is unable to get online but would still like to edit or view (or whatever your app does) their local file.
 
-![Screen recording shows the Chrome OS Files app open. Cursor hovers over a .txt file, right-click to use the “Open with…” option to select the sample PWA to open the file.](ix://posts/take-full-advantage-of-pwa-installation/open_file_handling.gif)
+![Screen recording shows the Chrome OS Files app open. Cursor hovers over a .txt file, right-click to use the “Open with…” option to select the sample PWA to open the file.](ix://posts/take-full-advantage-of-pwa-installation/open_file_handling2.gif)
 
 ## Window controls overlay
 
