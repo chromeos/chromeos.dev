@@ -109,7 +109,7 @@ business:
         title: Support teams to work smarter
         copy: Find helpful apps that make it easy for teams to collaborate and get more done.
       image:
-        src: ix://lifestyle/developer_1.png
+        src: ix://lifestyle/enterprise-3.jpeg
         alt: A person  leaning on a desk in a business environment with a computer behind them
       cta:
         url: enterprise
