@@ -71,7 +71,7 @@
       position: absolute;
       right: 0;
       top: 0;
-      transform: translate(generateScaling($scale-range, (60px -24px)), generateScaling($scale-range, (-20px -120px)));
+      // transform: translate(generateScaling($scale-range, (60px -24px)), generateScaling($scale-range, (-20px -120px)));
       width: 63%;
     }
   }
