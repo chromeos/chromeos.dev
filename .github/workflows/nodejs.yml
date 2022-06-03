@@ -75,7 +75,8 @@ jobs:
         with:
           node-version: 14
       - uses: FirebaseExtended/action-hosting-deploy@v0
-        expires: 30d
+        with:
+          expires: 30d
       # - name: Install Firebase tools and JQ
       #   run: |
       #     npm install -g https://storage.googleapis.com/firebase-preview-drop/node/firebase-tools/firebase-tools-8.8.0-channels.1.tgz
