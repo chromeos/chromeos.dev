@@ -2,7 +2,7 @@
 title: Improving ChromeOS performance with core scheduling
 metadesc: ChromeOS takes security seriously and CPU security bugs shouldn't slow you down.
 tags:
-  - base os
+  - foundations
   - technical
 authors:
   - jsbarnes
