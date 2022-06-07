@@ -2,7 +2,7 @@
 title: Making Android Runtime on Chrome OS more secure and easier to upgrade with ARCVM
 metadesc: From creating games that instantly adapt to different devices to making styluses feel just like drawing on paper, here’s a wrap-up of the latest improvements in Chrome OS for 2021.
 tags:
-  - base os
+  - foundations
   - android
   - technical
 authors:

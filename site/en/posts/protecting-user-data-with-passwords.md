@@ -2,7 +2,7 @@
 title: Protecting user data in Chrome OS with passwords
 metadesc: How the oldest user authentication method, passwords, work with special security hardware to secure user data, and the considerations taken into account to design that process.
 tags:
-  - base os
+  - foundations
   - security
   - technical
 authors:
