@@ -2,7 +2,7 @@
 title: Celebrating developers with Chrome OS's 100th release
 metadesc: As Chrome OS celebrates its 100th release, learn how it grew from running Web Apps to a powerful developer environment for creating multi-platform apps, backends, data analyses, and more.
 tags:
-  - base os
+  - foundations
   - technical
   - linux
   - productivity
