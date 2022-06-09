@@ -116,6 +116,11 @@
         row-gap: generateScaling((430px 631px), (48px 16px));
       }
     }
+
+    &__subtitle {
+      margin-inline: auto;
+      max-width: 40ch;
+    }
   }
 
   &--stories & {

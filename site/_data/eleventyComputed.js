@@ -372,7 +372,7 @@ module.exports = {
 
       collections.filteredPosts = collections.posts.filter((i) => i.url !== get(collections, 'featured.post.cta.url'));
 
-      collections.homePosts = collections.posts.slice(0, 3);
+      collections.homePosts = collections.filteredPosts.slice(0, 3);
     }
 
     if (stories && stories.length >= 1) {

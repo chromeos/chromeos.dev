@@ -94,17 +94,6 @@ caseStudies:
   cta:
     text: All Case Studies
     url: stories
-m100:
-  image:
-    src: ix://devices/HP_color_chromebook_stylus.png
-    alt: A partially opened Samsung Chromebook next to a stylus.
-  content:
-    eyebrow: Featured story
-    title: Celebrating Chrome OS 100
-    copy: Recapping how we've grown with developers over the years
-  cta:
-    url: posts/chromeos-100
-    text: Read more
 posts:
   title: The latest on Chrome OS.
   modifiers:
@@ -113,18 +102,34 @@ posts:
     cta:
       text: All Articles
       url: news
-educators:
-  content:
-    title: Empower millions of students and educators.
-    copy: Learn how your app can power learning experiences for 50 million Chromebooks in the classrooms.
-  cta:
-    text: Learn more
-    url: education
-  images:
-    - src: ix://lifestyle/education.png
-      alt: Two children using a chromebook.
+business:
+  title: More for your app or business.
+  items:
+    - content:
+        title: Support teams to work smarter
+        copy: Find helpful apps that make it easy for teams to collaborate and get more done.
+      image:
+        src: ix://lifestyle/enterprise-3.jpeg
+        alt: A person  leaning on a desk in a business environment with a computer behind them
+      cta:
+        url: enterprise
+        text: Learn more
+      modifiers:
+        shapes: primary alt
+    - content:
+        title: Empower millions of students and educators.
+        copy: Learn how your app can power learning experiences for 50 million Chromebooks in the classrooms.
+      cta:
+        text: Learn more
+        url: education
+      image:
+        src: ix://lifestyle/education.png
+        alt: Two children using a chromebook.
+      modifiers:
+        shapes: secondary alt
   modifiers:
-    class: fifty-fifty--educators
+    variant: routing
+    subtitle: From educational material to optimizing your business, explore everything Chrome OS has to offer.
 developers:
   content:
     title: Why they build with Chrome OS.

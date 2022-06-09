@@ -1,0 +1,26 @@
+.theme {
+  background-color: var(--hero-theme-background);
+
+  [class*='type'],
+  [class*='link'],
+  [class*='icon'] {
+    color: var(--hero-theme-color);
+    fill: var(--hero-theme-color);
+  }
+
+  .cta:focus {
+    background-color: var(--hero-theme-cta-background);
+  }
+
+  &__m100 {
+    --hero-theme-color: var(--white);
+    --hero-theme-background: var(--blue-850);
+    --hero-theme-cta-background: transparent;
+  }
+
+  &__io-2022 {
+    --hero-theme-color: var(--white);
+    --hero-theme-background: var(--green-700);
+    --hero-theme-cta-background: transparent;
+  }
+}

@@ -88,40 +88,4 @@
     color: var(--secondary-blue);
     margin-top: 1.5rem;
   }
-
-  &--theme {
-    &__m100 {
-      --hero-theme-color: var(--white);
-      --hero-theme-background: var(--blue-850);
-      background-color: var(--hero-theme-background);
-
-      [class*='type'],
-      [class*='link'],
-      [class*='icon'] {
-        color: var(--hero-theme-color);
-        fill: var(--hero-theme-color);
-      }
-
-      .cta:focus {
-        background-color: transparent;
-      }
-    }
-
-    &__io-2022 {
-      --hero-theme-color: var(--white);
-      --hero-theme-background: var(--green-700);
-      background-color: var(--hero-theme-background);
-
-      [class*='type'],
-      [class*='link'],
-      [class*='icon'] {
-        color: var(--hero-theme-color);
-        fill: var(--hero-theme-color);
-      }
-
-      .cta:focus {
-        background-color: transparent;
-      }
-    }
-  }
 }
