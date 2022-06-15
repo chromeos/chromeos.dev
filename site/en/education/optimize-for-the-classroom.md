@@ -7,7 +7,7 @@ tags:
   - web
 ---
 
-When targeting your application for a classroom environment (EDU), there are a number of steps that can be taken to make your application accessible to students and more likely to be adopted by a school district as a preferred application. These are the most common optimizations we recommend.
+When targeting your application for a classroom environment, there are a number of steps that can be taken to make your application accessible to students and more likely to be adopted by a school district as a preferred application. These are the most common optimizations we recommend.
 
 ## Streamline identity and provisioning
 
@@ -19,7 +19,7 @@ Chromebooks can have more than one camera. Like a cell phone, they can have both
 
 ## Ensure touch and stylus inputs work
 
-Many Chromebooks have the capability to go from a traditional laptop form factor to a tablet form factor and back again seamlessly. This requires that web developers targeting educationEDU users switch from the traditional event handlers like mouse up and touch start to [pointer events](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events). Pointer events are events that are designed for a multitude of pointing devices (stylus, finger, and mouse) and can help transition your users as they [move between different form factors and input methods](/{{locale.code}}/web/desktop-progressive-web-apps#make-it-touchable).
+Many Chromebooks have the capability to go from a traditional laptop form factor to a tablet form factor and back again seamlessly. This requires that web developers targeting education users switch from the traditional event handlers like mouse up and touch start to [pointer events](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events). Pointer events are events that are designed for a multitude of pointing devices (stylus, finger, and mouse) and can help transition your users as they [move between different form factors and input methods](/{{locale.code}}/web/desktop-progressive-web-apps#make-it-touchable).
 
 ## Support large screen Android devices
 
