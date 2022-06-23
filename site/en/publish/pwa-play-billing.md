@@ -18,6 +18,8 @@ On November 30th, 2021, Chrome OS 96 was released with the Digital Goods API 2.0
 
 The origin trial for the first version of the Digital Goods API ended on January 30, 2022. Therefore it is now deprecated and only v2 of the API is available.
 
+On June 23rd, 2022, Chrome OS 103 was released with the Digital Goods API 2.1 implementation. This release does not have any breaking changes and only includes new methods and additional fields: [`listPurchaseHistory()`](#purchase-history) and [`itemType`](#get-item-details).
+
 ### Register for the Origin Trial
 
 !!! aside.message--note
@@ -89,6 +91,8 @@ const localePrice = new Intl.NumberFormat(navigator.language, {
 !!! aside.message--note
 **Note:** The Digital Goods API does not provide you with a method to get a list of item IDs. Instead, you will either need to hard-code them into your client or fetch them from your back-end server. The Google Play Developer API does let you [query the list of item IDs](https://developers.google.com/android-publisher/api-ref/rest/v3/inappproducts/list) from a back-end. (Check out more about [implementing key Play Billing components in your back-end server](/{{locale.code}}/publish/play-billing-backend). Whichever solution you choose, make sure to keep the item IDs consistent with what you have in the Play Console.
 !!!
+
+In v2.1 of the API, one of the fields returned by `getDetails()` is `itemType`. It is an enum where the value is `”product”` or `”subscription”` to denote whether the corresponding item is an in-app product or subscription, respectively. Being able to differentiate between the two types of products can be useful if you need to apply different treatments to each product type. For example, you may have a specific page for users to subscribe and another page for the other non-subscription products. It’s also useful for knowing the appropriate Google Play Developer API REST resource to use in your backend (`purchases.products` or `purchases.subscriptions`).
 
 ## Purchase an item
 
@@ -243,6 +247,10 @@ The Digital Goods API `listPurchases()` method will return a list of `PurchaseDe
     - [purchases.subscriptions.acknowledge](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/acknowledge) for subscriptions.
 
 Learn more about how to [verify purchases on your back-end server before granting entitlements](/{{locale.code}}/publish/play-billing-backend#verify-purchases-before-granting-entitlements).
+
+### Purchase history
+
+While `listPurchases` will return information about the user’s existing purchases, the `listPurchaseHistory()` method (in v2.1 of the API) will return the most recent purchase made by the user for each item, regardless of whether the purchase is expired, canceled, or consumed. The `listPurchaseHistory()` method returns a list of `PurchaseDetails` containing the `itemId` and `purchaseToken` for each purchase, which you will need to use with the Google Play Developer API on your backend server to retrieve more information.
 
 ## Out-of-app purchases
 
