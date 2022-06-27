@@ -28,6 +28,12 @@ export class Tracking {
       cta.addEventListener('click', this.sendEvent('click_subscribe_cta'));
     }
 
+    // Track Newsletter submit
+    const subscribeForm = document.querySelector('#newsletter-sign-up');
+    if (subscribeForm) {
+      subscribeForm.addEventListener('submit', this.sendEvent('click_subscribe_submit'));
+    }
+
     if (typeof google === 'function') {
       this.google = google;
     } else {
