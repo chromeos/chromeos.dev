@@ -47,6 +47,7 @@ export class Form {
     this.constants_ = Object.freeze(constants);
     this.parent_ = element;
     this.elem_ = element.querySelector(this.constants_.formSelector);
+    this.id_ = this.elem_.getAttribute('id');
     this.fields_ = this.elem_.querySelectorAll(this.constants_.fieldSelector);
     this.button_ = this.elem_.querySelector(this.constants_.buttonSelector);
     this.loader_ = this.elem_.querySelector(this.constants_.loaderSelector);
@@ -348,6 +349,11 @@ export class Form {
     }
 
     holder.classList.add('message', 'form__message', 'message--tip');
+
+    window.tracking.sendEvent('form_submit_success', {
+      form_id: this.id_,
+      form_referrer: referrer,
+    });
 
     this.elem_.parentNode.insertBefore(holder, this.elem_);
   }
