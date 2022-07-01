@@ -158,7 +158,7 @@
     "service-worker-i18n-redirect": "^1.0.0",
     "service-worker-includes": "^1.0.1",
     "vite-plugin-pwa": "^0.11.13",
-    "workbox-broadcast-update": "^6.4.2",
+    "workbox-broadcast-update": "^6.5.3",
     "workbox-cacheable-response": "^6.5",
     "workbox-expiration": "^6.5",
     "workbox-google-analytics": "^6.4",
