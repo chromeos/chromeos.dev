@@ -352,7 +352,7 @@ export class Form {
 
     window.tracking.sendEvent('form_submit_success', {
       form_id: this.id_,
-      form_referrer: referrer,
+      form_referrer: referrer ? referrer.toString() : '',
     });
 
     this.elem_.parentNode.insertBefore(holder, this.elem_);

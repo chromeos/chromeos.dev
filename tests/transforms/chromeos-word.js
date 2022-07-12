@@ -18,52 +18,35 @@
 // Disabling tests for now because this was super refactored and the tests aren't set up right at the moment
 
 const test = require('ava');
-const cheerio = require('cheerio');
-const chromeOsWord = require('../lib/transforms/chromeos-word');
-const EleventyConfig = require('./fixture/eleventy');
-
-/**
- *
- * @param {String} content String to be processed.
- * @return {String}
- */
-function buildHtmlResult(content) {
-  const $ = cheerio.load(content);
-  const hasBody = /<\s*body(\w|\s|=|"|-)*>/gm;
-
-  if (hasBody.test.skip(content)) {
-    return $.html();
-  }
-
-  return $('body').html();
-}
+const posthtml = require('posthtml');
+const chromeOSWord = require('../../lib/transforms/chromeos-word');
 
 test.beforeEach((t) => {
-  const eleventyConfig = new EleventyConfig();
-  chromeOsWord(eleventyConfig);
+  const compiler = posthtml().use(chromeOSWord);
 
   t.context = {
-    eleventyConfig,
+    compiler,
   };
 });
 
-test.skip('Base cases', (t) => {
-  const textSamples = ['chromeos', 'chrome-os', 'chrome os', 'chrome  os', 'chrome&nbsp;os', 'chrome–os'];
+test('Base cases', async (t) => {
+  const textSamples = ['chromeos', 'chrome-os', 'chrome os', 'chrome  os', 'chrome&nbsp;os', 'chrome–os'].map((t) => `<p>${t}</p>`);
 
   for (const sample of textSamples) {
-    t.is(t.context.eleventyConfig.callTransform('chromeOsWord', sample), buildHtmlResult('Chrome&nbsp;OS'));
+    const { html } = await t.context.compiler.process(sample);
+    t.is(html, '<p>ChromeOS</p>');
   }
 });
 
-test.skip('Anchor cases', (t) => {
+test('Anchor cases', async (t) => {
   const tests = [
     {
       input: '<a href="https://www.reddit.com/r/chromeos/">Chrome os is awesome</a>',
-      output: '<a href="https://www.reddit.com/r/chromeos/">Chrome&nbsp;OS is awesome</a>',
+      output: '<a href="https://www.reddit.com/r/chromeos/">ChromeOS is awesome</a>',
     },
     {
       input: '<a href="https://stackoverflow.com/questions/tagged/google-chrome-os">chrome-os is awesome</a>',
-      output: '<a href="https://stackoverflow.com/questions/tagged/google-chrome-os">Chrome&nbsp;OS is awesome</a>',
+      output: '<a href="https://stackoverflow.com/questions/tagged/google-chrome-os">ChromeOS is awesome</a>',
     },
     {
       input: '<a href="https://www.reddit.com/r/chromeos/">https://www.reddit.com/r/chromeos/</a>',
@@ -75,27 +58,30 @@ test.skip('Anchor cases', (t) => {
     },
   ];
 
-  for (const test of tests) {
-    t.is(t.context.eleventyConfig.callTransform('chromeOsWord', test.input), buildHtmlResult(test.output));
+  for (const sample of tests) {
+    const { html } = await t.context.compiler.process(sample.input);
+    t.is(html, sample.output);
   }
 });
 
-test.skip('Immutable cases', (t) => {
-  const immutableSamples = ['<a href ="go/google-chromeos">Go url</a>', '<a href="#chromeos-help">Hash url</a>', '<a href="#chromeos">Hash url 2</a>', '<a href="chromeos#help">Hash url3</a>', '<a href="someurl?q=help&w=chromeos">Query param 1</a>', '<a href="help?q=chromeos">Query param 2</a>'];
+test('Immutable cases', async (t) => {
+  const tests = ['<a href="go/google-chromeos">Go url</a>', '<a href="#chromeos-help">Hash url</a>', '<a href="#chromeos">Hash url 2</a>', '<a href="chromeos#help">Hash url3</a>', '<a href="someurl?q=help&w=chromeos">Query param 1</a>', '<a href="help?q=chromeos">Query param 2</a>'];
 
-  for (const sample of immutableSamples) {
-    t.is(t.context.eleventyConfig.callTransform('chromeOsWord', sample), buildHtmlResult(sample));
+  for (const sample of tests) {
+    const { html } = await t.context.compiler.process(sample);
+    t.is(html, sample);
   }
 });
 
-test.skip('chromeOS logo case', (t) => {
+test('chromeOS logo case', async (t) => {
   const logo = '<span class="logo__text">chromeOS</span>';
 
-  t.is(t.context.eleventyConfig.callTransform('chromeOsWord', logo), buildHtmlResult(logo));
+  const { html } = await t.context.compiler.process(logo);
+  t.is(html, logo);
 });
 
-test.skip('Head tags cases', (t) => {
-  const html = `
+test('Head tags cases', async (t) => {
+  const input = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -111,13 +97,14 @@ test.skip('Head tags cases', (t) => {
     <!DOCTYPE html>
     <html lang="en">
     <head>
-      <title>Smooth animation on Chrome OS | ChromeOS.dev</title>
-      <meta name="Description" content="Get the latest news, stories, resource articles, and case studies for Chrome OS." />
+      <title>Smooth animation on ChromeOS | ChromeOS.dev</title>
+      <meta name="Description" content="Get the latest news, stories, resource articles, and case studies for ChromeOS.">
     </head>
     <body>
       <p>Lorem ipsum dolor sit amet adipisicing elit.</p>
     </body>
     </html>`;
 
-  t.is(t.context.eleventyConfig.callTransform('chromeOsWord', html), buildHtmlResult(expected));
+  const { html } = await t.context.compiler.process(input);
+  t.is(html, expected);
 });
