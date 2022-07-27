@@ -10,12 +10,6 @@
       url: web
     - title: Juegos
       url: games
-- title: Publicar
-  desc: Obtén información sobre cómo publicar tus aplicaciones en Google Play Store e involucra a millones de usuarios en Chromebooks.
-  url: publish
-  icon:
-    name: upload
-    background: green
 - title: Desarrollo
   desc: Utilice Chrome OS para desarrollar aplicaciones en un entorno rápido, seguro y sin complicaciones.
   icon:
@@ -30,6 +24,12 @@
       url: web-environment
     - title: Productividad
       url: productivity
+- title: Publicar
+  desc: Obtén información sobre cómo publicar tus aplicaciones en Google Play Store e involucra a millones de usuarios en Chromebooks.
+  url: publish
+  icon:
+    name: upload
+    background: green
 - title: Noticias
   url: news
 - title: Historias
