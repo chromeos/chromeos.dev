@@ -7,7 +7,9 @@ layout: _wrapper
 <article class="article">
   <div class="article__hero">{{skipLink(microcopy.skip.content, 'article')}} {{ heroArticle(section, locale, parent, microcopy, tags[1], title, hero, theme, app) }}</div>
   {% if section == 'case-studies' %}
-  <div class="wrapper--padded wrapper--full-bleed article__hero-image-wrapper"></div>
+  <div class="wrapper--padded wrapper--full-bleed article__hero-image-wrapper">
+    <img src="{{hero.image}}" alt="{{hero.alt}}" class="article__hero-image" />
+  </div>
   {% endif %} {% if section == 'posts' and hero.youtube %}
   <div class="wrapper--padded wrapper--full-bleed article__hero-image-wrapper">
     <div class="article__video">

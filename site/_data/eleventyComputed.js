@@ -126,6 +126,7 @@ module.exports = {
   nav: l10nFallback('nav'),
   cookies: l10nFallback('cookieDisclaimer'),
   search: l10nFallback('search'),
+  microcopy: l10nFallback('microcopy'),
   showNewsletter: (data) => (l10nFallback('hideNewsletter')(data) ? false : 'show'),
   subscribe: l10nFallback('newsletter.subscribe'),
   og: (data) => {
