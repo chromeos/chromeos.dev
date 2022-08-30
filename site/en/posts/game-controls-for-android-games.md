@@ -38,19 +38,47 @@ This release is intended for use in active gameplay. You should still use your m
 
 For the initial release, we handpicked a collection of games that we hope will reach a wide range of ChromeOS gamers. The categories we focused on were: joystick, single button, multi-button, and swipe games.
 
-| Joystick Games                                                                                                                    | Single Button Games                                                                                                              | Multi-Button Games                                                                                                        | Swipe Games                                                                                     |
-| :-------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------- |
-| [Archero](https://play.google.com/store/apps/details?id=com.habby.archero&hl=en_US&gl=US)                                         | [Geometry Dash Lite](https://play.google.com/store/apps/details?id=com.robtopx.geometryjumplite)                                 | [Hill Climb Racing](https://play.google.com/store/apps/details?id=com.fingersoft.hillclimb&hl=en_US&gl=US)                | [2048 (Androbaby)](https://play.google.com/store/apps/details?id=com.androbaby.game2048)        |
-| [AXES.io](https://play.google.com/store/apps/details?id=com.yuriychechulin.throwio)                                               | [Stack Ball - Crash Platforms](https://play.google.com/store/apps/details?id=com.azurgames.stackball)                            | [Ninja Arashi 2](https://play.google.com/store/apps/details?id=com.blackpanther.ninjaarashi2&hl=en_US&gl=US)              | [2048 Original](https://play.google.com/store/apps/details?id=com.androbaby.original2048)       |
-| [Heroics Epic Legend of Archero](https://play.google.com/store/apps/details?id=com.datavisionstudio.roguelike)                    | [Fire Balls 3D](https://play.google.com/store/apps/details?id=com.NikSanTech.FireDots3D)                                         | [Ninja Arashi](https://play.google.com/store/apps/details?id=com.blackpanther.ninjaarashi)                                | [2048 (Solebon LLC)](https://play.google.com/store/apps/details?id=com.gabrielecirulli.app2048) |
-| [Wizard Legend: Fighting Master](https://play.google.com/store/apps/details?id=com.loongcheer.neverlate.wizardlegend.fightmaster) | [Stack Smash](https://play.google.com/store/apps/details?id=com.stack.ball.destroy.wood)                                         | [Ninja warrior: legend of adventure games](https://play.google.com/store/apps/details?id=com.tohsoft.arashi.ninja.shadow) | [2048 Number puzzle game](https://play.google.com/store/apps/details?id=com.estoty.game2048)    |
-| [Pixel Blade R - Revolution](https://play.google.com/store/apps/details?id=com.pixelstar.pbr&hl=en_US&gl=US)                      | [Drop Stack Ball - Fall Helix Blast Crash 3D](https://play.google.com/store/apps/details?id=com.match3blaster.DropStackBallFall) | [Power Hover](https://play.google.com/store/apps/details?id=com.oddrok.powerhover)                                        | [2048 (S2 Apps)](https://play.google.com/store/apps/details?id=com.s2apps.game2048)             |
-| [Zombero: Archero Hero Shooter](https://play.google.com/store/apps/details?id=com.aldagames.zombero.bullet.hell)                  | [Helix Smash](https://play.google.com/store/apps/details?id=com.nama.stackball)                                                  | [Grimvalor](https://play.google.com/store/apps/details?id=com.direlight.grimvalor)                                        |                                                                                                 |
-| [Archer Hunter - Offline Action Adventure Game](https://play.google.com/store/apps/details?id=co.imba.archero)                    | [Stack Crush Ball](https://play.google.com/store/apps/details?id=com.stack.ball.crush)                                           |                                                                                                                           |                                                                                                 |
-| [Mr. Autofier](https://play.google.com/store/apps/details?id=games.lightheart.mrautofire)                                         | [Crush Stack Ball Blast](https://play.google.com/store/apps/details?id=com.elegant.stack.ball.blast.crush)                       |                                                                                                                           |                                                                                                 |
-|                                                                                                                                   | [Stack Fall](https://play.google.com/store/apps/details?id=com.Stellar.StackFall)                                                |                                                                                                                           |                                                                                                 |
-|                                                                                                                                   | [Helix Stack Jump: Smash Ball](https://play.google.com/store/apps/details?id=com.hiroba.helix)                                   |                                                                                                                           |                                                                                                 |
-|                                                                                                                                   | [Tap Titans 2](https://play.google.com/store/apps/details?id=com.gamehivecorp.taptitans2)                                        |                                                                                                                           |                                                                                                 |
+#### Joystick games
+
+- [Archero](https://play.google.com/store/apps/details?id=com.habby.archero&hl=en_US&gl=US)
+- [AXES.io](https://play.google.com/store/apps/details?id=com.yuriychechulin.throwio)
+- [Heroics Epic Legend of Archero](https://play.google.com/store/apps/details?id=com.datavisionstudio.roguelike)
+- [Wizard Legend: Fighting Master](https://play.google.com/store/apps/details?id=com.loongcheer.neverlate.wizardlegend.fightmaster)
+- [Pixel Blade R - Revolution](https://play.google.com/store/apps/details?id=com.pixelstar.pbr&hl=en_US&gl=US)
+- [Zombero: Archero Hero Shooter](https://play.google.com/store/apps/details?id=com.aldagames.zombero.bullet.hell)
+- [Archer Hunter - Offline Action Adventure Game](https://play.google.com/store/apps/details?id=co.imba.archero)
+- [Mr. Autofier](https://play.google.com/store/apps/details?id=games.lightheart.mrautofire)
+
+#### Single button Games
+
+- [Geometry Dash Lite](https://play.google.com/store/apps/details?id=com.robtopx.geometryjumplite)
+- [Stack Ball - Crash Platforms](https://play.google.com/store/apps/details?id=com.azurgames.stackball)
+- [Fire Balls 3D](https://play.google.com/store/apps/details?id=com.NikSanTech.FireDots3D)
+- [Stack Smash](https://play.google.com/store/apps/details?id=com.stack.ball.destroy.wood)
+- [Drop Stack Ball - Fall Helix Blast Crash 3D](https://play.google.com/store/apps/details?id=com.match3blaster.DropStackBallFall)
+- [Helix Smash](https://play.google.com/store/apps/details?id=com.nama.stackball)
+- [Stack Crush Ball](https://play.google.com/store/apps/details?id=com.stack.ball.crush)
+- [Crush Stack Ball Blast](https://play.google.com/store/apps/details?id=com.elegant.stack.ball.blast.crush)
+- [Stack Fall](https://play.google.com/store/apps/details?id=com.Stellar.StackFall)
+- [Helix Stack Jump: Smash Ball](https://play.google.com/store/apps/details?id=com.hiroba.helix)
+- [Tap Titans 2](https://play.google.com/store/apps/details?id=com.gamehivecorp.taptitans2)
+
+#### Multi-button games
+
+- [Hill Climb Racing](https://play.google.com/store/apps/details?id=com.fingersoft.hillclimb&hl=en_US&gl=US)
+- [Ninja Arashi 2](https://play.google.com/store/apps/details?id=com.blackpanther.ninjaarashi2&hl=en_US&gl=US)
+- [Ninja Arashi](https://play.google.com/store/apps/details?id=com.blackpanther.ninjaarashi)
+- [Ninja warrior: legend of adventure games](https://play.google.com/store/apps/details?id=com.tohsoft.arashi.ninja.shadow)
+- [Power Hover](https://play.google.com/store/apps/details?id=com.oddrok.powerhover)
+- [Grimvalor](https://play.google.com/store/apps/details?id=com.direlight.grimvalor)
+
+#### Swipe games
+
+- [2048 (Androbaby)](https://play.google.com/store/apps/details?id=com.androbaby.game2048)
+- [2048 Original](https://play.google.com/store/apps/details?id=com.androbaby.original2048)
+- [2048 (Solebon LLC)](https://play.google.com/store/apps/details?id=com.gabrielecirulli.app2048)
+- [2048 Number puzzle game](https://play.google.com/store/apps/details?id=com.estoty.game2048)
+- [2048 (S2 Apps)](https://play.google.com/store/apps/details?id=com.s2apps.game2048)
 
 ---
 
