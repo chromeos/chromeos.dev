@@ -447,7 +447,7 @@ const contributors = {
     work: {
       company: 'Google',
       org: 'ChromeOS',
-      title: 'Software Manager',
+      title: 'Engineering Manager',
     },
   },
 };
