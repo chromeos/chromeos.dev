@@ -23,7 +23,7 @@ const contributors = {
     },
     work: {
       company: 'Google', // Optional
-      org: 'Chrome OS', // Optional
+      org: 'ChromeOS', // Optional
       title: 'Product Management Director', // Optional
     },
   },
@@ -46,8 +46,8 @@ const contributors = {
     },
     work: {
       company: 'Google', // Optional
-      org: 'Chrome OS', // Optional
-      title: 'Head of Chrome OS Apps Ecosystem Product Marketing', // Optional
+      org: 'ChromeOS', // Optional
+      title: 'Head of ChromeOS Apps Ecosystem Product Marketing', // Optional
     },
   },
   samrichard: {
@@ -58,7 +58,7 @@ const contributors = {
     },
     work: {
       company: 'Google', // Optional
-      org: 'Chrome OS', // Optional
+      org: 'ChromeOS', // Optional
       title: 'Developer Advocate', // Optional
     },
   },
@@ -82,7 +82,7 @@ const contributors = {
     },
     work: {
       company: 'Google', // Optional
-      org: 'Chrome OS', // Optional
+      org: 'ChromeOS', // Optional
       title: 'Developer Advocate', // Optional
     },
   },
@@ -105,7 +105,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Head of Developer Relations',
     },
   },
@@ -127,7 +127,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Product Manager',
     },
   },
@@ -138,7 +138,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Lead Games Developer Advocate',
     },
   },
@@ -149,7 +149,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Developer Relations Engineering Manager',
     },
   },
@@ -160,7 +160,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Product Manager',
     },
   },
@@ -171,7 +171,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineer',
     },
   },
@@ -182,7 +182,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Developer Advocate',
     },
   },
@@ -193,7 +193,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Product Manager',
     },
   },
@@ -204,7 +204,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Developer Relations Engineer',
     },
   },
@@ -215,7 +215,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Program Manager',
     },
   },
@@ -226,7 +226,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Developer Relations Engineer',
     },
   },
@@ -237,7 +237,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Developer Relations Engineer',
     },
   },
@@ -248,7 +248,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineer',
     },
   },
@@ -259,7 +259,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineer',
     },
   },
@@ -270,7 +270,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Engineering Manager',
     },
   },
@@ -281,7 +281,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineer',
     },
   },
@@ -292,7 +292,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineer',
     },
   },
@@ -303,7 +303,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineer',
     },
   },
@@ -314,7 +314,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineer',
     },
   },
@@ -325,7 +325,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineering Manager',
     },
   },
@@ -336,7 +336,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Product Lead, Apps Platforms',
     },
   },
@@ -347,7 +347,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineer',
     },
   },
@@ -358,7 +358,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineer',
     },
   },
@@ -369,7 +369,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineer',
     },
   },
@@ -380,7 +380,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineer',
     },
   },
@@ -391,7 +391,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineer',
     },
   },
@@ -402,7 +402,7 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineer',
     },
   },
@@ -413,8 +413,41 @@ const contributors = {
     },
     work: {
       company: 'Google',
-      org: 'Chrome OS',
+      org: 'ChromeOS',
       title: 'Software Engineer',
+    },
+  },
+  gdomergue: {
+    name: {
+      given: 'Gina',
+      family: 'Domergue',
+    },
+    work: {
+      company: 'Google',
+      org: 'ChromeOS',
+      title: 'Software Engineer',
+    },
+  },
+  cuicuiruan: {
+    name: {
+      given: 'Cici',
+      family: 'Ruan',
+    },
+    work: {
+      company: 'Google',
+      org: 'ChromeOS',
+      title: 'Software Engineer',
+    },
+  },
+  tgorkin: {
+    name: {
+      given: 'Travis',
+      family: 'Gorkin',
+    },
+    work: {
+      company: 'Google',
+      org: 'ChromeOS',
+      title: 'Engineering Manager',
     },
   },
 };
