@@ -18,7 +18,7 @@ ChromeOS users already have access to hundreds of thousands of Android games via
 
 ## Keyboards are critical
 
-Keyboard support is critical for ChromeOS; the majority of ChromeOS users interact with apps using a mouse and keyboard, but many apps from Google Play are only designed with touch interactions in mind. It's an especially important problem for games, which often require quick movements or button taps that are difficult or impossible to perform with a mouse. By translating key presses into simulated touch events, the game controls feature allows players to use their keyboard to interact with on-screen buttons and virtual joysticks, resulting in a vastly improved experience for games with limited or missing keyboard support.
+Keyboard support is critical for ChromeOS; approximately 90% of ChromeOS users interact with apps using a mouse and keyboard[^1], but many apps from Google Play are only designed with touch interactions in mind. It's an especially important problem for games, which often require quick movements or button taps that are difficult or impossible to perform with a mouse. By translating key presses into simulated touch events, the game controls feature allows players to use their keyboard to interact with on-screen buttons and virtual joysticks, resulting in a vastly improved experience for games with limited or missing keyboard support.
 
 The new game controls feature can rapidly improve the gaming experience, particularly for ChromeOS devices without a touch screen. It doesn’t replace the existing need for developers to [implement keyboard support](/{{locale.code}}/games/optimizing-games-inputs) in their apps, though. To provide the best and most consistent gameplay across phone, tablet, desktop, and large-screen devices, we recommend developers support a [breadth of input modes](/{{locale.code}}/android/input-compatibility), including mouse, keyboard, and gamepads. We see game controls as a way to overcome initial challenges with the ChromeOS gaming experience while users wait for developers to fully optimize their apps for ChromeOS.
 
@@ -83,3 +83,5 @@ For the initial release, we handpicked a collection of games that we hope will r
 ---
 
 This is just the beginning! We will be adding an editor to make adding game controls support possible for any game from Google Play that your Chromebook runs, mouse and gamepad support, handling more types of touch interactions, plus more! Have any games or requests you want to see prioritized? Submit your ideas via the Send Feedback button in the hovering menu on any game where game controls are enabled.
+
+[^1]: Source: 2022 Google Internal Data
