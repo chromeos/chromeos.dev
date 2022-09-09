@@ -29,11 +29,11 @@ hideNewsletter: true
   {% endif %}
 
   <!-- M100 Banner -->
-  <div id="home__banner">{{ bannerInterstitial(landingCollections.featured.post, l10n.microcopy) }}</div>
+  <div id="home__banner" class="wrapper wrapper__contained">{{ bannerInterstitial(landingCollections.featured.post, l10n.microcopy) }}</div>
 
   <!-- Recent Articles -->
   {% if landingCollections.posts.length > 0 %}
-  <div id="home__articles" class="wrapper wrapper--padding wrapper--padded">{{ itemGrid(l10n.home.posts.title, landingCollections.homePosts, l10n.home.posts.modifiers, l10n.locale.code) }}</div>
+  <div id="home__articles" class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__background wrapper__contained">{{ itemGrid(l10n.home.posts.title, landingCollections.homePosts, l10n.home.posts.modifiers, l10n.locale.code) }}</div>
   {% endif %}
 
   <!-- Ent and EDU -->

@@ -17,7 +17,7 @@
   @param {string} locale - Code for the current locale.
 #}-->
 {% from 'icon.njk' import icon %} {% macro bannerInterstitial(content, microcopy) %}
-<article class="banner-interstitial wrapper wrapper--full-bleed wrapper__contained {{'banner-interstitial--no-cta' if not content.cta}}">
+<article class="banner-interstitial {{'banner-interstitial--no-cta' if not content.cta}}">
   <div class="banner-interstitial__inner {{'theme theme__' + content.theme.theme if content.theme}}">
     <div class="banner-interstitial__content">
       <div class="banner-interstitial__text">

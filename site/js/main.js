@@ -16,7 +16,6 @@
 /* global gtag */
 import { preferences } from 'service-worker-i18n-redirect/preferences';
 import { MainNavigation } from './components/nav';
-import { CookieDisclaimer } from './components/cookie-disclaimer';
 import circleWorklet from './worklets/circles.js?url';
 import shapeWorklet from './worklets/shape.js?url';
 
@@ -48,9 +47,15 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
 
   const cookieDialog = document.querySelector('.cookie-disclaimer');
-  const logo = document.querySelector('.header__home');
+
   if (cookieDialog) {
-    new CookieDisclaimer(cookieDialog, logo);
+    const logo = document.querySelector('.header__home');
+    try {
+      const { CookieDisclaimer } = await import('./components/cookie-disclaimer');
+      new CookieDisclaimer(cookieDialog, logo);
+    } catch (e) {
+      console.error('Could not load cookie disclaimer');
+    }
   }
 
   if (offlineSearch && (await preferences.get('offline-search'))) {

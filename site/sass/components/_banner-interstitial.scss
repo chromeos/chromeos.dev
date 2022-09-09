@@ -16,9 +16,11 @@
     position: relative;
 
     @include mq($break-2-col) {
-      border-radius: 0.625rem;
-      margin: 0 $wrapper-inline-spacing-r;
       padding: 0;
+    }
+
+    @include mq(1440px) {
+      border-radius: 0.625rem;
     }
   }
 
