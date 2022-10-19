@@ -28,7 +28,6 @@ const { normalizeTag } = require('../../lib/helpers/tags');
  */
 function determineFeaturedStories(content) {
   const home = [];
-  let landing;
 
   for (const c of content) {
     if (home.length < 3) {
@@ -38,11 +37,7 @@ function determineFeaturedStories(content) {
     }
   }
 
-  if (home.length > 1) {
-    landing = home[1];
-  } else {
-    landing = home[0];
-  }
+  const landing = home[0];
 
   return {
     home,
