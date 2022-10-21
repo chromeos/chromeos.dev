@@ -77,8 +77,8 @@ stats:
         shape: semicircle
         scale: full
       footnote: 1
-    - stat: +50%
-      desc: Chromebook users engaging with Android apps, YoY
+    - stat: 270M
+      desc: Active Android users on ChromeOS, tablets, and foldables
       modifiers:
         shape: circle
       footnote: 2
@@ -201,6 +201,6 @@ videos:
 footnotes:
   notes:
     - Google Internal Data, Feb 1 2021 to Feb 1 2022.
-    - Google Internal Data, 2020-2021.
+    - Google Internal Data, Q1 2022.
     - Google Internal Data, January 2022.
   variant: landing
