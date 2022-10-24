@@ -1,6 +1,6 @@
 ---
-title: Announcing LumaFusion Beta for ChromeOS
-metadesc: We're very excited today to announce the open beta of LumaFusion for ChromeOS and Android!
+title: Announcing LumaFusion beta for ChromeOS
+metadesc: LumaFusion beta is now available for ChromeOS and Android.
 tags:
   - announcement
   - android
