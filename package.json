@@ -107,7 +107,7 @@
     "front-matter": "^4.0",
     "fs-extra": "^10.0",
     "glob": "^7.2",
-    "husky": "^7.0.4",
+    "husky": "^8.0.1",
     "js-yaml": "^4.1",
     "lint-staged": "^12.3.4",
     "lodash.clonedeep": "^4.5",
