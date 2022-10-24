@@ -4,7 +4,7 @@ metadesc: Find out how the Tayasui Sketches team scaled their existing iOS drawi
 date: 2022-10-19
 app:
   name: Sketches
-  logo: ix://stories/simplifi/logo.png
+  logo: ix://stories/sketches/logo.png
   company: Tayasui
 hero:
   image: ix://stories/sketches/hero.png
