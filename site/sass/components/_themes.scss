@@ -23,4 +23,12 @@
     --hero-theme-background: var(--green-700);
     --hero-theme-cta-background: transparent;
   }
+
+  &__lumafusion {
+    --hero-theme-color: var(--white);
+    --hero-theme-background: var(--blue-850);
+    --hero-theme-cta-background: transparent;
+
+    background-image: radial-gradient(circle farthest-corner at 97% 97%, var(--blue-200) 175px, transparent 175px), radial-gradient(circle farthest-corner at calc(97% + 53px) calc(97% + 53px), var(--blue-300) 250px, transparent 250px);
+  }
 }

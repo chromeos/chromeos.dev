@@ -8,10 +8,11 @@ hero:
   youtube: azWiCUPPThk
   alt: Video showing a video being edited in LumaFusion on a Chromebook
 theme:
-  background:
-    top: ix://posts/announcing-lumafusion-beta-for-chromeos/LumaFusionHero.png
-    bottom: ix://posts/announcing-lumafusion-beta-for-chromeos/LumaFusionHero.png
-featured: true
+  theme: lumafusion
+featured:
+  images:
+    - image: ix://posts/announcing-lumafusion-beta-for-chromeos/LumaFusionHero.png
+      alt: Chromebook running LumaFusion Beta
 authors:
   - chrisdemiris
 date: 2022-10-24

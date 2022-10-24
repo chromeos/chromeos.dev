@@ -55,12 +55,12 @@
     </picture>
     {% else %}
     <img class="hero-article__images--background-pattern" src="{{theme.background}}" alt="" />
-    {% endif %} {% elif section == 'posts' %}
+    {% endif %} {% elif section == 'posts' and not theme %}
     <picture>
       <source media="(min-width: 871px)" srcset="ix://landings/{{ parent.url }}/top/banner-{{tagSlug}}.svg" />
       <img class="hero-article__images--background-pattern" src="ix://landings/{{ parent.url }}/banner-{{tagSlug}}.svg" alt="" />
     </picture>
-    {% else %}
+    {% elif not theme %}
     <img class="hero-article__images--background-pattern" src="ix://landings/{{ parent.url }}/banner-{{tagSlug}}.svg" alt="" />
     {% endif %}
   </div>
