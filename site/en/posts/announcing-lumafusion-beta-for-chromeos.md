@@ -18,7 +18,7 @@ authors:
 date: 2022-10-24
 ---
 
-We're very excited today to announce the open beta of LumaFusion for ChromeOS and Android! This is an important milestone in our long-held goal of bringing professional and accessible video editing and effects to an incredibly wide range of content creators around the world.
+We're very excited today to announce the open beta of LumaFusion for ChromeOS and Android. This is an important milestone in our long-held goal of bringing professional and accessible video editing and effects to an incredibly wide range of content creators around the world.
 
 Developing LumaFusion for ChromeOS and Android devices presented us with new opportunities. The development team built LumaFusion for ChromeOS from the ground up, taking great strides to recreate the signature LumaFusion experience and ensure users enjoy the same workflow on any device they choose. We think Chromebooks are a natural fit for LumaFusion because they’re easy to set up and are always ready to use with great battery life and no long boot up or update times. We think our users will love the flexibility and power their large screens and both touch and keyboard interfaces will bring to how they work. That same ease of use and complete control has always been a hallmark of LumaFusion.
 
