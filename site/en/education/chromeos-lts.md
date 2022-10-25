@@ -1,31 +1,66 @@
 ---
-title: Chrome OS LTS
+title: ChromeOS long-term support release
 metadesc: Understand how to validate your application works with the way schools deploy Chrome OS.
 date: 2021-03-21
 weight: -7
 tags:
   - web
+resources:
+  - title: Report Chrome or ChromOS bug
+    url: https://crbug.com
+  - title: Report Android bug
+    url: https://issuetracker.google.com
 ---
 
-[Chrome OS LTS](https://support.google.com/chrome/a/answer/11333726?hl=en) is the long term support channel (LTS) for Chrome OS devices and is targeted to education and enterprise users of Chrome OS. Normally, Chrome OS receives a new update every four weeks to its stable channel. The long-term support channel has a slower release cadence; devices still continue to receive frequent security fixes, but they only get feature updates every 6 months. Many schools have already moved to the LTS channel as it lowers their burden to certify that the version of Chrome OS that they have deployed works with all their applications.
+Frequent operating system updates are vital to ensure security and access to the latest features. By default ChromeOS [releases a full OS update](https://support.google.com/chromebook/answer/1086915) to the stable channel (Stable) about every 4 weeks. Minor updates, such as security fixes and software updates, happen every 2–3 weeks. Developers can test their applications on the developer (Dev) or beta (Beta) channels before each new stable version is released, to make sure their apps work well. Dev gets updated once or twice weekly, and shows what the Chrome team is working on right now. This build is still subject to bugs, but gives a 9–12 week preview of what’s coming to Stable. Beta gives you a 4–6 week preview of features coming to Stable.
 
-## How should I test my app for LTS users?
+But, testing on a monthly basis with these existing channels can be challenging for system administrators and developers to keep up with. To provide better support and give everyone more time to test, we've created a new long-term support plan, with long-term support channels, for ChromeOS.
 
-To ensure that your app works for schools and enterprises, you will want to make sure that your app can be deployed on an LTS channel and then certify that all functionality works within that LTS channel and the previous LTS channel. The LTS channel is updated every six months, with a six version difference. That means that if today the LTS channel is on Chrome 96, you can expect that the next LTS release will be Chrome 102, released six months from now. The [current release schedule](https://chromiumdash.appspot.com/schedule) is available online and shows detailed information about each release.
+## Long-term support releases
 
-There is also a long-term support candidate (LTC) release that occurs every six months. Three months after the LTS (version 96) release, the LTC (version 102) release starts to get updated, and continues to be updated until the next LTS (version 102) release. You can expect the LTC (version 102) will be functionally equivalent to the next LTS (version 102) release. We encourage education developers to start testing their application on the dev (version 98( channel of a Chromebook to prepare for the next LTC (version 102) candidate three months after release of the LTS (version 96) channel.
+ChromeOS’s long-term support releases are a powerful tool to reduce the effort to manage devices in an organization and certify that apps work well for every OS update. Both admins and developers should get familiar with them to provide a great experience to organizations adopting them.
 
-### How can I install a Chrome OS LTS/LTC version on my Chromebook for testing?
+ChromeOS offers two long-term support releases: a **long-term support candidate (LTC)** release and a **long-term stable (LTS)** release.
 
-If you are interested in using an LTS/LTC release on your Chromebook to test your application, you can follow [these instructions](https://support.google.com/chrome/a/answer/11333726) to deploy an LTS license to a device.
+- **Long-term support candidate (LTC)** - used as a basis for the next LTS version and is cut from Stable three months before LTS, giving admins a preview to prepare with.
+- **Long-term support channel (LTS)** - updated every 6 months, this channel has the slowest release cadence and is meant as a replacement for the normal stable channel. Except for a few users that should remain on LTC for testing purposes, most should be on LTS when adopting long-term support releases across an organization.
 
-## What happens if I implement new features in my app or extension?
+**Diagram goes here**
 
-### Web Applications
+The LTC / LTS lifecycle works as follows:
 
-#### Feature Detection
+- The LTC release (96 LTC in the diagram) is cut from the stable release (96 Stable), so during the first month both are identical.
+- LTC starts to receive security fixes every two weeks for the next 3 months until the next LTS release (96 LTS in the diagram). This means that 3 months after the initial LTC release, LTCwill mirror LTS.
+- Once LTS is released, it will continue receiving security fixes every two weeks.
+- Devices left on LTC after LTS is released will also continue to receive security fixes every two weeks, and will automatically update to the next LTC release when it’s cut.
 
-If you are planning on implementing new features within your application that are available in future versions of Chrome, you can gate those features by checking for their existence in the browser first and then if they do not exist, make sure that a graceful fallback exists. For instance, if you wanted to utilize something like WebGPU, you would do the following:
+In addition to operating system features and bug fixes, firmware updates are also bundled inside LTS releases up to a device's auto update expiration (AUE).
+
+To enable either channel, you must have a [Google domain and a managed device](https://support.google.com/chrome/a/answer/1289314). You can sign up for a [Chrome Enterprise Upgrade trial](https://support.google.com/chrome/a/answer/7679452?ref_topic=9050345) to get access to the Google Admin console allowing you to setup and [deploy managed Chromebooks](https://support.google.com/chrome/a/answer/4601288). Finally, [switch your managed devices to the LTS or LTC channel](https://support.google.com/chrome/a/answer/11333726#:~:text=OS%20devices.-,Switch%20devices%20to%20the%20LTC%20channel,-Your%20current%20account) from the Admin console. [We recommend](https://support.google.com/chrome/a/answer/6025002) keeping the majority of your devices on the LTS channel and use LTC to test the upcoming LTS release.
+
+## Testing workflow for LTC / LTS
+
+LTC and LTS are designed to considerably reduce testing efforts for admins, while ensuring a secure operating system experience. To keep system administrators and developers in alignment with the long-term support lifecycle, you should:
+
+- Test on Dev and Beta ahead of the stable release that matches the upcoming LTC channel release.
+- Once LTC is released, test on it to ensure that any applied security fixes don't affect your work until LTS is cut.
+- Once LTC gets promoted to LTS, LTS will continue to get security fixes every two weeks. You should test them, too.
+
+Taking the beginning of the diagram as reference:
+
+- Start testing on 96 Dev and 96 Beta to make sure that everything works well ahead of the 96 Stable release from which 96 LTC will be cut.
+- Test on 96 LTC every two weeks until LTS 96 is released three months from the initial cut date.
+- Continue testing on LTS regularly to make sure that security fixes don’t break anything.
+
+## Managing changes between LTC/LTS versions
+
+Whether adopting a long-term support version of ChromeOS or working with an organization that has, properly managing changes between versions is critical. You may add a feature based on new platform capabilities or rely on one that was deprecated in later versions. Or, you may rely on specific features of a specific version of an app, or want to offer users the ability to choose what version they run. To ensure seamless application access, you should work to ensure your app is backwards compatible, provide separate instances per version, or both.
+
+### Ensure backward compatibility
+
+Backwards compatibility allows newer versions of your application to run on older versions of their platform. You can do this with a technique called feature detection, where you check for the availability of a new feature before trying to use it. If it exists you use it; if not, optionally provide a fallback. The generalized version of this technique is called feature flags, where a codepath is loaded depending on whether a feature is enabled, either through capability availability or app or user-level configuration. Android apps, Chrome extensions, and web apps all benefit from this technique. By ensuring that newer versions of your app are backwards compatible, you’re able to manage a single application for all of your users.
+
+A web app looking to provide compute-intensive animations may want to implement WebGPU for browsers that support it and fall back to simpler JavaScript powered animations if unavailable. To do so, they might do the following:
 
 ```javascript {title="JavaScript" .code-figure}
 if ('gpu' in navigator) {
@@ -35,30 +70,14 @@ if ('gpu' in navigator) {
 }
 ```
 
-This allows you to focus on only one application and ensures that you are not only compatible with Chrome but all browsers and is the recommended way to handle new web features.
+### Provide separate instances
 
-#### Separate hosted instances
+Sometimes differences between versions are too much to handle through backwards compatibility techniques. Feature differences may be too great or you may have business needs that dictate having a separate long-term support version than your main application. When this is the case, you may want to consider providing separate instances for each version. While this ensures that users are using a specific version of your app, it may raise your operational costs, so keep this in mind when opting for this solution.
 
-If you would rather have multiple instances of your application, you can alternatively serve the LTS version to users that have paid for an LTS version of your application after they login. This raises the burden on your organization to serve the right content to the right users, but may be a better approach as organizations know that the application won’t be changing during the six months of the LTS deployment. You can then update your application based on the subscribers' preference.
+For web apps, providing a separate instance usually means hosting the different versions of your application at different URLs, potentially requiring separate servers, databases, or other website infrastructure. For Android applications, this means having separate Play Store listings for each version. This may lead to confusion from your users as there would be multiple similar applications available and they may not know which one to choose. Chrome extensions can either also have multiple listings, or you can recommend your customers to pin the version of your Chrome Extension they need through the Chrome Admin console by referring them to [this documentation](https://support.google.com/chrome/a/answer/11190170?hl=en)⁠ which details how to pin extensions and some caveats associated with pinning.
 
-### Android Applications
-
-#### Backwards compatibility
-
-Android applications are also meant to be backwards compatible with previous versions of Android since there are multiple versions and form factors of Android released. The benefit of releasing your application this way is that you have one application to manage rather than multiple applications. If you are building an Android application, it is important to continue to certify your releases against LTS and LTC to make sure that it is compatible with both versions of Chrome OS.
-
-#### Multiple Android Applications
-
-An alternative to the approach is to release an LTS version of your application to the Play Store. The caveat to this is that it could potentially confuse your users as there would be multiple instances of your application in Play and they might not know which one to choose. If you are releasing an LTS version of your application only for Chrome OS, you will want to specify that the application is only for Chrome OS by placing the following in your `AndroidManifest.xml` file:
+An Android app looking to only provide a long-term support version to ChromeOS users may create a separate listing with the following in their AndroidManifest.xml file to specify it should only be delivered to ChromeOS devices:
 
 ```xml {title="AndroidManifest.xml" .code-figure}
 <uses-feature android:name="org.chromium.arc" android:required="true" />
 ```
-
-This line specifies to Play that this app can only be delivered to Chrome OS devices.
-
-### Chrome Extensions
-
-#### Extension Version Pinning
-
-If you want your Chrome extension to be compatible with LTS versions, you can ask your customers to pin that version of the Chrome Extension in the Chrome Admin Console. You can refer your customers to [this documentation](https://support.google.com/chrome/a/answer/11190170?hl=en) which explains how to pin extensions and some caveats associated with pinning.
