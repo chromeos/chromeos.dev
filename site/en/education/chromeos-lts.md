@@ -25,12 +25,12 @@ ChromeOS offers two long-term support releases: a **long-term support candidate 
 - **Long-term support candidate (LTC)** - used as a basis for the next LTS version and is cut from Stable three months before LTS, giving admins a preview to prepare with.
 - **Long-term support channel (LTS)** - updated every 6 months, this channel has the slowest release cadence and is meant as a replacement for the normal stable channel. Except for a few users that should remain on LTC for testing purposes, most should be on LTS when adopting long-term support releases across an organization.
 
-**Diagram goes here**
+{% include 'lts-timeline.njk' %}
 
 The LTC / LTS lifecycle works as follows:
 
-- The LTC release (96 LTC in the diagram) is cut from the stable release (96 Stable), so during the first month both are identical.
-- LTC starts to receive security fixes every two weeks for the next 3 months until the next LTS release (96 LTS in the diagram). This means that 3 months after the initial LTC release, LTCwill mirror LTS.
+- The LTC release (108 LTC in the diagram) is cut from the stable release (108 Stable), so during the first month both are identical.
+- LTC starts to receive security fixes every two weeks for the next 3 months until the next LTS release (108 LTS in the diagram). This means that 3 months after the initial LTC release, LTC will mirror LTS.
 - Once LTS is released, it will continue receiving security fixes every two weeks.
 - Devices left on LTC after LTS is released will also continue to receive security fixes every two weeks, and will automatically update to the next LTC release when it’s cut.
 
@@ -46,10 +46,10 @@ LTC and LTS are designed to considerably reduce testing efforts for admins, whil
 - Once LTC is released, test on it to ensure that any applied security fixes don't affect your work until LTS is cut.
 - Once LTC gets promoted to LTS, LTS will continue to get security fixes every two weeks. You should test them, too.
 
-Taking the beginning of the diagram as reference:
+Taking the [lifecycle diagram](#figure-timeline) as reference:
 
-- Start testing on 96 Dev and 96 Beta to make sure that everything works well ahead of the 96 Stable release from which 96 LTC will be cut.
-- Test on 96 LTC every two weeks until LTS 96 is released three months from the initial cut date.
+- Start testing on 108 Dev and 108 Beta to make sure that everything works well ahead of the 108 Stable release from which 108 LTC will be cut.
+- Test on 108 LTC every two weeks until 108 LTS is released three months from the initial cut date.
 - Continue testing on LTS regularly to make sure that security fixes don’t break anything.
 
 ## Managing changes between LTC/LTS versions
