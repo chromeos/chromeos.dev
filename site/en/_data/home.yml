@@ -71,22 +71,23 @@ stats:
     heading: Grow in good company.
     subtitle: Keep your app—and your audience—growing, across the Chrome OS community.
   items:
-    - stat: +270%
-      desc: Desktop PWA installs, YoY
+    - stat: 270M
+      desc: Active Android users on ChromeOS, tablets, and foldables
       modifiers:
         shape: semicircle
         scale: full
       footnote: 1
-    - stat: +50%
-      desc: Chromebook users engaging with Android apps, YoY
-      modifiers:
-        shape: circle
-      footnote: 2
     - stat: 50M
       desc: Students and educators using Chromebooks worldwide
       modifiers:
         shape: triangle
         scale: half
+
+      footnote: 2
+    - stat: +270%
+      desc: Desktop PWA installs, YoY
+      modifiers:
+        shape: circle
       footnote: 3
 caseStudies:
   title: Get inspired.
@@ -200,7 +201,7 @@ videos:
     heading: h2
 footnotes:
   notes:
-    - Google Internal Data, Feb 1 2021 to Feb 1 2022.
-    - Google Internal Data, 2020-2021.
+    - Google Internal Data, Q1 2022.
     - Google Internal Data, January 2022.
+    - Google Internal Data, Feb 1 2021 to Feb 1 2022.
   variant: landing

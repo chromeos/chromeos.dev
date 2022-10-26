@@ -29,14 +29,14 @@
   <div class="hero__images">
     {% if content.media.image %}
     <img class="hero__images--image" src="{{content.media.image}}" alt="{{content.media.alt}}" />
-    {% endif %} {% if content.theme.background %} {% if content.theme.background.top %}
+    {% endif %} {% if content.theme %} {% if content.theme.background %} {% if content.theme.background.top %}
     <picture>
       <source media="(min-width: 871px)" srcset="{{content.theme.background.top}}" />
       <img class="hero__images--background-pattern" src="{{content.theme.background.bottom}}" alt="" />
     </picture>
     {% else %}
     <img class="hero__images--background-pattern" src="{{content.theme.background}}" alt="" />
-    {% endif %} {% else %}
+    {% endif %} {% endif %} {% else %}
     <picture>
       <source media="(min-width: 871px)" srcset="ix://landings/news/top/banner-{{tagSlug}}.svg" />
       <img class="hero-article__images--background-pattern" src="ix://landings/news/banner-{{tagSlug}}.svg" alt="" />

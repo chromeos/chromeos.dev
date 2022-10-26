@@ -46,7 +46,7 @@
   &__eyebrow,
   &__title,
   &__copy {
-    color: var(--white);
+    color: inherit;
   }
 
   &__copy {
@@ -59,12 +59,17 @@
   }
 
   &__cta {
+    border-color: currentColor;
+    color: inherit;
     display: inline-flex;
     margin-top: 1.75rem;
   }
 
   &__image-wrapper {
+    height: 100%;
     max-width: pxRem(746px);
+    overflow: hidden;
+    position: relative;
     // Stretch image wrapper outside of the banner's wrapper.
     width: math.percentage(math.div(456px, 327px));
 
@@ -80,5 +85,24 @@
 
   &__image {
     object-fit: cover;
+  }
+
+  &--image {
+    float: right;
+    max-height: 100%;
+    position: relative;
+    width: auto;
+    z-index: 1;
+  }
+
+  &--background-pattern {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    z-index: 0;
+
+    @include mq($break-2-col) {
+      height: 100%;
+    }
   }
 }

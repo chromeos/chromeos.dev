@@ -18,7 +18,7 @@
 #}-->
 {% from 'icon.njk' import icon %} {% macro bannerInterstitial(content, microcopy) %}
 <article class="banner-interstitial {{'banner-interstitial--no-cta' if not content.cta}}">
-  <div class="banner-interstitial__inner {{'theme theme__' + content.theme.theme if content.theme}}">
+  <div class="banner-interstitial__inner {% if content.theme.theme %}theme theme__{{content.theme.theme}}{% elif content.tag %}background-color--{{content.normalizedTag}}{% endif %}">
     <div class="banner-interstitial__content">
       <div class="banner-interstitial__text">
         <small class="banner-interstitial__eyebrow type--h2">{{microcopy.featured.eyebrow}}</small>
@@ -27,17 +27,19 @@
         <a href="{{content.cta.url}}" class="cta cta--transparent banner-interstitial__cta"> {{content.cta.text}} </a>
       </div>
       <div class="banner-interstitial__image-wrapper">
-        {% if content.theme.background %} {% if content.theme.background.top %}
+        {% if content.media.image %}
+        <img class="banner-interstitial--image" src="{{content.media.image}}" alt="{{content.media.alt}}" />
+        {% endif %} {% if content.theme %} {% if content.theme.background %} {% if content.theme.background.top %}
         <picture>
           <source media="(min-width: 720px)" srcset="{{content.theme.background.top}}" />
           <img class="banner-interstitial--background-pattern" src="{{content.theme.background.bottom}}" alt="" />
         </picture>
         {% else %}
         <img class="banner-interstitial--background-pattern" src="{{content.theme.background}}" alt="" />
-        {% endif %} {% else %}
+        {% endif %} {% endif %} {% else %}
         <picture>
-          <source media="(min-width: 720px)" srcset="ix://landings/news/top/banner-{{tagSlug}}.svg" />
-          <img class="banner-interstitial--background-pattern" src="ix://landings/news/banner-{{tagSlug}}.svg" alt="" />
+          <source media="(min-width: 871px)" srcset="ix://landings/news/top/banner-{{content.normalizedTag}}.svg" />
+          <img class="banner-interstitial--background-pattern" src="ix://landings/news/banner-{{content.normalizedTag}}.svg" alt="" />
         </picture>
         {% endif %}
       </div>
