@@ -1,6 +1,6 @@
 ---
-title: ChromeOS long-term support release
-metadesc: Understand how to validate your application works with the way schools deploy Chrome OS.
+title: Long-term support releases
+metadesc: Understand ChromOS's long-term support release cycle, why long-term releases are important, how to test with them, and how to manage changes between them.
 date: 2021-03-21
 weight: -7
 tags:
