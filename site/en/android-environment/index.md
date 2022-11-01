@@ -5,7 +5,7 @@ hero:
   image:
     top: ix://landings/heroes/android-environment.svg
     bottom: ix://landings/heroes/android-environment-small.svg
-date: 2020-06-08
+date: 2021-10-31
 weight: -7
 tools:
   - name: Android Debug Bridge (ADB)
@@ -27,7 +27,7 @@ Android Studio has been officially supported on Chrome OS since [version 3.5](ht
 #### System requirements for Android Studio
 
 - 8 GB RAM or more recommended
-- 4 GB of available disk space minimum
+- 20 GB of available disk space minimum
 - 1280 x 800 minimum screen resolution
 - Intel i5 or higher (U series or higher) recommended
 
