@@ -35,7 +35,7 @@ The Steam on Chromebook project is about bringing the best and most innovative g
 
 One of the most wide-ranging performance improvements relates to high resolution displays, which previously incurred a significant performance hit even when the game itself was running at a much lower resolution. We’ve improved our scaling system so you can now performantly play many more games on QHD and UHD displays, and see the performance benefits of reducing in-game resolution on all displays.
 
-As a result of our work on performance and compatibility, there are now 50 new titles added to our recommended games list, with more on the way. If you try Steam on Chromebook and find a great game, please let us know in a gameplay report!
+As a result of our work on performance and compatibility, there are now 50 new titles added to our [recommended games list](https://www.chromium.org/chromium-os/steam-on-chromeos/#game-list), with more on the way. If you try Steam on Chromebook and find a great game, please let us know in a gameplay report!
 
 ## Let’s play!
 
@@ -64,7 +64,7 @@ To get started with Steam on Chromebook beta, head to g.co/SteamOnChromeOS for s
 - Mouse cursor fixes
 - New installer and splash screen
 - Revamped storage management
-  - Fixes games that install additional content outside of Steam (such as FINAL FANTASY XIV Online)
+  - Fixes games that install additional content outside of Steam
   - Improves file access performance for Proton games
   - Note: alpha users will need to uninstall and reinstall Steam so these changes can take effect
 - Device no longer sleeps while games are downloading in the background.
