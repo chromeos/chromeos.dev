@@ -26,4 +26,4 @@ When creating LumaFusion for ChromeOS and Android, one of our biggest challenges
 
 During the development process, we collaborated with ChromeOS and Android to help provide the best performance possible. The learning went both ways and other developers should benefit from platform improvements made to improve the resource intensive task of multi-track asset manipulation in Android.
 
-The LumaFusion open beta is available now in the Google Play Store; we’d love for you to try it out and share your feedback. Stay tuned for even more on this exciting new chapter for ChromeOS and LumaFusion.
+The LumaFusion open beta is available now in the [Google Play Store](https://play.google.com/apps/testing/com.luma_touch.lumafusion); we’d love for you to try it out and share your feedback. Stay tuned for even more on this exciting new chapter for ChromeOS and LumaFusion.
