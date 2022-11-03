@@ -40,17 +40,17 @@ Getting a handle on the more intricate elements of development will help you tak
 
 **[Challenges in storing large amounts of client-side data](https://www.youtube.com/watch?v=tEOzwbvmTpA), by ZenGM Indie Video Game Developer Jeremy Scheff**
 
-If you’re storing a lot of data locally, you’re likely familiar with [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). Although the API has come a long way, with better cross-browser support and wrapper libraries such as idb and Dexie.js, it still has its drawbacks. For instance, you can’t run more complex queries such as joins and aggregations.
+If you’re storing a lot of data locally, you’re likely familiar with [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). Although the API has come a long way, with better cross-browser support and wrapper libraries such as [idb](https://www.npmjs.com/package/idb) and [Dexie.js](https://www.npmjs.com/package/dexie), it still has its drawbacks. For instance, you can’t run more complex queries such as joins and aggregations.
 
 But the web dev community has been finding workarounds. Libraries such as absurd-sql and wa-sqlite let devs run SQL queries on top of data stored in IndexedDB by connecting it to the back end of SQLite.
 
-Another challenge when working with IndexedDB is inadvertent data loss. Browser data might be cleared — either automatically or manually — or simply evicted when disk space is low. The Origin Private File System (an API for high-performance file system access) is a potential solution, but that depends on browser support. To learn more about how client-side data storage is evolving, explore [Jeremy’s talk](https://www.youtube.com/watch?v=tEOzwbvmTpA).
+Another challenge when working with IndexedDB is inadvertent data loss. Browser data might be cleared — either automatically or manually — or simply evicted when disk space is low. The [Origin Private File System](https://web.dev/file-system-access/) (an API for high-performance file system access) is a potential solution, but that depends on browser support. To learn more about how client-side data storage is evolving, explore [Jeremy’s talk](https://www.youtube.com/watch?v=tEOzwbvmTpA).
 
 **[Web apps for everyone, everywhere: PWAs to the rescue of people in low-internet areas](https://www.youtube.com/watch?v=3vG6cWW7_n0), by Telos Labs Software Developer Alicia Rojas**
 
 Not everyone has the web at their fingertips at all times, which makes better offline support critical to accessibility. So when Alicia’s team was asked to create an app that farmers in low-connectivity areas could use to troubleshoot issues with their fields, they homed in on the factors critical to offline PWA use: installability and support for offline create, read, update, and delete (CRUD) actions.
 
-The Background Sync API — which lets web apps defer actions until there’s stable network connection — and IndexedDB were critical to supporting these CRUD actions. Let’s say a farmer tried to create a new diagnosis survey without the internet. IndexedDB, a local database, would store this request as a JSON object. Then, once the farmer was back online, Background Sync would detect this connection to synchronize with the server. To learn more about what web apps can offer and how you can enhance offline capabilities, check out [Alicia’s talk](https://www.youtube.com/watch?v=3vG6cWW7_n0).
+The [Background Sync API](https://developer.mozilla.org/en-US/docs/Web/API/Background_Synchronization_API) — which lets web apps defer actions until there’s stable network connection — and IndexedDB were critical to supporting these CRUD actions. Let’s say a farmer tried to create a new diagnosis survey without the internet. IndexedDB, a local database, would store this request as a JSON object. Then, once the farmer was back online, Background Sync would detect this connection to synchronize with the server. To learn more about what web apps can offer and how you can enhance offline capabilities, check out [Alicia’s talk](https://www.youtube.com/watch?v=3vG6cWW7_n0).
 
 ## Inspiration from leading global brands
 
