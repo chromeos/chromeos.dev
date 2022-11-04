@@ -15,7 +15,7 @@ featured:
       alt: Chromebook running LumaFusion Beta
 authors:
   - chrisdemiris
-date: 2022-10-24
+date: 2022-11-08
 ---
 
 We're very excited today to announce the open beta of LumaFusion for ChromeOS and Android. This is an important milestone in our long-held goal of bringing professional and accessible video editing and effects to an incredibly wide range of content creators around the world.
