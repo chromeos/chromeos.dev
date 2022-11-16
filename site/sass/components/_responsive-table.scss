@@ -40,8 +40,8 @@
       grid-row: 1 / span 1;
     }
 
+    /* stylelint-disable selector-no-qualifying-type */
     &[data-header] {
-      /* stylelint-disable selector-no-qualifying-type */
       &::before {
         align-items: center;
         content: attr(data-header);
