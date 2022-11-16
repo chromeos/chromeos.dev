@@ -48,6 +48,7 @@
     "lint:staged": "lint-staged",
     "md:lint": "remark 'site/*/!(style-guide)/**/*.md' -q -f",
     "patch": "patch-package",
+    "preinstall": "npx --yes only-allow pnpm",
     "postinstall": "patch-package",
     "prebuild": "del public",
     "prepare": "husky install",
