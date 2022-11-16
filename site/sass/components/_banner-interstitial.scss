@@ -46,7 +46,7 @@
   &__eyebrow,
   &__title,
   &__copy {
-    color: inherit;
+    color: var(--hero-theme-color, inherit);
   }
 
   &__copy {
@@ -60,7 +60,7 @@
 
   &__cta {
     border-color: currentColor;
-    color: inherit;
+    color: var(--hero-theme-color, inherit);
     display: inline-flex;
     margin-top: 1.75rem;
   }
