@@ -45,6 +45,7 @@
     "js:fix": "eslint --fix functions site lib vite.config.js ava.config.cjs",
     "js:lint": "eslint functions site lib vite.config.js ava.config.cjs",
     "lint": "cross-env NODE_ENV=production run-p *:lint",
+    "lint:staged": "lint-staged",
     "md:lint": "remark 'site/*/!(style-guide)/**/*.md' -q -f",
     "patch": "patch-package",
     "postinstall": "patch-package",
@@ -170,8 +171,9 @@
     "workbox-strategies": "^6.4"
   },
   "private": true,
-  "volta": {
-    "node": "14.18.2"
+  "engines": {
+    "node": "14.21.1",
+    "pnpm": "7"
   },
   "lint-staged": {
     "(functions|site|lib)/**/*.js": "eslint --cache",
