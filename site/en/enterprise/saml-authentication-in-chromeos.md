@@ -3,6 +3,7 @@ title: SAML authentication in ChromeOS
 metadesc: Perform SAML authentication in ChromeOS with the Credentials Passing API, password scraping, or enterprise enrollment.
 date: 2022-11-11
 ---
+
 By default, Google's externally accessible account service handles
 authentication for Google accounts. When an unauthenticated user visits a
 [Google page](https://accounts.google.com/) that requires authentication, the
@@ -81,7 +82,7 @@ user's password used for authentication.
 
 In this scenario, we most likely scraped the user's password correctly. ChromeOS
 will use the scraped
-password as the user's password [to continue the authentication process](https://cs.chromium.org/chromium/src/chrome/browser/resources/gaia_auth_host/authenticator.js?rcl=faf24c60e6177fe0dcda857ec257d84ebabddc0e&l=708).
+password as the user's password to continue the [authentication process](https://cs.chromium.org/chromium/src/chrome/browser/resources/gaia_auth_host/authenticator.js?rcl=faf24c60e6177fe0dcda857ec257d84ebabddc0e&l=708).
 
 ### More than one password was scraped
 
