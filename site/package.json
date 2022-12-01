@@ -49,7 +49,7 @@
     "patch": "patch-package",
     "postinstall": "patch-package",
     "prebuild": "del public",
-    "prepare": "husky install",
+    "prepare": "cd .. && husky install ./site/.husky",
     "pretest": "run-s lint",
     "prettier:files:fix": "prettier --write .",
     "prettier:files:lint": "prettier -c .",

@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Make code run through TTY
+exec >/dev/tty 2>&1
+
+cd site && npx lint-staged
