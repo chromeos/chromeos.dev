@@ -98,29 +98,15 @@ jobs:
         with:
           name: indexes
           path: functions/indexes
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      - name: Deploy Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          node-version: 14
-      - name: Determine Functions Lockfile
-        id: lockfile
-        run: |
-          if [[ -f "functions/package-lock.json" || -f "functions/npm-shrinkwrap.json" ]]; then
-            echo "::set-output name=exists::true"
-          else
-            echo "::set-output name=exists::false"
-          fi
-      - name: Install Functions Dependencies - Lockfile
-        if: steps.lockfile.outputs.exists == 'true'
-        run: |
-          npm ci --prefix functions
-      - name: Install Functions Dependencies - No Lockfile
-        if: steps.lockfile.outputs.exists == 'false'
-        run: |
-          npm install --prefix functions
-      - name: Deploy to Firebase
-        uses: w9jds/firebase-action@v2.0.0
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          channelId: live
+      - name: Deploy Functions
+        uses: w9jds/firebase-action@v11.16.0
         with:
-          args: deploy
+          args: deploy --only functions
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
