@@ -57,11 +57,12 @@ jobs:
           path: functions/indexes
 
   #########################
-  ## Preview Deploy & Lighthouse Testing
+  ## Preview Deploy
   #########################
   preview:
     needs: build-test
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -70,56 +71,12 @@ jobs:
         with:
           name: site
           path: public
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      - name: Deploy Hosting Preview
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          node-version: 14
-      - name: Install Firebase tools and JQ
-        run: |
-          npm install -g https://storage.googleapis.com/firebase-preview-drop/node/firebase-tools/firebase-tools-8.8.0-channels.1.tgz
-          firebase --open-sesame hostingchannels
-          sudo apt-get update
-          sudo apt-get install jq
-          npm --prefix .github/actions/message install
-          npm --prefix .github/actions/channel install
-      - name: Find Channel ID
-        id: id
-        uses: ./.github/actions/channel
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Deploy preview
-        id: deploy
-        run: |
-          CHANNEL=$(echo "${{ steps.id.outputs.channel }}")
-          DEPLOY=$(firebase hosting:channel:deploy $CHANNEL --json | jq -r '.result["cros-staging"]')
-          echo "::set-output name=url::$(echo $DEPLOY | jq -r '.url')"
-          echo "::set-output name=sha::$GITHUB_SHA"
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-      # - name: Lighthouse Audit
-      #   id: lighthouse
-      #   uses: treosh/lighthouse-ci-action@v3
-      #   continue-on-error: true
-      #   with:
-      #     urls: |
-      #       https://cros-staging.web.app/en
-      #       ${{ steps.deploy.outputs.url }}/en
-      #       ${{ steps.deploy.outputs.url }}/es
-      #     configPath: ./.lighthouserc.yml
-      #     temporaryPublicStorage: true
-      #     uploadArtifacts: true
-      #     runs: 3
-      - name: Post message
-        if: github.event_name == 'pull_request' && (success() || failure())
-        id: message
-        uses: ./.github/actions/message
-        with:
-          url: ${{ steps.deploy.outputs.url }}
-          sha: ${{ steps.deploy.outputs.sha }}
-          # links: ${{ steps.lighthouse.outputs.links }}
-          # results: ${{ steps.lighthouse.outputs.assertionResults }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          expires: 30d
 
   #########################
   ## Production Deploy
