@@ -50,11 +50,24 @@ jobs:
         with:
           name: site
           path: public
+
+      # Needed for functions deploy
       - name: Upload search index state
         uses: actions/upload-artifact@v1
+        if: github.ref == 'refs/heads/main'
         with:
           name: indexes
           path: functions/indexes
+      - name: Install functions dependencies
+        if: github.ref == 'refs/heads/main'
+        run: |
+          npm ci --prefix functions
+      - name: Upload functions dependencies
+        uses: actions/upload-artifact@v1
+        if: github.ref == 'refs/heads/main'
+        with:
+          name: functions-deps
+          path: functions/node_modules
 
   #########################
   ## Preview Deploy
@@ -98,6 +111,11 @@ jobs:
         with:
           name: indexes
           path: functions/indexes
+      - name: Download functions dependencies
+        uses: actions/download-artifact@v1
+        with:
+          name: functions-deps
+          path: functions/node_modules
       - name: Deploy Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
