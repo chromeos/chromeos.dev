@@ -25,9 +25,12 @@ export class CookieDisclaimer {
    */
   constructor(elem, spotReference) {
     this.elem_ = elem;
-    this.acceptButton_ = this.elem_.querySelector('.cta--high');
+    this.acceptButton_ = this.elem_.querySelector('[data-type="accept"]');
+    this.declineButton_ = this.elem_.querySelector('[data-type="decline"]');
     this.spotReference_ = spotReference;
     this.acceptButton_.addEventListener('click', this.acceptCookieUsage.bind(this));
+    this.declineButton_.addEventListener('click', this.declineCookieUsage.bind(this));
+    this.cookieStore = 'chromeos-accepts-cookies--v2';
     this.checkCookieUsageAcceptance();
   }
 
@@ -35,12 +38,19 @@ export class CookieDisclaimer {
    * Checks if the user has accepted the use of the cookies.
    */
   checkCookieUsageAcceptance() {
-    const acceptsCookies = localStorage.getItem('chromeos-accepts-cookies');
+    const acceptsCookies = localStorage.getItem(this.cookieStore);
 
-    if (!acceptsCookies) {
+    if (acceptsCookies !== 'true' && acceptsCookies !== 'false') {
       this.openDialog();
       this.keyHandler();
       this.acceptButton_.focus();
+    }
+
+    if (acceptsCookies === 'true') {
+      const gaScript = document.createElement('script');
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=UA-168234575-1';
+      gaScript.type = 'module';
+      document.head.appendChild(gaScript);
     }
   }
 
@@ -75,7 +85,16 @@ export class CookieDisclaimer {
    * Sets the cookie usage acceptance flag.
    */
   acceptCookieUsage() {
-    localStorage.setItem('chromeos-accepts-cookies', true);
+    localStorage.setItem(this.cookieStore, true);
+    this.closeDialog();
+    this.checkCookieUsageAcceptance();
+  }
+
+  /**
+   * Sets the cookie usage acceptance flag to decline.
+   */
+  declineCookieUsage() {
+    localStorage.setItem(this.cookieStore, false);
     this.closeDialog();
   }
 
