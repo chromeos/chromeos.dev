@@ -13,11 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { defineConfig } from 'sanity';
+import { defineConfig, isDev } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { schemaTypes } from './schemas';
+import { visionTool } from '@sanity/vision';
 import { codeInput } from '@sanity/code-input';
 import { table } from '@sanity/table';
+
+const devOnlyPlugins = [visionTool()];
 
 export default defineConfig({
   name: 'default',
@@ -26,7 +29,7 @@ export default defineConfig({
   projectId: import.meta.env.SANITY_STUDIO_PROJECT || '',
   dataset: import.meta.env.SANITY_STUDIO_API_DATASET || '',
 
-  plugins: [deskTool(), codeInput(), table()],
+  plugins: [deskTool(), codeInput(), table(), ...(isDev ? devOnlyPlugins : [])],
   // TODO: configure table to allow limited HTML in rows
 
   schema: {
