@@ -15,7 +15,9 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "$lib/*": ["lib/*"]
+      "$lib/*": ["./lib/*"],
+      "$subschema/*": ["./schemas/subschema/*"],
+      "$fields/*": ["./schemas/fields/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],

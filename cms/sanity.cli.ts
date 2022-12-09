@@ -16,6 +16,8 @@ export default defineCliConfig({
       resolve: {
         alias: {
           $lib: resolve(process.cwd(), 'lib'),
+          $subschema: resolve(process.cwd(), 'schemas/subschema'),
+          $fields: resolve(process.cwd(), 'schemas/fields'),
         },
       },
     });
