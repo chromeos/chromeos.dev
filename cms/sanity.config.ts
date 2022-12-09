@@ -16,6 +16,7 @@
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { schemaTypes } from './schemas';
+import { codeInput } from '@sanity/code-input';
 
 export default defineConfig({
   name: 'default',
@@ -24,7 +25,7 @@ export default defineConfig({
   projectId: import.meta.env.SANITY_STUDIO_PROJECT || '',
   dataset: import.meta.env.SANITY_STUDIO_API_DATASET || '',
 
-  plugins: [deskTool()],
+  plugins: [deskTool(), codeInput()],
 
   schema: {
     types: schemaTypes,
