@@ -23,7 +23,7 @@ export default defineType({
     defineField({
       name: 'quote',
       title: 'Quote',
-      type: 'string',
+      type: 'inline-block',
       validation: (Rule) => Rule.required(),
     }),
     defineField({

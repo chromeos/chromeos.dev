@@ -28,7 +28,7 @@ export default defineType({
     defineField({
       name: 'caption',
       title: 'Caption',
-      type: 'string',
+      type: 'inline-block',
       validation: (Rule) =>
         Rule.custom((value, { parent }) => {
           if (parent?.image?.asset?._ref) {

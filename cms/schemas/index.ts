@@ -15,6 +15,8 @@
  */
 // Fields
 import fullBlockField from '$fields/full-block';
+import restrictedBlockField from '$fields/restricted-block';
+import inlieBlockField from '$fields/inline-block';
 import pictureField from '$fields/picture';
 import titleField from '$fields/title';
 import descriptionField from '$fields/description';
@@ -53,6 +55,8 @@ export const schemaTypes = [
 
   // Fields
   fullBlockField,
+  restrictedBlockField,
+  inlieBlockField,
   pictureField,
   titleField,
   descriptionField,

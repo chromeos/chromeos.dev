@@ -31,7 +31,7 @@ export default defineType({
           fields: [
             defineField({
               name: 'term',
-              type: 'string',
+              type: 'inline-block',
               validation: (Rule) =>
                 Rule.custom((value, { parent }) => {
                   if (parent?.definition && !value) return 'Term is required';
@@ -40,7 +40,7 @@ export default defineType({
             }),
             defineField({
               name: 'definition',
-              type: 'string',
+              type: 'inline-block',
               validation: (Rule) =>
                 Rule.custom((value, { parent }) => {
                   if (parent?.term && !value) return 'Definition is required';
