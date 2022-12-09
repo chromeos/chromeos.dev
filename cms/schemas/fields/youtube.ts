@@ -23,8 +23,10 @@ export default defineType({
     Rule.uri({
       scheme: ['https'],
     }).custom((url) =>
-      url?.startsWith('https://www.youtube.com/watch?v=')
-        ? true
-        : 'Must be a valid YouTube url',
+      url
+        ? url?.startsWith('https://www.youtube.com/watch?v=')
+          ? true
+          : 'Must be a valid YouTube URL'
+        : true,
     ),
 });
