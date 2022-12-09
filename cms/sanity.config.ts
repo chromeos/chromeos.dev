@@ -17,6 +17,7 @@ import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { schemaTypes } from './schemas';
 import { codeInput } from '@sanity/code-input';
+import { table } from '@sanity/table';
 
 export default defineConfig({
   name: 'default',
@@ -25,7 +26,8 @@ export default defineConfig({
   projectId: import.meta.env.SANITY_STUDIO_PROJECT || '',
   dataset: import.meta.env.SANITY_STUDIO_API_DATASET || '',
 
-  plugins: [deskTool(), codeInput()],
+  plugins: [deskTool(), codeInput(), table()],
+  // TODO: configure table to allow limited HTML in rows
 
   schema: {
     types: schemaTypes,

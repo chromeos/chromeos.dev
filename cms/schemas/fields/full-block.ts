@@ -165,5 +165,9 @@ export default defineType({
       type: 'break',
       title: 'Break',
     }),
+    defineArrayMember({
+      type: 'table',
+      title: 'Table',
+    }),
   ],
 });
