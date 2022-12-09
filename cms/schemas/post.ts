@@ -132,8 +132,20 @@ export default defineType({
     defineField({
       name: 'hero',
       title: 'Hero media',
-      type: 'hero',
+      type: 'object',
       group: ['promotion'],
+      fields: [
+        defineField({
+          name: 'include',
+          title: 'Include hero media for this content',
+          type: 'boolean',
+        }),
+        defineField({
+          name: 'hero',
+          type: 'hero',
+          hidden: ({ parent }) => (parent?.include ? false : true),
+        }),
+      ],
     }),
     defineField({
       name: 'featured',

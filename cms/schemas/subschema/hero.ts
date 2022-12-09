@@ -8,22 +8,15 @@ export default defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'include',
-      title: 'Include hero media for this content',
-      type: 'boolean',
-    }),
-    defineField({
       name: 'image',
       title: 'Image',
       type: 'picture',
-      hidden: ({ parent }) => (parent?.include ? false : true),
       readOnly: ({ parent }) => (parent?.youtube ? true : false),
     }),
     defineField({
       name: 'youtube',
       title: 'YouTube ID',
       type: 'youtube',
-      hidden: ({ parent }) => (parent?.include ? false : true),
       readOnly: ({ parent }) =>
         parent?.image?.alt || parent?.image?.asset?._ref ? true : false,
     }),
