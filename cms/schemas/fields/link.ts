@@ -33,6 +33,9 @@ export default defineType({
       type: 'reference',
       to: [{ type: 'post' }],
       readOnly: ({ parent }) => (parent?.url ? true : false),
+      options: {
+        disableNew: true,
+      },
     }),
   ],
 });
