@@ -34,21 +34,27 @@ import breakField from '$fields/break';
 import abbreviationField from '$fields/abbreviation';
 
 // Subschemas
-import hero from '$subschema/hero';
-import featured from '$subschema/featured';
-import share from '$subschema/share';
-import software from '$subschema/software';
-import themeSchema from '$subschema/theme';
+import heroSubschema from '$subschema/hero';
+import featuredSubschema from '$subschema/featured';
+import shareSubschema from '$subschema/share';
+import softwareSubschema from '$subschema/software';
+import themeSubschema from '$subschema/theme';
+import appSubschema from '$subschema/app';
+import resourcesSubschema from '$subschema/resources';
 
 // Schemas
 import tag from './tag';
 import post from './post';
+import story from './story';
 import author from './author';
 import theme from './theme';
+import documentation from './documentation';
 
 export const schemaTypes = [
   // Schemas
   post,
+  story,
+  documentation,
   author,
   tag,
   theme,
@@ -74,9 +80,11 @@ export const schemaTypes = [
   abbreviationField,
 
   // Subschema
-  hero,
-  featured,
-  share,
-  software,
-  themeSchema,
+  heroSubschema,
+  featuredSubschema,
+  shareSubschema,
+  softwareSubschema,
+  themeSubschema,
+  appSubschema,
+  resourcesSubschema,
 ];
