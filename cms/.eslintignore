@@ -1,0 +1,5 @@
+*-lock.json
+*-lock.yaml
+node_modules
+dist
+.sanity

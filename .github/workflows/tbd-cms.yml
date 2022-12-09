@@ -1,0 +1,84 @@
+name: Test, Build, Deploy - CMS
+
+on:
+  push:
+    paths:
+      - cms/**
+      - .github/workflows/tbd-cms.yml
+  pull_request:
+    branches-ignore:
+      - main
+    paths:
+      - cms/**
+      - .github/workflows/tbd-cms.yml
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - name: Install dependencies
+        working-directory: cms
+        run: pnpm install
+      - name: Test and Build
+        working-directory: cms
+        run: pnpm t
+        env:
+          SANITY_STUDIO_PROJECT: ${{ secrets.SANITY_STUDIO_PROJECT }}
+      - name: Upload site build
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v3
+        with:
+          name: cms
+          path: ./cms/dist
+  deploy:
+    needs: test-build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: cms
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - name: Install dependencies
+        working-directory: cms
+        run: pnpm install
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: cms
+          path: dist
+      - name: Deploy
+        working-directory: cms
+        run: pnpm run deploy
+        env:
+          SANITY_STUDIO_PROJECT: ${{ secrets.SANITY_STUDIO_PROJECT }}
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}

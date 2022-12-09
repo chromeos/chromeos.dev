@@ -89,13 +89,13 @@ typings/
 
 # Other Items
 .DS_Store
-/public
-functions/indexes
-.eyeglass_cache
-.firebase
-.backstop/ci-report
-.backstop/html-report
-.backstop/tests
-site/js/_data
-site/public/js/indexes
-site/public/js/_data
+site/public
+site/functions/indexes
+site/.eyeglass_cache
+site/.firebase
+site/.backstop/ci-report
+site/.backstop/html-report
+site/.backstop/tests
+site/site/js/_data
+site/site/public/js/indexes
+site/site/public/js/_data

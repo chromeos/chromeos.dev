@@ -1,6 +1,13 @@
-name: Build, Test, Deploy
+name: Build, Test, Deploy - Site
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - site/**
+      - .github/workflows/tbd-site.yml
+    pull_request:
+      - site/**
+      - .github/workflows/tbd-site.yml
 
 jobs:
   #########################

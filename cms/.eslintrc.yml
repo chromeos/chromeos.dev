@@ -1,0 +1,19 @@
+root: true
+extends:
+  - '@sanity/eslint-config-studio'
+  - plugin:@typescript-eslint/eslint-recommended
+  - plugin:@typescript-eslint/recommended
+  - google
+  - plugin:prettier/recommended
+plugins:
+  - prettier
+env:
+  browser: true
+  node: false
+  es6: true
+  es2017: true
+  es2020: true
+parserOptions:
+  parser: babel-eslint
+  ecmaVersion: 2022
+  sourceType: module

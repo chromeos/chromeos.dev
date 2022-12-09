@@ -1,0 +1,38 @@
+/**
+ * Copyright 2022 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+import { defineConfig, isDev } from 'sanity';
+import { deskTool } from 'sanity/desk';
+import { schemaTypes } from './schemas';
+import { visionTool } from '@sanity/vision';
+import { codeInput } from '@sanity/code-input';
+import { table } from '@sanity/table';
+
+const devOnlyPlugins = [visionTool()];
+
+export default defineConfig({
+  name: 'default',
+  title: 'ChromeOS',
+
+  projectId: import.meta.env.SANITY_STUDIO_PROJECT || '',
+  dataset: import.meta.env.SANITY_STUDIO_API_DATASET || '',
+
+  plugins: [deskTool(), codeInput(), table(), ...(isDev ? devOnlyPlugins : [])],
+  // TODO: configure table to allow limited HTML in rows
+
+  schema: {
+    types: schemaTypes,
+  },
+});
