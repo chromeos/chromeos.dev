@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { defineType, defineArrayMember } from 'sanity';
+import { defineType, defineArrayMember, defineField } from 'sanity';
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -42,8 +42,12 @@ export default defineType({
         { title: 'H2', value: 'h2' },
         { title: 'H3', value: 'h3' },
         { title: 'H4', value: 'h4' },
+        { title: 'H5', value: 'h5' },
       ],
-      lists: [{ title: 'Bullet', value: 'bullet' }],
+      lists: [
+        { title: 'Bullet', value: 'bullet' },
+        { title: 'Number', value: 'number' },
+      ],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
@@ -51,19 +55,44 @@ export default defineType({
         decorators: [
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' },
+          { title: 'Keyboard', value: 'kbd' },
+          { title: 'Code', value: 'code' },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
-            title: 'URL',
+            title: 'Link',
             name: 'link',
             type: 'object',
             fields: [
-              {
-                title: 'URL',
-                name: 'href',
-                type: 'url',
-              },
+              defineField({
+                title: 'Source',
+                name: 'source',
+                type: 'link',
+              }),
+            ],
+          },
+          {
+            title: 'Abbreviation',
+            name: 'abbreviation',
+            type: 'object',
+            fields: [
+              defineField({
+                name: 'abbreviation',
+                type: 'abbreviation',
+              }),
+            ],
+          },
+          {
+            title: 'Footnote',
+            name: 'footnote',
+            type: 'object',
+            fields: [
+              defineField({
+                title: 'Description',
+                name: 'description',
+                type: 'footnote',
+              }),
             ],
           },
         ],
@@ -73,7 +102,68 @@ export default defineType({
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     defineArrayMember({
-      type: 'image',
+      type: 'picture',
+      title: 'Image',
+    }),
+    defineArrayMember({
+      type: 'figure',
+      title: 'Figure',
+    }),
+    // TODO: Make this preview the video
+    defineArrayMember({
+      name: 'youtube',
+      title: 'YouTube',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'video',
+          title: 'Video',
+          type: 'youtube',
+        }),
+      ],
+    }),
+    defineArrayMember({
+      type: 'code',
+      title: 'Code',
+      options: {
+        withFilename: true,
+        // TODO: Make sure all of these render
+        // See https://github.com/sanity-io/code-input#add-support-for-more-languages
+        languageAlternatives: [
+          { title: 'JavaScript', value: 'javascript' },
+          { title: 'TypeScript', value: 'typescript' },
+          { title: 'HTML', value: 'html' },
+          { title: 'CSS', value: 'css' },
+          { title: 'Sass', value: 'sass' },
+          { title: 'JSON', value: 'json' },
+          { title: 'YAML', value: 'yaml' },
+          { title: 'Kotlin', value: 'kotlin' },
+          { title: 'Java', value: 'java' },
+          { title: 'XML', value: 'xml' },
+          { title: 'Groovy', value: 'groovy' },
+          { title: 'Bash', value: 'sh' },
+        ],
+      },
+    }),
+    defineArrayMember({
+      type: 'deflist',
+      title: 'Definitions',
+    }),
+    defineArrayMember({
+      type: 'statlist',
+      title: 'Stats',
+    }),
+    defineArrayMember({
+      type: 'message',
+      title: 'Message',
+    }),
+    defineArrayMember({
+      type: 'quote',
+      title: 'Quote',
+    }),
+    defineArrayMember({
+      type: 'break',
+      title: 'Break',
     }),
   ],
 });

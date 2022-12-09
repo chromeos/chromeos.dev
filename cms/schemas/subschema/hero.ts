@@ -22,14 +22,10 @@ export default defineType({
     defineField({
       name: 'youtube',
       title: 'YouTube ID',
-      type: 'string',
+      type: 'youtube',
       hidden: ({ parent }) => (parent?.include ? false : true),
       readOnly: ({ parent }) =>
         parent?.image?.alt || parent?.image?.asset?._ref ? true : false,
-      validation: (Rule) =>
-        Rule.regex(/^[a-zA-Z0-9_-]{11}$/, { name: 'youtube' }).error(
-          'Does not match YouTube ID format',
-        ),
     }),
   ],
 });

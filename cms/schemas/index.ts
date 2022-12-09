@@ -21,6 +21,15 @@ import descriptionField from '$fields/description';
 import eyebrowField from '$fields/eyebrow';
 import backgroundsField from '$fields/backgrounds';
 import linkField from '$fields/link';
+import footnoteField from '$fields/footnote';
+import youtubeField from '$fields/youtube';
+import figureField from '$fields/figure';
+import deflistField from '$fields/deflist';
+import messageField from '$fields/message';
+import statlistField from '$fields/statlist';
+import quoteField from '$fields/quote';
+import breakField from '$fields/break';
+import abbreviationField from '$fields/abbreviation';
 
 // Subschemas
 import hero from '$subschema/hero';
@@ -50,6 +59,15 @@ export const schemaTypes = [
   eyebrowField,
   backgroundsField,
   linkField,
+  footnoteField,
+  youtubeField,
+  figureField,
+  deflistField,
+  messageField,
+  statlistField,
+  quoteField,
+  breakField,
+  abbreviationField,
 
   // Subschema
   hero,
