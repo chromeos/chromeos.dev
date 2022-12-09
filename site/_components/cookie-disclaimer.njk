@@ -21,8 +21,8 @@
   <div class="cookie-disclaimer__wrapper">
     <p id="cookieDisclaimer" class="type--h5">{{content.disclaimer | replace('((t))', settings) | safe}}</p>
     <div class="cookie-disclaimer__buttons">
-      <a href="{{ctas.info.url}}?hl={{localeCode}}" class="cta cta--medium">{{ctas.info.text}}</a>
-      <button class="cta cta--high">{{ctas.accept}}</button>
+      <button class="cta cta--high" data-type="decline">{{ctas.decline}}</button>
+      <button class="cta cta--high" data-type="accept">{{ctas.accept}}</button>
     </div>
   </div>
 </dialog>
