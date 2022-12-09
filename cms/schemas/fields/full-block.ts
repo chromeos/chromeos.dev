@@ -1,3 +1,18 @@
+/**
+ * Copyright 2022 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 import { defineType, defineArrayMember } from 'sanity';
 
 /**
@@ -11,8 +26,8 @@ import { defineType, defineArrayMember } from 'sanity';
  *  }
  */
 export default defineType({
-  title: 'Block Content',
-  name: 'blockContent',
+  title: 'Full Block Content',
+  name: 'full-block',
   type: 'array',
   of: [
     defineArrayMember({
@@ -24,11 +39,9 @@ export default defineType({
       // use your content.
       styles: [
         { title: 'Normal', value: 'normal' },
-        { title: 'H1', value: 'h1' },
         { title: 'H2', value: 'h2' },
         { title: 'H3', value: 'h3' },
         { title: 'H4', value: 'h4' },
-        { title: 'Quote', value: 'blockquote' },
       ],
       lists: [{ title: 'Bullet', value: 'bullet' }],
       // Marks let you mark up inline text in the block editor.
@@ -61,7 +74,6 @@ export default defineType({
     // as a block type.
     defineArrayMember({
       type: 'image',
-      options: { hotspot: true },
     }),
   ],
 });

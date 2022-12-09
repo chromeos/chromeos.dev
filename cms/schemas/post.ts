@@ -1,53 +1,159 @@
+/**
+ * Copyright 2022 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'post',
   title: 'Post',
   type: 'document',
+  groups: [
+    {
+      name: 'content',
+      title: 'Content',
+      default: true,
+    },
+    {
+      name: 'publishing',
+      title: 'Publishing',
+    },
+    {
+      name: 'promotion',
+      title: 'Promotion',
+    },
+    {
+      name: 'seo_social',
+      title: 'SEO & Social',
+    },
+  ],
   fields: [
     defineField({
       name: 'title',
       title: 'Title',
-      type: 'string',
+      type: 'title',
+      group: ['content', 'seo_social'],
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      group: ['content', 'seo_social'],
       options: {
         source: 'title',
         maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
+      name: 'description',
+      title: 'Description',
+      type: 'description',
+      group: ['content', 'seo_social'],
+    }),
+    defineField({
+      name: 'category',
+      title: 'Category',
       type: 'reference',
-      to: { type: 'author' },
-    }),
-    defineField({
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'image',
+      to: { type: 'tag' },
+      validation: (Rule) => Rule.required(),
+      group: ['content'],
       options: {
-        hotspot: true,
+        disableNew: true,
+        filter: 'is_post_category == true',
       },
     }),
+
     defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{ type: 'reference', to: { type: 'category' } }],
-    }),
-    defineField({
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
+      name: 'software',
+      title: 'Software',
+      description:
+        'Any software, like Android Studio or Unity, mentioned in the post, and their versions, for easy reference by readers.',
+      type: 'software',
+      group: ['content'],
     }),
     defineField({
       name: 'body',
       title: 'Body',
-      type: 'blockContent',
+      group: 'content',
+      type: 'full-block',
+      validation: (Rule) => Rule.required(),
+    }),
+
+    // Publishing
+    defineField({
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      group: ['publishing'],
+      validation: (Rule) => Rule.required(),
+      to: { type: 'author' },
+    }),
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      group: 'publishing',
+      of: [{ type: 'reference', to: { type: 'tag' } }],
+    }),
+    defineField({
+      name: 'date_overrides',
+      title: 'Date overrides',
+      description:
+        'Override the built-in publish and update dates. Useful for backdating posts.',
+      type: 'object',
+      group: 'publishing',
+      fields: [
+        defineField({
+          name: 'published',
+          title: 'Published on',
+          type: 'date',
+        }),
+        defineField({
+          name: 'updated',
+          title: 'Updated on',
+          type: 'date',
+        }),
+      ],
+    }),
+
+    // Promotion
+    defineField({
+      name: 'hero',
+      title: 'Hero media',
+      type: 'hero',
+      group: ['promotion'],
+    }),
+    defineField({
+      name: 'featured',
+      title: 'Featured',
+      type: 'featured',
+      group: 'promotion',
+    }),
+    defineField({
+      name: 'theme',
+      title: 'Theme',
+      type: 'use_theme',
+      group: 'promotion',
+    }),
+
+    // SEO & Social
+    defineField({
+      name: 'share',
+      title: 'Share',
+      type: 'share',
+      group: 'seo_social',
     }),
   ],
 
