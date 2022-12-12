@@ -16,7 +16,7 @@
 import { defineType } from 'sanity';
 import { minMax } from '$lib/validators/min-max';
 
-export const descriptionValidation = minMax(10, 160);
+export const descriptionValidation = minMax(10, 155);
 
 export default defineType({
   name: 'description',
