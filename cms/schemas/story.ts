@@ -48,13 +48,8 @@ export default defineType({
     defineField({
       name: 'slug',
       title: 'Slug',
-      type: 'slug',
+      type: 'l10n-slug',
       group: ['content', 'seo_social'],
-      options: {
-        source: 'title',
-        maxLength: 96,
-      },
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'description',

@@ -19,6 +19,10 @@ import { schemaTypes } from './schemas';
 import { visionTool } from '@sanity/vision';
 import { codeInput } from '@sanity/code-input';
 import { table } from '@sanity/table';
+import {
+  withDocumentI18nPlugin,
+  getDocumentList,
+} from '@sanity/document-internationalization';
 
 const devOnlyPlugins = [visionTool()];
 
@@ -29,7 +33,25 @@ export default defineConfig({
   projectId: import.meta.env.SANITY_STUDIO_PROJECT || '',
   dataset: import.meta.env.SANITY_STUDIO_API_DATASET || '',
 
-  plugins: [deskTool(), codeInput(), table(), ...(isDev ? devOnlyPlugins : [])],
+  plugins: withDocumentI18nPlugin(
+    (pluginConfig) => [
+      deskTool({
+        structure: (S, { schema }) =>
+          getDocumentList({ S, schema, config: pluginConfig }),
+      }),
+      codeInput(),
+      table(),
+      ...(isDev ? devOnlyPlugins : []),
+    ],
+    {
+      includeDeskTool: false,
+      languages: [
+        { id: 'en_US', title: 'English' },
+        { id: 'es', title: 'Spanish' },
+      ],
+    },
+  ),
+
   // TODO: configure table to allow limited HTML in rows
 
   schema: {

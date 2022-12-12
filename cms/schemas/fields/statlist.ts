@@ -38,7 +38,7 @@ export default defineType({
                   if (parent?.description && !value)
                     return 'Statistic is required';
                   return true;
-                }).regex(/^[~><]?(\d+[Mk]?)[x%\+]$/),
+                }).regex(/^[~><]?(\d+[Mk]?)[x%+]$/),
             }),
             defineField({
               name: 'description',

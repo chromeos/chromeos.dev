@@ -32,6 +32,7 @@ import statlistField from '$fields/statlist';
 import quoteField from '$fields/quote';
 import breakField from '$fields/break';
 import abbreviationField from '$fields/abbreviation';
+import l10nSlugField from '$fields/l10n-slug';
 
 // Subschemas
 import heroSubschema from '$subschema/hero';
@@ -78,6 +79,7 @@ export const schemaTypes = [
   quoteField,
   breakField,
   abbreviationField,
+  l10nSlugField,
 
   // Subschema
   heroSubschema,

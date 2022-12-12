@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 import { defineField, defineType } from 'sanity';
+import { isL10n } from '$lib/validators/i18n';
 
 export default defineType({
   name: 'post',
   title: 'Post',
   type: 'document',
+  i18n: true,
   groups: [
     {
       name: 'content',
@@ -48,13 +50,8 @@ export default defineType({
     defineField({
       name: 'slug',
       title: 'Slug',
-      type: 'slug',
+      type: 'l10n-slug',
       group: ['content', 'seo_social'],
-      options: {
-        source: 'title',
-        maxLength: 96,
-      },
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'description',
@@ -73,6 +70,8 @@ export default defineType({
         disableNew: true,
         filter: 'is_post_category == true',
       },
+      readOnly: isL10n,
+      hidden: isL10n,
     }),
 
     defineField({
@@ -99,13 +98,18 @@ export default defineType({
       group: ['publishing'],
       validation: (Rule) => Rule.required(),
       to: { type: 'author' },
+      readOnly: isL10n,
+      // hidden: isL10n,
     }),
+
     defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',
       group: 'publishing',
       of: [{ type: 'reference', to: { type: 'tag' } }],
+      readOnly: isL10n,
+      // hidden: isL10n,
     }),
     defineField({
       name: 'date_overrides',
@@ -114,6 +118,7 @@ export default defineType({
         'Override the built-in publish and update dates. Useful for backdating posts.',
       type: 'object',
       group: 'publishing',
+      readOnly: isL10n,
       fields: [
         defineField({
           name: 'published',
