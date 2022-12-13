@@ -19,7 +19,14 @@ export default defineType({
   name: 'microcopy',
   title: 'Microcopy',
   type: 'document',
+  i18n: true,
   fields: [
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'l10n-slug',
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'values',
       title: 'Values',
@@ -33,4 +40,9 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
   ],
+  preview: {
+    select: {
+      title: 'slug.current',
+    },
+  },
 });
