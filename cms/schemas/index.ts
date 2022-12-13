@@ -33,6 +33,7 @@ import quoteField from '$fields/quote';
 import breakField from '$fields/break';
 import abbreviationField from '$fields/abbreviation';
 import l10nSlugField from '$fields/l10n-slug';
+import keyValueField from '$fields/key-value';
 
 // Subschemas
 import heroSubschema from '$subschema/hero';
@@ -50,6 +51,7 @@ import story from './story';
 import author from './author';
 import theme from './theme';
 import documentation from './documentation';
+import microcopy from './microcopy';
 
 export const schemaTypes = [
   // Schemas
@@ -59,6 +61,7 @@ export const schemaTypes = [
   author,
   tag,
   theme,
+  microcopy,
 
   // Fields
   fullBlockField,
@@ -80,6 +83,7 @@ export const schemaTypes = [
   breakField,
   abbreviationField,
   l10nSlugField,
+  keyValueField,
 
   // Subschema
   heroSubschema,

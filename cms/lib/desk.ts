@@ -43,7 +43,7 @@ export const deskStructure = (
           ),
         ),
       S.divider(),
-      // Meta documents
+      // Shared documents
       S.listItem()
         .title('Shared')
         .child(
@@ -63,6 +63,15 @@ export const deskStructure = (
                 .title('Themes')
                 .child(S.documentTypeList('theme').title('Themes')),
             ]),
+        ),
+      S.divider(),
+      // Meta Documents
+      S.listItem()
+        .title('Microcopy')
+        .child(
+          S.documentTypeList('microcopy').filter(
+            `_type == 'microcopy' && !defined(__i18n_base)`,
+          ),
         ),
     ]);
 
