@@ -19,10 +19,8 @@ import { schemaTypes } from './schemas';
 import { visionTool } from '@sanity/vision';
 import { codeInput } from '@sanity/code-input';
 import { table } from '@sanity/table';
-import {
-  withDocumentI18nPlugin,
-  getDocumentList,
-} from '@sanity/document-internationalization';
+import { withDocumentI18nPlugin } from '@sanity/document-internationalization';
+import { deskStructure, defaultDocumentNodeResolver } from '$lib/desk';
 
 const devOnlyPlugins = [visionTool()];
 
@@ -36,8 +34,8 @@ export default defineConfig({
   plugins: withDocumentI18nPlugin(
     (pluginConfig) => [
       deskTool({
-        structure: (S, { schema }) =>
-          getDocumentList({ S, schema, config: pluginConfig }),
+        structure: deskStructure,
+        defaultDocumentNode: defaultDocumentNodeResolver,
       }),
       codeInput(),
       table(),
