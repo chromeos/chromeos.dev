@@ -34,6 +34,8 @@ import breakField from '$fields/break';
 import abbreviationField from '$fields/abbreviation';
 import l10nSlugField from '$fields/l10n-slug';
 import keyValueField from '$fields/key-value';
+import statisticField from '$fields/statistic';
+import ctaField from '$fields/cta';
 
 // Subschemas
 import heroSubschema from '$subschema/hero';
@@ -43,6 +45,7 @@ import softwareSubschema from '$subschema/software';
 import themeSubschema from '$subschema/theme';
 import appSubschema from '$subschema/app';
 import resourcesSubschema from '$subschema/resources';
+import homepageCardSchema from '$subschema/homepage-card';
 
 // Schemas
 import tag from './tag';
@@ -52,6 +55,7 @@ import author from './author';
 import theme from './theme';
 import documentation from './documentation';
 import microcopy from './microcopy';
+import home from './home';
 
 export const schemaTypes = [
   // Schemas
@@ -62,6 +66,7 @@ export const schemaTypes = [
   tag,
   theme,
   microcopy,
+  home,
 
   // Fields
   fullBlockField,
@@ -84,6 +89,8 @@ export const schemaTypes = [
   abbreviationField,
   l10nSlugField,
   keyValueField,
+  statisticField,
+  ctaField,
 
   // Subschema
   heroSubschema,
@@ -93,4 +100,5 @@ export const schemaTypes = [
   themeSubschema,
   appSubschema,
   resourcesSubschema,
+  homepageCardSchema,
 ];

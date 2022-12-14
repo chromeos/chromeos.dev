@@ -67,11 +67,15 @@ export const deskStructure = (
       S.divider(),
       // Meta Documents
       S.listItem()
-        .title('Microcopy')
+        .title('Site Settings')
         .child(
-          S.documentTypeList('microcopy').filter(
-            `_type == 'microcopy' && !defined(__i18n_base)`,
-          ),
+          S.list()
+            .title('Site Settings')
+            .items([
+              S.listItem()
+                .title('Home')
+                .child(S.document().schemaType('home').documentId('home')),
+            ]),
         ),
     ]);
 

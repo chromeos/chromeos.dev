@@ -13,22 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { defineType, defineField, defineArrayMember } from 'sanity';
+import { defineType, defineField } from 'sanity';
 
 export default defineType({
-  name: 'statlist',
-  title: 'Stats',
+  name: 'statistic',
+  title: 'Statistic',
   type: 'object',
   fields: [
     defineField({
-      name: 'stats',
-      title: 'Statistics',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'statistic',
+      name: 'stat',
+      title: 'Statistic',
+      type: 'string',
+      validation: (Rule) =>
+        Rule.custom((value, { parent }) => {
+          if (parent?.description && !value) return 'Statistic is required';
+          return true;
+        }).regex(/^[~><]?(\d+[Mk]?)[x%+]$/),
+    }),
+    defineField({
+      name: 'description',
+      type: 'string',
+      validation: (Rule) =>
+        Rule.custom((value, { parent }) => {
+          if (parent?.stat && !value) return 'Definition is required';
+          return true;
         }),
-      ],
     }),
   ],
 });

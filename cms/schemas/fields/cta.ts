@@ -13,22 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { defineType, defineField, defineArrayMember } from 'sanity';
+import { defineType, defineField } from 'sanity';
 
 export default defineType({
-  name: 'statlist',
-  title: 'Stats',
+  name: 'cta',
+  title: 'Call to Action',
   type: 'object',
   fields: [
     defineField({
-      name: 'stats',
-      title: 'Statistics',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'statistic',
-        }),
-      ],
+      name: 'text',
+      type: 'string',
+    }),
+    defineField({
+      name: 'link',
+      type: 'link',
     }),
   ],
 });
