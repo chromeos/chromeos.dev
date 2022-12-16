@@ -1,7 +1,6 @@
 ---
 title: ChromeOS lint rules in Android Studio
-metadesc: An in-depth guide on how to improve the experience of large screens on 
-ChromeOS with lint rules in Android Studio.
+metadesc: An in-depth guide on how to improve the experience of large screens on ChromeOS with lint rules in Android Studio.
 date: 2020-09-23
 weight: 1
 tags:
