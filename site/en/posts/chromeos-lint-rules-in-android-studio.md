@@ -1,7 +1,6 @@
 ---
 title: ChromeOS lint rules in Android Studio
-metadesc: Use lint rules in Android Studio to enhance the experience of building 
-for large screens and ChromeOS.
+metadesc: Use lint rules in Android Studio to enhance the experience of building for large screens and ChromeOS.
 tags:
   - android
   - large screens
