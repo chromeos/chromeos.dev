@@ -18,10 +18,10 @@ user installs a Windows game on a Linux system.
 
 Scrolling through the [Proton
 repository](https://github.com/ValveSoftware/Proton), you'll quickly notice that
-the vast majority of Proton consists of git submodules. Proton is* *a collection
+the vast majority of Proton consists of git submodules. Proton is\* *a collection
 of modules that grew organically in the open-source community out of a desire to
 bring widely-available cross-platform support to the world. Proton's real
-value-add is sorting out *how* to get all of these modules working together
+value-add is sorting out *how\* to get all of these modules working together
 properly and with good performance. This is no easy goal since the support
 offered by Proton is fraught with corner cases. Achieving synergy of these
 modules requires applying and maintaining meaningful modifications on top of
@@ -72,7 +72,7 @@ Proton uses a [fork](https://github.com/ValveSoftware/wine/tree/proton_7.0) of
 fork maintains patches on top of upstream Wine to improve the compatibility of
 Proton. Most of these patches are eventually improved on and merged upstream.
 
-For performance reasons, Wine is very much *not* an emulator or a virtual
+For performance reasons, Wine is very much _not_ an emulator or a virtual
 machine. Wine does not attempt to maintain or simulate the internal state that
 would be required to implement Windows at run time. Instead, Wine aims to
 maintain as little state as possible and to translate incoming Windows API calls
