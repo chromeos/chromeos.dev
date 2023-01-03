@@ -102,7 +102,7 @@ appropriate size. These changes will allow users to scale the UI to meet their
 needs. After adding these changes to your Manifest, test your application
 against the Desktop Emulator referenced below.
 
-![Android Virtual Device Creation for Desktop Emulator](ix:copyoflintrule--tky4el3vzwh.gif)
+![Android Virtual Device Creation for Desktop Emulator](ix://posts/android-studio-lint-rules/avd.gif)
 
 
 #### Remedy
