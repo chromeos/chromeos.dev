@@ -53,7 +53,7 @@ Emulator in Android Studio and seeing how your application performs in this
 specialized environment. You can create a new Desktop emulator through the AVD
 menus built into Android Studio.
 
-![Android Virtual Device Creation for Desktop Emulator](ix:*.png)
+![Android Virtual Device Creation for Desktop Emulator](ix://posts/android-studio-lint-rules/avd.gif)
 
 ## Feedback
 
