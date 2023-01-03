@@ -88,7 +88,7 @@ required, and if they are not, change the `android:required` parameter to
 information, reference the documentation on
 [explicitly declared features.](https://developer.android.com/guide/topics/manifest/uses-feature-element#declared)
 
-![Feature 'camera flash required' rule, showcasing the lint warning and the inspection description](ix:copyoflintrule--hllqtj3ml4.gif)
+![Feature 'camera flash required' rule, showcasing the lint warning and the inspection description](ix://posts/android-studio-lint-rules/lint.gif)
 
 ### Non-resizable activities
 
