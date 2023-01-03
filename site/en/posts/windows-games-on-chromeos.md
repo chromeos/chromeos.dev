@@ -1,8 +1,13 @@
 ---
-title: Windows games on ChromeOS with Steam and Proton
-metadesc: Develop Windows games for ChromeOS using Steam and Proton.
+title: 'Windows games on ChromeOS with Proton'
+metadesc: 'Discover how Proton and Steam make it possible to play Windows games on ChromeOS.'
+tags:
+  - games
+  - technical
+
+authors:
+  - renatopereyra
 date: 2023-01-03
-weight: 0
 ---
 
 [Steam is now available on ChromeOS](https://www.chromium.org/chromium-os/steam-on-chromeos/)
