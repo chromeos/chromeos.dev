@@ -68,7 +68,7 @@ taken to a dialog that looks similar to the one below. The more accurate and
 descriptive the information given, the more we are able to iterate quickly on
 making the appropriate changes.
 
-![Provide Feedback Dialog in Android Studio](ix:*.png)
+![Provide Feedback Dialog in Android Studio](ix://posts/android-studio-lint-rules/feedback.png)
 
 ## What's next?
 
