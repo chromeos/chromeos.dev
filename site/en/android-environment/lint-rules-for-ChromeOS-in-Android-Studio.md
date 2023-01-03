@@ -104,7 +104,6 @@ against the Desktop Emulator referenced below.
 
 ![Android Virtual Device Creation for Desktop Emulator](ix:copyoflintrule--tky4el3vzwh.gif)
 
-Alt Text: Android Virtual Device Creation for Desktop Emulator
 
 #### Remedy
 
