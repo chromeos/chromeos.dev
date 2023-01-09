@@ -1,0 +1,19 @@
+<div class="container">
+  <article>
+    <h1>Hello World</h1>
+  </article>
+</div>
+
+<style lang="scss">
+  .container {
+    container-type: inline-size;
+  }
+
+  article {
+    background: green;
+
+    @container (min-width: 500px) {
+      background: red;
+    }
+  }
+</style>  
