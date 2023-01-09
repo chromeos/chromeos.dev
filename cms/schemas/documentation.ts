@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 import { defineField, defineType } from 'sanity';
-import { isL10n } from '$lib/validators/i18n';
 
 export default defineType({
-  name: 'post',
-  title: 'Post',
+  name: 'documentation',
+  title: 'Documentation',
   type: 'document',
-  i18n: true,
   groups: [
     {
       name: 'content',
@@ -59,20 +57,6 @@ export default defineType({
       type: 'description',
       group: ['content', 'seo_social'],
     }),
-    defineField({
-      name: 'category',
-      title: 'Category',
-      type: 'reference',
-      to: { type: 'tag' },
-      validation: (Rule) => Rule.required(),
-      group: ['content'],
-      options: {
-        disableNew: true,
-        filter: 'is_post_category == true',
-      },
-      readOnly: isL10n,
-      hidden: isL10n,
-    }),
 
     defineField({
       name: 'software',
@@ -83,6 +67,15 @@ export default defineType({
       group: ['content'],
     }),
     defineField({
+      name: 'resources',
+      title: 'Resources',
+      description:
+        'Any resources, web.dev or developers.android.com, mentioned in the post for easy reference by readers.',
+      type: 'resources',
+      group: ['content'],
+    }),
+
+    defineField({
       name: 'body',
       title: 'Body',
       group: 'content',
@@ -92,24 +85,19 @@ export default defineType({
 
     // Publishing
     defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      group: ['publishing'],
-      validation: (Rule) => Rule.required(),
-      to: { type: 'author' },
-      readOnly: isL10n,
-      // hidden: isL10n,
+      name: 'weight',
+      title: 'Weight',
+      description:
+        'The weight of this post in relation to other posts. Lower weights will be displayed first.',
+      type: 'number',
+      group: 'publishing',
     }),
-
     defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',
       group: 'publishing',
       of: [{ type: 'reference', to: { type: 'tag' } }],
-      readOnly: isL10n,
-      // hidden: isL10n,
     }),
     defineField({
       name: 'date_overrides',
@@ -118,7 +106,6 @@ export default defineType({
         'Override the built-in publish and update dates. Useful for backdating posts.',
       type: 'object',
       group: 'publishing',
-      readOnly: isL10n,
       fields: [
         defineField({
           name: 'published',
@@ -133,38 +120,6 @@ export default defineType({
       ],
     }),
 
-    // Promotion
-    defineField({
-      name: 'hero',
-      title: 'Hero media',
-      type: 'object',
-      group: ['promotion'],
-      fields: [
-        defineField({
-          name: 'include',
-          title: 'Include hero media for this content',
-          type: 'boolean',
-        }),
-        defineField({
-          name: 'hero',
-          type: 'hero',
-          hidden: ({ parent }) => (parent?.include ? false : true),
-        }),
-      ],
-    }),
-    defineField({
-      name: 'featured',
-      title: 'Featured',
-      type: 'featured',
-      group: 'promotion',
-    }),
-    defineField({
-      name: 'theme',
-      title: 'Theme',
-      type: 'use_theme',
-      group: 'promotion',
-    }),
-
     // SEO & Social
     defineField({
       name: 'share',
@@ -177,15 +132,6 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
-      media: 'mainImage',
-    },
-    prepare(selection) {
-      const { author } = selection;
-      return {
-        ...selection,
-        subtitle: author && `by ${author.given} ${author.family}`,
-      };
     },
   },
 });

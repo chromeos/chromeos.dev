@@ -13,14 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { defineType } from 'sanity';
+import { minMax } from '$lib/validators/min-max';
 
-// / <reference types="vite/client" />
+export const descriptionValidation = minMax(10, 155);
 
-interface ImportMetaEnv {
-  readonly SANITY_STUDIO_PROJECT: string;
-  readonly SANITY_STUDIO_API_DATASET: string;
-}
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}
+export default defineType({
+  name: 'description',
+  title: 'Description',
+  description:
+    'A short description of the content. Used to preview the content in lists as well as in search results and social posts.',
+  type: 'string',
+  validation: descriptionValidation(true),
+});

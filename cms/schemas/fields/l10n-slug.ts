@@ -13,28 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { defineCliConfig } from 'sanity/cli';
-import * as dotenv from 'dotenv';
-import { resolve } from 'path';
-import process from 'process';
+import { defineType } from 'sanity';
+import { isUniqueAcrossBaseLanguages, isL10n } from '$lib/validators/i18n';
 
-dotenv.config();
-
-export default defineCliConfig({
-  api: {
-    projectId: process.env.SANITY_STUDIO_PROJECT,
-    dataset: process.env.SANITY_STUDIO_API_DATASET,
+export default defineType({
+  name: 'l10n-slug',
+  title: 'l10n Slug',
+  description: 'A slug that is unique across base languages',
+  type: 'slug',
+  options: {
+    source: 'title',
+    maxLength: 96,
+    isUnique: isUniqueAcrossBaseLanguages,
   },
-
-  vite(config) {
-    return Object.assign(config, {
-      resolve: {
-        alias: {
-          $lib: resolve(process.cwd(), 'lib'),
-          $subschema: resolve(process.cwd(), 'schemas/subschema'),
-          $fields: resolve(process.cwd(), 'schemas/fields'),
-        },
-      },
-    });
-  },
+  validation: (Rule) => Rule.required(),
+  readOnly: isL10n,
+  hidden: isL10n,
 });

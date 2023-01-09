@@ -13,28 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { defineCliConfig } from 'sanity/cli';
-import * as dotenv from 'dotenv';
-import { resolve } from 'path';
-import process from 'process';
+import { defineType, defineField } from 'sanity';
 
-dotenv.config();
-
-export default defineCliConfig({
-  api: {
-    projectId: process.env.SANITY_STUDIO_PROJECT,
-    dataset: process.env.SANITY_STUDIO_API_DATASET,
-  },
-
-  vite(config) {
-    return Object.assign(config, {
-      resolve: {
-        alias: {
-          $lib: resolve(process.cwd(), 'lib'),
-          $subschema: resolve(process.cwd(), 'schemas/subschema'),
-          $fields: resolve(process.cwd(), 'schemas/fields'),
-        },
+export default defineType({
+  name: 'break',
+  title: 'Break',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'type',
+      title: 'Type',
+      type: 'string',
+      options: {
+        list: [{ title: '--- Break ---', value: 'generic' }],
       },
-    });
-  },
+    }),
+  ],
 });

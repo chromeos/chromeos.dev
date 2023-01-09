@@ -13,14 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { defineType, defineField } from 'sanity';
 
-// / <reference types="vite/client" />
-
-interface ImportMetaEnv {
-  readonly SANITY_STUDIO_PROJECT: string;
-  readonly SANITY_STUDIO_API_DATASET: string;
-}
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}
+export default defineType({
+  name: 'backgrounds',
+  title: 'Backgrounds',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'background_large',
+      title: 'Large-screen',
+      type: 'image',
+    }),
+    defineField({
+      name: 'background_small',
+      title: 'Small-screen',
+      type: 'image',
+    }),
+  ],
+});

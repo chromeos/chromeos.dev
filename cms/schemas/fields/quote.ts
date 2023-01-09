@@ -13,14 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { defineType, defineField } from 'sanity';
 
-// / <reference types="vite/client" />
-
-interface ImportMetaEnv {
-  readonly SANITY_STUDIO_PROJECT: string;
-  readonly SANITY_STUDIO_API_DATASET: string;
-}
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}
+export default defineType({
+  name: 'quote',
+  title: 'Quote',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'quote',
+      title: 'Quote',
+      type: 'inline-block',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'author',
+      title: 'Author',
+      type: 'string',
+    }),
+  ],
+});

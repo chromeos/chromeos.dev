@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 import { defineField, defineType } from 'sanity';
-import { isL10n } from '$lib/validators/i18n';
 
 export default defineType({
-  name: 'post',
-  title: 'Post',
+  name: 'story',
+  title: 'Partner Story',
   type: 'document',
-  i18n: true,
   groups: [
     {
       name: 'content',
@@ -68,10 +66,23 @@ export default defineType({
       group: ['content'],
       options: {
         disableNew: true,
-        filter: 'is_post_category == true',
+        filter: 'is_story_category == true',
       },
-      readOnly: isL10n,
-      hidden: isL10n,
+    }),
+    defineField({
+      name: 'app',
+      title: 'App',
+      type: 'app',
+      group: ['content'],
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: 'hero',
+      title: 'Hero media',
+      type: 'hero',
+      group: ['content'],
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
@@ -92,24 +103,11 @@ export default defineType({
 
     // Publishing
     defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      group: ['publishing'],
-      validation: (Rule) => Rule.required(),
-      to: { type: 'author' },
-      readOnly: isL10n,
-      // hidden: isL10n,
-    }),
-
-    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',
       group: 'publishing',
       of: [{ type: 'reference', to: { type: 'tag' } }],
-      readOnly: isL10n,
-      // hidden: isL10n,
     }),
     defineField({
       name: 'date_overrides',
@@ -118,7 +116,6 @@ export default defineType({
         'Override the built-in publish and update dates. Useful for backdating posts.',
       type: 'object',
       group: 'publishing',
-      readOnly: isL10n,
       fields: [
         defineField({
           name: 'published',
@@ -135,33 +132,9 @@ export default defineType({
 
     // Promotion
     defineField({
-      name: 'hero',
-      title: 'Hero media',
-      type: 'object',
-      group: ['promotion'],
-      fields: [
-        defineField({
-          name: 'include',
-          title: 'Include hero media for this content',
-          type: 'boolean',
-        }),
-        defineField({
-          name: 'hero',
-          type: 'hero',
-          hidden: ({ parent }) => (parent?.include ? false : true),
-        }),
-      ],
-    }),
-    defineField({
       name: 'featured',
       title: 'Featured',
       type: 'featured',
-      group: 'promotion',
-    }),
-    defineField({
-      name: 'theme',
-      title: 'Theme',
-      type: 'use_theme',
       group: 'promotion',
     }),
 
@@ -177,15 +150,7 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
       media: 'mainImage',
-    },
-    prepare(selection) {
-      const { author } = selection;
-      return {
-        ...selection,
-        subtitle: author && `by ${author.given} ${author.family}`,
-      };
     },
   },
 });

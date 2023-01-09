@@ -13,14 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { defineType, defineField } from 'sanity';
 
-// / <reference types="vite/client" />
-
-interface ImportMetaEnv {
-  readonly SANITY_STUDIO_PROJECT: string;
-  readonly SANITY_STUDIO_API_DATASET: string;
-}
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}
+export default defineType({
+  name: 'abbreviation',
+  title: 'Abbreviation',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'description',
+      title: 'Expanded description',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+  ],
+});

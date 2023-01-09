@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { defineType } from 'sanity';
+import { minMax } from '$lib/validators/min-max';
 
-// / <reference types="vite/client" />
+export const titleValidation = minMax(3, 60);
 
-interface ImportMetaEnv {
-  readonly SANITY_STUDIO_PROJECT: string;
-  readonly SANITY_STUDIO_API_DATASET: string;
-}
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}
+export default defineType({
+  name: 'title',
+  title: 'Title',
+  type: 'string',
+  validation: titleValidation(true),
+});

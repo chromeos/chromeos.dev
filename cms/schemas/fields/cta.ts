@@ -13,14 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { defineType, defineField } from 'sanity';
 
-// / <reference types="vite/client" />
-
-interface ImportMetaEnv {
-  readonly SANITY_STUDIO_PROJECT: string;
-  readonly SANITY_STUDIO_API_DATASET: string;
-}
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}
+export default defineType({
+  name: 'cta',
+  title: 'Call to Action',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'text',
+      type: 'string',
+    }),
+    defineField({
+      name: 'link',
+      type: 'link',
+    }),
+  ],
+});

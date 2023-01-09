@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { defineType } from 'sanity';
+import { minMax } from '$lib/validators/min-max';
 
-// / <reference types="vite/client" />
+export const eyebrowValidation = minMax(3, 15);
 
-interface ImportMetaEnv {
-  readonly SANITY_STUDIO_PROJECT: string;
-  readonly SANITY_STUDIO_API_DATASET: string;
-}
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}
+export default defineType({
+  name: 'eyebrow',
+  title: 'Eyebrow',
+  description: 'Usually displayed in a smaller font above the title',
+  type: 'string',
+  validation: eyebrowValidation(),
+});
