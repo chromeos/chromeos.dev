@@ -77,7 +77,7 @@ required by default. Instead, you can add defensive code to check for specific
 hardware at run time rather. An example of this would be
 
 ```
-<uses-feature android:name="android.hardware.camera" android:required="true">
+%lt;uses-feature android:name="android.hardware.camera" android:required="true"%gt;
 ```
 
 #### Remedy
