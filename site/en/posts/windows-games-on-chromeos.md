@@ -26,7 +26,7 @@ repository](https://github.com/ValveSoftware/Proton), you'll quickly notice that
 the vast majority of Proton consists of git submodules. Proton is\* *a collection
 of modules that grew organically in the open-source community out of a desire to
 bring widely-available cross-platform support to the world. Proton's real
-value-add is sorting out *how\* to get all of these modules working together
+value-add is sorting out _how_ to get all of these modules working together
 properly and with good performance. This is no easy goal since the support
 offered by Proton is fraught with corner cases. Achieving synergy of these
 modules requires applying and maintaining meaningful modifications on top of
