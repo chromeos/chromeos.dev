@@ -8,8 +8,6 @@ tags:
   - large screens
 ---
 
-# ChromeOS lint rules in Android Studio
-
 We, at ChromeOS, are committed to enhancing developer tools and frameworks that
 enable Android app developers to optimize their apps for Chromebooks seamlessly.
 In doing so, we need to look consistently at ways to bring impactful tool sets
@@ -35,8 +33,8 @@ Electric Eel Canary builds. A few of these lint rules are also now available in
 the Flamingo Canary releases. We will continue to build towards having these in
 the stable versions of Android Studio in the coming months.
 
-Another major thing to note is that these rules will be ***enabled by
-default*** in newer versions of Android Studio. The goal of this is to have more
+Another major thing to note is that these rules will be **_enabled by
+default_** in newer versions of Android Studio. The goal of this is to have more
 strongly opinionated guidance on how we want to help engineers build for
 ChromeOS and larger screens going forward.
 
@@ -62,7 +60,7 @@ and the talk on [ABI Support from ADS](https://youtu.be/C0IuT0O2wlM?t=229).
 
 !!! aside.message--note
 **Note:** Ensure that whatever included third-party libraries that are being
-utilized also have x86 and x86_64 binaries. 
+utilized also have x86 and x86_64 binaries.
 !!!
 
 ### ChromeOS hardware limitation
@@ -103,7 +101,6 @@ needs. After adding these changes to your Manifest, test your application
 against the Desktop Emulator referenced below.
 
 ![Android Virtual Device Creation for Desktop Emulator](ix://posts/android-studio-lint-rules/avd.gif)
-
 
 #### Remedy
 
@@ -148,7 +145,7 @@ get more information, reference the
 !!! aside.message--tip
 **Tip:** 90% of users interact with apps on Chromebooks by using a keyboard and
 mouse. (Source:
-    [2022 Google Internal Data*](https://chromeos.dev/en/posts/game-controls-for-android-games#fn1))
+[2022 Google Internal Data\*](https://chromeos.dev/en/posts/game-controls-for-android-games#fn1))
 !!!
 
 ## Feedback

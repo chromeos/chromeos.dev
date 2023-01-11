@@ -4,7 +4,7 @@ metadesc: Use lint rules in Android Studio to enhance the experience of building
 tags:
   - android
   - large screens
-authors: 
+authors:
   - jhale
 date: 2022-12-23
 ---
@@ -75,7 +75,7 @@ making the appropriate changes.
 Optimizing for
 [ChromeOS and Large Screen Guidance](https://developer.android.com/guide/topics/large-screens/get-started-with-large-screens)
 will continue to evolve. We want to continue to improve our existing toolkits to
-bring more awareness to developers early and often. 
+bring more awareness to developers early and often.
 We want developers to feel empowered to make large screen improvements for their
 apps. Showcasing potential issues earlier in the development process is one way
 to achieve this.
