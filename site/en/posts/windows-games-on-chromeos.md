@@ -23,7 +23,7 @@ user installs a Windows game on a Linux system.
 
 Scrolling through the [Proton
 repository](https://github.com/ValveSoftware/Proton), you'll quickly notice that
-the vast majority of Proton consists of git submodules. Proton is\* *a collection
+the vast majority of Proton consists of git submodules. Proton is a collection
 of modules that grew organically in the open-source community out of a desire to
 bring widely-available cross-platform support to the world. Proton's real
 value-add is sorting out _how_ to get all of these modules working together
