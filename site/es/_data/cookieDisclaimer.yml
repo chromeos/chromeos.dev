@@ -1,11 +1,9 @@
 title: Acuerdo al uso de cookies.
 content:
-  disclaimer: Google usa cookies para brindar sus servicios, personalizar anuncios y analizar el tráfico. Puedes cambiar los controles de privacidad en la ((t)), en cualquier momento.
+  disclaimer: ChromeOS.dev utiliza cookies para ofrecer y mejorar la calidad de sus servicios y para analizar el tráfico. Si está de acuerdo, las cookies también se utilizan para mostrar publicidad y personalizar el contenido y los anuncios que ve. ((t)).
   settings:
-    text: configuración de Google
-    url: https://support.google.com/accounts/answer/3118621?hl=es
-ctas:
-  accept: Ok, Acepto.
-  info:
-    text: Más información.
+    text: Más información
     url: https://www.google.com/policies/technologies/cookies?hl=es
+ctas:
+  accept: Aceptar
+  decline: No, gracias

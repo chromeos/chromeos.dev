@@ -1,11 +1,9 @@
 title: Cookie Consent.
 content:
-  disclaimer: Google uses cookies to deliver its services, to personalize ads, and to analyze traffic. You can adjust your privacy controls anytime in ((t)).
+  disclaimer: ChromeOS.dev uses cookies to deliver and enhance the quality of its services and to analyze traffic. If you agree, cookies are also used to serve advertising and to personalize the content and advertisements that you see. ((t)).
   settings:
-    text: Google settings
-    url: https://support.google.com/accounts/answer/3118621
-ctas:
-  accept: Ok, Got it.
-  info:
     text: Learn more.
-    url: https://www.google.com/policies/technologies/cookies
+    url: https://policies.google.com/technologies/cookies
+ctas:
+  accept: Agree
+  decline: No thanks
