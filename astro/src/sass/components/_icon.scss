@@ -1,0 +1,55 @@
+// Common styles for svg icons.
+.icon {
+  height: 1.5rem;
+  transition: transform 0.2s ease-in-out;
+  vertical-align: middle;
+  width: 1.5rem;
+
+  // Inline icons
+  &--inline,
+  &--inline-external {
+    fill: currentColor;
+    height: 1em;
+    width: calc(1em + 0.25rem);
+  }
+
+  &--inline {
+    [dir='ltr'] & {
+      padding-left: 0.25rem;
+    }
+
+    [dir='rtl'] & {
+      padding-right: 0.25rem;
+    }
+  }
+
+  &--inline-external {
+    display: inline-block;
+
+    [dir='ltr'] & {
+      margin-left: 0.25rem;
+    }
+
+    [dir='rtl'] & {
+      margin-right: 0.25rem;
+    }
+  }
+
+  &--container {
+    display: inline;
+    white-space: nowrap;
+  }
+
+  &--external {
+    transform: rotate(-45deg);
+  }
+
+  &--rounded {
+    background-color: var(--blue-600);
+    border-radius: 50%;
+    display: block;
+    margin-bottom: pxRem(16px);
+    padding: pxRem(8px);
+    width: pxRem(40px);
+  }
+}

@@ -1,0 +1,35 @@
+.cta {
+  @extend %cta;
+
+  &--left-icon {
+    @extend %cta--left-icon;
+  }
+
+  &--right-icon {
+    @extend %cta--right-icon;
+  }
+
+  &--high {
+    @extend %cta--high;
+  }
+
+  &--medium {
+    @extend %cta--medium;
+  }
+
+  &--low {
+    @extend %cta--low;
+  }
+
+  &--transparent {
+    @extend %cta--transparent;
+  }
+
+  &--link {
+    @extend %cta--link;
+  }
+
+  &--back {
+    @extend %cta--back;
+  }
+}
