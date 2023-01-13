@@ -1,11 +1,14 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
+    "importsNotUsedAsValues": "error",
     "baseUrl": ".",
     "paths": {
       "$components/*": ["src/components/*"],
       "$layouts/*": ["src/layouts/*"],
       "$lib/*": ["lib/*"],
+      "$types/*": ["types/*"],
+      "$sass/*": ["src/sass/*"],
       "$$sanity": ["lib/sanity.ts"]
     }
   }
