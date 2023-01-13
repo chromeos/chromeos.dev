@@ -1,19 +1,180 @@
-<div class="container">
-  <article>
-    <h1>Hello World</h1>
-  </article>
-</div>
+---
+import type { Theme, HeroMedia, CTA } from '$types/content';
+
+export interface Props {
+  title: string;
+  body: string;
+  theme: Theme;
+  media: HeroMedia;
+  cta: CTA;
+  standalone?: boolean;
+  banner?: boolean;
+}
+
+const {
+  title,
+  body,
+  theme = {},
+  media = {},
+  standalone = true,
+  banner = true,
+  cta = {},
+} = Astro.props;
+
+const Wrapper = standalone ? 'article' : 'header';
+const Header = standalone ? 'h1' : 'h2';
+theme.theme = 'lumafusion';
+theme.eyebrow = 'Featured Content';
+
+media.url =
+  'https://chromeos-dev.imgix.net/posts/announcing-lumafusion-beta-for-chromeos/LumaFusionHero.png?auto=format,compress';
+media.alt = 'Chromebook running LumaFusion Beta';
+// cta = {
+//   text: 'Get LumaFusion Beta',
+//   url: 'https://chromeos.dev/lumafusion',
+// };
+---
+
+<Wrapper
+  class:list={[
+    'story-hero',
+    'wrapper--padded',
+    { theme: theme?.theme },
+    `${theme?.theme ? 'theme__' + theme?.theme : ''}`,
+  ]}
+>
+  <div class="story-hero--inner">
+    <div class="story-hero--content-wrapper">
+      {
+        theme.eyebrow ? (
+          <small class:list={['eyebrow', { 'type--h2': banner }]}>
+            {theme.eyebrow}
+          </small>
+        ) : (
+          ''
+        )
+      }
+      <Header class="type--h1">{title}</Header>
+      <p class="story-hero--body type--large">{body}</p>
+      <a
+        href={cta.url}
+        class:list={[
+          'story-hero--cta',
+          'cta',
+          { 'cta--transparent': banner },
+          { 'cta--link cta--right-icon': !banner },
+        ]}>{cta.text}</a
+      >
+    </div>
+    {
+      media.url ? (
+        <div class="story-hero--image-wrapper">
+          <img src={media.url} alt={media.alt} class="story-hero--image" />
+        </div>
+      ) : (
+        ''
+      )
+    }
+  </div>
+</Wrapper>
 
 <style lang="scss">
-  .container {
+  .story-hero {
     container-type: inline-size;
-  }
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding-block-start: clamp(2rem, 6vw, 3rem);
+    padding-block-end: clamp(2rem, 6vw, 3rem);
 
-  article {
-    background: green;
+    &--inner {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 100rem;
+      margin: 0 auto;
 
-    @container (min-width: 500px) {
-      background: red;
+      @container (min-width: 660px) {
+        display: grid;
+        align-items: center;
+        grid-template-columns: minmax(40ch, 60ch) minmax(200px, auto);
+      }
+    }
+
+    &--content-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &--body {
+      margin-top: 1.25rem;
+    }
+    &--cta {
+      margin-top: 1.75rem;
+      max-width: max-content;
+    }
+
+    &--image-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    &--image {
+      @container (min-width: 660px) {
+        max-height: 70cqh;
+      }
     }
   }
-</style>  
+
+  /** Hero Themes */
+  .theme {
+    background-color: var(--hero-theme-background);
+
+    [class*='type'],
+    [class*='link'],
+    [class*='icon'] {
+      color: var(--hero-theme-color);
+      fill: var(--hero-theme-color);
+    }
+
+    .cta:focus {
+      background-color: var(--hero-theme-cta-background);
+    }
+
+    &__m100 {
+      --hero-theme-color: var(--white);
+      --hero-theme-background: var(--blue-850);
+      --hero-theme-cta-background: transparent;
+    }
+
+    &__io-2022 {
+      --hero-theme-color: var(--white);
+      --hero-theme-background: var(--green-700);
+      --hero-theme-cta-background: transparent;
+    }
+
+    &__lumafusion {
+      --hero-theme-color: var(--white);
+      --hero-theme-background: var(--blue-850);
+      --hero-theme-cta-background: transparent;
+
+      --center: 97%;
+      --offset: 74px;
+      --small: 25%;
+      --large: calc(25% + 5rem);
+
+      background-image: radial-gradient(
+          circle farthest-corner at var(--center) var(--center),
+          var(--blue-200) var(--small),
+          transparent var(--small)
+        ),
+        radial-gradient(
+          circle farthest-corner at calc(var(--center) + var(--offset))
+            calc(var(--center) + var(--offset)),
+          var(--blue-300) var(--large),
+          transparent var(--large)
+        );
+    }
+  }
+</style>

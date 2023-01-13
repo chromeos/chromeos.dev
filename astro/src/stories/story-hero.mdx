@@ -1,24 +1,36 @@
-import StoryHero from "../components/StoryHero.astro";
+import StoryHero from '../components/StoryHero.astro';
 
 export const story = {
-  title: "Story Hero",
+  title: 'Story Hero',
   component: StoryHero,
-  props: [
+  variants: [
     {
-      name: "eyebrow",
-      type: "text",
-      default: "Featured Story",
-      description: "Small text to describe the kind of content displayed",
-    },
-    {
-      name: "title",
-      type: "text",
-      default: "Announcing LumaFusion beta for ChromeOS",
-    },
-    {
-      name: "body",
-      type: "text",
-      default: "LumaFusion beta is now available for ChromeOS and Android.",
+      props: [
+        {
+          name: 'eyebrow',
+          type: 'text',
+          default: 'Featured Story',
+          description: 'Small text to describe the kind of content displayed',
+        },
+        {
+          name: 'title',
+          type: 'text',
+          default: 'Announcing LumaFusion beta for ChromeOS',
+        },
+        {
+          name: 'body',
+          type: 'text',
+          default: 'LumaFusion beta is now available for ChromeOS and Android.',
+        },
+        {
+          name: 'cta',
+          type: 'object',
+          default: {
+            text: 'Read More',
+            url: '/en',
+          },
+        },
+      ],
     },
   ],
 };

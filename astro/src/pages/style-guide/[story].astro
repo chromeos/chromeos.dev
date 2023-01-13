@@ -1,4 +1,5 @@
 ---
+import '$sass/global.scss';
 import Starchart from 'starchart-studio/Starchart.astro';
 import { StarchartStudio } from 'starchart-studio';
 
@@ -13,6 +14,8 @@ export async function getStaticPaths() {
 
 // Chart out your components
 const starchart = StarchartStudio.chart(Astro);
+
+// const locale = { code: 'en', dir: 'ltr' };
 ---
 
 <!-- Render your Starchart -->

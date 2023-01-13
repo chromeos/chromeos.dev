@@ -1,0 +1,100 @@
+---
+import type { Locale } from '$types/content';
+import '$sass/global.scss';
+
+export interface Props {
+  title?: string;
+  metadesc: string;
+  props?: Array<{
+    property: string;
+    content: string;
+  }>;
+  locale: Locale;
+}
+
+const { title, props = [], locale, metadesc } = Astro.props;
+
+// TODO: get all availabe languages for current content
+const languages = [];
+
+/**
+ * Returns a localized URL for a given URL and language code.
+ * @param {URL} url The URL to localize.
+ * @param {string} lang The language code to localize to.
+ * @return {string} The localized URL.
+ */
+function l10nURL(url: URL, lang: string) {
+  const pth = url.pathname.split('/');
+  pth[1] = lang;
+  const localized = new URL(url.href);
+  localized.pathname = pth.join('/');
+  return localized;
+}
+---
+
+<!DOCTYPE html>
+<html lang={locale.code} dir={locale.dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>{title ? title + ' | ' : ''}ChromeOS.dev</title>
+    <meta name="Description" content={metadesc} />
+    <meta name="theme-color" content="#1a73e8" />
+    <link rel="icon" type="image/png" href="ix://icons/favicon.png" />
+    <link rel="apple-touch-icon" href="/images/icons/pwa/icon-192x192.png" />
+    {
+      props.map((prop) => {
+        return <meta property={`og:${prop.property}`} content={prop.content} />;
+      })
+    }
+    {
+      languages
+        .filter((lang) => lang !== locale.code)
+        .map((lang) => {
+          return (
+            <link
+              rel="alternate"
+              hreflang={lang}
+              href={l10nURL(Astro.url, lang)}
+            />
+          );
+        })
+    }
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin="" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Google+Sans:400,500|Google+Sans+Text:400,400i,500,700,700i|Google+Sans+Mono:400,600&display=swap"
+    />
+  </head>
+  <body id="body">
+    <!-- Header -->
+
+    <main class="main">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+
+    <!-- Cookie Disclaimer -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+      /* eslint-disable no-undef, prefer-rest-params */
+      window.dataLayer = window?.dataLayer || [];
+      /**
+       * Kick off the Google Analytics script.
+       */
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-168234575-1');
+      /* eslint-enable no-undef, prefer-rest-params */
+    </script>
+  </body>
+</html>
