@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { PortableText } from "@portabletext/svelte";
-  import type { CustomBlockComponentProps } from "@portabletext/svelte";
+  import type { CustomBlockComponentProps } from '@portabletext/svelte';
 
   export let portableText: CustomBlockComponentProps<{ style?: boolean }>;
 

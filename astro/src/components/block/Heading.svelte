@@ -1,11 +1,16 @@
 <script lang="ts">
-  import { PortableText } from "@portabletext/svelte";
-  import type { CustomBlockComponentProps } from "@portabletext/svelte";
+  import { PortableText } from '@portabletext/svelte';
+  import type { CustomBlockComponentProps } from '@portabletext/svelte';
 
   export let portableText: CustomBlockComponentProps<{ style?: boolean }>;
 
+  /**
+   * Get the text from a PortableText node
+   * @param {Object} child
+   * @return {string}
+   */
   function getHeaderText(child) {
-    let content = "";
+    let content = '';
     if (child.text) {
       content = child.text;
     } else if (child.children) {
@@ -17,7 +22,7 @@
   }
 
   const text = getHeaderText(portableText.value);
-  const slug = "#" + text.toLocaleLowerCase().replace(/ /g, "-");
+  const slug = '#' + text.toLocaleLowerCase().replace(/ /g, '-');
   const style = portableText.value.style;
   console.log(portableText.value);
 </script>

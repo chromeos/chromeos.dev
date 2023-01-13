@@ -1,5 +1,5 @@
 <script>
-  import Render from "./Render.svelte";
+  import Render from './Render.svelte';
 
   export let value = [];
 </script>

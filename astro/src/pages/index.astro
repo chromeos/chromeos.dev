@@ -1,6 +1,6 @@
 ---
-import sanity from "$$sanity";
-import Body from "$components/Body.svelte";
+import sanity from '$$sanity';
+import Body from '$components/Body.svelte';
 
 const query = `*[_type == "post"][0]`;
 const post = await sanity.fetch(query);
