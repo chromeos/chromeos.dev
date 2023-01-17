@@ -1,4 +1,16 @@
 /**
+ * A blog post's section
+ */
+export type StorySection =
+  | 'foundations'
+  | 'android'
+  | 'web'
+  | 'games'
+  | 'event'
+  | 'announcement'
+  | "leader's corner";
+
+/**
  * A piece of content's theme
  */
 export type Theme = {
@@ -7,7 +19,7 @@ export type Theme = {
   theme?: string;
   background?: {
     large: string;
-    bottom: string;
+    small: string;
   };
 };
 

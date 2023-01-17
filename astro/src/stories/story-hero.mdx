@@ -8,12 +8,6 @@ export const story = {
       title: 'Banner (default)',
       props: [
         {
-          name: 'eyebrow',
-          type: 'text',
-          default: 'Featured Story',
-          description: 'Small text to describe the kind of content displayed',
-        },
-        {
           name: 'title',
           type: 'text',
           default: 'Announcing LumaFusion beta for ChromeOS',
@@ -36,7 +30,7 @@ export const story = {
           type: 'object',
           default: {
             theme: 'lumafusion',
-            eyebrow: 'Featured Content',
+            eyebrow: 'Featured story',
           },
         },
         {
@@ -50,13 +44,12 @@ export const story = {
       ],
     },
     {
-      title: 'No banner',
+      title: 'No banner, CTA',
       props: [
         {
-          name: 'eyebrow',
+          name: 'section',
           type: 'text',
-          default: 'Featured Story',
-          description: 'Small text to describe the kind of content displayed',
+          default: 'announcement',
         },
         {
           name: 'banner',
@@ -86,8 +79,9 @@ export const story = {
           name: 'theme',
           type: 'object',
           default: {
+            icon: 'https://chromeos-dev.imgix.net/icons/eyebrows/announcement.svg?auto=format,compress',
             theme: 'lumafusion',
-            eyebrow: 'Featured Content',
+            eyebrow: 'Featured story',
           },
         },
         {

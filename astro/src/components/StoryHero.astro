@@ -1,11 +1,13 @@
 ---
-import type { Theme, HeroMedia, CTA } from '$types/content';
+import type { Theme, HeroMedia, CTA, StorySection } from '$types/content';
+import { isExternalLink } from '$lib/links';
 import CTALink from './ctas/Link.svelte';
 import CTATransparent from './ctas/Transparent.svelte';
 
 export interface Props {
   title: string;
   body: string;
+  section: StorySection;
   theme: Theme;
   media: HeroMedia;
   cta: CTA;
@@ -16,6 +18,7 @@ export interface Props {
 const {
   title,
   body,
+  section,
   theme = {},
   media = {},
   standalone = true,
@@ -25,47 +28,80 @@ const {
 
 const Wrapper = standalone ? 'article' : 'header';
 const Header = standalone ? 'h1' : 'h2';
+
+const eyebrowIcon = `https://chromeos-dev.imgix.net/icons/eyebrows/${section}.svg?auto=format,compress`;
 ---
 
 <Wrapper class="story-hero">
   <div
     class:list={[
-      'story-hero--inner',
       { theme: theme?.theme },
       `${theme?.theme ? 'theme__' + theme?.theme : ''}`,
     ]}
   >
-    <div class="story-hero--content-wrapper wrapper--padded wrapper--padding">
+    <div class:list={['story-hero--inner']}>
+      <div class="story-hero--content-wrapper wrapper--padded wrapper--padding">
+        {
+          (theme.eyebrow || section) && (
+            <div
+              class:list={[
+                'story-hero--eyebrow',
+                { 'story-hero--unibrow': banner },
+              ]}
+            >
+              {!banner && section && (
+                <img
+                  src={eyebrowIcon}
+                  alt=""
+                  class="hero-hero__icon icon"
+                  aria-hidden="true"
+                  crossorigin="anonymous"
+                  loading="lazy"
+                  sizes="100vw"
+                  height=""
+                  width=""
+                />
+              )}
+              {theme.eyebrow && (
+                <small
+                  class:list={[
+                    { 'type--h2': banner },
+                    { 'type--eyebrow': !banner },
+                  ]}
+                >
+                  {theme.eyebrow}
+                </small>
+              )}
+            </div>
+          )
+        }
+
+        <Header class="type--h1">{title}</Header>
+        <p class:list={['story-hero--body type--h4']}>{body}</p>
+        <a href={cta.url} class:list={['story-hero--cta']}
+          >{
+            banner ? (
+              <CTATransparent>{cta.text}</CTATransparent>
+            ) : (
+              <CTALink
+                arrow={!isExternalLink(cta.url) ? 'forward' : 'external'}
+              >
+                {cta.text}
+              </CTALink>
+            )
+          }</a
+        >
+      </div>
       {
-        theme.eyebrow ? (
-          <small class:list={['eyebrow', { 'type--h2': banner }]}>
-            {theme.eyebrow}
-          </small>
+        media.url ? (
+          <div class="story-hero--image-wrapper">
+            <img src={media.url} alt={media.alt} class="story-hero--image" />
+          </div>
         ) : (
           ''
         )
       }
-      <Header class="type--h1">{title}</Header>
-      <p class="story-hero--body type--large">{body}</p>
-      <a href={cta.url} class:list={['story-hero--cta']}
-        >{
-          banner ? (
-            <CTATransparent>{cta.text}</CTATransparent>
-          ) : (
-            <CTALink>{cta.text}</CTALink>
-          )
-        }</a
-      >
     </div>
-    {
-      media.url ? (
-        <div class="story-hero--image-wrapper">
-          <img src={media.url} alt={media.alt} class="story-hero--image" />
-        </div>
-      ) : (
-        ''
-      )
-    }
   </div>
 </Wrapper>
 
@@ -74,25 +110,32 @@ const Header = standalone ? 'h1' : 'h2';
     container-type: inline-size;
     position: relative;
     width: 100%;
-    max-width: 100rem;
-    margin: 0 auto;
 
     &--inner {
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      border-radius: 0.625rem;
+
       overflow: hidden;
+      max-width: 100rem;
+      margin: 0 auto;
 
       @container (min-width: 660px) {
         display: grid;
         align-items: center;
         grid-template-columns: minmax(40ch, 50%) minmax(200px, auto);
       }
+    }
 
-      @container (min-width: calc(100vw - 1rem)) {
-        border-radius: 0;
-      }
+    &--eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    &--unibrow {
+      margin-bottom: 0;
     }
 
     &--content-wrapper {
@@ -117,10 +160,12 @@ const Header = standalone ? 'h1' : 'h2';
       justify-content: flex-end;
       position: relative;
       aspect-ratio: 4 / 3;
+      min-height: 15rem;
       max-height: 30cqh;
       justify-self: flex-end;
 
       @container (min-width: 660px) {
+        min-height: 20rem;
         max-height: 50cqh;
       }
     }
@@ -129,6 +174,11 @@ const Header = standalone ? 'h1' : 'h2';
   /** Hero Themes */
   .theme {
     background-color: var(--hero-theme-background);
+    border-radius: 0.625rem;
+
+    @container (min-width: calc(100vw - 1rem)) {
+      border-radius: 0;
+    }
 
     [class*='type'],
     [class*='link'],
