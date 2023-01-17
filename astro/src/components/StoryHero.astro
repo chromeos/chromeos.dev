@@ -1,5 +1,7 @@
 ---
 import type { Theme, HeroMedia, CTA } from '$types/content';
+import CTALink from './ctas/Link.svelte';
+import CTATransparent from './ctas/Transparent.svelte';
 
 export interface Props {
   title: string;
@@ -45,14 +47,14 @@ const Header = standalone ? 'h1' : 'h2';
       }
       <Header class="type--h1">{title}</Header>
       <p class="story-hero--body type--large">{body}</p>
-      <a
-        href={cta.url}
-        class:list={[
-          'story-hero--cta',
-          'cta',
-          { 'cta--transparent': banner },
-          { 'cta--link cta--right-icon': !banner },
-        ]}>{cta.text}</a
+      <a href={cta.url} class:list={['story-hero--cta']}
+        >{
+          banner ? (
+            <CTATransparent>{cta.text}</CTATransparent>
+          ) : (
+            <CTALink>{cta.text}</CTALink>
+          )
+        }</a
       >
     </div>
     {
@@ -104,6 +106,7 @@ const Header = standalone ? 'h1' : 'h2';
       margin-top: 1.25rem;
     }
     &--cta {
+      --cta-color: var(--hero-theme-color);
       margin-top: 1.75rem;
       max-width: max-content;
     }
