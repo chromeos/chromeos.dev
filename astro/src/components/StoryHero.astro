@@ -25,16 +25,15 @@ const Wrapper = standalone ? 'article' : 'header';
 const Header = standalone ? 'h1' : 'h2';
 ---
 
-<Wrapper
-  class:list={[
-    'story-hero',
-    'wrapper--padded',
-    { theme: theme?.theme },
-    `${theme?.theme ? 'theme__' + theme?.theme : ''}`,
-  ]}
->
-  <div class="story-hero--inner">
-    <div class="story-hero--content-wrapper">
+<Wrapper class="story-hero">
+  <div
+    class:list={[
+      'story-hero--inner',
+      { theme: theme?.theme },
+      `${theme?.theme ? 'theme__' + theme?.theme : ''}`,
+    ]}
+  >
+    <div class="story-hero--content-wrapper wrapper--padded wrapper--padding">
       {
         theme.eyebrow ? (
           <small class:list={['eyebrow', { 'type--h2': banner }]}>
@@ -71,29 +70,34 @@ const Header = standalone ? 'h1' : 'h2';
 <style lang="scss">
   .story-hero {
     container-type: inline-size;
-    overflow: hidden;
     position: relative;
     width: 100%;
-    padding-block-start: clamp(2rem, 6vw, 3rem);
-    padding-block-end: clamp(2rem, 6vw, 3rem);
+    max-width: 100rem;
+    margin: 0 auto;
 
     &--inner {
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      max-width: 100rem;
-      margin: 0 auto;
+      border-radius: 0.625rem;
+      overflow: hidden;
 
       @container (min-width: 660px) {
         display: grid;
         align-items: center;
-        grid-template-columns: minmax(40ch, 60ch) minmax(200px, auto);
+        grid-template-columns: minmax(40ch, 50%) minmax(200px, auto);
+      }
+
+      @container (min-width: calc(100vw - 1rem)) {
+        border-radius: 0;
       }
     }
 
     &--content-wrapper {
       display: flex;
       flex-direction: column;
+      // padding-block-start: clamp(2rem, 6vw, 3rem);
+      // padding-block-end: clamp(2rem, 6vw, 3rem);
     }
 
     &--body {
@@ -108,11 +112,13 @@ const Header = standalone ? 'h1' : 'h2';
       display: flex;
       align-items: center;
       justify-content: flex-end;
-    }
+      position: relative;
+      aspect-ratio: 4 / 3;
+      max-height: 30cqh;
+      justify-self: flex-end;
 
-    &--image {
       @container (min-width: 660px) {
-        max-height: 70cqh;
+        max-height: 50cqh;
       }
     }
   }
