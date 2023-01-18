@@ -3,6 +3,7 @@ import type { Theme, HeroMedia, CTA, StorySection } from '$types/content';
 import { isExternalLink } from '$lib/links';
 import CTALink from './ctas/Link.svelte';
 import CTATransparent from './ctas/Transparent.svelte';
+import { buildSection } from '$lib/helpers/posts';
 
 export interface Props {
   title: string;
@@ -11,8 +12,7 @@ export interface Props {
   theme: Theme;
   media: HeroMedia;
   cta: CTA;
-  standalone?: boolean;
-  banner?: boolean;
+  form?: 'banner' | 'standalone' | 'header';
 }
 
 const {
@@ -21,37 +21,44 @@ const {
   section,
   theme = {},
   media = {},
-  standalone = true,
-  banner = true,
+  form = 'banner',
   cta = {},
 } = Astro.props;
 
-const Wrapper = standalone ? 'article' : 'header';
-const Header = standalone ? 'h1' : 'h2';
+const Wrapper = form === 'header' ? 'header' : 'article';
+const Header = form === 'header' ? 'h1' : 'h2';
+const banner = form === 'banner';
 
-const eyebrowIcon = `https://chromeos-dev.imgix.net/icons/eyebrows/${section}.svg?auto=format,compress`;
+const sectionMedia = buildSection(section);
+const background = theme?.theme
+  ? theme?.background || false
+  : sectionMedia.background;
 ---
 
 <Wrapper class="story-hero">
-  <div
-    class:list={[
-      { theme: theme?.theme },
-      `${theme?.theme ? 'theme__' + theme?.theme : ''}`,
-    ]}
-  >
-    <div class:list={['story-hero--inner']}>
+  <div class:list={['theme', `theme__${theme?.theme || section}`]}>
+    <div class="story-hero--inner">
       <div class="story-hero--content-wrapper wrapper--padded wrapper--padding">
+        {
+          form === 'header' && cta.url && (
+            <a href={cta.url} class="story-hero--top-cta">
+              <CTALink arrow={!isExternalLink(cta.url) ? 'back' : 'external'}>
+                {cta.text}
+              </CTALink>
+            </a>
+          )
+        }
         {
           (theme.eyebrow || section) && (
             <div
               class:list={[
                 'story-hero--eyebrow',
-                { 'story-hero--unibrow': banner },
+                { 'story-hero--unibrow': !banner },
               ]}
             >
               {!banner && section && (
                 <img
-                  src={eyebrowIcon}
+                  src={sectionMedia.icon}
                   alt=""
                   class="hero-hero__icon icon"
                   aria-hidden="true"
@@ -62,35 +69,40 @@ const eyebrowIcon = `https://chromeos-dev.imgix.net/icons/eyebrows/${section}.sv
                   width=""
                 />
               )}
-              {theme.eyebrow && (
-                <small
-                  class:list={[
-                    { 'type--h2': banner },
-                    { 'type--eyebrow': !banner },
-                  ]}
-                >
-                  {theme.eyebrow}
-                </small>
-              )}
+              <small
+                class:list={[
+                  { 'type--h2': banner },
+                  { 'type--eyebrow': !banner },
+                ]}
+              >
+                {theme.eyebrow || section}
+              </small>
             </div>
           )
         }
 
         <Header class="type--h1">{title}</Header>
-        <p class:list={['story-hero--body type--h4']}>{body}</p>
-        <a href={cta.url} class:list={['story-hero--cta']}
-          >{
-            banner ? (
-              <CTATransparent>{cta.text}</CTATransparent>
-            ) : (
-              <CTALink
-                arrow={!isExternalLink(cta.url) ? 'forward' : 'external'}
-              >
-                {cta.text}
-              </CTALink>
-            )
-          }</a
-        >
+        <!-- Only include the description and lower CTA if this isn't being displayed as a header -->
+        {
+          form !== 'header' && (
+            <>
+              <p class="story-hero--body type--h4">{body}</p>
+              <a href={cta.url} class="story-hero--cta">
+                {form === 'banner' ? (
+                  <CTATransparent>{cta.text}</CTATransparent>
+                ) : (
+                  form === 'standalone' && (
+                    <CTALink
+                      arrow={!isExternalLink(cta.url) ? 'forward' : 'external'}
+                    >
+                      {cta.text}
+                    </CTALink>
+                  )
+                )}
+              </a>
+            </>
+          )
+        }
       </div>
       {
         media.url ? (
@@ -99,6 +111,19 @@ const eyebrowIcon = `https://chromeos-dev.imgix.net/icons/eyebrows/${section}.sv
           </div>
         ) : (
           ''
+        )
+      }
+      {
+        background && (
+          <div class="story-hero--background">
+            <img loading="lazy" data-large aria-hidden src={background.large} />
+            <img
+              loading="lazy"
+              data-small
+              aria-hiddenn="true"
+              src={background.small}
+            />
+          </div>
         )
       }
     </div>
@@ -135,7 +160,7 @@ const eyebrowIcon = `https://chromeos-dev.imgix.net/icons/eyebrows/${section}.sv
     }
 
     &--unibrow {
-      margin-bottom: 0;
+      margin-bottom: 0.5rem;
     }
 
     &--content-wrapper {
@@ -154,6 +179,13 @@ const eyebrowIcon = `https://chromeos-dev.imgix.net/icons/eyebrows/${section}.sv
       max-width: max-content;
     }
 
+    &--top-cta {
+      --cta-color: var(--hero-theme-color);
+      align-self: flex-start;
+      position: absolute;
+      top: 2rem;
+    }
+
     &--image-wrapper {
       display: flex;
       align-items: center;
@@ -163,10 +195,47 @@ const eyebrowIcon = `https://chromeos-dev.imgix.net/icons/eyebrows/${section}.sv
       min-height: 15rem;
       max-height: 30cqh;
       justify-self: flex-end;
+      z-index: 1;
 
       @container (min-width: 660px) {
         min-height: 20rem;
         max-height: 50cqh;
+      }
+    }
+
+    &--background {
+      position: absolute;
+      right: 0;
+      z-index: 0;
+      height: 100%;
+      width: 100%;
+
+      img {
+        display: none;
+        position: absolute;
+        right: 0;
+
+        @container (min-width: 660px) {
+          max-width: 60cqw;
+        }
+      }
+
+      [data-small] {
+        display: block;
+        bottom: 0;
+
+        @container (min-width: 660px) {
+          display: none;
+          bottom: unset;
+        }
+      }
+
+      [data-large] {
+        top: 0;
+        height: 100%;
+        @container (min-width: 660px) {
+          display: block;
+        }
       }
     }
   }
@@ -189,6 +258,34 @@ const eyebrowIcon = `https://chromeos-dev.imgix.net/icons/eyebrows/${section}.sv
 
     .cta:focus {
       background-color: var(--hero-theme-cta-background);
+    }
+
+    &__games {
+      --hero-theme-background: var(--pink-25);
+    }
+
+    &__web {
+      --hero-theme-background: var(--blue-30);
+    }
+
+    &__foundations {
+      --hero-theme-background: var(--yellow-75);
+    }
+
+    &__android {
+      --hero-theme-background: var(--green-25);
+    }
+
+    &__event {
+      --hero-theme-background: var(--yellow-80);
+    }
+
+    &__announcement {
+      --hero-theme-background: var(--red-25);
+    }
+
+    &__leader-s-corner {
+      --hero-theme-background: var(--purple-50);
     }
 
     &__m100 {
