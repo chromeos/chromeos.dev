@@ -131,6 +131,8 @@ const background = theme?.theme
 </Wrapper>
 
 <style lang="scss">
+  $swap: 660px;
+
   .story-hero {
     container-type: inline-size;
     position: relative;
@@ -145,7 +147,7 @@ const background = theme?.theme
       max-width: 100rem;
       margin: 0 auto;
 
-      @container (min-width: 660px) {
+      @container (min-width: #{$swap}) {
         display: grid;
         align-items: center;
         grid-template-columns: minmax(40ch, 50%) minmax(200px, auto);
@@ -197,7 +199,7 @@ const background = theme?.theme
       justify-self: flex-end;
       z-index: 1;
 
-      @container (min-width: 660px) {
+      @container (min-width: #{$swap}) {
         min-height: 20rem;
         max-height: 50cqh;
       }
@@ -215,7 +217,7 @@ const background = theme?.theme
         position: absolute;
         right: 0;
 
-        @container (min-width: 660px) {
+        @container (min-width: #{$swap}) {
           max-width: 60cqw;
         }
       }
@@ -224,7 +226,7 @@ const background = theme?.theme
         display: block;
         bottom: 0;
 
-        @container (min-width: 660px) {
+        @container (min-width: #{$swap}) {
           display: none;
           bottom: unset;
         }
@@ -233,7 +235,7 @@ const background = theme?.theme
       [data-large] {
         top: 0;
         height: 100%;
-        @container (min-width: 660px) {
+        @container (min-width: #{$swap}) {
           display: block;
         }
       }
