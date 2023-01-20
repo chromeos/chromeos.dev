@@ -6,7 +6,7 @@ tags:
   - large screens
 authors:
   - jhale
-date: 2022-12-23
+date: 2023-01-20
 ---
 
 At ChromeOS, we are committed to enhancing developer tools and frameworks that
