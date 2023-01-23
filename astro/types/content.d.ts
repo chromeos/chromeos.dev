@@ -46,6 +46,13 @@ export type HeroMedia = Image | YouTubeID;
 export type CTA = {
   text: string;
   url: string;
+  type: 'high' | 'medium' | 'low' | 'link';
+  direction?: 'back' | 'forward';
+};
+
+export type Eyebrow = {
+  icon?: string;
+  text: string;
 };
 
 export type Locale = {
