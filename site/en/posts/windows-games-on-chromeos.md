@@ -59,10 +59,10 @@ The
 (SLR), introduced in Proton 5.13, aims to solve this. It's a [Flatpak-style
 sandbox](https://flatpak.org/faq/) that bundles a specific set of libraries
 known to work well with Proton. This set of libraries is referred to as the
-["scout" Steam runtime](https://gitlab.steamos.cloud/steamrt/steam-runtime-tools/-/blob/master/docs/ld-library-path-runtime.md).
+[Steam runtime](https://gitlab.steamos.cloud/steamrt/steam-runtime-tools/-/blob/main/docs/ld-library-path-runtime.md).
 When a Proton game is run, a tool called
 [pressure-vessel](https://gitlab.steamos.cloud/steamrt/steam-runtime-tools/-/blob/master/docs/pressure-vessel.md)
-combines this scout runtime with the graphics stack installed on the host system
+combines this runtime with the graphics stack installed on the host system
 to round out the sandbox required by Proton games. The advantage of using a
 Flatpak sandbox over containers like Docker is that Flatpak sandboxes are meant
 to be
@@ -132,16 +132,15 @@ independently.
 While DXVK, and VKD3D-Proton are quite performant, there is a non-zero
 performance cost to translate all the Direct3D API state when a Proton game
 runs. A good way to counteract this is with caching. Both DXVK and VKD3D-Proton
-implement caching schemes to help mitigate the cost of misses in caches managed
-by device-specific graphics drivers.
+implement caching schemes to help mitigate the cost translation.
 [DXVK's](https://github.com/doitsujin/dxvk#state-cache) and
 [VKD3D-Proton's](https://github.com/HansKristian-Work/vkd3d-proton/blob/c47a6a904bbeebcb2fbed4e7accfae5bd17cff2f/README.md#shader-cache)
 caching schemes are functionally similar: both focus on caching the result of
 the translation of Direct3D graphics state and shaders to Vulkan.
 
 Despite caching efforts by DXVK and VKD3D-Proton, it is still far more
-performant to avoid misses in the shader caches managed by device-specific
-graphics drivers. Proton games make heavy use of shader caches to squeeze out as
+performant to avoid misses in the caches managed by device-specific
+graphics drivers. Proton games make heavy use of driver-managed shader caches to squeeze out as
 much performance as possible. To improve the performance of Proton games, Steam
 uses a tool called [Fossilize](https://github.com/ValveSoftware/Fossilize) to
 warm up
