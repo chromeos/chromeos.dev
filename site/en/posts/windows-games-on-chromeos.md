@@ -132,7 +132,7 @@ independently.
 While DXVK, and VKD3D-Proton are quite performant, there is a non-zero
 performance cost to translate all the Direct3D API state when a Proton game
 runs. A good way to counteract this is with caching. Both DXVK and VKD3D-Proton
-implement caching schemes to help mitigate the cost translation.
+implement caching schemes to help mitigate the cost of translation.
 [DXVK's](https://github.com/doitsujin/dxvk#state-cache) and
 [VKD3D-Proton's](https://github.com/HansKristian-Work/vkd3d-proton/blob/c47a6a904bbeebcb2fbed4e7accfae5bd17cff2f/README.md#shader-cache)
 caching schemes are functionally similar: both focus on caching the result of
