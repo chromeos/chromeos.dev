@@ -19,7 +19,7 @@ Windows games, the story is more complex. Windows games run through a
 compatibility layer called Proton, which Steam downloads automatically when a
 user installs a Windows game on a Linux system.
 
-# So…what exactly is Proton?
+# So… what exactly is Proton?
 
 Scrolling through the [Proton
 repository](https://github.com/ValveSoftware/Proton), you'll quickly notice that
