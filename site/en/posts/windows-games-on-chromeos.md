@@ -7,7 +7,7 @@ tags:
 
 authors:
   - renatopereyra
-date: 2023-01-03
+date: 2023-01-24
 ---
 
 [Steam is now available on ChromeOS](https://www.chromium.org/chromium-os/steam-on-chromeos/)
