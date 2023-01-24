@@ -150,7 +150,7 @@ a Proton game starts, Fossilize is warming up the shader cache behind the
 scenes. Having a warm shader cache can greatly improve FPS and reduce unpleasant
 jank.
 
-—
+---
 
 Proton has grown thanks to the hard work of a diverse group of contributors
 from all over the world. We're excited to join this effort to increase support
