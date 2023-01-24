@@ -471,6 +471,17 @@ const contributors = {
       title: 'Product Manager',
     },
   },
+  renatopereyra: {
+    name: {
+      given: 'Renato',
+      family: 'Pereyra',
+    },
+    work: {
+      company: 'Google',
+      org: 'ChromeOS',
+      title: 'Software Engineer',
+    },
+  },
   jhale: {
     name: {
       given: 'Josh',
