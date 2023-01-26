@@ -38,6 +38,7 @@ export class CookieDisclaimer {
    * Checks if the user has accepted the use of the cookies.
    */
   checkCookieUsageAcceptance() {
+    /* global gtag */
     const acceptsCookies = localStorage.getItem(this.cookieStore);
 
     if (acceptsCookies !== 'true' && acceptsCookies !== 'false') {
@@ -46,11 +47,8 @@ export class CookieDisclaimer {
       this.acceptButton_.focus();
     }
 
-    if (acceptsCookies === 'true') {
-      const gaScript = document.createElement('script');
-      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=UA-168234575-1';
-      gaScript.type = 'module';
-      document.head.appendChild(gaScript);
+    if (acceptsCookies === 'true' && typeof gtag === 'function') {
+      gtag({ event: 'cookie_consent' });
     }
   }
 
