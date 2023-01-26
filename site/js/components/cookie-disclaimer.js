@@ -49,7 +49,7 @@ export class CookieDisclaimer {
 
     if (acceptsCookies === 'true' && typeof gtag === 'function') {
       gtag('event', 'cookie_consent');
-      gtag('cookie_consent', true);
+      gtag('gtm.cookie_consent', true);
     }
   }
 
