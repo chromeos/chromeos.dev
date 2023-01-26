@@ -48,6 +48,7 @@ export class Tracking {
    * @return {function}
    */
   sendEvent(name, options = {}) {
-    return () => this.google('event', name, Object.assign(options, { transport_type: 'beacon' }));
+    const cookies = localStorage.getItem('chromeos-accepts-cookies--v2');
+    return () => this.google('event', name, Object.assign(options, { transport_type: 'beacon', cookie_consent: cookies === 'true' }));
   }
 }
