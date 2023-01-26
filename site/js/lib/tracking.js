@@ -48,7 +48,6 @@ export class Tracking {
    * @return {function}
    */
   sendEvent(name, options = {}) {
-    // this.google('event', name, options)
     return () => this.google('event', name, Object.assign(options, { transport: 'beacon' }));
   }
 }
