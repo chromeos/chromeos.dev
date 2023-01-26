@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* global gtag */
+/* global dataLayer */
 import { preferences } from 'service-worker-i18n-redirect/preferences';
 import { MainNavigation } from './components/nav';
 import circleWorklet from './worklets/circles.js?url';
@@ -148,7 +148,7 @@ window.addEventListener('load', async () => {
   }
 
   const { Tracking } = await import('./lib/tracking');
-  window.tracking = new Tracking(gtag);
+  window.tracking = new Tracking(dataLayer);
 
   if (import.meta.env.MODE === 'production') {
     if ('serviceWorker' in navigator) {

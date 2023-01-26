@@ -38,7 +38,7 @@ export class CookieDisclaimer {
    * Checks if the user has accepted the use of the cookies.
    */
   checkCookieUsageAcceptance() {
-    /* global gtag */
+    /* global dataLayer */
     const acceptsCookies = localStorage.getItem(this.cookieStore);
 
     if (acceptsCookies !== 'true' && acceptsCookies !== 'false') {
@@ -48,8 +48,7 @@ export class CookieDisclaimer {
     }
 
     if (acceptsCookies === 'true' && typeof gtag === 'function') {
-      gtag('event', 'cookie_consent');
-      gtag('gtm.cookie_consent', true);
+      dataLayer.push({ event: 'cookie_consent' });
     }
   }
 

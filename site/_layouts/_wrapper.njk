@@ -23,7 +23,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:400,500|Google+Sans+Text:400,400i,500,700,700i|Google+Sans+Mono:400,600&display=swap" />
     <link rel="stylesheet" href="/sass/style.scss" />
     <script type="module" defer src="/js/main.js"></script>
-    <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-P2W8H6G"></script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-P2W8H6G');
+    </script>
+    <!-- End Google Tag Manager -->
   </head>
   <body id="body">
     {% from 'header.njk' import header %} {{ header(nav, search.placeholder, subscribe.cta, locale) }}
@@ -33,14 +46,6 @@
       {% endif %}
     </main>
     {% from 'footer.njk' import footer %}{{ footer(locale.code, site.languages, footerContent, true) }} {% from 'cookie-disclaimer.njk' import cookieDisclaimer %}{{ cookieDisclaimer(locale.code, cookies.title, cookies.content, cookies.ctas) }}
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-    </script>
 
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2W8H6G" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
