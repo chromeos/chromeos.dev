@@ -47,7 +47,7 @@ export class CookieDisclaimer {
       this.acceptButton_.focus();
     }
 
-    if (acceptsCookies === 'true' && typeof gtag === 'function') {
+    if (acceptsCookies === 'true' && Array.isArray(dataLayer)) {
       dataLayer.push({ event: 'cookie_consent' });
     }
   }
