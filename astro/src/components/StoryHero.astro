@@ -1,9 +1,9 @@
 ---
 import type { Theme, HeroMedia, CTA, StorySection } from '$types/content';
 import { isExternalLink } from '$lib/links';
-import CTALink from './ctas/Link.svelte';
-import CTATransparent from './ctas/Transparent.svelte';
+import CallToAction from './CTA.svelte';
 import { buildSection } from '$lib/helpers/posts';
+import Eyebrow from './Eyebrow.svelte';
 
 export interface Props {
   title: string;
@@ -19,10 +19,10 @@ const {
   title,
   body,
   section,
-  theme = {},
-  media = {},
+  theme,
+  media,
   form = 'banner',
-  cta = {},
+  cta,
 } = Astro.props;
 
 const Wrapper = form === 'header' ? 'header' : 'article';
@@ -33,6 +33,24 @@ const sectionMedia = buildSection(section);
 const background = theme?.theme
   ? theme?.background || false
   : sectionMedia.background;
+
+const eyebrow = {
+  text: theme?.eyebrow || section,
+  icon: !banner && section ? sectionMedia.icon : false,
+};
+
+const callToAction = cta;
+if ((form === 'header' || form === 'standalone') && cta?.url) {
+  callToAction.type = 'link';
+  callToAction.direction = !isExternalLink(cta.url)
+    ? form === 'standalone'
+      ? 'forward'
+      : 'back'
+    : 'external';
+}
+if (form === 'banner') {
+  callToAction.type = 'transparent';
+}
 ---
 
 <Wrapper class="story-hero">
@@ -40,43 +58,21 @@ const background = theme?.theme
     <div class="story-hero--inner">
       <div class="story-hero--content-wrapper wrapper--padded wrapper--padding">
         {
-          form === 'header' && cta.url && (
-            <a href={cta.url} class="story-hero--top-cta">
-              <CTALink arrow={!isExternalLink(cta.url) ? 'back' : 'external'}>
-                {cta.text}
-              </CTALink>
-            </a>
+          form === 'header' && cta?.url && (
+            <div class="story-hero--top-cta">
+              <CallToAction cta={callToAction} />
+            </div>
           )
         }
         {
-          (theme.eyebrow || section) && (
+          (theme?.eyebrow || section) && (
             <div
               class:list={[
                 'story-hero--eyebrow',
                 { 'story-hero--unibrow': !banner },
               ]}
             >
-              {!banner && section && (
-                <img
-                  src={sectionMedia.icon}
-                  alt=""
-                  class="hero-hero__icon icon"
-                  aria-hidden="true"
-                  crossorigin="anonymous"
-                  loading="lazy"
-                  sizes="100vw"
-                  height=""
-                  width=""
-                />
-              )}
-              <small
-                class:list={[
-                  { 'type--h2': banner },
-                  { 'type--eyebrow': !banner },
-                ]}
-              >
-                {theme.eyebrow || section}
-              </small>
+              <Eyebrow {eyebrow} size={banner ? 'large' : 'small'} />
             </div>
           )
         }
@@ -87,25 +83,15 @@ const background = theme?.theme
           form !== 'header' && (
             <>
               <p class="story-hero--body type--h4">{body}</p>
-              <a href={cta.url} class="story-hero--cta">
-                {form === 'banner' ? (
-                  <CTATransparent>{cta.text}</CTATransparent>
-                ) : (
-                  form === 'standalone' && (
-                    <CTALink
-                      arrow={!isExternalLink(cta.url) ? 'forward' : 'external'}
-                    >
-                      {cta.text}
-                    </CTALink>
-                  )
-                )}
-              </a>
+              <div class="story-hero--cta">
+                <CallToAction cta={callToAction} />
+              </div>
             </>
           )
         }
       </div>
       {
-        media.url ? (
+        media?.url ? (
           <div class="story-hero--image-wrapper">
             <img src={media.url} alt={media.alt} class="story-hero--image" />
           </div>
