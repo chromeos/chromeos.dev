@@ -146,7 +146,7 @@ export const story = {
       ],
     },
     {
-      title: 'Header, no theme',
+      title: 'Header, no theme, media',
       props: [
         {
           name: 'section',
@@ -183,6 +183,40 @@ export const story = {
           default: {
             url: 'https://chromeos-dev.imgix.net/posts/announcing-lumafusion-beta-for-chromeos/LumaFusionHero.png?auto=format,compress',
             alt: 'Chromebook running LumaFusion Beta',
+          },
+        },
+      ],
+    },
+    {
+      title: 'Header, no theme, no media',
+      props: [
+        {
+          name: 'section',
+          type: 'text',
+          default: 'android',
+        },
+        {
+          name: 'form',
+          type: 'text',
+          default: 'header',
+          description: 'Whether the component should be displayed as a banner',
+        },
+        {
+          name: 'title',
+          type: 'text',
+          default: 'Announcing LumaFusion beta for ChromeOS',
+        },
+        {
+          name: 'body',
+          type: 'text',
+          default: 'LumaFusion beta is now available for ChromeOS and Android.',
+        },
+        {
+          name: 'cta',
+          type: 'object',
+          default: {
+            text: 'Back to News',
+            url: '/en',
           },
         },
       ],

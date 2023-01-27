@@ -117,9 +117,11 @@ if (form === 'banner') {
 </Wrapper>
 
 <style lang="scss">
-  $swap: 660px;
+  $swap: 690px;
 
   .story-hero {
+    $parent: #{&};
+
     container-type: inline-size;
     position: relative;
     width: 100%;
@@ -127,7 +129,6 @@ if (form === 'banner') {
     &--inner {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
 
       overflow: hidden;
       max-width: 100rem;
@@ -137,13 +138,12 @@ if (form === 'banner') {
         display: grid;
         align-items: center;
         grid-template-columns: minmax(40ch, 50%) minmax(200px, auto);
+        column-gap: 2rem;
       }
     }
 
     &--eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      color: var(--hero-theme-color);
       margin-bottom: 1rem;
     }
 
@@ -188,19 +188,34 @@ if (form === 'banner') {
       @container (min-width: #{$swap}) {
         min-height: 20rem;
         max-height: 50cqh;
+        margin-top: 0;
       }
     }
 
     &--background {
-      position: absolute;
-      right: 0;
-      z-index: 0;
-      height: 100%;
-      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      height: 20cqh;
+
+      @container (min-width: #{$swap}) {
+        height: auto;
+        margin-top: 0;
+      }
+
+      #{$parent}:has(#{$parent}--image-wrapper) & {
+        right: 0;
+        z-index: 0;
+        height: 100%;
+        width: 100%;
+
+        img {
+          position: absolute;
+        }
+      }
 
       img {
         display: none;
-        position: absolute;
+        // position: absolute;
         right: 0;
 
         @container (min-width: #{$swap}) {
