@@ -1,29 +1,30 @@
-<script>
+<script lang="ts">
+  import type { CTA } from '$types/content';
   import ArrowForward from '../icons/ArrowForward.svelte';
   import ArrowBack from '../icons/ArrowBack.svelte';
 
-  export let arrow = 'none';
+  export let cta: CTA;
 
   const direction =
-    arrow === 'none'
-      ? ''
-      : arrow === 'forward'
+    cta?.direction === 'forward'
       ? 'cta--right-icon'
-      : 'cta--left-icon';
+      : cta?.direction === 'back'
+      ? 'cta--left-icon'
+      : '';
 </script>
 
-<span class="cta cta--transparent {direction}">
-  {#if arrow === 'back'}
+<a href={cta.url} class="cta cta--transparent {direction}">
+  {#if cta?.direction === 'back'}
     <span class="icon--container">
       <ArrowBack />
     </span>
   {/if}
 
-  <slot />
+  {cta.text}
 
-  {#if arrow === 'forward'}
+  {#if cta?.direction === 'forward'}
     <span class="icon--container">
       <ArrowForward />
     </span>
   {/if}
-</span>
+</a>
