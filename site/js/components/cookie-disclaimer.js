@@ -49,6 +49,7 @@ export class CookieDisclaimer {
 
     if (acceptsCookies === 'true' && Array.isArray(dataLayer)) {
       dataLayer.push({ event: 'cookie_consent' });
+      dataLayer.push({ cookie_consent: true });
     }
   }
 
