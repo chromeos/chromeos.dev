@@ -34,11 +34,7 @@ export class Tracking {
       subscribeForm.addEventListener('submit', this.sendEvent('click_subscribe_submit'));
     }
 
-    if (typeof google === 'function') {
-      this.google = google;
-    } else {
-      this.google = () => {};
-    }
+    this.google = google || [];
   }
 
   /**
@@ -48,6 +44,10 @@ export class Tracking {
    * @return {function}
    */
   sendEvent(name, options = {}) {
-    return () => this.google('event', name, Object.assign(options, { transport_type: 'beacon' }));
+    const event = Object.assign(options, {
+      event: name,
+      transport: 'beacon',
+    });
+    return () => this.google.push(event);
   }
 }
