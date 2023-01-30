@@ -79,7 +79,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
-    "ajv": "^6.12",
+    "ajv": "^8.12",
     "ajv-merge-patch": "^4.1",
     "autoprefixer": "^10.4.2",
     "ava": "^3.15",
