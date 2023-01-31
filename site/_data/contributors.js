@@ -47,7 +47,7 @@ const contributors = {
     work: {
       company: 'Google', // Optional
       org: 'ChromeOS', // Optional
-      title: 'Head of ChromeOS Apps Ecosystem Product Marketing', // Optional
+      title: 'Head of Apps Ecosystem Product Marketing', // Optional
     },
   },
   samrichard: {
