@@ -3,14 +3,8 @@ title: 'Grow your ideas in 2023: Dev guidance and inspiration for delighting Chr
 metadesc: Gear up for success with ChromeOS hardware and software that’s more powerful and secure than ever.
 tags:
   - leader's corner
-  - technical
   - trend
-  - large screen
-  - window management
-  - input devices
-  - device configuration
-  - android studio
-  - gaming
+  - success story
 authors:
   - nataliagvak
 featured: true
