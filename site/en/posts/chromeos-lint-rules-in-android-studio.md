@@ -22,7 +22,7 @@ accessibility, and internationalization. A lint rule is the code that backs any
 individual potential error. Android Studio has a built in lint tool that
 notifies developers of any errors and the severity of those errors.
 
-For more information on lint rules in your Android Studio environment, refer to
+For more information on configuring lint rules in your Android Studio environment, refer to
 the documentation on
 [improving your code with lint checks](https://developer.android.com/studio/write/lint).
 
@@ -33,7 +33,7 @@ app developers are not aware that their app is automatically deployed to the
 ChromeOS Play Store. As such, the normal development and testing processes of
 many apps omit testing on large screens or ChromeOS. As a result, the overall
 app experience on these devices will trail behind their phone counterparts, and
-users on those platforms will suffer from a poor experience.
+users on those platforms will suffer from a poor experience. To help combat this, we've introduced [ChromeOS lint rules to Android Studio](/{{locale.code}}/android-environment/lint-rules-for-chromeos-in-android-studio).
 
 The goal of these initial lint rules is to start the process of bringing
 ChromeOS and large screens to the forefront of app development, and start to
