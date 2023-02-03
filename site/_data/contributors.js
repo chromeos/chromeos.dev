@@ -47,7 +47,7 @@ const contributors = {
     work: {
       company: 'Google', // Optional
       org: 'ChromeOS', // Optional
-      title: 'Head of ChromeOS Apps Ecosystem Product Marketing', // Optional
+      title: 'Head of Apps Ecosystem Product Marketing', // Optional
     },
   },
   samrichard: {
@@ -469,6 +469,28 @@ const contributors = {
       company: 'Google',
       org: 'ChromeOS',
       title: 'Product Manager',
+    },
+  },
+  renatopereyra: {
+    name: {
+      given: 'Renato',
+      family: 'Pereyra',
+    },
+    work: {
+      company: 'Google',
+      org: 'ChromeOS',
+      title: 'Software Engineer',
+    },
+  },
+  jhale: {
+    name: {
+      given: 'Josh',
+      family: 'Hale',
+    },
+    work: {
+      company: 'Google',
+      org: 'ChromeOS',
+      title: 'Software Engineer',
     },
   },
 };
