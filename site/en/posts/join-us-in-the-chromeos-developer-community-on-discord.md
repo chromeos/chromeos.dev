@@ -23,7 +23,7 @@ On `#everything-chromeos`, you can ask questions and get advice from other Chrom
 
 ## Quick access to news and updates
 
-Moving forward, `#chromeos-announcements` will provide a feed of essential information and news regarding ChromeOS. Discover newly released features on the platform—and insights into how developers are using ChromeOS to reach new audiences and serve their existing audience.
+Moving forward, `#chromeos-announcements` will provide a feed of essential information and news regarding ChromeOS. Discover newly released features on the platform—and insights into how developers are using ChromeOS to reach new audiences and serve their existing users.
 
 !!! aside.message--tip
 **Tip:** Want the best of ChromeOS delivered straight to your inbox? Subscribe to our [ChromeOS newsletter](https://chromeos.dev/en/subscribe).
@@ -31,4 +31,4 @@ Moving forward, `#chromeos-announcements` will provide a feed of essential infor
 
 ## Join our community of ChromeOS devs today
 
-We hope that our newly-launched Discord channels will help foster communication and creativity throughout the ChromeOS developer community. Join the conversation at [`#everything-chromeos`](https://discord.com/channels/1009525727504384150/1065730991026602056) today!
+We hope that our newly-launched Discord channels will help foster communication and creativity throughout the ChromeOS developer community. Join the conversation at [`#everything-chromeos`](https://discord.com/channels/1009525727504384150/1065730991026602056) today.
