@@ -26,7 +26,7 @@ In `#everything-chromeos`, you can ask questions and get advice from other Chrom
 Moving forward, `#chromeos-announcements` will provide a feed of essential information and news regarding ChromeOS. Discover newly released features on the platform—and insights into how developers are using ChromeOS to reach new audiences and serve their existing users.
 
 !!! aside.message--tip
-**Tip:** Want the best of ChromeOS delivered straight to your inbox? Subscribe to our [ChromeOS newsletter](https://chromeos.dev/en/subscribe).
+**Tip:** Want the best of ChromeOS delivered straight to your inbox? Subscribe to our [ChromeOS newsletter](/{{locale.code}}/subscribe).
 !!!
 
 ## Join our community of ChromeOS devs today
