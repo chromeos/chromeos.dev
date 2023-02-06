@@ -19,7 +19,7 @@ We recently introduced two channels to Google Developers Online, under the Chrom
 
 ## Connect with other devs on #everything-chromeos
 
-On `#everything-chromeos`, you can ask questions and get advice from other ChromeOS developers and Developer Advocates. Find out what ChromeOS can do—and explore a diverse development community that includes web dev and PWAs, Android, Flutter, and more. Whether you want to develop [games on ChromeOS](https://chromeos.dev/en/games), experiment with [Linux and Crostini](https://chromeos.dev/en/productivity/experimental-features), or publish your app [on Google Play](https://chromeos.dev/en/publish), `#everything-chromeos` is the place to start the conversation.
+In `#everything-chromeos`, you can ask questions and get advice from other ChromeOS developers and Developer Advocates. Find out what ChromeOS can do—and explore a diverse development community that includes web dev and PWAs, Android, Flutter, and more. Whether you want to develop [games on ChromeOS](/{{locale.code}}/games), experiment with [Linux and Crostini](/{{locale.code}}/productivity/experimental-features), or publish your app [on Google Play](/{{locale.code}}/en/publish), `#everything-chromeos` is the place to start the conversation.
 
 ## Quick access to news and updates
 
