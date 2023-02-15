@@ -16,7 +16,9 @@ ChromeOS 110 was released for beta on January 12, 2023 and reached stable releas
 
 Trying out the latest version of ChromeOS? If you're on a non-stable channel (such as Beta, Dev, or Canary), you can see which channel you're on. Channel labeling now appears next to the **Battery Icon** on the bottom right of your screen.
 
-Select the **Time** and open **Quick Settings** to access a new UI that includes your device build and a button to submit feedback.
+![Channel labeling UI showing the user on Beta with the ChromeOS version they're on](ix://posts/m110/channel-labeling.png)
+
+Clicking on the the **Time** will to open your control panel, you'll also see channel labeling there, with the version you're on and a button to quickly submit feedback. Clicking on the channel label will take you to a settings screen that includes the ability to change your channel, see your update schedule, and get build details for your device.
 
 ## Parental approvals: quickly approve blocked websites
 
