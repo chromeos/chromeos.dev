@@ -10,7 +10,7 @@ authors:
 date: 2023-02-16
 ---
 
-ChromeOS 110 was released for beta on January 12, 2023 and reached stable release on February 9, 2023. This new iteration of ChromeOS brings with it a number of security fixes, alongside features such as faster parental approvals, enhanced Bluetooth call quality, and improved assistive feedback.
+ChromeOS 110 was released for beta on January 12, 2023 and is now starting to roll out to stable. This new iteration of ChromeOS brings with it a number of security fixes, alongside features such as faster parental approvals, enhanced Bluetooth call quality, and improved assistive feedback.
 
 ## Channel labeling: easily see which channel you're on
 
