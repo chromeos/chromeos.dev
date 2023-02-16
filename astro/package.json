@@ -29,7 +29,7 @@
     "astro": "^2.0.1",
     "dotenv": "^16.0.3",
     "starchart-studio": "^0.3.1",
-    "svelte": "^3.55.1",
+    "svelte": "npm:@typhonjs-svelte/svelte@3.55.1-cq",
     "vite-plugin-pwa": "^0.14.1"
   },
   "devDependencies": {
