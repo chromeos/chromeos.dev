@@ -1,17 +1,21 @@
 ---
 title: LumaFusion brings its award-winning video editing to ChromeOS and Android
-metadesc: How the LumaTouch devs brought their professional video editing and effects app to Google Play—and adapted it for large screen Android and ChromeOS.
-
+metadesc: How the LumaTouch devs adapted their professional video editing and effects app, LumaFusion – for larger screens.
 tags:
   - announcement
   - success story
   - android
+hero:
+  youtube: azWiCUPPThk
+  alt: Video showing a video being edited in LumaFusion on a Chromebook
 theme:
   theme: lumafusion
+featured:
+  images:
+    - image: ix://posts/announcing-lumafusion-beta-for-chromeos/LumaFusionHero.png
+      alt: Chromebook running LumaFusion Beta
 authors:
   - chrisdemiris
-
-featured: true
 date: 2023-02-23
 ---
 
