@@ -15,7 +15,7 @@ featured: true
 date: 2023-02-23
 ---
 
-LumaTouch was started ten years ago by Chris Demirisand Terri Morgan. It took three years to build the first version of LumaFusion, released in 2016. While we initially focused on mobile video journalists, the combination of the intuitive touch screen experience and powerful video editing tools appealed to a wide range of professional and aspiring filmmakers. LumaFusion soon became the number one mobile video editing app, and garnered dozens of video editing awards and accolades, including iPad App of the Year in 2021.
+LumaTouch was started ten years ago by Chris Demiris and Terri Morgan. It took three years to build the first version of LumaFusion, released in 2016. While we initially focused on mobile video journalists, the combination of the intuitive touch screen experience and powerful video editing tools appealed to a wide range of professional and aspiring filmmakers. LumaFusion soon became the number one mobile video editing app, and garnered dozens of video editing awards and accolades, including iPad App of the Year in 2021.
 
 LumaFusion, a powerful mobile video editing app, is now available on ChromeOS and Android. Video editors, journalists, and hobbyists can download the app on [Google Play](https://play.google.com/store/apps/details?id=com.luma_touch.lumafusion).
 
