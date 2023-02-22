@@ -25,8 +25,6 @@ LumaFusion, a powerful mobile video editing app, is now available on ChromeOS an
 
 The app has over 1.1M downloads and has completed over 68 million project exports since its launch (4.5 million exports to YouTube alone) and continues to expand into new markets by delivering new functionality.
 
-%[(1.1M, downloads), (68M, project exports), (4.5m, YouTube exports)]
-
 To bring LumaFusion to ChromeOS, we assembled a team of experienced Android developers. They undertook the complex task of recreating the signature LumaFusion experience, and providing a consistent experience across all devices, while still taking advantage of the unique capabilities Chromebooks and Android tablets and phones have to offer.
 
 ## The audio-video compositing engine
@@ -57,7 +55,7 @@ When LumaFusion was feature complete, we announced an internal beta testing prog
 
 For this test, we wanted people who already knew LumaFusion very well—so that we wouldn't spend too much time discussing a given feature, but rather whether that feature was implemented well for Chromebook and Android devices. We used Slack as our daily communication tool with this small group of testers, and this worked very well, allowing us to create channels for different types of feedback and foster dynamic discussion between testers.
 
-Internal beta testing gave us important feedback. But the [Open Beta](/{{locale.code}}/posts/announcing-lumafusion-beta-for-chromeos), with thousands of customers and hundreds of daily active users, gave us the opportunity to hear from a wider range of customers and test a larger variety of Android and Chromebook devices.
+Internal beta testing gave us important feedback. But the [open beta](/{{locale.code}}/posts/announcing-lumafusion-beta-for-chromeos), with thousands of customers and hundreds of daily active users, gave us the opportunity to hear from a wider range of customers and test a larger variety of Android and Chromebook devices.
 
 Using [Crashlytics](https://firebase.google.com/products/crashlytics) and event tracking in Firebase, we were able to monitor customers' journeys through LumaFusion, see where there were stability and performance issues, and reduce crashes significantly.
 
