@@ -67,8 +67,12 @@
     "**/*.{js,mjs,cjs,ts,astro,svelte}": "eslint -c .eslintrc.yml",
     "**/*": "prettier --plugin-search-dir=. -c"
   },
+  "engines": {
+    "node": ">=18.14.2",
+    "pnpm": ">=7.27.0"
+  },
   "volta": {
-    "node": "18.14.0",
+    "node": "18.14.2",
     "pnpm": "7.27.0"
   }
 }
