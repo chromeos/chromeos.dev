@@ -1,6 +1,6 @@
 ---
 title: LumaFusion brings its award-winning video editing to ChromeOS and Android
-metadesc: How the LumaTouch devs adapted their professional video editing and effects app, LumaFusion – for larger screens.
+metadesc: How the LumaTouch devs adapted their professional video editing and effects app, LumaFusion, for larger screens.
 tags:
   - announcement
   - success story
