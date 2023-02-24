@@ -24,35 +24,61 @@
 </script>
 
 <a href={cta.url} aria-labelledby="{id} {id}-body" class="card type--base">
-  <article class="container">
-    <header class="header">
+  <article class="card--container">
+    <header class="card--header">
       <EyebrowC {eyebrow} size="small" />
-      <h4 {id} class="type--h4 title">{title}</h4>
+      <h4 {id} class="type--h4 card--title">{title}</h4>
     </header>
-    <p id="{id}-body" class="type--body body">{body}</p>
-    <footer class="footer">
-      <CTAC {cta} />
+    <p id="{id}-body" class="type--body card--body">{body}</p>
+    <footer class="card--footer">
+      <CTAC {cta} inline={true} />
     </footer>
   </article>
 </a>
 
 <style lang="scss">
+  @import '$sass/shared';
+
   .card {
+    $self: &;
+    display: block;
     color: inherit;
     text-decoration: none;
-  }
 
-  .container {
-    background: var(--white);
-    border-radius: 0.625rem;
-    border: 1px solid var(--grey-300);
-    display: flex;
-    flex-direction: column;
-    padding: 0.25rem;
-    width: 100%;
+    &--container {
+      @include elevation(0);
+      background-color: var(--white);
+      display: flex;
+      flex-flow: column;
+      padding: 2.5rem;
+      height: 100cqh;
+      height: auto;
+      position: relative;
+      width: 100cqw;
+      z-index: 1;
+      border-radius: var(--border-radius);
 
-    &:hover {
-      box-shadow: 0 1px 2px var(--grey-800), 0 2px 6px 2px var(--grey-800);
+      #{$self}:focus &,
+      &:hover {
+        @include elevation(2);
+      }
+    }
+
+    &--title {
+      margin-block-start: 1.5rem;
+      margin-block-end: 0.5rem;
+      color: var(--grey-850);
+    }
+
+    &--body {
+      color: var(--grey-750);
+      margin-block-end: 1.5rem;
+    }
+
+    &--footer {
+      align-items: center;
+      display: flex;
+      margin-block-start: auto;
     }
   }
 </style>
