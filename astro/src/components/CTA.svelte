@@ -7,16 +7,17 @@
   import Link from './ctas/Link.svelte';
 
   export let cta: CTA;
+  export let inline = false;
 </script>
 
 {#if cta.type === 'link'}
-  <Link {cta} />
+  <Link {cta} {inline} />
 {:else if cta.type === 'high'}
-  <High {cta} />
+  <High {cta} {inline} />
 {:else if cta.type === 'medium'}
-  <Medium {cta} />
+  <Medium {cta} {inline} />
 {:else if cta.type === 'low'}
-  <Low {cta} />
+  <Low {cta} {inline} />
 {:else if cta.type === 'transparent'}
-  <Transparent {cta} />
+  <Transparent {cta} {inline} />
 {/if}
