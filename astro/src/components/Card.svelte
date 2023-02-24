@@ -42,21 +42,19 @@
   .card {
     $self: &;
     display: block;
-    color: inherit;
     text-decoration: none;
 
     &--container {
       @include elevation(0);
       background-color: var(--white);
+      border-radius: var(--border-radius);
       display: flex;
       flex-flow: column;
+      height: 100%;
       padding: 2.5rem;
-      height: 100cqh;
-      height: auto;
       position: relative;
-      width: 100cqw;
+      width: 100%;
       z-index: 1;
-      border-radius: var(--border-radius);
 
       #{$self}:focus &,
       &:hover {
@@ -65,9 +63,9 @@
     }
 
     &--title {
-      margin-block-start: 1.5rem;
-      margin-block-end: 0.5rem;
       color: var(--grey-850);
+      margin-block-end: 0.5rem;
+      margin-block-start: 1.5rem;
     }
 
     &--body {
