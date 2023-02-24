@@ -1,16 +1,9 @@
-@import '$breakpoint';
-@import '$toolkit';
-
-// Globals
-@import 'globals/colors';
-@import 'globals/vars';
-@import 'globals/functions';
-@import 'globals/mixins';
-@import 'globals/extends';
+// Shared
+@import 'shared';
 
 // Main Components
 @import 'components/fonts';
-@import 'components/colors';
+@import 'components/vars';
 @import 'components/reset';
 @import 'components/icon';
 @import 'components/typography';
