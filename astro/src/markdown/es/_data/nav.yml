@@ -1,0 +1,36 @@
+- title: Aprender
+  desc: Descubra recursos para comenzar a crear sus aplicaciones de Android, aplicaciones web y juegos para Chrome OS.
+  icon:
+    name: multi-device
+    background: blue
+  sections:
+    - title: Android
+      url: android
+    - title: Web
+      url: web
+    - title: Juegos
+      url: games
+- title: Desarrollo
+  desc: Utilice Chrome OS para desarrollar aplicaciones en un entorno rápido, seguro y sin complicaciones.
+  icon:
+    name: bracket-monitor
+    background: yellow
+  sections:
+    - title: Linux
+      url: linux
+    - title: Entorno para Android
+      url: android-environment
+    - title: Entorno para Web
+      url: web-environment
+    - title: Productividad
+      url: productivity
+- title: Publicar
+  desc: Obtén información sobre cómo publicar tus aplicaciones en Google Play Store e involucra a millones de usuarios en Chromebooks.
+  url: publish
+  icon:
+    name: upload
+    background: green
+- title: Noticias
+  url: news
+- title: Historias
+  url: stories

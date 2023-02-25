@@ -1,0 +1,32 @@
+---
+/**
+ * Builds paths for all markdown files in the markdown directory
+ * @AstroPath /:lang/:section/:slug
+ */
+export async function getStaticPaths() {
+  const files = (await Astro.glob('../../../markdown/**/*.md')).map((file) => {
+    let [lang, section, slug] = file.file.split('/markdown/')[1].split('/');
+    slug = slug.replace('.md', '');
+
+    return {
+      params: {
+        lang,
+        section,
+        slug,
+      },
+      props: {
+        fm: file.frontmatter,
+        Content: file.Content,
+      },
+    };
+  });
+
+  return files;
+}
+
+const { fm, Content } = Astro.props;
+---
+
+<h1>{fm.title}</h1>
+
+<Content />

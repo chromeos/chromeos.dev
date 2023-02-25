@@ -1,0 +1,18 @@
+{
+  "title": "Resultados de búsqueda",
+  "description": "Search results page description.",
+  "placeholder": "Buscar",
+  "error": "Ha ocurrido un error con la búsqueda, por favor inténtelo más tarde",
+  "results": "((d)) resultados para ((t))",
+  "offline": {
+    "enable": "Habilitar búsqueda sin conexión",
+    "warning": "Esta opción necesita descargar una gran cantidad de datos",
+    "unavailable": "La búsqueda no se encuentra disponible, por favor intente cuando se encuentre en línea",
+    "result": "No disponible sin conexión"
+  },
+  "pagination": {
+    "prev": "Página previa",
+    "next": "Página siguiente",
+    "page": "Página ((n))"
+  }
+}

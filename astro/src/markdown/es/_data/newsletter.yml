@@ -1,0 +1,78 @@
+settings:
+  name: newsletter-sign-up
+  endpoint: https://services.google.com/fb/submissions/chromeos-newsletter-v2/
+content:
+  title: Reciba noticias y actualizaciones para desarrolladores de Chrome OS directamente
+  copy: Regístrese para recibir las últimas noticias, consejos, lanzamientos, actualizaciones y más sobre Chrome OS.
+  disclaimer: |-
+    Política de privacidad: al utilizar este servicio, acepta estar sujeto a nuestras Condiciones de servicio de Google que se encuentran en [https://policies.google.com/terms](https://policies.google.com/terms?hl=es). Reconozco que la información proporcionada en este formulario estará sujeta a la política de privacidad de Google ubicada en [https://policies.google.com/privacy](https://policies.google.com/privacy?hl=es).
+  required: Requerido
+  errors:
+    - type: server
+      text: Algo salió mal por nuestra parte. Por favor, inténtelo de nuevo más tarde.
+    - type: offline
+      text: Parece que estás sin conexión. Vuelve a intentarlo cuando esté en línea.
+fields:
+  - type: email
+    name: EmailAddress
+    label: Correo electrónico
+    required: true
+    error: Ingrese un correo electrónico válido.
+  - type: text
+    name: FirstName
+    label: Nombre
+    required: true
+    error: Ingrese un nombre.
+  - type: text
+    name: LastName
+    label: Apellido
+  - type: country
+    name: Country
+    label: País
+    required: true
+    error: Ingrese un país.
+  - type: select
+    name: JobRole
+    label: Ocupación
+    options:
+      - text: Academic Researcher / Educator / Scientist
+      - text: Analytics / Business Intelligence / Data Science
+      - text: Business Development
+      - text: Business Management
+      - text: Customer Support
+      - text: Design / Art / Animation
+      - text: Engineering Management
+      - text: Marketing
+      - text: Product Management
+      - text: Production
+      - text: Programming / Coding / Software Development
+      - text: Public Relations
+      - text: Sales
+      - text: Site Reliability / Developer Operations
+      - text: Strategy / Operations / Planning
+      - text: System Administration / System Integration
+      - text: QA / Testing
+      - text: UI / UX Design / UX Research
+      - text: Other
+  - type: checkbox
+    name: ChromeosDevelopersUpdates
+    label: Agregueme a la lista de correos.
+    required: true
+    error: Por favor seleccione la casilla.
+  - type: hidden
+    name: LanguagePreference
+    value: es-US
+  - type: submit
+    value: Subscribir
+thankYou:
+  title: Listo!
+  message: Noticias de desarrolladores de Chrome OS en camino.
+  redirect: Espera un momento. Estas siendo redireccionado a la página de donde partiste.
+  inline: Listo! Noticias de desarrolladores de Chrome OS en camino. [[Volver a la página donde estabas]].
+subscribe:
+  content:
+    title: Noticias y actualizaciones para desarrolladores de Chrome OS directamente en su bandeja de entrada.
+    body: Encuentre las últimas noticias, sugerencias, lanzamientos, actualizaciones y más sobre Chrome OS.
+  cta:
+    text: Suscribir
+    url: /es/subscribe
