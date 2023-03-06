@@ -37,19 +37,19 @@ specifiers:
   stylelint-config-prettier: ^9.0.4
   stylelint-config-recommended: ^9.0.0
   stylelint-config-standard: ^29.0.0
-  svelte: npm:@typhonjs-svelte/svelte@3.55.1-cq
+  svelte: npm:@typhonjs-svelte/svelte@3.55.1-cq2
   vite-plugin-pwa: ^0.14.1
 
 dependencies:
   '@astrojs/mdx': 0.17.0_astro@2.0.14+rollup@3.17.2
   '@astrojs/sitemap': 1.0.0
-  '@astrojs/svelte': 2.0.2_nrzpzkyaj6dbmqqamxaluxtlqa
-  '@portabletext/svelte': 1.0.1_kf7gzphl4gepaoxza4jtxm3osu
+  '@astrojs/svelte': 2.0.2_e32rc2ob56vesn5gvwjequol4m
+  '@portabletext/svelte': 1.0.1_tf2ri5x3kro3dzwauhuonmyoa4
   '@sanity/client': 3.4.1
   astro: 2.0.14_i6sg7ufwag4u2fxqefdnehf2pe
   dotenv: 16.0.3
   starchart-studio: 0.4.0_yevxiaa3i5ouwp7g4b7tgmyn7q
-  svelte: /@typhonjs-svelte/svelte/3.55.1-cq
+  svelte: /@typhonjs-svelte/svelte/3.55.1-cq2
   vite-plugin-pwa: 0.14.1_qtdhuw7qkuvvectm2wxn5d44j4
 
 devDependencies:
@@ -66,7 +66,7 @@ devDependencies:
   eslint-plugin-jsx-a11y: 6.6.1_eslint@8.31.0
   eslint-plugin-n: 15.6.0_eslint@8.31.0
   eslint-plugin-prettier: 4.2.1_iu5s7nk6dw7o3tajefwfiqfmge
-  eslint-plugin-svelte3: 4.0.0_spdwes5cuwjll3dlovwxnw7bbm
+  eslint-plugin-svelte3: 4.0.0_zayfr672sfsy3jdu6n4zv3wlcy
   husky: 8.0.3
   lint-staged: 13.1.0
   nanoid: 4.0.1
@@ -74,7 +74,7 @@ devDependencies:
   postcss-html: 1.5.0
   prettier: 2.8.2
   prettier-plugin-astro: 0.7.2
-  prettier-plugin-svelte: 2.9.0_drwxs4xum3gxkhjxdflyzahyqy
+  prettier-plugin-svelte: 2.9.0_gzvmbn2so3e4rnwigxvvg3b4ui
   sass: 1.58.1
   sass-toolkit: 2.10.2
   stylelint: 14.16.1
@@ -193,17 +193,17 @@ packages:
       zod: 3.20.2
     dev: false
 
-  /@astrojs/svelte/2.0.2_nrzpzkyaj6dbmqqamxaluxtlqa:
+  /@astrojs/svelte/2.0.2_e32rc2ob56vesn5gvwjequol4m:
     resolution: {integrity: sha512-EkJT7Roft6v9CkI3/Hga8XQbmmI6kKcpOAx6E0gfepuJuqI68xLqnEl3TSJ9uH3dwJt8ThscB1TGxsc8B4JUdg==}
     engines: {node: '>=16.12.0'}
     peerDependencies:
       astro: ^2.0.12
       svelte: ^3.54.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.0.3_njsfa7b2y7k54ls4avzsw2y3dy
+      '@sveltejs/vite-plugin-svelte': 2.0.3_onpbbjrg7hwoowe5bgbpm7m2fi
       astro: 2.0.14_i6sg7ufwag4u2fxqefdnehf2pe
-      svelte: /@typhonjs-svelte/svelte/3.55.1-cq
-      svelte2tsx: 0.5.23_hvsdcd2vus2j6xv6hulptcjkjm
+      svelte: /@typhonjs-svelte/svelte/3.55.1-cq2
+      svelte2tsx: 0.5.23_fobap4zj3bm2wwbos7ahv36nwa
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -1778,13 +1778,13 @@ packages:
       tiny-glob: 0.2.9
       tslib: 2.4.1
 
-  /@portabletext/svelte/1.0.1_kf7gzphl4gepaoxza4jtxm3osu:
+  /@portabletext/svelte/1.0.1_tf2ri5x3kro3dzwauhuonmyoa4:
     resolution: {integrity: sha512-37nyWavAl/MykqN5mrCmog9rYy+Bj6v64qn5oO2aj5GLF/BVz+zJThhdO2Ks70B6gkJXjVHDrcNs3qeIdZ53EA==}
     peerDependencies:
       svelte: ^3.47.0
     dependencies:
       '@portabletext/toolkit': 1.0.6
-      svelte: /@typhonjs-svelte/svelte/3.55.1-cq
+      svelte: /@typhonjs-svelte/svelte/3.55.1-cq2
     dev: false
 
   /@portabletext/toolkit/1.0.6:
@@ -1930,7 +1930,7 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: false
 
-  /@sveltejs/vite-plugin-svelte/2.0.3_njsfa7b2y7k54ls4avzsw2y3dy:
+  /@sveltejs/vite-plugin-svelte/2.0.3_onpbbjrg7hwoowe5bgbpm7m2fi:
     resolution: {integrity: sha512-o+cguBFdwIGtRbNkYOyqTM7KvRUffxh5bfK4oJsWKG2obu+v/cbpT03tJrGl58C7tRXo/aEC0/axN5FVHBj0nA==}
     engines: {node: ^14.18.0 || >= 16}
     peerDependencies:
@@ -1941,8 +1941,8 @@ packages:
       deepmerge: 4.3.0
       kleur: 4.1.5
       magic-string: 0.29.0
-      svelte: /@typhonjs-svelte/svelte/3.55.1-cq
-      svelte-hmr: 0.15.1_kf7gzphl4gepaoxza4jtxm3osu
+      svelte: /@typhonjs-svelte/svelte/3.55.1-cq2
+      svelte-hmr: 0.15.1_tf2ri5x3kro3dzwauhuonmyoa4
       vite: 4.1.4_i6sg7ufwag4u2fxqefdnehf2pe
       vitefu: 0.2.4_vite@4.1.4
     transitivePeerDependencies:
@@ -2226,8 +2226,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@typhonjs-svelte/svelte/3.55.1-cq:
-    resolution: {integrity: sha512-GTwQKSDkDPzJQp+9IgSrOIrEEVH/vfgyc4+jB/pex/Zyc04P1BJilm8k0/A5OPQp3ZR+gVkSxCO5Bu52JbjKkA==}
+  /@typhonjs-svelte/svelte/3.55.1-cq2:
+    resolution: {integrity: sha512-EoYppIB59uZ2VLPstn9edPTZ97fcBpZ/cgLEkDvwr8yE0qHq13QuHc2tBNLylFQ0f1n1EfrMdhp5SfpptB06NQ==}
     engines: {node: '>= 8'}
 
   /@vscode/emmet-helper/2.8.6:
@@ -3456,14 +3456,14 @@ packages:
       prettier-linter-helpers: 1.0.0
     dev: true
 
-  /eslint-plugin-svelte3/4.0.0_spdwes5cuwjll3dlovwxnw7bbm:
+  /eslint-plugin-svelte3/4.0.0_zayfr672sfsy3jdu6n4zv3wlcy:
     resolution: {integrity: sha512-OIx9lgaNzD02+MDFNLw0GEUbuovNcglg+wnd/UY0fbZmlQSz7GlQiQ1f+yX0XvC07XPcDOnFcichqI3xCwp71g==}
     peerDependencies:
       eslint: '>=8.0.0'
       svelte: ^3.2.0
     dependencies:
       eslint: 8.31.0
-      svelte: /@typhonjs-svelte/svelte/3.55.1-cq
+      svelte: /@typhonjs-svelte/svelte/3.55.1-cq2
     dev: true
 
   /eslint-scope/5.1.1:
@@ -5975,14 +5975,14 @@ packages:
       sass-formatter: 0.7.5
       synckit: 0.8.4
 
-  /prettier-plugin-svelte/2.9.0_drwxs4xum3gxkhjxdflyzahyqy:
+  /prettier-plugin-svelte/2.9.0_gzvmbn2so3e4rnwigxvvg3b4ui:
     resolution: {integrity: sha512-3doBi5NO4IVgaNPtwewvrgPpqAcvNv0NwJNflr76PIGgi9nf1oguQV1Hpdm9TI2ALIQVn/9iIwLpBO5UcD2Jiw==}
     peerDependencies:
       prettier: ^1.16.4 || ^2.0.0
       svelte: ^3.2.0
     dependencies:
       prettier: 2.8.2
-      svelte: /@typhonjs-svelte/svelte/3.55.1-cq
+      svelte: /@typhonjs-svelte/svelte/3.55.1-cq2
     dev: true
 
   /prettier/2.8.2:
@@ -6924,16 +6924,16 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /svelte-hmr/0.15.1_kf7gzphl4gepaoxza4jtxm3osu:
+  /svelte-hmr/0.15.1_tf2ri5x3kro3dzwauhuonmyoa4:
     resolution: {integrity: sha512-BiKB4RZ8YSwRKCNVdNxK/GfY+r4Kjgp9jCLEy0DuqAKfmQtpL38cQK3afdpjw4sqSs4PLi3jIPJIFp259NkZtA==}
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
     peerDependencies:
       svelte: '>=3.19.0'
     dependencies:
-      svelte: /@typhonjs-svelte/svelte/3.55.1-cq
+      svelte: /@typhonjs-svelte/svelte/3.55.1-cq2
     dev: false
 
-  /svelte2tsx/0.5.23_hvsdcd2vus2j6xv6hulptcjkjm:
+  /svelte2tsx/0.5.23_fobap4zj3bm2wwbos7ahv36nwa:
     resolution: {integrity: sha512-jYFnugTQRFmUpvLXPQrKzVYcW5ErT+0QCxg027Zx9BuvYefMZFuoBSTDYe7viPEFGrPPiLgT2m7f5n9khE7f7Q==}
     peerDependencies:
       svelte: ^3.24
@@ -6941,7 +6941,7 @@ packages:
     dependencies:
       dedent-js: 1.0.1
       pascal-case: 3.1.2
-      svelte: /@typhonjs-svelte/svelte/3.55.1-cq
+      svelte: /@typhonjs-svelte/svelte/3.55.1-cq2
       typescript: 4.9.4
     dev: false
 
