@@ -22,12 +22,6 @@ started:
     - title: Build
       body: |-
         There are a few ways to develop for Chrome OS, you can build [directly on your Chrome OS device](./android-environment/deploying-apps#deploy-from-chrome-os) using the Linux for Chrome OS or you can connect your [Chrome OS device to your main workstation](./android-environment/deploying-apps#deploy-from-another-device) and develop that way.
-interest:
-  title: Developer interest form
-  body: If you're planning on optimizing your Android app or game for desktop, and need help from Google, please fill out our developer interest form. Google may reach out to you to further clarify your feedback or app needs. Please note that filling out this form does not constitute automatic inclusion in this program.
-  cta:
-    url: https://forms.gle/wPUjwhLgLnqvsqDG6
-    text: Visit Form
 ---
 
 In 2016, the Google Play Store was brought to Chrome OS, allowing the same apps that run on phones and tablets to run on Chromebooks without compromising their speed, simplicity or security. Because Chromebooks run a full version of the Android framework, your app is most likely running on Chrome OS devices today! That means devs can take their single Android APK and scale it to work on any Chrome OS device, allowing for even more immersive and engaging experiences on devices with bigger screens. There are a few differences between phones and Chrome OS devices (and other larger screen form-factors) that can add challenges and opportunities for different experiences such as:
