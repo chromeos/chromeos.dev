@@ -89,6 +89,9 @@ jobs:
         with:
           name: firebase
           path: firebase.json
+      - name: Debug firebase.json
+        run: |
+          cat firebase.json
       - name: Deploy Hosting Preview
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
