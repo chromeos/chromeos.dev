@@ -81,6 +81,9 @@ jobs:
         with:
           name: site
           path: public
+      - name: Remove firebase.json without redirects
+        run: |
+          rm firebase.json
       - name: Download firebase.json with redirects
         uses: actions/download-artifact@v1
         with:
@@ -108,6 +111,9 @@ jobs:
         with:
           name: site
           path: public
+      - name: Remove firebase.json without redirects
+        run: |
+          rm firebase.json
       - name: Download firebase.json with redirects
         uses: actions/download-artifact@v1
         with:
