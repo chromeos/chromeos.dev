@@ -1,7 +1,7 @@
 {
   "/": "/en",
   "/subscribe": "/en/subscribe",
-  "/discord": "https://chromeos.dev/l/discord",
+  "/discord": "/l/discord",
   "/news": "/en/news",
   "/stories": "/en/stories",
   "/publish": "/en/publish",
@@ -14,5 +14,5 @@
   "/android-environment": "/en/android-environment",
   "/web-environment": "/en/web-environment",
   "/productivity": "/en/productivity",
-  "/work-with-us": "https://docs.google.com/forms/d/e/1FAIpQLScM5-KKR05NjbBwLmiGxKGmE5hn_uZDyd9IznzL0IipZzA9uA/viewform?resourcekey=0-1j--HwT3iwGx3Bogp5WabQ"
+  "/work-with-us": "https://forms.gle/wPUjwhLgLnqvsqDG6"
 }
