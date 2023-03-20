@@ -85,10 +85,9 @@ jobs:
         run: |
           rm firebase.json
       - name: Download firebase.json with redirects
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: firebase
-          path: firebase.json
       - name: Debug firebase.json
         run: |
           cat firebase.json
