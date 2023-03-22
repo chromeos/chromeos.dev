@@ -1,12 +1,12 @@
 ---
 title: Publishing on Google Play
-metadesc: How to publish, distribute, and monetize your app and game on Chrome OS.
+metadesc: How to publish, distribute, and monetize your app and game on ChromeOS.
 hero:
   image:
     top: ix://landings/heroes/publish.svg
     bottom: ix://landings/heroes/publish-small.svg
 date: 2020-05-18
-weight: -8
+weight: -9
 ---
 
 Chrome OS [supports](https://chrome.googleblog.com/2016/05/the-google-play-store-coming-to.html) the Google Play Store for users to discover and install apps and games. Developers can use Google Play to seamlessly distribute and monetize apps & games across Chrome OS and Android (mobile, tablets, foldables, TV, and Wear). Learn about the benefits and features of publishing your app to the [Google Play Store](https://developer.android.com/distribute/google-play). If you have a Progressive Web App (PWA), you can also create a [listing for it in Google Play](/{{locale.code}}/publish/pwa-in-play).
