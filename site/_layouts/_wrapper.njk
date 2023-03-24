@@ -28,7 +28,9 @@
   <body id="body">
     {% from 'header.njk' import header %} {{ header(nav, search.placeholder, subscribe.cta, locale) }}
     <main class="main">
-      {{ content | safe }} {% if showNewsletter and subscribe %}
+      {% if microcopy.announcement %}
+      <div class="announcement type wrapper__contained wrapper--padded">{{microcopy.announcement | markdown | safe}}</div>
+      {% endif %} {{ content | safe }} {% if showNewsletter and subscribe %}
       <div class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__background--dark">{% from "call-out.njk" import callOut %} {{ callOut(subscribe.content, subscribe.cta) }}</div>
       {% endif %}
     </main>
