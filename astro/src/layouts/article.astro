@@ -1,0 +1,23 @@
+---
+import type { Locale } from '$types/content';
+import Wrapper from '$layouts/wrapper.astro';
+
+export interface Props {
+  title: string;
+  metadesc: string;
+  props?: Array<{
+    property: string;
+    content: string;
+  }>;
+  locale: Locale;
+}
+
+const { title, props = [], locale, metadesc } = Astro.props;
+---
+
+<Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>
+  <h1 class="type--h1">{title}</h1>
+  <div class="type">
+    <slot />
+  </div>
+</Wrapper>

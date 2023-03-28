@@ -1,0 +1,48 @@
+---
+import Article from '$layouts/article.astro';
+import { renderMarkdown } from '$$markdown';
+
+/**
+ * Builds paths for content files
+ */
+export async function getStaticPaths() {
+  const articles = await Astro.glob('../../markdown/**/*.md');
+  console.log(articles[0].file);
+
+  return Promise.all(
+    articles.map(async (article) => {
+      const path = article.file.replace(/.*\/markdown\/(.*)\.md/, '$1');
+
+      const lang = path.split('/')[0];
+      let slug = path.split('/').slice(1).join('/');
+      if (slug.endsWith('/index')) {
+        slug = slug.replace(/\/index$/, '');
+      }
+
+      article.frontmatter.date = new Date(article.frontmatter.date);
+      return {
+        params: {
+          lang,
+          path: slug,
+        },
+        props: {
+          content: await renderMarkdown(article.rawContent()),
+          meta: article.frontmatter,
+        },
+      };
+    }),
+  );
+}
+
+const { lang } = Astro.params;
+const { content, meta } = Astro.props;
+
+const locale = {
+  code: lang,
+  dir: 'ltr',
+};
+---
+
+<Article title={meta.title} locale={locale} metadesc={meta.metadesc}>
+  <Fragment set:html={content} />
+</Article>
