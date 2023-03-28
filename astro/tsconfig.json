@@ -9,7 +9,9 @@
       "$lib/*": ["lib/*"],
       "$types/*": ["types/*"],
       "$sass/*": ["src/sass/*"],
-      "$$sanity": ["lib/sanity.ts"]
+      "$markdown/*": ["src/markdown/*"],
+      "$$sanity": ["lib/sanity.ts"],
+      "$$markdown": ["lib/markdown.ts"]
     }
   }
 }
