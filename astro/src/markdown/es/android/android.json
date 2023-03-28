@@ -1,0 +1,16 @@
+{
+  "layout": "tech-detail",
+  "tags": ["android", "optimización"],
+  "section": "android",
+  "eyebrow": "Adaptar Android",
+  "resources": [
+    {
+      "title": "Centro de Desarrollo para Android ",
+      "url": "http://developers.android.com/?hl=es"
+    },
+    {
+      "title": "Android Studio",
+      "url": "https://developer.android.com/studio?hl=es"
+    }
+  ]
+}

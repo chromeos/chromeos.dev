@@ -1,0 +1,43 @@
+import Card from '../components/Card.svelte';
+
+export const story = {
+  title: 'Card',
+  component: Card,
+  variants: [
+    {
+      props: [
+        {
+          name: 'title',
+          type: 'text',
+          default:
+            'ChromeOS 110 release brings enhanced Bluetooth calling and parental approvals',
+        },
+        {
+          name: 'body',
+          type: 'text',
+          default:
+            'ChromeOS 110 moved to stable release. New features include channel labeling (for experimental channels), fast-tracked parental approvals, and enhanced Bluetooth calling.',
+        },
+        {
+          name: 'cta',
+          type: 'object',
+          default: {
+            text: 'Learn more',
+            url: '/en',
+          },
+        },
+        {
+          name: 'eyebrow',
+          type: 'object',
+          default: {
+            icon: 'https://chromeos-dev.imgix.net/icons/eyebrows/announcement.svg?auto=format,compress',
+            text: 'Announcement',
+          },
+        },
+      ],
+    },
+  ],
+};
+
+A card to show previews of content from throughout the site
+.

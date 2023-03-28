@@ -1,0 +1,11 @@
+title: Acuerdo al uso de cookies.
+content:
+  disclaimer: Google usa cookies para brindar sus servicios, personalizar anuncios y analizar el tráfico. Puedes cambiar los controles de privacidad en la ((t)), en cualquier momento.
+  settings:
+    text: configuración de Google
+    url: https://support.google.com/accounts/answer/3118621?hl=es
+ctas:
+  accept: Ok, Acepto.
+  info:
+    text: Más información.
+    url: https://www.google.com/policies/technologies/cookies?hl=es

@@ -1,120 +1,92 @@
----
-import type { Theme, HeroMedia, CTA, StorySection } from '$types/content';
-import { isExternalLink } from '$lib/links';
-import CallToAction from './CTA.svelte';
-import { buildSection } from '$lib/helpers/posts';
-import Eyebrow from './Eyebrow.svelte';
+<script lang="ts">
+  import type { Theme, HeroMedia, CTA, StorySection } from '$types/content';
+  import { isExternalLink } from '$lib/links';
+  import CallToAction from './CTA.svelte';
+  import { buildSection } from '$lib/helpers/posts';
+  import Eyebrow from './Eyebrow.svelte';
 
-export interface Props {
-  title: string;
-  body: string;
-  section: StorySection;
-  theme: Theme;
-  media: HeroMedia;
-  cta: CTA;
-  form?: 'banner' | 'standalone' | 'header';
-}
+  export let title: string;
+  export let body: string;
+  export let section: StorySection;
+  export let theme: Theme;
+  export let media: HeroMedia;
+  export let cta: CTA;
+  export let form: 'banner' | 'standalone' | 'header' = 'banner';
 
-const {
-  title,
-  body,
-  section,
-  theme,
-  media,
-  form = 'banner',
-  cta,
-} = Astro.props;
+  const Wrapper = form === 'header' ? 'header' : 'article';
+  const Header = form === 'header' ? 'h1' : 'h2';
+  const banner = form === 'banner';
 
-const Wrapper = form === 'header' ? 'header' : 'article';
-const Header = form === 'header' ? 'h1' : 'h2';
-const banner = form === 'banner';
+  const sectionMedia = buildSection(section);
+  const background = theme?.theme
+    ? theme?.background || false
+    : sectionMedia.background;
 
-const sectionMedia = buildSection(section);
-const background = theme?.theme
-  ? theme?.background || false
-  : sectionMedia.background;
+  const eyebrow = {
+    text: theme?.eyebrow || section,
+    icon: !banner && section ? sectionMedia.icon : false,
+  };
 
-const eyebrow = {
-  text: theme?.eyebrow || section,
-  icon: !banner && section ? sectionMedia.icon : false,
-};
+  const callToAction = cta;
+  if ((form === 'header' || form === 'standalone') && cta?.url) {
+    callToAction.type = 'link';
+    callToAction.direction = !isExternalLink(cta.url)
+      ? form === 'standalone'
+        ? 'forward'
+        : 'back'
+      : 'external';
+  }
+  if (form === 'banner') {
+    callToAction.type = 'transparent';
+  }
+</script>
 
-const callToAction = cta;
-if ((form === 'header' || form === 'standalone') && cta?.url) {
-  callToAction.type = 'link';
-  callToAction.direction = !isExternalLink(cta.url)
-    ? form === 'standalone'
-      ? 'forward'
-      : 'back'
-    : 'external';
-}
-if (form === 'banner') {
-  callToAction.type = 'transparent';
-}
----
-
-<Wrapper class="story-hero">
-  <div class:list={['theme', `theme__${theme?.theme || section}`]}>
+<svelte:element this={Wrapper} class="story-hero">
+  <div class="theme {`theme__${theme?.theme || section}`}">
     <div class="story-hero--inner">
       <div class="story-hero--content-wrapper wrapper--padded wrapper--padding">
-        {
-          form === 'header' && cta?.url && (
-            <div class="story-hero--top-cta">
-              <CallToAction cta={callToAction} />
-            </div>
-          )
-        }
-        {
-          (theme?.eyebrow || section) && (
-            <div
-              class:list={[
-                'story-hero--eyebrow',
-                { 'story-hero--unibrow': !banner },
-              ]}
-            >
-              <Eyebrow {eyebrow} size={banner ? 'large' : 'small'} />
-            </div>
-          )
-        }
+        {#if form === 'header' && cta?.url}
+          <div class="story-hero--top-cta">
+            <CallToAction cta={callToAction} />
+          </div>
+        {/if}
+        {#if theme?.eyebrow || section}
+          <div
+            class="story-hero--eyebrow {!banner ? 'story-hero--unibrow' : ''}"
+          >
+            <Eyebrow {eyebrow} size={banner ? 'large' : 'small'} />
+          </div>
+        {/if}
 
-        <Header class="type--h1">{title}</Header>
+        <svelte:element this={Header} class="type--h1">{title}</svelte:element>
         <!-- Only include the description and lower CTA if this isn't being displayed as a header -->
-        {
-          form !== 'header' && (
-            <>
-              <p class="story-hero--body type--h4">{body}</p>
-              <div class="story-hero--cta">
-                <CallToAction cta={callToAction} />
-              </div>
-            </>
-          )
-        }
+        {#if form !== 'header'}
+          <p class="story-hero--body type--h4">{body}</p>
+          <div class="story-hero--cta">
+            <CallToAction cta={callToAction} />
+          </div>
+        {/if}
       </div>
-      {
-        media?.url ? (
-          <div class="story-hero--image-wrapper">
-            <img src={media.url} alt={media.alt} class="story-hero--image" />
-          </div>
-        ) : (
-          ''
-        )
-      }
-      {
-        background && (
-          <div class="story-hero--background">
-            <img loading="lazy" data-large aria-hidden src={background.large} />
-            <img
-              loading="lazy"
-              data-small
-              aria-hiddenn="true"
-              src={background.small}
-            />
-          </div>
-        )
-      }
+      {#if media?.url}
+        <div class="story-hero--image-wrapper">
+          <img src={media.url} alt={media.alt} class="story-hero--image" />
+        </div>
+      {/if}
+
+      {#if background}
+        <div class="story-hero--background">
+          <img loading="lazy" data-large aria-hidden src={background.large} />
+          <img
+            loading="lazy"
+            data-small
+            aria-hidden="true"
+            src={background.small}
+          />
+        </div>
+      {/if}
     </div>
   </div>
-</Wrapper>
+</svelte:element>
 
 <style lang="scss">
   $swap: 690px;

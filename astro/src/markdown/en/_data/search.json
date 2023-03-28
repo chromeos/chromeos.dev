@@ -1,0 +1,18 @@
+{
+  "title": "Search results",
+  "description": "Search results page description.",
+  "placeholder": "Search",
+  "error": "There is an error with search, try again later",
+  "results": "((d)) results for ((t))",
+  "offline": {
+    "enable": "Enable offline search",
+    "warning": "This will download a large amount of data",
+    "unavailable": "Search is currently unavailable, please go online",
+    "result": "Not available offline"
+  },
+  "pagination": {
+    "prev": "Previous page",
+    "next": "Next page",
+    "page": "Page ((n))"
+  }
+}

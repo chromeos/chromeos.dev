@@ -17,7 +17,7 @@ If your Android app uses cameras, there are some special considerations when han
 
 Handling orientations in Android camera apps is tricky and needs to take the following factors into consideration:
 
-- Natural orientation: The display orientation when the device is in the "normal" position for the device design - usually portrait orientation for mobile phones and landscape orientation for laptops.
+- Natural orientation: The display orientation when the device is in the “normal” position for the device design - usually portrait orientation for mobile phones and landscape orientation for laptops.
 - Sensor orientation: The orientation of the sensor physically mounted on the device.
 - Display rotation: How much the device is physically rotated from the natural orientation.
 - Viewfinder size: The size of the viewfinder used for displaying the camera preview.
@@ -37,9 +37,9 @@ Natural orientation is defined as the display orientation when the device is in 
 
 ### Sensor Orientation
 
-Formally speaking, sensor orientation is measured by the degrees an output image from the sensor needs to be rotated clockwise to match the natural orientation of the device. Put differently, sensor orientation is the number of degrees a sensor is rotated counterclockwise before being mounted on the device. When looking at the screen, the rotation seems to be in the clockwise direction, this is because the rear-camera sensor is installed on the "back" side of the device.
+Formally speaking, sensor orientation is measured by the degrees an output image from the sensor needs to be rotated clockwise to match the natural orientation of the device. Put differently, sensor orientation is the number of degrees a sensor is rotated counterclockwise before being mounted on the device. When looking at the screen, the rotation seems to be in the clockwise direction, this is because the rear-camera sensor is installed on the “back” side of the device.
 
-According to [Android 10 Compatibility Definition 7.5.5 Camera Orientation](https://source.android.com/compatibility/android-cdd#7_5_5_camera_orientation), front and rear-facing cameras "MUST be oriented so that the long dimension of the camera aligns with the screen’s long dimension.".
+According to [Android 10 Compatibility Definition 7.5.5 Camera Orientation](https://source.android.com/compatibility/android-cdd#7_5_5_camera_orientation), front and rear-facing cameras “MUST be oriented so that the long dimension of the camera aligns with the screen’s long dimension.”.
 
 Output buffers from cameras are landscape-sized. Since the natural orientation of phones is usually portrait, the sensor orientation is typically 90 or 270 degrees from the natural orientation in order to have the long side of the output buffer match the long side of the screen. Sensor orientation is different for devices whose natural orientation is landscape, like Chromebooks. On these devices, image sensors are again placed so the long side of the output buffer matches the long side of the screen. Because these are both landscape-sized, the orientations match and the sensor orientation is 0 or 180 degrees.
 
@@ -73,7 +73,7 @@ In Android, apps can use TextureView or SurfaceView to display their camera prev
 
 Display rotation is formally defined by the rotation of the drawn graphics on the screen, which is the opposite direction of the physical rotation of the device from its natural orientation. The following sections assume display rotations are all multiples of 90. If you retrieve the display rotation by its absolute degrees, round it up to the closest of {0, 90, 180, 270}.
 
-"Display orientation" below refers to whether a device is physically held in a landscape or portrait position and is distinct from "display rotation".
+“Display orientation” below refers to whether a device is physically held in a landscape or portrait position and is distinct from “display rotation”.
 
 Suppose you rotate the devices by 90 degrees counterclockwise from their previous positions as demonstrated in the figure below:
 
@@ -179,7 +179,7 @@ You generally want **the aspect ratio (i.e., width/height) of the viewfinder to 
 
 ##### `aspectRatioActivity > aspectRatioSource`
 
-You can think of the case as the activity being "wider". Below we consider an example where you have a 16:9 activity and a 4:3 source.
+You can think of the case as the activity being “wider”. Below we consider an example where you have a 16:9 activity and a 4:3 source.
 
 ```
 aspectRatioActivity = 16/9 ≈ 1.78
@@ -199,7 +199,7 @@ viewfinderWidth = activityHeight * aspectRatioSource;
 
 ##### `aspectRatioActivity ≤ aspectRatioSource`
 
-The other case, as you may have figured, is when the activity is "narrower" or "taller". Let’s reuse the example above, except that in the example below you rotate the device by 90 degrees, making the activity 9:16 and the source 3:4.
+The other case, as you may have figured, is when the activity is “narrower” or “taller”. Let’s reuse the example above, except that in the example below you rotate the device by 90 degrees, making the activity 9:16 and the source 3:4.
 
 ```
 aspectRatioActivity = 9/16 = 0.5625
@@ -219,11 +219,11 @@ viewfinderHeight = activityWidth / aspectRatioSource;
 
 ##### Clipping sample
 
-[AutoFitSurfaceView.kt (github)](https://github.com/android/camera-samples/blob/153d2d203118dacbd2afeb53b2e8be489677ed98/Common/src/main/java/com/example/android/camera2/common/AutoFitSurfaceView.kt#L52-L74) from the Camera2 samples overrides SurfaceView and handles mismatched aspect ratios by using an image that is equal to or "just bigger" than the activity in both dimensions and then clips content that overflows. This is useful for apps that want the preview to cover the entire activity or to completely fill a view of fixed dimensions, without distorting the image.
+[AutoFitSurfaceView.kt (github)](https://github.com/android/camera-samples/blob/153d2d203118dacbd2afeb53b2e8be489677ed98/Common/src/main/java/com/example/android/camera2/common/AutoFitSurfaceView.kt#L52-L74) from the Camera2 samples overrides SurfaceView and handles mismatched aspect ratios by using an image that is equal to or “just bigger” than the activity in both dimensions and then clips content that overflows. This is useful for apps that want the preview to cover the entire activity or to completely fill a view of fixed dimensions, without distorting the image.
 
 ##### Caveat
 
-The sample above tries to maximize the screen real estate by making the preview just bigger than the activity so that no space is left unfilled. This relies on the fact that the overflowing parts get clipped by the parent layout (or ViewGroup) by default. The behavior is consistent with RelativeLayout and LinearLayout but NOT with [ConstraintLayout](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout). A ConstraintLayout might resize the children Views to make them fit inside the layout, which would break the intended "center-crop" effect and cause stretched previews. You can refer to this [commit](https://github.com/android/camera-samples/pull/281) as a reference.
+The sample above tries to maximize the screen real estate by making the preview just bigger than the activity so that no space is left unfilled. This relies on the fact that the overflowing parts get clipped by the parent layout (or ViewGroup) by default. The behavior is consistent with RelativeLayout and LinearLayout but NOT with [ConstraintLayout](https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout). A ConstraintLayout might resize the children Views to make them fit inside the layout, which would break the intended “center-crop” effect and cause stretched previews. You can refer to this [commit](https://github.com/android/camera-samples/pull/281) as a reference.
 
 ### TextureView
 

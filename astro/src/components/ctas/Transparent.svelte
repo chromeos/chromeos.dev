@@ -4,6 +4,7 @@
   import ArrowBack from '../icons/ArrowBack.svelte';
 
   export let cta: CTA;
+  export let inline = false;
 
   const direction =
     cta?.direction === 'forward'
@@ -11,9 +12,15 @@
       : cta?.direction === 'back'
       ? 'cta--left-icon'
       : '';
+
+  const wrapper = inline === true ? 'span' : 'a';
 </script>
 
-<a href={cta.url} class="cta cta--transparent {direction}">
+<svelte:element
+  this={wrapper}
+  href={cta?.inline !== true ? cta.url : null}
+  class="cta cta--transparent {direction}"
+>
   {#if cta?.direction === 'back'}
     <span class="icon--container">
       <ArrowBack />
@@ -27,4 +34,4 @@
       <ArrowForward />
     </span>
   {/if}
-</a>
+</svelte:element>

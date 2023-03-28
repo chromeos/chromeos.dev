@@ -21,15 +21,15 @@
     "css:fix": "stylelint --fix \"**/*.{css,scss,astro}\""
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.15.0",
+    "@astrojs/mdx": "^0.17.0",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/svelte": "^2.0.0",
     "@portabletext/svelte": "^1.0.1",
     "@sanity/client": "^3.4.1",
-    "astro": "^2.0.1",
+    "astro": "^2.0.0",
     "dotenv": "^16.0.3",
-    "starchart-studio": "^0.3.1",
-    "svelte": "npm:@typhonjs-svelte/svelte@3.55.1-cq",
+    "starchart-studio": "^0.4.0",
+    "svelte": "npm:@typhonjs-svelte/svelte@3.55.1-cq2",
     "vite-plugin-pwa": "^0.14.1"
   },
   "devDependencies": {
@@ -51,6 +51,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
     "node-fetch": "^3.3.1",
+    "nanoid": "^4.0.1",
     "npm-run-all": "^4.1.5",
     "postcss-html": "^1.5.0",
     "posthtml": "^0.16.6",
@@ -58,7 +59,7 @@
     "prettier": "^2.8.2",
     "prettier-plugin-astro": "^0.7.2",
     "prettier-plugin-svelte": "^2.9.0",
-    "sass": "^1.57.1",
+    "sass": "^1.58.1",
     "sass-toolkit": "^2.10.2",
     "stylelint": "^14.16.1",
     "stylelint-config-prettier": "^9.0.4",
@@ -66,12 +67,17 @@
     "stylelint-config-standard": "^29.0.0",
     "uslug": "^1.0.4"
   },
-  "engines": {
-    "node": ">=18.12.0"
-  },
   "lint-staged": {
     "**/*.{svelte,astro}": "stylelint",
     "**/*.{js,mjs,cjs,ts,astro,svelte}": "eslint -c .eslintrc.yml",
     "**/*": "prettier --plugin-search-dir=. -c"
+  },
+  "engines": {
+    "node": ">=18.14.2",
+    "pnpm": ">=7.27.0"
+  },
+  "volta": {
+    "node": "18.14.2",
+    "pnpm": "7.27.0"
   }
 }
