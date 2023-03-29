@@ -38,7 +38,7 @@
     );
 
     // Observe all the heder links
-    const links = document.querySelectorAll('.header-anchor--wrapper');
+    const links = document.querySelectorAll(tocs.join(', '));
     for (const link of links) {
       observer.observe(link);
     }
