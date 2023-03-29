@@ -1,5 +1,6 @@
 ---
 import Article from '$layouts/article.astro';
+import TOC from '$components/TOC.svelte';
 import { renderMarkdown } from '$$markdown';
 
 /**
@@ -9,7 +10,7 @@ export async function getStaticPaths() {
   const articles = await Astro.glob('../../markdown/**/*.md');
   console.log(articles[0].file);
 
-  return Promise.all(
+  const all = await Promise.all(
     articles.map(async (article) => {
       const path = article.file.replace(/.*\/markdown\/(.*)\.md/, '$1');
 
@@ -18,6 +19,8 @@ export async function getStaticPaths() {
       if (slug.endsWith('/index')) {
         slug = slug.replace(/\/index$/, '');
       }
+      const section = slug.split('/')[0];
+      const { content, toc } = await renderMarkdown(article.rawContent());
 
       article.frontmatter.date = new Date(article.frontmatter.date);
       return {
@@ -26,16 +29,22 @@ export async function getStaticPaths() {
           path: slug,
         },
         props: {
-          content: await renderMarkdown(article.rawContent()),
+          content,
+          toc,
           meta: article.frontmatter,
+          section,
         },
       };
     }),
   );
+  return all.filter(
+    (article) =>
+      article.props.section !== 'posts' && article.props.section !== 'stories',
+  );
 }
 
 const { lang } = Astro.params;
-const { content, meta } = Astro.props;
+const { content, meta, section, toc } = Astro.props;
 
 const locale = {
   code: lang,
@@ -43,6 +52,17 @@ const locale = {
 };
 ---
 
-<Article title={meta.title} locale={locale} metadesc={meta.metadesc}>
-  <Fragment set:html={content} />
+<Article
+  title={meta.title}
+  locale={locale}
+  metadesc={meta.metadesc}
+  section={section}
+>
+  <!-- Subnav Sidebar -->
+  <!-- Main content area -->
+  <Fragment slot="content" set:html={content} />
+  <!-- Extras sidegar -->
+  <Fragment slot="extras">
+    <TOC toc={toc} client:load />
+  </Fragment>
 </Article>

@@ -1,6 +1,7 @@
 import markdown from 'chromeos-dev-markdown';
 import { posthtml } from './posthtml';
 import { statsPlugin } from './markdown/stats';
+import buildTOC from 'markdown-toc';
 
 markdown.use(statsPlugin);
 /**
@@ -11,5 +12,32 @@ markdown.use(statsPlugin);
 export async function renderMarkdown(content: string) {
   const html = markdown.render(content);
   const processed = await posthtml.process(html);
-  return processed.html;
+  const rawTOC = buildTOC(content).json.filter((item: any) => item.lvl < 4);
+  const toc = [];
+  for (let i = 0; i < rawTOC.length; i++) {
+    const item = rawTOC[i];
+    const built = {
+      title: item.content,
+      url: `#${item.slug}`,
+    };
+    let next = rawTOC[i + 1];
+    // Ugly, but only one deep ugly, so do-able
+    if (next && next.lvl > item.lvl) {
+      built['children'] = [];
+      while (next && next.lvl > item.lvl) {
+        built['children'].push({
+          title: next.content,
+          url: `#${next.slug}`,
+        });
+        i++;
+        next = rawTOC[i + 1];
+      }
+    }
+    toc.push(built);
+  }
+
+  return {
+    content: processed.html,
+    toc,
+  };
 }
