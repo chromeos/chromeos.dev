@@ -5,3 +5,4 @@ site/js/_data
 .env
 .npmrc
 dist
+.astro
