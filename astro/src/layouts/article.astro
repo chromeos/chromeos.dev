@@ -18,7 +18,9 @@ const { title, props = [], locale, metadesc, section } = Astro.props;
 
 <Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>
   <article class="article">
-    <aside class="article--subnav">Subnav</aside>
+    <aside class="article--subnav">
+      <slot name="subnav" />
+    </aside>
     <header class="article--header" id="content">
       <small class="type--eyebrow">{section}</small>
       <h1 class="type--h2">{title}</h1>

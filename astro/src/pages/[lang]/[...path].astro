@@ -1,6 +1,7 @@
 ---
 import Article from '$layouts/article.astro';
 import TOC from '$components/TOC.svelte';
+import SectionNav from '$components/SectionNav.svelte';
 import { renderMarkdown } from '$$markdown';
 
 /**
@@ -8,7 +9,48 @@ import { renderMarkdown } from '$$markdown';
  */
 export async function getStaticPaths() {
   const articles = await Astro.glob('../../markdown/**/*.md');
-  console.log(articles[0].file);
+  const sections = articles
+    .map((article) => {
+      const path = article.file.replace(/.*\/markdown\/(.*)\.md/, '$1');
+      const lang = path.split('/')[0];
+      let slug = path.split('/').slice(1).join('/');
+      if (slug.endsWith('/index')) {
+        slug = slug.replace(/\/index$/, '');
+      }
+      const section = slug.split('/')[0];
+
+      return {
+        lang,
+        section,
+        slug,
+        path,
+        weight: article?.frontmatter?.weight || 0,
+        title: article?.frontmatter?.title || '',
+      };
+    })
+    .sort((a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    })
+    .sort((a, b) => a.weight - b.weight)
+    .reduce((acc, cur) => {
+      if (!acc[cur.lang]) {
+        acc[cur.lang] = {};
+      }
+      if (!acc[cur.lang][cur.section]) {
+        acc[cur.lang][cur.section] = [];
+      }
+      acc[cur.lang][cur.section].push({
+        title: cur.title,
+        href: `/${cur.path}`,
+      });
+      return acc;
+    }, {});
 
   const all = await Promise.all(
     articles.map(async (article) => {
@@ -33,6 +75,7 @@ export async function getStaticPaths() {
           toc,
           meta: article.frontmatter,
           section,
+          subnav: sections[lang][section],
         },
       };
     }),
@@ -44,7 +87,7 @@ export async function getStaticPaths() {
 }
 
 const { lang } = Astro.params;
-const { content, meta, section, toc } = Astro.props;
+const { content, meta, section, toc, subnav } = Astro.props;
 
 const locale = {
   code: lang,
@@ -59,6 +102,9 @@ const locale = {
   section={section}
 >
   <!-- Subnav Sidebar -->
+  <Fragment slot="subnav">
+    <SectionNav links={subnav} title={section} active={Astro.url.pathname} />
+  </Fragment>
   <!-- Main content area -->
   <Fragment slot="content" set:html={content} />
   <!-- Extras sidegar -->
