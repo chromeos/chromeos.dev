@@ -103,7 +103,12 @@ const locale = {
 >
   <!-- Subnav Sidebar -->
   <Fragment slot="subnav">
-    <SectionNav links={subnav} title={section} active={Astro.url.pathname} />
+    <SectionNav
+      links={subnav}
+      title={section}
+      active={Astro.url.pathname}
+      client:load
+    />
   </Fragment>
   <!-- Main content area -->
   <Fragment slot="content" set:html={content} />
