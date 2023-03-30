@@ -45,10 +45,10 @@
   });
 </script>
 
-<div class="toc" data-expanded={expanded}>
+<nav class="toc" aria-labelledby="toc--title" data-expanded={expanded}>
   <div class="toc--header">
     <div class="toc--text">
-      <span class="toc--title type--label">{title}</span>
+      <p id="toc--title" class="toc--title type--label">{title}</p>
       <svg role="img" aria-hidden="true" class="icon toc--expand">
         <use href="/images/icons/sprite.svg#expand-more" />
       </svg>
@@ -86,7 +86,7 @@
       {/each}
     </ol>
   </div>
-</div>
+</nav>
 
 <style lang="scss">
   @use 'sass:math';
@@ -95,13 +95,15 @@
     $this: &;
     $inline: 1.75rem;
     $block: 1rem;
-    position: sticky;
-    top: 0;
 
     background-color: var(--grey-200);
 
     @container style(--inline-extras: 0) {
       background-color: transparent;
+      position: sticky;
+      top: var(--header-offset);
+      max-height: calc(100vh - var(--header-offset));
+      overflow-y: auto;
     }
 
     &--header {
@@ -177,9 +179,9 @@
       &::after {
         content: '';
         position: absolute;
-        height: 200%;
+        height: 150%;
         width: 100%;
-        top: -50%;
+        top: -25%;
         left: 0;
         z-index: -1;
         background-color: var(--bkg);
