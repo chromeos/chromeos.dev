@@ -1,5 +1,6 @@
 ---
 import type { Locale } from '$types/content';
+import SiteHeader from '$components/SiteHeader.svelte';
 import '$sass/global.scss';
 
 export interface Props {
@@ -72,7 +73,7 @@ function l10nURL(url: URL, lang: string) {
   </head>
   <body id="body">
     <!-- Header -->
-
+    <SiteHeader />
     <main class="main">
       <slot />
     </main>

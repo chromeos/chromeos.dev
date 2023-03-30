@@ -6,6 +6,8 @@ html {
 }
 
 body {
+  --header-height: 4rem;
+  --header-offset: 5rem;
   display: flex;
   flex-direction: column;
 }
@@ -13,5 +15,6 @@ body {
 .main {
   flex: 1 0 auto;
   height: max-content;
-  margin-top: 4rem;
+
+  margin-top: var(--header-offset);
 }
