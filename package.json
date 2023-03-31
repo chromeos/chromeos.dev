@@ -57,6 +57,7 @@
     "prettier:lint": "run-p prettier:*:lint",
     "prettier:njk:fix": "prettier --write '**/*.njk'",
     "prettier:njk:lint": "prettier -c '**/*.njk'",
+    "redirects:build": "node ./lib/helpers/redirects.js",
     "serve": "run-s dev",
     "start": "vite",
     "test:lint": "eslint tests",

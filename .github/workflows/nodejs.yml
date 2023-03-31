@@ -41,8 +41,8 @@ jobs:
           sudo apt-get install giflib-tools webp ffmpeg
       - name: Build and Test
         run: |
-          npm run build --if-present
           npm test
+          npm run build --if-present
         env:
           CI: true
       - name: Upload built state
@@ -50,6 +50,13 @@ jobs:
         with:
           name: site
           path: public
+
+      # Needed for redirect building
+      - name: Upload firebase.json with redirects
+        uses: actions/upload-artifact@v1
+        with:
+          name: firebase
+          path: firebase.json
 
       # Needed for functions deploy
       - name: Upload search index state
@@ -74,6 +81,13 @@ jobs:
         with:
           name: site
           path: public
+      - name: Remove firebase.json without redirects
+        run: |
+          rm firebase.json
+      - name: Download firebase.json with redirects
+        uses: actions/download-artifact@v3
+        with:
+          name: firebase
       - name: Deploy Hosting Preview
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -96,6 +110,13 @@ jobs:
         with:
           name: site
           path: public
+      - name: Remove firebase.json without redirects
+        run: |
+          rm firebase.json
+      - name: Download firebase.json with redirects
+        uses: actions/download-artifact@v3
+        with:
+          name: firebase
       - name: Download compiled indexes
         uses: actions/download-artifact@v1
         with:
