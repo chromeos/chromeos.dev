@@ -61,3 +61,13 @@
     if($max-value > $min-value, $max-value, $min-value)
   );
 }
+
+// Creates an alpha value for a color.
+// @param {color} $color - The color to apply the alpha to.
+// @param {number} $alpha - The alpha value to apply to the color, ether a percentage of transparency or a decimal value.
+@function color-alpha($color, $alpha) {
+  @if (unit($alpha) != '%') {
+    $alpha: (1 - $alpha) * 100%;
+  }
+  @return color-mix(in srgb, $color, transparent $alpha);
+}
