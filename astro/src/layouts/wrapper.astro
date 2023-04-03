@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '$types/content';
 import SiteHeader from '$components/SiteHeader.svelte';
+import { getMicrocopy } from '$$microcopy';
 import '$sass/global.scss';
 
 export interface Props {
@@ -31,6 +32,8 @@ function l10nURL(url: URL, lang: string) {
   localized.pathname = pth.join('/');
   return localized;
 }
+
+const microcopy = getMicrocopy(locale.code);
 ---
 
 <!DOCTYPE html>
@@ -73,7 +76,7 @@ function l10nURL(url: URL, lang: string) {
   </head>
   <body id="body">
     <!-- Header -->
-    <SiteHeader />
+    <SiteHeader lang={locale.code} nav={microcopy.nav} client:load />
     <main class="main">
       <slot />
     </main>

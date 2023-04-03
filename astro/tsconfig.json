@@ -7,11 +7,10 @@
       "$components/*": ["src/components/*"],
       "$layouts/*": ["src/layouts/*"],
       "$lib/*": ["lib/*"],
+      "$$*": ["lib/*"],
       "$types/*": ["types/*"],
       "$sass/*": ["src/sass/*"],
-      "$markdown/*": ["src/markdown/*"],
-      "$$sanity": ["lib/sanity.ts"],
-      "$$markdown": ["lib/markdown.ts"]
+      "$markdown/*": ["src/markdown/*"]
     }
   }
 }
