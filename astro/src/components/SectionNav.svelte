@@ -11,10 +11,6 @@
   const buttonTitle = 'Open section navigation';
 
   let expanded = false;
-
-  $: {
-    console.log(expanded);
-  }
 </script>
 
 <nav
@@ -40,7 +36,9 @@
       {#each links as link}
         <li class="section-nav--item">
           <a
-            href={link.href}
+            href={link.href.endsWith('index')
+              ? link.href.slice(0, -6)
+              : link.href}
             data-active={active === link.href ? true : null}
             class="section-nav--link type--secondary-nav">{link.title}</a
           >
