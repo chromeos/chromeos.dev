@@ -1,2 +1,5 @@
-// / <reference path="../.astro/types.d.ts" />
-// / <reference path="../.astro/types.d.ts" />
+/* eslint spaced-comment: ["error", "always", { "markers": ["/"] }] */
+/* eslint-disable @typescript-eslint/triple-slash-reference */
+// Automatically added by Astro
+/// <reference path="../.astro/types.d.ts" />
+/* eslint-enable @typescript-eslint/triple-slash-reference */
