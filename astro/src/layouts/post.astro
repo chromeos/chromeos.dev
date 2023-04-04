@@ -1,0 +1,83 @@
+---
+import type { Locale } from '$types/content';
+import Wrapper from '$layouts/wrapper.astro';
+
+export interface Props {
+  title: string;
+  metadesc: string;
+  section: string;
+  props?: Array<{
+    property: string;
+    content: string;
+  }>;
+  locale: Locale;
+}
+
+const { title, props = [], locale, metadesc, section } = Astro.props;
+---
+
+<Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>
+  <h1>Post Layout</h1>
+  <article class="article">
+    <aside class="article--subnav">
+      <slot name="subnav" />
+    </aside>
+    <header class="article--header" id="content">
+      <small class="type--eyebrow">{section}</small>
+      <h1 class="type--h2">{title}</h1>
+    </header>
+    <section class="article--content type" id="article">
+      <slot name="content" />
+    </section>
+  </article>
+</Wrapper>
+
+<style lang="scss">
+  @import '$sass/shared';
+
+  .article {
+    display: grid;
+    --inline-extras: 1;
+    --inline-subnav: 1;
+
+    @include mq($bkpt-article--2-cols) {
+      --inline-subnav: 0;
+      grid-template-columns: 300px 1fr minmax(50ch, 60ch) 1fr;
+      grid-template-rows: auto auto 1fr auto;
+    }
+
+    @include mq($bkpt-article--3-cols) {
+      --inline-extras: 0;
+      grid-template-columns: 300px 1fr minmax(50ch, 80ch) minmax(235px, 320px) 1fr;
+    }
+
+    &--header {
+      margin-block: 1.5rem;
+    }
+
+    &--header,
+    &--content,
+    &--extras {
+      padding-inline: 1.5rem;
+      @include mq($bkpt-article--2-cols) {
+        grid-column: 3;
+      }
+    }
+
+    &--subnav {
+      @include mq($bkpt-article--2-cols) {
+        grid-row: 1 / span 2;
+      }
+    }
+
+    &--extras {
+      margin-block-end: 2.5rem;
+      @include mq($bkpt-article--3-cols) {
+        padding-inline: 0;
+        grid-column: 4;
+        grid-row: 1 / span 2;
+        margin-block-end: 0;
+      }
+    }
+  }
+</style>
