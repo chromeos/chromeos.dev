@@ -1,0 +1,61 @@
+---
+import { renderMarkdown } from '$$markdown';
+import { buildSectionsFromGlob, metaFromFile } from '$$data';
+import Section from '$layouts/section.astro';
+import SectionNav from '$components/SectionNav.svelte';
+import { getMicrocopy } from '$$microcopy';
+
+/**
+ * Builds paths for content files
+ */
+export async function getStaticPaths() {
+  const landings = await Astro.glob('../../markdown/**/index.md');
+  const sections = buildSectionsFromGlob(
+    await Astro.glob('../../markdown/**/*.md'),
+  );
+  const all = await Promise.all(
+    landings.map(async (landing) => {
+      const { slug, section, lang } = metaFromFile(landing.file);
+      const { content } = await renderMarkdown(landing.rawContent());
+      return {
+        params: {
+          lang,
+          index: slug,
+        },
+        props: {
+          content,
+          meta: landing.frontmatter,
+          section,
+          subnav: sections[lang][section],
+        },
+      };
+    }),
+  );
+
+  return all;
+}
+
+const { lang } = Astro.params;
+const { content, meta, section, subnav } = Astro.props;
+const microcopy = getMicrocopy(lang);
+console.log(meta);
+---
+
+<Section
+  title={meta.title}
+  locale={microcopy.locale}
+  metadesc={meta.metadesc}
+  section={section}
+  hero={meta.hero.image}
+>
+  <!-- Subnav Sidebar -->
+  <Fragment slot="subnav">
+    <SectionNav
+      links={subnav}
+      title={section}
+      active={Astro.url.pathname}
+      client:load
+    />
+  </Fragment>
+  <Fragment slot="content" set:html={content} />
+</Section>
