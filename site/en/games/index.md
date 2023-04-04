@@ -5,6 +5,12 @@ hero:
   image:
     top: ix://landings/heroes/games.svg
     bottom: ix://landings/heroes/games-small.svg
+interest:
+  title: Game optimization support
+  body: If you're planning on optimizing your game for ChromeOS, and would like help from us, please fill out our developer interest form. After doing so, someone from Google may reach out to you to further clarify your feedback or needs. Please note that filling out this form does not constitute automatic inclusion in this program.
+  cta:
+    url: https://forms.gle/wPUjwhLgLnqvsqDG6
+    text: Apply now
 date: 2020-06-16
 weight: -11
 ---

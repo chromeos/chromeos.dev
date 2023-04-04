@@ -43,3 +43,5 @@ sw:
   refresh: Refrescar
   site: Hay una nueva versión de chromeOS.dev
   reload: Refrescar
+announcement: |
+  ¡Google I/O 2023 llegará el 10 de mayo! ¡[Regístrate ahora](https://io.google/2023/)!
