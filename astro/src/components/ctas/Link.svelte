@@ -14,7 +14,11 @@
   const wrapper = inline === true ? 'span' : 'a';
 </script>
 
-<svelte:element this={wrapper} href={cta?.inline !== true ? cta.url : null}>
+<svelte:element
+  this={wrapper}
+  href={inline !== true ? cta.url : null}
+  class="cta__wrapper"
+>
   <span class="cta cta--link {direction}">
     {#if cta?.direction === 'back'}
       <span class="icon--container">
