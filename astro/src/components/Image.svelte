@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
   import { extname } from 'path';
 
   export let src = '';
   export let alt = '';
-  export let srcset;
+  export let sources: Array<{ src: string; media: string }> = [];
   export let sizes = '100vw';
 
   const ext = extname(src);
@@ -13,6 +13,13 @@
   let url = normalizeSrc(src);
   if (!isVideo) {
     url += '?auto=format,compress';
+  }
+
+  if (sources.length) {
+    sources = sources.map((source) => ({
+      ...source,
+      src: normalizeSrc(source.src),
+    }));
   }
 
   /**
@@ -26,20 +33,26 @@
 </script>
 
 {#if isVideo}
+  <h1>Video</h1>
   <video
-    controls="true"
-    loop="true"
-    muted="true"
-    playsinline="true"
+    controls={true}
+    loop={true}
+    muted={true}
+    playsinline={true}
     crossorigin="annonymous"
-    autoplay="true"
+    autoplay={true}
     title={alt}
   >
     <source src="{url}?fm=webm" type="video/webm" />
     <source src="{url}?fm=mp4" type="video/mp4" />
   </video>
-{:else if isSVG}
-  <img src={url} {alt} />
+{:else if sources.length}
+  <picture>
+    {#each sources as source}
+      <source srcset={source.src} media={source.media} />
+    {/each}
+    <img src={url} {alt} crossorigin="anonymous" loading="lazy" {sizes} />
+  </picture>
 {:else}
   <img
     src={url}
@@ -47,6 +60,10 @@
     crossorigin="anonymous"
     loading="lazy"
     {sizes}
-    srcset={imageSizes.map((size) => `${url}&fit=fillmax&w=${size} ${size}w`)}
+    srcset={isSVG
+      ? null
+      : imageSizes
+          .map((size) => `${url}&fit=fillmax&w=${size} ${size}w`)
+          .join(', ')}
   />
 {/if}
