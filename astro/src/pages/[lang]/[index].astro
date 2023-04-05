@@ -10,9 +10,9 @@ import { getMicrocopy } from '$$microcopy';
  */
 export async function getStaticPaths() {
   const landings = await Astro.glob('../../markdown/**/index.md');
-  const sections = buildSectionsFromGlob(
-    await Astro.glob('../../markdown/**/*.md'),
-  );
+  const globbed = await Astro.glob('../../markdown/**/*.md');
+  const sections = buildSectionsFromGlob(globbed);
+  const chapters = buildSectionsFromGlob(globbed, true);
   const all = await Promise.all(
     landings.map(async (landing) => {
       const { slug, section, lang } = metaFromFile(landing.file);
@@ -26,6 +26,7 @@ export async function getStaticPaths() {
           content,
           meta: landing.frontmatter,
           section,
+          chapters: chapters[lang][section],
           subnav: sections[lang][section],
         },
       };
