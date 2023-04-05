@@ -4,12 +4,12 @@
  * @return {object}
  */
 export function metaFromFile(file: string) {
-  const path = file.replace(/.*\/markdown\/(.*)\.md/, '$1');
-  const lang = path.split('/')[0];
-  let slug = path.split('/').slice(1).join('/');
-  if (slug.endsWith('/index')) {
-    slug = slug.replace(/\/index$/, '');
+  let path = file.replace(/.*\/markdown\/(.*)\.md/, '$1');
+  if (path.endsWith('/index')) {
+    path = path.replace(/\/index$/, '');
   }
+  const lang = path.split('/')[0];
+  const slug = path.split('/').slice(1).join('/');
   const section = slug.split('/')[0];
 
   return {

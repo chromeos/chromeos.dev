@@ -36,9 +36,7 @@
       {#each links as link}
         <li class="section-nav--item">
           <a
-            href={link.href.endsWith('index')
-              ? link.href.slice(0, -6)
-              : link.href}
+            href={link.href}
             data-active={active === link.href ? true : null}
             class="section-nav--link type--secondary-nav">{link.title}</a
           >
