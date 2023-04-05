@@ -6,10 +6,8 @@
 
   export let title: string;
   export let body: string;
-  export let eyebrow: Eyebrow = {
-    text: 'Eyebrow',
-    icon: '#',
-  };
+  export let eyebrow: Eyebrow | false = false;
+  export let position: 'start' | 'end' = 'start';
   export let cta: CTA = {
     type: 'link',
     direction: 'forward',
@@ -26,11 +24,13 @@
 <a href={cta.url} aria-labelledby="{id} {id}-body" class="card type--base">
   <article class="card--container">
     <header class="card--header">
-      <EyebrowC {eyebrow} size="small" />
+      {#if eyebrow}
+        <EyebrowC {eyebrow} size="small" />
+      {/if}
       <h4 {id} class="type--h4 card--title">{title}</h4>
     </header>
     <p id="{id}-body" class="type--body card--body">{body}</p>
-    <footer class="card--footer">
+    <footer class="card--footer card--footer__{position}">
       <CTAC {cta} inline={true} />
     </footer>
   </article>
@@ -77,6 +77,25 @@
       align-items: center;
       display: flex;
       margin-block-start: auto;
+
+      &__end,
+      &__start {
+        :global(.cta__wrapper),
+        :global(.cta),
+        :global(.icon--wrapper) {
+          display: flex;
+          width: 100%;
+          justify-content: var(--card-justification);
+        }
+      }
+
+      &__end {
+        --card-justification: flex-end;
+      }
+
+      &__start {
+        --card-justification: flex-start;
+      }
     }
   }
 </style>
