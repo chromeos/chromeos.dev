@@ -37,17 +37,16 @@ export async function getStaticPaths() {
 }
 
 const { lang } = Astro.params;
-const { content, meta, section, subnav } = Astro.props;
+const { content, meta, section, subnav, chapters } = Astro.props;
 const microcopy = getMicrocopy(lang);
-console.log(meta);
 ---
 
 <Section
   title={meta.title}
   locale={microcopy.locale}
   metadesc={meta.metadesc}
-  section={section}
-  hero={meta.hero.image}
+  meta={meta}
+  chapters={chapters.filter((chapter) => chapter.href !== Astro.url.pathname)}
 >
   <!-- Subnav Sidebar -->
   <Fragment slot="subnav">

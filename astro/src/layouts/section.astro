@@ -2,88 +2,154 @@
 import type { Locale } from '$types/content';
 import Wrapper from '$layouts/wrapper.astro';
 import Image from '$components/Image.svelte';
+import DeveloperOptIn from '$components/DeveloperOptIn.svelte';
+import ChapterListing from '$components/ChapterListing.svelte';
+import { getMicrocopy } from '$$microcopy';
 
 export interface Props {
   title: string;
   metadesc: string;
-  section: string;
   props?: Array<{
     property: string;
     content: string;
   }>;
-  hero: {
-    top: string;
-    bottom: string;
-  };
+  chapters: Array<any>;
+  meta: any;
   locale: Locale;
 }
 
-const { title, props = [], locale, metadesc, section, hero } = Astro.props;
-console.log(hero);
+const { title, props = [], locale, metadesc, meta, chapters } = Astro.props;
+const {
+  hero: { image: hero },
+} = meta;
+const microcopy = getMicrocopy(locale.code);
 ---
 
 <Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>
-  <Image src={hero.bottom} alt={title} />
-  <article class="article">
-    <aside class="article--subnav">
+  <article class="section">
+    <aside class="section--subnav">
       <slot name="subnav" />
     </aside>
-    <header class="article--header" id="content">
-      <small class="type--eyebrow">{section}</small>
-      <h1 class="type--h2">{title}</h1>
+    <header class="section--header type--mega" id="content">
+      <h1 class="section--title">{title}</h1>
+      <div class="section--hero">
+        <Image
+          src={hero.bottom}
+          alt={title}
+          sources={[{ src: hero.top, media: '(min-width: 840px)' }]}
+        />
+      </div>
     </header>
-    <section class="article--content type" id="article">
-      <slot name="content" />
-    </section>
+    <div class="section--content">
+      <section class="type" id="article">
+        <slot name="content" />
+      </section>
+      {
+        meta.interest && (
+          <DeveloperOptIn
+            title={meta.interest.title}
+            description={meta.interest.body}
+            cta={meta.interest.cta}
+          />
+        )
+      }
+      <ChapterListing microcopy={microcopy} chapters={chapters} />
+      <!-- <section class="section--topics">
+        <h3 class="type--h1">{microcopy.microcopy.landing.chapters}</h3>
+        <ul>
+          {
+            chapters.map((chapter) => (
+              <Card
+                title={chapter.title}
+                body={chapter.meta.metadesc}
+                cta={{
+                  type: 'link',
+                  direction: 'forward',
+                  url: chapter.href,
+                  text: '',
+                }}
+              />
+            ))
+          }
+        </ul>
+      </section> -->
+    </div>
   </article>
+
+  <style lang="scss">
+    @import '$sass/shared';
+
+    .section {
+      display: grid;
+      --inline-subnav: 1;
+
+      @include mq($bkpt-article--2-cols) {
+        --inline-subnav: 0;
+        grid-template-columns: 300px 1fr minmax(50ch, 90ch) 1fr;
+        grid-template-rows: auto auto 1fr auto;
+      }
+
+      &--title,
+      &--hero {
+        grid-row: 1;
+      }
+
+      &--hero {
+        margin-inline-start: auto;
+        align-self: flex-end;
+        justify-self: flex-start;
+
+        :global(img) {
+          display: block;
+          height: 100%;
+          width: auto;
+          object-fit: cover;
+          max-height: 5em;
+        }
+      }
+
+      &--title {
+        color: var(--white);
+        text-wrap: balance;
+        padding-block: var(--header-spacing);
+      }
+
+      &--header,
+      &--content,
+      &--extras {
+        padding-inline: 1.5rem;
+        @include mq($bkpt-article--2-cols) {
+          grid-column: 3;
+        }
+      }
+
+      &--header {
+        padding-inline-end: 0;
+
+        margin-block-end: 1.5rem;
+        display: flex;
+        overflow: hidden;
+        background: var(--primary-blue);
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+
+        @include mq($bkpt-article--2-cols) {
+          grid-column: 2 / -1;
+        }
+      }
+
+      &--subnav {
+        @include mq($bkpt-article--2-cols) {
+          grid-row: 1 / span 2;
+        }
+      }
+
+      &--content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+  </style>
 </Wrapper>
-
-<style lang="scss">
-  @import '$sass/shared';
-
-  .article {
-    display: grid;
-    --inline-extras: 1;
-    --inline-subnav: 1;
-
-    @include mq($bkpt-article--2-cols) {
-      --inline-subnav: 0;
-      grid-template-columns: 300px 1fr minmax(50ch, 60ch) 1fr;
-      grid-template-rows: auto auto 1fr auto;
-    }
-
-    @include mq($bkpt-article--3-cols) {
-      --inline-extras: 0;
-      grid-template-columns: 300px 1fr minmax(50ch, 80ch) minmax(235px, 320px) 1fr;
-    }
-
-    &--header {
-      margin-block: 1.5rem;
-    }
-
-    &--header,
-    &--content,
-    &--extras {
-      padding-inline: 1.5rem;
-      @include mq($bkpt-article--2-cols) {
-        grid-column: 3;
-      }
-    }
-
-    &--subnav {
-      @include mq($bkpt-article--2-cols) {
-        grid-row: 1 / span 2;
-      }
-    }
-
-    &--extras {
-      margin-block-end: 2.5rem;
-      @include mq($bkpt-article--3-cols) {
-        padding-inline: 0;
-        grid-column: 4;
-        grid-row: 1 / span 2;
-        margin-block-end: 0;
-      }
-    }
-  }
-</style>
