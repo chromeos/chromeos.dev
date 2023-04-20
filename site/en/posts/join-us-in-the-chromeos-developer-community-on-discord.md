@@ -16,7 +16,7 @@ updated: 2023-04-20
 
 Join our fast-growing community of ChromeOS developers in the [Google Developers Online](https://discord.gg/googledevelopersonline) Discord server! In Google Developers Online, you can interact with a thriving community of professional developers, Google Developer Experts, and Google Developer Advocates.
 
-We recently introduced three channels to Google Developers Online: [`#chromeos`](https://discord.com/channels/1009525727504384150/1065730991026602056), [`#chromeos-forum`](https://discord.com/channels/1009525727504384150/1082706845338173590), and  [`#chromeos-announcements`](https://discord.com/channels/1009525727504384150/1065731059154698282). Be sure to join the [Google Developers Online](https://discord.gg/googledevelopersonline) server first.
+We recently introduced three channels to Google Developers Online: [`#chromeos`](https://discord.com/channels/1009525727504384150/1065730991026602056), [`#chromeos-forum`](https://discord.com/channels/1009525727504384150/1082706845338173590), and [`#chromeos-announcements`](https://discord.com/channels/1009525727504384150/1065731059154698282). Be sure to join the [Google Developers Online](https://discord.gg/googledevelopersonline) server first.
 
 ## Connect with other devs in `#chromeos`
 
@@ -24,7 +24,7 @@ In `#chromeos`, you can chat other ChromeOS developers, users, and Google Develo
 
 ## Ask questions in `#chromeos-forum`
 
-Draw on the knowledge of the ChromeOS community. Ask ChromeOS development or usage questions in `#chromeos-forum`, or find answers to your questions by searching for what others have already asked.  
+Draw on the knowledge of the ChromeOS community. Ask ChromeOS development or usage questions in `#chromeos-forum`, or find answers to your questions by searching for what others have already asked.
 
 ## Quick access to news and updates
 
