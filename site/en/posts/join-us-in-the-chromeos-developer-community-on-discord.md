@@ -11,7 +11,7 @@ tags:
 authors:
   - samrichard
 date: 2023-02-06
-updated: 2023-04-20
+# updated: 2023-04-20
 ---
 
 Join our fast-growing community of ChromeOS developers in the [Google Developers Online](https://discord.gg/googledevelopersonline) Discord server! In Google Developers Online, you can interact with a thriving community of professional developers, Google Developer Experts, and Google Developer Advocates.
