@@ -6,10 +6,7 @@
 
   export let title: string;
   export let body: string;
-  export let eyebrow: Eyebrow = {
-    text: 'Eyebrow',
-    icon: '#',
-  };
+  export let eyebrow: Eyebrow | null;
   export let cta: CTA = {
     type: 'link',
     direction: 'forward',
@@ -26,7 +23,9 @@
 <a href={cta.url} aria-labelledby="{id} {id}-body" class="card type--base">
   <article class="card--container">
     <header class="card--header">
-      <EyebrowC {eyebrow} size="small" />
+      {#if eyebrow}
+        <EyebrowC {eyebrow} size="small" />
+      {/if}
       <h4 {id} class="type--h4 card--title">{title}</h4>
     </header>
     <p id="{id}-body" class="type--body card--body">{body}</p>
@@ -65,7 +64,10 @@
     &--title {
       color: var(--grey-850);
       margin-block-end: 0.5rem;
-      margin-block-start: 1.5rem;
+
+      &:not(:first-child) {
+        margin-block-start: 1.5rem;
+      }
     }
 
     &--body {
