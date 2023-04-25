@@ -12,11 +12,14 @@
       ? 'cta--right-icon'
       : 'cta--left-icon cta--back';
   const wrapper = inline === true ? 'span' : 'a';
-  const end = cta.text ? '' : 'cta--link__end';
 </script>
 
-<svelte:element this={wrapper} href={cta?.inline !== true ? cta.url : null}>
-  <span class="cta cta--link {direction} {end}">
+<svelte:element
+  this={wrapper}
+  href={inline !== true ? cta.url : null}
+  class="cta__wrapper"
+>
+  <span class="cta cta--link {direction}">
     {#if cta?.direction === 'back'}
       <span class="icon--container">
         <ArrowBack />
@@ -38,14 +41,8 @@
   </span>
 </svelte:element>
 
-<style lang="scss">
+<style>
   .cta--link {
     color: var(--cta-color, var(--blue-700));
-    display: inline-flex;
-    justify-content: flex-start;
-
-    &__end {
-      justify-content: flex-end;
-    }
   }
 </style>

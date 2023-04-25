@@ -45,6 +45,7 @@ const related = findRelated(title, locale.code, Astro.url.pathname);
           <Card
             title={item.title}
             body={item.metadesc}
+            position="end"
             cta={{
               text: '',
               url: item.href,
@@ -92,7 +93,7 @@ const related = findRelated(title, locale.code, Astro.url.pathname);
 
     &--subnav {
       @include mq($bkpt-article--2-cols) {
-        grid-row: 1 / span 2;
+        grid-row: 1 / span 3;
       }
     }
 

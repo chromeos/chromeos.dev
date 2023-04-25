@@ -7,7 +7,8 @@ html {
 
 body {
   --header-height: 4rem;
-  --header-offset: 5rem;
+  --header-spacing: 0rem;
+  --header-offset: calc(var(--header-height) + var(--header-spacing));
   display: flex;
   flex-direction: column;
 }

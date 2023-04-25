@@ -4,12 +4,12 @@
  * @return {object}
  */
 export function metaFromFile(file: string) {
-  const path = file.replace(/.*\/markdown\/(.*)\.md/, '$1');
-  const lang = path.split('/')[0];
-  let slug = path.split('/').slice(1).join('/');
-  if (slug.endsWith('/index')) {
-    slug = slug.replace(/\/index$/, '');
+  let path = file.replace(/.*\/markdown\/(.*)\.md/, '$1');
+  if (path.endsWith('/index')) {
+    path = path.replace(/\/index$/, '');
   }
+  const lang = path.split('/')[0];
+  const slug = path.split('/').slice(1).join('/');
   const section = slug.split('/')[0];
 
   return {
@@ -23,13 +23,14 @@ export function metaFromFile(file: string) {
 /**
  *
  * @param {AstroMarkdownFile[]} glob - Glob of Markdown files
+ * @param {boolean} meta - Whether to include meta in the sections
  * @return {object}
  */
-export function buildSectionsFromGlob(glob) {
+export function buildSectionsFromGlob(glob, meta = false) {
   return glob
     .map((article) => {
       const { lang, slug, path, section } = metaFromFile(article.file);
-      return {
+      const results = {
         lang,
         section,
         slug,
@@ -37,6 +38,10 @@ export function buildSectionsFromGlob(glob) {
         weight: article?.frontmatter?.weight || 0,
         title: article?.frontmatter?.title || '',
       };
+      if (meta) {
+        results.meta = article.frontmatter;
+      }
+      return results;
     })
     .sort((a, b) => {
       if (a.title < b.title) {
@@ -55,10 +60,18 @@ export function buildSectionsFromGlob(glob) {
       if (!acc[cur.lang][cur.section]) {
         acc[cur.lang][cur.section] = [];
       }
-      acc[cur.lang][cur.section].push({
+
+      const item = {
         title: cur.title,
         href: `/${cur.path}`,
-      });
+      };
+
+      if (meta) {
+        item.meta = cur.meta;
+      }
+
+      acc[cur.lang][cur.section].push(item);
+
       return acc;
     }, {});
 }
