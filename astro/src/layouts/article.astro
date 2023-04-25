@@ -1,6 +1,8 @@
 ---
 import type { Locale } from '$types/content';
 import Wrapper from '$layouts/wrapper.astro';
+import { findRelated } from '$lib/search';
+import Card from '$components/Card.svelte';
 
 export interface Props {
   title: string;
@@ -14,6 +16,7 @@ export interface Props {
 }
 
 const { title, props = [], locale, metadesc, section } = Astro.props;
+const related = findRelated(title, locale.code, Astro.url.pathname);
 ---
 
 <Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>
@@ -32,6 +35,27 @@ const { title, props = [], locale, metadesc, section } = Astro.props;
       <slot name="content" />
     </section>
   </article>
+  <aside
+    class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__contained wrapper__background"
+  >
+    <h3 class="article--recommended type--h1">Recommended</h3>
+    <div class="article--recommendations">
+      {
+        related.map((item) => (
+          <Card
+            title={item.title}
+            body={item.metadesc}
+            cta={{
+              text: '',
+              url: item.href,
+              type: 'link',
+              direction: 'forward',
+            }}
+          />
+        ))
+      }
+    </div>
+  </aside>
 </Wrapper>
 
 <style lang="scss">
@@ -80,6 +104,20 @@ const { title, props = [], locale, metadesc, section } = Astro.props;
         grid-row: 1 / span 2;
         margin-block-end: 0;
       }
+    }
+
+    &--recommended {
+      margin-block: 0;
+      margin-inline: auto;
+      max-width: 30ch;
+      text-align: center;
+    }
+
+    &--recommendations {
+      grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+      display: grid;
+      gap: 2.5rem 1.5rem;
+      margin-block: 2.5rem;
     }
   }
 </style>
