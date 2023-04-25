@@ -1,14 +1,10 @@
 ---
 title: 'How Cameyo seamlessly delivers enterprise applications as PWAs to ChromeOS'
 metadesc: Cameyo's Virtual App Delivery (VAD) solution enables IT teams to provide users with applications as advanced web apps.
-date: 2023-04-13
+date: 2023-04-24
 app:
   name: Cameyo
   logo: ix://stories/cameyo/cameyo.png
-hero:
-  image: ix://stories/cameyo/hero.png
-  alt: Screenshot of the Cameyo system running solutions including Visual Studio, Power BI, and OneDrive.
-featured: true
 tags:
   - pwa
   - web
