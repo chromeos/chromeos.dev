@@ -29,7 +29,7 @@
       <h4 {id} class="type--h4 card--title">{title}</h4>
     </header>
     <p id="{id}-body" class="type--body card--body">{body}</p>
-    <footer class="card--footer">
+    <footer class="card--footer {cta.text === '' ? 'card--end' : ''}">
       <CTAC {cta} inline={true} />
     </footer>
   </article>
@@ -79,6 +79,10 @@
       align-items: center;
       display: flex;
       margin-block-start: auto;
+    }
+
+    &--end {
+      justify-content: flex-end;
     }
   }
 </style>
