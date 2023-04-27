@@ -123,6 +123,15 @@ const microcopy = getMicrocopy(locale.code);
         }
       }
 
+      &--content {
+        padding-block-end: 2rem;
+      }
+
+      // &--content,
+      // &--subnav {
+      //   padding-block-end: 2rem;
+      // }
+
       &--header {
         padding-inline-end: 0;
 
@@ -142,6 +151,7 @@ const microcopy = getMicrocopy(locale.code);
       &--subnav {
         @include mq($bkpt-article--2-cols) {
           grid-row: 1 / span 2;
+          padding-block-end: 2rem;
         }
       }
 
