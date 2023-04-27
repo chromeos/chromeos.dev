@@ -1,0 +1,105 @@
+---
+import { getMicrocopy, getLanguages } from '$$microcopy';
+import LanguageSwitcher from '$components/LanguageSwitcher.svelte';
+export interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+
+const microcopy = getMicrocopy(lang);
+const languages = getLanguages();
+---
+
+<footer class="footer container">
+  <section
+    class="footer--container landing__wrapper landing__wrapper--background landing__wrapper--no-spacing"
+  >
+    <!-- <div class="footer--logo-container"> -->
+    <a class="footer--link" href="https://www.google.com/" aria-label="Google">
+      <svg role="img" aria-hidden="true" class="footer--google-logo">
+        <use href="/images/icons/sprite.svg#google-solid-logo"></use>
+      </svg>
+    </a>
+    <!-- </div> -->
+    <ul class="footer--primary-links">
+      {
+        microcopy.footer.links.map((link) => (
+          <li class="footer--item">
+            <a class="type--tertiary-nav" href={link.url}>
+              {link.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="footer--secondary-links">
+      <a
+        href="https://support.google.com/"
+        class="type--tertiary-nav footer--link"
+      >
+        <svg role="img" aria-hidden="true" class="icon footer__help-icon">
+          <use href="/images/icons/sprite.svg#help"></use>
+        </svg>
+
+        <span>Help</span>
+      </a>
+      <LanguageSwitcher languages={languages} current={lang} client:visible />
+    </div>
+  </section>
+</footer>
+
+<style lang="scss">
+  .footer {
+    background-color: var(--grey-50);
+    flex-shrink: 0;
+    width: 100%;
+    padding-block: 2rem;
+
+    &--link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-items: center;
+      column-gap: 0.5rem;
+      fill: var(--grey-700);
+    }
+
+    &--google-logo {
+      height: 1.5rem;
+      width: 4.6875rem;
+    }
+
+    &--container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin-inline: auto;
+      margin-block: 0;
+      // padding-block: 1rem;
+      padding-inline: clamp(1.75rem, 7vw, 4.5rem);
+      column-gap: 3rem;
+      row-gap: 1.5rem;
+      align-items: center;
+    }
+
+    &--primary-links {
+      display: flex;
+      flex-grow: 2;
+      flex-wrap: wrap;
+      list-style: none;
+      row-gap: 1rem;
+      column-gap: 1.5rem;
+    }
+    &--secondary-links {
+      align-items: center;
+      display: flex;
+      flex-grow: 1;
+      justify-content: flex-start;
+      list-style: none;
+      padding-block: 1rem;
+      row-gap: 1rem;
+      column-gap: 1.5rem;
+    }
+  }
+</style>

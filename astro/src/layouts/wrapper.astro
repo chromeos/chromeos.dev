@@ -1,6 +1,8 @@
 ---
 import type { Locale } from '$types/content';
 import SiteHeader from '$components/SiteHeader.svelte';
+import SubscribeFooter from '$components/SubscribeFooter.svelte';
+import Footer from '$components/Footer.astro';
 import { getMicrocopy } from '$$microcopy';
 import '$sass/global.scss';
 
@@ -82,6 +84,8 @@ const microcopy = getMicrocopy(locale.code);
     </main>
 
     <!-- Footer -->
+    <SubscribeFooter lang={locale.code} />
+    <Footer lang={locale.code} />
 
     <!-- Cookie Disclaimer -->
 
