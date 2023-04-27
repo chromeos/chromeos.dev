@@ -3,6 +3,7 @@ import type { Locale } from '$types/content';
 import Wrapper from '$layouts/wrapper.astro';
 import { findRelated } from '$lib/search';
 import Card from '$components/Card.svelte';
+import { getMicrocopy } from '$lib/microcopy';
 
 export interface Props {
   title: string;
@@ -17,6 +18,7 @@ export interface Props {
 
 const { title, props = [], locale, metadesc, section } = Astro.props;
 const related = findRelated(title, locale.code, Astro.url.pathname);
+const microcopy = getMicrocopy(locale.code);
 ---
 
 <Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>
@@ -38,7 +40,9 @@ const related = findRelated(title, locale.code, Astro.url.pathname);
   <aside
     class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__contained wrapper__background"
   >
-    <h3 class="article--recommended type--h1">Recommended</h3>
+    <h3 class="article--recommended type--h1">
+      {microcopy.microcopy.recommended}
+    </h3>
     <div class="article--recommendations">
       {
         related.map((item) => (
