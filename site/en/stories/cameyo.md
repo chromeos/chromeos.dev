@@ -31,7 +31,7 @@ Cameyo considered multiple options for delivering apps to ChromeOS, but ultimate
 
 Because advanced web apps integrate deeply with ChromeOS, they blur the line between virtualized and installed experiences. Leveraging the [File System Access API](https://web.dev/file-system-access/), Cameyo replaces classic Windows file **Open** and **Save** dialogs with ones that open the ChromeOS file picker, letting users work directly on local files. They also integrate with the [Google Drive API](https://developers.google.com/drive) on the backend OS to redirect legacy apps' input and output directly to the company's or user's Google Drive, letting apps use files stored in Drive without needing to be modified to support it.
 
-![A video showing Cameyo's File Picker UI, from the integration with Native File System API. The video shows a user's cursor opening a local file on their device.](insert_image_url_here)
+![A video showing Cameyo's File Picker UI, from the integration with Native File System API. The video shows a user's cursor opening a local file on their device.](ix://stories/cameyo/picker.gif)
 
 Virtualized apps also have direct access to device hardware and OS-level features, as if they were installed. Connected hardware, like thermal receipt printers for point-of-sale systems, can be used directly with virtualized apps, as if they were running locally through [WebUSB](https://developer.chrome.com/articles/usb/). The [Keyboard Lock API](https://web.dev/keyboard-lock/) lets users continue to use the productivity shortcuts they're used to, by letting users interact with their apps using reserved system keys and keyboard combinations, like [[ALT]]+[[TAB]] and [[CTRL]]+[[T]].
 
