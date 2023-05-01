@@ -67,6 +67,6 @@ const locale = {
   <Fragment slot="content" set:html={content} />
   <!-- Extras sidegar -->
   <Fragment slot="extras">
-    <TOC toc={toc} client:load />
+    {toc.length > 0 && <TOC toc={toc} client:load />}
   </Fragment>
 </Article>
