@@ -23,6 +23,21 @@ const {
   hero: { image: hero },
 } = meta;
 const microcopy = getMicrocopy(locale.code);
+const section = Astro.url.pathname.split('/')[2];
+
+let color = 'var(--primary-blue)';
+
+switch (section) {
+  case 'productivity':
+  case 'linux':
+  case 'android-environment':
+  case 'web-environment':
+    color = 'var(--secondary-yellow)';
+    break;
+  case 'publish':
+    color = 'var(--primary-green)';
+    break;
+}
 ---
 
 <Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>
@@ -30,7 +45,11 @@ const microcopy = getMicrocopy(locale.code);
     <aside class="section--subnav">
       <slot name="subnav" />
     </aside>
-    <header class="section--header type--mega" id="content">
+    <header
+      class="section--header type--mega"
+      style={`background: ${color}`}
+      id="content"
+    >
       <h1 class="section--title">{title}</h1>
       <div class="section--hero">
         <Image
@@ -127,18 +146,12 @@ const microcopy = getMicrocopy(locale.code);
         padding-block-end: 2rem;
       }
 
-      // &--content,
-      // &--subnav {
-      //   padding-block-end: 2rem;
-      // }
-
       &--header {
         padding-inline-end: 0;
 
         margin-block-end: 1.5rem;
         display: flex;
         overflow: hidden;
-        background: var(--primary-blue);
         justify-content: space-between;
         align-items: center;
         gap: 1rem;
