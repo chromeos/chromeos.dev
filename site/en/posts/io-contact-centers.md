@@ -17,6 +17,8 @@ _Edited transcript of "Building communications and contact center applications f
 
 Modern Web standards and Google ChromeOS APIs help empower communications and contact center developers to build, optimize, and most importantly, differentiate their applications from the competition.
 
+## Modern call centers, on the cloud
+
 Today, many agents are no longer workingn from a large facility. Instead, they are highly distributed, even in their own homes—taking calls on earbuds and using a laptop to get their job done. This is the reality for many contact centers today. [77% of service organizations](https://www.deloittedigital.com/us/en/offerings/customer-led-marketing/digital-customer/elevating-customer-service.html) are adopting or accelerating remote work options.
 
 In the last few years, we've seen a [24x increase](https://www.forbes.com/sites/forrester/2021/02/18/adopt-three-practices-to-boost-resiliency-for-customer-service/?sh=25120d2e21f9) in migration to cloud technologies. Moving communications and contact center solutions to the cloud also allows your customers to embrace automation and rethink business continuity.
@@ -30,7 +32,7 @@ Through Progressive Web Apps, you can:
 - Increase your development **_and_** test speeds by leveraging Web standards
 - Contribute to building a safer, faster, and stabler way for **_all_** Internet users.
 
-## Progressive web apps
+## Progressive Web Apps vs. traditional web apps
 
 Building for the Web starts with how you build applications. At their heart, Progressive Web Apps are just Web applications! Progressive web apps or PWAs are designed to provide all of the great capabilities you would get from a native, installed application, with all of the reach and engagement capabilities of Web apps.
 
@@ -43,7 +45,7 @@ With the PWA architecture they have been able to expand the capabilities to bett
 
 We will use these examples to see how we can customize these apps for enterprise.
 
-### Traditional vs. Progressive Web Apps
+### PWAs and user experience
 
 Upon logging into your OS, the typical user experience of launching a web app requires two steps:
 
