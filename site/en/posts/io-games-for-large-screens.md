@@ -18,9 +18,7 @@ _Edited transcript of "Level up! Build great games for large screen" talk at Goo
 
 ---
 
-Today we'll discuss the best practices for bringing your game to large screen opportunities like Android tablets, foldables, ChromeOS, and Google Play Games on PC. We're going to cover the best practices you need to know.
-
-Before we embark on the wonderful journey of building great games for large screen devices, let's talk about why. As a game developer, you know that new opportunities to distribute your game and reach a wider audience are crucial.
+As a game developer, you know that new opportunities to distribute your game and reach a wider audience are crucial. Today we'll discuss the best practices for bringing your game to large screen opportunities like Android tablets, foldables, ChromeOS, and Google Play Games on PC.
 
 ## The case for large screens
 
@@ -36,7 +34,7 @@ As we transition to these large screen surfaces, we're also transitioning to new
 
 ### Keyboards
 
-So, let's start with keyboards. While some games like Match-3 or Merge games can play just fine with just a mouse, there are many games where playing solely with a mouse is either difficult or impossible. Think about MOBAs or Action RPGs where one hand could control movement and the other controls actions. It's in these situations where adding keyboard controls could better immerse your players, especially when touch isn't involved. It's important that all the core on screen actions have a keyboard counterpart—movement, jumping, abilities, dodging, pausing, opening menus, and so on.
+While some games like Match-3 or Merge games can play just fine with just a mouse, there are many games where playing solely with a mouse is either difficult or impossible. Think about MOBAs or Action RPGs where one hand could control movement and the other controls actions. It's in these situations where adding keyboard controls could better immerse your players, especially when touch isn't involved. It's important that all the core on screen actions have a keyboard counterpart—movement, jumping, abilities, dodging, pausing, opening menus, and so on.
 
 Keyboards also present a unique problem around activity recreation. Changes in keyboard status, like a built-in keyboard being revealed or a keyboard being connected, trigger a configuration change. This in turn causes activity recreation which will destroy and then create your activity. Good news is, we can fix it! If we declare in the manifest that the game will handle these configuration changes itself, then no activity recreation will happen.
 
@@ -63,7 +61,7 @@ In short, be sure to thoroughly test around the IME and switching from it for th
 
 ### Mouse handling
 
-Next up is better mouse handling. While touch to mouse emulation exists for all our platforms, that won't cover all cases. For FPS or other 3D titles where the camera would be controlled through a virtual joystick, the matching paradigm on desktop would use a mouse to control the camera direction. Here, you'll want to enable mouse capture in order to receive mouse movement events without concern that the mouse will leave the window. There are three function calls to be aware of—capture, update, and release.
+While touch to mouse emulation exists for all our platforms, that won't cover all cases. For FPS or other 3D titles where the camera would be controlled through a virtual joystick, the matching paradigm on desktop would use a mouse to control the camera direction. Here, you'll want to enable mouse capture in order to receive mouse movement events without concern that the mouse will leave the window. There are three function calls to be aware of—capture, update, and release.
 
 ```java {title="Java" .code-figure}
 override fun onClick(view: View) {
@@ -88,7 +86,7 @@ fun onMenuOpen(view: View) {
 
 ### Input emulation
 
-Now, about that input emulation. The emulation on ChromeOS and Google Play Games on PC automatically converts events from a mouse or touchpad input into screen taps. This is great for getting games with simple interactions working quickly on the platform.
+The emulation on ChromeOS and Google Play Games on PC automatically converts events from a mouse or touchpad input into screen taps. This is great for getting games with simple interactions working quickly on the platform.
 
 However, this also means that certain actions like right click won't function or that scrolling becomes a touch event instead of a scroll event. Toggling off Input Emulation is easy and only requires setting this uses feature to false.
 
@@ -102,7 +100,7 @@ When you turn off Input Emulation, your application will start receiving: Left a
 
 ### Gamepads
 
-On to gamepads! The Game Controller Library is part of the Android Game Development Kit and will help you implement robust support for game controllers. This C++ NDK library provides
+The Game Controller Library is part of the Android Game Development Kit and will help you implement robust support for game controllers. This C++ NDK library provides
 
 - Callbacks for detecting controller connections and disconnections
 - Controller device information, including button style and layout
@@ -232,4 +230,4 @@ We also saw how important thoughtful input support for keyboards, mice, and game
 
 Finally, once you've updated your game to support all of these great large screen opportunities, ensure you follow the best practices to build, release, and distribute your game. Support additional ABIs, audit for unnecessary feature declarations in your manifest, and streamline your application delivery with App Bundles and Play Asset Delivery.
 
-Thanks again for joining us to learn about how to optimize your game for large screen devices. We look forward to seeing how you level up your game!
+We look forward to seeing how you level up your game!
