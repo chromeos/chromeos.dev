@@ -37,4 +37,4 @@ In 2016, the Google Play Store was brought to Chrome OS, allowing the same apps 
 - Free form windows and resizing
 - Keyboard, mice, & trackpads as first class input methods
 
-To jump in to how you can start building Android apps for Chrome OS, [learn more here](/{{locale.code}}/android/start). Read below for more information on resources we have and topics to keep in mind.
+Learn what it takes to [build a high-quality large screen app](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality), then [jump in](/{{locale.code}}/android/start) to start adapting your app for ChromeOS.
