@@ -15,14 +15,28 @@ date: 2022-03-21
 weight: -8
 ---
 
-Kiosk apps are applications that are deployed via a Chrome OS Enterprise policy that allow an application to run fullscreen on a device device without needing to be logged in. Kiosk apps are deployed in schools for testing, enterprises for digital signage, and kiosks where enterprise customers can interact with a designated single purpose application. Android apps on kiosk mode were deprecated in June 2021. From April 2020 onwards, our recommendation is to develop web apps for kiosk mode.
+[Kiosk mode](https://chromeenterprise.google/os/kiosk-and-digital-signage/) is a specialized way of running ChromeOS that focuses on just one application at a time. Set by an administrator, kiosk applications are locked in full screen and run without user login to the device. This differs from the traditional user session or managed guest session modes which allows the user or guest to access multiple apps and the browser.
 
-## Develop a kiosk application for Chrome OS
+Kiosk mode can be used for:
 
-If you are starting a new kiosk application, we strongly recommend developing a web application, and highly encourage a Progressive Web Application for offline access. If you have an existing kiosk app that is a Chrome App or Android application, you should migrate your existing application to a web application to continue receiving kiosk support. For Chrome Apps that relied on Chrome kiosk specific APIs (such as [chrome.runtime](https://developer.chrome.com/docs/extensions/reference/runtime/)) you can still call these APIs by deploying an [extension that pairs with your web application](/{{locale.code}}/education/connecting-an-extension-from-a-kiosk-pwa) in kiosk mode.
+- Standardized testing applications deployed in schools
+- Digital signage for businesses and enterprises
+- Self-service kiosks for retail and hospitality
 
-## Special Notes regarding kiosk mode
+Kiosk mode provides a locked down, secure environment, admin-controlled user experience.
 
-- **Kiosk mode is not ephemeral** - If there is any user data that is stored on device, it will be available next time someone uses kiosk mode. It is the app developer’s responsibility to [maintain data integrity](https://developer.chrome.com/docs/extensions/reference/browsingData/).
-- **[Extensions can be run in kiosk mode](/{{locale.code}}/education/connecting-an-extension-from-a-kiosk-pwa)** - Kiosk mode can automatically install and run extensions for web apps. This can allow your app to access features not normally available as web APIs, for instance proxying data or restarting the kiosk via more privileged extension APIs.
-- **Browser navigation can still occur** - Although there is no URL bar in kiosk mode, users can still navigate to other pages not within your web app by clicking on links displayed in your application. For education apps, this may mean that you need to lock down the device by deploying an extension that prevents navigation to different URLs, disabling iframes within your application, or by enforcing an [enterprise policy of blocked URLs](https://support.google.com/chrome/a/answer/1375678?hl=en#:~:text=alerting%20contact%20info-,URL%20blocking,-Kiosk%20virtual%20keyboard).
+## Enable kiosk mode
+
+To enable kiosk mode, you will need a [management license](https://services.google.com/fh/files/misc/kiosk_signage_upgrade.pdf) which gives you the tools to set up and manage your own fleet of kiosk devices. A managed device lets you set security controls and remote management capabilities that can control device policies, deploy apps, control OS updates, capture screenshots and monitor device status, all via the cloud-based Google Admin console.
+
+## Kiosk application and capabilities
+
+ChromeOS kiosk mode supports web apps, and building a Progressive Web App is a great way to provide a stellar kiosk experience for your users:
+
+- Store offline content, [like videos](/{{locale.code}}/kiosk/managing-video-storage-on-the-web), with service workers and data storage APIs like Cache API and IndexedDB.
+- Persist application state even without an internet connection by using the [Workbox](https://developer.chrome.com/docs/workbox/) library to implement service worker routing and caching.
+- Unlock even more features in your kiosk app with [Project Fugu](https://developer.chrome.com/capabilities/), the Chromium Web Capabilities project.
+
+You can also build a companion extension that pairs with your PWA in kiosk mode. Doing so lets you take advantage of [Chrome APIs](https://developer.chrome.com/docs/extensions/reference/) (such as `chrome.runtime`) and advanced capabilities, like configuring display settings, controlling connected audio, and rebooting devices, that kiosk and enterprise extensions can be enabled to do.
+
+Kiosk on ChromeOS gives you a secure and reliable platform to deliver a single-app focused experience to your customers, whether they need to display static informational pages or create interactive experiences. With built-in tooling to manage and deploy kiosk devices, ChromeOS kiosk lets you get started with developing today and prioritize building great features for your users.
