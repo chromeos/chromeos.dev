@@ -6,14 +6,14 @@ tags:
   - web
 hero:
   youtube: gQ6arLknnMY
-  alt: Developing kiosk apps for ChromeOS. Talk delivered at Google I/O 2023 by Mike Wendling and Joyce Toh.
+  alt: Developing kiosk apps for ChromeOS. Talk delivered at Google I/O 2023 by Mike Rumely and Joyce Toh.
 authors:
-  - mwendling
+  - mrumely
   - joycetoh
 date: 2023-05-10
 ---
 
-_Edited transcript of "Debeloping kiosk apps for ChromeOS" talk at Google I/O 2023 by Mike Wendling (Partner Engineer on ChromeOS) and Joyce Toh (Developer Relations Engineer on ChromeOS)._
+_Edited transcript of "Developing kiosk apps for ChromeOS" talk at Google I/O 2023 by Mike Rumely (Partner Engineer on ChromeOS) and Joyce Toh (Developer Relations Engineer on ChromeOS)._
 
 ---
 
