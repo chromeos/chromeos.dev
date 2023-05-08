@@ -5,8 +5,8 @@ tags:
   - event
   - games
 hero:
-  youtube: nP-nMZpLM1A
-  alt: 'Google I/O talk on building apps for large screens, covering large screens, input hhandling, and distribution.'
+  youtube: I5ubmoSgaXE
+  alt: 'Google I/O talk on building apps for large screens, covering large screens, input handling, and distribution.'
 authors:
   - dlevy
   - scui

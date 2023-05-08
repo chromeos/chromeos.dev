@@ -5,7 +5,7 @@ tags:
   - event
   - web
 hero:
-  youtube: nP-nMZpLM1A
+  youtube: yd7uNIQVHhM
   alt: Building communications and contact center applications for the web. Talk delivered at Google I/O 2023 by Raluca Monet and Austin David Christopher.
 authors:
   - rmonet

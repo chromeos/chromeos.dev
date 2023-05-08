@@ -5,7 +5,7 @@ tags:
   - event
   - web
 hero:
-  youtube: nP-nMZpLM1A
+  youtube: gQ6arLknnMY
   alt: Developing kiosk apps for ChromeOS. Talk delivered at Google I/O 2023 by Mike Wendling and Joyce Toh.
 authors:
   - mwendling
