@@ -204,7 +204,7 @@ Read more about [Large screens and external displays](/{{locale.code}}/games/opt
 
 ## Build submission and distribution
 
-To gain the best performance for your games on more large screen devices, we highly recommend you to include x86_64 ABI architecture in your game. X86_64 can bring the best performance on ChromeOS & Google Play Games on PC for your game. Google worked with the game engines and third-party library providers to ensure the support is in place. You should be able to get your x86_64 version of the game with very minimal work. Our collaboration with engines like Unity and Cocos goes beyond just architecture, with improvements in areas like input and windowing support.
+To gain the best performance for your games on more large screen devices, we highly recommend you to include x86_64 ABI architecture in your game. X86_64 can bring the best performance on ChromeOS and Google Play Games on PC for your game. Google worked with the game engines and third-party library providers to ensure the support is in place. You should be able to get your x86_64 version of the game with very minimal work. Our collaboration with engines like Unity and Cocos goes beyond just architecture, with improvements in areas like input and windowing support.
 
 ### File sizes
 
