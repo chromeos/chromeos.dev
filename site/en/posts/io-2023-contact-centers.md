@@ -54,7 +54,7 @@ Upon logging into your OS, the typical user experience of launching a web app re
 
 For PWAs, the user launches your app directly from an icon on their home screen or shelf. This provides a user experience similar to launching native desktop applications, which many users are accustomed to. Once logged in—and on subsequent launches—the PWA presents the full experience that matches the native desktop application.
 
-A Progressive Web App can be installed for enterprise or managed users. An enterprise administrator can apply app management policies through the Chrome Enterprise admin console.Enterprise managed PWAs can also take advantage of additional capabilities, such as web managed configurations. Web managed configurations allow admins to specify things like app settings through the admin console.
+A Progressive Web App can be installed for enterprise or managed users. An enterprise administrator can apply app management policies through the Chrome Enterprise admin console. Enterprise managed PWAs can also take advantage of additional capabilities, such as web managed configurations. Web managed configurations allow admins to specify things like app settings through the admin console.
 
 Further, users can login using their Zoom accounts and Google Sign-in credentials. Zoom created web managed configurations to restrict certain authentication options. Administrators can apply their web managed configuration to disable Google Sign-in from the Chrome management console using a JSON object. After applying the web managed configuration through the admin console, the user can no longer use the Google Sign-in authentication option.
 

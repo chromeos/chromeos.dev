@@ -41,13 +41,9 @@ If you have a niche use case requiring specialized hardware or would like to ext
 
 Flex can be installed on x86 based devices and to ensure a consistent and high-quality experience, Google individually certifies and maintains a [list of models](https://support.google.com/chromeosflex/answer/11513094?hl=en) that you can use with ChromeOS Flex. As of today, there are over 400 devices that have been certified.
 
-To try Flex out, you only [need three things](https://support.google.com/chromeosflex/answer/11552529?hl=en&visit_id=638137373836865508-473284254&ref_topic=11551271&rd=1).
+To try Flex out, you only [need three things](https://support.google.com/chromeosflex/answer/11552529?hl=en&visit_id=638137373836865508-473284254&ref_topic=11551271&rd=1): an 8GB or larger thumb drive, a computer you want to modernize, and a few minutes.
 
-1.  An 8GB or larger thumb drive
-1.  a computer you want to modernize
-1.  and a few minutes
-
-So whether it's for energy savings, reusing existing hardware or just trying out ChromeOS, you can [install ChromeOS Flex](https://support.google.com/chromeosflex/answer/11552529) today.
+So, whether it's for energy savings, reusing existing hardware or just trying out ChromeOS, you can [install ChromeOS Flex](https://support.google.com/chromeosflex/answer/11552529) today.
 
 ### Managed license
 
@@ -82,11 +78,11 @@ One of the key features of all ChromeOS devices and especially in kiosk mode is 
 
 Many of these fields and functions available in the Admin console are also accessible through the [Directory](https://developers.google.com/admin-sdk/directory/v1/guides) and [Telemetry APIs](https://developers.google.com/chrome/management/guides/telemetry_api). These APIs allow for automation of tasks and management outside of the Admin Console.
 
-## Creating a Kiosk app
+## Creating a kiosk app
 
 If you're creating a new kiosk app, you'll need to create a web app.
 
-This means you can take advantage of the web technologies and Chrome features that you may already be familiar with.The web is a powerful platform that gives you the opportunity to unlock experiences for your users, and we're continuing to invest heavily to bring more features.
+This means you can take advantage of the web technologies and Chrome features that you may already be familiar with. The web is a powerful platform that gives you the opportunity to unlock experiences for your users, and we're continuing to invest heavily to bring more features.
 
 The advanced web capabilities efforts, also known as project Fugu, will make it possible for you to build great web apps and therefore, kiosk apps, with more native platform capabilities. For example, you can use the [`Web USB API`](https://developer.chrome.com/en/articles/usb/) to communicate with USB devices, like a receipt printer. Or save a user's edits to a photo on the local device with the [`File System Access API`](https://developer.chrome.com/articles/file-system-access/).
 
