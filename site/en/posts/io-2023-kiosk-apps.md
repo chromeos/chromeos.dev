@@ -139,7 +139,7 @@ Enterprises big and small are using ChromeOS in a variety of ways to modernize a
 
 And if you've been to a Buffalo Wild Wings in the last couple years, you've experienced a ChromeOS device running [UPshow](https://www.upshow.tv/). UPshow delivers a unified customer and employee experience with their performance marketing cloud, all powered by ChromeOS.
 
-## Conclusion
+## Stay tuned for more about kiosk
 
 Whatever your use case, ChromeOS is a secure and reliable platform that can help you deliver an integrated solution for your customers and users. Kiosk mode gives you the built-in security and capabilities of ChromeOS while also giving you and your customers the tools to manage and monitor devices and apps.
 

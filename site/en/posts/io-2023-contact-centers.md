@@ -104,7 +104,7 @@ The users of your applications can often be impacted by device and OS performanc
 
 By incorporating ChromeOS Telemetry signals into your own communications and contact center dashboards, your customers can easily drill down from app or use-case specific KPIs into root cause issues with the devices they use. Our Chrome Enterprise Recommended partners, like Dialpad and UJET are working to integrate the ChromeOS `Telemetry API` into their reporting and dashboarding solutions to better monitor and troubleshoot device and application level issues that could be impacting customer experience.
 
-## Conclusion
+## The future of communications with Chrome Enterprise
 
 It's so exciting to see Chrome Enterprise powering the future of communications and contact centers and giving businesses around the world an opportunity to work smarter, faster, and more securely.
 
