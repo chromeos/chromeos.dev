@@ -548,10 +548,10 @@ const contributors = {
       title: 'Developer Relations Engineer',
     },
   },
-  mwendling: {
+  mrumely: {
     name: {
       given: 'Mike',
-      family: 'Wendling',
+      family: 'Rumely',
     },
     work: {
       company: 'Google',
