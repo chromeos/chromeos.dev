@@ -28,7 +28,7 @@ Our research also shows that there is a strong crossover in gamers that play on 
 
 Let's dive into the technical best practices for how to level up your game for large screen devices: input handling, windowing and resizing, and build submission and distribution.
 
-## Part 1: Input handling
+## Input handling
 
 As we transition to these large screen surfaces, we're also transitioning to new modes of input. Adding mouse, keyboard, and gamepad support is often necessary for desktop and laptop form factors. It's also beneficial for foldables, tablets, and smartphones, too. Mobile players might use a desktop experience mode or enjoy playing docked at a desk. They'll appreciate the inclusion!
 
@@ -122,7 +122,7 @@ We've found that the best method is to actively listen for all modes of input an
 
 Read more about [Input support](/{{locale.code}}/games/optimizing-games-inputs) and [Handling input changes](/{{locale.code}}/games/handling-input-changes).
 
-## Part 2: Windowing and resizing
+## Windowing and resizing
 
 Expanding your game beyond phones and onto all of our great multi-platform opportunities introduces some additional considerations regarding window management.
 
@@ -202,7 +202,7 @@ fun isTableTopPosture(foldFeature: FoldingFeature?) : Boolean {
 
 Read more about [Large screens and external displays](/{{locale.code}}/games/optimizing-games-windowing) and [Optimizing display size](/{{locale.code}}/games/optimizing-games-display).
 
-## Part 3: Build submission and distribution
+## Build submission and distribution
 
 To gain the best performance for your games on more large screen devices, we highly recommend you to include x86_64 ABI architecture in your game. X86_64 can bring the best performance on ChromeOS & Google Play Games on PC for your game. Google worked with the game engines and third-party library providers to ensure the support is in place. You should be able to get your x86_64 version of the game with very minimal work. Our collaboration with engines like Unity and Cocos goes beyond just architecture, with improvements in areas like input and windowing support.
 

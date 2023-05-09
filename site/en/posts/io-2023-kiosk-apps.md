@@ -23,7 +23,7 @@ Kiosk mode on ChromeOS allows apps to run fullscreen, in a locked down environme
 
 ChromeOS allows you, the developer, to focus on releasing great features for your application, and leave app deployment and device management to Google's tooling.
 
-## Part 1: Getting started/requirements
+## Getting started and requirements
 
 To set up and manage a kiosk device, you'll need three things: a compatible device, a management license, and a kiosk app.
 
@@ -55,7 +55,7 @@ Just as important as the right hardware devices is a way to easily and efficient
 
 Once a device is enrolled and licensed in the admin console, you'll be able to configure policies for the fleet, lock them into kiosk mode, and get information and management controls via the **Google Admin** console.
 
-## Part 2: Google Admin Console
+## Google Admin Console
 
 The **Google Admin** console is your one stop shop for managing ChromeOS devices. You can manage users if you've just hired new employees or started the school year, monitor device stats for fleet management workflows, and configure apps and extensions installed on your devices.
 
@@ -82,7 +82,7 @@ One of the key features of all ChromeOS devices and especially in kiosk mode is 
 
 Many of these fields and functions available in the Admin console are also accessible through the [Directory](https://developers.google.com/admin-sdk/directory/v1/guides) and [Telemetry APIs](https://developers.google.com/chrome/management/guides/telemetry_api). These APIs allow for automation of tasks and management outside of the Admin Console.
 
-## Part 2: Creating a Kiosk app
+## Creating a Kiosk app
 
 If you're creating a new kiosk app, you'll need to create a web app.
 
