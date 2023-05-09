@@ -36,7 +36,7 @@ Last June, we launched even more tools to make it easier for developers and cust
 - **Kiosk and Signage Upgrade**: A management license designed to specifically provide the advanced security and remote management capabilities customers need to successfully deploy and manage kiosk and signage devices running ChromeOS. Developers can now focus on building great features with the backing of a seamless deployment and device management experience provided by Google.
 - **ChromeOS Flex**: A sustainable and cost effective way to modernize and extend the life of devices an organization already owns. Customers can install ChromeOS Flex on purpose-built kiosk and signage devices, or PCs and Macs, to get the stability, security, management features, and energy savings[^3] of ChromeOS. This allows ChromeOS kiosk and signage solution providers to bring a more sustainable array of device options to their customers.
 
-Check out the Google I/O session, [**Developing kiosk apps for ChromeOS**](/{{locale.code}}/kiosk), to learn more about all the ways ChromeOS simplifies and adds value to this segment.
+Check out the Google I/O session, [**Developing kiosk apps for ChromeOS**](/{{locale.code}}/posts/io-2023-kiosk-apps), to learn more about all the ways ChromeOS simplifies and adds value to this segment.
 
 ## Contact centers improve agent productivity by 19% with ChromeOS
 
@@ -77,7 +77,7 @@ Solution providers who originally launched enterprise solutions using other tech
 ![Zoom, Webex, and Cameyo logos](ix://posts/io-2023-enterprise/enterprise.png)
 
 - **Zoom**: Zoom migrated millions of users from a meetings-only Chrome App experience to a PWA that offers customers expanded capabilities that better match the feature set available in their native Windows and macOS Zoom application, such as Whiteboard, Team Chat, and VoIP Phone.
-- **Webex by Cisco**: Webex leveraged web technologies to launch a [new PWA](https://blog.webex.com/video-conferencing/webex-and-google-improve-collaboration/) that offers integrated meetings, messaging and VoIP cloud calling features, allowing users to join a unified and installable app-like experience on a Chromebook.
+- **Webex by Cisco**: Webex leveraged web technologies to launch a new PWA that offers integrated meetings, messaging and VoIP cloud calling features, allowing users to join a unified and installable app-like experience on a Chromebook.
 - **Cameyo**: Provides a Virtual App Delivery (VAD) solution that enables IT teams to provide users with access to their applications on ChromeOS devices by publishing them as PWAs. [Cameyo implemented](/{{locale.code}}/stories/cameyo) advanced capabilities like [File System Access API](https://web.dev/file-system-access/), [WebUSB](https://developer.chrome.com/articles/usb/), and [Keyboard Lock API](https://web.dev/keyboard-lock/) to bridge the gap between native and the web.
 
 Developers can start building PWAs from the ground up or enhance existing web applications, by making them more capable, reliable and installable. Start your PWA journey with the [Learn PWA course](https://web.dev/learn/pwa/).
