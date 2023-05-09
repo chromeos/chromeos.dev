@@ -70,11 +70,11 @@ Shortly after the beta launched in October of 2022, Amy Benson, a LumaFusion Cus
 
 Amy taught local journalists and filmmakers how to use LumaFusion on their Android phones, allowing them to craft videos in the field, documenting everything from local elections to their daily lives without the need for expensive video equipment. Enabling people from all over the world to create professional-quality videos remains a north star of the LumaTouch team.
 
+LumaFusion has seen strong and continuous growth in app installations across all devices since its release—particularly on larger screens. The LumaTouch team specifically optimized the app for large-screen devices to reach new audiences, and more than 50% of new Android users who downloaded LumaFusion did so on tablets and Chromebooks. Moreover, users spend 71% more time on larger screens compared to mobile.
+
+%[(>50%, New Android users on tablets and Chromebooks), (71%, More large screen usage time than mobile)]
+
 > Making sure anyone and everyone can tell their stories through video, regardless of budget or skill, is something that has always been important to us, and this is one of the key factors in keeping LumaFusion a one-time purchase. Bringing LumaFusion to ChromeOS and Android truly helps us achieve that goal.
 > {cite="Teri Morgan"}
-
-LumaFusion has seen strong and continuous growth in app installations across all devices since its release—particularly on larger screens. The LumaTouch team specifically optimized the app for large-screen devices to reach new audiences, and more than 50% of new Android users who downloaded LumaFusion did so on tablets and Chromebooks.
-
-%[(>50%, New Android users on tablets and Chromebooks)]
 
 Terri and Chris are excited to see the stories that the upcoming generation of authors will develop for Android and ChromeOS.
