@@ -1,0 +1,26 @@
+.announcement {
+  color: var(--white);
+
+  @media (prefers-reduced-motion: no-preference) {
+    p {
+      animation: phmarquee 20s linear infinite;
+      margin: 0;
+      transform: translateX(100vw);
+      width: max-content;
+    }
+  }
+
+  a {
+    color: var(--white);
+  }
+}
+
+@keyframes phmarquee {
+  0% {
+    transform: translateX(100vw);
+  }
+
+  100% {
+    transform: translateX(calc(-1 * (100% + $wrapper-inline-spacing-r)));
+  }
+}

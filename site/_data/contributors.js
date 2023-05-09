@@ -504,6 +504,17 @@ const contributors = {
       title: 'Software Engineer',
     },
   },
+  sarthakkukreti: {
+    name: {
+      given: 'Sarthak',
+      family: 'Kukreti',
+    },
+    work: {
+      company: 'Google',
+      org: 'ChromeOS',
+      title: 'Software Engineer',
+    },
+  },
   adchristopher: {
     name: {
       given: 'Austin David',

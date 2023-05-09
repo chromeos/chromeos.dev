@@ -10,6 +10,8 @@
       url: web
     - title: Games
       url: games
+    - title: Kiosk
+      url: kiosk
     - title: Education
       url: education
     - title: Enterprise
