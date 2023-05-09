@@ -35,7 +35,7 @@ When it comes to hardware, ChromeOS offers a number of OEM choices or the option
 
 ChromeOS OEM partners include HP, Acer and Lenovo and many others that produce Chromebooks, our laptops, and Chromeboxes, our desktops. They come in a variety of form factors and hardware configurations that can be customized for almost any use case. They are built with efficient power management capabilities that enable as much as [46% less energy consumption](https://chromeenterprise.google/os/sustainability/) than comparable competitor devices which is great for always on devices like kiosks or digital signage.
 
-#### FLEX
+#### ChromeOS Flex
 
 If you have a niche use case requiring specialized hardware or would like to extend the life of existing hardware, you can take advantage of ChromeOS with ChromeOS Flex. [ChromeOS Flex](https://chromeenterprise.google/os/chromeosflex/), is a cloud-first, fast, easy-to-manage, and secure operating system for PCs and Macs that comes with the same OS architecture, approach to management, UI/UX, and security controls as ChromeOS. Flex was also designed to be sustainable, reducing electricity consumption and associated [emissions by an average of 19%](https://chromeenterprise.google/os/sustainability/).
 
@@ -47,11 +47,11 @@ To try Flex out, you only [need three things](https://support.google.com/chromeo
 1.  a computer you want to modernize
 1.  and a few minutes
 
-So whether it's for energy savings, reusing existing hardware or just trying out ChromeOS, you can [install Flex](https://support.google.com/chromeosflex/answer/11552529) today.
+So whether it's for energy savings, reusing existing hardware or just trying out ChromeOS, you can [install ChromeOS Flex](https://support.google.com/chromeosflex/answer/11552529) today.
 
 ### Managed license
 
-Just as important as the right hardware devices is a way to easily and efficiently manage them. Kiosk apps can only be deployed to managed devices so you will need a Chrome Enterprise, Chrome Education or Kiosk and Signage license upgrade.
+Just as important as the right hardware devices is a way to easily and efficiently manage them. Kiosk apps can only be deployed to managed devices so you will need a Chrome Enterprise, Chrome Education, or Kiosk and Signage license upgrade.
 
 Once a device is enrolled and licensed in the admin console, you'll be able to configure policies for the fleet, lock them into kiosk mode, and get information and management controls via the **Google Admin** console.
 
@@ -63,17 +63,14 @@ Let's take a closer look at some of the information and tools available in the *
 
 ### The Device Details page
 
-On the left side of the **Google Admin** console, we have a set of commands we're able to perform on our enterprise managed devices. With managed ChromeOS devices, no middleware or additional software is needed to perform these commands. They are sent directly to the device and performed by the OS.
+On the left side of the **Google Admin** console, we have a set of commands we're able to perform on our enterprise managed devices. With managed ChromeOS devices, no middleware or additional software is needed to perform these commands. They are sent directly to the device and performed by the OS. The ability to perform remote commands such as **screenshot**, **remote desktop access**, and **reboots** are critical for kiosks which are often remotely installed and unattended.
 
-The ability to perform remote commands such as **screenshot**, **remote desktop access**, and **reboots** are critical for kiosks which are often remotely installed and unattended.
+Important components of the Device Details page include:
 
-In the **Hardware and OS** section we can see device specs alongside platform and OS level information.
-
-Note the **OS version policy compliance** field. Administrators have complete control over device policies and settings which the OS management components ensure are enforced.
-
-**Custom fields** allow you to set commonly used administrative attributes like IDs associated with asset tags or the location a device will reside in. These values are readable by the kiosk mode application running on the device.
-
-**System activity and troubleshooting** contains telemetry data like CPU utilization, temperature and RAM usage. System logs are also available here for remote collection and debugging.
+- **Hardware and OS:** Here, we can see device specs alongside platform and OS level information.
+- **OS version policy compliance:** Administrators have complete control over device policies and settings which the OS management components ensure are enforced.
+- **Custom fields:** These allow you to set commonly used administrative attributes, like IDs associated with asset tags or the location a device will reside in. These values are readable by the kiosk mode application running on the device.
+- **System activity and troubleshooting:** Telemetry data like CPU utilization, temperature and RAM usage. System logs are also available here for remote collection and debugging.
 
 ### Policy management
 

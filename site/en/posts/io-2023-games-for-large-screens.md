@@ -1,6 +1,6 @@
 ---
 title: 'Google I/O: Level up! Build great games for large screens'
-metadesc: 'Large screens, input handling, and distribution—start building games on ChromeOS.'
+metadesc: 'Large screens, input handling, and distribution—start building and publishing games on ChromeOS.'
 tags:
   - event
   - games
@@ -236,6 +236,6 @@ Much of the work we discussed today provides value across large screen opportuni
 
 To recap, we learned how you can meet the aspect ratio requirements for ChromeOS and Google Play Games on PC and how to provide a great experience on Android tablets and foldables by going above and beyond by supporting full resizability. We also saw how important thoughtful input support for keyboards, mice, and game controllers provides value across large screen devices and can help better immerse your players.
 
-Finally, once you've updated your game to support all of these great large screen opportunities, ensure you follow the best practices to build, release, and distribute your game. Support additional ABIs, audit for unnecessary feature declarations in your manifest, and streamline your application delivery with App Bundles and Play Asset Delivery.
+Finally, once you've updated your game to support all of these great large screen opportunities, ensure you follow the best practices to build, release, and distribute your game. Support additional APIs, audit for unnecessary feature declarations in your manifest, and streamline your application delivery with App Bundles and Play Asset Delivery.
 
 We look forward to seeing how you level up your game! Get more information about development on ChromeOS by signing up for the [ChromeOS Developer Newsletter](/{{locale.code}}/subscribe).
