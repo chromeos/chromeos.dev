@@ -66,7 +66,11 @@
   }
 
   &__image-wrapper {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    justify-content: center;
     max-width: pxRem(746px);
     overflow: hidden;
     position: relative;
@@ -90,6 +94,7 @@
   &--image {
     float: right;
     max-height: 100%;
+    max-width: calc(79% - 1rem);
     position: relative;
     width: auto;
     z-index: 1;
