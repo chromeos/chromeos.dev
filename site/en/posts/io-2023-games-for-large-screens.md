@@ -238,4 +238,4 @@ To recap, we learned how you can meet the aspect ratio requirements for ChromeOS
 
 Finally, once you've updated your game to support all of these great large screen opportunities, ensure you follow the best practices to build, release, and distribute your game. Support additional APIs, audit for unnecessary feature declarations in your manifest, and streamline your application delivery with App Bundles and Play Asset Delivery.
 
-But there's still a lot more to learn. Join the [ChromeOS Discord channel](https://chromeos.dev/discord) to engage with the ChromeOS community and start building for ChromeOS.
+But there's still a lot more to learn. Join the [ChromeOS Discord channel](/{{locale.code}}/posts/join-us-in-the-chromeos-developer-community-on-discord) to engage with the ChromeOS community and start building for ChromeOS.

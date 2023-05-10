@@ -88,7 +88,7 @@ Over the last year, we’ve seen a lot of exciting developments in Chrome Enterp
 
 We’re committed to bringing ChromeOS and Chrome browser’s delightful, secure, and modern experience to every worker wherever they are. And we couldn’t do it without the collaboration of the enterprise developer community—thank you!
 
-We can’t wait to share with you what we have in store for 2023 and beyond. Stay ahead of the curve by visiting the [enterprise](https://chromeos.dev/enterprise) documentation, joining the [ChromeOS Discord channel](https://chromeos.dev/discord), and signing up for our [developer newsletter](https://chromeos.dev/subscribe).
+We can’t wait to share with you what we have in store for 2023 and beyond. Stay ahead of the curve by visiting the [enterprise](/{{locale.code}}/enterprise) documentation, joining the [ChromeOS Discord channel](/{{locale.code}}/posts/join-us-in-the-chromeos-developer-community-on-discord), and signing up for our [developer newsletter](/{{locale.code}}/subscribe).
 
 [^1]: Google Internal Data, includes unmanaged devices, 2023.
 [^2]: IDC Business Value Paper, sponsored by Google, The Business Value of ChromeOS, doc #49920522, stat refers to performance over three years of ChromeOS deployment, March 2023.

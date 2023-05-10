@@ -96,7 +96,7 @@ The second add-on is the **Pear Deck for Classroom add-on**. Educators can trans
 > In our experience, partnering with Google to build product integrations is a smart way to drive growth. The Pear Deck for Google Classroom add-on is an excellent example of how working with the Google partnership and developer teams to expand the functionality of our products drives value for our mutual users. We attribute the successful launch of our Google Classroom integration in large part to the exceptional support we received from the Google team.
 > {cite="Max Kirsch, General Manager, Learning & Engagement at GoGuardian"}
 
-Interested in creating a Classroom add-on? Express your interest via our [Classroom add-ons form](goo.gle/classroom-add-ons-eap).
+Interested in creating a Classroom add-on? Express your interest via our [Classroom add-ons form](https://goo.gle/classroom-add-ons-eap).
 
 ## App Licensing Program
 
@@ -213,7 +213,7 @@ If you're already building extensions, you'll be excited to learn that we've als
 
 Finally, Android apps continue to be a widespread way for developers to build for mobile and computer form factors. If you already have a mobile app, you'll be pleased to hear that ChromeOS supports Android applications, such as top video editor Lumafusion.
 
-Developers using Unity to build rich, immersive educational tools will be happy to know that there are easy build options for ChromeOS right in the Editor that will help you get the best performance. You can read more in [Optimize your app for the classroom](https://chromeos.dev/en/education/optimize-for-the-classroom).
+Developers using Unity to build rich, immersive educational tools will be happy to know that there are easy build options for ChromeOS right in the Editor that will help you get the best performance. You can read more in [Optimize your app for the classroom](/{{locale.code}}/education/optimize-for-the-classroom).
 
 ## Build for students with ChromeOS
 
@@ -223,4 +223,4 @@ Even though Ben, the IT administrator we discussed earlier, spends most of his t
 
 So, as you're considering what ideas you might want to bring to education, keep in mind the end user—the teachers we're thankful for and the students we want to inspire.
 
-We at Google are committed to continuing to innovate in this space, and we're excited to work alongside you to transform teaching and learning for everyone. To find out more, take a look at the education resources on [ChromeOS.dev](https://chromeos.dev/en/education) and [developers.google.com](https://developers.google.com/edu).
+We at Google are committed to continuing to innovate in this space, and we're excited to work alongside you to transform teaching and learning for everyone. To find out more, take a look at the education resources on [ChromeOS.dev](/{{locale.code}}/education) and [developers.google.com](https://developers.google.com/edu).
