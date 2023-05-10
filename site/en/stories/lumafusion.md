@@ -4,7 +4,7 @@ metadesc: Discover how LumaTouch created its touch-centric video editing app for
 date: 2023-05-10
 app:
   name: LumaFusion
-  logo: ix://stories/lumafusion/lumalogo-1.png
+  logo: ix://stories/lumafusion/logo.png
   company: LumaTouch
 hero:
   image: ix://stories/lumafusion/banner.png
