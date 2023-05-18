@@ -1,5 +1,4 @@
 import markdown from 'chromeos-dev-markdown';
-import { posthtml } from './posthtml';
 import { statsPlugin } from './markdown/stats';
 import buildTOC from 'markdown-toc';
 
@@ -10,8 +9,7 @@ markdown.use(statsPlugin);
  * @return {string} Processed HTML
  */
 export async function renderMarkdown(content: string) {
-  const html = markdown.render(content);
-  const processed = await posthtml.process(html);
+  const processed = markdown.render(content);
   const rawTOC = buildTOC(content).json.filter((item: any) => item.lvl < 4);
   const toc = [];
   for (let i = 0; i < rawTOC.length; i++) {
@@ -37,7 +35,7 @@ export async function renderMarkdown(content: string) {
   }
 
   return {
-    content: processed.html,
+    content: processed,
     toc,
   };
 }

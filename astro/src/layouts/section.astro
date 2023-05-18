@@ -1,7 +1,6 @@
 ---
 import type { Locale } from '$types/content';
 import Wrapper from '$layouts/wrapper.astro';
-import Image from '$components/Image.svelte';
 import DeveloperOptIn from '$components/DeveloperOptIn.svelte';
 import ChapterListing from '$components/ChapterListing.svelte';
 import { getMicrocopy } from '$$microcopy';
@@ -52,11 +51,10 @@ switch (section) {
     >
       <h1 class="section--title">{title}</h1>
       <div class="section--hero">
-        <Image
-          src={hero.bottom}
-          alt={title}
-          sources={[{ src: hero.top, media: '(min-width: 840px)' }]}
-        />
+        <picture>
+          <source srcset={hero.top} media="(min-width: 840px)" />
+          <img src={hero.bottom} alt={title} />
+        </picture>
       </div>
     </header>
     <div class="section--content">
