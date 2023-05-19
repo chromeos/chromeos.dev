@@ -42,6 +42,7 @@
     &--heading,
     &--body {
       color: var(--white);
+      width: 100%;
     }
   }
 </style>
