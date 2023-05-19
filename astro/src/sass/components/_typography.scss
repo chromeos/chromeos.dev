@@ -89,6 +89,11 @@ $section-block-margin: 3.75rem;
     @extend %type--large;
   }
 
+  &--subtitle {
+    @extend %type--large;
+    color: var(--grey-700);
+  }
+
   &--small {
     @extend %type--small;
   }
