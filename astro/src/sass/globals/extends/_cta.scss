@@ -10,10 +10,13 @@
   display: flex;
   font-family: $font-google-sans;
   justify-content: center;
-  min-width: pxRem(150px);
   padding: 1rem 2.5rem;
   text-decoration: none;
   text-rendering: optimizeLegibility;
+
+  &:not(&--link) {
+    min-width: pxRem(150px);
+  }
 
   &--left-icon {
     .icon {
