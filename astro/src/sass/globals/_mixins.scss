@@ -22,8 +22,14 @@
 // @param {length()} $lg - List of lengths, in px, representing font size and line height of the largest size
 // @param {number | boolean} $weight - Font weight, or false
 @mixin flexFont($sm, $md, $lg, $weight: false) {
-  // Determine scaling factor so that the large font size is reached at 1024px
-  $font-scale: math.div(nth($lg, 1), 14.4px) * 1vw;
+  // Determine scaling factor so that the large font size is reached at 1440px and its smallest at approximately 1024px
+  $n: 1440px - 1024px + nth($sm, 1);
+  $d: (nth($lg, 1) - nth($sm, 1));
+  $diff: math.div($n, $d);
+  $r: math.div($diff * 1px, nth($lg, 1));
+  $font-scale: $r * 1cqw;
+  // $font-scale: math.div($l * 1px, nth($lg, 1)) * 1cqw;
+  // $font-scale: 1.94445cqi;
   // Set up clamp function
   $font-clamp: clamp(pxEm(nth($sm, 1)), $font-scale, pxEm(nth($lg, 1)));
   // Setup basic font styling from medium size
