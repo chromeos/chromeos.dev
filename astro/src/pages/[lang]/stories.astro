@@ -1,59 +1,119 @@
 ---
-import { renderMarkdown } from '$$markdown';
+import Wrapper from '$layouts/wrapper.astro';
+import StoryCard from '$components/stories/StoryCard.svelte';
+import FeaturedStory from '$components/stories/FeaturedStory.svelte';
 import { buildSectionsFromGlob, metaFromFile } from '$$data';
-import Section from '$layouts/section.astro';
-import SectionNav from '$components/SectionNav.svelte';
 import { getMicrocopy } from '$$microcopy';
 
 /**
  * Builds paths for content files
  */
 export async function getStaticPaths() {
-  const landings = await Astro.glob('../../markdown/**/stories/index.md');
-  const sections = buildSectionsFromGlob(
-    await Astro.glob('../../markdown/**/*.md'),
-  );
-  const all = await Promise.all(
-    landings.map(async (landing) => {
-      const { slug, section, lang } = metaFromFile(landing.file);
-      const { content } = await renderMarkdown(landing.rawContent());
-      return {
-        params: {
-          lang,
-          index: slug,
-        },
-        props: {
-          content,
-          meta: landing.frontmatter,
-          section,
-          subnav: sections[lang][section],
-        },
-      };
-    }),
-  );
+  const stories = await Astro.glob('../../markdown/**/stories/*.md');
+  // const landings = await Astro.glob('../../markdown/**/stories/**.md');
+  const sections = buildSectionsFromGlob(stories);
 
-  return all;
+  const storyMeta = stories
+    .map((story) => {
+      const { path, lang } = metaFromFile(story.file);
+      return {
+        path,
+        lang,
+        ...story.frontmatter,
+      };
+    })
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+  // console.log(storyMeta);
+
+  // console.log(sections);
+  const langs = Object.keys(sections);
+  // console.log(sections.en.stories);
+
+  return langs.map((lang) => {
+    return {
+      params: {
+        lang,
+      },
+      props: {
+        stories: storyMeta.filter((s) => s.lang === lang),
+        microcopy: getMicrocopy(lang),
+      },
+    };
+  });
 }
 
 const { lang } = Astro.params;
-const { content, meta, section, subnav } = Astro.props;
-const microcopy = getMicrocopy(lang);
+const { stories, microcopy } = Astro.props;
+const locale = {
+  code: lang,
+  dir: 'ltr',
+};
+
+const featuredIndex = stories.findIndex((s) => s?.featured);
+const featured = stories[featuredIndex];
+
+const sections = microcopy.stories.sections.headings
+  .map((section) => {
+    const result = section;
+    result.stories = stories.filter(
+      (story) => story?.tags[0] === section.tag && story.path !== featured.path,
+    );
+    result.image = `ix://icons/eyebrows/${
+      section.tag === 'pwa'
+        ? 'web'
+        : section.tag === 'android'
+        ? 'android'
+        : 'games'
+    }.svg`;
+    return result;
+  })
+  .filter((s) => s.stories.length > 0);
 ---
 
-<Section
-  title={meta.title}
-  locale={microcopy.locale}
-  metadesc={meta.metadesc}
-  section={section}
->
-  <!-- Subnav Sidebar -->
-  <Fragment slot="subnav">
-    <SectionNav
-      links={subnav}
-      title={section}
-      active={Astro.url.pathname}
-      client:load
-    />
-  </Fragment>
-  <Fragment slot="content" set:html={content} />
-</Section>
+<Wrapper title={microcopy.title} metadesc="" locale={locale}>
+  {featured && <FeaturedStory story={featured} microcopy={microcopy} />}
+
+  {
+    sections.map((section) => (
+      <section class="wrapper wrapper--padded wrapper__contained">
+        <header class="header">
+          <div class="heading">
+            <img src={section.image} alt="" aria-hidden="true" />
+            <h2 class="type--h2">{section.title}</h2>
+          </div>
+
+          <p class="subtitle type--subtitle">{section.subtitle}</p>
+        </header>
+        <div class="content">
+          {section.stories.map((story) => (
+            <StoryCard story={story} />
+          ))}
+        </div>
+      </section>
+    ))
+  }
+</Wrapper>
+
+<style lang="scss">
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .heading {
+    display: flex;
+    gap: 1rem;
+  }
+  .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 35ch), 1fr));
+    gap: 2.5rem 1.25rem;
+    margin-top: 2.5rem;
+  }
+
+  .subtitle {
+    max-width: 60ch;
+  }
+</style>
+
+<!-- <img src="https://chromeos-dev.imgix.net/icons/eyebrows/games.svg?auto=format,compress" alt="" class="item-grid__icon icon" aria-hidden="true" crossorigin="anonymous" loading="lazy" sizes="100vw" height="" width=""> -->
