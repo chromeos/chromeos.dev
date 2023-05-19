@@ -1,0 +1,20 @@
+{
+  "links": [
+    { "url": "https://about.google/?hl=es", "text": "Sobre Google" },
+    {
+      "url": "https://about.google/products/?hl=es",
+      "text": "Productos de Google"
+    },
+    {
+      "url": "https://policies.google.com/privacy?hl=es",
+      "text": "Privacidad"
+    },
+    { "url": "https://policies.google.com/terms?hl=es", "text": "Términos" },
+    {
+      "url": "https://bugs.chromium.org/p/chromium/issues/entry?template=Defect%20on%20Chrome%20OS",
+      "text": "Reporte un error en Chrome OS"
+    }
+  ],
+  "help": { "url": "https://support.google.com/?hl=es", "text": "Ayuda" },
+  "selectLang": "Selecione el idioma que prefiere"
+}
