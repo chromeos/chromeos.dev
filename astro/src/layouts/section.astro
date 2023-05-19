@@ -63,11 +63,13 @@ switch (section) {
       </section>
       {
         meta.interest && (
-          <DeveloperOptIn
-            title={meta.interest.title}
-            description={meta.interest.body}
-            cta={meta.interest.cta}
-          />
+          <div>
+            <DeveloperOptIn
+              title={meta.interest.title}
+              description={meta.interest.body}
+              cta={meta.interest.cta}
+            />
+          </div>
         )
       }
       <ChapterListing microcopy={microcopy} chapters={chapters} />
