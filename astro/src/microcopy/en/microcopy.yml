@@ -48,3 +48,10 @@ sw:
   refresh: Refresh
   site: There's a new version of chromeOS.dev
   reload: Reload
+pagination:
+  label: Pagination
+  prev: Previous page
+  next: Next page
+  first: First page
+  last: Last page
+  current: Current page

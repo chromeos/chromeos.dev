@@ -40,7 +40,7 @@
   }
 
   &__contained > * {
-    margin: 0 auto;
+    margin-inline: auto;
     max-width: $wrapper-max-width;
   }
 

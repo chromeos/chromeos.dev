@@ -1,83 +1,97 @@
 ---
-import type { Locale } from '$types/content';
 import Wrapper from '$layouts/wrapper.astro';
+import StoryHero from '$components/StoryHero.svelte';
+import Card from '$components/Card.svelte';
+import Pagination from '$components/Pagination.svelte';
 
 export interface Props {
-  title: string;
-  metadesc: string;
-  section: string;
-  props?: Array<{
-    property: string;
-    content: string;
-  }>;
-  locale: Locale;
+  featured: object;
+  posts: Array<object>;
+  microcopy: object;
+  page: number;
+  pages: number;
 }
 
-const { title, props = [], locale, metadesc, section } = Astro.props;
+const { featured, posts, microcopy, page, pages } = Astro.props;
+const { locale } = microcopy;
 ---
 
-<Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>
-  <h1>News Layout</h1>
-  <article class="article">
-    <aside class="article--subnav">
-      <slot name="subnav" />
-    </aside>
-    <header class="article--header" id="content">
-      <small class="type--eyebrow">{section}</small>
-      <h1 class="type--h2">{title}</h1>
-    </header>
-    <section class="article--content type" id="article">
-      <slot name="content" />
+<Wrapper locale={locale} metadesc="" title={microcopy.news.posts.title}>
+  <div class="news">
+    <StoryHero
+      title={featured.data.title}
+      body={featured.data.metadesc}
+      cta={featured.cta}
+      media={featured.media}
+      theme={featured.data.theme}
+      section={featured.data.tags[0]}
+      form="standalone"
+    />
+    <section
+      class="wrapper wrapper--full-bleed wrapper--padding wrapper--padded wrapper__background wrapper__contained"
+    >
+      <div class="news--content">
+        <h2 class="type--h1 news--title">
+          {microcopy.news.posts.title}
+        </h2>
+        <ol class="news--items">
+          {
+            posts.map((post) => {
+              return (
+                <li class="news--item">
+                  <Card
+                    title={post.title}
+                    body={post.body}
+                    cta={post.cta}
+                    eyebrow={post.eyebrow}
+                  />
+                </li>
+              );
+            })
+          }
+        </ol>
+        <Pagination
+          base={`/${locale.code}/news`}
+          current={page}
+          total={pages}
+          locale={locale.code}
+          labels={microcopy.microcopy.pagination}
+        />
+      </div>
     </section>
-  </article>
+  </div>
 </Wrapper>
 
 <style lang="scss">
-  @import '$sass/shared';
-
-  .article {
+  .news {
+    height: 100%;
     display: grid;
-    --inline-extras: 1;
-    --inline-subnav: 1;
+    grid-template-rows: auto 1fr;
 
-    @include mq($bkpt-article--2-cols) {
-      --inline-subnav: 0;
-      grid-template-columns: 300px 1fr minmax(50ch, 60ch) 1fr;
-      grid-template-rows: auto auto 1fr auto;
+    &--content {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+    //
+    &--title {
+      text-align: center;
     }
 
-    @include mq($bkpt-article--3-cols) {
-      --inline-extras: 0;
-      grid-template-columns: 300px 1fr minmax(50ch, 80ch) minmax(235px, 320px) 1fr;
-    }
+    &--items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 325px), 1fr));
+      justify-items: center;
+      gap: 2.5rem 1.5rem;
+      list-style: none;
 
-    &--header {
-      margin-block: 1.5rem;
-    }
-
-    &--header,
-    &--content,
-    &--extras {
-      padding-inline: 1.5rem;
-      @include mq($bkpt-article--2-cols) {
-        grid-column: 3;
+      :global(.card) {
+        height: 100%;
       }
     }
+  }
 
-    &--subnav {
-      @include mq($bkpt-article--2-cols) {
-        grid-row: 1 / span 2;
-      }
-    }
-
-    &--extras {
-      margin-block-end: 2.5rem;
-      @include mq($bkpt-article--3-cols) {
-        padding-inline: 0;
-        grid-column: 4;
-        grid-row: 1 / span 2;
-        margin-block-end: 0;
-      }
-    }
+  .wrapper {
+    width: 100%;
   }
 </style>
