@@ -5,7 +5,6 @@
   export let microcopy = {};
   const featured = microcopy.microcopy.featured.eyebrow;
   const more = microcopy.microcopy.more;
-  console.log(story);
 
   const cta = {
     type: 'link',
@@ -21,7 +20,7 @@
     src={story.hero.image}
     alt={story.hero.alt}
   />
-  <div class="featured-story--inner ">
+  <div class="featured-story--inner">
     <div class="featured-story--info">
       <img
         class="featured-story--logo"

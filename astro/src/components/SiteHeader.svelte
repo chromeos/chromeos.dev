@@ -33,7 +33,7 @@
     </ul>
   </nav>
   <button>
-    <svg role="img" aria-hidden="true" class="icon ">
+    <svg role="img" aria-hidden="true" class="icon">
       <use href="/images/icons/sprite.svg#search" />
     </svg>
   </button>
