@@ -1,0 +1,91 @@
+---
+import type { CTA } from '$types/content';
+import Article from '$layouts/article.astro';
+import TOC from '$components/TOC.svelte';
+import Published from '$components/Published.svelte';
+import StoryHero from '$components/StoryHero.svelte';
+import { renderMarkdown } from '$$markdown';
+import { metaFromFile } from '$$data';
+import { getMicrocopy } from '$$microcopy';
+
+/**
+ * Builds paths for news pagination
+ */
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../../../markdown/**/stories/*.md');
+  return await Promise.all(
+    posts.map(async (post) => {
+      const { slug, lang } = metaFromFile(post.file);
+      const { content, toc } = await renderMarkdown(post.rawContent());
+
+      console.log(slug);
+
+      post.frontmatter.date = new Date(post.frontmatter.date);
+      return {
+        params: {
+          lang,
+          page: slug.replace(/^stories\//, ''),
+        },
+        props: {
+          content,
+          toc,
+          meta: post.frontmatter,
+          microcopy: getMicrocopy(lang),
+        },
+      };
+    }),
+  );
+}
+
+const { content, toc, meta, microcopy } = Astro.props;
+const { locale } = microcopy;
+
+const cta: CTA = {
+  text: microcopy.microcopy.breadcrumbs.replace('((t))', 'Stories'),
+  url: `/${locale.code}/stories`,
+};
+
+// const theme = meta?.theme || {};
+
+// const hero = {};
+
+// if (meta.hero) {
+//   hero.url = meta.hero.image;
+//   hero.alt = meta.hero.alt;
+// }
+console.log(meta);
+---
+
+<Article title={meta.title} metadesc={meta.metadesc} microcopy={microcopy}>
+  <Fragment slot="header">
+    <StoryHero
+      title={meta.title}
+      section={meta.tags[0]}
+      cta={cta}
+      form="header"
+    />
+  </Fragment>
+  <!-- Hero image -->
+  {
+    meta?.hero?.image && (
+      <img src={meta.hero.image} alt={meta.hero.alt} slot="hero" />
+    )
+  }
+  <!-- Main content area -->
+  <Fragment slot="content" set:html={content} />
+  <!-- Extras sidegar -->
+  <Fragment slot="extras">
+    <!-- Published date info -->
+    <Published
+      locale={locale.code}
+      label={meta.updated
+        ? microcopy.microcopy.lastUpdated
+        : microcopy.microcopy.datePosted}
+      date={meta.updated || meta.date}
+      wrapper="section"
+    />
+
+    <!-- Table of Contents -->
+    {toc.length > 0 && <TOC toc={toc} client:load />}
+  </Fragment>
+</Article>
