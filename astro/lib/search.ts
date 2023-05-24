@@ -98,8 +98,9 @@ await generateSearchIndex();
  * @return {string}
  */
 export function search(input: string, lang: string) {
+  const query = input.replace(/:/g, ' ');
   return searchIndex[lang]
-    ? searchIndex[lang].search(input).map((f) => searchPreviews[lang][f.ref])
+    ? searchIndex[lang].search(query).map((f) => searchPreviews[lang][f.ref])
     : [];
 }
 
@@ -111,7 +112,6 @@ export function search(input: string, lang: string) {
  * @return {Array<Object>}
  */
 export function findRelated(title: string, lang: string, url: string) {
-  console.log(url);
   const found = search(title, lang).filter((item) => item.href !== url);
   const related = found.filter(
     (v, i, s) => i === s.findIndex((t) => t.section === v.section),
