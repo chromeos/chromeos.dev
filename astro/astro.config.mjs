@@ -42,6 +42,7 @@ aliases.push({
 export default defineConfig({
   site: 'https://chromeos.dev',
   integrations: [svelte(), mdx()],
+  compressHTML: true,
   experimental: {
     middleware: true,
   },
