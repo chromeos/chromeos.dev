@@ -1,0 +1,108 @@
+---
+import type { Theme, HeroMedia, CTA } from '$types/content';
+import Article from '$layouts/article.astro';
+import TOC from '$components/TOC.svelte';
+import Published from '$components/Published.svelte';
+import Authors from '$components/Authors.svelte';
+import YouTube from '$components/YouTube.svelte';
+import StoryHero from '$components/StoryHero.svelte';
+import { renderMarkdown } from '$$markdown';
+import { metaFromFile } from '$$data';
+import { getMicrocopy } from '$$microcopy';
+import { getAuthors } from '$lib/authors';
+
+/**
+ * Builds paths for news pagination
+ */
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../../../markdown/**/posts/*.md');
+  return await Promise.all(
+    posts.map(async (post) => {
+      const { slug, lang } = metaFromFile(post.file);
+      const { content, toc } = await renderMarkdown(post.rawContent());
+
+      post.frontmatter.date = new Date(post.frontmatter.date);
+      return {
+        params: {
+          lang,
+          page: slug.replace(/^posts\//, ''),
+        },
+        props: {
+          content,
+          toc,
+          meta: post.frontmatter,
+          microcopy: getMicrocopy(lang),
+        },
+      };
+    }),
+  );
+}
+
+const { content, toc, meta, microcopy } = Astro.props;
+const { locale } = microcopy;
+
+const cta: CTA = {
+  text: microcopy.microcopy.breadcrumbs.replace(
+    '((t))',
+    microcopy.news.posts.title,
+  ),
+  url: `/${locale.code}/news`,
+};
+
+const theme = meta?.theme || {};
+
+const hero = {};
+
+if (meta.hero) {
+  hero.url = meta.hero.image;
+  hero.alt = meta.hero.alt;
+}
+---
+
+<Article title={meta.title} metadesc={meta.metadesc} microcopy={microcopy}>
+  <Fragment slot="header">
+    <StoryHero
+      title={meta.title}
+      section={meta.tags[0]}
+      theme={theme as Theme}
+      media={hero as HeroMedia}
+      cta={cta}
+      form="header"
+    />
+  </Fragment>
+  <!-- YouTube embed -->
+  {
+    meta?.hero?.youtube && (
+      <YouTube
+        client:load
+        slot="hero"
+        id={meta.hero.youtube}
+        alt={meta.hero.alt}
+        label={microcopy.microcopy.loadVideo}
+      />
+    )
+  }
+  <!-- Main content area -->
+  <Fragment slot="content" set:html={content} />
+  <!-- Extras sidegar -->
+  <Fragment slot="extras">
+    <!-- Author Info -->
+    <Authors
+      authors={getAuthors(meta.authors)}
+      label={microcopy.microcopy.posted}
+      wrapper="section"
+    />
+    <!-- Published date info -->
+    <Published
+      locale={locale.code}
+      label={meta.updated
+        ? microcopy.microcopy.lastUpdated
+        : microcopy.microcopy.datePosted}
+      date={meta.updated || meta.date}
+      wrapper="section"
+    />
+
+    <!-- Table of Contents -->
+    {toc.length > 0 && <TOC toc={toc} client:load />}
+  </Fragment>
+</Article>

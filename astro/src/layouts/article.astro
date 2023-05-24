@@ -1,41 +1,39 @@
 ---
-import type { Locale } from '$types/content';
 import Wrapper from '$layouts/wrapper.astro';
 import { findRelated } from '$lib/search';
 import Card from '$components/Card.svelte';
-import { getMicrocopy } from '$lib/microcopy';
 
 export interface Props {
   title: string;
   metadesc: string;
-  section: string;
   props?: Array<{
     property: string;
     content: string;
   }>;
-  locale: Locale;
+  microcopy: object;
 }
 
-const { title, props = [], locale, metadesc, section } = Astro.props;
+const { title, props = [], metadesc, microcopy } = Astro.props;
+const { locale } = microcopy;
 const related = findRelated(title, locale.code, Astro.url.pathname);
-const microcopy = getMicrocopy(locale.code);
 ---
 
 <Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>
   <article class="article">
-    <aside class="article--subnav">
-      <slot name="subnav" />
-    </aside>
-    <header class="article--header" id="content">
-      <small class="type--eyebrow">{section}</small>
-      <h1 class="type--h2">{title}</h1>
-    </header>
-    <aside class="article--extras">
-      <slot name="extras" />
-    </aside>
-    <section class="article--content type" id="article">
-      <slot name="content" />
-    </section>
+    <div class="article--header">
+      <slot name="header" />
+    </div>
+    <div class="article--wrapper">
+      <div class="article--hero">
+        <slot name="hero" />
+      </div>
+      <aside class="article--extras">
+        <slot name="extras" />
+      </aside>
+      <section class="article--content type" id="article">
+        <slot name="content" />
+      </section>
+    </div>
   </article>
   <aside
     class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__contained wrapper__background"
@@ -67,31 +65,29 @@ const microcopy = getMicrocopy(locale.code);
   @import '$sass/shared';
 
   .article {
-    display: grid;
-    --inline-extras: 1;
-    --inline-subnav: 1;
+    $switch: 890px;
 
-    @include mq($bkpt-article--2-cols) {
-      --inline-subnav: 0;
-      grid-template-columns: 300px 1fr minmax(50ch, 60ch) 1fr;
-      grid-template-rows: auto auto 1fr auto;
+    $this: &;
+    &--wrapper {
+      display: grid;
+      grid-auto-flow: dense;
+      margin-top: 2.5rem;
+      column-gap: 2.5rem;
+      --inline-extras: 1;
+      --inline-subnav: 1;
+
+      @include mq($switch) {
+        --inline-extras: 0;
+        grid-template-columns: 1fr minmax(50ch, 80ch) minmax(235px, 320px) 1fr;
+        grid-template-rows: auto auto 1fr auto;
+      }
     }
 
-    @include mq($bkpt-article--3-cols) {
-      --inline-extras: 0;
-      grid-template-columns: 300px 1fr minmax(50ch, 80ch) minmax(235px, 320px) 1fr;
-    }
-
-    &--header {
-      margin-block: 1.5rem;
-    }
-
-    &--header,
     &--content,
     &--extras {
       padding-inline: 1.5rem;
-      @include mq($bkpt-article--2-cols) {
-        grid-column: 3;
+      @include mq($switch) {
+        grid-column: 2;
       }
     }
 
@@ -99,19 +95,47 @@ const microcopy = getMicrocopy(locale.code);
       padding-block-end: 2.5rem;
     }
 
-    &--subnav {
-      @include mq($bkpt-article--2-cols) {
-        grid-row: 1 / span 3;
-        margin-block-end: 2.5rem;
+    &--hero {
+      margin-block-end: 2.5rem;
+      margin-block-start: -5rem;
+      aspect-ratio: 16 / 9;
+      border-radius: 0.3125rem;
+      box-shadow: 0 2px 1.5rem rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+      width: calc(100% - 3rem);
+      margin-inline: auto;
+
+      > :global(img),
+      > :global(video) {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+      &:empty {
+        display: none;
+      }
+
+      @include mq($switch) {
+        grid-column: 2 / span 2;
       }
     }
 
     &--extras {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
       margin-block-end: 2.5rem;
-      @include mq($bkpt-article--3-cols) {
+
+      @include mq($switch) {
         padding-inline: 0;
-        grid-column: 4;
-        grid-row: 1 / span 2;
+        grid-column: 3;
+        // grid-row: 1 / span 2;
+
+        // &:not(:nth-child(1)) {
+        //   grid-row: 2 / span 2;
+        // }
         // margin-block-end: 0;
       }
     }
@@ -128,6 +152,12 @@ const microcopy = getMicrocopy(locale.code);
       display: grid;
       gap: 2.5rem 1.5rem;
       margin-block: 2.5rem;
+    }
+
+    :global(.extras-section) {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
     }
   }
 </style>

@@ -75,12 +75,17 @@
 
       {#if background}
         <div class="story-hero--background">
-          <img loading="lazy" data-large aria-hidden src={background.large} />
+          <img
+            loading="lazy"
+            data-large
+            aria-hidden
+            src={background.large || background.top}
+          />
           <img
             loading="lazy"
             data-small
             aria-hidden="true"
-            src={background.small}
+            src={background.small || background.bottom}
           />
         </div>
       {/if}
