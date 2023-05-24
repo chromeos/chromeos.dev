@@ -1,6 +1,9 @@
 ---
 import type { Locale } from '$types/content';
 import Wrapper from '$layouts/wrapper.astro';
+import { findRelated } from '$lib/search';
+import Card from '$components/Card.svelte';
+import { getMicrocopy } from '$lib/microcopy';
 
 export interface Props {
   title: string;
@@ -14,10 +17,11 @@ export interface Props {
 }
 
 const { title, props = [], locale, metadesc, section } = Astro.props;
+const related = findRelated(title, locale.code, Astro.url.pathname);
+const microcopy = getMicrocopy(locale.code);
 ---
 
 <Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>
-  <h1>Post Layout</h1>
   <article class="article">
     <aside class="article--subnav">
       <slot name="subnav" />
@@ -26,10 +30,37 @@ const { title, props = [], locale, metadesc, section } = Astro.props;
       <small class="type--eyebrow">{section}</small>
       <h1 class="type--h2">{title}</h1>
     </header>
+    <aside class="article--extras">
+      <slot name="extras" />
+    </aside>
     <section class="article--content type" id="article">
       <slot name="content" />
     </section>
   </article>
+  <aside
+    class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__contained wrapper__background"
+  >
+    <h3 class="article--recommended type--h1">
+      {microcopy.microcopy.recommended}
+    </h3>
+    <div class="article--recommendations">
+      {
+        related.map((item) => (
+          <Card
+            title={item.title}
+            body={item.metadesc}
+            position="end"
+            cta={{
+              text: '',
+              url: item.href,
+              type: 'link',
+              direction: 'forward',
+            }}
+          />
+        ))
+      }
+    </div>
+  </aside>
 </Wrapper>
 
 <style lang="scss">
@@ -64,9 +95,14 @@ const { title, props = [], locale, metadesc, section } = Astro.props;
       }
     }
 
+    &--content {
+      padding-block-end: 2.5rem;
+    }
+
     &--subnav {
       @include mq($bkpt-article--2-cols) {
-        grid-row: 1 / span 2;
+        grid-row: 1 / span 3;
+        margin-block-end: 2.5rem;
       }
     }
 
@@ -76,8 +112,22 @@ const { title, props = [], locale, metadesc, section } = Astro.props;
         padding-inline: 0;
         grid-column: 4;
         grid-row: 1 / span 2;
-        margin-block-end: 0;
+        // margin-block-end: 0;
       }
+    }
+
+    &--recommended {
+      margin-block: 0;
+      margin-inline: auto;
+      max-width: 30ch;
+      text-align: center;
+    }
+
+    &--recommendations {
+      grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+      display: grid;
+      gap: 2.5rem 1.5rem;
+      margin-block: 2.5rem;
     }
   }
 </style>

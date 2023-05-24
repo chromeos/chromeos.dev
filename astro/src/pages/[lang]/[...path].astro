@@ -1,5 +1,5 @@
 ---
-import Article from '$layouts/article.astro';
+import Doc from '$layouts/doc.astro';
 import TOC from '$components/TOC.svelte';
 import SectionNav from '$components/SectionNav.svelte';
 import { renderMarkdown } from '$$markdown';
@@ -48,7 +48,7 @@ const locale = {
 };
 ---
 
-<Article
+<Doc
   title={meta.title}
   locale={locale}
   metadesc={meta.metadesc}
@@ -69,4 +69,4 @@ const locale = {
   <Fragment slot="extras">
     {toc.length > 0 && <TOC toc={toc} client:load />}
   </Fragment>
-</Article>
+</Doc>
