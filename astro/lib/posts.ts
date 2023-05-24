@@ -49,7 +49,7 @@ export function buildPostsFromGlob(posts) {
           body: p.metadesc,
           cta: {
             text: microcopy.microcopy.more,
-            url: p.path,
+            url: `/` + p.path,
             type: 'link',
             direction: 'forward',
           },
