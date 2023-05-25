@@ -66,19 +66,26 @@ const related = findRelated(title, locale.code, Astro.url.pathname);
 
   .article {
     $switch: 890px;
+    --grid: unset;
+    --inline-extras: 1;
+    --inline-subnav: 1;
+
+    @include mq($switch) {
+      --grid: 1fr minmax(50ch, 80ch) minmax(235px, 320px) 1fr;
+      --inline-extras: 0;
+    }
+
+    container-type: inline-size;
 
     $this: &;
     &--wrapper {
       display: grid;
       grid-auto-flow: dense;
+      grid-template-columns: var(--grid);
       margin-top: 2.5rem;
       column-gap: 2.5rem;
-      --inline-extras: 1;
-      --inline-subnav: 1;
 
-      @include mq($switch) {
-        --inline-extras: 0;
-        grid-template-columns: 1fr minmax(50ch, 80ch) minmax(235px, 320px) 1fr;
+      @container (min-width: #{$switch}) {
         grid-template-rows: auto auto 1fr auto;
       }
     }
@@ -86,7 +93,7 @@ const related = findRelated(title, locale.code, Astro.url.pathname);
     &--content,
     &--extras {
       padding-inline: 1.5rem;
-      @include mq($switch) {
+      @container (min-width: #{$switch}) {
         grid-column: 2;
       }
     }
@@ -117,7 +124,7 @@ const related = findRelated(title, locale.code, Astro.url.pathname);
         display: none;
       }
 
-      @include mq($switch) {
+      @container (min-width: #{$switch}) {
         grid-column: 2 / span 2;
       }
     }
@@ -128,7 +135,7 @@ const related = findRelated(title, locale.code, Astro.url.pathname);
       gap: 1rem;
       margin-block-end: 2.5rem;
 
-      @include mq($switch) {
+      @container (min-width: #{$switch}) {
         padding-inline: 0;
         grid-column: 3;
         // grid-row: 1 / span 2;
