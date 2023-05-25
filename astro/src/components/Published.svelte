@@ -3,12 +3,13 @@
   export let locale = 'en-US';
   export let wrapper = 'div';
   export let date = new Date();
+  const d = new Date(date);
 </script>
 
 <svelte:element this={wrapper} class="extras-section">
   <h4 class="type--label">{label}</h4>
-  <time class="type--h6" datetime={date}
-    >{date.toLocaleDateString(locale, {
+  <time class="type--h6" datetime={d}
+    >{d.toLocaleDateString(locale, {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
