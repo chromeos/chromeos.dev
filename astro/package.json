@@ -50,6 +50,7 @@
     "eslint-plugin-n": "^15.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-svelte3": "^4.0.0",
+    "firebase-tools": "^12.2.1",
     "front-matter": "^4.0.2",
     "fs-extra": "^11.1.1",
     "glob": "^9.3.2",
@@ -81,11 +82,11 @@
     "**/*": "prettier --plugin-search-dir=. -c"
   },
   "engines": {
-    "node": ">=18.14.2",
-    "pnpm": ">=8.1.0"
+    "node": ">=18.16.0",
+    "pnpm": ">=8.5.1"
   },
   "volta": {
-    "node": "18.14.2",
-    "pnpm": "8.1.0"
+    "node": "18.16.0",
+    "pnpm": "8.5.1"
   }
 }
