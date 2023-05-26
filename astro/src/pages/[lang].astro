@@ -1,0 +1,29 @@
+---
+import { getMicrocopy, getLanguages } from '$$microcopy';
+import Wrapper from '$layouts/wrapper.astro';
+
+/**
+ * Builds paths for content files
+ * @return {object[]} Paths
+ */
+export function getStaticPaths() {
+  const languages = getLanguages();
+  console.log(languages);
+  return languages.map((l) => ({
+    params: {
+      lang: l.code,
+    },
+    props: {
+      microcopy: getMicrocopy(l.code),
+    },
+  }));
+}
+
+const { microcopy } = Astro.props;
+const { home, locale } = microcopy;
+---
+
+<Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
+  <h1>{home.hero.heading.default}</h1>
+  <p>{locale.code}</p>
+</Wrapper>
