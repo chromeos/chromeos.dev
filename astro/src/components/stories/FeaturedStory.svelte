@@ -118,6 +118,7 @@
       }
 
       @container (min-width: 955px) {
+        @include elevation(0);
         grid-row: 2;
         border-radius: 10px;
         max-width: 500px;
