@@ -1,6 +1,6 @@
 ---
 import Wrapper from '$layouts/wrapper.astro';
-import StoryHero from '$components/StoryHero.svelte';
+import PostHero from '$components/PostHero.svelte';
 import Card from '$components/Card.svelte';
 import Pagination from '$components/Pagination.svelte';
 
@@ -18,7 +18,7 @@ const { locale } = microcopy;
 
 <Wrapper locale={locale} metadesc="" title={microcopy.news.posts.title}>
   <div class="news">
-    <StoryHero
+    <PostHero
       title={featured.data.title}
       body={featured.data.metadesc}
       cta={featured.cta}

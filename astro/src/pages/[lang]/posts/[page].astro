@@ -5,7 +5,7 @@ import TOC from '$components/TOC.svelte';
 import Published from '$components/Published.svelte';
 import Authors from '$components/Authors.svelte';
 import YouTube from '$components/YouTube.svelte';
-import StoryHero from '$components/StoryHero.svelte';
+import PostHero from '$components/PostHero.svelte';
 import { renderMarkdown } from '$$markdown';
 import { metaFromFile } from '$$data';
 import { getMicrocopy } from '$$microcopy';
@@ -61,7 +61,7 @@ if (meta.hero) {
 
 <Article title={meta.title} metadesc={meta.metadesc} microcopy={microcopy}>
   <Fragment slot="header">
-    <StoryHero
+    <PostHero
       title={meta.title}
       section={meta.tags[0]}
       theme={theme as Theme}
