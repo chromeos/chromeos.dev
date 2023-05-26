@@ -8,7 +8,6 @@ import Wrapper from '$layouts/wrapper.astro';
  */
 export function getStaticPaths() {
   const languages = getLanguages();
-  console.log(languages);
   return languages.map((l) => ({
     params: {
       lang: l.code,

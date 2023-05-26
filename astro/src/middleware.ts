@@ -10,7 +10,7 @@ import { sequence } from 'astro/middleware';
 import { extname } from 'path';
 
 /**
- *
+ * Postproceses HTML responses
  * @param {APIContext} context Request context
  * @param {MiddlewareNext} next = Response object
  * @return {Response | MiddlewareNextResponse}
@@ -36,4 +36,31 @@ const postprocess: MiddlewareResponseHandler = async (
   return next();
 };
 
-export const onRequest = sequence(postprocess);
+/**
+ * Redirects responses
+ * @param {APIContext} context Request context
+ * @param {MiddlewareNext} next = Response object
+ * @return {Response | MiddlewareNextResponse}
+ */
+const redirect: MiddlewareResponseHandler = async (
+  { request }: APIContext,
+  next: MiddlewareNextResponse,
+) => {
+  const url = new URL(request.url);
+  const { pathname } = url;
+  // Homepage redirect
+  if (pathname === '/') {
+    url.pathname = '/en';
+    return Response.redirect(url, 301);
+  }
+  // News pagination redirect
+  const newsRegex = /^\/(\w{2})\/news\/1$/;
+  if (newsRegex.test(pathname)) {
+    const [, lang] = newsRegex.exec(pathname);
+    url.pathname = `/${lang}/news`;
+    return Response.redirect(url, 301);
+  }
+  return next();
+};
+
+export const onRequest = sequence(redirect, postprocess);

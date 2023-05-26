@@ -1,0 +1,21 @@
+---
+import { getLanguages } from '$$microcopy';
+
+/**
+ * Builds paths for news pagination
+ */
+export async function getStaticPaths() {
+  const languages = getLanguages();
+  return languages.map((l) => ({
+    params: {
+      lang: l.code,
+    },
+  }));
+}
+
+const { lang } = Astro.params;
+const url = `/${lang}/news`;
+const content = `0; url='${url}'`;
+---
+
+<meta http-equiv="Refresh" content={content} />
