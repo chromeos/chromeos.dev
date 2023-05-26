@@ -6,3 +6,7 @@ site/js/_data
 .npmrc
 dist
 .astro
+.firebase/
+.firebaserc
+.gitignore
+.prettierignore

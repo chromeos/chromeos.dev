@@ -3,6 +3,7 @@ import * as url from 'url';
 
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
+import nodejs from '@astrojs/node';
 
 // https://astro.build/config
 import mdx from '@astrojs/mdx';
@@ -41,10 +42,15 @@ aliases.push({
 // https://astro.build/config
 export default defineConfig({
   site: 'https://chromeos.dev',
+  output: 'hybrid',
+  adapter: nodejs({
+    mode: 'middleware',
+  }),
   integrations: [svelte(), mdx()],
   compressHTML: true,
   experimental: {
     middleware: true,
+    hybridOutput: true,
   },
   vite: {
     resolve: {

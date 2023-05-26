@@ -9,3 +9,7 @@ site/js/_data
 pnpm-lock.yaml
 dist
 .astro
+.firebase/
+.eslintignore
+.firebaserc
+.gitignore

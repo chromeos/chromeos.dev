@@ -18,10 +18,12 @@
     "prettier:lint": "prettier --plugin-search-dir=. -c .",
     "prettier:fix": "prettier --plugin-search-dir=. --write .",
     "css:lint": "stylelint \"**/*.{css,scss,astro}\"",
-    "css:fix": "stylelint --fix \"**/*.{css,scss,astro}\""
+    "css:fix": "stylelint --fix \"**/*.{css,scss,astro}\"",
+    "firebase": "firebase"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.0",
+    "@astrojs/node": "^5.1.4",
     "@astrojs/sitemap": "^1.3.0",
     "@astrojs/svelte": "^2.2.0",
     "@portabletext/svelte": "^1.0.1",
@@ -50,7 +52,7 @@
     "eslint-plugin-n": "^15.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-svelte3": "^4.0.0",
-    "firebase-tools": "^12.2.1",
+    "firebase-tools": "github:firebase/firebase-tools#jamesdaniels_astroHybridSupport",
     "front-matter": "^4.0.2",
     "fs-extra": "^11.1.1",
     "glob": "^9.3.2",
@@ -79,7 +81,7 @@
   "lint-staged": {
     "**/*.{svelte,astro}": "stylelint",
     "**/*.{js,mjs,cjs,ts,astro,svelte}": "eslint -c .eslintrc.yml",
-    "**/*": "prettier --plugin-search-dir=. -c"
+    "**/*.*": "prettier --plugin-search-dir=. -c"
   },
   "engines": {
     "node": ">=18.16.0",
