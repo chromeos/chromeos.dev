@@ -26,6 +26,50 @@ Any code editor or IDE that will run on Linux will run on Chrome OS. [Linux on C
 
 No matter if your stack is JAM or LAMP or if you’re a Python or a Gopher, if it’ll run on Linux, you can run it on Chrome OS. When installing languages and tools, we recommend using language version managers to both simplify the install and upgrade process and allow you to swap between multiple versions of the language for each project you work on. [RVM](https://rvm.io/), the Ruby version manager, is one of the oldest and best examples of a language version manager, allowing you to manage both Ruby and dependencies (called gems) for multiple versions of Ruby. Most other languages have similar version managers. This site, built on Node.js, supports [Volta](https://volta.sh/) and [NVM](http://nvm.sh/) for Node version management. If you prefer your language and tool management via Docker you can do that, too.
 
+## Installing "React" and "create-react-app"
+
+[React](https://react.dev/) is one of the most popular JS frameworks for web development. [create-react-app](https://create-react-app.dev/) is a popular package that does the heavy lifting in setting up a starter React project. This package requires “npx” which in turn requires “npm” and “nodejs” installed in the environment. We suggest using [NVM](https://github.com/nvm-sh/nvm#installing-and-updating) inside the Debian container to install these dependencies.
+
+1. **Install nvm:**
+
+   - Visit the nvm repository on GitHub: [nvm-sh/nvm](https://github.com/nvm-sh/nvm)
+   - Follow the [installation instructions](https://github.com/nvm-sh/nvm#installing-and-updating) for your operating system.
+   - After installation, close and reopen your terminal or command prompt.
+
+2. **Install Node.js:**
+
+   - Open your terminal or command prompt.
+   - Install the latest version of Node.js using nvm by running the following command:
+     ```
+     nvm install node
+     ```
+   - This command installs the latest LTS (Long Term Support) version of Node.js.
+
+3. **Verify Node.js installation:**
+
+   - To verify that Node.js is installed correctly, run the following command:
+     ```
+     node -v
+     ```
+   - You should see the version number of Node.js printed in the terminal.
+
+4. **Install Create React App:**
+
+   - Once you have Node.js installed, you can use npm (Node Package Manager) to install Create React App.
+   - Open your terminal or command prompt.
+   - Run the following command to install Create React App globally:
+     ```
+     npm install -g create-react-app
+     ```
+   - This command installs Create React App globally on your system.
+
+5. **Verify Create React App installation:**
+   - To verify that Create React App is installed correctly, run the following command:
+     ```
+     create-react-app --version
+     ```
+   - You should see the version number of Create React App printed in the terminal.
+
 ## Localhost tunneling and port forwarding
 
 While Linux for Chrome OS is running inside a VM, servers running in the Linux environment are automatically forwarded to the main Chrome browser. This means that that you can use all of the [Chrome tools you love](#the-chrome-you-love) to develop your web apps and not have to worry about figuring out how to test what you’re building. Sometimes, though, you want to share a port off of your computer to other devices on the same network. When you need to do that, read how to [set up port-forwarding](/{{locale.code}}/web-environment/port-forwarding).
