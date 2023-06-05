@@ -4,6 +4,10 @@
   "placeholder": "Search",
   "error": "There is an error with search, try again later",
   "results": "((d)) results for ((t))",
+  "toggle": {
+    "open": "Open search box",
+    "close": "Close search box"
+  },
   "offline": {
     "enable": "Enable offline search",
     "warning": "This will download a large amount of data",
