@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   export let base = '';
   export let current = 0;
   export let total = 1;
@@ -11,6 +11,7 @@
     last: 'Last',
     current: 'Current',
   };
+  export let pager: 'page' | 'query' = 'page';
 
   const pages = [];
   const formatter = new Intl.NumberFormat(locale, {
@@ -20,17 +21,19 @@
   const c = Number(current);
   const t = Number(total);
 
+  const s = pager === 'page' ? '/' : '';
+
   if (c !== 0) {
     pages.push(
       {
         label: labels.first,
         text: '«',
-        url: `${base}`,
+        url: `${base}${pager === 'query' ? 1 : ''}`,
       },
       {
         label: labels.prev,
         text: '‹',
-        url: `${base}${c - 1 > 0 ? '/' + (c - 1) : ''}`,
+        url: `${base}${c - 1 > 0 ? s + (c - 1) : pager === 'query' ? 1 : ''}`,
       },
     );
   }
@@ -38,7 +41,7 @@
   for (let i = 0; i < t; i++) {
     pages.push({
       text: formatter.format(i + 1),
-      url: `${base}${i > 0 ? '/' + (i + 1) : ''}`,
+      url: `${base}${i > 0 ? s + (i + 1) : pager === 'query' ? 1 : ''}`,
       current: i + 1 === c || (c === 0 && i === 0),
     });
   }
@@ -48,12 +51,12 @@
       {
         label: labels.next,
         text: '›',
-        url: `${base}/${c + 1}`,
+        url: `${base}${s}${c + 1}`,
       },
       {
         label: labels.last,
         text: '»',
-        url: `${base}/${t}`,
+        url: `${base}${s}${t}`,
       },
     );
   }
