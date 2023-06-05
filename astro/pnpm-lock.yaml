@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 dependencies:
   '@astrojs/mdx':
@@ -88,8 +92,8 @@ devDependencies:
     specifier: ^4.0.0
     version: 4.0.0(eslint@8.31.0)(svelte@3.59.1)
   firebase-tools:
-    specifier: github:firebase/firebase-tools#jamesdaniels_astroHybridSupport
-    version: github.com/firebase/firebase-tools/3f5dca9f4991e6c35aba9b9e8527d2ec09a905dc
+    specifier: ^12.3.0
+    version: 12.3.0
   front-matter:
     specifier: ^4.0.2
     version: 4.0.2
@@ -5237,6 +5241,79 @@ packages:
       micromatch: 4.0.5
       pkg-dir: 4.2.0
     dev: false
+
+  /firebase-tools@12.3.0:
+    resolution: {integrity: sha512-Z6Pl3Vp1wMKEroqCvT8Fm9UDXhWK+Bdq5zQjfTngTBqLL2FlL0/C4aG+D69aCLg5Q9Xyq8mc2pWnaEge40GqFw==}
+    engines: {node: '>=16.13.0 || >=18.0.0'}
+    hasBin: true
+    dependencies:
+      '@google-cloud/pubsub': 3.6.0
+      abort-controller: 3.0.0
+      ajv: 6.12.6
+      archiver: 5.3.1
+      async-lock: 1.3.2
+      body-parser: 1.20.2
+      chokidar: 3.5.3
+      cjson: 0.3.3
+      cli-table: 0.3.11
+      colorette: 2.0.19
+      commander: 4.1.1
+      configstore: 5.0.1
+      cors: 2.8.5
+      cross-env: 5.2.1
+      cross-spawn: 7.0.3
+      csv-parse: 5.3.10
+      exegesis: 4.1.1
+      exegesis-express: 4.0.0
+      express: 4.18.2
+      filesize: 6.4.0
+      form-data: 4.0.0
+      fs-extra: 10.1.0
+      glob: 7.2.3
+      google-auth-library: 7.14.1
+      inquirer: 8.2.5
+      js-yaml: 3.14.1
+      jsonwebtoken: 9.0.0
+      leven: 3.1.0
+      libsodium-wrappers: 0.7.11
+      lodash: 4.17.21
+      marked: 4.3.0
+      marked-terminal: 5.2.0(marked@4.3.0)
+      mime: 2.6.0
+      minimatch: 3.1.2
+      morgan: 1.10.0
+      node-fetch: 2.6.11
+      open: 6.4.0
+      ora: 5.4.1
+      p-limit: 3.1.0
+      portfinder: 1.0.32
+      progress: 2.0.3
+      proxy-agent: 5.0.0
+      request: 2.88.2
+      retry: 0.13.1
+      rimraf: 3.0.2
+      semver: 5.7.1
+      stream-chain: 2.2.5
+      stream-json: 1.7.5
+      strip-ansi: 6.0.1
+      superstatic: 9.0.3
+      tar: 6.1.15
+      tcp-port-used: 1.0.2
+      tmp: 0.2.1
+      triple-beam: 1.3.0
+      universal-analytics: 0.5.3
+      update-notifier-cjs: 5.1.6
+      uuid: 8.3.2
+      winston: 3.8.2
+      winston-transport: 4.5.0
+      ws: 7.5.9
+    transitivePeerDependencies:
+      - bluebird
+      - bufferutil
+      - encoding
+      - supports-color
+      - utf-8-validate
+    dev: true
 
   /flat-cache@3.0.4:
     resolution: {integrity: sha512-dm9s5Pw7Jc0GvMYbshN6zchCA9RgQlzzEZX3vylR9IqFfS8XciblUXOKfW6SiuJ0e13eDYZoZV5wdrev7P3Nwg==}
@@ -11701,80 +11778,3 @@ packages:
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
     dev: false
-
-  github.com/firebase/firebase-tools/3f5dca9f4991e6c35aba9b9e8527d2ec09a905dc:
-    resolution: {tarball: https://codeload.github.com/firebase/firebase-tools/tar.gz/3f5dca9f4991e6c35aba9b9e8527d2ec09a905dc}
-    name: firebase-tools
-    version: 12.2.1
-    engines: {node: '>=16.13.0 || >=18.0.0'}
-    hasBin: true
-    prepare: true
-    requiresBuild: true
-    dependencies:
-      '@google-cloud/pubsub': 3.6.0
-      abort-controller: 3.0.0
-      ajv: 6.12.6
-      archiver: 5.3.1
-      async-lock: 1.3.2
-      body-parser: 1.20.2
-      chokidar: 3.5.3
-      cjson: 0.3.3
-      cli-table: 0.3.11
-      colorette: 2.0.19
-      commander: 4.1.1
-      configstore: 5.0.1
-      cors: 2.8.5
-      cross-env: 5.2.1
-      cross-spawn: 7.0.3
-      csv-parse: 5.3.10
-      exegesis: 4.1.1
-      exegesis-express: 4.0.0
-      express: 4.18.2
-      filesize: 6.4.0
-      form-data: 4.0.0
-      fs-extra: 10.1.0
-      glob: 7.2.3
-      google-auth-library: 7.14.1
-      inquirer: 8.2.5
-      js-yaml: 3.14.1
-      jsonwebtoken: 9.0.0
-      leven: 3.1.0
-      libsodium-wrappers: 0.7.11
-      lodash: 4.17.21
-      marked: 4.3.0
-      marked-terminal: 5.2.0(marked@4.3.0)
-      mime: 2.6.0
-      minimatch: 3.1.2
-      morgan: 1.10.0
-      node-fetch: 2.6.11
-      open: 6.4.0
-      ora: 5.4.1
-      p-limit: 3.1.0
-      portfinder: 1.0.32
-      progress: 2.0.3
-      proxy-agent: 5.0.0
-      request: 2.88.2
-      retry: 0.13.1
-      rimraf: 3.0.2
-      semver: 5.7.1
-      stream-chain: 2.2.5
-      stream-json: 1.7.5
-      strip-ansi: 6.0.1
-      superstatic: 9.0.3
-      tar: 6.1.15
-      tcp-port-used: 1.0.2
-      tmp: 0.2.1
-      triple-beam: 1.3.0
-      universal-analytics: 0.5.3
-      update-notifier-cjs: 5.1.6
-      uuid: 8.3.2
-      winston: 3.8.2
-      winston-transport: 4.5.0
-      ws: 7.5.9
-    transitivePeerDependencies:
-      - bluebird
-      - bufferutil
-      - encoding
-      - supports-color
-      - utf-8-validate
-    dev: true
