@@ -7,7 +7,7 @@
   export let title: string;
   export let body: string;
   export let eyebrow: Eyebrow | false = false;
-  export let position: 'start' | 'end' = 'start';
+  export let position: 'start' | 'end' | 'inline' = 'start';
   export let cta: CTA = {
     type: 'link',
     direction: 'forward',
@@ -22,7 +22,11 @@
 </script>
 
 <a href={cta.url} aria-labelledby="{id} {id}-body" class="card type--base">
-  <article class="card--container">
+  <article
+    class="card--container {position === 'inline'
+      ? 'card--container__inline'
+      : ''}"
+  >
     <header class="card--header">
       {#if eyebrow}
         <EyebrowC {eyebrow} size="small" />
@@ -46,6 +50,7 @@
 
     &--container {
       @include elevation(0);
+      --block-padding: 1.5rem;
       background-color: var(--white);
       border-radius: var(--border-radius);
       display: flex;
@@ -60,23 +65,41 @@
       &:hover {
         @include elevation(2);
       }
+
+      &__inline {
+        --block-padding: 0;
+        display: grid;
+        grid-template-columns: auto 2rem;
+        column-gap: 0.5rem;
+        row-gap: 0.5rem;
+      }
     }
 
     &--title {
       color: var(--grey-850);
       margin-block-end: 0.5rem;
-      margin-block-start: 1.5rem;
+      margin-block-start: var(--block-padding);
+      grid-column: 1;
+      grid-row: 1;
     }
 
     &--body {
       color: var(--grey-750);
-      margin-block-end: 1.5rem;
+      margin-block-end: var(--block-padding);
+      grid-column: 1;
+      grid-row: 2;
     }
 
     &--footer {
       align-items: center;
       display: flex;
       margin-block-start: auto;
+      grid-column: 2;
+      grid-row: 1 / span 2;
+
+      #{$self}--container__inline & {
+        height: 100%;
+      }
 
       &__end,
       &__start {
