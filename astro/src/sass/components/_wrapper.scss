@@ -52,6 +52,10 @@
     }
   }
 
+  &--full-height {
+    height: 100%;
+  }
+
   &--full-top {
     margin-top: $wrapper-block-spacing-m;
 

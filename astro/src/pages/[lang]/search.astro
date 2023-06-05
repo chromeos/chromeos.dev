@@ -1,0 +1,149 @@
+---
+import { getMicrocopy, getLanguages } from '$$microcopy';
+import { search } from '$lib/search';
+import Wrapper from '$layouts/wrapper.astro';
+import Card from '$components/Card.svelte';
+import Pagination from '$components/Pagination.svelte';
+
+export const prerender = false;
+
+const { lang } = Astro.params;
+const languages = getLanguages();
+
+if (!languages.map((l) => l.code).includes(lang)) {
+  return Astro.redirect('/');
+}
+
+const {
+  q,
+  locale: l,
+  page: p = 1,
+} = Object.fromEntries(Astro.url.searchParams.entries());
+
+const microcopy = getMicrocopy(lang);
+const { search: s, locale, microcopy: m } = microcopy;
+const found = q ? search(q, l || locale.code) : [];
+
+let results = found;
+const pages = Math.ceil(found.length / 10);
+// console.log(found.length)
+if (found.length > 10) {
+  const count = Number(p - 1) * 10;
+  results = found.slice(count, count + 10);
+}
+---
+
+<Wrapper locale={locale} metadesc="" title={s.title}>
+  <div class="wrapper wrapper--padded wrapper--padding wrapper--full-height">
+    <div class="search-wrapper">
+      <!-- If there's a search term, display results length -->
+      {
+        q && (
+          <p class="type--h2">
+            {s.results
+              .replace('((d))', found.length)
+              .replace('((t))', '"' + q + '"')}
+          </p>
+        )
+      }
+      <form class="search" action={`/${locale.code}/search`}>
+        <input
+          class="search--input"
+          type="search"
+          name="q"
+          aria-label={s.placeholder}
+          placeholder={s.placeholder}
+        />
+        <input type="hidden" name="locale" value={locale.code} />
+        <input type="hidden" name="page" value="1" />
+        <button aria-label={s.placeholder} class="search--button">
+          <svg role="img" aria-hidden="true" class="icon">
+            <use href="/images/icons/sprite.svg#search"></use>
+          </svg>
+        </button>
+      </form>
+
+      <!-- If there are results, display them -->
+      {
+        results.length > 0 && (
+          <ol class="results">
+            {results.map((item) => (
+              <li class="results--item">
+                <Card
+                  title={item.title}
+                  body={item.metadesc}
+                  position="inline"
+                  cta={{
+                    text: '',
+                    url: item.href,
+                    type: 'link',
+                    direction: 'forward',
+                  }}
+                />
+              </li>
+            ))}
+          </ol>
+        )
+      }
+      {
+        pages && pages > 1 && (
+          <Pagination
+            base={`/${locale.code}/search?q=${q}&locale=${locale.code}&page=`}
+            current={p}
+            total={pages}
+            locale={locale.code}
+            labels={m.pagination}
+            pager="query"
+          />
+        )
+      }
+    </div>
+  </div>
+</Wrapper>
+
+<style lang="scss">
+  .wrapper {
+    background-color: var(--grey-100);
+  }
+
+  .search-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 80ch;
+    margin-inline: auto;
+  }
+
+  .results {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .search {
+    display: grid;
+    grid-template-columns: 1.5rem auto;
+    grid-auto-flow: dense;
+    gap: 0.5rem;
+    background: var(--white);
+    padding: 0.5rem;
+    width: 100%;
+    // max-width: 50ch;
+
+    &--input {
+      grid-column: 2;
+      background: none;
+      border: 0;
+    }
+
+    &--button {
+      padding: 0;
+      border: 0;
+      background: none;
+    }
+  }
+</style>
