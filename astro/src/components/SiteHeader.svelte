@@ -1,11 +1,18 @@
 <script>
   import Logo from '$components/site-header/Logo.svelte';
   import NavItem from '$components/site-header/NavItem.svelte';
+  import Search from '$components/Search.svelte';
   import { setContext } from 'svelte';
   import { writable } from 'svelte/store';
 
   export let lang;
   export let nav;
+
+  let popover;
+  let first;
+  let last;
+  let searchIcon;
+  let searchActive = null;
 
   const subscribe = {
     text: 'Subscribe',
@@ -17,10 +24,59 @@
 
   setContext('lang', lang);
   setContext('active', active);
+
+  /**
+   * Capture tab keypresses and loop focus
+   * @param {Event} e - keydown event
+   */
+  function tabcapture(e) {
+    const { code, target, shiftKey } = e;
+
+    if (code === 'Tab') {
+      if (target.isEqualNode(first) && shiftKey) {
+        e.preventDefault();
+        last.focus();
+      }
+
+      if (target.isEqualNode(last) && !shiftKey) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+
+  /**
+   * Toggle search input visibility
+   */
+  function toggleSearch() {
+    if (searchIcon.href.baseVal.endsWith('#search')) {
+      searchIcon.href.baseVal = '/images/icons/sprite.svg#close';
+      searchActive = true;
+    } else {
+      searchIcon.href.baseVal = '/images/icons/sprite.svg#search';
+      searchActive = null;
+    }
+  }
 </script>
 
-<header class="header">
+<header class="header" data-active-search={searchActive}>
+  <!-- Small screen menu toggle -->
+  <button
+    class="header--menu"
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-label="Menu"
+    on:click={() => popover.showModal()}
+  >
+    <svg role="img" aria-hidden="true" class="icon header__menu-icon">
+      <use href="/images/icons/sprite.svg#menu" />
+    </svg>
+  </button>
+
+  <!-- Logo -->
   <a href="/{lang}" class="header--home"><Logo /></a>
+
+  <!-- Navigation -->
   <nav class="header--nav">
     <ul class="header--nav-items">
       {#if nav}
@@ -32,17 +88,60 @@
       {/if}
     </ul>
   </nav>
-  <button>
-    <svg role="img" aria-hidden="true" class="icon">
-      <use href="/images/icons/sprite.svg#search" />
-    </svg>
-  </button>
+
+  <!-- Search Field -->
+  <div class="header--search">
+    <button class="header--search-toggle" on:click={toggleSearch}>
+      <svg role="img" aria-hidden="true" class="icon">
+        <use bind:this={searchIcon} href="/images/icons/sprite.svg#search" />
+      </svg>
+    </button>
+    <Search label="Search" locale={{ code: lang }} />
+  </div>
+
+  <!-- Subscribe link -->
   <a href={subscribe.url} class="cta cta--high header--subscribe"
     >{subscribe.text}</a
   >
 </header>
 
+<!-- Menu Popup -->
+<dialog bind:this={popover} class="popover" on:keydown={tabcapture}>
+  <div class="popover--home">
+    <a bind:this={first} href="/{lang}"><Logo /></a>
+    <button
+      class="popover--close"
+      aria-label="close"
+      on:click={popover.close()}
+    >
+      <svg role="img" aria-hidden="true" class="icon">
+        <use href="/images/icons/sprite.svg#close" />
+      </svg>
+    </button>
+  </div>
+
+  <nav>
+    <ul class="popover--nav">
+      {#if nav}
+        {#each nav as item}
+          <li class="popover--nav-item">
+            <NavItem {item} />
+          </li>
+        {/each}
+      {/if}
+    </ul>
+  </nav>
+
+  <a
+    bind:this={last}
+    href={subscribe.url}
+    class="cta cta--high popover--subscribe">{subscribe.text}</a
+  >
+</dialog>
+
 <style lang="scss">
+  @import '$sass/shared';
+
   .header {
     position: fixed;
     top: 0;
@@ -55,12 +154,46 @@
 
     padding-inline: 1.25rem;
 
-    padding-inline-end: 0;
-
     display: grid;
     gap: 1rem;
-    grid-template-columns: 185px auto min-content 156px;
+
     align-items: center;
+
+    grid-template-columns: 2rem 185px auto;
+
+    @container style(--inline-header: 1) {
+      grid-template-columns: 185px auto min-content 156px;
+      padding-inline-end: 0;
+    }
+
+    &--subscribe,
+    &--nav {
+      display: none;
+
+      @container style(--inline-header: 1) {
+        display: block;
+      }
+    }
+
+    &--menu,
+    &--search-toggle {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    &--menu {
+      @container style(--inline-header: 1) {
+        display: none;
+      }
+    }
+
+    &--nav {
+      [data-active-search] & {
+        display: none;
+      }
+    }
 
     &--nav-items {
       display: flex;
@@ -73,6 +206,110 @@
 
     &--subscribe {
       height: 100%;
+      border-radius: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      @container style(--inline-header: 1) {
+        display: flex;
+      }
+    }
+
+    &--search {
+      display: flex;
+      flex-direction: row-reverse;
+      width: 100%;
+
+      :global(.search) {
+        display: none;
+        background-color: var(--grey-100);
+        padding-right: 2rem;
+        width: 100%;
+      }
+
+      [data-active-search] & {
+        :global(.search) {
+          display: grid;
+        }
+
+        @container style(--inline-header: 1) {
+          grid-column: 2 / span 2;
+        }
+      }
+    }
+
+    &--search-toggle {
+      width: 2rem;
+      margin-inline-start: auto;
+      padding-inline-end: 0.25rem;
+
+      [data-active-search] & {
+        background-color: var(--grey-100);
+      }
+    }
+  }
+
+  .popover {
+    width: 100%;
+    max-width: 40ch;
+    height: 100%;
+    max-height: unset;
+    border: none;
+    margin-inline: 0;
+    padding: 0;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+
+    &:initial {
+      transform: translateX(-100%);
+    }
+
+    &[open] {
+      display: grid;
+      grid-template-rows: var(--header-height) auto var(--header-height);
+    }
+
+    &::backdrop {
+      background: rgba(map-get($google-colors, 'grey-900'), 0.9);
+      backdrop-filter: blur(5px);
+      // opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+
+      &:initial {
+        opacity: 0;
+      }
+    }
+
+    &--home {
+      display: grid;
+      grid-template-columns: 185px auto 2rem;
+      padding-inline: 1.25rem;
+      border-bottom: 1px solid var(--grey-500);
+      height: var(--header-height);
+      align-items: center;
+    }
+
+    &--nav {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      margin-block-start: 0.375rem;
+    }
+
+    &--close {
+      grid-column: 3;
+      padding: 0;
+      border: 0;
+      background: 0;
+      cursor: pointer;
+    }
+
+    &--subscribe {
+      width: 100%;
+      grid-row: 3;
       border-radius: 0;
     }
   }
