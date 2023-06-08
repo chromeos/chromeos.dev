@@ -11,6 +11,14 @@ body {
   --header-offset: calc(var(--header-height) + var(--header-spacing));
   display: flex;
   flex-direction: column;
+
+  @each $code, $size in $bkpt-lang-headers {
+    @media (min-width: $size) {
+      [lang='#{$code}'] & {
+        --inline-header: 1;
+      }
+    }
+  }
 }
 
 .main {
