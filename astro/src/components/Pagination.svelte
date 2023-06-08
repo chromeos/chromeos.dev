@@ -23,7 +23,7 @@
 
   const s = pager === 'page' ? '/' : '';
 
-  if (c !== 0) {
+  if ((c !== 0 && pager === 'page') || (c !== 1 && pager === 'query')) {
     pages.push(
       {
         label: labels.first,

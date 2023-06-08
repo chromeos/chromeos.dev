@@ -72,7 +72,7 @@ if (found.length > 10) {
         )
       }
       {
-        pages && pages > 1 && (
+        Number(pages) > 1 && (
           <Pagination
             base={`/${locale.code}/search?q=${q}&locale=${locale.code}&page=`}
             current={p}
