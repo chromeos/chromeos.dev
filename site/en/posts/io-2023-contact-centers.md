@@ -68,7 +68,7 @@ In communications and contact center environments, the primary WebHID use case i
 
 The benefits of WebHID are:
 
-- **No more siloed, proprietary SDK integrations:** By leveraging the new Chromium WebHID standard within communications and contact center applications, providers can easily integrate their WebHID call control into any compliant headsets.
+- **No more siloed, proprietary SDK integrations:** By leveraging the new WebHID API within communications and contact center applications, providers can easily integrate their WebHID call control into any compliant headsets.
 - **Supported across all major operating systems:** WebHID headset controls have been validated with Chrome Browser across ChromeOS, Windows, Mac, and Linux operating systems.
 - **Supported across all Chromium-based browsers:** WebHID is also available for any Chromium-based browser.
 
