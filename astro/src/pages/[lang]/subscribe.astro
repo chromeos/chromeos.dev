@@ -1,0 +1,171 @@
+---
+import countries from 'i18n-iso-countries';
+import { getMicrocopy, getLanguages } from '$$microcopy';
+import Wrapper from '$layouts/wrapper.astro';
+import Input from '$components/Input.svelte';
+import { renderMarkdown } from '$lib/markdown';
+
+/**
+ * Builds paths for content files
+ * @return {object[]} Paths
+ */
+export function getStaticPaths() {
+  const languages = getLanguages();
+  return languages.map((l) => ({
+    params: {
+      lang: l.code,
+    },
+    props: {
+      microcopy: getMicrocopy(l.code),
+    },
+  }));
+}
+
+const { microcopy } = Astro.props;
+const { locale, newsletter } = microcopy;
+const fields = newsletter.fields.map((f) => {
+  const field = {
+    type: f.type,
+    required: f.required,
+    label: f.label,
+    name: f.name,
+  };
+
+  const text = {};
+
+  if (f.required) {
+    text.required = newsletter.content.required;
+  }
+  if (f.error) {
+    text.error = f.error;
+  }
+
+  if (Object.keys(text).length) {
+    field.text = text;
+  }
+
+  if (f.options) {
+    field.options = f.options;
+  }
+
+  if (f.value) {
+    field.value = f.value;
+  }
+
+  if (f.type === 'country') {
+    field.options = Object.entries(countries.getNames(locale.code)).map(
+      ([code, name]) => ({ value: code, text: name }),
+    );
+    field.type = 'select';
+  }
+
+  return field;
+});
+
+const generic = ['submit', 'button', 'radio'];
+const full = ['EmailAddress'];
+const { content: disclaimer } = await renderMarkdown(
+  newsletter.content.disclaimer,
+);
+---
+
+<Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
+  <article
+    class="wrapper wrapper--full-bleed wrapper--padded wrapper--padding wrapper--full-circles"
+  >
+    <div class="subscribe">
+      <h2 class="subscribe--title type--h2">{newsletter.content.title}</h2>
+      <p class="subscribe--copy">{newsletter.content.copy}</p>
+      {
+        newsletter.messages.map((message) => (
+          <p
+            class={`message message--${message.type} subscribe--message subscribe--message__${message.type}`}
+          >
+            {message.text}
+          </p>
+        ))
+      }
+      <form
+        class="subscribe--form"
+        action={newsletter.settings.endpoint}
+        id={newsletter.settings.name}
+        method="post"
+        enctype="multipart/form-content"
+        novalidate
+      >
+        {
+          fields.map((field) => {
+            if (!generic.includes(field.type)) {
+              return <Input input={field} full={full.includes(field.name)} />;
+            }
+          })
+        }
+
+        <div
+          class="subscribe--disclaimer type type--small"
+          set:html={disclaimer}
+        />
+        <button class="subscribe--submit cta cta--high" type="submit"
+          >{newsletter.subscribe.cta.text}</button
+        >
+      </form>
+    </div>
+  </article>
+</Wrapper>
+
+<style lang="scss">
+  .subscribe {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 75ch;
+    margin-inline: auto;
+
+    .message {
+      display: none;
+    }
+
+    &--title,
+    &--copy {
+      text-align: center;
+    }
+
+    &--copy {
+      font-size: 1.125rem;
+    }
+
+    &--form {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 25ch), 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    &--disclaimer {
+      grid-column: 1 / -1;
+    }
+
+    &--submit {
+      max-width: min-content;
+
+      &[disabled] {
+        opacity: 0.5;
+      }
+    }
+  }
+</style>
+
+<script>
+  // Paint the circles
+  import '$js/paint.js';
+
+  // Manage the form
+  import { Form } from '$js/form.ts';
+
+  new Form(
+    '.subscribe--form',
+    '.message--warning',
+    '.message--tip',
+    '.message--note',
+  );
+</script>
