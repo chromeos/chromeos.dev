@@ -8,7 +8,13 @@ registerPaint(
      * @return {string[]}
      */
     static get inputProperties() {
-      return ['--shape', '--shape-color', '--shape-size', '--shape-rotation', '--shape-offset'];
+      return [
+        '--shape',
+        '--shape-color',
+        '--shape-size',
+        '--shape-rotation',
+        '--shape-offset',
+      ];
     }
 
     /**
@@ -18,7 +24,8 @@ registerPaint(
      * @return {number}
      */
     determineChange(from, value) {
-      if (typeof value === 'string' && value.endsWith('%')) return from * this.normalizeUnits(value);
+      if (typeof value === 'string' && value.endsWith('%'))
+        return from * this.normalizeUnits(value);
       return this.normalizeUnits(value);
     }
 
@@ -115,7 +122,13 @@ registerPaint(
         if (shape === 'circle') {
           const size = Math.min(sizeX, sizeY);
           ctx.beginPath();
-          ctx.arc(offsetX + size / 2, offsetY + size / 2, size / 2, 0, 2 * Math.PI);
+          ctx.arc(
+            offsetX + size / 2,
+            offsetY + size / 2,
+            size / 2,
+            0,
+            2 * Math.PI,
+          );
           ctx.fillStyle = color;
           ctx.fill();
           ctx.closePath();

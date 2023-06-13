@@ -8,7 +8,14 @@ registerPaint(
      * @return {string[]}
      */
     static get inputProperties() {
-      return ['--shape-color', '--circle-type', '--circle-radius', '--circle-offset', '--parallax-top', 'border-image-outset'];
+      return [
+        '--shape-color',
+        '--circle-type',
+        '--circle-radius',
+        '--circle-offset',
+        '--parallax-top',
+        'border-image-outset',
+      ];
     }
 
     /**
@@ -35,7 +42,10 @@ registerPaint(
 
       if (type === 'full-circles') {
         const colors = color.split(',');
-        const rs = [size.width * 0.21 > 300 ? 300 : size.width * 0.21, size.width * 0.5625 > 810 ? 810 : size.width * 0.5625];
+        const rs = [
+          size.width * 0.21 > 300 ? 300 : size.width * 0.21,
+          size.width * 0.5625 > 810 ? 810 : size.width * 0.5625,
+        ];
 
         rs[0] = rs[0] / 2;
         rs[1] = rs[1] / 2;
