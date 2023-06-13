@@ -26,6 +26,9 @@ dependencies:
   astro:
     specifier: ^2.5.2
     version: 2.5.2(@types/node@18.11.18)(sass@1.62.1)
+  css-paint-polyfill:
+    specifier: ^3.4.0
+    version: 3.4.0
   dotenv:
     specifier: ^16.0.3
     version: 16.0.3
@@ -4018,6 +4021,10 @@ packages:
     resolution: {integrity: sha512-/9lCvYZaUbBGvYUgYGFJ4dcYiyqdhSjG7IPVluoV8A1ILjkF7ilmhp1OGUz8n+nmBcu0RNrQAzgD8B6FJbrt2w==}
     engines: {node: '>=12.22'}
     dev: true
+
+  /css-paint-polyfill@3.4.0:
+    resolution: {integrity: sha512-B89ymLgMZie41d+QrD//5RWnwykvru5H9Yzd/MMJIgPdVsKB7t4lxuhIAyzy5FnoUbb0MztagNVRe9dI7kMbiA==}
+    dev: false
 
   /cssesc@3.0.0:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
