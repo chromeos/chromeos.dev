@@ -1,7 +1,7 @@
 ---
 title: 'Argon brings modern retro gaming to Chromebooks'
 metadesc: Mark/Space devs optimized their modern retro gaming app for ChromeOS—and discovered a hidden advantage.
-date: 2023-05-04
+date: 2023-06-15
 app:
   name: Argon
   logo: ix://stories/codecademy/codecademy.png
@@ -63,7 +63,7 @@ Brian notes, "When you use a Chromebook foldable as a laptop, you peck at the sc
 
 Argon's UI was originally supported by dozens of XML layouts. Each pose—such as moving from one screen to dual screens, or horizontal to vertical—was a separate layout. Additionally, there were custom control layouts for each gaming platform.
 
-When optimizing for ChromeOS, they switched to Compose. With Compose, they were able to build their UI once and have it work on everything—including foldables and multi-screen devices.
+When optimizing for ChromeOS, they switched to [Compose](https://developer.android.com/jetpack/compose). With Compose, they were able to build their UI once and have it work on everything—including foldables and multi-screen devices.
 
 ## App size cut by more than a half
 
