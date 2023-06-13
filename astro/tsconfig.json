@@ -6,6 +6,7 @@
     "paths": {
       "$components/*": ["src/components/*"],
       "$layouts/*": ["src/layouts/*"],
+      "$js/*": ["src/js/*"],
       "$lib/*": ["lib/*"],
       "$$*": ["lib/*"],
       "$types/*": ["types/*"],
