@@ -1,17 +1,19 @@
 settings:
   name: newsletter-sign-up
   endpoint: https://services.google.com/fb/submissions/chromeos-newsletter-v2/
+messages:
+  - type: warning
+    text: Algo salió mal por nuestra parte. Por favor, inténtelo de nuevo más tarde.
+  - type: note
+    text: Parece que estás sin conexión. Vuelve a intentarlo cuando esté en línea.
+  - type: tip
+    text: Listo! Noticias de desarrolladores de Chrome OS en camino.
 content:
   title: Reciba noticias y actualizaciones para desarrolladores de Chrome OS directamente
   copy: Regístrese para recibir las últimas noticias, consejos, lanzamientos, actualizaciones y más sobre Chrome OS.
   disclaimer: |-
     Política de privacidad: al utilizar este servicio, acepta estar sujeto a nuestras Condiciones de servicio de Google que se encuentran en [https://policies.google.com/terms](https://policies.google.com/terms?hl=es). Reconozco que la información proporcionada en este formulario estará sujeta a la política de privacidad de Google ubicada en [https://policies.google.com/privacy](https://policies.google.com/privacy?hl=es).
   required: Requerido
-  errors:
-    - type: server
-      text: Algo salió mal por nuestra parte. Por favor, inténtelo de nuevo más tarde.
-    - type: offline
-      text: Parece que estás sin conexión. Vuelve a intentarlo cuando esté en línea.
 fields:
   - type: email
     name: EmailAddress

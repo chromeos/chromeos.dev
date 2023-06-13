@@ -1,17 +1,20 @@
 settings:
   name: newsletter-sign-up
   endpoint: https://services.google.com/fb/submissions/chromeos-newsletter-v2/
+messages:
+  - type: warning
+    text: Something went wrong on our end. Please try again later.
+  - type: note
+    text: Looks like you're offline. Please try again when you're back online.
+  - type: tip
+    text: You're in! Chrome OS developer news coming your way.
 content:
   title: Get Chrome OS developer news and updates direct to you
   copy: Sign up for the latest news, tips, releases, updates, and more on Chrome OS.
   disclaimer: |-
     Privacy policy: By using this service, you agree to be bound by our Google Terms of Service located at [https://policies.google.com/terms](https://policies.google.com/terms). I acknowledge that the information provided in this form will be subject to Google's privacy policy located at [https://policies.google.com/privacy](https://policies.google.com/privacy).
   required: Required
-  errors:
-    - type: server
-      text: Something went wrong on our end. Please try again later.
-    - type: offline
-      text: Looks like you’re offline. Please try again when you’re back online.
+
 fields:
   - type: email
     name: EmailAddress
@@ -65,8 +68,8 @@ fields:
   - type: submit
     value: Subscribe
 thankYou:
-  title: You’re in!
-  message: Chrome Os developer news coming your way.
+  title: You're in!
+  message: ChromeOS developer news coming your way.
   redirect: Hold tight. You're being redirected back to where you started.
   inline: You're in! Chrome OS developer news coming your way. [[Return to where you were]].
 subscribe:
