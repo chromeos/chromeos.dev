@@ -174,12 +174,17 @@ $section-block-margin: 3.75rem;
     }
   }
 
+  img:not([class]),
+  video:not([class]) {
+    display: block;
+    margin-inline: auto;
+  }
+
   img:not(:first-child):not([class]),
   video:not(:first-child),
   pre:not(:first-child),
   table:not(:first-child) {
-    margin-bottom: 2.5rem;
-    margin-top: 2.5rem;
+    margin-block: 2.5rem;
   }
 
   figure {

@@ -515,6 +515,105 @@ const contributors = {
       title: 'Software Engineer',
     },
   },
+  adchristopher: {
+    name: {
+      given: 'Austin David',
+      family: 'Christopher',
+    },
+    work: {
+      company: 'Google',
+      org: 'ChromeOS',
+      title: 'Partner Engineering',
+    },
+  },
+  rmonet: {
+    name: {
+      given: 'Raluca',
+      family: 'Monet',
+    },
+    work: {
+      company: 'Google',
+      org: 'ChromeOS',
+      title: 'Global Partnerships Lead',
+    },
+  },
+  dlevy: {
+    name: {
+      given: 'Daniel',
+      family: 'Levy',
+    },
+    work: {
+      company: 'Google',
+      org: 'Android Large Screen Gaming',
+      title: 'Developer Relations Engineer',
+    },
+  },
+  scui: {
+    name: {
+      given: 'Shenshen',
+      family: 'Cui',
+    },
+    work: {
+      company: 'Google',
+      org: 'Google Play Games',
+      title: 'Developer Relations Engineer',
+    },
+  },
+  mrumely: {
+    name: {
+      given: 'Mike',
+      family: 'Rumely',
+    },
+    work: {
+      company: 'Google',
+      org: 'ChromeOS',
+      title: 'Partner Engineer',
+    },
+  },
+  jeza: {
+    name: {
+      given: 'Jeza',
+      family: 'Mancenido',
+    },
+    work: {
+      company: 'Google',
+      org: 'ChromeOS',
+      title: 'Product Manager',
+    },
+  },
+  drobledo: {
+    name: {
+      given: 'Diana',
+      family: 'Robledo',
+    },
+    work: {
+      company: 'Google',
+      org: 'Chrome Enterprise',
+      title: 'Program Manager, Software Partnerships',
+    },
+  },
+  hzou: {
+    name: {
+      given: 'Helen',
+      family: 'Zou',
+    },
+    work: {
+      company: 'Google',
+      org: 'ChromeOS',
+      title: 'Product Manager',
+    },
+  },
+  joreilly: {
+    name: {
+      given: 'James',
+      family: "O'Reilly",
+    },
+    work: {
+      company: 'Google',
+      org: 'ChromeOS',
+      title: 'Developer Relations Engineering Manager',
+    },
+  },
 };
 
 module.exports = () => contributors; // By making this a function, it'll force Eleventy to reevaluate it every time it gets recompiled
