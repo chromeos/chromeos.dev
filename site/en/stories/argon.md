@@ -1,10 +1,10 @@
 ---
 title: 'Argon brings modern retro gaming to Chromebooks'
 metadesc: Mark/Space devs optimized their modern retro gaming app for ChromeOS—and discovered a hidden advantage.
-date: 2023-06-15
+date: 2023-06-22
 app:
   name: Argon
-  logo: ix://stories/codecademy/codecademy.png
+  logo: ix://stories/argon/icon.png
 featured: false
 tags:
   - games
