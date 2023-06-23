@@ -30,7 +30,7 @@
     "@astrojs/svelte": "^2.2.0",
     "@portabletext/svelte": "^1.0.1",
     "@sanity/client": "^3.4.1",
-    "astro": "^2.5.2",
+    "astro": "^2.7.0",
     "css-paint-polyfill": "^3.4.0",
     "dotenv": "^16.0.3",
     "i18n-iso-countries": "^7.6.0",

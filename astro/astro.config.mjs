@@ -48,10 +48,6 @@ export default defineConfig({
   }),
   integrations: [svelte(), mdx()],
   compressHTML: true,
-  experimental: {
-    middleware: true,
-    hybridOutput: true,
-  },
   vite: {
     resolve: {
       alias: aliases,
