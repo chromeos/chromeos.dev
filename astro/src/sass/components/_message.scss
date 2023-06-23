@@ -5,10 +5,8 @@
   background-color: var(--blue-25);
   border: 1px solid var(--blue-600);
   border-radius: 0.25rem;
-  display: flex;
   padding: 1.5rem 1.5rem 1.5rem 3.5rem;
   position: relative;
-  align-items: flex-start;
 
   &::before {
     content: '';

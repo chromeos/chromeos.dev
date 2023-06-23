@@ -1,6 +1,7 @@
 ---
 import { getMicrocopy, getLanguages } from '$$microcopy';
 import Wrapper from '$layouts/wrapper.astro';
+import AnimatedHero from '$components/home/animated-hero.svelte';
 
 /**
  * Builds paths for content files
@@ -20,9 +21,26 @@ export function getStaticPaths() {
 
 const { microcopy } = Astro.props;
 const { home, locale } = microcopy;
+const hero = { heading: home.hero.heading, copy: home.hero.copy };
 ---
 
 <Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
-  <h1>{home.hero.heading.default}</h1>
-  <p>{locale.code}</p>
+  <AnimatedHero hero={hero} client:idle />
+
+  <script>
+    import { theme } from '$js/theme';
+    import { animationPlaceholders } from '$js/constants';
+
+    theme.subscribe((t) => {
+      const animation = document.querySelector('.animated-hero--animation');
+
+      if (animation) {
+        const img = animation.querySelector('.animated-hero--fallback');
+
+        if (img) {
+          img.src = animationPlaceholders[t];
+        }
+      }
+    });
+  </script>
 </Wrapper>

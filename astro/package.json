@@ -34,7 +34,9 @@
     "css-paint-polyfill": "^3.4.0",
     "dotenv": "^16.0.3",
     "i18n-iso-countries": "^7.6.0",
+    "lottie-web": "^5.12.2",
     "lunr": "^2.3.9",
+    "requestidlecallback": "^0.3.0",
     "starchart-studio": "^0.4.0",
     "svelte": "^3.59.1",
     "vite-plugin-pwa": "^0.15.0"
