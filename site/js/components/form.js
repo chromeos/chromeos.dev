@@ -302,14 +302,14 @@ export class Form {
    * @param {Event} event - JavaScript event.
    */
   submitForm_(event) {
-    const formValid = this.elem_.checkValidity();
+    const target = event.target;
+    const formValid = target.checkValidity();
     event.preventDefault();
+    const fd = new FormData(target);
 
     this.disableFormElements_();
 
     if (formValid) {
-      const fd = new FormData(this.elem_);
-
       const country = fd.get('Country');
       // Handle double-opt-in countries
       // Austria, Germany, Greece, Luxembourg, Norway, Switzerland
@@ -321,7 +321,7 @@ export class Form {
 
       const data = new URLSearchParams(fd);
       this.handleLoaderVisibility_();
-      this.sendData_(data).bind(this);
+      this.sendData_.call(this, data);
     } else {
       this.enableFormElements_();
 
