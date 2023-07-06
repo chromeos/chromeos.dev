@@ -302,13 +302,24 @@ export class Form {
    * @param {Event} event - JavaScript event.
    */
   submitForm_(event) {
-    const data = new URLSearchParams(new FormData(this.elem_));
     const formValid = this.elem_.checkValidity();
     event.preventDefault();
 
     this.disableFormElements_();
 
     if (formValid) {
+      const fd = new FormData(this.elem_);
+
+      const country = fd.get('Country');
+      // Handle double-opt-in countries
+      // Austria, Germany, Greece, Luxembourg, Norway, Switzerland
+      const doi = ['AT', 'DE', 'GR', 'LU', 'NO', 'CH'];
+
+      if (doi.includes(country)) {
+        fd.set('ChromeosDevelopersUpdates', 'UNCONFIRMED');
+      }
+
+      const data = new URLSearchParams(fd);
       this.handleLoaderVisibility_();
       this.sendData_(data).bind(this);
     } else {
