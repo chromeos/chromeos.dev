@@ -129,9 +129,8 @@ With this custom plugin in place, UPshow can cache any video that may be request
 
 UPshow's path from Chrome Apps to PWAs has been quite smooth. Close parity between native applications and web applications means they were able to make the switch without losing any functionality. Thanks to the resources available, they were able to get up to speed with PWAs quickly, and many of their needs were already covered by existing libraries. Where they weren't, they were able to combine PWAs with Chrome Extensions to fill the gaps and take advantage of ChromeOS-specific capabilities.
 
-Even better, the migration has had a significant impact on UPshow's business. UPshow reported that they were able to:
+Even better, the migration has had a significant impact on UPshow's business. UPshow reported that they were able to realize significant cost reductions through their use of caching. Further, cost savings in bandwidth from video consumption opened a new market from clients that didn't have dedicated hardware.
 
-- **Reduce CDN data usage by 50x:** The team was able to realize significant cost reductions through their use of caching.
-- **Reach 7% more customers:** Cost savings in bandwidth from video consumption opened a new market from clients that don't have dedicated hardware.
+%[(50x, Reduction in CDN data usage), (7%, Improved customer reach)]
 
 UPshow plans to continue adding more functionality to their PWAs—and hope to see these wins increase as they invest more in both PWAs and Kiosk mode on ChromeOS.
