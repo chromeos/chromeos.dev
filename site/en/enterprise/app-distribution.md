@@ -29,7 +29,8 @@ The Chrome Web Store hosts extensions and provides many advantages but some deve
 
 Having an efficient way to publish releases is key to making sure customers are using the latest version of your app, with any bug fixes and new features you’ve released, as soon as possible.
 
-In the case of webapps, developers can immediately push an update and make it available to those users that have the apps installed. This is similar for self-hosted extensions, where developers have full control over their releases and can make them immediately available for admins to update.
+In the case of web apps, developers can immediately push an update and make it available to those users that have the apps installed. This is similar for self-hosted extensions, where developers have full control over their releases and can make them immediately available for admins to update.
+
 
 Extensions uploaded to the Chrome Web Store have to go through a review process that can take several days. If it doesn’t pass the review process, you need to start the process over again.You can reduce the chances of not passing the review process by pushing a release into private mode early, or publishing a second version of the app (with a different app id) as a beta version, to allow for early testing to make sure that the app will pass review successfully.
 
