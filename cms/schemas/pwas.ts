@@ -16,8 +16,8 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
 export default defineType({
-  name: 'microcopy',
-  title: 'Home',
+  name: 'pwas',
+  title: 'Powerful PWAs',
   description: 'Home page',
   type: 'document',
   i18n: true,

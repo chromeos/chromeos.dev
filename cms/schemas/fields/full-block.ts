@@ -97,18 +97,56 @@ export default defineType({
           },
         ],
       },
+
+      of: [
+        {
+          type: 'message',
+          name: 'Message',
+          options: {
+            modal: {
+              type: 'dialog',
+            },
+          },
+        },
+        {
+          type: 'picture',
+          title: 'Image',
+        },
+        {
+          type: 'figure',
+          title: 'Figure',
+        },
+        {
+          type: 'code',
+          title: 'Code',
+          options: {
+            modal: {
+              type: 'dialog',
+            },
+            withFilename: true,
+            // TODO: Make sure all of these render
+            // See https://github.com/sanity-io/code-input#add-support-for-more-languages
+            languageAlternatives: [
+              { title: 'JavaScript', value: 'javascript' },
+              { title: 'TypeScript', value: 'typescript' },
+              { title: 'HTML', value: 'html' },
+              { title: 'CSS', value: 'css' },
+              { title: 'Sass', value: 'sass' },
+              { title: 'JSON', value: 'json' },
+              { title: 'YAML', value: 'yaml' },
+              { title: 'Kotlin', value: 'kotlin' },
+              { title: 'Java', value: 'java' },
+              { title: 'XML', value: 'xml' },
+              { title: 'Groovy', value: 'groovy' },
+              { title: 'Bash', value: 'sh' },
+            ],
+          },
+        },
+      ],
     }),
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
-    defineArrayMember({
-      type: 'picture',
-      title: 'Image',
-    }),
-    defineArrayMember({
-      type: 'figure',
-      title: 'Figure',
-    }),
     // TODO: Make this preview the video
     defineArrayMember({
       name: 'youtube',
@@ -123,39 +161,12 @@ export default defineType({
       ],
     }),
     defineArrayMember({
-      type: 'code',
-      title: 'Code',
-      options: {
-        withFilename: true,
-        // TODO: Make sure all of these render
-        // See https://github.com/sanity-io/code-input#add-support-for-more-languages
-        languageAlternatives: [
-          { title: 'JavaScript', value: 'javascript' },
-          { title: 'TypeScript', value: 'typescript' },
-          { title: 'HTML', value: 'html' },
-          { title: 'CSS', value: 'css' },
-          { title: 'Sass', value: 'sass' },
-          { title: 'JSON', value: 'json' },
-          { title: 'YAML', value: 'yaml' },
-          { title: 'Kotlin', value: 'kotlin' },
-          { title: 'Java', value: 'java' },
-          { title: 'XML', value: 'xml' },
-          { title: 'Groovy', value: 'groovy' },
-          { title: 'Bash', value: 'sh' },
-        ],
-      },
-    }),
-    defineArrayMember({
       type: 'deflist',
       title: 'Definitions',
     }),
     defineArrayMember({
       type: 'statlist',
       title: 'Stats',
-    }),
-    defineArrayMember({
-      type: 'message',
-      title: 'Message',
     }),
     defineArrayMember({
       type: 'quote',

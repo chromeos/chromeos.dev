@@ -15,10 +15,20 @@
  */
 import { defineCliConfig } from 'sanity/cli';
 import * as dotenv from 'dotenv';
-import { resolve } from 'path';
+import { join } from 'path';
 import process from 'process';
 
+import tsconfig from './tsconfig.json';
+
 dotenv.config();
+
+// Get the aliases from tsconfig
+const aliases = Object.entries(tsconfig.compilerOptions.paths).map(
+  ([key, value]) => ({
+    find: key.replace(/\/\*$/, ''),
+    replacement: join(__dirname, value[0]).replace(/\/\*$/, ''),
+  }),
+);
 
 export default defineCliConfig({
   api: {
@@ -29,11 +39,7 @@ export default defineCliConfig({
   vite(config) {
     return Object.assign(config, {
       resolve: {
-        alias: {
-          $lib: resolve(process.cwd(), 'lib'),
-          $subschema: resolve(process.cwd(), 'schemas/subschema'),
-          $fields: resolve(process.cwd(), 'schemas/fields'),
-        },
+        alias: aliases,
       },
     });
   },

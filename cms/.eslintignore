@@ -3,3 +3,4 @@
 node_modules
 dist
 .sanity
+Lib/theme.ts

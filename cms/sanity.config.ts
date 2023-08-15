@@ -21,10 +21,14 @@ import { codeInput } from '@sanity/code-input';
 import { table } from '@sanity/table';
 import { withDocumentI18nPlugin } from '@sanity/document-internationalization';
 import { deskStructure, defaultDocumentNodeResolver } from '$lib/desk';
+import { theme as _theme } from './lib/theme';
 
 const devOnlyPlugins = [visionTool()];
 
+const theme = _theme as import('sanity').StudioTheme;
+
 export default defineConfig({
+  theme,
   name: 'default',
   title: 'ChromeOS',
 

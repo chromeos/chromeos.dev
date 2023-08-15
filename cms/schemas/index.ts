@@ -56,6 +56,12 @@ import theme from './theme';
 import documentation from './documentation';
 import microcopy from './microcopy';
 import home from './home';
+import nav from './nav';
+import news from './news';
+import newsletter from './newsletter';
+import stories from './stories';
+import cookies from './cookies';
+import pwas from './pwas';
 
 export const schemaTypes = [
   // Schemas
@@ -67,6 +73,12 @@ export const schemaTypes = [
   theme,
   microcopy,
   home,
+  nav,
+  news,
+  newsletter,
+  stories,
+  cookies,
+  pwas,
 
   // Fields
   fullBlockField,
