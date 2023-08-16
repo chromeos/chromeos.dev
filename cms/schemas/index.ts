@@ -23,6 +23,7 @@ import descriptionField from '$fields/description';
 import eyebrowField from '$fields/eyebrow';
 import backgroundsField from '$fields/backgrounds';
 import linkField from '$fields/link';
+import structuredLinkField from '$fields/structured-link';
 import footnoteField from '$fields/footnote';
 import youtubeField from '$fields/youtube';
 import figureField from '$fields/figure';
@@ -90,6 +91,7 @@ export const schemaTypes = [
   eyebrowField,
   backgroundsField,
   linkField,
+  structuredLinkField,
   footnoteField,
   youtubeField,
   figureField,

@@ -1,7 +1,8 @@
-import { defineField } from 'sanity';
+import { defineType, defineField } from 'sanity';
 
-export const microcopyLink = {
-  name: 'link',
+export default defineType({
+  name: 'structured-link',
+  title: 'Structured Link',
   type: 'object',
   fields: [
     defineField({
@@ -15,4 +16,4 @@ export const microcopyLink = {
       validation: (Rule) => Rule.required(),
     }),
   ],
-};
+});
