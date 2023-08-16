@@ -13,368 +13,112 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { StringRule, defineArrayMember, defineField, defineType } from 'sanity';
+
+/**
+ *
+ * @param {boolean} section
+ * @param {string} message
+ * @return {CustomValidator<boolean | string> }
+ */
+function validation(section: boolean, message: string) {
+  return (Rule: StringRule) =>
+    Rule.custom((value, { parent }) => {
+      if (parent.section === section) {
+        if (!value) {
+          return message;
+        }
+        return true;
+      }
+
+      return true;
+    });
+}
 
 export default defineType({
   name: 'nav',
   title: 'Navigation',
-  description: 'Home page',
   type: 'document',
   i18n: true,
   fields: [
     defineField({
-      name: 'hero',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'heading',
+      name: 'items',
+      title: 'Items',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          name: 'item',
+          title: 'Item',
           type: 'object',
           fields: [
             defineField({
-              name: 'default',
-              type: 'string',
+              name: 'section',
+              title: 'Section',
+              type: 'boolean',
             }),
-            defineField({
-              name: 'accent',
-              type: 'string',
-            }),
-          ],
-        }),
-        defineField({
-          name: 'copy',
-          type: 'string',
-          validation: (Rule) => Rule.required(),
-        }),
-      ],
-    }),
-    defineField({
-      name: 'media',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'placeholder',
-          type: 'picture',
-        }),
-        defineField({
-          name: 'phosphor',
-          type: 'picture',
-        }),
-        defineField({
-          name: 'static',
-          type: 'picture',
-        }),
-      ],
-    }),
-    defineField({
-      name: 'routing',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'items',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              type: 'homepage-card',
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'linux',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'content',
-          type: 'object',
-          fields: [
+            // Section-only elements
             defineField({
               name: 'title',
+              title: 'Title',
+              type: 'string',
+              hidden: ({ parent }) => parent.section !== true,
+              validation: (Rule) => validation(true, 'Title is required')(Rule),
+            }),
+            defineField({
+              name: 'description',
+              title: 'Description',
+              type: 'string',
+              hidden: ({ parent }) => parent.section !== true,
+              validation: (Rule) =>
+                validation(true, 'Description is required')(Rule),
+            }),
+            defineField({
+              name: 'icon',
+              title: 'Icon',
               type: 'object',
+              hidden: ({ parent }) => parent.section !== true,
+              validation: (Rule) => validation(true, 'Icon is required')(Rule),
               fields: [
                 defineField({
-                  name: 'top',
+                  name: 'name',
+                  title: 'Name',
                   type: 'string',
+                  validation: (Rule) =>
+                    validation(true, 'Icon name is required')(Rule),
                 }),
                 defineField({
-                  name: 'bottom',
+                  name: 'background',
+                  title: 'Background',
                   type: 'string',
+                  validation: (Rule) =>
+                    validation(true, 'Icon background is required')(Rule),
                 }),
               ],
             }),
             defineField({
-              name: 'copy',
-              type: 'string',
+              name: 'sections',
+              title: 'Sections',
+              type: 'array',
+              hidden: ({ parent }) => parent.section !== true,
+              validation: (Rule) =>
+                validation(true, 'Sections is required')(Rule),
+              of: [
+                defineArrayMember({
+                  name: 'section',
+                  title: 'Section',
+                  type: 'structured-link',
+                  validation: (Rule) =>
+                    validation(true, 'Section is required')(Rule),
+                }),
+              ],
             }),
-          ],
-        }),
-        defineField({
-          name: 'cta',
-          type: 'cta',
-        }),
-        defineField({
-          name: 'images',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              type: 'picture',
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'stats',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'content',
-          type: 'object',
-          fields: [
+            // Regular Links
             defineField({
-              name: 'title',
-              type: 'string',
-            }),
-            defineField({
-              name: 'copy',
-              type: 'string',
-            }),
-          ],
-        }),
-        defineField({
-          name: 'items',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'statistic',
-                  type: 'statistic',
-                }),
-                defineField({
-                  name: 'modifiers',
-                  type: 'object',
-                  fields: [
-                    defineField({
-                      name: 'shape',
-                      type: 'string',
-                      options: {
-                        list: [
-                          { title: 'None', value: 'false' },
-                          { title: 'Circle', value: 'circle' },
-                          { title: 'Semicircle', value: 'semicircle' },
-                          { title: 'Triangle', value: 'triangle' },
-                        ],
-                      },
-                    }),
-                    defineField({
-                      name: 'scale',
-                      type: 'string',
-                      options: {
-                        list: [
-                          { title: 'Default', value: 'default' },
-                          { title: 'Full', value: 'full' },
-                          { title: 'Half', value: 'half' },
-                        ],
-                      },
-                    }),
-                    defineField({
-                      name: 'source',
-                      type: 'string',
-                      validation: (Rule) => Rule.required(),
-                    }),
-                  ],
-                }),
-              ],
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'stories',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'copy',
-          type: 'string',
-        }),
-        defineField({
-          name: 'cta',
-          type: 'cta',
-        }),
-      ],
-    }),
-    defineField({
-      name: 'posts',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'copy',
-          type: 'string',
-        }),
-        defineField({
-          name: 'cta',
-          type: 'cta',
-        }),
-      ],
-    }),
-    defineField({
-      name: 'commercial',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'copy',
-          type: 'string',
-        }),
-        defineField({
-          name: 'items',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              type: 'homepage-card',
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'quotes',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'copy',
-          type: 'string',
-        }),
-        defineField({
-          name: 'items',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'quote',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'author',
-                  type: 'object',
-                  fields: [
-                    defineField({
-                      name: 'name',
-                      type: 'string',
-                    }),
-                    defineField({
-                      name: 'title',
-                      type: 'string',
-                    }),
-                  ],
-                }),
-                defineField({
-                  name: 'image',
-                  type: 'picture',
-                }),
-              ],
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'community',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'chromebook',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'copy',
-          type: 'string',
-        }),
-        defineField({
-          name: 'cta',
-          type: 'cta',
-        }),
-        defineField({
-          name: 'image',
-          type: 'picture',
-        }),
-      ],
-    }),
-    defineField({
-      name: 'subnav',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'copy',
-          type: 'string',
-        }),
-      ],
-    }),
-    defineField({
-      name: 'videos',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'items',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'title',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'video',
-                  type: 'youtube',
-                }),
-              ],
+              name: 'link',
+              title: 'Link',
+              type: 'structured-link',
+              hidden: ({ parent }) => parent.section === true,
+              validation: (Rule) => validation(false, 'Link is required')(Rule),
             }),
           ],
         }),
