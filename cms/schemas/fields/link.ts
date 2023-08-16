@@ -21,13 +21,6 @@ export default defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'url',
-      title: 'URL',
-      type: 'url',
-      readOnly: ({ parent }) => (parent?.reference?._ref ? true : false),
-      validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
-    }),
-    defineField({
       name: 'reference',
       title: 'Reference',
       type: 'reference',
@@ -36,6 +29,13 @@ export default defineType({
       options: {
         disableNew: true,
       },
+    }),
+    defineField({
+      name: 'url',
+      title: 'URL',
+      type: 'url',
+      readOnly: ({ parent }) => (parent?.reference?._ref ? true : false),
+      validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
     }),
   ],
 });

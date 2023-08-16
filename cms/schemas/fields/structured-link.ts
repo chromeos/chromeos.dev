@@ -6,13 +6,13 @@ export default defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'url',
-      type: 'link',
+      name: 'text',
+      type: 'string',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'text',
-      type: 'string',
+      name: 'url',
+      type: 'link',
       validation: (Rule) => Rule.required(),
     }),
   ],
