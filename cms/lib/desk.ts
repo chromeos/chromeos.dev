@@ -138,13 +138,20 @@ export const deskStructure = (
           S.list()
             .title('Structure')
             .items([
+              // S.listItem()
+              //   .title('Microcopy')
+              //   .icon(ControlsIcon)
+              //   .child(
+              //     S.document().schemaType('microcopy').documentId('microcopy'),
+              //   ),
               S.listItem()
                 .title('Microcopy')
                 .icon(ControlsIcon)
                 .child(
-                  S.document().schemaType('microcopy').documentId('microcopy'),
+                  S.documentTypeList('microcopy')
+                    .filter(`_type == 'microcopy'`)
+                    .title('Microcopy'),
                 ),
-
               S.listItem()
                 .title('Navigation')
                 .icon(BiNavigation)

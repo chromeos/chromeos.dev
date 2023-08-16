@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 import { defineField, defineType } from 'sanity';
+import React from 'react';
+import { langToFlag } from '$lib/country';
 
 export default defineType({
   name: 'microcopy',
@@ -523,4 +525,18 @@ export default defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      lang: '__i18n_lang',
+      title: 'title',
+    },
+    prepare(selection) {
+      return {
+        title: selection.title,
+        media: (
+          <span style={{ fontSize: '2rem' }}>{langToFlag(selection.lang)}</span>
+        ),
+      };
+    },
+  },
 });
