@@ -1,0 +1,14 @@
+/* Fix inline object styling */
+[data-as='span'][data-ui='Card']:not([hidden]) {
+  height: auto;
+  width: 100%;
+  display: block;
+}
+
+[data-as='span'][data-ui='Card'] > span {
+  max-width: unset;
+}
+
+.pt-inline-object:has([data-ui='Card']) {
+  width: 100%;
+}

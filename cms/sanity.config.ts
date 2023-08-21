@@ -22,6 +22,7 @@ import { table } from '@sanity/table';
 import { withDocumentI18nPlugin } from '@sanity/document-internationalization';
 import { deskStructure, defaultDocumentNodeResolver } from '$lib/desk';
 import { theme as _theme } from './lib/theme';
+import './lib/overrides.css';
 
 const devOnlyPlugins = [visionTool()];
 
