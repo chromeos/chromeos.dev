@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 import { defineType, defineField } from 'sanity';
+import React from 'react';
+import { Box, Card, Text } from '@sanity/ui';
 
 export default defineType({
   name: 'message',
@@ -34,4 +36,46 @@ export default defineType({
       type: 'restricted-block',
     }),
   ],
+  components: {
+    preview: ({ message, type }) => {
+      const background =
+        type === 'note'
+          ? '#aecbfa'
+          : type === 'warning'
+          ? '#fde293'
+          : '#f6aea9';
+      const borderColor =
+        type === 'note'
+          ? '#1967d2'
+          : type === 'warning'
+          ? '#f29900'
+          : '#c5221f';
+      const color = '#202124';
+      return (
+        <Box>
+          <Card
+            padding={2}
+            style={{
+              background,
+              borderRadius: '5px',
+              padding: '1rem 1.5rem',
+              borderColor,
+              borderStyle: 'solid',
+              borderWidth: '2px',
+            }}
+          >
+            <Text size={1} style={{ color }}>
+              {message}
+            </Text>
+          </Card>
+        </Box>
+      );
+    },
+  },
+  preview: {
+    select: {
+      type: 'type',
+      message: 'text',
+    },
+  },
 });

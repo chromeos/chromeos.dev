@@ -29,6 +29,7 @@
     "@sanity/document-internationalization": "^1.0.2",
     "@sanity/icons": "^2.4.1",
     "@sanity/table": "^1.0.1",
+    "@sanity/ui": "^1.7.8",
     "@sanity/vision": "^3.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
