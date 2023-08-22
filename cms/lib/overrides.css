@@ -12,3 +12,8 @@
 .pt-inline-object:has([data-ui='Card']) {
   width: 100%;
 }
+
+/* Remove borders around flags in UI */
+[data-testid='Media']:has(.flag) {
+  position: static;
+}

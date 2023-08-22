@@ -534,7 +534,9 @@ export default defineType({
       return {
         title: selection.title,
         media: (
-          <span style={{ fontSize: '2rem' }}>{langToFlag(selection.lang)}</span>
+          <span className="flag" style={{ fontSize: '2rem' }}>
+            {langToFlag(selection.lang)}
+          </span>
         ),
       };
     },
