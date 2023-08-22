@@ -65,7 +65,7 @@ export default defineType({
             }}
           >
             <Text size={1} style={{ color }}>
-              {message}
+              {message.children}
             </Text>
           </Card>
         </Box>
@@ -76,6 +76,12 @@ export default defineType({
     select: {
       type: 'type',
       message: 'text',
+    },
+    prepare({ type, message }) {
+      return {
+        type: type,
+        message: message,
+      };
     },
   },
 });
