@@ -1,12 +1,9 @@
 ---
 title: 'ADB over Wi-Fi and Ethernet'
 metadesc: Test Android apps on real devices with ADB over Wi-Fi and Ethernet.
-
+date: 2023-08-18
 tags:
   - android
-authors:
-  - hadrosaur
-date: 2023-08-18
 ---
 
 Android developers need to test their apps on real devices. [Android Debug Bridge (ADB)](https://developer.android.com/tools/adb) is the tool of choice for pushing apps and debugging. There are three main ways ADB can be used:
