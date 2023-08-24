@@ -53,8 +53,7 @@ Before you get started, you need to ensure that your device supports Ethernet co
 ![A USB-A Ethernet dongle.](ix://android/adb/ethernet.jpg)
 _A USB-A Ethernet dongle._
 
-![A complete ADB over Ethernet setup including USB-A Ethernet dongle, CAT6 Ethernet cable, USB-A Ethernet dongle, and USB-A to USB-C adapter.](ix://android/adb/double-ethernet.jpg)
-_A complete ADB over Ethernet setup, including: USB-A Ethernet dongle, CAT6 Ethernet cable, USB-A Ethernet dongle, and USB-A to USB-C adapter._
+#[A complete ADB over Ethernet setup including USB-A Ethernet dongle, CAT6 Ethernet cable, USB-A Ethernet dongle, and USB-A to USB-C adapter.](ix://android/adb/double-ethernet.jpg)
 
 ## Connecting ADB over Ethernet
 
