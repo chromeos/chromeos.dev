@@ -26,7 +26,7 @@ If your device is running Android 11 (API 30) or higher, you can use the [**Pair
 For devices running Android 10 or lower, or if you are having trouble pairing via Android Studio, you can manually connect using an IP device and the terminal.
 
 1.  Ensure that your development machine and Android device are on the same wireless network.
-1.  Ensure that your network allows traffic on port 5555 (or another manually chosen port). Some enterprise and home networks have firewalls that will prevent ADB from functioning. You can also use a mobile phone as a wireless network hub to provide a network that allows port 5555 traffic, although this may result in a large amount of network traffic and battery drain for the phone.
+1.  Ensure that your network allows traffic on port `5555` (or another manually chosen port). Some enterprise and home networks have firewalls that will prevent ADB from functioning. You can also use a mobile phone as a wireless network hub to provide a network that allows port `5555` traffic, although this may result in a large amount of network traffic and battery drain for the phone.
 1.  For non-ChromeOS phones and tablets, you need to enable TCP/IP mode. To do so, connect your Android device to your development machine via USB and run the command `adb tcpip 5555` on the development machine. This will put the device into TCP/IP mode listening on port 5555. Once enabled, you can disconnect the USB cable.
 1.  Determine the IP address of your device. [IPv4 addresses](https://en.wikipedia.org/wiki/Internet_Protocol_version_4) are the most common type of addresses and look something like this: `192.168.1.4`. [IPv6 addresses](https://en.wikipedia.org/wiki/IPv6_address) are becoming more prevalent and look something like this: `2001:0db8:3c4d:0015:0000:0000:1a2f:1a2b`. If your device lists both, use the IPv4 address.
     1.  On phones/tablets, go to Android settings, information, and scroll down until you see your **IP address**.
@@ -53,9 +53,11 @@ Before you get started, you need to ensure that your device supports Ethernet co
 **Note:** If your device does not have an Ethernet port, you can instead use an Ethernet dongle that connects to your device via USB and provides Ethernet capability.
 !!!
 
-![A USB-A Ethernet dongle.](insert_image_url_here)
+![A USB-A Ethernet dongle.](ix://android/adb/ethernet.jpg)
+_A USB-A Ethernet dongle._
 
-![A complete ADB over Ethernet setup including USB-A Ethernet dongle, CAT6 Ethernet cable, USB-A Ethernet dongle, and USB A to USB C adapter.](insert_image_url_here)
+![A complete ADB over Ethernet setup including USB-A Ethernet dongle, CAT6 Ethernet cable, USB-A Ethernet dongle, and USB-A to USB-C adapter.](ix://android/adb/double-ethernet.jpg)
+_A complete ADB over Ethernet setup, including: USB-A Ethernet dongle, CAT6 Ethernet cable, USB-A Ethernet dongle, and USB-A to USB-C adapter._
 
 ## Connecting ADB over Ethernet
 
@@ -69,7 +71,7 @@ Once you have physically connected your devices with an Ethernet cable, you can 
 **Alert:** For non-ChromeOS phones and tablets, you may need to enable TCP/IP mode. To do so, connect your Android device to your development machine via USB and run the command `adb tcpip 5555` on the development machine. This will put the device into TCP/IP mode listening on port 5555. Once enabled, you can disconnect the USB cable.
 !!!
 
-1.  On your development machine, take note of the IP address assigned to the Ethernet adapter. If no address is assigned, you may need to manually set this address, either to something in the 192.168.1.x range like `192.168.1.3`, or configure your adapter to connect on the local network only and not to use DHCP:
+1.  On your development machine, take note of the IP address assigned to the Ethernet adapter. If no address is assigned, you may need to manually set this address, either to something in the `192.168.1.x` range like `192.168.1.3`, or configure your adapter to connect on the local network only and not to use DHCP:
     1.  For Windows, see [Change TCP/IP settings](https://support.microsoft.com/en-us/windows/change-tcp-ip-settings-bd0a07af-15f5-cd6a-363f-ca2b6f391ace), section "To specify IPv4 settings manually." Set the IP address to `192.168.1.3`.
     1.  For Mac, see [Use DHCP or a manual IP address on Mac](https://support.apple.com/guide/mac-help/use-dhcp-or-a-manual-ip-address-on-mac-mchlp2718/mac), and follow the directions for a manual IP address. Set the IP address to `192.168.1.3`.
     1.  For Linux, use your distributions graphical tool to manually set the ip address or set it from the terminal as follows: run `ifconfig` to find your adapter's identification, then use it in place of `enx00eXXXXXXXXX` when running `sudo ifconfig enx00eXXXXXXXXX 192.168.1.3 broadcast 192.168.255.255 netmask 255.255.0.0`. This will change the IP address to `192.168.1.3.`
@@ -79,6 +81,6 @@ Once you have physically connected your devices with an Ethernet cable, you can 
     1.  Type `ssh root@localhost`
     1.  Type `yes` to accept the SSH (Secure Shell Protocol) fingerprint if asked
     1.  The default password is `test0000`
-    1.  Type `ifconfig eth0 192.168.1.2`. This will set the first Ethernet device to the address `192.168.1.2` (remember this for later). If eth0 does not exist, use `ifconfig` to list all the network devices and determine the correct identifier for your Ethernet port or dongle.
+    1.  Type `ifconfig eth0 192.168.1.2`. This will set the first Ethernet device to the address `192.168.1.2` (remember this for later). If `eth0` does not exist, use `ifconfig` to list all the network devices and determine the correct identifier for your Ethernet port or dongle.
 1.  On your development machine, type `adbconnect 192.168.1.2`. You can also manually specify the port with `adb connect 192.168.1.2:5555`.
 1.  Use ADB or Android Studio as usual. You can verify the connection by running `adb devices`.
