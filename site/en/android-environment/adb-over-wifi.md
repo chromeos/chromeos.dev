@@ -2,6 +2,7 @@
 title: 'ADB over Wi-Fi and Ethernet'
 metadesc: Test Android apps on real devices with ADB over Wi-Fi and Ethernet.
 date: 2023-08-18
+weight: -6
 tags:
   - android
 ---
