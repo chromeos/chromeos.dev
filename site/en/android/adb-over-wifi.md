@@ -14,7 +14,9 @@ Android developers need to test their apps on real devices. [Android Debug Bridg
 
 For most phones and tablets, you can connect an Android device to your development machine using a USB-C cable and ADB will "just work." As of June 2023, most Chromebooks do not support ADB over USB, leaving the two other methods: Wi-Fi and Ethernet.
 
-Note: You can also use [ADB over Bluetooth](https://developer.android.com/training/wearables/get-started/debugging) for WearOS devices
+!!! aside.message--note
+**Note:** You can also use [ADB over Bluetooth](https://developer.android.com/training/wearables/get-started/debugging) for WearOS devices
+!!!
 
 # ADB over Wi-Fi
 
