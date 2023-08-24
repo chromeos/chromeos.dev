@@ -57,7 +57,7 @@ _A USB-A Ethernet dongle._
 
 #[A complete ADB over Ethernet setup including USB-A Ethernet dongle, CAT6 Ethernet cable, USB-A Ethernet dongle, and USB-A to USB-C adapter.](ix://android/adb/double-ethernet.jpg)
 
-## Connecting ADB over Ethernet
+### Connecting ADB over Ethernet
 
 Once you have physically connected your devices with an Ethernet cable, you can enable ADB over the connection.
 
