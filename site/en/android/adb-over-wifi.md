@@ -64,7 +64,7 @@ Once you have physically connected your devices with an Ethernet cable, you can 
 **Note:** These instructions assume your local network is running on the `192.168.1.x` address space.
 !!!
 
-!!! aside.message--alert
+!!! aside.message--note
 **Alert:** For non-ChromeOS phones and tablets, you may need to enable TCP/IP mode. To do so, connect your Android device to your development machine via USB and run the command `adb tcpip 5555` on the development machine. This will put the device into TCP/IP mode listening on port 5555. Once enabled, you can disconnect the USB cable.
 !!!
 
