@@ -10,7 +10,7 @@ dependencies:
     version: 4.1.1(@babel/runtime@7.22.10)(@codemirror/lint@6.4.0)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.0.3)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.15.1)(styled-components@5.3.6)
   '@sanity/document-internationalization':
     specifier: ^1.0.2
-    version: 1.0.2(lodash@4.17.21)(react-dom@18.2.0)(react-is@18.2.0)(react-router-dom@5.3.4)(react-router@5.3.4)(react@18.2.0)(rxjs@6.6.7)(sanity@3.15.1)(styled-components@5.3.6)
+    version: 1.0.2(lodash@4.17.21)(react-dom@18.2.0)(react-is@18.2.0)(react-router-dom@5.3.4)(react-router@5.3.4)(react@18.2.0)(rxjs@7.8.1)(sanity@3.15.1)(styled-components@5.3.6)
   '@sanity/icons':
     specifier: ^2.4.1
     version: 2.4.1(react@18.2.0)
@@ -22,7 +22,7 @@ dependencies:
     version: 1.7.8(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.6)
   '@sanity/vision':
     specifier: ^3.0.6
-    version: 3.0.6(@babel/runtime@7.22.10)(@codemirror/lint@6.4.0)(@codemirror/state@6.2.1)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.0.3)(@sanity/client@3.4.1)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(rxjs@6.6.7)(styled-components@5.3.6)
+    version: 3.0.6(@babel/runtime@7.22.10)(@codemirror/lint@6.4.0)(@codemirror/state@6.2.1)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.0.3)(@sanity/client@3.4.1)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(rxjs@7.8.1)(styled-components@5.3.6)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -35,6 +35,9 @@ dependencies:
   react-is:
     specifier: ^18.2.0
     version: 18.2.0
+  rxjs:
+    specifier: ^7.8.1
+    version: 7.8.1
   sanity:
     specifier: ^3.15.1
     version: 3.15.1(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.6)
@@ -2101,7 +2104,7 @@ packages:
       diff-match-patch: 1.0.5
     dev: false
 
-  /@sanity/document-internationalization@1.0.2(lodash@4.17.21)(react-dom@18.2.0)(react-is@18.2.0)(react-router-dom@5.3.4)(react-router@5.3.4)(react@18.2.0)(rxjs@6.6.7)(sanity@3.15.1)(styled-components@5.3.6):
+  /@sanity/document-internationalization@1.0.2(lodash@4.17.21)(react-dom@18.2.0)(react-is@18.2.0)(react-router-dom@5.3.4)(react-router@5.3.4)(react@18.2.0)(rxjs@7.8.1)(sanity@3.15.1)(styled-components@5.3.6):
     resolution: {integrity: sha512-otHh9/3WvIro7Q74bklbFnZ94PZpRW4JPX+Do9sgKdhPlpDXtkVzYHjisVCDipfVAV0RMYDfSeWClxs6xzwkCA==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -2132,7 +2135,7 @@ packages:
       react-router: 5.3.4(react@18.2.0)
       react-router-dom: 5.3.4(react@18.2.0)
       react-twemoji: 0.5.0(react@18.2.0)
-      rxjs: 6.6.7
+      rxjs: 7.8.1
       sanity: 3.15.1(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.6)
       styled-components: 5.3.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
       twemoji: 14.0.2
@@ -2411,7 +2414,7 @@ packages:
       uuid: 8.3.2
     dev: false
 
-  /@sanity/vision@3.0.6(@babel/runtime@7.22.10)(@codemirror/lint@6.4.0)(@codemirror/state@6.2.1)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.0.3)(@sanity/client@3.4.1)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(rxjs@6.6.7)(styled-components@5.3.6):
+  /@sanity/vision@3.0.6(@babel/runtime@7.22.10)(@codemirror/lint@6.4.0)(@codemirror/state@6.2.1)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.0.3)(@sanity/client@3.4.1)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(rxjs@7.8.1)(styled-components@5.3.6):
     resolution: {integrity: sha512-FuEjP4inbPhVvp3VccxcbWA49wto7i3oDq/L1HYWSMH3YHRB5zcfABkjLx/Tp2eSoQA72mA4XTDD9+ZUXR1iPQ==}
     peerDependencies:
       '@sanity/client': ^3.4.1
@@ -2439,7 +2442,7 @@ packages:
       lodash: 4.17.21
       react: 18.2.0
       react-split-pane: 0.1.92(react-dom@18.2.0)(react@18.2.0)
-      rxjs: 6.6.7
+      rxjs: 7.8.1
       styled-components: 5.3.6(@babel/core@7.22.10)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - '@babel/runtime'
