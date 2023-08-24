@@ -18,7 +18,7 @@ For most phones and tablets, you can connect an Android device to your developme
 **Note:** You can also use [ADB over Bluetooth](https://developer.android.com/training/wearables/get-started/debugging) for WearOS devices
 !!!
 
-# ADB over Wi-Fi
+## ADB over Wi-Fi
 
 If your device is running Android 11 (API 30) or higher, you can use the [**Pair Devices Using Wi-Fi**](https://developer.android.com/tools/adb#connect-to-a-device-over-wi-fi) functionality that ships with Android Studio.
 
