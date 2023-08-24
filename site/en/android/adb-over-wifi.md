@@ -41,7 +41,7 @@ For devices running Android 10 or lower, or if you are having trouble pairing vi
 
 In some cases, it may not be possible to use a Wi-Fi network due to firewall restrictions, or a wired solution may simply be preferable. In these cases, you can connect over an Ethernet cable. The steps are similar to ADB over Wi-Fi but using an Ethernet cable.
 
-## Prerequisites
+### Prerequisites
 
 Before you get started, you need to ensure that your device supports Ethernet connectivity:
 
