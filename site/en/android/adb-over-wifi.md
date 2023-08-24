@@ -37,7 +37,7 @@ For devices running Android 10 or lower, or if you are having trouble pairing vi
 **Tip:** For more information, see [Connect to a device over Wi-Fi](https://developer.android.com/tools/adb#wireless).
 !!!
 
-# ADB over Ethernet
+## ADB over Ethernet
 
 In some cases, it may not be possible to use a Wi-Fi network due to firewall restrictions, or a wired solution may simply be preferable. In these cases, you can connect over an Ethernet cable. The steps are similar to ADB over Wi-Fi but using an Ethernet cable.
 
