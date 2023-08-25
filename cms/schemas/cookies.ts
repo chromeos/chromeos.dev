@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { defineArrayMember, defineField, defineType } from 'sanity';
+import { preview } from '$lib/previews/localization';
 
 export default defineType({
   name: 'cookies',
@@ -69,12 +70,13 @@ export default defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineField({
-          name: 'info',
-          title: 'More Info',
-          type: 'structured-link',
+          name: 'decline',
+          title: 'Decline',
+          type: 'string',
           validation: (Rule) => Rule.required(),
         }),
       ],
     }),
   ],
+  preview: preview('title'),
 });
