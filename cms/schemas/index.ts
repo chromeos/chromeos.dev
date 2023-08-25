@@ -37,6 +37,7 @@ import l10nSlugField from '$fields/l10n-slug';
 import keyValueField from '$fields/key-value';
 import statisticField from '$fields/statistic';
 import ctaField from '$fields/cta';
+import fieldField from '$fields/field';
 
 // Subschemas
 import heroSubschema from '$subschema/hero';
@@ -105,6 +106,7 @@ export const schemaTypes = [
   keyValueField,
   statisticField,
   ctaField,
+  fieldField,
 
   // Subschema
   heroSubschema,
