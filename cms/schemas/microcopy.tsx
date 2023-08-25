@@ -155,6 +155,25 @@ export default defineType({
       group: ['footer'],
       fields: [
         defineField({
+          name: 'subscribe',
+          title: 'Subscribe',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'description',
+              title: 'Description',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+        }),
+        defineField({
           name: 'links',
           title: 'Links',
           type: 'array',
@@ -276,6 +295,18 @@ export default defineType({
         defineField({
           name: 'more',
           title: 'More',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'subscribe',
+          title: 'Subscribe',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'required',
+          title: 'Required',
           type: 'string',
           validation: (Rule) => Rule.required(),
         }),
