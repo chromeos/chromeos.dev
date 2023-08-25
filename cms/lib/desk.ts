@@ -146,29 +146,23 @@ export const deskStructure = (
               S.listItem()
                 .title('Home')
                 .icon(HomeIcon)
-                .child(S.document().schemaType('home').documentId('home')),
+                .child(buildStandaloneList('home', 'Home', S)),
               S.listItem()
                 .title('News')
                 .icon(BiFile)
-                .child(S.document().schemaType('news').documentId('news')),
+                .child(buildStandaloneList('news', 'News', S)),
               S.listItem()
                 .title('Stories')
                 .icon(AiOutlineFileSearch)
-                .child(
-                  S.document().schemaType('stories').documentId('stories'),
-                ),
+                .child(buildStandaloneList('stories', 'Stories', S)),
               S.listItem()
                 .title('Newsletter')
                 .icon(BiMailSend)
-                .child(
-                  S.document()
-                    .schemaType('newsletter')
-                    .documentId('newsletter'),
-                ),
+                .child(buildStandaloneList('newsletter', 'Newsletter', S)),
               S.listItem()
                 .title('Powerful PWAs')
                 .icon(IoLogoPwa)
-                .child(S.document().schemaType('pwas').documentId('pwas')),
+                .child(buildStandaloneList('pwas', 'Powerful PWAs', S)),
             ]),
         ),
 
@@ -214,7 +208,7 @@ export const deskStructure = (
               S.listItem()
                 .title('Navigation')
                 .icon(BiNavigation)
-                .child(S.document().schemaType('nav').documentId('nav')),
+                .child(buildStandaloneList('nav', 'Navigation', S)),
 
               S.listItem()
                 .title('Cookie Disclaimer')
