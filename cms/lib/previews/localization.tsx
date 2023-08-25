@@ -18,6 +18,7 @@ export type SanityPreview = {
  * @return {SanityPreview} - Sanity preview object
  */
 export function preview(title: string): SanityPreview {
+  const ot = title;
   return {
     select: {
       lang: '__i18n_lang',
@@ -27,7 +28,7 @@ export function preview(title: string): SanityPreview {
       const { lang } = selection;
       const { title } = selection;
       return {
-        title,
+        title: title || ot,
         media: (
           <span className="flag" style={{ fontSize: '2rem' }}>
             {langToFlag(lang || 'en_US')}
