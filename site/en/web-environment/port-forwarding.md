@@ -9,10 +9,6 @@ tags:
 
 When developing web apps, testing across multiple devices is vital to ensure that what you’re building will work for you users. Chrome OS’s built-in port forwarding allows you to open the port to your local development server, allowing access from phones or other computers.
 
-!!! aside.message--warning
-**Warning:** Launching in Chrome OS version 85, built-in controls for managing port forwarding are a new feature still under development, so the UI may change and the feature may break until it is stable. You can start using this with Chrome OS version 84 by enabling the _Crostini Port Forwarding_ flag (`chrome://flags/#crostini-port-forwarding`).
-!!!
-
 Start by going to the developer settings on Chrome OS and clicking the Linux box. There should be an option _Port forwarding_. Click on that.
 
 ![Linux settings page.](ix://develop/web/linux-settings.png)
@@ -28,7 +24,10 @@ When forwarding a port, you have three options: the port number to forward, the 
 Once added, your ports will show up in the Port forwarding list, where you can toggle them on or off or remove them entirely.
 
 !!! aside.message--tip
-If you're unable to toggle a port, make sure you have Linux running by simply opening the Terminal app. Feel free to close the Terminal app once Linux is up and running. It will continue to run in the background unless you shut it down (right-click Terminal icon and select "Shut down Linux".)
+If you're unable to toggle a port, make sure you have Linux running by opening
+the Terminal app and connecting to Linux. Feel free to close the Terminal app
+once Linux is up and running. It will continue to run in the background unless
+you shut it down (right-click Terminal icon and select "Shut down Linux".)
 !!!
 
 ![Port forwarding settings page with a configured port of 3000 using TCP labeled "Server".](ix://develop/web/port-forward-configured.png)
