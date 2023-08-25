@@ -5,6 +5,11 @@
   display: block;
 }
 
+/* Excepte in autocomplete */
+[data-ui='Autocomplete'] [data-as='span'][data-ui='Card']:not([hidden]) {
+  width: unset;
+}
+
 [data-as='span'][data-ui='Card'] > span {
   max-width: unset;
 }
