@@ -17,3 +17,7 @@
 [data-testid='Media']:has(.flag) {
   position: static;
 }
+
+[data-testid='Media']:has(.flag) span {
+  box-shadow: none;
+}
