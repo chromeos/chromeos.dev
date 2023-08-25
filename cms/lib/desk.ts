@@ -20,10 +20,12 @@ import {
   BiMailSend,
   BiCodeCurly,
 } from 'react-icons/bi';
+import { map } from 'rxjs/operators';
 
 import { AiOutlineFileSearch } from 'react-icons/ai';
 import { IoLogoPwa } from 'react-icons/io5';
 import { LuPaintbrush2 } from 'react-icons/lu';
+import { SanityDocument } from 'sanity';
 
 /**
  * Builds desk structure
@@ -34,8 +36,57 @@ import { LuPaintbrush2 } from 'react-icons/lu';
 export const deskStructure = (
   S: StructureBuilder,
   context: StructureResolverContext,
-) =>
-  S.list()
+) => {
+  /**
+   *
+   * @param {string} type - Type of document
+   * @param {string} title - Title of list
+   * @param {StructureBuilder} S - Structure builder
+   * @return {Observable<DocumentBuilder | ListBuilder>}
+   */
+  function buildStandaloneList(
+    type: string,
+    title: string,
+    S: StructureBuilder,
+  ) {
+    return context.documentStore
+      .listenQuery(`*[_type == "${type}"]`, {}, { throttleTime: 1000 })
+      .pipe(
+        map((docs: SanityDocument[]) => {
+          const filteredDocs = docs.filter((doc) =>
+            context.schema.has(doc._type),
+          );
+
+          // If there are no documents, return a default document
+          if (filteredDocs.length === 0) {
+            return S.documentTypeList(type);
+          }
+
+          return S.list()
+            .title(title)
+            .items(
+              filteredDocs
+                .map((doc) => doc)
+                .sort((a, b) => {
+                  // Ensure that the base document is always on top
+                  if (a?.__i18n_base && b?.__i18n_base) {
+                    return 0;
+                  }
+                  if (!a?.__i18n_base && b?.__i18n_base) {
+                    return -1;
+                  }
+
+                  return 1;
+                })
+                .map((doc) =>
+                  S.documentListItem().id(doc._id).schemaType(doc._type),
+                ),
+            );
+        }),
+      );
+  }
+
+  return S.list()
     .title('Content')
     .items([
       // All base-language posts
@@ -138,20 +189,10 @@ export const deskStructure = (
           S.list()
             .title('Structure')
             .items([
-              // S.listItem()
-              //   .title('Microcopy')
-              //   .icon(ControlsIcon)
-              //   .child(
-              //     S.document().schemaType('microcopy').documentId('microcopy'),
-              //   ),
               S.listItem()
                 .title('Microcopy')
                 .icon(ControlsIcon)
-                .child(
-                  S.documentTypeList('microcopy')
-                    .filter(`_type == 'microcopy'`)
-                    .title('Microcopy'),
-                ),
+                .child(buildStandaloneList('microcopy', 'Microcopy', S)),
               S.listItem()
                 .title('Navigation')
                 .icon(BiNavigation)
@@ -160,12 +201,11 @@ export const deskStructure = (
               S.listItem()
                 .title('Cookie Disclaimer')
                 .icon(BiCookie)
-                .child(
-                  S.document().schemaType('cookies').documentId('cookies'),
-                ),
+                .child(buildStandaloneList('cookies', 'Cookie Disclaimer', S)),
             ]),
         ),
     ]);
+};
 
 /**
  * Builds document view structure
