@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { defineArrayMember, defineField, defineType } from 'sanity';
+import { preview } from '$lib/previews/localization';
 
 export default defineType({
   name: 'home',
@@ -381,4 +382,5 @@ export default defineType({
       ],
     }),
   ],
+  preview: preview('Homepage'),
 });
