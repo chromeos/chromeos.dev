@@ -15,370 +15,103 @@
  */
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
+import { preview } from '$lib/previews/localization';
+
 export default defineType({
   name: 'newsletter',
   title: 'Newsletter',
-  description: 'Home page',
+  description: 'Newsletter Options',
   type: 'document',
   i18n: true,
+  groups: [
+    {
+      title: 'Fields',
+      name: 'fields',
+    },
+  ],
   fields: [
     defineField({
-      name: 'hero',
-      type: 'object',
+      name: 'title',
+      title: 'Title',
+      type: 'string',
       validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'heading',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'default',
-              type: 'string',
-            }),
-            defineField({
-              name: 'accent',
-              type: 'string',
-            }),
-          ],
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'disclaimer',
+      title: 'Disclaimer',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          title: 'Block',
+          type: 'block',
+          styles: [{ title: 'Normal', value: 'normal' }],
+          lists: [],
+          marks: {
+            decorators: [],
+            annotations: [
+              {
+                title: 'Link',
+                name: 'link',
+                type: 'object',
+                fields: [
+                  defineField({
+                    title: 'Source',
+                    name: 'source',
+                    type: 'link',
+                  }),
+                ],
+              },
+            ],
+          },
         }),
-        defineField({
-          name: 'copy',
+      ],
+    }),
+    defineField({
+      name: 'messages',
+      title: 'Messages',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          name: 'warning',
+          title: 'Warning',
           type: 'string',
+          description: 'If something goes wrong',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineArrayMember({
+          name: 'success',
+          title: 'Success',
+          type: 'string',
+          description: 'When successful.',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineArrayMember({
+          name: 'offline',
+          title: 'Offline',
+          type: 'string',
+          description: 'If the user is offline',
           validation: (Rule) => Rule.required(),
         }),
       ],
     }),
     defineField({
-      name: 'media',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'placeholder',
-          type: 'picture',
-        }),
-        defineField({
-          name: 'phosphor',
-          type: 'picture',
-        }),
-        defineField({
-          name: 'static',
-          type: 'picture',
-        }),
-      ],
-    }),
-    defineField({
-      name: 'routing',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'items',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              type: 'homepage-card',
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'linux',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'content',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'title',
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'top',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'bottom',
-                  type: 'string',
-                }),
-              ],
-            }),
-            defineField({
-              name: 'copy',
-              type: 'string',
-            }),
-          ],
-        }),
-        defineField({
-          name: 'cta',
-          type: 'cta',
-        }),
-        defineField({
-          name: 'images',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              type: 'picture',
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'stats',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'content',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'title',
-              type: 'string',
-            }),
-            defineField({
-              name: 'copy',
-              type: 'string',
-            }),
-          ],
-        }),
-        defineField({
-          name: 'items',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'statistic',
-                  type: 'statistic',
-                }),
-                defineField({
-                  name: 'modifiers',
-                  type: 'object',
-                  fields: [
-                    defineField({
-                      name: 'shape',
-                      type: 'string',
-                      options: {
-                        list: [
-                          { title: 'None', value: 'false' },
-                          { title: 'Circle', value: 'circle' },
-                          { title: 'Semicircle', value: 'semicircle' },
-                          { title: 'Triangle', value: 'triangle' },
-                        ],
-                      },
-                    }),
-                    defineField({
-                      name: 'scale',
-                      type: 'string',
-                      options: {
-                        list: [
-                          { title: 'Default', value: 'default' },
-                          { title: 'Full', value: 'full' },
-                          { title: 'Half', value: 'half' },
-                        ],
-                      },
-                    }),
-                    defineField({
-                      name: 'source',
-                      type: 'string',
-                      validation: (Rule) => Rule.required(),
-                    }),
-                  ],
-                }),
-              ],
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'stories',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'copy',
-          type: 'string',
-        }),
-        defineField({
-          name: 'cta',
-          type: 'cta',
-        }),
-      ],
-    }),
-    defineField({
-      name: 'posts',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'copy',
-          type: 'string',
-        }),
-        defineField({
-          name: 'cta',
-          type: 'cta',
-        }),
-      ],
-    }),
-    defineField({
-      name: 'commercial',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'copy',
-          type: 'string',
-        }),
-        defineField({
-          name: 'items',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              type: 'homepage-card',
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'quotes',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'copy',
-          type: 'string',
-        }),
-        defineField({
-          name: 'items',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'quote',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'author',
-                  type: 'object',
-                  fields: [
-                    defineField({
-                      name: 'name',
-                      type: 'string',
-                    }),
-                    defineField({
-                      name: 'title',
-                      type: 'string',
-                    }),
-                  ],
-                }),
-                defineField({
-                  name: 'image',
-                  type: 'picture',
-                }),
-              ],
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'community',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'chromebook',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'copy',
-          type: 'string',
-        }),
-        defineField({
-          name: 'cta',
-          type: 'cta',
-        }),
-        defineField({
-          name: 'image',
-          type: 'picture',
-        }),
-      ],
-    }),
-    defineField({
-      name: 'subnav',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'copy',
-          type: 'string',
-        }),
-      ],
-    }),
-    defineField({
-      name: 'videos',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'items',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'title',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'video',
-                  type: 'youtube',
-                }),
-              ],
-            }),
-          ],
+      name: 'fields',
+      title: 'Fields',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          name: 'field',
+          type: 'field',
+          validation: (Rule) => Rule.required(),
         }),
       ],
     }),
   ],
+  preview: preview('title'),
 });
