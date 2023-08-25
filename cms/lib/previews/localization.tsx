@@ -30,7 +30,7 @@ export function preview(title: string): SanityPreview {
         title,
         media: (
           <span className="flag" style={{ fontSize: '2rem' }}>
-            {langToFlag(lang || 'en')}
+            {langToFlag(lang || 'en_US')}
           </span>
         ),
       };
