@@ -53,9 +53,27 @@ export const deskStructure = (
       .listenQuery(`*[_type == "${type}"]`, {}, { throttleTime: 1000 })
       .pipe(
         map((docs: SanityDocument[]) => {
-          const filteredDocs = docs.filter((doc) =>
-            context.schema.has(doc._type),
-          );
+          const doubles: string[] = [];
+          const filteredDocs = docs
+            .filter((doc, i, a) => {
+              if (context.schema.has(doc._type)) {
+                // If the document is a draft, check to see if it has a double
+                let id = doc._id;
+                if (id.startsWith('drafts.')) {
+                  id = id.replace('drafts.', '');
+                  const i = a.findIndex((doc) => doc._id === id);
+                  if (i !== -1) {
+                    doubles.push(id);
+                  }
+                }
+                return true;
+              }
+
+              return false;
+            })
+            // Remove non-draft doubles
+            // This could be made faster by only looping doubles, but this should be fine for how it's used right now
+            .filter((doc) => !doubles.includes(doc._id));
 
           // If there are no documents, return a default document
           if (filteredDocs.length === 0) {
