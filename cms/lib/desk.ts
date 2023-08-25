@@ -20,6 +20,7 @@ import {
   BiMailSend,
   BiCodeCurly,
 } from 'react-icons/bi';
+import { RiTodoLine } from 'react-icons/ri';
 import { map } from 'rxjs/operators';
 
 import { AiOutlineFileSearch } from 'react-icons/ai';
@@ -159,6 +160,14 @@ export const deskStructure = (
                 .title('Newsletter')
                 .icon(BiMailSend)
                 .child(buildStandaloneList('newsletter', 'Newsletter', S)),
+              S.listItem()
+                .title('Landing Pages')
+                .icon(RiTodoLine)
+                .child(
+                  S.documentTypeList('landing').filter(
+                    '_type == "landing" &&  !defined(__i18n_base)',
+                  ),
+                ),
               S.listItem()
                 .title('Powerful PWAs')
                 .icon(IoLogoPwa)

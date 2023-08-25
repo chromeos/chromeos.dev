@@ -48,6 +48,7 @@ import themeSubschema from '$subschema/theme';
 import appSubschema from '$subschema/app';
 import resourcesSubschema from '$subschema/resources';
 import homepageCardSchema from '$subschema/homepage-card';
+import bannerSubschema from '$subschema/banner';
 
 // Schemas
 import tag from './tag';
@@ -64,6 +65,7 @@ import newsletter from './newsletter';
 import stories from './stories';
 import cookies from './cookies';
 import pwas from './pwas';
+import landing from './landing';
 
 export const schemaTypes = [
   // Schemas
@@ -81,6 +83,7 @@ export const schemaTypes = [
   stories,
   cookies,
   pwas,
+  landing,
 
   // Fields
   fullBlockField,
@@ -117,4 +120,5 @@ export const schemaTypes = [
   appSubschema,
   resourcesSubschema,
   homepageCardSchema,
+  bannerSubschema,
 ];
