@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { StringRule, defineArrayMember, defineField, defineType } from 'sanity';
+import { preview } from '$lib/previews/localization';
 
 /**
  *
@@ -125,4 +126,5 @@ export default defineType({
       ],
     }),
   ],
+  preview: preview('Navigation'),
 });
