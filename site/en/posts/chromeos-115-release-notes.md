@@ -1,6 +1,6 @@
 ---
 title: 'ChromeOS 115 release notes'
-metadesc: 'Introducing updates to app streaming, window states, and screen casting.'
+metadesc: 'ChromeOS 115 introduces updates to app streaming, window states, and screen casting.'
 tags:
   - announcement
   - product news
@@ -31,6 +31,9 @@ In ChromeOS 115, the Gallery PDF toolkit makes it easier for users to sign their
 ## Seamless, secure connection to Wi-Fi networks
 
 Passpoint streamlines Wi-Fi access and eliminates the need for users to find and authenticate a network each time they visit. Once a user accesses the Wi-Fi network offered at a location, the Passpoint-enabled client device will automatically connect upon subsequent visits. Wi-Fi Passpoint is now supported on ChromeOS through supported Android applications. Wi-Fi Passpoint is a set of Wi-Fi mechanisms defined by the Wi-Fi Alliance that facilitate and automate the provisioning and configuration of secure Wi-Fi networks while also minimizing user intervention. Once provisioned, whenever a compatible and secured Wi-Fi network is in range, ChromeOS can automatically connect to it without the need for user interaction.
+
+## Also released in ChromeOS 115
+
 Other ChromeOS 115 updates include:
 
 - **Expanded language packs:** Some Google Text-to-Speech voices that were previously preinstalled are now downloaded over the network when they are needed. This frees up some space on the ChromeOS device.

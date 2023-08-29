@@ -1,6 +1,6 @@
 ---
 title: 'ChromeOS 116 release notes'
-metadesc: 'A new data processor mode, expanded language and emoji support for Linux apps, and a variety of enhanced and updated features.'
+metadesc: 'ChromeOS 116 brings a new data processor mode, expanded language and emoji support for Linux apps, and a variety of enhanced and updated features.'
 tags:
   - announcement
   - product news
