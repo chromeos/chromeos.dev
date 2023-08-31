@@ -24,7 +24,17 @@ export default defineType({
       name: 'reference',
       title: 'Reference',
       type: 'reference',
-      to: [{ type: 'post' }],
+      to: [
+        { type: 'post' },
+        { type: 'documentation' },
+        { type: 'news' },
+        { type: 'story' },
+        { type: 'stories' },
+        { type: 'pwas' },
+        { type: 'newsletter' },
+        { type: 'landing' },
+        { type: 'home' },
+      ],
       readOnly: ({ parent }) => (parent?.url ? true : false),
       options: {
         disableNew: true,
