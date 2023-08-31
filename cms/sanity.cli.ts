@@ -33,7 +33,7 @@ const aliases = Object.entries(tsconfig.compilerOptions.paths).map(
 export default defineCliConfig({
   api: {
     projectId: process.env.SANITY_STUDIO_PROJECT,
-    dataset: process.env.SANITY_STUDIO_API_DATASET,
+    dataset: process.env.SANITY_STUDIO_PROD_DATASET,
   },
 
   vite(config) {

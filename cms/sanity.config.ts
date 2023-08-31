@@ -28,36 +28,58 @@ const devOnlyPlugins = [visionTool()];
 
 const theme = _theme as import('sanity').StudioTheme;
 
-export default defineConfig({
-  theme,
-  name: 'default',
-  title: 'ChromeOS',
-
-  projectId: import.meta.env.SANITY_STUDIO_PROJECT || '',
-  dataset: import.meta.env.SANITY_STUDIO_API_DATASET || '',
-
-  plugins: withDocumentI18nPlugin(
-    (pluginConfig) => [
-      deskTool({
-        structure: deskStructure,
-        defaultDocumentNode: defaultDocumentNodeResolver,
-      }),
-      codeInput(),
-      table(),
-      ...(isDev ? devOnlyPlugins : []),
+const plugins = withDocumentI18nPlugin(
+  (pluginConfig) => [
+    deskTool({
+      structure: deskStructure,
+      defaultDocumentNode: defaultDocumentNodeResolver,
+    }),
+    codeInput(),
+    table(),
+    ...(isDev ? devOnlyPlugins : []),
+  ],
+  {
+    includeDeskTool: false,
+    languages: [
+      { id: 'en_US', title: 'English' },
+      { id: 'es', title: 'Spanish' },
     ],
-    {
-      includeDeskTool: false,
-      languages: [
-        { id: 'en_US', title: 'English' },
-        { id: 'es', title: 'Spanish' },
-      ],
-    },
-  ),
-
-  // TODO: configure table to allow limited HTML in rows
-
-  schema: {
-    types: schemaTypes,
   },
-});
+);
+
+const schema = {
+  types: schemaTypes,
+};
+
+export default defineConfig([
+  {
+    theme,
+    name: 'testing',
+    basePath: '/test',
+    title: 'Testing',
+
+    projectId: import.meta.env.SANITY_STUDIO_PROJECT || '',
+    dataset: import.meta.env.SANITY_STUDIO_DEV_DATASET || '',
+
+    plugins,
+
+    // TODO: configure table to allow limited HTML in rows
+
+    schema,
+  },
+  {
+    theme,
+    name: 'production',
+    basePath: '/',
+    title: 'Production',
+
+    projectId: import.meta.env.SANITY_STUDIO_PROJECT || '',
+    dataset: import.meta.env.SANITY_STUDIO_PROD_DATASET || '',
+
+    plugins,
+
+    // TODO: configure table to allow limited HTML in rows
+
+    schema,
+  },
+]);
