@@ -5,9 +5,6 @@ import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
 import nodejs from '@astrojs/node';
 
-// https://astro.build/config
-import mdx from '@astrojs/mdx';
-
 import tsconfig from './tsconfig.json';
 
 // Get the current directory
@@ -46,7 +43,7 @@ export default defineConfig({
   adapter: nodejs({
     mode: 'middleware',
   }),
-  integrations: [svelte(), mdx()],
+  integrations: [svelte()],
   compressHTML: true,
   vite: {
     resolve: {
