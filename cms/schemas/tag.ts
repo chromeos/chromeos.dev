@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 import { defineField, defineType } from 'sanity';
+import { isL10n } from '$lib/validators/i18n';
 
 export default defineType({
   name: 'tag',
   title: 'Tag',
   type: 'document',
+  i18n: true,
   groups: [
     {
       name: 'tag',
@@ -60,12 +62,16 @@ export default defineType({
       title: 'Is post category',
       type: 'boolean',
       group: 'category',
+      readOnly: isL10n,
+      hidden: isL10n,
     }),
     defineField({
       name: 'is_story_category',
       title: 'Is story category',
       type: 'boolean',
       group: 'category',
+      readOnly: isL10n,
+      hidden: isL10n,
     }),
   ],
 });
