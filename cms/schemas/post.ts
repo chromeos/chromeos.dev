@@ -94,10 +94,10 @@ export default defineType({
     defineField({
       name: 'author',
       title: 'Author',
-      type: 'reference',
+      type: 'array',
       group: ['publishing'],
       validation: (Rule) => Rule.required(),
-      to: { type: 'author' },
+      of: [{ type: 'reference', to: { type: 'author' } }],
       readOnly: isL10n,
       // hidden: isL10n,
     }),
@@ -177,14 +177,20 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
+      author0: 'author.0.name',
+      author1: 'author.1.name',
+      author2: 'author.2.name',
+      author3: 'author.3.name',
       media: 'mainImage',
     },
     prepare(selection) {
-      const { author } = selection;
+      const author: string = Object.entries(selection)
+        .filter(([k, v]) => k.startsWith('author') && v)
+        .map(([k, v]) => v.given + ' ' + v.family)
+        .join(', ');
       return {
         ...selection,
-        subtitle: author && `by ${author.given} ${author.family}`,
+        subtitle: author && `by ${author}`,
       };
     },
   },
