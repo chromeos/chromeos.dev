@@ -1,4 +1,13 @@
 /**
+ * Normalizes a language string to the first part of the string
+ * @param {string} lang
+ * @return {string}
+ */
+export function normalizeLang(lang: string) {
+  return lang?.split('_')[0] || 'en';
+}
+
+/**
  *
  * @param {string} file - Path to file
  * @return {object}
