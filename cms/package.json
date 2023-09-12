@@ -25,6 +25,7 @@
     "sanity"
   ],
   "dependencies": {
+    "@portabletext/react": "^3.0.7",
     "@sanity/code-input": "^4.1.1",
     "@sanity/document-internationalization": "^1.0.2",
     "@sanity/icons": "^2.4.1",

@@ -16,6 +16,7 @@
 import { defineType, defineField } from 'sanity';
 import React from 'react';
 import { Box, Card, Text } from '@sanity/ui';
+import { PortableText } from '@portabletext/react';
 
 export default defineType({
   name: 'message',
@@ -58,14 +59,14 @@ export default defineType({
             style={{
               background,
               borderRadius: '5px',
-              padding: '1rem 1.5rem',
+              padding: '.5rem .75rem',
               borderColor,
               borderStyle: 'solid',
               borderWidth: '2px',
             }}
           >
             <Text size={1} style={{ color }}>
-              {message.children}
+              <PortableText value={message} />
             </Text>
           </Card>
         </Box>
