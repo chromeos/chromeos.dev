@@ -54,32 +54,18 @@ const schema = {
 export default defineConfig([
   {
     theme,
-    name: 'testing',
-    basePath: '/test',
-    title: 'Testing',
+    name: isDev ? 'development' : 'production',
+    basePath: isDev ? '/dev' : '/',
+    title: isDev ? 'Development' : 'Production',
 
     projectId: import.meta.env.SANITY_STUDIO_PROJECT || '',
-    dataset: import.meta.env.SANITY_STUDIO_DEV_DATASET || '',
+    dataset: isDev
+      ? import.meta.env.SANITY_STUDIO_DEV_DATASET || ''
+      : import.meta.env.SANITY_STUDIO_PROD_DATASET || '',
 
     plugins,
 
     // TODO: configure table to allow limited HTML in rows
-
-    schema,
-  },
-  {
-    theme,
-    name: 'production',
-    basePath: '/',
-    title: 'Production',
-
-    projectId: import.meta.env.SANITY_STUDIO_PROJECT || '',
-    dataset: import.meta.env.SANITY_STUDIO_PROD_DATASET || '',
-
-    plugins,
-
-    // TODO: configure table to allow limited HTML in rows
-
     schema,
   },
 ]);
