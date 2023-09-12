@@ -1,5 +1,7 @@
 /* Fix inline object styling */
-[data-as='span'][data-ui='Card']:not([hidden]) {
+[data-as='span'][data-ui='Card']:not([hidden]):not(
+    :has([data-testid='select-date-button'])
+  ) {
   height: auto;
   width: 100%;
   display: block;
