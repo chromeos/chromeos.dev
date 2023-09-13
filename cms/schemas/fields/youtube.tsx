@@ -24,7 +24,8 @@ export default defineType({
       scheme: ['https'],
     }).custom((url) =>
       url
-        ? url?.startsWith('https://www.youtube.com/watch?v=')
+        ? url?.startsWith('https://www.youtube.com/watch?v=') ||
+          url?.startsWith('https://youtu.be/')
           ? true
           : 'Must be a valid YouTube URL'
         : true,
