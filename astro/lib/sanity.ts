@@ -1,7 +1,7 @@
 import { useSanityClient } from '@sanity/astro';
 import { normalizeLang } from '$$data';
 import * as path from 'path';
-import type { BlockSchemaType } from '@sanity/types';
+import { inspect } from 'util';
 
 let includeDrafts = false;
 
@@ -35,11 +35,11 @@ async function groq(strings: TemplateStringsArray, ...keys: any[]) {
   // Add standard fields
   query = query.replace(
     /}$/g,
-    `, _type
-    , '_lang': coalesce(__i18n_lang, 'en_US')
-    , 'dates': {
+    `_type,
+    '_lang': coalesce(__i18n_lang, 'en_US'),
+    'dates': {
       'published': coalesce(date_overrides.published, _createdAt),
-      'updated': coalesce(date_overrides.updated, coalesce(date_overrides.published, _updatedAt))
+      'updated': coalesce(date_overrides.updated, date_overrides.published, _updatedAt)
     }}`,
   );
 
@@ -106,41 +106,15 @@ export const microcopy = (
     return acc;
   }, {});
 
-export type Author = {
-  name: {
-    given: string;
-    family: string;
-  };
-  work: {
-    company: string;
-    org: string;
-    title: string;
-  };
-  image: string;
-};
-
-export type Tag = {
-  title: string;
-  slug: string;
-};
-
-export type Post = {
-  title: string;
-  description: string;
-  body: BlockSchemaType;
-  category: Tag;
-  author: Author[];
-  tags: Tag[];
-  slug: string;
-  dates: {
-    published: Date;
-    updated?: Date;
-  };
-  _type: string;
-  _lang: string;
-  _section: string;
-  _path: string;
-};
+/**
+ * Microcpy query mixin for GROQ
+ * @param {string} lang - Language to pull microcopy from
+ * @param {string} property - Property from microcopy to get
+ * @return {string} GROQ query for the microcopy item
+ */
+function groqMicrocopy(lang: string, property: string) {
+  return `*[_type == 'microcopy' && !(_id in path('drafts.**')) && (__i18n_lang == ${lang} || __i18n_lang == 'en_US')]{'item': ${property}}[0].item`;
+}
 
 /**
  * Get post
@@ -151,7 +125,8 @@ export async function getPosts() {
     await groq`*[_type == "post"]{
       title,
       description,
-      body,
+      'slug': slug.current,
+      // body,
       category->{
         title,
         'slug': slug.current
@@ -165,7 +140,56 @@ export async function getPosts() {
         title,
         'slug': slug.current
       },
-      'slug': slug.current
+      hero.include == true => {
+        'hero': coalesce({
+          'youtube': hero.hero.youtube,
+        }, {
+          'image': hero.hero.image.asset->url,
+          'alt': hero.hero.image.alt,
+        })
+      },
+      'theme': {
+        'icon': coalesce(theme.theme->icon.asset->url, 'https://chromeos-dev.imgix.net/icons/eyebrows/' + category->slug.current + '.svg?auto=format,compress'),
+        'slug': coalesce(theme.theme->slug.current, category->slug.current),
+        featured.feature == true => {
+          'eyebrow': coalesce(
+            featured.featured.eyebrow,
+            theme.theme->eyebrow,
+            ${groqMicrocopy('__i18n_lang', 'identifiers.featured')}
+          )
+        },
+        feature.feature != true => {
+          'eyebrow': coalesce(
+            theme.theme->eyebrow,
+            category->title
+          )
+        },
+        'backgrounds': {
+          'large': coalesce(
+            theme.backgrounds.background_large.asset->url,
+            theme.theme->background_large.asset->url,
+            'https://chromeos-dev.imgix.net/landings/news/top/banner-' + category-> slug.current + '.svg?auto=format,compress'
+          ),
+          'small': coalesce(
+            theme.backgrounds.background_small.asset->url,
+            theme.theme->background_small.asset->url,
+            'https://chromeos-dev.imgix.net/landings/news/banner-' + category-> slug.current + '.svg?auto=format,compress'
+          ),
+        }
+      },
+      share,
+      featured.feature == true => {
+        'featured': {
+          'title': coalesce(featured.featured.title, title),
+          'description': coalesce(featured.featured.description, description),
+          coalesce(featured.featured.image, hero.hero.image) != null => {
+            'media': {
+              'image': coalesce(featured.featured.image.asset->url, hero.hero.image.asset->url),
+              'alt': coalesce(featured.featured.image.alt, hero.hero.image.alt),
+            }
+          }
+        }
+      },
     }`
   ).map((post) => {
     return post;
@@ -173,6 +197,20 @@ export async function getPosts() {
 
   return q;
 }
+
+// 'eyebrow': coalesce(
+//   featured.featured.eyebrow,
+//   theme.theme->eyebrow,
+//   featured.feature == true => {${groqMicrocopy(
+//     '__i18n_lang',
+//     'identifiers.featured',
+//   )}},
+//   category->title
+// ),
+// 'backgrounds': {
+//   'large': coalesce(theme.backgrounds.background_large.asset->url, theme.theme->background_large.asset->url, 'https://chromeos-dev.imgix.net/landings/news/top/banner-' + category-> slug.current + '.svg?auto=format,compress'),
+//   'small': coalesce(theme.backgrounds.background_small.asset->url, theme.theme->background_small.asset->url, 'https://chromeos-dev.imgix.net/landings/news/banner-' + category-> slug.current + '.svg?auto=format,compress'),
+// }
 
 /**
  *
@@ -185,9 +223,25 @@ export async function getCardData(type: string) {
   const q = await getPosts();
 
   // const posts = await buildPostsFromAPI(q);
-  console.log(q);
+  console.log(inspect(q[q.length - 1], false, null, true));
   // const cards = (await sanity.fetch(query)).map((card) => {
   //   return card;
   // });
   return '';
 }
+
+/**
+// COMPUTED DATA
+
+// Featured
+eyebrow: featured.eyebrow, theme.eyebrow, microcopy.featured.eyebrow
+title: featured.title. title
+description: featured.description, description
+cta: {
+  text: microcopy.more
+  url: page.url
+}
+media: featured.images, hero, theme, category
+
+
+ */
