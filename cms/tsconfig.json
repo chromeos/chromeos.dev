@@ -17,6 +17,7 @@
     "paths": {
       "$lib/*": ["./lib/*"],
       "$subschema/*": ["./schemas/subschema/*"],
+      "$components/*": ["./components/*"],
       "$fields/*": ["./schemas/fields/*"]
     }
   },
