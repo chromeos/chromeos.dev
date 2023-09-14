@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 import { defineType, defineField } from 'sanity';
-import React from 'react';
 import { Box, Card, Text } from '@sanity/ui';
 import { PortableText } from '@portabletext/react';
 
