@@ -13,21 +13,56 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { defineType } from 'sanity';
+import { defineType, defineField } from 'sanity';
+import getYouTubeId from 'get-youtube-id';
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
 export default defineType({
   name: 'youtube',
   title: 'Youtube',
-  type: 'url',
-  validation: (Rule) =>
-    Rule.uri({
-      scheme: ['https'],
-    }).custom((url) =>
-      url
-        ? url?.startsWith('https://www.youtube.com/watch?v=') ||
-          url?.startsWith('https://youtu.be/')
-          ? true
-          : 'Must be a valid YouTube URL'
-        : true,
-    ),
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'url',
+      type: 'url',
+      title: 'YouTube Video URL',
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ['https'],
+        }).custom((url) =>
+          url
+            ? url?.startsWith('https://www.youtube.com/watch?v=') ||
+              url?.startsWith('https://youtu.be/')
+              ? true
+              : 'Must be a valid YouTube URL'
+            : true,
+        ),
+    }),
+  ],
+  components: {
+    preview: (props) => {
+      const { url, renderDefault } = props;
+      if (!url) {
+        return <div>Missing YouTube URL</div>;
+      }
+      const id = getYouTubeId(url);
+      return (
+        <div>
+          {renderDefault({ ...props, title: 'YouTube Embed' })}
+          <LiteYouTubeEmbed id={id} />
+        </div>
+      );
+    },
+  },
+  preview: {
+    select: {
+      url: 'url',
+    },
+    prepare({ url }) {
+      return {
+        url: url,
+      };
+    },
+  },
 });

@@ -15,7 +15,7 @@ export default defineType({
     }),
     defineField({
       name: 'youtube',
-      title: 'YouTube ID',
+      title: 'YouTube Video',
       type: 'youtube',
       readOnly: ({ parent }) =>
         parent?.image?.alt || parent?.image?.asset?._ref ? true : false,

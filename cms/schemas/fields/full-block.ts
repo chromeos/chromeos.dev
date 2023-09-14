@@ -151,14 +151,7 @@ export default defineType({
     defineArrayMember({
       name: 'youtube',
       title: 'YouTube',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'video',
-          title: 'Video',
-          type: 'youtube',
-        }),
-      ],
+      type: 'youtube',
     }),
     defineArrayMember({
       type: 'deflist',
