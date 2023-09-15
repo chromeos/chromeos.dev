@@ -15,6 +15,7 @@
  */
 import { defineType, defineField } from 'sanity';
 import { YouTubeInput, YouTubePreview } from '$components/YouTube';
+import getYouTubeId from 'get-youtube-id';
 
 export default defineType({
   name: 'youtube',
@@ -30,10 +31,9 @@ export default defineType({
           scheme: ['https'],
         }).custom((url) =>
           url
-            ? url?.startsWith('https://www.youtube.com/watch?v=') ||
-              url?.startsWith('https://youtu.be/')
+            ? getYouTubeId(url)
               ? true
-              : 'Must be a valid YouTube URL'
+              : 'Must be a valid YouTube Video URL'
             : true,
         ),
     }),
