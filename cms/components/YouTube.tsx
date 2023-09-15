@@ -28,12 +28,12 @@ export const YouTubeInput = (props: YouTubeInputProps) => {
       member.kind === 'field' && member.name === 'url',
   );
 
-  const handleChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      const nextValue = event.currentTarget.value;
+  // Sets the value of the YouTube object depending on if it's used in a block or used as a field
+  const setValue = useCallback(
+    (url: string) => {
       const newValue = {
-        url: nextValue || null,
-        id: getYouTubeId(nextValue) || null,
+        url: url || null,
+        id: getYouTubeId(url) || null,
       } as YouTube;
 
       // If it's used in a block, need key and type
@@ -43,12 +43,22 @@ export const YouTubeInput = (props: YouTubeInputProps) => {
         onChange(set(newValue));
       } else {
         // If it's not, don't need key and type
-        onChange(nextValue ? set(newValue) : unset());
+        onChange(url ? set(newValue) : unset());
       }
     },
     [onChange, value?._key, value?._type],
   );
 
+  // Handle the callback for when the input changes
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const url = event.currentTarget.value;
+      setValue(url);
+    },
+    [setValue],
+  );
+
+  // Custom render input attach our own change handler
   const customRenderInput = useCallback(
     (renderInputCallbackProps: InputProps) => {
       return (
@@ -64,6 +74,12 @@ export const YouTubeInput = (props: YouTubeInputProps) => {
     [handleChange, value?.url],
   );
 
+  // Migrate existing data
+  if (value?.url && !value?.id) {
+    setValue(value.url);
+  }
+
+  // Render the input with optional preview
   return (
     <Stack space={2}>
       <MemberField
