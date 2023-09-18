@@ -1,63 +1,78 @@
 ---
+import type { Microcopy, Post } from '$types/sanity';
 import Wrapper from '$layouts/wrapper.astro';
 import PostHero from '$components/PostHero.svelte';
 import Card from '$components/Card.svelte';
 import Pagination from '$components/Pagination.svelte';
 
 export interface Props {
-  featured: object;
-  posts: Array<object>;
-  microcopy: object;
+  featured: Post;
+  posts: Array<Post>;
+  microcopy: Microcopy;
   page: number;
   pages: number;
 }
 
 const { featured, posts, microcopy, page, pages } = Astro.props;
 const { locale } = microcopy;
+const featuredCTA = {
+  text: microcopy.actions.more,
+  url: featured._path,
+  type: 'link',
+};
+
+const postsWithCTAs = posts.map((post) => {
+  post.cta = {
+    text: microcopy.actions.more,
+    url: post._path,
+    type: 'link',
+  };
+  post.eyebrow = {
+    text: post.theme.eyebrow,
+    icon: post.theme.icon,
+  };
+  return post;
+});
 ---
 
-<Wrapper locale={locale} metadesc="" title={microcopy.news.posts.title}>
+<Wrapper locale={locale} metadesc="" title="News">
   <div class="news">
     <PostHero
-      title={featured.data.title}
-      body={featured.data.metadesc}
-      cta={featured.cta}
-      media={featured.media}
-      theme={featured.data.theme}
-      section={featured.data.tags[0]}
+      title={featured.featured.title}
+      body={featured.featured.description}
+      media={featured.featured.media}
+      theme={featured.theme}
+      section={featured.theme.slug}
       form="standalone"
+      cta={featuredCTA}
     />
     <section
       class="wrapper wrapper--full-bleed wrapper--padding wrapper--padded wrapper__background wrapper__contained"
     >
-      <div class="news--content">
-        <h2 class="type--h1 news--title">
-          {microcopy.news.posts.title}
-        </h2>
-        <ol class="news--items">
-          {
-            posts.map((post) => {
-              return (
-                <li class="news--item">
-                  <Card
-                    title={post.title}
-                    body={post.body}
-                    cta={post.cta}
-                    eyebrow={post.eyebrow}
-                  />
-                </li>
-              );
-            })
-          }
-        </ol>
-        <Pagination
-          base={`/${locale.code}/news`}
-          current={page}
-          total={pages}
-          locale={locale.code}
-          labels={microcopy.microcopy.pagination}
-        />
-      </div>
+      <h2 class="type--h1 news--title">News</h2>
+      <ol class="news--items">
+        {
+          postsWithCTAs.map((post) => {
+            return (
+              <li class="news--item">
+                <Card
+                  title={post.title}
+                  body={post.description}
+                  cta={post.cta}
+                  eyebrow={post.eyebrow}
+                />
+              </li>
+            );
+          })
+        }
+      </ol>
+      <Pagination
+        base={`/${locale.code}/news`}
+        current={page}
+        total={pages}
+        locale={locale.code}
+        labels={microcopy.pagination}
+      />
     </section>
   </div>
 </Wrapper>
