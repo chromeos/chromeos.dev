@@ -2,7 +2,7 @@
 title: Implement Play Billing in your PWA
 metadesc: How to monetize your Progressive Web App in Google Play by selling digital goods with Play Billing.
 date: 2021-05-14
-updated: 2022-02-25
+updated: 2023-09-14
 weight: -4
 ---
 
@@ -18,15 +18,13 @@ On November 30th, 2021, Chrome OS 96 was released with the Digital Goods API 2.0
 
 The origin trial for the first version of the Digital Goods API ended on January 30, 2022. Therefore it is now deprecated and only v2 of the API is available.
 
+In May 2022, Google Play Console introduced [changes to their subscription models](https://support.google.com/googleplay/android-developer/answer/12124625#zippy=) which are not currently supported by the Digital Goods API.The previous subscription model is still supported by Play. You’ll notice that in the Play Console existing subscription SKUs have automatically been converted to this new format while keeping it backwards compatible. Any new subscription SKUs you create will need to also be [marked as backwards compatible in the Play Console](https://support.google.com/googleplay/android-developer/answer/12124625#zippy=:~:text=Marking%20a%20base,are%20not%20supported.) for it to be compatible with the Digital Goods API.
+
+On May 22, 2022, The Digital Goods v2 origin trial ended and the API has been shipped as stable on ChromeOS 100. Therefore, the Digital Goods API stopped working for users who are not on ChromeOS 100 or later. Make sure you’ve implemented [feature detection](#feature-detect-the-digital-goods-api) to handle this scenario and disable any features that require the Digital Goods API. You can let users know that they can update their ChromeOS version to enable those features again.
+
 On June 23rd, 2022, Chrome OS 103 was released with the Digital Goods API 2.1 implementation. This release does not have any breaking changes and only includes new methods and additional fields: [`listPurchaseHistory()`](#purchase-history) and [`itemType`](#get-item-details).
 
-### Register for the Origin Trial
-
-!!! aside.message--note
-**Note:** The Digital Goods API is currently available through an [Origin Trial](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md) - a mechanism that allows developers early access to new Web APIs. You will need to register for the Digital Goods API v2 [origin trial](https://developer.chrome.com/origintrials/#/view_trial/888335026498830337) and request a token, which you will need to [provide on any pages in your origin](https://github.com/GoogleChrome/OriginTrials/blob/gh-pages/developer-guide.md#how-do-i-enable-an-experimental-feature-on-my-origin).
-!!!
-
-Upon registering for the origin trial, you will see a “Valid Until” date which is when your token is guaranteed to work until. Remember to renew your tokens when that date approaches to continue participating in the trial. APIs offered as an origin trial are subject to change, so be sure to stay up-to-date with the latest changes to any origin trial you are participating in. In case of any issues, refer to the [Digital Goods API documentation](https://github.com/WICG/digital-goods/blob/main/explainer.md).
+Starting on August 2, 2023, Google Play requires all new apps to use version 5 or newer of the Play Billing LIbrary. By November 1, 2023, updates to existing apps must also use version 5 or newer of the Play Billing Library. Therefore, an existing app will continue to work but to publish a new version of an existing app, use the [Bubblewrap version 1.20.1](https://www.npmjs.com/package/@bubblewrap/cli/v/1.20.1) or newer to continue to be compliant with Google Play requirements.
 
 ## Payment Request API
 
@@ -34,7 +32,7 @@ The [Payment Request API](https://www.w3.org/TR/payment-request/) handles the ac
 
 ## Feature detect the Digital Goods API
 
-You can detect if you’ve correctly enabled the API on your website via the origin trial by checking for the `getDigitalGoodsService` method in the `window` object.
+You can detect if the Digital Goods API is supported by checking for the `getDigitalGoodsService` method in the `window` object.
 
 ```js {title="JavaScript" .code-figure}
 if ('getDigitalGoodsService' in window) {
