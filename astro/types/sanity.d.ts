@@ -47,27 +47,39 @@ export type Featured = {
 
 export type Hero = YouTube | Image;
 
-export type Post = {
-  title: string;
-  description: string;
-  body: BlockSchemaType;
-  category: Tag;
-  author: Author[];
-  tags: Tag[];
-  hero?: Hero;
-  theme: Theme;
-  featured?: Featured;
-  dates: {
-    published: Date;
-    updated?: Date;
-  };
+// Meta attributes assigned to all content
+interface CoreContentMeta {
   _slug: string;
   _type: string;
   _lang: string;
   _langCode: string;
   _section: string;
   _path: string;
-};
+}
+
+// Core fields shared by all content types
+interface CoreContent extends CoreContentMeta {
+  title: string;
+  description: string;
+  body: BlockSchemaType;
+  category: Tag;
+  tags: Tag[];
+  dates: {
+    published: Date;
+    updated?: Date;
+  };
+}
+
+export interface Post extends CoreContent {
+  author: Author[];
+  hero?: Hero;
+  theme: Theme;
+  featured?: Featured;
+}
+
+export interface Documentation extends CoreContent {
+  theme: Theme;
+}
 
 export type CMSLinkReference = {
   url: {

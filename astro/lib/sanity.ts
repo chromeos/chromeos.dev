@@ -55,16 +55,6 @@ async function groq(strings: TemplateStringsArray, ...keys: any[]) {
   }
 
   // Add standard fields
-  query = query.replace(
-    /}$/g,
-    `_type,
-    '_lang': coalesce(__i18n_lang, 'en_US'),
-    '_langCode': string::split(coalesce(__i18n_lang, 'en_US'), '_')[0],
-    'dates': {
-      'published': coalesce(date_overrides.published, _createdAt),
-      'updated': coalesce(date_overrides.updated, date_overrides.published, _updatedAt)
-    }}`,
-  );
 
   // Clean up results
   return (await sanity.fetch(query))
@@ -82,6 +72,9 @@ async function groq(strings: TemplateStringsArray, ...keys: any[]) {
       // TODO: Standardize
       if (item._type === 'post') {
         item._section = 'news';
+      }
+      if (item._type === 'documentation') {
+        item._section = item.category.slug;
       }
 
       // Build path
@@ -210,70 +203,68 @@ function groqMicrocopy(lang: string, property: string) {
   return `*[_type == 'microcopy' && !(_id in path('drafts.**')) && (__i18n_lang == ${lang} || __i18n_lang == 'en_US')]{'item': ${property}}[0].item`;
 }
 
-// Uber Body query.
+const coreMetaQuery = `
+  _type,
+  '_lang': coalesce(__i18n_lang, 'en_US'),
+  '_langCode': string::split(coalesce(__i18n_lang, 'en_US'), '_')[0],
+`;
 
-const posts = (
-  await groq`*[_type == "post"]{
-  title,
-  description,
-  '_slug': slug.current,
-  // body,
-  category->{
+const coreQuery = `
     title,
-    'slug': slug.current
-  },
-  author[]->{
-    name,
-    work,
-    'image': image.asset
-  },
-  tags[]->{
-    title,
-    'slug': slug.current
-  },
-  hero.include == true => {
-    'hero': coalesce(
-      {
-       'youtube': hero.hero.youtube.id,
-      },
-      {
-        'image': hero.hero.image.asset,
-       'alt': hero.hero.image.alt,
-      }
+    description,
+    '_slug': slug.current,
+    category->{
+      title,
+      'slug': slug.current
+    },
+    // body,
+    // share,
+    tags[]->{
+      title,
+      'slug': slug.current
+    },
+    'dates': {
+      'published': coalesce(date_overrides.published, _createdAt),
+      'updated': coalesce(date_overrides.updated, date_overrides.published, _updatedAt)
+    },
+    ${coreMetaQuery}
+`;
+
+// Reusable queries
+const themeQuery = `
+'theme': {
+  'icon': coalesce(
+    theme.theme->icon.asset,
+    'ix://icons/eyebrows/' + category->slug.current + '.svg?auto=format,compress'),
+  'slug': coalesce(theme.theme->slug.current, category->slug.current),
+  featured.feature == true => {
+    'eyebrow': coalesce(
+      featured.featured.eyebrow,
+      theme.theme->eyebrow,
+      ${groqMicrocopy('__i18n_lang', 'identifiers.featured')}
     )
   },
-  'theme': {
-    'icon': coalesce(
-      theme.theme->icon.asset,
-      'ix://icons/eyebrows/' + category->slug.current + '.svg?auto=format,compress'),
-    'slug': coalesce(theme.theme->slug.current, category->slug.current),
-    featured.feature == true => {
-      'eyebrow': coalesce(
-        featured.featured.eyebrow,
-        theme.theme->eyebrow,
-        ${groqMicrocopy('__i18n_lang', 'identifiers.featured')}
-      )
-    },
-    feature.feature != true => {
-      'eyebrow': coalesce(
-        theme.theme->eyebrow,
-        category->title
-      )
-    },
-    'backgrounds': {
-      'large': coalesce(
-       theme.backgrounds.background_large.asset,
-       theme.theme->background_large.asset,
-        'ix://landings/news/top/banner-' + category-> slug.current + '.svg?auto=format,compress'
-      ),
-      'small': coalesce(
-       theme.backgrounds.background_small.asset,
-       theme.theme->background_small.asset,
-        'ix://landings/news/banner-' + category-> slug.current + '.svg?auto=format,compress'
-      ),
-    }
+  feature.feature != true => {
+    'eyebrow': coalesce(
+      theme.theme->eyebrow,
+      category->title
+    )
   },
-  // share,
+  'backgrounds': {
+    'large': coalesce(
+    theme.backgrounds.background_large.asset,
+    theme.theme->background_large.asset,
+      'ix://landings/news/top/banner-' + category-> slug.current + '.svg?auto=format,compress'
+    ),
+    'small': coalesce(
+    theme.backgrounds.background_small.asset,
+    theme.theme->background_small.asset,
+      'ix://landings/news/banner-' + category-> slug.current + '.svg?auto=format,compress'
+    ),
+  }
+},`;
+
+const featuredQuery = `
   featured.feature == true => {
     'featured': {
       'title': coalesce(featured.featured.title, title),
@@ -285,17 +276,54 @@ const posts = (
         }
       }
     }
-  },
-}`
-).map((post: Post) => {
+  },`;
+
+// Uber Body query.
+
+export const docs = (
+  await groq`*[_type == "documentation"]
+  {
+    ${coreQuery}
+    ${themeQuery}
+  }`
+).map((doc) => {
+  return doc;
+});
+
+console.log(docs);
+
+const posts = (
+  await groq`*[_type == "post"]
+  {
+    ${coreQuery}
+    author[]->{
+      name,
+      work,
+      'image': image.asset
+    },
+    hero.include == true => {
+      'hero': coalesce(
+        {
+        'youtube': hero.hero.youtube.id,
+        },
+        {
+          'image': hero.hero.image.asset,
+        'alt': hero.hero.image.alt,
+        }
+      )
+    },
+    ${themeQuery}
+    ${featuredQuery}
+  }`
+).map((post) => {
   if (post.theme.icon?._ref) {
     post.theme.icon = `cms://${post.theme.icon._ref}`;
   }
-  if (post._slug === 'io-2022') {
-    console.log(post.theme.icon);
-  }
+  // if (post._slug === 'io-2022') {
+  //   console.log(post.theme.icon);
+  // }
 
-  return post;
+  return post as Post;
 });
 
 /**
