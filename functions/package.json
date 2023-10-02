@@ -2,7 +2,7 @@
   "name": "functions",
   "description": "Cloud Functions for ChromeOS.dev",
   "engines": {
-    "node": "14"
+    "node": "16"
   },
   "dependencies": {
     "firebase-admin": "^10.3.0",
@@ -12,7 +12,7 @@
   },
   "private": true,
   "volta": {
-    "node": "14.18.2"
+    "node": "16.20.1"
   },
   "devDependencies": {}
 }

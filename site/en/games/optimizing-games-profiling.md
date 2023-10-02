@@ -51,12 +51,6 @@ Another useful ARM device profiler is [ARM Mobile Studio](https://developer.arm.
 
 The [Android GPU Inspector](https://gpuinspector.dev/) is a new tool developed by Google and specifically designed to help you get the best performance out of your game with both OpenGL and Vulkan. It is currently in a developer preview state and may take some work to get set up and is currently only working on a handful of devices. It promises to be one of the major tools to use for graphics profiling in the future. See the [official documentation](https://gpuinspector.dev/docs/).
 
-### ARC Graphics Tracing
-
-Chrome OS has a built-in graphics profiler that helps you understand how your Android game is interacting with the desktop compositor. It can help you get a global view of the operating system and see if glitches are occurring because your game is not producing frames fast enough or if other pieces of the system are utilizing the CPU. You can include custom tracing tags in your app to narrow down which parts of your code are responsible for missing rendering windows.
-
-Start the tracing tool by navigating to `chrome://arc-graphics-tracing` in the browser on Chrome OS. Detailed usage instructions can be found on [debugging animation jank](/{{locale.code}}/android-environment/animation).
-
 ### ARC Overview Tracing
 
 There's also a more generalized tool - ARC Overview Tracing - that works similarly to the above ARC Graphics Tracing tool. This tracer will provide high-level metrics about an app and Chrome OS performance. Read outs will show you FPS of the app and of Chrome itself, as well as CPU usage, GPU usage, power consumption, and more. You can run the tool multiple times and see graphs for each run overlaid together with colors to differentiate them. Each tracing model will be saved to your Downloads folder and can be reimported for future comparisons. For general app health checks, ARC Overview Tracing is a good place to start.

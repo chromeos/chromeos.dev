@@ -1,6 +1,6 @@
 ---
 title: 'Google I/O: Building communications and contact center applications for the web'
-metadesc: Learn how modern Web standards and Google ChromeOS APIs help to empower communications and contact center developers.
+metadesc: Learn how modern Web capabilities and Google ChromeOS APIs help to empower communications and contact center developers.
 tags:
   - event
   - web
@@ -17,7 +17,7 @@ _Edited transcript of "Building communications and contact center applications f
 
 ---
 
-Modern web standards and Google ChromeOS APIs help empower communications and contact center developers to build, optimize, and most importantly, differentiate their applications from the competition.
+Modern web capabilities and Google ChromeOS APIs help empower communications and contact center developers to build, optimize, and most importantly, differentiate their applications from the competition.
 
 Today, many agents are no longer working from a large facility. Instead, they are highly distributed, even in their own homes—taking calls on earbuds and using a laptop to get their job done. This is the reality for many contact centers today. [77% of service organizations](https://www.deloittedigital.com/us/en/offerings/customer-led-marketing/digital-customer/elevating-customer-service.html) are adopting or accelerating remote work options.
 
@@ -31,7 +31,7 @@ Through Progressive Web Apps, you can:
 
 - Write apps that easily reach a broad audience across desktop and mobile devices—write it once and it works everywhere!
 - Quickly launch and deploy app enhancements and fixes without requiring user intervention. You're no longer dependent on end users who like to hit the "remind me tomorrow" option whenever there's an update available.
-- Increase your development and test speeds by leveraging web standards.
+- Increase your development and test speeds by leveraging powerful web capabilities.
 - Contribute to building a safer, faster, and stabler way for all Internet users.
 
 ## Progressive Web Apps vs. traditional web apps
@@ -60,25 +60,25 @@ Further, users can login using their Zoom accounts and Google Sign-in credential
 
 As a developer, you can expose any of your app settings as web managed configurations which will make deploying your app more seamless and customizable for enterprises. There are few limitations with the web app compared to native applications. [Project Fugu](https://www.chromium.org/teams/web-capabilities-fugu/) is an effort to close the gap in web's capabilities, thereby enabling new applications to run on the web.
 
-### Chromium WebHID standard
+### WebHID API
 
-Another great web optimization capability is delivered through the Chromium WebHID standard. WebHID enables web applications to interact with human interface devices (HIDs) other than the standard supported devices like (mice, keyboards, touchscreens, and gamepads). However, there are many other HID devices that are currently inaccessible to the web. This API allows web applications to request access to these devices, send and receive HID reports, and retrieve information about the report descriptor.
+Another great web optimization capability is delivered through the WebHID API. WebHID enables web applications to interact with human interface devices (HIDs) other than the standard supported devices like (mice, keyboards, touchscreens, and gamepads). However, there are many other HID devices that are currently inaccessible to the web. This API allows web applications to request access to these devices, send and receive HID reports, and retrieve information about the report descriptor.
 
 In communications and contact center environments, the primary WebHID use case is for Computer Telephony Integration with headsets. Leading headset integrators like HP/Poly, Jabra, and EPOS offer several models of headsets that are WebHID compatible.
 
 The benefits of WebHID are:
 
-- **No more siloed, proprietary SDK integrations:** By leveraging the new Chromium WebHID standard within communications and contact center applications, providers can easily integrate their WebHID call control into any compliant headsets.
+- **No more siloed, proprietary SDK integrations:** By leveraging the new WebHID API within communications and contact center applications, providers can easily integrate their WebHID call control into any compliant headsets.
 - **Supported across all major operating systems:** WebHID headset controls have been validated with Chrome Browser across ChromeOS, Windows, Mac, and Linux operating systems.
 - **Supported across all Chromium-based browsers:** WebHID is also available for any Chromium-based browser.
 
-Screen capture, screen sharing, and screen recording are other great communications and contact center use cases that can benefit from Chromium web standards.
+Screen capture, screen sharing, and screen recording are other great communications and contact center use cases that can benefit from adopting the latest APIs implemented by Chromium.
 
 [`getDisplayMedia`](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getDisplayMedia) is an extension of the ['Media Capture API'](https://developer.mozilla.org/en-US/docs/Web/API/Media_Capture_and_Streams_API) ([`getUserMedia`](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia)) that enables the acquisition of a user's display(s) or part thereof, in the form of a video track.
 
 In some cases, system, application, or window audio can also be captured and presented in the form of an audio track. This enables a number of applications, including screen sharing using WebRTC, or contact center screen recording.
 
-Multi-display capture extends `getDisplayMedia` to support use cases where multiple screens need to be shared or recorded without requiring users to accept recording. Our Chrome Enterprise Recommended partners, like Dialpad that you see here, are now integrating to this new Web Standard to optimize for screen recording on ChromeOS.
+Multi-display capture extends `getDisplayMedia` to support use cases where multiple screens need to be shared or recorded without requiring users to accept recording. Our Chrome Enterprise Recommended partners, like Dialpad that you see here, are now integrating to this new capability to optimize for screen recording on ChromeOS.
 
 Finally, ChromeOS completes the experience with always on, non-closable, screen recording support.
 
