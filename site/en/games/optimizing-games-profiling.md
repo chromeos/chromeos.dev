@@ -1,13 +1,13 @@
 ---
 title: Performance profiling
-metadesc: Performance profiling on Chrome OS.
+metadesc: Tools and tips for performance profiling on ChromeOS.
 date: 2020-06-16
 weight: -3
 ---
 
-Performance profiling and tuning is a complex task that can feel more like an art than a science. The many moving parts that need to be perfectly synchronized in a game combined with the complexity in a given scene can make understanding and isolating problems difficult. On Chrome OS, many tools are designed with ARM chipsets in mind. Below are some tips to help speed up the process.
+Performance profiling and tuning is a complex task that can feel more like an art than a science. The many moving parts that need to be perfectly synchronized in a game combined with the complexity in a given scene can make understanding and isolating problems difficult. On ChromeOS, many tools are designed with ARM chipsets in mind. Below are some tips to help speed up the process.
 
-Something to keep in mind when specifically optimizing your game’s performance on Chrome OS is that the underlying performance issues are shared across all devices, and improvements will benefit performance and battery life for all users. Chrome OS, with a tendency for larger displays and desktop input devices, may just surface certain issues more readily. For example, an inefficient texture loading algorithm may “work fine” on higher end mobile devices, but not be able to keep up on a Chromebook with a 4k display. Improving the algorithm will improve the game on all devices.
+Something to keep in mind when specifically optimizing your game’s performance on ChromeOS is that the underlying performance issues are shared across all devices, and improvements will benefit performance and battery life for all users. ChromeOS, with a tendency for larger displays and desktop input devices, may just surface certain issues more readily. For example, an inefficient texture loading algorithm may “work fine” on higher end mobile devices, but not be able to keep up on a Chromebook with a 4k display. Improving the algorithm will improve the game on all devices.
 
 If you are new to profiling, a good general approach is to:
 
@@ -19,7 +19,7 @@ If you are new to profiling, a good general approach is to:
 1. Try to optimize
 1. Repeat
 
-In most cases, games will show themselves to either be “CPU-bound” or “GPU-bound”. Using the profiling tips and tools below, attempt to determine where the system is “spending it’s time” each frame. For example, if it is taking a long time calculating and loading the vertices before the GPU begins rendering, your game may be CPU-bound. Instead, if you are using a large number of detailed, GPU based filters, your game is likely GPU-bound. Remember that many mobile phones and Chrome OS devices do not have discrete graphics cards. A desktop game that assumes GPU filters are fast, may find integrated GPUs taking too long to render each scene.
+In most cases, games will show themselves to either be “CPU-bound” or “GPU-bound”. Using the profiling tips and tools below, attempt to determine where the system is “spending it’s time” each frame. For example, if it is taking a long time calculating and loading the vertices before the GPU begins rendering, your game may be CPU-bound. Instead, if you are using a large number of detailed, GPU based filters, your game is likely GPU-bound. Remember that many mobile phones and ChromeOS devices do not have discrete graphics cards. A desktop game that assumes GPU filters are fast, may find integrated GPUs taking too long to render each scene.
 
 For more details on how to approach profiling, check out ARM's guide on ['The optimization process'](https://developer.arm.com/docs/100959/0101/the-optimization-process).
 
@@ -33,9 +33,13 @@ The easiest way to start profiling any Android app is with the integrated [Andro
 
 This tool does not grant real insight into GPU usage nor into what is happening between each frame sync so, while a good tool to have in the toolbox, is likely not going to be sufficient to get your game running at peak performance.
 
+### Unity Profiler
+
+If your game is built in Unity, then we recommend using their [built-in profiler](https://docs.unity3d.com/Manual/profiler-profiling-applications.html). Included on the page are specific setup instructions for [ChromeOS devices](https://docs.unity3d.com/Manual/profiler-profiling-applications.html#:~:text=ChromeOS%20remote%20profiling). Unity's profiler has various [Profiler Modules](https://docs.unity3d.com/Manual/ProfilerWindow.html#modules) such as rendering, memory, CPU usage, and physics to get deeper insight into performance on those areas.
+
 ### Snapdragon Profiler
 
-Because your games behaviour will be the same across devices, one good way to get detailed performance information is to use the [Snapdragon Profiler](https://developer.qualcomm.com/software/snapdragon-profiler) on a Qualcomm based, ARM phone. Although not directly profiling on a Chrome OS device, this should give you information about where your game is spending most of its time each frame, and can give you insight into specifically which GPU calls are being used.
+Because your games behaviour will be the same across devices, one good way to get detailed performance information is to use the [Snapdragon Profiler](https://developer.qualcomm.com/software/snapdragon-profiler) on a Qualcomm based, ARM phone. Although not directly profiling on a ChromeOS device, this should give you information about where your game is spending most of its time each frame, and can give you insight into specifically which GPU calls are being used.
 
 For example, if you see that a large amount of time is being spent in your anisotropic GPU filters and it is dominating the work being done each frame, you can likely make some large performance gains by changing this setting.
 
@@ -53,9 +57,9 @@ The [Android GPU Inspector](https://gpuinspector.dev/) is a new tool developed b
 
 ### ARC Overview Tracing
 
-There's also a more generalized tool - ARC Overview Tracing - that works similarly to the above ARC Graphics Tracing tool. This tracer will provide high-level metrics about an app and Chrome OS performance. Read outs will show you FPS of the app and of Chrome itself, as well as CPU usage, GPU usage, power consumption, and more. You can run the tool multiple times and see graphs for each run overlaid together with colors to differentiate them. Each tracing model will be saved to your Downloads folder and can be reimported for future comparisons. For general app health checks, ARC Overview Tracing is a good place to start.
+There's also a more generalized tool - ARC Overview Tracing - that works similarly to the above ARC Graphics Tracing tool. This tracer will provide high-level metrics about an app and ChromeOS performance. Read outs will show you FPS of the app and of Chrome itself, as well as CPU usage, GPU usage, power consumption, and more. You can run the tool multiple times and see graphs for each run overlaid together with colors to differentiate them. Each tracing model will be saved to your Downloads folder and can be reimported for future comparisons. For general app health checks, ARC Overview Tracing is a good place to start.
 
-Visit `chrome://arc-overview-tracing` in the browser on Chrome OS to access this tool.
+Visit `chrome://arc-overview-tracing` in the browser on ChromeOS to access this tool.
 
 ## Next steps
 
@@ -69,7 +73,7 @@ Remember to profile early and profile often, especially if you are targeting les
 
 ### Unity engine
 
-On top of their general [Android docs](https://docs.unity3d.com/Manual/android.html), Unity provides [Chrome OS-specific docs](https://docs.unity3d.com/Manual/android-ChromeOS-introducing.html) to help you create a performant Chrome OS application using their engine. Check out their Chrome OS docs on [getting started](https://docs.unity3d.com/Manual/android-ChromeOS-getting-started.html), [input](https://docs.unity3d.com/Manual/android-ChromeOS-support-user-input.html), [debugging](https://docs.unity3d.com/Manual/android-ChromeOS-debugging.html), and [building](https://docs.unity3d.com/Manual/android-ChromeOS-building-your-application.html) which includes how to create x86 builds. For their content on performance, see [understanding optimization](https://docs.unity3d.com/Manual/BestPracticeUnderstandingPerformanceInUnity.html) and their course on [performance and optimization](https://learn.unity.com/course/performance-and-optimisation).
+Unity provides [ChromeOS-specific docs](https://docs.unity3d.com/Manual/android-ChromeOS-introducing.html) to help you create a performant ChromeOS application using their engine. For platform-agnostic content on fine-tuning Unity applications, see [understanding optimization](https://docs.unity3d.com/Manual/BestPracticeUnderstandingPerformanceInUnity.html) and their course on [performance and optimization](https://learn.unity.com/course/performance-and-optimisation). For more tips on developing and adapting games for ChromeOS, check out their ChromeOS docs on [getting started](https://docs.unity3d.com/Manual/android-ChromeOS-getting-started.html), [input](https://docs.unity3d.com/Manual/android-ChromeOS-support-user-input.html), [debugging](https://docs.unity3d.com/Manual/android-ChromeOS-debugging.html), and [building](https://docs.unity3d.com/Manual/android-ChromeOS-building-your-application.html) which includes how to create x86 builds.
 
 Consider reading ARM's guide on [profiling and optimizing Unity games](https://developer.arm.com/docs/100140/0402/performance-analysis/profiling-a-unity-game-example) and their associated best practices. This will lead you through the process of profiling an example game in Unity with the Streamline tool, a facet of the [ARM Mobile Studio](#arm-mobile-studio).
 
