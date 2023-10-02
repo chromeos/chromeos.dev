@@ -1,3 +1,4 @@
+import type { Post } from '$types/sanity';
 import { useSanityClient } from '@sanity/astro';
 import { normalizeLang } from '$$data';
 import iso6391 from 'iso-639-1';
@@ -13,6 +14,26 @@ export const sanity = useSanityClient();
  */
 export function enableDrafts() {
   includeDrafts = true;
+}
+
+/**
+ *
+ * @param {*[]} content Array of any content, with a _lang property
+ * @param {boolean} coalesce Whether to combine results into an array
+ * @return {Object} Object of items grouped by language
+ */
+function groupByLanguage(content: Array<any>, coalesce = true) {
+  return content.reduce((acc, cur) => {
+    if (coalesce) {
+      if (!acc[cur._lang]) {
+        acc[cur._lang] = [];
+      }
+      acc[cur._lang].push(cur);
+    } else {
+      acc[cur?._lang] = cur;
+    }
+    return acc;
+  }, {});
 }
 
 /**
@@ -76,15 +97,7 @@ async function groq(strings: TemplateStringsArray, ...keys: any[]) {
     .sort((a, b) => {
       // Sort by date.published
       return b.dates.published - a.dates.published;
-    })
-    .reduce((acc, cur) => {
-      // Sort into language groups
-      if (!acc[cur._lang]) {
-        acc[cur._lang] = [];
-      }
-      acc[cur._lang].push(cur);
-      return acc;
-    }, {});
+    });
 }
 
 // Languages
@@ -104,9 +117,10 @@ export const buildLink = () => {
   },`;
 };
 
-export const microcopy = (
-  await sanity.fetch(
-    `*[_type == 'microcopy' && !(_id in path('drafts.**'))]{
+export const microcopy = groupByLanguage(
+  (
+    await sanity.fetch(
+      `*[_type == 'microcopy' && !(_id in path('drafts.**'))]{
       ...,
       'footer': {
         'links': footer.links[] {
@@ -122,9 +136,8 @@ export const microcopy = (
         'code': string::split(coalesce(__i18n_lang, 'en_US'), '_')[0],
       }
     }`,
-  )
-)
-  .map((m) => {
+    )
+  ).map((m) => {
     delete m._id;
     delete m._type;
     delete m._rev;
@@ -137,13 +150,9 @@ export const microcopy = (
     m.locale.vertical = vertical.includes(m.locale.code);
     m.locale.name = iso6391.getNativeName(m.locale.code);
     return m;
-  })
-  // Reduce into an object of languages
-  .reduce((acc, cur) => {
-    console.log(cur);
-    acc[cur?._lang] = cur;
-    return acc;
-  }, {});
+  }),
+  false,
+);
 
 // Get languages
 export const languages = Object.keys(microcopy);
@@ -203,87 +212,98 @@ function groqMicrocopy(lang: string, property: string) {
 
 // Uber Body query.
 
+const posts = (
+  await groq`*[_type == "post"]{
+  title,
+  description,
+  '_slug': slug.current,
+  // body,
+  category->{
+    title,
+    'slug': slug.current
+  },
+  author[]->{
+    name,
+    work,
+    'image': image.asset
+  },
+  tags[]->{
+    title,
+    'slug': slug.current
+  },
+  hero.include == true => {
+    'hero': coalesce(
+      {
+       'youtube': hero.hero.youtube.id,
+      },
+      {
+        'image': hero.hero.image.asset,
+       'alt': hero.hero.image.alt,
+      }
+    )
+  },
+  'theme': {
+    'icon': coalesce(
+      theme.theme->icon.asset,
+      'ix://icons/eyebrows/' + category->slug.current + '.svg?auto=format,compress'),
+    'slug': coalesce(theme.theme->slug.current, category->slug.current),
+    featured.feature == true => {
+      'eyebrow': coalesce(
+        featured.featured.eyebrow,
+        theme.theme->eyebrow,
+        ${groqMicrocopy('__i18n_lang', 'identifiers.featured')}
+      )
+    },
+    feature.feature != true => {
+      'eyebrow': coalesce(
+        theme.theme->eyebrow,
+        category->title
+      )
+    },
+    'backgrounds': {
+      'large': coalesce(
+       theme.backgrounds.background_large.asset,
+       theme.theme->background_large.asset,
+        'ix://landings/news/top/banner-' + category-> slug.current + '.svg?auto=format,compress'
+      ),
+      'small': coalesce(
+       theme.backgrounds.background_small.asset,
+       theme.theme->background_small.asset,
+        'ix://landings/news/banner-' + category-> slug.current + '.svg?auto=format,compress'
+      ),
+    }
+  },
+  // share,
+  featured.feature == true => {
+    'featured': {
+      'title': coalesce(featured.featured.title, title),
+      'description': coalesce(featured.featured.description, description),
+      coalesce(featured.featured.image, hero.hero.image) != null => {
+        'media': {
+          'image': coalesce(featured.featured.image.asset, hero.hero.image.asset),
+          'alt': coalesce(featured.featured.image.alt, hero.hero.image.alt),
+        }
+      }
+    }
+  },
+}`
+).map((post: Post) => {
+  if (post.theme.icon?._ref) {
+    post.theme.icon = `cms://${post.theme.icon._ref}`;
+  }
+  if (post._slug === 'io-2022') {
+    console.log(post.theme.icon);
+  }
+
+  return post;
+});
+
 /**
  * Get post
  * @return {object}
  */
 export async function getPosts() {
-  const q = await groq`*[_type == "post"]{
-      title,
-      description,
-      '_slug': slug.current,
-      // body,
-      category->{
-        title,
-        'slug': slug.current
-      },
-      author[]->{
-        name,
-        work,
-        'image': image.asset
-      },
-      tags[]->{
-        title,
-        'slug': slug.current
-      },
-      hero.include == true => {
-        'hero': coalesce(
-          {
-           'youtube': hero.hero.youtube.id,
-          },
-          {
-            'image': hero.hero.image.asset,
-           'alt': hero.hero.image.alt,
-          }
-        )
-      },
-      'theme': {
-        'icon': coalesce(
-          theme.theme->icon.asset,
-          'https://chromeos-dev.imgix.net/icons/eyebrows/' + category->slug.current + '.svg?auto=format,compress'),
-        'slug': coalesce(theme.theme->slug.current, category->slug.current),
-        featured.feature == true => {
-          'eyebrow': coalesce(
-            featured.featured.eyebrow,
-            theme.theme->eyebrow,
-            ${groqMicrocopy('__i18n_lang', 'identifiers.featured')}
-          )
-        },
-        feature.feature != true => {
-          'eyebrow': coalesce(
-            theme.theme->eyebrow,
-            category->title
-          )
-        },
-        'backgrounds': {
-          'large': coalesce(
-           theme.backgrounds.background_large.asset,
-           theme.theme->background_large.asset,
-            'ix://landings/news/top/banner-' + category-> slug.current + '.svg?auto=format,compress'
-          ),
-          'small': coalesce(
-           theme.backgrounds.background_small.asset,
-           theme.theme->background_small.asset,
-            'ix://landings/news/banner-' + category-> slug.current + '.svg?auto=format,compress'
-          ),
-        }
-      },
-      // share,
-      featured.feature == true => {
-        'featured': {
-          'title': coalesce(featured.featured.title, title),
-          'description': coalesce(featured.featured.description, description),
-          coalesce(featured.featured.image, hero.hero.image) != null => {
-            'media': {
-              'image': coalesce(featured.featured.image.asset, hero.hero.image.asset),
-              'alt': coalesce(featured.featured.image.alt, hero.hero.image.alt),
-            }
-          }
-        }
-      },
-    }`;
-
-  return q;
+  return groupByLanguage(posts);
 }
 
 // 'eyebrow': coalesce(
