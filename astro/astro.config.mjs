@@ -52,7 +52,7 @@ export default defineConfig({
       projectId: process.env.SANITY_PROJECT_ID,
       dataset: process.env.SANITY_DATASET,
       token: process.env.SANITY_TOKEN,
-      apiVersion: '2023-09-01',
+      apiVersion: '2023-10-02',
       useCdn: process.env.NODE_ENV === 'production',
     }),
   ],
