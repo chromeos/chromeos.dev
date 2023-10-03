@@ -53,7 +53,7 @@ export const themeQuery = `
 'theme': {
   'icon': coalesce(
     theme.theme->icon.asset,
-    'ix://icons/eyebrows/' + category->slug.current + '.svg?auto=format,compress'),
+    'ix://icons/eyebrows/' + category->slug.current + '.svg'),
   'slug': coalesce(theme.theme->slug.current, category->slug.current),
   featured.feature == true => {
     'eyebrow': coalesce(
@@ -72,12 +72,12 @@ export const themeQuery = `
     'large': coalesce(
     theme.backgrounds.background_large.asset,
     theme.theme->background_large.asset,
-      'ix://landings/news/top/banner-' + category-> slug.current + '.svg?auto=format,compress'
+      'ix://landings/news/top/banner-' + category-> slug.current + '.svg'
     ),
     'small': coalesce(
     theme.backgrounds.background_small.asset,
     theme.theme->background_small.asset,
-      'ix://landings/news/banner-' + category-> slug.current + '.svg?auto=format,compress'
+      'ix://landings/news/banner-' + category-> slug.current + '.svg'
     ),
   }
 },`;
