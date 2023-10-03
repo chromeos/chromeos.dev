@@ -24,12 +24,30 @@ async function getImageSize(url) {
     };
 
     // SVGs don't generate JSON, so this check will always fail for them. We'll need to manually check them, but they also don't need sizes so it's OK
-    if (!url.endsWith('.svg')) {
+    if (extname(url) !== '.svg') {
       sizeMap[url].missing = true;
     }
   }
 
   return url;
+}
+
+const cdnRegex = /^((ix|cms):\/\/)(image-)?/;
+
+/**
+ *
+ * @param {string} src Image src that matches cdnRegex
+ * @return {string} Base URL for the image
+ */
+function getURL(src) {
+  const base = cdnRegex.exec(src)[2];
+  if (base === 'ix') {
+    return src.replace(cdnRegex, 'https://chromeos-dev.imgix.net/');
+  } else if (base === 'cms') {
+    return src
+      .replace(cdnRegex, 'https://chromeos.imgix.net/')
+      .replace(/-(\w{3,4})$/, '.$1');
+  }
 }
 
 /**
@@ -41,11 +59,8 @@ export async function postHTMLGoogleStorageImages(tree) {
   const images = [];
 
   // All straight image tags
-  tree.match({ attrs: { src: /^(ix:\/\/)/ } }, (node) => {
-    const url = node.attrs.src.replace(
-      /^(ix:\/\/)/,
-      'https://chromeos-dev.imgix.net/',
-    );
+  tree.match({ attrs: { src: cdnRegex } }, (node) => {
+    const url = getURL(node.attrs.src);
     if (sizeMap[url]) {
       return node;
     }
@@ -54,11 +69,8 @@ export async function postHTMLGoogleStorageImages(tree) {
   });
 
   // All sourceset tags
-  tree.match({ attrs: { srcset: /^(ix:\/\/)/ } }, (node) => {
-    const url = node.attrs.srcset.replace(
-      /^(ix:\/\/)/,
-      'https://chromeos-dev.imgix.net/',
-    );
+  tree.match({ attrs: { srcset: cdnRegex } }, (node) => {
+    const url = getURL(node.attrs.src);
     if (sizeMap[url]) {
       return node;
     }
@@ -68,19 +80,13 @@ export async function postHTMLGoogleStorageImages(tree) {
 
   await Promise.all(images);
 
-  tree.match({ attrs: { src: /^(ix:\/\/)/ } }, (node) => {
-    const isVideo = extname(node.attrs.src) === '.gif';
-    const url = node.attrs.src.replace(
-      /^(ix:\/\/)/,
-      'https://chromeos-dev.imgix.net/',
-    );
+  tree.match({ attrs: { src: cdnRegex } }, (node) => {
+    const url = getURL(node.attrs.src);
+    const ext = extname(url);
+    const isVideo = ext === '.gif';
     const size = sizeMap[url];
 
     if (isVideo) {
-      const url = node.attrs.src.replace(
-        /^(ix:\/\/)/,
-        'https://chromeos-dev.imgix.net/',
-      );
       const n = {
         tag: 'video',
         attrs: {
@@ -116,7 +122,7 @@ export async function postHTMLGoogleStorageImages(tree) {
 
       return n;
     } else {
-      const isSVG = extname(url) === '.svg';
+      const isSVG = ext === '.svg';
       // Update original node SRC with the largest image available in non-WebP format
       node.attrs.src = `${url}?auto=format,compress`;
       // Update original node's attributes
@@ -145,33 +151,21 @@ export async function postHTMLGoogleStorageImages(tree) {
   });
 
   // Link tags
-  tree.match({ attrs: { href: /^(ix:\/\/)/ } }, (node) => {
-    node.attrs.href =
-      node.attrs.href.replace(/^(ix:\/\/)/, 'https://chromeos-dev.imgix.net/') +
-      '?auto=format,compress';
+  tree.match({ attrs: { href: cdnRegex } }, (node) => {
+    node.attrs.href = getURL(node.attrs.href);
+    +'?auto=format,compress';
     return node;
   });
 
   // OG tags
-  tree.match(
-    { attrs: { property: 'og:image', content: /^(ix:\/\/)/ } },
-    (node) => {
-      node.attrs.content =
-        node.attrs.content.replace(
-          /^(ix:\/\/)/,
-          'https://chromeos-dev.imgix.net/',
-        ) + '?auto=format,compress';
-      return node;
-    },
-  );
+  tree.match({ attrs: { property: 'og:image', content: cdnRegex } }, (node) => {
+    node.attrs.content = getURL(node.attrs.content) + '?auto=format,compress';
+    return node;
+  });
 
   // All sourceset tags
-  tree.match({ attrs: { srcset: /^(ix:\/\/)/ } }, (node) => {
-    node.attrs.srcset =
-      node.attrs.srcset.replace(
-        /^(ix:\/\/)/,
-        'https://chromeos-dev.imgix.net/',
-      ) + '?auto=format,compress';
+  tree.match({ attrs: { srcset: cdnRegex } }, (node) => {
+    node.attrs.srcset = getURL(node.attrs.srcset) + '?auto=format,compress';
     return node;
   });
 
