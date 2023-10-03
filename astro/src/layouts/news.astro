@@ -1,5 +1,6 @@
 ---
 import type { Microcopy, Post } from '$types/sanity';
+import type { CardProps } from '$components/Card.svelte';
 import Wrapper from '$layouts/wrapper.astro';
 import PostHero from '$components/PostHero.svelte';
 import Card from '$components/Card.svelte';
@@ -21,17 +22,20 @@ const featuredCTA = {
   type: 'link',
 };
 
-const postsWithCTAs = posts.map((post) => {
-  post.cta = {
-    text: microcopy.actions.more,
-    url: post._path,
-    type: 'link',
-  };
-  post.eyebrow = {
-    text: post.theme.eyebrow,
-    icon: post.theme.icon,
-  };
-  return post;
+const postcards = posts.map((post) => {
+  return {
+    title: post.title,
+    body: post.description,
+    cta: {
+      text: microcopy.actions.more,
+      url: post._path,
+      type: 'link',
+    },
+    eyebrow: {
+      text: post.theme.eyebrow,
+      icon: post.theme.icon,
+    },
+  } as CardProps;
 });
 ---
 
@@ -52,15 +56,10 @@ const postsWithCTAs = posts.map((post) => {
       <h2 class="type--h1 news--title">News</h2>
       <ol class="news--items">
         {
-          postsWithCTAs.map((post) => {
+          postcards.map((post) => {
             return (
               <li class="news--item">
-                <Card
-                  title={post.title}
-                  body={post.description}
-                  cta={post.cta}
-                  eyebrow={post.eyebrow}
-                />
+                <Card {...post} />
               </li>
             );
           })
