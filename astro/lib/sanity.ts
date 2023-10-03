@@ -1,4 +1,4 @@
-import type { Post, Microcopy, Documentation } from '$types/sanity';
+import type { Post, Microcopy, Documentation, Story } from '$types/sanity';
 import { useSanityClient } from '@sanity/astro';
 import { normalizeLang } from '$$data';
 import { groupByLanguage } from '$lib/sanity/helpers';
@@ -71,8 +71,21 @@ export const docs = await groq(
   },
 );
 
+// Stories
+export const stories = await groq(
+  `*[_type == "story"]
+  {
+    ${coreQuery}
+    ${themeQuery}
+  }`,
+  (story) => {
+    // console.log(story);
+    return story as Story;
+  },
+);
+
 // Posts
-const posts = await groq(
+export const posts = await groq(
   `*[_type == "post"]
   {
     ${coreQuery}
@@ -123,7 +136,7 @@ export function enableDrafts() {
 /**
  * GROQ callback types
  */
-type GroqCallbackReturn = Post | Documentation;
+type GroqCallbackReturn = Post | Documentation | Story;
 type GroqAsyncCallback = (item: any) => Promise<GroqCallbackReturn>;
 type GroqSyncCallback = (item: any) => GroqCallbackReturn;
 type GroqCallback = GroqAsyncCallback | GroqSyncCallback;
@@ -132,7 +145,7 @@ type GroqCallback = GroqAsyncCallback | GroqSyncCallback;
  * Queries the Sanity backend based on the GROQ query, and applies standard and custom transforms
  * @param {string} query - GROQ query
  * @param {GroqCallback} [cb] - Callback function
- * @return {Post[] | Documentation[]}
+ * @return {Post[] | Documentation[] | Story[]}
  */
 async function groq(query: string, cb: GroqCallback) {
   if (includeDrafts === false) {

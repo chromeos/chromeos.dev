@@ -81,6 +81,10 @@ export interface Documentation extends CoreContent {
   theme: Theme;
 }
 
+export interface Story extends CoreContent {
+  theme: Theme;
+}
+
 export type CMSLinkReference = {
   url: {
     slug: string;
