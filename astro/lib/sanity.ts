@@ -1,6 +1,14 @@
-import type { Post } from '$types/sanity';
+import type { Post, Microcopy, Documentation } from '$types/sanity';
 import { useSanityClient } from '@sanity/astro';
 import { normalizeLang } from '$$data';
+import { groupByLanguage } from '$lib/sanity/helpers';
+import {
+  linkQuery,
+  coreQuery,
+  themeQuery,
+  featuredQuery,
+} from '$lib/sanity/queries';
+import { rtl, vertical } from '$lib/i18n';
 import iso6391 from 'iso-639-1';
 import * as path from 'path';
 import { inspect } from 'util';
@@ -9,107 +17,7 @@ let includeDrafts = false;
 
 export const sanity = useSanityClient();
 
-/**
- * Enable drafts in the Sanity client
- */
-export function enableDrafts() {
-  includeDrafts = true;
-}
-
-/**
- *
- * @param {*[]} content Array of any content, with a _lang property
- * @param {boolean} coalesce Whether to combine results into an array
- * @return {Object} Object of items grouped by language
- */
-function groupByLanguage(content: Array<any>, coalesce = true) {
-  return content.reduce((acc, cur) => {
-    if (coalesce) {
-      if (!acc[cur._lang]) {
-        acc[cur._lang] = [];
-      }
-      acc[cur._lang].push(cur);
-    } else {
-      acc[cur?._lang] = cur;
-    }
-    return acc;
-  }, {});
-}
-
-/**
- *
- * @param {string[]} strings
- * @param {*[]} keys
- * @return {any}
- */
-async function groq(strings: TemplateStringsArray, ...keys: any[]) {
-  let query = strings
-    .map((str, i) => {
-      str += keys[i] || '';
-      return str;
-    })
-    .join('');
-
-  if (includeDrafts === false) {
-    query = query.replace(/^\*\[/, '*[!(_id in path("drafts.**")) && ');
-  }
-
-  // Add standard fields
-
-  // Clean up results
-  return (await sanity.fetch(query))
-    .map((item) => {
-      // Clean up dates
-      if (item.dates.published === item.dates.updated) {
-        delete item.dates.updated;
-      }
-      item.dates.published = new Date(item.dates.published);
-      if (item.dates.updated) {
-        item.dates.updated = new Date(item.dates.updated);
-      }
-
-      // Normalize sections
-      // TODO: Standardize
-      if (item._type === 'post') {
-        item._section = 'news';
-      }
-      if (item._type === 'documentation') {
-        item._section = item.category.slug;
-      }
-
-      // Build path
-      // TODO: Standardize
-      item._path = path.join(
-        '/',
-        normalizeLang(item._lang),
-        item._section,
-        item._slug,
-      );
-      return item;
-    })
-    .sort((a, b) => {
-      // Sort by date.published
-      return b.dates.published - a.dates.published;
-    });
-}
-
-// Languages
-const rtl = ['ar', 'dv', 'ae', 'fa', 'he', 'ps', 'ja', 'ur', 'ko', 'zh'];
-const vertical = ['zh', 'mh', 'ja', 'ko'];
-
-export const buildLink = () => {
-  return `text,
-  url.reference._type == 'reference' => {
-    'url': {
-      'slug': url.reference->slug.current,
-      'type': url.reference->_type,
-    }
-  },
-  url.reference._type != 'reference' => {
-    'url': url.url,
-  },`;
-};
-
+// Microcopy
 export const microcopy = groupByLanguage(
   (
     await sanity.fetch(
@@ -117,11 +25,11 @@ export const microcopy = groupByLanguage(
       ...,
       'footer': {
         'links': footer.links[] {
-          ${buildLink()}
+          ${linkQuery}
         },
         'language': footer.language,
         'help': footer.help {
-          ${buildLink()}
+          ${linkQuery}
         },
       },
       '_lang': coalesce(__i18n_lang, 'en_US'),
@@ -142,33 +50,145 @@ export const microcopy = groupByLanguage(
     m.locale.dir = rtl.includes(m.locale.code) ? 'rtl' : 'ltr';
     m.locale.vertical = vertical.includes(m.locale.code);
     m.locale.name = iso6391.getNativeName(m.locale.code);
-    return m;
+    return m as Microcopy;
   }),
   false,
 );
 
-// Get languages
+// Translations
 export const languages = Object.keys(microcopy);
 
-export type Postcard = {
-  title: string;
-  description: string;
-  type: string;
-  slug: string;
-  lang: string;
-  category: {
-    title: string;
-    slug: string;
-  };
-};
+// Documentation
+export const docs = await groq(
+  `*[_type == "documentation"]
+  {
+    ${coreQuery}
+    ${themeQuery}
+  }`,
+  (doc) => {
+    // console.log(doc);
+    return doc as Documentation;
+  },
+);
 
-export type StaticPathCallback = {
+// Posts
+const posts = await groq(
+  `*[_type == "post"]
+  {
+    ${coreQuery}
+    author[]->{
+      name,
+      work,
+      'image': image.asset
+    },
+    hero.include == true => {
+      'hero': coalesce(
+        {
+        'youtube': hero.hero.youtube.id,
+        },
+        {
+          'image': hero.hero.image.asset,
+          'alt': hero.hero.image.alt,
+        }
+      )
+    },
+    ${themeQuery}
+    ${featuredQuery}
+  }`,
+  (post) => {
+    if (post.theme.icon?._ref) {
+      post.theme.icon = `cms://${post.theme.icon._ref}`;
+    }
+    // if (post._slug === 'io-2022') {
+    //   console.log(post.theme.icon);
+    // }
+
+    return post as Post;
+  },
+);
+
+/** ****************
+ *
+ * Core functions
+ *
+ *******************/
+
+/**
+ * Enable drafts in the Sanity client
+ */
+export function enableDrafts() {
+  includeDrafts = true;
+}
+
+/**
+ * GROQ callback types
+ */
+type GroqCallbackReturn = Post | Documentation;
+type GroqAsyncCallback = (item: any) => Promise<GroqCallbackReturn>;
+type GroqSyncCallback = (item: any) => GroqCallbackReturn;
+type GroqCallback = GroqAsyncCallback | GroqSyncCallback;
+
+/**
+ * Queries the Sanity backend based on the GROQ query, and applies standard and custom transforms
+ * @param {string} query - GROQ query
+ * @param {GroqCallback} [cb] - Callback function
+ * @return {Post[] | Documentation[]}
+ */
+async function groq(query: string, cb: GroqCallback) {
+  if (includeDrafts === false) {
+    query = query.replace(/^\*\[/, '*[!(_id in path("drafts.**")) && ');
+  }
+
+  const items = await sanity.fetch(query);
+
+  return (
+    await Promise.all(
+      items.map(async (item) => {
+        // Clean up dates
+        if (item.dates.published === item.dates.updated) {
+          delete item.dates.updated;
+        }
+        item.dates.published = new Date(item.dates.published);
+        if (item.dates.updated) {
+          item.dates.updated = new Date(item.dates.updated);
+        }
+
+        // Normalize sections
+        // TODO: Standardize
+        if (item._type === 'post') {
+          item._section = 'news';
+        }
+        if (item._type === 'documentation') {
+          item._section = item.category.slug;
+        }
+
+        // Build path
+        // TODO: Standardize
+        item._path = path.join(
+          '/',
+          normalizeLang(item._lang),
+          item._section,
+          item._slug,
+        );
+
+        item = await cb(item);
+
+        return item;
+      }),
+    )
+  ).sort((a, b) => {
+    // Sort by date.published
+    return b.dates.published - a.dates.published;
+  });
+}
+
+type StaticPathCallback = {
   params: Record<string, any>;
   props: Record<string, any>;
 };
 
 /**
- *
+ * Builds Astro static paths based on a callback, and includes the correct microcopy for each language
  * @param {function} cb
  * @return {Promise<StaticPathCallback[]>}
  */
@@ -185,7 +205,7 @@ export function buildStaticPaths(
         lang,
       }),
       props: Object.assign(props, {
-        microcopy: m,
+        microcopy: m as Microcopy,
       }),
     };
   });
@@ -193,138 +213,7 @@ export function buildStaticPaths(
   return Promise.all(paths);
 }
 
-/**
- * Microcpy query mixin for GROQ
- * @param {string} lang - Language to pull microcopy from
- * @param {string} property - Property from microcopy to get
- * @return {string} GROQ query for the microcopy item
- */
-function groqMicrocopy(lang: string, property: string) {
-  return `*[_type == 'microcopy' && !(_id in path('drafts.**')) && (__i18n_lang == ${lang} || __i18n_lang == 'en_US')]{'item': ${property}}[0].item`;
-}
-
-const coreMetaQuery = `
-  _type,
-  '_lang': coalesce(__i18n_lang, 'en_US'),
-  '_langCode': string::split(coalesce(__i18n_lang, 'en_US'), '_')[0],
-`;
-
-const coreQuery = `
-    title,
-    description,
-    '_slug': slug.current,
-    category->{
-      title,
-      'slug': slug.current
-    },
-    // body,
-    // share,
-    tags[]->{
-      title,
-      'slug': slug.current
-    },
-    'dates': {
-      'published': coalesce(date_overrides.published, _createdAt),
-      'updated': coalesce(date_overrides.updated, date_overrides.published, _updatedAt)
-    },
-    ${coreMetaQuery}
-`;
-
-// Reusable queries
-const themeQuery = `
-'theme': {
-  'icon': coalesce(
-    theme.theme->icon.asset,
-    'ix://icons/eyebrows/' + category->slug.current + '.svg?auto=format,compress'),
-  'slug': coalesce(theme.theme->slug.current, category->slug.current),
-  featured.feature == true => {
-    'eyebrow': coalesce(
-      featured.featured.eyebrow,
-      theme.theme->eyebrow,
-      ${groqMicrocopy('__i18n_lang', 'identifiers.featured')}
-    )
-  },
-  feature.feature != true => {
-    'eyebrow': coalesce(
-      theme.theme->eyebrow,
-      category->title
-    )
-  },
-  'backgrounds': {
-    'large': coalesce(
-    theme.backgrounds.background_large.asset,
-    theme.theme->background_large.asset,
-      'ix://landings/news/top/banner-' + category-> slug.current + '.svg?auto=format,compress'
-    ),
-    'small': coalesce(
-    theme.backgrounds.background_small.asset,
-    theme.theme->background_small.asset,
-      'ix://landings/news/banner-' + category-> slug.current + '.svg?auto=format,compress'
-    ),
-  }
-},`;
-
-const featuredQuery = `
-  featured.feature == true => {
-    'featured': {
-      'title': coalesce(featured.featured.title, title),
-      'description': coalesce(featured.featured.description, description),
-      coalesce(featured.featured.image, hero.hero.image) != null => {
-        'media': {
-          'image': coalesce(featured.featured.image.asset, hero.hero.image.asset),
-          'alt': coalesce(featured.featured.image.alt, hero.hero.image.alt),
-        }
-      }
-    }
-  },`;
-
-// Uber Body query.
-
-export const docs = (
-  await groq`*[_type == "documentation"]
-  {
-    ${coreQuery}
-    ${themeQuery}
-  }`
-).map((doc) => {
-  return doc;
-});
-
-console.log(docs);
-
-const posts = (
-  await groq`*[_type == "post"]
-  {
-    ${coreQuery}
-    author[]->{
-      name,
-      work,
-      'image': image.asset
-    },
-    hero.include == true => {
-      'hero': coalesce(
-        {
-        'youtube': hero.hero.youtube.id,
-        },
-        {
-          'image': hero.hero.image.asset,
-        'alt': hero.hero.image.alt,
-        }
-      )
-    },
-    ${themeQuery}
-    ${featuredQuery}
-  }`
-).map((post) => {
-  if (post.theme.icon?._ref) {
-    post.theme.icon = `cms://${post.theme.icon._ref}`;
-  }
-  // if (post._slug === 'io-2022') {
-  //   console.log(post.theme.icon);
-  // }
-
-  return post as Post;
-});
+// Graveyard
 
 /**
  * Get post

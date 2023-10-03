@@ -1,0 +1,97 @@
+/**
+ * Microcpy query mixin for GROQ
+ * @param {string} lang - Language to pull microcopy from
+ * @param {string} property - Property from microcopy to get
+ * @return {string} GROQ query for the microcopy item
+ */
+export function groqMicrocopy(lang: string, property: string) {
+  return `*[_type == 'microcopy' && !(_id in path('drafts.**')) && (__i18n_lang == ${lang} || __i18n_lang == 'en_US')]{'item': ${property}}[0].item`;
+}
+
+export const linkQuery = `
+  text,
+  url.reference._type == 'reference' => {
+    'url': {
+      'slug': url.reference->slug.current,
+      'type': url.reference->_type,
+    }
+  },
+  url.reference._type != 'reference' => {
+    'url': url.url,
+  },
+`;
+
+export const coreMetaQuery = `
+  _type,
+  '_lang': coalesce(__i18n_lang, 'en_US'),
+  '_langCode': string::split(coalesce(__i18n_lang, 'en_US'), '_')[0],
+`;
+
+export const coreQuery = `
+    title,
+    description,
+    '_slug': slug.current,
+    category->{
+      title,
+      'slug': slug.current
+    },
+    // body,
+    // share,
+    tags[]->{
+      title,
+      'slug': slug.current
+    },
+    'dates': {
+      'published': coalesce(date_overrides.published, _createdAt),
+      'updated': coalesce(date_overrides.updated, date_overrides.published, _updatedAt)
+    },
+    ${coreMetaQuery}
+`;
+
+// Reusable queries
+export const themeQuery = `
+'theme': {
+  'icon': coalesce(
+    theme.theme->icon.asset,
+    'ix://icons/eyebrows/' + category->slug.current + '.svg?auto=format,compress'),
+  'slug': coalesce(theme.theme->slug.current, category->slug.current),
+  featured.feature == true => {
+    'eyebrow': coalesce(
+      featured.featured.eyebrow,
+      theme.theme->eyebrow,
+      ${groqMicrocopy('__i18n_lang', 'identifiers.featured')}
+    )
+  },
+  feature.feature != true => {
+    'eyebrow': coalesce(
+      theme.theme->eyebrow,
+      category->title
+    )
+  },
+  'backgrounds': {
+    'large': coalesce(
+    theme.backgrounds.background_large.asset,
+    theme.theme->background_large.asset,
+      'ix://landings/news/top/banner-' + category-> slug.current + '.svg?auto=format,compress'
+    ),
+    'small': coalesce(
+    theme.backgrounds.background_small.asset,
+    theme.theme->background_small.asset,
+      'ix://landings/news/banner-' + category-> slug.current + '.svg?auto=format,compress'
+    ),
+  }
+},`;
+
+export const featuredQuery = `
+  featured.feature == true => {
+    'featured': {
+      'title': coalesce(featured.featured.title, title),
+      'description': coalesce(featured.featured.description, description),
+      coalesce(featured.featured.image, hero.hero.image) != null => {
+        'media': {
+          'image': coalesce(featured.featured.image.asset, hero.hero.image.asset),
+          'alt': coalesce(featured.featured.image.alt, hero.hero.image.alt),
+        }
+      }
+    }
+  },`;
