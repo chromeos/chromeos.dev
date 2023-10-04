@@ -1,31 +1,27 @@
+<script context="module" lang="ts">
+  export type PostHeroProps = {
+    feature: Featured;
+    theme: Theme;
+    cta: CTA;
+    form: 'banner' | 'standalone' | 'header';
+  };
+</script>
+
 <script lang="ts">
-  import type { Theme, HeroMedia, CTA, StorySection } from '$types/content';
+  import type { Featured, Theme } from '$types/sanity';
+  import type { CTA } from '$components/CTA.svelte';
   import { isExternalLink } from '$lib/links';
   import CallToAction from './CTA.svelte';
-  import { buildSection } from '$lib/helpers/posts';
   import Eyebrow from './Eyebrow.svelte';
 
-  export let title: string;
-  export let body: string;
-  export let section: StorySection;
+  export let feature: Featured;
   export let theme: Theme;
-  export let media: HeroMedia;
   export let cta: CTA;
   export let form: 'banner' | 'standalone' | 'header' = 'banner';
 
   const Wrapper = form === 'header' ? 'header' : 'article';
   const Header = form === 'header' ? 'h1' : 'h2';
   const banner = form === 'banner';
-
-  const sectionMedia = buildSection(section);
-  const background = theme?.theme
-    ? theme?.background || false
-    : sectionMedia.background;
-
-  const eyebrow = {
-    text: theme?.eyebrow || section,
-    icon: !banner && section ? sectionMedia.icon : false,
-  };
 
   const callToAction = cta;
   if ((form === 'header' || form === 'standalone') && cta?.url) {
@@ -39,18 +35,23 @@
   if (form === 'banner') {
     callToAction.type = 'transparent';
   }
+
+  const eyebrow = {
+    icon: theme.icon,
+    text: theme.eyebrow,
+  };
 </script>
 
 <svelte:element this={Wrapper} class="story-hero">
-  <div class="theme {`theme__${theme?.theme || section}`}">
+  <div class="theme {`theme__${theme.slug}`}">
     <div class="story-hero--inner">
       <div class="story-hero--content-wrapper wrapper--padded wrapper--padding">
-        {#if form === 'header' && cta?.url}
+        {#if form === 'header' && cta.url}
           <div class="story-hero--top-cta">
             <CallToAction cta={callToAction} />
           </div>
         {/if}
-        {#if theme?.eyebrow || section}
+        {#if theme.eyebrow}
           <div
             class="story-hero--eyebrow {!banner ? 'story-hero--unibrow' : ''}"
           >
@@ -58,34 +59,40 @@
           </div>
         {/if}
 
-        <svelte:element this={Header} class="type--h1">{title}</svelte:element>
+        <svelte:element this={Header} class="type--h1"
+          >{feature.title}</svelte:element
+        >
         <!-- Only include the description and lower CTA if this isn't being displayed as a header -->
         {#if form !== 'header'}
-          <p class="story-hero--body type--h4">{body}</p>
+          <p class="story-hero--body type--h4">{feature.description}</p>
           <div class="story-hero--cta">
             <CallToAction cta={callToAction} />
           </div>
         {/if}
       </div>
-      {#if media?.url}
+      {#if feature.media?.image}
         <div class="story-hero--image-wrapper">
-          <img src={media.url} alt={media.alt} class="story-hero--image" />
+          <img
+            src={feature.media.image}
+            alt={feature.media.alt}
+            class="story-hero--image"
+          />
         </div>
       {/if}
 
-      {#if background}
+      {#if theme.backgrounds}
         <div class="story-hero--background">
           <img
             loading="lazy"
             data-large
             aria-hidden
-            src={background.large || background.top}
+            src={theme.backgrounds.large}
           />
           <img
             loading="lazy"
             data-small
             aria-hidden="true"
-            src={background.small || background.bottom}
+            src={theme.backgrounds.small}
           />
         </div>
       {/if}

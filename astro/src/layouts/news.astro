@@ -1,6 +1,7 @@
 ---
 import type { Microcopy, Post } from '$types/sanity';
 import type { CardProps } from '$components/Card.svelte';
+import type { PostHeroProps } from '$components/PostHero.svelte';
 import Wrapper from '$layouts/wrapper.astro';
 import PostHero from '$components/PostHero.svelte';
 import Card from '$components/Card.svelte';
@@ -16,11 +17,17 @@ export interface Props {
 
 const { featured, posts, microcopy, page, pages } = Astro.props;
 const { locale } = microcopy;
-const featuredCTA = {
-  text: microcopy.actions.more,
-  url: featured._path,
-  type: 'link',
-};
+
+const f = {
+  feature: featured.featured,
+  cta: {
+    text: microcopy.actions.more,
+    url: featured._path,
+    type: 'link',
+  },
+  theme: featured.theme,
+  form: 'standalone',
+} as PostHeroProps;
 
 const postcards = posts.map((post) => {
   return {
@@ -41,15 +48,7 @@ const postcards = posts.map((post) => {
 
 <Wrapper locale={locale} metadesc="" title="News">
   <div class="news">
-    <PostHero
-      title={featured.featured.title}
-      body={featured.featured.description}
-      media={featured.featured.media}
-      theme={featured.theme}
-      section={featured.theme.slug}
-      form="standalone"
-      cta={featuredCTA}
-    />
+    <PostHero {...f} />
     <section
       class="wrapper wrapper--full-bleed wrapper--padding wrapper--padded wrapper__background wrapper__contained"
     >

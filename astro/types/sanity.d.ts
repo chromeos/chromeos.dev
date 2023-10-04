@@ -42,7 +42,7 @@ export type Theme = {
 export type Featured = {
   title: string;
   description: string;
-  media: Image;
+  media?: Image;
 };
 
 export type Hero = YouTube | Image;
