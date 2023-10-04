@@ -1,5 +1,18 @@
+<script context="module" lang="ts">
+  export type CTA = {
+    text: string;
+    url: string;
+    type: 'high' | 'medium' | 'low' | 'transparent' | 'link';
+    direction?: 'back' | 'forward' | 'external';
+  };
+
+  export type CTAProps = {
+    cta: CTA;
+    inline?: boolean;
+  };
+</script>
+
 <script lang="ts">
-  import type { CTA } from '$types/content';
   import High from './ctas/High.svelte';
   import Medium from './ctas/Medium.svelte';
   import Low from './ctas/Low.svelte';
