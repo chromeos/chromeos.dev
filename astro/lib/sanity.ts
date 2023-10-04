@@ -1,7 +1,7 @@
 import type { Post, Microcopy, Documentation, Story } from '$types/sanity';
 import { useSanityClient } from '@sanity/astro';
 import { normalizeLang } from '$$data';
-import { groupByLanguage } from '$lib/sanity/helpers';
+import { groupByLanguage, cleanup } from '$lib/sanity/helpers';
 import {
   linkQuery,
   coreQuery,
@@ -183,6 +183,8 @@ async function groq(query: string, cb: GroqCallback) {
           item._section,
           item._slug,
         );
+
+        cleanup(item);
 
         item = await cb(item);
 
