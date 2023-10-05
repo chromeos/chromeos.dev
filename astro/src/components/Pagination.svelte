@@ -1,16 +1,29 @@
+<script context="module" lang="ts">
+  export type PaginationLabels = {
+    title: string;
+    next: string;
+    previous: string;
+    current: string;
+    first: string;
+    last: string;
+    page: string;
+  };
+</script>
+
 <script lang="ts">
   export let base = '';
   export let current = 0;
   export let total = 1;
   export let locale = 'en';
   export let labels = {
-    label: 'Pagination',
-    prev: 'Previous',
+    title: 'Pagination',
+    previous: 'Previous',
     next: 'Next',
     first: 'First',
     last: 'Last',
     current: 'Current',
-  };
+    page: 'Page',
+  } as PaginationLabels;
   export let pager: 'page' | 'query' = 'page';
 
   const pages = [];
@@ -31,7 +44,7 @@
         url: `${base}${pager === 'query' ? 1 : ''}`,
       },
       {
-        label: labels.prev,
+        label: labels.previous,
         text: '‹',
         url: `${base}${c - 1 > 0 ? s + (c - 1) : pager === 'query' ? 1 : ''}`,
       },
@@ -63,7 +76,7 @@
 </script>
 
 {#if t > 1}
-  <nav class="pagination" aria-label={labels.label}>
+  <nav class="pagination" aria-label={labels.title}>
     <ul class="pagination--pages">
       {#each pages as page}
         <li class="pagination--page">

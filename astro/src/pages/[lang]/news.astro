@@ -1,34 +1,22 @@
 ---
 import News from '$layouts/news.astro';
-import { microcopy, getPosts } from '$lib/sanity';
-import type { Post } from '$types/sanity';
+import { buildPostPagination } from '$lib/posts';
 
 /**
  * Builds paths for news landing page
  */
 export async function getStaticPaths() {
-  const p = await getPosts();
-
-  return Object.entries(p).map(([lang, posts]: [string, Array<Post>]) => {
-    const pages = Math.ceil(posts.length / 10);
-    const featured = posts.find((p) => p.featured);
-    const filtered = posts.filter((p) => p._slug !== featured._slug);
-    return {
-      params: {
-        lang: filtered[0]._langCode,
-      },
-      props: {
-        featured,
-        posts: filtered,
-        microcopy: microcopy[lang],
-        page: 0,
-        pages,
-      },
-    };
-  });
+  return buildPostPagination(0);
 }
 
+const { page } = Astro.params;
 const { posts, microcopy: mc, featured, pages } = Astro.props;
 ---
 
-<News featured={featured} posts={posts} microcopy={mc} page={0} pages={pages} />
+<News
+  featured={featured}
+  posts={posts}
+  microcopy={mc}
+  page={page}
+  pages={pages}
+/>
