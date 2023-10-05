@@ -1,20 +1,24 @@
 <script context="module" lang="ts">
   export type PostHeroProps = {
-    feature: Featured;
+    title: string;
+    description: string;
+    media?: Image;
     theme: Theme;
     cta: CTA;
-    form: 'banner' | 'standalone' | 'header';
+    form?: 'banner' | 'standalone' | 'header';
   };
 </script>
 
 <script lang="ts">
-  import type { Featured, Theme } from '$types/sanity';
+  import type { Theme, Image } from '$types/sanity';
   import type { CTA } from '$components/CTA.svelte';
   import { isExternalLink } from '$lib/links';
   import CallToAction from './CTA.svelte';
   import Eyebrow from './Eyebrow.svelte';
 
-  export let feature: Featured;
+  export let title: string;
+  export let description: string;
+  export let media: Image;
   export let theme: Theme;
   export let cta: CTA;
   export let form: 'banner' | 'standalone' | 'header' = 'banner';
@@ -59,24 +63,18 @@
           </div>
         {/if}
 
-        <svelte:element this={Header} class="type--h1"
-          >{feature.title}</svelte:element
-        >
+        <svelte:element this={Header} class="type--h1">{title}</svelte:element>
         <!-- Only include the description and lower CTA if this isn't being displayed as a header -->
         {#if form !== 'header'}
-          <p class="story-hero--body type--h4">{feature.description}</p>
+          <p class="story-hero--body type--h4">{description}</p>
           <div class="story-hero--cta">
             <CallToAction cta={callToAction} />
           </div>
         {/if}
       </div>
-      {#if feature.media?.image}
+      {#if media?.image}
         <div class="story-hero--image-wrapper">
-          <img
-            src={feature.media.image}
-            alt={feature.media.alt}
-            class="story-hero--image"
-          />
+          <img src={media.image} alt={media.alt} class="story-hero--image" />
         </div>
       {/if}
 

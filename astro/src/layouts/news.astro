@@ -18,8 +18,8 @@ export interface Props {
 const { featured, posts, microcopy, page, pages } = Astro.props;
 const { locale } = microcopy;
 
-const f = {
-  feature: featured.featured,
+const feature = {
+  ...featured.featured,
   cta: {
     text: microcopy.actions.more,
     url: featured._path,
@@ -48,7 +48,7 @@ const postcards = posts.map((post) => {
 
 <Wrapper locale={locale} metadesc="" title="News">
   <div class="news">
-    <PostHero {...f} />
+    <PostHero {...feature} />
     <section
       class="wrapper wrapper--full-bleed wrapper--padding wrapper--padded wrapper__background wrapper__contained"
     >
