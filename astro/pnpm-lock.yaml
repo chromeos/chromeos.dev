@@ -26,6 +26,9 @@ dependencies:
   astro:
     specifier: ^3.0.5
     version: 3.0.5(@types/node@18.11.18)(sass@1.62.1)
+  astro-portabletext:
+    specifier: ^0.9.4
+    version: 0.9.4
   css-paint-polyfill:
     specifier: ^3.4.0
     version: 3.4.0
@@ -41,6 +44,9 @@ dependencies:
   requestidlecallback:
     specifier: ^0.3.0
     version: 0.3.0
+  slugify:
+    specifier: ^1.6.6
+    version: 1.6.6
   svelte:
     specifier: ^3.59.1
     version: 3.59.1
@@ -2657,9 +2663,21 @@ packages:
       '@portabletext/types': 1.0.3
     dev: false
 
+  /@portabletext/toolkit@2.0.9:
+    resolution: {integrity: sha512-6/P/fsCGLFhztVGJRwIMePmwGbOH1Uvoim04XPh38pcC+wWT3KJ97Hn1HPWmuxd9kGdxyySQpThfYZbSmroGpg==}
+    engines: {node: ^14.13.1 || >=16.0.0}
+    dependencies:
+      '@portabletext/types': 2.0.7
+    dev: false
+
   /@portabletext/types@1.0.3:
     resolution: {integrity: sha512-SDDsdury2SaTI2D5Ea6o+Y39SSZMYHRMWJHxkxYl3yzFP0n/0EknOhoXcoaV+bxGr2dTTqZi2TOEj+uWYuavSw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dev: false
+
+  /@portabletext/types@2.0.7:
+    resolution: {integrity: sha512-kWjS2lguGKHYDsHeK83cXonuYQCIP4mfNwnTjCdDpIPf7CQ4eTuKjYKxJ2w2aksbsh1DwSk1h+xZ64ADiNdTGg==}
+    engines: {node: ^14.13.1 || >=16.0.0 || >=18.0.0}
     dev: false
 
   /@protobufjs/aspromise@1.1.2:
@@ -3871,6 +3889,13 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /astro-portabletext@0.9.4:
+    resolution: {integrity: sha512-/0TGu0AAHFMp9SB3nn74KFZJ7EqS1agNk4B3Jl4CAWvGZBy0HffbIcoFhsmwbvoSMKhvsWEHjPAhT01A1EEihQ==}
+    dependencies:
+      '@portabletext/toolkit': 2.0.9
+      '@portabletext/types': 2.0.7
+    dev: false
 
   /astro@3.0.5(@types/node@18.11.18)(sass@1.62.1):
     resolution: {integrity: sha512-g6WOl39HyzQJhPSkcO+Tvm3aZ2ZumfAPnxyhnFKmFRDOI78a59iW9EdRl9TbLH6Cinj2CQiOBATfGiR2FU4EXg==}
@@ -11938,6 +11963,11 @@ packages:
       ansi-styles: 6.2.1
       is-fullwidth-code-point: 4.0.0
     dev: true
+
+  /slugify@1.6.6:
+    resolution: {integrity: sha512-h+z7HKHYXj6wJU+AnS/+IH8Uh9fdcX1Lrhg1/VMdf9PwoBQXFcXiAdsy2tSK0P6gKwJLXp02r90ahUCqHk9rrw==}
+    engines: {node: '>=8.0.0'}
+    dev: false
 
   /smart-buffer@4.2.0:
     resolution: {integrity: sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==}

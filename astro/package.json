@@ -37,6 +37,7 @@
     "lottie-web": "^5.12.2",
     "lunr": "^2.3.9",
     "requestidlecallback": "^0.3.0",
+    "slugify": "^1.6.6",
     "svelte": "^3.59.1",
     "vite-plugin-pwa": "^0.15.0"
   },

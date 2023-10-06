@@ -1,3 +1,5 @@
+import slug from 'slugify';
+
 /**
  * Normalizes a language string to the first part of the string
  * @param {string} lang
@@ -5,6 +7,15 @@
  */
 export function normalizeLang(lang: string) {
   return lang?.split('_')[0] || 'en';
+}
+
+/**
+ *
+ * @param {string} str
+ * @return {string}
+ */
+export function slugify(str: string) {
+  return slug(str, { lower: true, strict: true });
 }
 
 /**
