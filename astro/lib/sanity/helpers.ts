@@ -42,4 +42,13 @@ export function cleanup(content: any) {
   if (content.featured?.media?.image?._ref) {
     content.featured.media.image = `cms://${content.featured.media.image._ref}`;
   }
+
+  // Author cleanup
+  if (content.author) {
+    for (const author of content.author) {
+      if (author.image?._ref) {
+        author.image = `cms://${author.image._ref}`;
+      }
+    }
+  }
 }
