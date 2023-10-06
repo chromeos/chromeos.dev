@@ -10,7 +10,7 @@ export type Author = {
     org: string;
     title: string;
   };
-  image: string;
+  image?: string;
 };
 
 export type Tag = {
