@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
   export type PostHeroProps = {
     title: string;
-    description: string;
+    description?: string;
     media?: Image;
     theme: Theme;
     cta: CTA;
