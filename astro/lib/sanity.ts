@@ -169,7 +169,7 @@ async function groq(query: string, cb: GroqCallback) {
         // Normalize sections
         // TODO: Standardize
         if (item._type === 'post') {
-          item._section = 'news';
+          item._section = 'posts';
         }
         if (item._type === 'documentation') {
           item._section = item.category.slug;
