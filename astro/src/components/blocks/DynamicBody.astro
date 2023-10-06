@@ -1,0 +1,16 @@
+---
+import PortableText from '$components/PortableText.astro';
+import Message from './Message.svelte';
+
+const { node: props /* , isInline, class */ } = Astro.props;
+---
+
+{
+  props._type === 'Message' ? (
+    <Message type={props.type}>
+      <PortableText body={props.text} />
+    </Message>
+  ) : (
+    <PortableText body={props.children} />
+  )
+}

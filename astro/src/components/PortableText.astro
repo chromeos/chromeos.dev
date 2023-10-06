@@ -1,0 +1,21 @@
+---
+import { PortableText } from 'astro-portabletext';
+import DynamicBody from '$components/blocks/DynamicBody.astro';
+
+export interface Props {
+  body: any;
+}
+
+const { body } = Astro.props;
+
+const components = {
+  type: {
+    Message: DynamicBody,
+  },
+};
+// console.log(inspect(body, false, null, true))
+---
+
+<div class="type">
+  <PortableText value={body} components={components} />
+</div>
