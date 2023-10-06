@@ -1,4 +1,4 @@
-import type { BlockSchemaType } from '@sanity/types';
+import type { PortableTextBlock } from '@sanity/types';
 
 export type Author = {
   name: {
@@ -61,7 +61,7 @@ interface CoreContentMeta {
 interface CoreContent extends CoreContentMeta {
   title: string;
   description: string;
-  body: BlockSchemaType;
+  body: PortableTextBlock;
   category: Tag;
   tags: Tag[];
   dates: {
