@@ -35,7 +35,7 @@ export const coreQuery = `
       title,
       'slug': slug.current
     },
-    // body,
+    body,
     // share,
     tags[]->{
       title,
