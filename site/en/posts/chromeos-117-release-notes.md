@@ -16,7 +16,7 @@ ChromeOS 117 reached stable release on September 19, 2023. Features include a ne
 
 Take timelapse video without leaving the built-in Camera App on your ChromeOS device. To use this feature, open the **Camera** **App**, select **Video**, and then select **Timelapse**. Camera App determines the right speed for the timelapse video based on duration recorded—and you can record for as long as you have space available on your device.
 
-![Timelapse mode in the built-in camera app, showing a timelapse video of a pink flower surrounded by green leaves. The timelapse option is available under the Video category after Normal and GIF.](Chrome-117-timelapse.png)
+![Timelapse mode in the built-in camera app, showing a timelapse video of a pink flower surrounded by green leaves. The timelapse option is available under the Video category after Normal and GIF.](ix://posts/m117/timelapse.png)
 
 ## Enjoy new themes and personalization with Google Material 3
 
