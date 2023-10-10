@@ -25,6 +25,8 @@ Control the look of your ChromeOS device using the new **ChromeOS Personalizatio
 - A new set of themes which dynamically update to reflect your wallpaper and style.
 - A new look for almost all system surfaces with updated text, menus, icons or elements.
 
+![The wallpaper and screen saver settings screen, showing four options for accent colors created to match the chosen wallpaper. The first set of accent colors is selected, as is dark mode, with light mode and auto also available. The Earth Flow screensaver, a Chromebook Plus exclusive, is also chosen](ix://posts/m117/personalization.png)
+
 ## Preserve battery health with Adaptive Charging
 
 Adaptive Charging is a new ChromeOS power management feature. Devices with **Adaptive Charging** enabled via **Settings** will charge to 80% and then complete charging to 100% based on an ML model's prediction for when you will unplug your device. Reducing the time a device spends at 100% charge helps preserve the battery's health and its ability to hold a charge over the lifetime of the device.
