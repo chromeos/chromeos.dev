@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { defineField, defineType } from 'sanity';
+import { minMax } from '$lib/validators/min-max';
 
 export default defineType({
   name: 'story',
@@ -44,6 +45,7 @@ export default defineType({
       title: 'Title',
       type: 'title',
       group: ['content', 'seo_social'],
+      validation: minMax(3, 160),
     }),
     defineField({
       name: 'slug',
