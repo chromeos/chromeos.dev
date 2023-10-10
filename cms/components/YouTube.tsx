@@ -1,6 +1,12 @@
-import { Stack, Text, TextInput } from '@sanity/ui';
-import { ObjectInputProps, PreviewProps, set, unset } from 'sanity';
+import type {
+  ObjectInputProps,
+  FieldMember,
+  PreviewProps,
+  InputProps,
+} from 'sanity';
 import { useCallback } from 'react';
+import { Stack, TextInput } from '@sanity/ui';
+import { MemberField, set, unset } from 'sanity';
 import getYouTubeId from 'get-youtube-id';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
@@ -12,22 +18,22 @@ export type YouTube = {
   _type?: string;
 };
 
-// https://www.sanity.io/guides/your-first-input-component-for-sanity-studio-v3
-// https://www.sanity.io/docs/migrating-custom-input-components
-
 export type YouTubeInputProps = ObjectInputProps<YouTube>;
 
 export const YouTubeInput = (props: YouTubeInputProps) => {
-  const { value, elementProps, onChange } = props;
+  const { value, onChange, members, renderField, renderItem } = props;
 
-  console.log(value);
+  const urlFieldMember = members.find(
+    (member): member is FieldMember =>
+      member.kind === 'field' && member.name === 'url',
+  );
 
-  const handleChange = useCallback(
-    (event) => {
-      const nextValue = event.currentTarget.value;
+  // Sets the value of the YouTube object depending on if it's used in a block or used as a field
+  const setValue = useCallback(
+    (url: string) => {
       const newValue = {
-        url: nextValue || null,
-        id: getYouTubeId(nextValue) || null,
+        url: url || null,
+        id: getYouTubeId(url) || null,
       } as YouTube;
 
       // If it's used in a block, need key and type
@@ -37,17 +43,57 @@ export const YouTubeInput = (props: YouTubeInputProps) => {
         onChange(set(newValue));
       } else {
         // If it's not, don't need key and type
-        onChange(nextValue ? set(newValue) : unset());
+        onChange(url ? set(newValue) : unset());
       }
     },
     [onChange, value?._key, value?._type],
   );
 
-  // TODO: Get title and validation working
+  // Handle the callback for when the input changes
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const url = event.currentTarget.value;
+      setValue(url);
+    },
+    [setValue],
+  );
+
+  // Custom render input attach our own change handler
+  const customRenderInput = useCallback(
+    (renderInputCallbackProps: InputProps) => {
+      return (
+        <Stack space={2}>
+          <TextInput
+            {...renderInputCallbackProps.elementProps}
+            value={value?.url}
+            onChange={handleChange}
+          />
+        </Stack>
+      );
+    },
+    [handleChange, value?.url],
+  );
+
+  // Migrate existing data
+  if (value?.url && !value?.id) {
+    setValue(value.url);
+  }
+
+  // Render the input with optional preview
   return (
     <Stack space={2}>
-      <TextInput {...elementProps} onChange={handleChange} value={value?.url} />
-      <Text>ID: {value?.id}</Text>
+      <MemberField
+        member={urlFieldMember}
+        renderInput={customRenderInput}
+        renderField={renderField}
+        renderItem={renderItem}
+      />
+      {value?.id && (
+        <LiteYouTubeEmbed
+          title={'YouTube Video Preview'}
+          id={value?.id || ''}
+        />
+      )}
     </Stack>
   );
 };
@@ -57,7 +103,7 @@ export const YouTubePreview = (props: PreviewProps<YouTube>) => {
   return (
     <div>
       {renderDefault({ ...props, title: 'YouTube Embed' })}
-      <LiteYouTubeEmbed id={id} />
+      <LiteYouTubeEmbed title={'YouTube Video Preview'} id={id || ''} />
     </div>
   );
 };

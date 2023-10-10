@@ -73,5 +73,13 @@ export default defineType({
       readOnly: isL10n,
       hidden: isL10n,
     }),
+    defineField({
+      name: 'is_doc_category',
+      title: 'Is documentation category',
+      type: 'boolean',
+      group: 'category',
+      readOnly: isL10n,
+      hidden: isL10n,
+    }),
   ],
 });

@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { defineField, defineType } from 'sanity';
+import { isL10n } from '$lib/validators/i18n';
 
 export default defineType({
   name: 'documentation',
@@ -56,6 +57,20 @@ export default defineType({
       title: 'Description',
       type: 'description',
       group: ['content', 'seo_social'],
+    }),
+    defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: { type: 'tag' },
+      validation: (Rule) => Rule.required(),
+      group: ['content'],
+      options: {
+        disableNew: true,
+        filter: 'is_doc_category == true',
+      },
+      readOnly: isL10n,
+      hidden: isL10n,
     }),
 
     defineField({
