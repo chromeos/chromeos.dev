@@ -17,7 +17,7 @@ permalink: '/discover/{{article.title | slugify}}/'
     {% if article.subtitle %}
     <p class="type--subtitle">{{article.subtitle}}</p>
     {% endif %}
-    <p>Last Updated: {{article.updatedDate}}</p>
+    <p>Last Updated: <time datetime="{{article.updatedDate}}">{{article.updatedDate | date('en', {"month": "long", "day": "numeric", "year": "numeric"})}}</time></p>
     <ul class="dtags">
       {% for tag in article.tags %}
       <li class="medium">{{tag}}</li>
