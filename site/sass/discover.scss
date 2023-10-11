@@ -1,0 +1,100 @@
+// Globals
+@import 'globals/colors';
+@import 'globals/vars';
+@import 'globals/functions';
+@import 'globals/mixins';
+@import 'globals/extends';
+
+// Overrides
+._discover {
+  .header {
+    padding: 0.75rem 1.25rem;
+
+    &__home {
+      grid-column: 1 / span 2;
+    }
+  }
+}
+
+// Discover Home
+._discover-home {
+  margin-bottom: 3rem;
+  padding: 1rem 1.5rem;
+
+  &--grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    list-style: none;
+  }
+
+  &--section {
+    margin-inline: auto;
+    max-width: 1025px;
+
+    &:not(:first-of-type) {
+      margin-top: 3rem;
+    }
+
+    &-title {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.medium {
+  font-weight: 500;
+}
+
+// Cards
+.dcard {
+  border: 1px solid var(--grey-300);
+  border-radius: 0.75rem;
+  color: inherit;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    @include elevation(1);
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &--title {
+    font-size: 1.25rem;
+  }
+
+  &--inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+    padding: 1rem;
+  }
+}
+
+// Tags
+.dtags {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.85em;
+  gap: 0.5rem;
+  list-style: none;
+
+  .dcard & {
+    margin-top: auto;
+  }
+
+  li {
+    background-color: var(--grey-150);
+    border-radius: 0.5rem;
+    padding: 0.5em 1em;
+  }
+}

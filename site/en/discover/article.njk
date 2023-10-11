@@ -1,0 +1,54 @@
+---
+layout: _discover
+pagination:
+  data: discovery
+  size: 1
+  alias: article
+permalink: '/discover/{{article.title | slugify}}/'
+---
+
+<article class="_discover-article">
+  <img src="{{article.bannerImageUrl | deunicode}}" alt="" />
+  <header>
+    {% if article.iconUrl %}
+    <img src="{{article.iconUrl | deunicode}}" alt="" />
+    {% endif %}
+    <h1 class="type--h1">{{article.title}}</h1>
+    {% if article.subtitle %}
+    <p class="type--subtitle">{{article.subtitle}}</p>
+    {% endif %}
+    <p>Last Updated: {{article.updatedDate}}</p>
+    <ul class="dtags">
+      {% for tag in article.tags %}
+      <li class="medium">{{tag}}</li>
+      {% endfor %}
+    </ul>
+  </header>
+  <aside>TOC/Apss</aside>
+  <div class="type">
+    {% for block in article.components %}
+    <!-- content -->
+    {% if block.text %}
+    <!-- body content -->
+    {% if block.text.bodyHtml %} {{block.text.bodyHtml | deunicode | safe}}
+
+    <!-- H3s become H2s -->
+    {% elif block.text.headingH3 %}
+    <h2>{{block.text.headingH3}}</h2>
+    <!-- H2s should also be H2s -->
+    {% elif block.text.headingH2 %}
+    <h2>{{block.text.headingH3}}</h2>
+    {% endif %}
+    <!-- Horizontal Rule -->
+    {% elif block.horizontalRule %}
+    <hr />
+    <!-- Images -->
+    {% elif block.media %} {% for image in block.media.media %}
+    <img src="{{image.imageUrl | deunicode}}" alt="" />
+    {% endfor %}
+    <!-- App Card -->
+    {% elif block.appCard %}
+    <aside class="appcard">{{block.appCard.appUuid}}</aside>
+    {% endif %} {% endfor %}
+  </div>
+</article>

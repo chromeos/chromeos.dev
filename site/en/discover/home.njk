@@ -1,0 +1,40 @@
+---
+layout: _discover
+permalink: '/discover/'
+---
+
+{% macro card(article) %}
+<a class="dcard" href="/discover/{{article.title | slugify}}">
+  <article>
+    <img src="{{article.bannerImageUrl | deunicode}}" alt="" />
+    <div class="dcard--inner">
+      <h2 class="type--h3 dcard--title medium">{{article.title}}</h2>
+      <p>{{article.description}}</p>
+      <ul class="dtags">
+        {% for tag in article.tags %}
+        <li class="medium">{{tag}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </article>
+</a>
+{% endmacro %}
+
+<div class="_discover-home">
+  <section class="_discover-home--section">
+    <h2 class="type--h2 _discover-home--section-title">Apps</h2>
+    <ul class="_discover-home--grid">
+      {% for article in discovery %} {% if article.isGameArticle != true %}
+      <li>{{card(article)}}</li>
+      {% endif %} {% endfor %}
+    </ul>
+  </section>
+  <section class="_discover-home--section">
+    <h2 class="type--h2 _discover-home--section-title">Games</h2>
+    <ul class="_discover-home--grid">
+      {% for article in discovery %} {% if article.isGameArticle == true %}
+      <li>{{card(article)}}</li>
+      {% endif %} {% endfor %}
+    </ul>
+  </section>
+</div>

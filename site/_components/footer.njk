@@ -26,6 +26,7 @@
           <span>{{ content.help.text }}</span>
         </a>
       </li>
+      {% if languages %}
       <li class="footer__languages">
         <select class="footer__select type--tertiary-nav" name="lang" id="lang" aria-label="{{ content.selectLang }}">
           {% for lang in languages %} {% if lang === localeCode %}
@@ -35,6 +36,7 @@
           {% endif %} {% endfor %}
         </select>
       </li>
+      {% endif %}
     </ul>
   </section>
 </footer>
