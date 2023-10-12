@@ -9,7 +9,7 @@ permalink: '/discover/{{article.title | slugify}}/'
 
 <article class="_discover-article">
   <img class="_discover-article--image" src="{{article.bannerImageUrl | deunicode}}" alt="" />
-  <div class="_discover--inline-container">
+  <div class="_discover-article--contained">
     <div class="_discover-article--container">
       <header>
         {% if article.iconUrl %}

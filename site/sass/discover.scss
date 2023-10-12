@@ -103,7 +103,7 @@
 // Article
 ._discover-article {
   $big: calc(80ch + 300px + 11rem);
-  container-type: inline-size;
+  $image: calc(50vh - 4rem);
 
   .type {
     h2,
@@ -137,15 +137,21 @@
 
   &--image {
     display: block;
-    height: 33vh;
+    height: $image;
+    left: 0;
 
     margin: 0 auto;
     object-fit: cover;
+    position: fixed;
+    top: 4rem;
     width: 100%;
+    z-index: -1;
+  }
 
-    @container (min-width: calc(80ch + 2px)) {
-      // Fixed
-    }
+  &--contained {
+    container-type: inline-size;
+    margin-top: $image;
+    width: 100%;
   }
 
   &--container {
@@ -173,13 +179,12 @@
     }
 
     &::before {
-      background-image: linear-gradient(to bottom, transparent, var(--white) 33vh);
+      background-image: linear-gradient(to bottom, transparent 3rem, var(--white) #{$image});
       content: '';
       height: 100%;
-      left: -3rem;
-      // background-color: blue;
+      left: -25vw;
       position: absolute;
-      width: 100vw;
+      width: 150vw;
       z-index: -1;
     }
   }
