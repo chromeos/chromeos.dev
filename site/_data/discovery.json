@@ -95,102 +95,6 @@
     "description": "Power up your designs with Adobe’s creativity tools"
   },
   {
-    "title": "Microsoft 365 comes to Chromebooks",
-    "subtitle": "Boost productivity with Microsoft 365 and OneDrive integration",
-    "bannerImageUrl": "https://lh3.googleusercontent.com/jezjZnWLpMcpnxAY9aVKRnRPiX8LMxUru01MozcG1WtzWbGTw3MgTcJUCP9jViadVQQePR1mGaFJsIRg77k1DoOZS44p3hDQP24YT74gx91J571xQIc\u003dw1040",
-    "tags": ["Productivity"],
-    "components": [
-      {
-        "appCard": {
-          "type": "APPCARD_SMALL",
-          "appUuid": "microsoft-clippy-setup"
-        }
-      },
-      {
-        "text": {
-          "bodyHtml": "\u003cp\u003eEasily open and edit Microsoft Word, Excel, and PowerPoint files on your Chromebook using the Microsoft 365 app. OneDrive will be added to your Chromebook Files app so you can access your documents when you need them. Begin setting up Microsoft 365 on your Chromebook today.\u003c/p\u003e\n\u003cp\u003e\u003c/p\u003e\n\u003cp\u003eYour Chromebook provides a guided setup experience. During setup, you\u0026rsquo;ll install the Microsoft 365 app if you don\u0026rsquo;t have it already and connect Microsoft OneDrive to your Chromebook Files app.\u003c/p\u003e\n\u003cp\u003e\u003c/p\u003e\n\u003cp\u003eOnce you have completed setup, any future files you open will move to Microsoft OneDrive to open in the Microsoft 365 app. Microsoft OneDrive storage is required to open and edit files in Microsoft 365.\u003c/p\u003e"
-        }
-      },
-      {
-        "horizontalRule": {}
-      },
-      {
-        "text": {
-          "bodyHtml": "\u003cp\u003eFor easy access to Microsoft Word, Excel, and PowerPoint, pin Microsoft 365 to your shelf\u003c/p\u003e"
-        }
-      },
-      {
-        "media": {
-          "media": [
-            {
-              "imageUrl": "https://lh3.googleusercontent.com/69kkuDxjwk3lf29E74Y9Pzw0uP_N0mFR7J-y2ff5ZqD-mf17dK241c8mEqYitBN57yPaq39DJCORz8KATOY3B5BsMDrCzk2MxaGm3YTm8GRlIZIapm20\u003dw766"
-            }
-          ]
-        }
-      },
-      {
-        "horizontalRule": {}
-      },
-      {
-        "text": {
-          "bodyHtml": "\u003cp\u003eOpen and edit Microsoft Word, Excel, and PowerPoint files on your Chromebook\u003c/p\u003e"
-        }
-      },
-      {
-        "media": {
-          "media": [
-            {
-              "imageUrl": "https://lh3.googleusercontent.com/C8VOaawqDi2A2eQEXZUUpiAFD23Ocp-jszDquErSZhEOvSBeLAUvVMOC-fuq-S7_DccqdXmbTWDRpbaTG74D2h6jnM6JTuzUMenlfePaILxuu7VZpw\u003dw766"
-            }
-          ]
-        }
-      },
-      {
-        "horizontalRule": {}
-      },
-      {
-        "text": {
-          "bodyHtml": "\u003cp\u003eMicrosoft OneDrive integrated with the Chromebook Files app\u003c/p\u003e"
-        }
-      },
-      {
-        "media": {
-          "media": [
-            {
-              "imageUrl": "https://lh3.googleusercontent.com/qbf8uCOq3Jyb8d4t0ytZnnping5iexZ6pCZAGFdwKRtTFtUY1B3brpIjwRl9WCzADuzLnWFfPqujcQyBWLsOOIsv5-XfEuVkE40fkNCfAD7aAIG3gzrO\u003dw766"
-            }
-          ]
-        }
-      },
-      {
-        "appCard": {
-          "type": "APPCARD_SMALL",
-          "appUuid": "microsoft-clippy-setup"
-        }
-      }
-    ],
-    "publishedDate": "2023-09-26T15:00:00Z",
-    "id": "ms.365.2023",
-    "updatedDate": "2023-09-26T15:00:00Z",
-    "description": "Edit Microsoft Word, Excel, and PowerPoint files",
-    "targetAudiences": [
-      {
-        "targetConditions": [
-          {
-            "fieldName": "Microsoft365",
-            "op": "EQUAL_TO",
-            "value": "true"
-          },
-          {
-            "fieldName": "milestone",
-            "op": "GREATER_THAN_EQUAL_TO",
-            "value": "117"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "title": "Chromebook gaming 101",
     "bannerImageUrl": "https://lh3.googleusercontent.com/EiuDAWVe3w2hxkfEKzr_2ULtUpsF0wZASf4tCKI57oncMX-wROSmmqTzdqp6us6XC6IyWRfSgTKb2XGaXU_62GbOS_6fBAKNChb1vrYAO8ZMrzafgA\u003dw1040",
     "tags": ["Gaming"],
@@ -335,7 +239,12 @@
       },
       {
         "text": {
-          "bodyHtml": "\u003cp\u003e\u003cstrong\u003ePro tip: \u003c/strong\u003ePurchasing Minecraft Bedrock Edition on your Chromebook will automatically get you access to Minecraft Pocket Edition on Android. If you\u0026rsquo;ve already purchased Minecraft Pocket Edition on an Android phone or tablet, you can easily upgrade to get it on your Chromebook. Access third-party servers to play mini-games, PVP and more.\u003c/p\u003e\n\u003cp\u003e\u003c/p\u003e\n\u003cp\u003e*Minecraft is available on select Chromebooks. See \u003ca href\u003d\"https://help.minecraft.net/hc/en-us/articles/13803752803725\" target\u003d\"_blank\" rel\u003d\"noopener\"\u003ehere\u003c/a\u003e for device eligibility details.\u003c/p\u003e"
+          "messageHtml": "\u003cp\u003e\u003cstrong\u003ePro tip: \u003c/strong\u003ePurchasing Minecraft Bedrock Edition on your Chromebook will automatically get you access to Minecraft Pocket Edition on Android. If you\u0026rsquo;ve already purchased Minecraft Pocket Edition on an Android phone or tablet, you can easily upgrade to get it on your Chromebook. Access third-party servers to play mini-games, PVP and more.\u003c/p\u003e\n\u003cp\u003e\u003c/p\u003e"
+        }
+      },
+      {
+        "text": {
+          "bodyHtml": "\u003cp\u003e*Minecraft is available on select Chromebooks. See \u003ca href\u003d\"https://help.minecraft.net/hc/en-us/articles/13803752803725\" target\u003d\"_blank\" rel\u003d\"noopener\"\u003ehere\u003c/a\u003e for device eligibility details.\u003c/p\u003e"
         }
       }
     ],
@@ -677,12 +586,6 @@
     "tags": ["Gaming"],
     "components": [
       {
-        "featuredAppsContents": {}
-      },
-      {
-        "horizontalRule": {}
-      },
-      {
         "text": {
           "featureParagraphHtml": "\u003cp\u003eLevel up your play with Chromebook\u0026rsquo;s immersive screen. Game on with your keyboard, mouse, and controller.\u003c/p\u003e"
         }
@@ -750,7 +653,12 @@
       },
       {
         "text": {
-          "bodyHtml": "\u003cp\u003eSet off on a fast-paced adventure complete with a head-bopping soundtrack. Play as one of seven forms, then fly and flip your way through treacherous levels while dodging obstacles and unlocking achievements.\u003c/p\u003e\n\u003cp\u003e\u003c/p\u003e\n\u003cp\u003ePro tip: connect a controller for more precision and to fully embrace the retro video game vibe.\u003c/p\u003e"
+          "bodyHtml": "\u003cp\u003eSet off on a fast-paced adventure complete with a head-bopping soundtrack. Play as one of seven forms, then fly and flip your way through treacherous levels while dodging obstacles and unlocking achievements.\u003c/p\u003e\n\u003cp\u003e\u003c/p\u003e"
+        }
+      },
+      {
+        "text": {
+          "messageHtml": "\u003cp\u003ePro tip: connect a controller for more precision and to fully embrace the retro video game vibe.\u003c/p\u003e"
         }
       },
       {
@@ -861,9 +769,6 @@
         "featuredAppsContents": {}
       },
       {
-        "horizontalRule": {}
-      },
-      {
         "text": {
           "featureParagraphHtml": "\u003cp\u003eThese apps are optimized to deliver a seamless experience on your Chromebook. Enjoy the flexibility of using your preferred external devices such as your stylus, mouse, or keyboard.\u003c/p\u003e"
         }
@@ -908,7 +813,12 @@
       },
       {
         "text": {
-          "bodyHtml": "\u003cp\u003eTap into your inner Van Gogh with ease. In addition to sketching tools, the app also comes with a collection of realistic brushes that mimic the textures of watercolor, acrylic, and oil paints. You can also use folders and layers to keep the elements of your image separated and easy to edit.\u003c/p\u003e\n\u003cp\u003ePro tip: Tayasui Sketches works best using a Chromebook stylus with a touchscreen device.\u003c/p\u003e"
+          "bodyHtml": "\u003cp\u003eTap into your inner Van Gogh with ease. In addition to sketching tools, the app also comes with a collection of realistic brushes that mimic the textures of watercolor, acrylic, and oil paints. You can also use folders and layers to keep the elements of your image separated and easy to edit.\u003c/p\u003e"
+        }
+      },
+      {
+        "text": {
+          "messageHtml": "\u003cp\u003ePro tip: Tayasui Sketches works best using a Chromebook stylus with a touchscreen device.\u003c/p\u003e"
         }
       },
       {

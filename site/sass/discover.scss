@@ -44,6 +44,7 @@
 
 .medium {
   font-weight: 500;
+  text-shadow: none;
 }
 
 // Cards
@@ -97,4 +98,115 @@
     border-radius: 0.5rem;
     padding: 0.5em 1em;
   }
+}
+
+// Article
+._discover-article {
+  $big: calc(80ch + 300px + 11rem);
+  container-type: inline-size;
+
+  .type {
+    h2,
+    h3 {
+      font-weight: 500;
+    }
+  }
+
+  header {
+    border-bottom: 1px solid var(--grey-300);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+
+    @container (min-width: calc(80ch + 2px)) {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    @container (min-width: #{$big}) {
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 1;
+    }
+  }
+
+  .dtags {
+    margin-top: 0.25rem;
+  }
+
+  &--image {
+    display: block;
+    height: 33vh;
+
+    margin: 0 auto;
+    object-fit: cover;
+    width: 100%;
+
+    @container (min-width: calc(80ch + 2px)) {
+      // Fixed
+    }
+  }
+
+  &--container {
+    background-color: var(--white);
+    display: block;
+    margin: 0 auto;
+    max-width: 80ch;
+    padding: 1rem 1.5rem;
+    padding-top: 2rem;
+    position: relative;
+    z-index: 3;
+
+    @container (min-width: calc(80ch + 2px)) {
+      border-radius: 1rem 1rem 0 0;
+      margin-top: -3rem;
+      padding: 3rem;
+    }
+
+    @container (min-width: #{$big}) {
+      display: grid;
+      grid-column-gap: 7rem;
+      grid-template-columns: calc(80ch - 6rem) 300px;
+      grid-template-rows: auto 1fr;
+      margin-inline: 3rem;
+    }
+
+    &::before {
+      background-image: linear-gradient(to bottom, transparent, var(--white) 33vh);
+      content: '';
+      height: 100%;
+      left: -3rem;
+      // background-color: blue;
+      position: absolute;
+      width: 100vw;
+      z-index: -1;
+    }
+  }
+
+  &--published {
+    color: var(--grey-700);
+    font-size: 0.85rem;
+  }
+
+  &--toc {
+    border: 1px solid var(--red-300);
+    @container (min-width: #{$big}) {
+      grid-column: 2 / span 1;
+      grid-row: 2 / span 1;
+    }
+  }
+
+  &--content {
+    @container (min-width: #{$big}) {
+      grid-column: 1 / span 1;
+      grid-row: 2 / span 1;
+    }
+  }
+}
+
+// Featured Content
+.featured {
+  color: var(--grey-800);
+  padding-block-end: 1em;
 }

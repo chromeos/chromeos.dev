@@ -8,47 +8,58 @@ permalink: '/discover/{{article.title | slugify}}/'
 ---
 
 <article class="_discover-article">
-  <img src="{{article.bannerImageUrl | deunicode}}" alt="" />
-  <header>
-    {% if article.iconUrl %}
-    <img src="{{article.iconUrl | deunicode}}" alt="" />
-    {% endif %}
-    <h1 class="type--h1">{{article.title}}</h1>
-    {% if article.subtitle %}
-    <p class="type--subtitle">{{article.subtitle}}</p>
-    {% endif %}
-    <p>Last Updated: <time datetime="{{article.updatedDate}}">{{article.updatedDate | date('en', {"month": "long", "day": "numeric", "year": "numeric"})}}</time></p>
-    <ul class="dtags">
-      {% for tag in article.tags %}
-      <li class="medium">{{tag}}</li>
-      {% endfor %}
-    </ul>
-  </header>
-  <aside>TOC/Apss</aside>
-  <div class="type">
-    {% for block in article.components %}
-    <!-- content -->
-    {% if block.text %}
-    <!-- body content -->
-    {% if block.text.bodyHtml %} {{block.text.bodyHtml | deunicode | safe}}
+  <img class="_discover-article--image" src="{{article.bannerImageUrl | deunicode}}" alt="" />
+  <div class="_discover--inline-container">
+    <div class="_discover-article--container">
+      <header>
+        {% if article.iconUrl %}
+        <img src="{{article.iconUrl | deunicode}}" alt="" />
+        {% endif %}
+        <h1 class="type--h1 medium">{{article.title}}</h1>
+        {% if article.subtitle %}
+        <p class="_discover-article--subtitle medium">{{article.subtitle}}</p>
+        {% endif %}
+        <p class="_discover-article--published">Updated on <time datetime="{{article.updatedDate}}">{{article.updatedDate | date('en', {"month": "long", "day": "numeric", "year": "numeric"})}}</time></p>
+        <ul class="dtags">
+          {% for tag in article.tags %}
+          <li class="medium">{{tag}}</li>
+          {% endfor %}
+        </ul>
+      </header>
+      <aside class="_discover-article--toc">TOC/Apss</aside>
+      <div class="type _discover-article--content">
+        {% for block in article.components %}
+        <!-- Content Loop -->
+        {% if block.text %}
+        <!-- Basic Content -->
+        {% if block.text.bodyHtml %} {{block.text.bodyHtml | deunicode | safe}}
 
-    <!-- H3s become H2s -->
-    {% elif block.text.headingH3 %}
-    <h2>{{block.text.headingH3}}</h2>
-    <!-- H2s should also be H2s -->
-    {% elif block.text.headingH2 %}
-    <h2>{{block.text.headingH3}}</h2>
-    {% endif %}
-    <!-- Horizontal Rule -->
-    {% elif block.horizontalRule %}
-    <hr />
-    <!-- Images -->
-    {% elif block.media %} {% for image in block.media.media %}
-    <img src="{{image.imageUrl | deunicode}}" alt="" />
-    {% endfor %}
-    <!-- App Card -->
-    {% elif block.appCard %}
-    <aside class="appcard">{{block.appCard.appUuid}}</aside>
-    {% endif %} {% endfor %}
+        <!-- Featured Paragraph -->
+        {% elif block.text.featureParagraphHtml %}
+        <aside class="featured type--h3">{{block.text.featureParagraphHtml | deunicode | safe}}</aside>
+
+        {% elif block.text.messageHtml %}
+        <aside class="message">{{block.text.messageHtml | deunicode | safe}}</aside>
+
+        <!-- H3s become H2s -->
+        {% elif block.text.headingH3 %}
+        <h3>{{block.text.headingH3}}</h3>
+        <!-- H2s should also be H2s -->
+        {% elif block.text.headingH2 %}
+        <h2>{{block.text.headingH3}}</h2>
+        {% endif %}
+        <!-- Horizontal Rule -->
+        {% elif block.horizontalRule %}
+        <hr />
+        <!-- Images -->
+        {% elif block.media %} {% for image in block.media.media %}
+        <img src="{{image.imageUrl | deunicode}}" alt="" />
+        {% endfor %}
+        <!-- App Card -->
+        {% elif block.appCard %}
+        <aside class="appcard">{{block.appCard.appUuid}}</aside>
+        {% endif %} {% endfor %}
+      </div>
+    </div>
   </div>
 </article>
