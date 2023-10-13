@@ -19,7 +19,7 @@
 // Discover Home
 ._discover-home {
   margin-bottom: 3rem;
-  padding: 1rem 1.5rem;
+  // padding: 1rem 1.5rem;
 
   &--grid {
     display: grid;
@@ -31,6 +31,7 @@
   &--section {
     margin-inline: auto;
     max-width: 1025px;
+    padding-inline: 1rem;
 
     &:not(:first-of-type) {
       margin-top: 3rem;
@@ -38,6 +39,69 @@
 
     &-title {
       margin-bottom: 1.5rem;
+    }
+  }
+}
+
+._dheader {
+  $mq: 620px;
+  background-color: var(--blue-600);
+  color: var(--white);
+  margin-bottom: 1.5rem;
+
+  // height: 30vh;
+  overflow: hidden;
+  position: relative;
+
+  &--inner {
+    display: grid;
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1025px;
+    min-height: 30vh;
+    padding: 1.5rem;
+    position: relative;
+  }
+
+  &--text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    position: relative;
+    width: 60%;
+    z-index: 1;
+  }
+
+  h1 {
+    color: var(--white);
+  }
+
+  &--img {
+    object-fit: cover;
+    right: 0;
+    // position: absolute;
+    top: 0;
+    z-index: 0;
+
+    @media (min-width: #{$mq}) {
+      position: absolute;
+    }
+  }
+
+  &--shapes {
+    @media (min-width: #{$mq}) {
+      height: 150%;
+      right: -5%;
+      width: 50%;
+    }
+  }
+
+  &--bkg {
+    @media (min-width: #{$mq}) {
+      height: 125%;
+      right: -10%;
+      width: 60%;
     }
   }
 }
