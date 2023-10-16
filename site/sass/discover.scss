@@ -279,3 +279,42 @@
   color: var(--grey-800);
   padding-block-end: 1em;
 }
+
+// App Cards
+.appcard {
+  align-items: center;
+  border: 2px solid var(--blue-600);
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+
+  &--icon {
+    border-radius: 0.5rem;
+    height: 3rem;
+    width: 3rem;
+  }
+
+  &--body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0 !important; /* stylelint-disable-line declaration-no-important */
+  }
+
+  &--desc {
+    color: var(--grey-800);
+    font-size: 0.85rem;
+    margin-top: 0 !important; /* stylelint-disable-line declaration-no-important */
+  }
+
+  &--dl {
+    background-color: var(--blue-200);
+    border-radius: 1rem;
+    color: var(--black);
+    margin-left: auto;
+    margin-top: 0 !important; /* stylelint-disable-line declaration-no-important */
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+  }
+}

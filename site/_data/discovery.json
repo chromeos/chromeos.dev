@@ -11,7 +11,7 @@
       },
       {
         "text": {
-          "headingH3": "Create anything you can imagine with Adobe Photoshop"
+          "headingH2": "Create anything you can imagine with Adobe Photoshop"
         }
       },
       {
@@ -38,7 +38,7 @@
       },
       {
         "text": {
-          "headingH3": "Polish your photos with Adobe Lightroom"
+          "headingH2": "Polish your photos with Adobe Lightroom"
         }
       },
       {
@@ -65,7 +65,7 @@
       },
       {
         "text": {
-          "headingH3": "Make stand out content with Adobe Express"
+          "headingH2": "Make stand out content with Adobe Express"
         }
       },
       {
@@ -76,7 +76,9 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "939faefa-15a5-496f-bd12-d2816dccc117"
+          "appUuid": "939faefa-15a5-496f-bd12-d2816dccc117",
+          "name": "Adobe Express",
+          "url": "https://new.express.adobe.com"
         }
       },
       {
@@ -106,7 +108,7 @@
       },
       {
         "text": {
-          "headingH3": "Immerse yourself in mobile games"
+          "headingH2": "Immerse yourself in mobile games"
         }
       },
       {
@@ -117,25 +119,37 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "45ec7d68-a08c-4c06-bec1-6a4037236d6d"
+          "appUuid": "45ec7d68-a08c-4c06-bec1-6a4037236d6d",
+          "name": "Roblox",
+          "package": "com.roblox.client",
+          "icon": "https://play-lh.googleusercontent.com/WNWZaxi9RdJKe2GQM3vqXIAkk69mnIl4Cc8EyZcir2SKlVOxeUv9tZGfNTmNaLC717Ht=w240-h480-rw"
         }
       },
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "a929ac4e-c480-49b3-9c7a-57f31b14a25d"
+          "appUuid": "a929ac4e-c480-49b3-9c7a-57f31b14a25d",
+          "name": "Candy Crush Saga",
+          "package": "com.king.candycrushsaga",
+          "icon": "https://play-lh.googleusercontent.com/TLUeelx8wcpEzf3hoqeLxPs3ai1tdGtAZTIFkNqy3gbDp1NPpNFTOzSFJDvZ9narFS0=w240-h480-rw"
         }
       },
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "28c81953-fff1-4bcc-a886-9a30a83fa2dd"
+          "appUuid": "28c81953-fff1-4bcc-a886-9a30a83fa2dd",
+          "name": "Stardew Valley",
+          "package": "com.chucklefish.stardewvalley",
+          "icon": "https://play-lh.googleusercontent.com/He92papZcOmkgTi1sLHXQQb02aoyRtJ8ml96njM_cSAcpHhILvxMjhLix4mYEIKXPq4=w240-h480-rw"
         }
       },
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "097b7a68-7329-473e-b827-acf7b0f30fc6"
+          "appUuid": "097b7a68-7329-473e-b827-acf7b0f30fc6",
+          "name": "Geometry Dash",
+          "package": "com.robtopx.geometryjump",
+          "icon": "https://play-lh.googleusercontent.com/ixHXzBWPmmKWIBxDMfjbIXK10UQCTDvIYOcs_uLXHCRbdsz2siJFYfb7MqckU8eC3Ks=w240-h480-rw"
         }
       },
       {
@@ -143,7 +157,7 @@
       },
       {
         "text": {
-          "headingH3": "Popular PC and console games – at your fingertips"
+          "headingH2": "Popular PC and console games – at your fingertips"
         }
       },
       {
@@ -180,12 +194,15 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "e7843cc4-81ff-4a9e-871a-122ca0d2d1c9"
+          "appUuid": "e7843cc4-81ff-4a9e-871a-122ca0d2d1c9",
+          "name": "Minecraft",
+          "package": "com.mojang.minecraftpe",
+          "icon": "https://play-lh.googleusercontent.com/VSwHQjcAttxsLE47RuS4PqpC4LT7lCoSjE7Hx5AW_yCxtDvcnsHHvm5CTuL5BPN-uRTP=w240-h480-rw"
         }
       },
       {
         "text": {
-          "headingH3": "Build without limits in Creative Mode"
+          "headingH2": "Build without limits in Creative Mode"
         }
       },
       {
@@ -204,7 +221,7 @@
       },
       {
         "text": {
-          "headingH3": "Battle zombie-like mobs in Survival Mode"
+          "headingH2": "Battle zombie-like mobs in Survival Mode"
         }
       },
       {
@@ -223,7 +240,7 @@
       },
       {
         "text": {
-          "headingH3": "Cross-play with friends"
+          "headingH2": "Cross-play with friends"
         }
       },
       {
@@ -234,7 +251,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "e7843cc4-81ff-4a9e-871a-122ca0d2d1c9"
+          "appUuid": "e7843cc4-81ff-4a9e-871a-122ca0d2d1c9",
+          "name": "Minecraft",
+          "package": "com.mojang.minecraftpe",
+          "icon": "https://play-lh.googleusercontent.com/VSwHQjcAttxsLE47RuS4PqpC4LT7lCoSjE7Hx5AW_yCxtDvcnsHHvm5CTuL5BPN-uRTP=w240-h480-rw"
         }
       },
       {
@@ -273,7 +293,7 @@
       },
       {
         "text": {
-          "headingH3": "Produce like a pro with Cubasis 3"
+          "headingH2": "Produce like a pro with Cubasis 3"
         }
       },
       {
@@ -284,7 +304,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "c9166d9c-1a68-4d46-8c41-8efc7bc9f544"
+          "appUuid": "c9166d9c-1a68-4d46-8c41-8efc7bc9f544",
+          "name": "Cubasis 3",
+          "package": "com.steinberg.cubasis3",
+          "icon": "https://play-lh.googleusercontent.com/W3hNL7ZejlrqrR1AVpi9rZEtl-sfVYSibW19Oji3wLCadFVaaTOC9bRrUneVa1k0mVYK=s48-rw"
         }
       },
       {
@@ -301,7 +324,7 @@
       },
       {
         "text": {
-          "headingH3": "Jam in your portable studio with Amped Studio"
+          "headingH2": "Jam in your portable studio with Amped Studio"
         }
       },
       {
@@ -312,7 +335,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "e05941fe-3fbe-4acb-b085-1e713ee17d7b"
+          "appUuid": "e05941fe-3fbe-4acb-b085-1e713ee17d7b",
+          "name": "Amped Studio",
+          "package": "com.ampedstudio.app.twa",
+          "icon": "https://play-lh.googleusercontent.com/DOMbMardNsUrxSAAWBK5Qfi7PhpsW54EAeFcD0ocWZCJO1pXrNSHkRMN5yZjJBIJYw=s48-rw"
         }
       },
       {
@@ -329,7 +355,7 @@
       },
       {
         "text": {
-          "headingH3": "Get social with your music using BandLab"
+          "headingH2": "Get social with your music using BandLab"
         }
       },
       {
@@ -340,7 +366,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "69bae541-1a5f-489a-a9da-3acd390027ca"
+          "appUuid": "69bae541-1a5f-489a-a9da-3acd390027ca",
+          "name": "Bandlab",
+          "package": "com.bandlab.bandlab",
+          "icon": "https://play-lh.googleusercontent.com/wfWpJxIMDymGBN2IxIrHjFqS1HD-JZbaLYO5d1Vly2yCtKLUiiDz38LxB3dMh8L1WTA=s48-rw"
         }
       },
       {
@@ -357,7 +386,7 @@
       },
       {
         "text": {
-          "headingH3": "Create instrumental beats for any game with Remixlive"
+          "headingH2": "Create instrumental beats for any game with Remixlive"
         }
       },
       {
@@ -368,7 +397,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "be20ee25-454b-40f0-87aa-ada9bc918345"
+          "appUuid": "be20ee25-454b-40f0-87aa-ada9bc918345",
+          "name": "Remixlive",
+          "package": "com.mixvibes.remixlive",
+          "icon": "https://play-lh.googleusercontent.com/2AqtmzQk5QJyeEkWCVYyhcYPl5V94Wq0GjiA8N0H88a6lhUvdXQ1BeL3jxmDn8ShC6g=s48-rw"
         }
       },
       {
@@ -385,7 +417,7 @@
       },
       {
         "text": {
-          "headingH3": "Learn piano essentials with Simply Piano"
+          "headingH2": "Learn piano essentials with Simply Piano"
         }
       },
       {
@@ -396,7 +428,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "48e7a856-8843-41e1-98cd-44bd5c7053f5"
+          "appUuid": "48e7a856-8843-41e1-98cd-44bd5c7053f5",
+          "name": "Simply Piano",
+          "package": "com.joytunes.simplypiano",
+          "icon": "https://play-lh.googleusercontent.com/iYf9v6TDHmklK-AUu9PV8Li9ZUGoybW91J-eYUOVaMhXQO3w1Qh_TD3noFmPOH9185c=w240-h480-rw"
         }
       },
       {
@@ -432,7 +467,7 @@
       },
       {
         "text": {
-          "headingH3": "Relive your favorite memories with Google Photos"
+          "headingH2": "Relive your favorite memories with Google Photos"
         }
       },
       {
@@ -443,7 +478,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "5780e012-cb4b-4ac9-b153-8b10a19bf8a9"
+          "appUuid": "5780e012-cb4b-4ac9-b153-8b10a19bf8a9",
+          "name": "Google Photos",
+          "package": "com.google.android.apps.photos",
+          "icon": "https://play-lh.googleusercontent.com/ZyWNGIfzUyoajtFcD7NhMksHEZh37f-MkHVGr5Yfefa-IX7yj9SMfI82Z7a2wpdKCA=w240-h480-rw"
         }
       },
       {
@@ -460,7 +498,7 @@
       },
       {
         "text": {
-          "headingH3": "Faster and easier editing with Pixlr E"
+          "headingH2": "Faster and easier editing with Pixlr E"
         }
       },
       {
@@ -471,7 +509,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "c1f388da-99c9-44e8-bccf-e85079129b80"
+          "appUuid": "c1f388da-99c9-44e8-bccf-e85079129b80",
+          "name": "Pixlr - Photo Editor",
+          "package": "com.pixlr.express",
+          "icon": "https://play-lh.googleusercontent.com/a-Cm56JAmr8UC0MSub0e1GbA82AsAXuUqO_7z5V2mQg_DsQc3RKnUUyyAepLbfjmSw=s48-rw"
         }
       },
       {
@@ -488,7 +529,7 @@
       },
       {
         "text": {
-          "headingH3": "Your all-in-one creative solution with BeFunky"
+          "headingH2": "Your all-in-one creative solution with BeFunky"
         }
       },
       {
@@ -499,7 +540,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "246a0930-655b-4857-97eb-8d7921272ff4"
+          "appUuid": "246a0930-655b-4857-97eb-8d7921272ff4",
+          "name": "BeFunky",
+          "package": "air.com.befunky.BeFunkyPhotoEditor",
+          "icon": "https://play-lh.googleusercontent.com/Mu3hWU9vB0tYOd4fcx4GrmwK86vPzIfRPTcZdUniQbbFUp_KnPBm0SSgXWn9r67Zpb4x=s48-rw"
         }
       },
       {
@@ -529,12 +573,21 @@
       },
       {
         "text": {
-          "headingH3": "Find Google Meet already on your Chromebook"
+          "headingH2": "Find Google Meet already on your Chromebook"
         }
       },
       {
         "text": {
           "bodyHtml": "\u003cp\u003eConnect with colleagues and loved ones the minute you turn on your Chromebook \u0026ndash; no downloads required. In the corner of your screen, select the Launcher, and click the icon for \u003ca href\u003d\"https://meet.google.com/\" target\u003d\"_blank\" rel\u003d\"noopener\"\u003eGoogle Meet\u003c/a\u003e. You can also start meetings right from Gmail or Google Calendar. Enjoy interactive features like hand-raising, polls, and digital whiteboards for brainstorms or games.\u003c/p\u003e"
+        }
+      },
+      {
+        "appCard": {
+          "type": "APPCARD_SMALL",
+          "appUuid": "b538778a-5710-47be-b44d-45326832181c",
+          "name": "Zoom",
+          "url": "https://meet.google.com/download/webapp?usp=chrome_default",
+          "icon": "https://play-lh.googleusercontent.com/6wvcwcC_v4bBwA7K1eDoKw_PDtvdpHwhKAisZftnoY_Jn94Rjh7u7YSV0IEn9uZM2A=w240-h480-rw"
         }
       },
       {
@@ -551,7 +604,7 @@
       },
       {
         "text": {
-          "headingH3": "Get Zoom on your Chromebook"
+          "headingH2": "Get Zoom on your Chromebook"
         }
       },
       {
@@ -562,9 +615,13 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "578a4b96-22fa-4a55-8cae-fbb5f9a4d91e"
+          "appUuid": "578a4b96-22fa-4a55-8cae-fbb5f9a4d91e",
+          "name": "Zoom",
+          "package": "us.zoom.pwa.twa",
+          "icon": "https://play-lh.googleusercontent.com/yZsmiNjmji3ZoOuLthoVvptLB9cZ0vCmitcky4OUXNcEFV3IEQkrBD2uu5kuWRF5_ERA=s48-rw"
         }
       },
+
       {
         "media": {
           "media": [
@@ -592,7 +649,7 @@
       },
       {
         "text": {
-          "headingH3": "Explore the ultimate virtual universe with Roblox"
+          "headingH2": "Explore the ultimate virtual universe with Roblox"
         }
       },
       {
@@ -603,7 +660,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "45ec7d68-a08c-4c06-bec1-6a4037236d6d"
+          "appUuid": "45ec7d68-a08c-4c06-bec1-6a4037236d6d",
+          "name": "Roblox",
+          "package": "com.roblox.client",
+          "icon": "https://play-lh.googleusercontent.com/WNWZaxi9RdJKe2GQM3vqXIAkk69mnIl4Cc8EyZcir2SKlVOxeUv9tZGfNTmNaLC717Ht=w240-h480-rw"
         }
       },
       {
@@ -620,7 +680,7 @@
       },
       {
         "text": {
-          "headingH3": "A sugar rush in puzzle form with Candy Crush Saga"
+          "headingH2": "A sugar rush in puzzle form with Candy Crush Saga"
         }
       },
       {
@@ -631,7 +691,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "a929ac4e-c480-49b3-9c7a-57f31b14a25d"
+          "appUuid": "a929ac4e-c480-49b3-9c7a-57f31b14a25d",
+          "name": "Candy Crush Saga",
+          "package": "com.king.candycrushsaga",
+          "icon": "https://play-lh.googleusercontent.com/TLUeelx8wcpEzf3hoqeLxPs3ai1tdGtAZTIFkNqy3gbDp1NPpNFTOzSFJDvZ9narFS0=w240-h480-rw"
         }
       },
       {
@@ -648,7 +711,7 @@
       },
       {
         "text": {
-          "headingH3": "Speed through a musical 2D runner with Geometry Dash"
+          "headingH2": "Speed through a musical 2D runner with Geometry Dash"
         }
       },
       {
@@ -664,7 +727,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "097b7a68-7329-473e-b827-acf7b0f30fc6"
+          "appUuid": "097b7a68-7329-473e-b827-acf7b0f30fc6",
+          "name": "Geometry Dash",
+          "package": "com.robtopx.geometryjump",
+          "icon": "https://play-lh.googleusercontent.com/ixHXzBWPmmKWIBxDMfjbIXK10UQCTDvIYOcs_uLXHCRbdsz2siJFYfb7MqckU8eC3Ks=w240-h480-rw"
         }
       },
       {
@@ -672,7 +738,7 @@
       },
       {
         "text": {
-          "headingH3": "Plant roots in a peaceful farm sim with Stardew Valley"
+          "headingH2": "Plant roots in a peaceful farm sim with Stardew Valley"
         }
       },
       {
@@ -683,7 +749,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "28c81953-fff1-4bcc-a886-9a30a83fa2dd"
+          "appUuid": "28c81953-fff1-4bcc-a886-9a30a83fa2dd",
+          "name": "Stardew Valley",
+          "package": "com.chucklefish.stardewvalley",
+          "icon": "https://play-lh.googleusercontent.com/He92papZcOmkgTi1sLHXQQb02aoyRtJ8ml96njM_cSAcpHhILvxMjhLix4mYEIKXPq4=w240-h480-rw"
         }
       },
       {
@@ -691,7 +760,7 @@
       },
       {
         "text": {
-          "headingH3": "Slay monsters with Dead Cells"
+          "headingH2": "Slay monsters with Dead Cells"
         }
       },
       {
@@ -702,7 +771,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "7b468576-8cb0-4fc0-91ce-c2a1ab447451"
+          "appUuid": "7b468576-8cb0-4fc0-91ce-c2a1ab447451",
+          "name": "Dead Cells",
+          "package": "com.playdigious.deadcells.mobile",
+          "icon": "https://play-lh.googleusercontent.com/Mn9NateYFRZQbWnlZvszDPoKZbeuZM2O-Kyn7EKRCZI3D8joecHqytfOx73IyuAwHw=w240-h480-rw"
         }
       },
       {
@@ -719,7 +791,7 @@
       },
       {
         "text": {
-          "headingH3": "Survive the wilderness with Don’t Starve: Pocket Edition"
+          "headingH2": "Survive the wilderness with Don’t Starve: Pocket Edition"
         }
       },
       {
@@ -730,7 +802,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "335ff645-c5d0-4c80-b7cc-ae40486ba6d3"
+          "appUuid": "335ff645-c5d0-4c80-b7cc-ae40486ba6d3",
+          "name": "Don't Starve Pocket Edition",
+          "package": "com.kleientertainment.doNotStarvePocket",
+          "icon": "https://play-lh.googleusercontent.com/oQW8dZKIIqSYxpPb4kWYbtnBS_aVCxHjT5Ied00IOeAysQPee-EmrT0hoEgxSdSxDA=w240-h480-rw"
         }
       },
       {
@@ -738,7 +813,7 @@
       },
       {
         "text": {
-          "headingH3": "Fight your way through demons with DOOM"
+          "headingH2": "Fight your way through demons with DOOM"
         }
       },
       {
@@ -749,7 +824,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "6181994e-44d3-4551-9784-9034d7a5c2a8"
+          "appUuid": "6181994e-44d3-4551-9784-9034d7a5c2a8",
+          "name": "DOOM",
+          "package": "com.bethsoft.DOOM",
+          "icon": "https://play-lh.googleusercontent.com/YgGvZhPQJB5A7ORRKmZtm7X-uzgyb9K0AUPzibzR77ajDN4hKy7L8EyYn6l0KYiryA=w240-h480-rw"
         }
       }
     ],
@@ -780,7 +858,7 @@
       },
       {
         "text": {
-          "headingH3": "Quick drawing and painting with Artflow"
+          "headingH2": "Quick drawing and painting with Artflow"
         }
       },
       {
@@ -791,7 +869,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "5986f620-89c3-483a-b46d-967b5123d3db"
+          "appUuid": "5986f620-89c3-483a-b46d-967b5123d3db",
+          "name": "ArtFlow",
+          "package": "com.bytestorm.artflow",
+          "icon": "https://play-lh.googleusercontent.com/WyYlaMAxFNM39qOTX-rz0W2PzixHDzbZqQ2I_YXSF2U3mUOOVyZMjSyon4pHNVdlGIQ=s48-rw"
         }
       },
       {
@@ -808,7 +889,7 @@
       },
       {
         "text": {
-          "headingH3": "Sketch with realistic brushes using Tayasui Sketches"
+          "headingH2": "Sketch with realistic brushes using Tayasui Sketches"
         }
       },
       {
@@ -824,7 +905,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "b28e315e-d041-4c6e-b048-3f7b70b3c92a"
+          "appUuid": "b28e315e-d041-4c6e-b048-3f7b70b3c92a",
+          "name": "Tayasui Sketches",
+          "package": "com.tayasui.sketches",
+          "icon": "https://play-lh.googleusercontent.com/ivBDSUQY4PwWXbX_mqQyhbRUDX0byHvn0R3hM558zl8y8MNmk6OUcYUeKdo-MLKnEg=s48-rw"
         }
       },
       {
@@ -841,7 +925,7 @@
       },
       {
         "text": {
-          "headingH3": "Brainstorm and refine your ideas using Concepts"
+          "headingH2": "Brainstorm and refine your ideas using Concepts"
         }
       },
       {
@@ -852,7 +936,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "c75ca39a-5f7d-4847-bdb2-51c4455dc831"
+          "appUuid": "c75ca39a-5f7d-4847-bdb2-51c4455dc831",
+          "name": "Concepts",
+          "package": "com.tophatch.concepts",
+          "icon": "https://play-lh.googleusercontent.com/8V1fwYBnseZxjoyPtG1Xk8pUH_L6e6IWQqBuvW9DIoG72rackUixnuSNdXRYbC2zSg=s48-rw"
         }
       },
       {
@@ -869,7 +956,7 @@
       },
       {
         "text": {
-          "headingH3": "Get more out of graphic design with Canva"
+          "headingH2": "Get more out of graphic design with Canva"
         }
       },
       {
@@ -880,7 +967,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "154b9abb-5899-41b5-a339-387daeb00aa7"
+          "appUuid": "154b9abb-5899-41b5-a339-387daeb00aa7",
+          "name": "Canva",
+          "package": "com.canva.editor",
+          "icon": "https://play-lh.googleusercontent.com/3aWGqSf3T_p3F6wc8FFvcZcnjWlxpZdNaqFVEvPwQ1gTOPkVoZwq6cYvfK9eCkwCXbRY=s48-rw"
         }
       },
       {
@@ -918,7 +1008,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "d24a82be-bef7-41b7-a366-d8f6d31da54b"
+          "appUuid": "d24a82be-bef7-41b7-a366-d8f6d31da54b",
+          "name": "Clip Studio Paint Pro",
+          "package": "jp.co.celsys.clipstudiopaint.googleplay",
+          "icon": "https://play-lh.googleusercontent.com/ee8GjOdx7E-lS3BBKz13LNFjTiq_SS0Ag-NpyHUJLS3iWKbGRDXhtXZz6E1TNTWX7JM=w240-h480-rw"
         }
       },
       {
@@ -935,7 +1028,7 @@
       },
       {
         "text": {
-          "headingH3": "Enhance your creations with Krita"
+          "headingH2": "Enhance your creations with Krita"
         }
       },
       {
@@ -946,7 +1039,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "482d0bfc-93bb-4be1-b25e-53fdf06e79f5"
+          "appUuid": "482d0bfc-93bb-4be1-b25e-53fdf06e79f5",
+          "name": "Krita",
+          "package": "org.krita",
+          "icon": "https://play-lh.googleusercontent.com/E3uJLPPh5EGYJ5A15eYTdSFCxv-ZHrt4X0bU7T2-N4SRRzDY1iDg_mLPk_RN_hOvyQ=w240-h480-rw"
         }
       },
       {
@@ -972,7 +1068,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "8693f1fe-75e1-49c9-8db0-0dcd341dd9c9"
+          "appUuid": "8693f1fe-75e1-49c9-8db0-0dcd341dd9c9",
+          "name": "Lumafusion",
+          "package": "com.luma_touch.lumafusion",
+          "icon": "https://play-lh.googleusercontent.com/sD228qO7LV_qjEqbp9bjtIkxPQkKtD2KFBFeHWhqOov5aU9-A9ERQENN45J6IgeePPQ9=s48-rw"
         }
       },
       {
@@ -982,7 +1081,7 @@
       },
       {
         "text": {
-          "headingH3": "Layer video and audio"
+          "headingH2": "Layer video and audio"
         }
       },
       {
@@ -1001,7 +1100,7 @@
       },
       {
         "text": {
-          "headingH3": "Bring your story to life"
+          "headingH2": "Bring your story to life"
         }
       },
       {
@@ -1020,7 +1119,7 @@
       },
       {
         "text": {
-          "headingH3": "Polish your audio"
+          "headingH2": "Polish your audio"
         }
       },
       {
@@ -1039,7 +1138,7 @@
       },
       {
         "text": {
-          "headingH3": "Workflow features make editing life easier"
+          "headingH2": "Workflow features make editing life easier"
         }
       },
       {
@@ -1059,7 +1158,10 @@
       {
         "appCard": {
           "type": "APPCARD_SMALL",
-          "appUuid": "8693f1fe-75e1-49c9-8db0-0dcd341dd9c9"
+          "appUuid": "8693f1fe-75e1-49c9-8db0-0dcd341dd9c9",
+          "name": "Lumafusion",
+          "package": "com.luma_touch.lumafusion",
+          "icon": "https://play-lh.googleusercontent.com/sD228qO7LV_qjEqbp9bjtIkxPQkKtD2KFBFeHWhqOov5aU9-A9ERQENN45J6IgeePPQ9=s48-rw"
         }
       }
     ],

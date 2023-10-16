@@ -46,7 +46,7 @@ permalink: '/discover/{{article.title | slugify}}/'
         <h3>{{block.text.headingH3}}</h3>
         <!-- H2s should also be H2s -->
         {% elif block.text.headingH2 %}
-        <h2>{{block.text.headingH3}}</h2>
+        <h2>{{block.text.headingH2}}</h2>
         {% endif %}
         <!-- Horizontal Rule -->
         {% elif block.horizontalRule %}
@@ -57,7 +57,23 @@ permalink: '/discover/{{article.title | slugify}}/'
         {% endfor %}
         <!-- App Card -->
         {% elif block.appCard %}
-        <aside class="appcard">{{block.appCard.appUuid}}</aside>
+        <aside class="appcard">
+          {% if block.appCard.icon %}
+          <img src="ix://discover/icons/{{block.appCard.appUuid}}.png" class="appcard--icon" aria-hidden="true" />
+          {% endif %} {% if block.appCard.package %}
+          <div class="appcard--body">
+            <h4 class="appcard--title">{{block.appCard.name}}</h4>
+            <p class="appcard--desc">Install from Play Store</p>
+          </div>
+          <a class="appcard--dl" href="https://play.google.com/store/apps/details?id={{block.appCard.package}}">Install</a>
+          {% elif block.appCard.url %}
+          <div class="appcard--body">
+            <h4 class="appcard--title">{{block.appCard.name}}</h4>
+            <p class="appcard--desc">Install from your borwser</p>
+          </div>
+          <a class="appcard--dl" href="{{block.appCard.url}}">Install</a>
+          {% endif %}
+        </aside>
         {% endif %} {% endfor %}
       </div>
     </div>
