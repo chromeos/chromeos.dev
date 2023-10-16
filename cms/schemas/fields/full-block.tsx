@@ -14,6 +14,13 @@
  * limitations under the License.
  */
 import { defineType, defineArrayMember, defineField } from 'sanity';
+import { FaStarOfLife, FaYoutube, FaTable } from 'react-icons/fa';
+import { TfiShortcode } from 'react-icons/tfi';
+import { CgKeyboard } from 'react-icons/cg';
+import { AiOutlineFileSearch } from 'react-icons/ai';
+import { BiStats, BiSolidQuoteAltLeft, BiInfoCircle } from 'react-icons/bi';
+import { MdHorizontalRule } from 'react-icons/md';
+import { ImFilePicture } from 'react-icons/im';
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -55,7 +62,7 @@ export default defineType({
         decorators: [
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' },
-          { title: 'Keyboard', value: 'kbd' },
+          { title: 'Keyboard', value: 'kbd', icon: CgKeyboard },
           { title: 'Code', value: 'code' },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
@@ -75,6 +82,7 @@ export default defineType({
           {
             title: 'Abbreviation',
             name: 'abbreviation',
+            icon: TfiShortcode,
             type: 'object',
             fields: [
               defineField({
@@ -86,6 +94,7 @@ export default defineType({
           {
             title: 'Footnote',
             name: 'footnote',
+            icon: FaStarOfLife,
             type: 'object',
             fields: [
               defineField({
@@ -102,6 +111,7 @@ export default defineType({
         {
           type: 'message',
           name: 'Message',
+          icon: BiInfoCircle,
           options: {
             modal: {
               type: 'dialog',
@@ -111,10 +121,12 @@ export default defineType({
         {
           type: 'picture',
           title: 'Image',
+          icon: ImFilePicture,
         },
         {
           type: 'figure',
           title: 'Figure',
+          // https://thenounproject.com/icon/status-3265869/
         },
         {
           type: 'code',
@@ -152,26 +164,32 @@ export default defineType({
       name: 'youtube',
       title: 'YouTube',
       type: 'youtube',
+      icon: FaYoutube,
     }),
     defineArrayMember({
       type: 'deflist',
       title: 'Definitions',
+      icon: AiOutlineFileSearch,
     }),
     defineArrayMember({
       type: 'statlist',
       title: 'Stats',
+      icon: BiStats,
     }),
     defineArrayMember({
       type: 'quote',
       title: 'Quote',
+      icon: BiSolidQuoteAltLeft,
     }),
     defineArrayMember({
       type: 'break',
       title: 'Break',
+      icon: MdHorizontalRule,
     }),
     defineArrayMember({
       type: 'table',
       title: 'Table',
+      icon: FaTable,
     }),
   ],
 });
