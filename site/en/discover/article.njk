@@ -8,74 +8,105 @@ permalink: '/discover/{{article.title | slugify}}/'
 ---
 
 <article class="_discover-article">
-  <img class="_discover-article--image" src="{{article.bannerImageUrl | deunicode}}" alt="" />
-  <div class="_discover-article--contained">
-    <div class="_discover-article--container">
-      <header>
-        {% if article.iconUrl %}
-        <img src="{{article.iconUrl | deunicode}}" alt="" />
-        {% endif %}
-        <h1 class="type--h1 medium">{{article.title}}</h1>
-        {% if article.subtitle %}
-        <p class="_discover-article--subtitle medium">{{article.subtitle}}</p>
-        {% endif %}
-        <p class="_discover-article--published">Updated on <time datetime="{{article.updatedDate}}">{{article.updatedDate | date('en', {"month": "long", "day": "numeric", "year": "numeric"})}}</time></p>
-        <ul class="dtags">
-          {% for tag in article.tags %}
-          <li class="medium">{{tag}}</li>
-          {% endfor %}
-        </ul>
-      </header>
-      <aside class="_discover-article--toc">TOC/Apss</aside>
-      <div class="type _discover-article--content">
-        {% for block in article.components %}
-        <!-- Content Loop -->
-        {% if block.text %}
-        <!-- Basic Content -->
-        {% if block.text.bodyHtml %} {{block.text.bodyHtml | deunicode | safe}}
-
-        <!-- Featured Paragraph -->
-        {% elif block.text.featureParagraphHtml %}
-        <aside class="featured type--h3">{{block.text.featureParagraphHtml | deunicode | safe}}</aside>
-
-        {% elif block.text.messageHtml %}
-        <aside class="message">{{block.text.messageHtml | deunicode | safe}}</aside>
-
-        <!-- H3s become H2s -->
-        {% elif block.text.headingH3 %}
-        <h3>{{block.text.headingH3}}</h3>
-        <!-- H2s should also be H2s -->
-        {% elif block.text.headingH2 %}
-        <h2>{{block.text.headingH2}}</h2>
-        {% endif %}
-        <!-- Horizontal Rule -->
-        {% elif block.horizontalRule %}
-        <hr />
-        <!-- Images -->
-        {% elif block.media %} {% for image in block.media.media %}
-        <img src="{{image.imageUrl | deunicode}}" alt="" />
+  <header>
+    <div class="_discover-article--header">
+      {% if article.iconUrl %}
+      <img src="{{article.iconUrl | deunicode}}" alt="" />
+      {% endif %}
+      <h1 class="type--h1 medium _discover-article--title">{{article.title}}</h1>
+      {% if article.subtitle %}
+      <p class="_discover-article--subtitle medium">{{article.subtitle}}</p>
+      {% endif %}
+      <p class="_discover-article--published">Updated on <time datetime="{{article.updatedDate}}">{{article.updatedDate | date('en', {"month": "long", "day": "numeric", "year": "numeric"})}}</time></p>
+      <ul class="dtags">
+        {% for tag in article.tags %}
+        <li class="medium">{{tag}}</li>
         {% endfor %}
-        <!-- App Card -->
-        {% elif block.appCard %}
-        <aside class="appcard">
-          {% if block.appCard.icon %}
-          <img src="ix://discover/icons/{{block.appCard.appUuid}}.png" class="appcard--icon" aria-hidden="true" />
-          {% endif %} {% if block.appCard.package %}
-          <div class="appcard--body">
-            <h4 class="appcard--title">{{block.appCard.name}}</h4>
-            <p class="appcard--desc">Install from Play Store</p>
-          </div>
-          <a class="appcard--dl" href="https://play.google.com/store/apps/details?id={{block.appCard.package}}">Install</a>
-          {% elif block.appCard.url %}
-          <div class="appcard--body">
-            <h4 class="appcard--title">{{block.appCard.name}}</h4>
-            <p class="appcard--desc">Install from your borwser</p>
-          </div>
-          <a class="appcard--dl" href="{{block.appCard.url}}">Install</a>
-          {% endif %}
-        </aside>
+      </ul>
+    </div>
+  </header>
+
+  <div class="_discover-article--image-container">
+    <img class="_discover-article--image" src="{{article.bannerImageUrl | deunicode}}" alt="" />
+  </div>
+
+  <div class="_discover-article--container">
+    <aside class="_discover-article--toc">
+      {% if article.iconUrl %}
+      <h4>On This Page</h4>
+      <ul>
+        {% for block in article.components %} {% if block.text.headingH2 %}
+        <li><a href="#{{block.text.headingH2 | slugify}}">{{block.text.headingH2}}</a></li>
         {% endif %} {% endfor %}
-      </div>
+      </ul>
+      <!-- Do Header -->
+      {% else %}
+      <h4>Featured Apps</h4>
+      <ul class="applist">
+        {% for block in article.components %} {% if block.text.headingH2 %}
+        <li>
+          <a href="#{{block.text.appUuid}}">
+            {% for b2 in article.components %} {% if b2.appCard.appUuid == block.text.appUuid %}{% if b2.appCard.icon %}
+            <img src="ix://discover/icons/{{b2.appCard.appUuid}}.png" class="appcard--icon" aria-hidden="true" />
+            {% endif %} {{b2.appCard.name}} {% endif %} {% endfor %}
+          </a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+
+      <!-- Do Apps -->
+      {% endif %}
+    </aside>
+    <div class="type _discover-article--content">
+      {% for block in article.components %}
+      <!-- Content Loop -->
+      {% if block.text %}
+      <!-- Basic Content -->
+      {% if block.text.bodyHtml %} {{block.text.bodyHtml | deunicode | safe}}
+
+      <!-- Featured Paragraph -->
+      {% elif block.text.featureParagraphHtml %}
+      <aside class="featured type--h3">{{block.text.featureParagraphHtml | deunicode | safe}}</aside>
+
+      {% elif block.text.messageHtml %}
+      <aside class="message">{{block.text.messageHtml | deunicode | safe}}</aside>
+
+      <!-- H3s become H2s -->
+      {% elif block.text.headingH3 %}
+      <h3>{{block.text.headingH3}}</h3>
+      <!-- H2s should also be H2s -->
+      {% elif block.text.headingH2 %} {% if block.text.appUuid %}
+      <h2 id="{{block.text.appUuid}}">{{block.text.headingH2}}</h2>
+      {% else %}
+      <h2 id="{{block.text.headingH2 | slugify}}">{{block.text.headingH2}}</h2>
+      {% endif %} {% endif %}
+      <!-- Horizontal Rule -->
+      {% elif block.horizontalRule %}
+      <hr />
+      <!-- Images -->
+      {% elif block.media %} {% for image in block.media.media %}
+      <img src="{{image.imageUrl | deunicode}}" alt="" />
+      {% endfor %}
+      <!-- App Card -->
+      {% elif block.appCard %}
+      <aside class="appcard">
+        {% if block.appCard.icon %}
+        <img src="ix://discover/icons/{{block.appCard.appUuid}}.png" class="appcard--icon" aria-hidden="true" />
+        {% endif %} {% if block.appCard.package %}
+        <div class="appcard--body">
+          <h4 class="appcard--title">{{block.appCard.name}}</h4>
+          <p class="appcard--desc">Install from Play Store</p>
+        </div>
+        <a class="appcard--dl" href="https://play.google.com/store/apps/details?id={{block.appCard.package}}">Install</a>
+        {% elif block.appCard.url %}
+        <div class="appcard--body">
+          <h4 class="appcard--title">{{block.appCard.name}}</h4>
+          <p class="appcard--desc">Install from your borwser</p>
+        </div>
+        <a class="appcard--dl" href="{{block.appCard.url}}">Install</a>
+        {% endif %}
+      </aside>
+      {% endif %} {% endfor %}
     </div>
   </div>
 </article>

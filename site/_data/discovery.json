@@ -281,19 +281,14 @@
     "tags": ["Music", "Creativity"],
     "components": [
       {
-        "featuredAppsContents": {}
-      },
-      {
-        "horizontalRule": {}
-      },
-      {
         "text": {
           "featureParagraphHtml": "\u003cp\u003eWhether you\u0026rsquo;re a budding pianist, DJ-in-training, or veteran songwriter, learn new skills and expand your repertoire right from your Chromebook. With these music-making apps, you can follow your rhythm using a touch screen and stylus, or add a mouse and keyboard to the mix.\u003c/p\u003e"
         }
       },
       {
         "text": {
-          "headingH2": "Produce like a pro with Cubasis 3"
+          "headingH2": "Produce like a pro with Cubasis 3",
+          "appUuid": "c9166d9c-1a68-4d46-8c41-8efc7bc9f544"
         }
       },
       {
@@ -324,7 +319,8 @@
       },
       {
         "text": {
-          "headingH2": "Jam in your portable studio with Amped Studio"
+          "headingH2": "Jam in your portable studio with Amped Studio",
+          "appUuid": "e05941fe-3fbe-4acb-b085-1e713ee17d7b"
         }
       },
       {
@@ -355,7 +351,8 @@
       },
       {
         "text": {
-          "headingH2": "Get social with your music using BandLab"
+          "headingH2": "Get social with your music using BandLab",
+          "appUuid": "69bae541-1a5f-489a-a9da-3acd390027ca"
         }
       },
       {
@@ -386,7 +383,8 @@
       },
       {
         "text": {
-          "headingH2": "Create instrumental beats for any game with Remixlive"
+          "headingH2": "Create instrumental beats for any game with Remixlive",
+          "appUuid": "be20ee25-454b-40f0-87aa-ada9bc918345"
         }
       },
       {
@@ -417,7 +415,8 @@
       },
       {
         "text": {
-          "headingH2": "Learn piano essentials with Simply Piano"
+          "headingH2": "Learn piano essentials with Simply Piano",
+          "appUuid": "48e7a856-8843-41e1-98cd-44bd5c7053f5"
         }
       },
       {
@@ -454,12 +453,6 @@
     "bannerImageUrl": "https://lh3.googleusercontent.com/hXh8uk19bXC6H30CW4MNGJg-V1Oiq729WCqRHpvkFGKpNggidL3JszZLGcbRHqnvhlfhv_yrykYUJQq_iZniPNA1Xvals6_BabF7MIJaEnVWswem9hkl\u003dw1040",
     "tags": ["Photography"],
     "components": [
-      {
-        "featuredAppsContents": {}
-      },
-      {
-        "horizontalRule": {}
-      },
       {
         "text": {
           "featureParagraphHtml": "\u003cp\u003ePerfect your selfies, create albums, and add unique effects with feature-packed photo editing apps\u003c/p\u003e"
@@ -843,9 +836,6 @@
     "bannerImageUrl": "https://lh3.googleusercontent.com/CAh2PtghJD5i9uELiG1NHAxZ6hx5x8DHA7I_tUcF0GMaVOntlH_x_axCz2GPMDuVAfdYQirEZzrmehyu3QJTfaN_INKvUXXka3sFJiToZEqqPs5q2Lg\u003dw1040",
     "tags": ["Art and design", "Photography"],
     "components": [
-      {
-        "featuredAppsContents": {}
-      },
       {
         "text": {
           "featureParagraphHtml": "\u003cp\u003eThese apps are optimized to deliver a seamless experience on your Chromebook. Enjoy the flexibility of using your preferred external devices such as your stylus, mouse, or keyboard.\u003c/p\u003e"
