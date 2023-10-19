@@ -5,6 +5,8 @@
 @import 'globals/mixins';
 @import 'globals/extends';
 
+$big: calc(51rem + 300px + 10rem);
+
 // Overrides
 ._discover {
   .header {
@@ -30,7 +32,7 @@
 
   &--section {
     margin-inline: auto;
-    max-width: 1025px;
+    max-width: $big;
     padding-inline: 1rem;
 
     &:not(:first-of-type) {
@@ -48,6 +50,7 @@
   background-color: var(--blue-600);
   color: var(--white);
   margin-bottom: 1.5rem;
+  min-height: 25vh;
 
   // height: 30vh;
   overflow: hidden;
@@ -57,7 +60,7 @@
     display: grid;
     height: 100%;
     margin: 0 auto;
-    max-width: 1025px;
+    max-width: $big;
     min-height: 30vh;
     padding: 1.5rem;
     position: relative;
@@ -85,6 +88,7 @@
 
   &--img {
     object-fit: cover;
+    overflow: visible;
     position: absolute;
     right: 0;
     top: 0;
@@ -97,7 +101,6 @@
 
   &--shapes {
     height: 150%;
-    overflow: visible;
     right: -35%;
     top: 20%;
     width: 60%;
@@ -179,8 +182,6 @@
 }
 
 // Article
-$big: calc(51rem + 300px + 10rem);
-
 ._discover-article {
   $image: calc(50vh - 4rem);
   container-type: inline-size;
@@ -188,6 +189,20 @@ $big: calc(51rem + 300px + 10rem);
   &--title,
   &--subtitle {
     color: var(--white);
+  }
+
+  &--icon {
+    display: inline-block;
+    height: 1.3em;
+    transform: translateY(0.3em);
+    width: 1.3em;
+  }
+
+  &--title:has(&--icon) {
+    position: relative;
+    // display: flex;
+    // gap: 0.5rem;
+    // align-items: center;
   }
 
   header {

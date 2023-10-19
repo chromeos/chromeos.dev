@@ -10,10 +10,11 @@ permalink: '/discover/{{article.title | slugify}}/'
 <article class="_discover-article">
   <header>
     <div class="_discover-article--header">
-      {% if article.iconUrl %}
-      <img src="{{article.iconUrl | deunicode}}" alt="" />
-      {% endif %}
-      <h1 class="type--h1 medium _discover-article--title">{{article.title}}</h1>
+      <h1 class="type--h1 medium _discover-article--title">
+        {% if article.iconUrl %}
+        <img class="_discover-article--icon" src="{{article.iconUrl | deunicode}}" alt="" />
+        {% endif %}{{article.title}}
+      </h1>
       {% if article.subtitle %}
       <p class="_discover-article--subtitle medium">{{article.subtitle}}</p>
       {% endif %}
