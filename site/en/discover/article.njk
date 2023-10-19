@@ -7,6 +7,8 @@ pagination:
 permalink: '/discover/{{article.title | slugify}}/'
 ---
 
+<script type="module" src="/js/discover.js"></script>
+
 <article class="_discover-article">
   <header>
     <div class="_discover-article--header">
@@ -46,7 +48,7 @@ permalink: '/discover/{{article.title | slugify}}/'
       <ul class="applist">
         {% for block in article.components %} {% if block.text.headingH2 %}
         <li>
-          <a href="#{{block.text.appUuid}}">
+          <a class="applist--link" href="#{{block.text.appUuid}}">
             {% for b2 in article.components %} {% if b2.appCard.appUuid == block.text.appUuid %}{% if b2.appCard.icon %}
             <img src="ix://discover/icons/{{b2.appCard.appUuid}}.png" class="appcard--icon" aria-hidden="true" />
             {% endif %} {{b2.appCard.name}} {% endif %} {% endfor %}

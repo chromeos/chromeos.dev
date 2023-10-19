@@ -464,12 +464,25 @@ $big: calc(51rem + 300px + 10rem);
     flex-direction: column;
   }
 
-  a {
+  &--link {
     align-items: center;
     color: var(--black);
     display: flex;
     gap: 1rem;
+    position: relative;
     text-decoration: none;
+
+    @container (min-width: #{$big}) {
+      &[data-active='true']::before {
+        background: var(--blue-600);
+        content: '';
+        height: 100%;
+        left: -1rem;
+        position: absolute;
+        top: 0;
+        width: 0.25rem;
+      }
+    }
   }
 
   img {
