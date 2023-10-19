@@ -566,7 +566,8 @@
       },
       {
         "text": {
-          "headingH2": "Find Google Meet already on your Chromebook"
+          "headingH2": "Find Google Meet already on your Chromebook",
+          "appUuid": "b538778a-5710-47be-b44d-45326832181c"
         }
       },
       {
@@ -578,7 +579,7 @@
         "appCard": {
           "type": "APPCARD_SMALL",
           "appUuid": "b538778a-5710-47be-b44d-45326832181c",
-          "name": "Zoom",
+          "name": "Google Meet",
           "url": "https://meet.google.com/download/webapp?usp=chrome_default",
           "icon": "https://play-lh.googleusercontent.com/6wvcwcC_v4bBwA7K1eDoKw_PDtvdpHwhKAisZftnoY_Jn94Rjh7u7YSV0IEn9uZM2A=w240-h480-rw"
         }
@@ -597,7 +598,8 @@
       },
       {
         "text": {
-          "headingH2": "Get Zoom on your Chromebook"
+          "headingH2": "Get Zoom on your Chromebook",
+          "appUuid": "578a4b96-22fa-4a55-8cae-fbb5f9a4d91e"
         }
       },
       {
@@ -642,7 +644,8 @@
       },
       {
         "text": {
-          "headingH2": "Explore the ultimate virtual universe with Roblox"
+          "headingH2": "Explore the ultimate virtual universe with Roblox",
+          "appUuid": "45ec7d68-a08c-4c06-bec1-6a4037236d6d"
         }
       },
       {
@@ -673,7 +676,8 @@
       },
       {
         "text": {
-          "headingH2": "A sugar rush in puzzle form with Candy Crush Saga"
+          "headingH2": "A sugar rush in puzzle form with Candy Crush Saga",
+          "appUuid": "a929ac4e-c480-49b3-9c7a-57f31b14a25d"
         }
       },
       {
@@ -704,7 +708,8 @@
       },
       {
         "text": {
-          "headingH2": "Speed through a musical 2D runner with Geometry Dash"
+          "headingH2": "Speed through a musical 2D runner with Geometry Dash",
+          "appUuid": "097b7a68-7329-473e-b827-acf7b0f30fc6"
         }
       },
       {
@@ -731,7 +736,8 @@
       },
       {
         "text": {
-          "headingH2": "Plant roots in a peaceful farm sim with Stardew Valley"
+          "headingH2": "Plant roots in a peaceful farm sim with Stardew Valley",
+          "appUuid": "28c81953-fff1-4bcc-a886-9a30a83fa2dd"
         }
       },
       {
@@ -753,7 +759,8 @@
       },
       {
         "text": {
-          "headingH2": "Slay monsters with Dead Cells"
+          "headingH2": "Slay monsters with Dead Cells",
+          "appUuid": "7b468576-8cb0-4fc0-91ce-c2a1ab447451"
         }
       },
       {
@@ -784,7 +791,8 @@
       },
       {
         "text": {
-          "headingH2": "Survive the wilderness with Don’t Starve: Pocket Edition"
+          "headingH2": "Survive the wilderness with Don’t Starve: Pocket Edition",
+          "appUuid": "335ff645-c5d0-4c80-b7cc-ae40486ba6d3"
         }
       },
       {
@@ -806,7 +814,8 @@
       },
       {
         "text": {
-          "headingH2": "Fight your way through demons with DOOM"
+          "headingH2": "Fight your way through demons with DOOM",
+          "appUuid": "6181994e-44d3-4551-9784-9034d7a5c2a8"
         }
       },
       {
@@ -848,7 +857,8 @@
       },
       {
         "text": {
-          "headingH2": "Quick drawing and painting with Artflow"
+          "headingH2": "Quick drawing and painting with Artflow",
+          "appUuid": "5986f620-89c3-483a-b46d-967b5123d3db"
         }
       },
       {
@@ -879,7 +889,8 @@
       },
       {
         "text": {
-          "headingH2": "Sketch with realistic brushes using Tayasui Sketches"
+          "headingH2": "Sketch with realistic brushes using Tayasui Sketches",
+          "appUuid": "b28e315e-d041-4c6e-b048-3f7b70b3c92a"
         }
       },
       {
@@ -915,7 +926,8 @@
       },
       {
         "text": {
-          "headingH2": "Brainstorm and refine your ideas using Concepts"
+          "headingH2": "Brainstorm and refine your ideas using Concepts",
+          "appUuid": "c75ca39a-5f7d-4847-bdb2-51c4455dc831"
         }
       },
       {
@@ -946,7 +958,8 @@
       },
       {
         "text": {
-          "headingH2": "Get more out of graphic design with Canva"
+          "headingH2": "Get more out of graphic design with Canva",
+          "appUuid": "154b9abb-5899-41b5-a339-387daeb00aa7"
         }
       },
       {
@@ -987,7 +1000,8 @@
       },
       {
         "text": {
-          "headingH3": "Create comics with Clip Studio Paint"
+          "headingH3": "Create comics with Clip Studio Paint",
+          "appUuid": "d24a82be-bef7-41b7-a366-d8f6d31da54b"
         }
       },
       {
@@ -1018,7 +1032,8 @@
       },
       {
         "text": {
-          "headingH2": "Enhance your creations with Krita"
+          "headingH2": "Enhance your creations with Krita",
+          "appUuid": "482d0bfc-93bb-4be1-b25e-53fdf06e79f5"
         }
       },
       {
