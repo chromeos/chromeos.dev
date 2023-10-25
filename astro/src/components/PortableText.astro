@@ -9,8 +9,13 @@ export interface Props {
 const { body } = Astro.props;
 
 const components = {
+  block: {
+    h2: DynamicBody,
+    h3: DynamicBody,
+  },
   type: {
     Message: DynamicBody,
+    picture: DynamicBody,
   },
 };
 // console.log(inspect(body, false, null, true))

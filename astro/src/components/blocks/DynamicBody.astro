@@ -1,6 +1,8 @@
 ---
 import PortableText from '$components/PortableText.astro';
 import Message from './Message.svelte';
+import Heading from './Heading.svelte';
+import Picture from './Picture.svelte';
 
 const { node: props /* , isInline, class */ } = Astro.props;
 ---
@@ -10,6 +12,11 @@ const { node: props /* , isInline, class */ } = Astro.props;
     <Message type={props.type}>
       <PortableText body={props.text} />
     </Message>
+  ) : props._type === 'picture' ? (
+    <Picture block={props} />
+  ) : props._type === 'block' &&
+    (props.style === 'h2' || props.style === 'h3') ? (
+    <Heading block={props} />
   ) : (
     <PortableText body={props.children} />
   )
