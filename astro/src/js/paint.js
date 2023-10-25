@@ -1,9 +1,24 @@
-import circleWorklet from '$js/worklets/circles.js?url';
-import shapeWorklet from '$js/worklets/shape.js?url';
+window.addEventListener('load', () => {
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(paintSetup);
+  } else {
+    paintSetup();
+  }
+});
 
-if (!CSS?.paintWorklet) {
-  import('css-paint-polyfill');
+/**
+ * Sets up paint worklets
+ */
+async function paintSetup() {
+  const { default: circleWorklet } = await import(
+    '$js/worklets/circles.js?url'
+  );
+  const { default: shapeWorklet } = await import('$js/worklets/shape.js?url');
+
+  if (!CSS?.paintWorklet) {
+    import('css-paint-polyfill');
+  }
+
+  await CSS.paintWorklet.addModule(circleWorklet);
+  await CSS.paintWorklet.addModule(shapeWorklet);
 }
-
-await CSS.paintWorklet.addModule(circleWorklet);
-await CSS.paintWorklet.addModule(shapeWorklet);

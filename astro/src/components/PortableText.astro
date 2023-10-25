@@ -16,6 +16,7 @@ const components = {
   type: {
     Message: DynamicBody,
     picture: DynamicBody,
+    statlist: DynamicBody,
   },
 };
 // console.log(inspect(body, false, null, true))
@@ -24,3 +25,8 @@ const components = {
 <div class="type">
   <PortableText value={body} components={components} />
 </div>
+
+<script>
+  // Include paint worklets
+  await import('$js/paint.js');
+</script>

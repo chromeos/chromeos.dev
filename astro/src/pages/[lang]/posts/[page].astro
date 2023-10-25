@@ -103,6 +103,6 @@ const toc = buildTOC(post.body);
     />
 
     <!-- Table of Contents -->
-    {toc.length > 0 && <TOC toc={toc} client:load />}
+    {toc.length > 0 && <TOC toc={toc} client:idle />}
   </Fragment>
 </Article>
