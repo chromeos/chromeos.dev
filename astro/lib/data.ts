@@ -15,7 +15,12 @@ export function normalizeLang(lang: string) {
  * @return {string}
  */
 export function slugify(str: string) {
-  return slug(str, { lower: true, strict: true });
+  let s = slug(str, { lower: true, strict: true });
+  // If it doesn't start with a valid character, add an underscore
+  if (!s.match(/^([a-z]|_)/)) {
+    s = `_${s}`;
+  }
+  return s;
 }
 
 /**
