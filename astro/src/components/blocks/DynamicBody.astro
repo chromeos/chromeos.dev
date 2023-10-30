@@ -4,6 +4,7 @@ import Message from './Message.svelte';
 import Heading from './Heading.svelte';
 import Picture from './Picture.svelte';
 import Stats from '$components/Stats.svelte';
+import Figure from './Figure.svelte';
 
 const { node: props /* , isInline, class */ } = Astro.props;
 ---
@@ -11,12 +12,16 @@ const { node: props /* , isInline, class */ } = Astro.props;
 {
   props._type === 'Message' ? (
     <Message type={props.type}>
-      <PortableText body={props.text} />
+      <PortableText body={props.text} wrapped={false} />
     </Message>
   ) : props._type === 'picture' ? (
     <Picture block={props} />
   ) : props._type === 'statlist' ? (
     <Stats stats={props.stats} />
+  ) : props._type === 'figure' ? (
+    <Figure block={props}>
+      <PortableText body={props.caption} wrapped={false} />
+    </Figure>
   ) : props._type === 'block' &&
     (props.style === 'h2' || props.style === 'h3') ? (
     <Heading block={props} />

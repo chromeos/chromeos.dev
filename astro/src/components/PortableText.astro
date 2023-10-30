@@ -4,9 +4,10 @@ import DynamicBody from '$components/blocks/DynamicBody.astro';
 
 export interface Props {
   body: any;
+  wrapped?: boolean;
 }
 
-const { body } = Astro.props;
+const { body, wrapped } = Astro.props;
 
 const components = {
   block: {
@@ -17,12 +18,13 @@ const components = {
     Message: DynamicBody,
     picture: DynamicBody,
     statlist: DynamicBody,
+    figure: DynamicBody,
   },
 };
 // console.log(inspect(body, false, null, true))
 ---
 
-<div class="type">
+<div class={wrapped !== false ? 'type' : ''}>
   <PortableText value={body} components={components} />
 </div>
 

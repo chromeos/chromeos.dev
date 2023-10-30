@@ -174,9 +174,9 @@ $section-block-margin: 3.75rem;
   figcaption:not(.code-figure--caption) {
     margin-top: 0.5rem;
 
-    &:not([class]) {
-      @extend %type--caption;
-    }
+    // &:not([class]) {
+    @extend %type--caption;
+    // }
   }
 
   img:not(:first-child):not([class]),

@@ -101,7 +101,7 @@ export default defineType({
       of: [
         {
           type: 'message',
-          name: 'Message',
+          name: 'message',
           options: {
             modal: {
               type: 'dialog',
