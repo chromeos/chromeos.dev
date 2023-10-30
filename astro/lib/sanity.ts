@@ -31,6 +31,7 @@ export const microcopy = groupByLanguage(
         'help': footer.help {
           ${linkQuery}
         },
+        'subscribe': footer.subscribe,
       },
       '_lang': coalesce(__i18n_lang, 'en_US'),
       'locale': {
@@ -56,7 +57,10 @@ export const microcopy = groupByLanguage(
 );
 
 // Translations
-export const languages = Object.keys(microcopy);
+export const cmsLanguages = Object.keys(microcopy);
+export const languages = Object.values(microcopy)
+  .map((m) => m.locale)
+  .sort((a, b) => a.code - b.code);
 
 // Documentation
 export const docs = await groq(

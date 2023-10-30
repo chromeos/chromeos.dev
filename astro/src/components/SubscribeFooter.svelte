@@ -1,9 +1,11 @@
 <script lang="ts">
-  import { getMicrocopy } from '$lib/microcopy';
+  import { getMicrocopyFromLangCode } from '$$microcopy';
 
   export let lang: string;
 
-  const microcopy = getMicrocopy(lang);
+  const microcopy = getMicrocopyFromLangCode(lang);
+  const { subscribe } = microcopy.footer;
+  const action = microcopy.actions.subscribe;
 </script>
 
 <div
@@ -11,16 +13,14 @@
 >
   <aside class="call-out">
     <h2 class="call-out--heading type--h2">
-      {microcopy.newsletter.subscribe.content.title}
+      {subscribe.title}
     </h2>
 
     <p class="call-out--body type">
-      {microcopy.newsletter.subscribe.content.body}
+      {subscribe.description}
     </p>
 
-    <a class="cta cta--high" href="/{lang}/subscribe"
-      >{microcopy.newsletter.subscribe.cta.text}</a
-    >
+    <a class="cta cta--high" href="/{lang}/subscribe">{action}</a>
   </aside>
 </div>
 
