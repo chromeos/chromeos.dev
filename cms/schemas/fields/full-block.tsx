@@ -110,7 +110,7 @@ export default defineType({
       of: [
         {
           type: 'message',
-          name: 'Message',
+          name: 'message',
           icon: BiInfoCircle,
           options: {
             modal: {
