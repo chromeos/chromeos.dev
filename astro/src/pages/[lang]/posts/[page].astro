@@ -11,22 +11,22 @@ import { buildTOC } from '$lib/portabletext';
 
 /**
  * Builds paths for news pagination
+ *
+ * @return {object} paths
  */
-export async function getStaticPaths() {
-  return await Promise.all(
-    posts.map(async (post) => {
-      return {
-        params: {
-          lang: post._langCode,
-          page: post._slug,
-        },
-        props: {
-          post,
-          microcopy: micro[post._lang],
-        },
-      };
-    }),
-  );
+export function getStaticPaths() {
+  return posts.map((post) => {
+    return {
+      params: {
+        lang: post._langCode,
+        page: post._slug,
+      },
+      props: {
+        post,
+        microcopy: micro[post._lang],
+      },
+    };
+  });
 }
 
 const { post, microcopy } = Astro.props;
