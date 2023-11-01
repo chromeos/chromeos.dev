@@ -1,0 +1,37 @@
+---
+import Doc from '$layouts/doc.astro';
+
+import PortableText from '$components/PortableText.astro';
+import { landings, microcopy as micro } from '$lib/sanity';
+
+/**
+ * Static paths
+ *
+ * @return {object} paths
+ */
+export function getStaticPaths() {
+  return landings.map((landing) => {
+    return {
+      params: {
+        lang: landing._langCode,
+        landing: landing._slug,
+      },
+      props: {
+        landing,
+        microcopy: micro[landing._lang],
+      },
+    };
+  });
+}
+
+const { landing, microcopy } = Astro.props;
+---
+
+<Doc
+  title={landing.title}
+  locale={microcopy.locale}
+  metadesc={landing.description}
+  section={landing._section}
+>
+  <PortableText body={landing.body} slot="content" />
+</Doc>
