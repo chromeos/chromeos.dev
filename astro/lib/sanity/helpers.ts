@@ -1,3 +1,6 @@
+import { normalizeLang } from '$$data';
+import path from 'path';
+
 /**
  *
  * @param {*[]} content Array of any content, with a _lang property
@@ -51,4 +54,26 @@ export function cleanup(content: any) {
       }
     }
   }
+}
+
+/**
+ * @param {Object} item Item to normalize
+ */
+export function buildPath(item) {
+  item._section = '';
+
+  if (item._type === 'post') {
+    item._section = 'posts';
+  }
+  if (item._type === 'documentation') {
+    item._section = item.category.slug;
+  }
+
+  // Build path
+  item._path = path.join(
+    '/',
+    normalizeLang(item._lang),
+    item._section,
+    item._slug,
+  );
 }

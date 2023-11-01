@@ -97,6 +97,13 @@ export type CMSLink = {
   url: string | CMSLinkReference;
 };
 
+export interface Landing extends CoreContentMeta {
+  title: string;
+  description: string;
+  category: Tag;
+  body: PortableTextBlock;
+}
+
 export type Microcopy = {
   _lang: string; // Full language code, with country, if applicable
   accessibility: {

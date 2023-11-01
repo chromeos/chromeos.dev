@@ -1,16 +1,21 @@
-import type { Post, Microcopy, Documentation, Story } from '$types/sanity';
+import type {
+  Post,
+  Microcopy,
+  Documentation,
+  Story,
+  Landing,
+} from '$types/sanity';
 import { useSanityClient } from '@sanity/astro';
-import { normalizeLang } from '$$data';
-import { groupByLanguage, cleanup } from '$lib/sanity/helpers';
+import { groupByLanguage, cleanup, buildPath } from '$lib/sanity/helpers';
 import {
   linkQuery,
   coreQuery,
   themeQuery,
   featuredQuery,
+  coreMetaQuery,
 } from '$lib/sanity/queries';
 import { rtl, vertical } from '$lib/i18n';
 import iso6391 from 'iso-639-1';
-import * as path from 'path';
 import { inspect } from 'util';
 
 let includeDrafts = false;
@@ -33,10 +38,10 @@ export const microcopy = groupByLanguage(
         },
         'subscribe': footer.subscribe,
       },
-      '_lang': coalesce(__i18n_lang, 'en_US'),
       'locale': {
         'code': string::split(coalesce(__i18n_lang, 'en_US'), '_')[0],
-      }
+      },
+      ${coreMetaQuery}
     }`,
     )
   ).map((m) => {
@@ -124,6 +129,31 @@ export const posts = await groq(
   },
 );
 
+export const landings = (
+  await sanity.fetch(
+    `*[_type == 'landing' && !(_id in path('drafts.**'))]
+    {
+      ${coreQuery}
+      banner
+    }`,
+  )
+).map((landing) => {
+  delete landing.dates;
+  delete landing.tags;
+  delete landing.banner._type;
+
+  buildPath(landing);
+
+  if (landing?.banner?.wide?.asset?._ref) {
+    landing.banner.wide = `cms://${landing.banner.wide.asset._ref}`;
+  }
+  if (landing?.banner?.narrow?.asset?._ref) {
+    landing.banner.narrow = `cms://${landing.banner.narrow.asset._ref}`;
+  }
+
+  return landing as Landing;
+});
+
 /** ****************
  *
  * Core functions
@@ -171,23 +201,7 @@ async function groq(query: string, cb: GroqCallback) {
         }
 
         // Normalize sections
-        // TODO: Standardize
-        if (item._type === 'post') {
-          item._section = 'posts';
-        }
-        if (item._type === 'documentation') {
-          item._section = item.category.slug;
-        }
-
-        // Build path
-        // TODO: Standardize
-        item._path = path.join(
-          '/',
-          normalizeLang(item._lang),
-          item._section,
-          item._slug,
-        );
-
+        buildPath(item);
         cleanup(item);
 
         item = await cb(item);
