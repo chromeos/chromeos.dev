@@ -1,7 +1,7 @@
 ---
 import Doc from '$layouts/doc.astro';
 
-import PortableText from '$components/PortableText.astro';
+// import PortableText from '$components/PortableText.astro';
 import { landings, microcopy as micro } from '$lib/sanity';
 
 /**
@@ -33,5 +33,5 @@ const { landing, microcopy } = Astro.props;
   metadesc={landing.description}
   section={landing._section}
 >
-  <PortableText body={landing.body} slot="content" />
+  <!-- <PortableText body={landing.body} slot="content" /> -->
 </Doc>

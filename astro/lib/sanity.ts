@@ -129,6 +129,30 @@ export const posts = await groq(
   },
 );
 
+export const documentation = await groq(
+  `*[_type == "documentation"]
+  {
+    ${coreQuery}
+    ${themeQuery}
+    ${featuredQuery}
+    weight,
+    software[] {
+      min,
+      max,
+      name,
+      url
+    }
+  }`,
+  (doc) => {
+    console.log(doc);
+    // if (post._slug === 'io-2022') {
+    //   console.log(post.theme.icon);
+    // }
+
+    return doc as Post;
+  },
+);
+
 export const landings = (
   await sanity.fetch(
     `*[_type == 'landing' && !(_id in path('drafts.**'))]
