@@ -4,6 +4,8 @@ import Doc from '$layouts/doc.astro';
 // import PortableText from '$components/PortableText.astro';
 import { landings, microcopy as micro } from '$lib/sanity';
 
+import { buildSection } from '$lib/documentation';
+
 /**
  * Static paths
  *
@@ -25,6 +27,12 @@ export function getStaticPaths() {
 }
 
 const { landing, microcopy } = Astro.props;
+
+const section = buildSection(landing.category);
+
+console.log(section);
+
+// const sections =
 ---
 
 <Doc

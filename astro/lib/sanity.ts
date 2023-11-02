@@ -134,7 +134,6 @@ export const documentation = await groq(
   {
     ${coreQuery}
     ${themeQuery}
-    ${featuredQuery}
     weight,
     software[] {
       min,
@@ -144,12 +143,7 @@ export const documentation = await groq(
     }
   }`,
   (doc) => {
-    console.log(doc);
-    // if (post._slug === 'io-2022') {
-    //   console.log(post.theme.icon);
-    // }
-
-    return doc as Post;
+    return doc as Documentation;
   },
 );
 

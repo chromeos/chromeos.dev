@@ -45,6 +45,13 @@ export type Featured = {
   media?: Image;
 };
 
+export type Software = {
+  min: string;
+  max: string;
+  name: string;
+  url: string;
+};
+
 export type Hero = YouTube | Image;
 
 // Meta attributes assigned to all content
@@ -77,10 +84,6 @@ export interface Post extends CoreContent {
   featured?: Featured;
 }
 
-export interface Documentation extends CoreContent {
-  theme: Theme;
-}
-
 export interface Story extends CoreContent {
   theme: Theme;
 }
@@ -102,6 +105,11 @@ export interface Landing extends CoreContentMeta {
   description: string;
   category: Tag;
   body: PortableTextBlock;
+}
+
+export interface Documentation extends CoreContent {
+  weight: number;
+  software: Software[];
 }
 
 export type Microcopy = {
