@@ -1,10 +1,11 @@
 ---
 import Doc from '$layouts/doc.astro';
 
-// import PortableText from '$components/PortableText.astro';
 import { landings, microcopy as micro } from '$lib/sanity';
-
 import { buildSection } from '$lib/documentation';
+
+import SectionNav from '$components/SectionNav.svelte';
+import PortableText from '$components/PortableText.astro';
 
 /**
  * Static paths
@@ -29,10 +30,6 @@ export function getStaticPaths() {
 const { landing, microcopy } = Astro.props;
 
 const section = buildSection(landing.category);
-
-console.log(section);
-
-// const sections =
 ---
 
 <Doc
@@ -41,5 +38,11 @@ console.log(section);
   metadesc={landing.description}
   section={landing._section}
 >
-  <!-- <PortableText body={landing.body} slot="content" /> -->
+  <SectionNav
+    active={landing._path}
+    title={landing.category.title}
+    links={section}
+    slot="subnav"
+  />
+  <PortableText body={landing.body} slot="content" />
 </Doc>
