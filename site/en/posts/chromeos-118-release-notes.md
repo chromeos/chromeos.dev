@@ -18,7 +18,7 @@ ChromeOS 118 reached stable release on October 17, 2023, introducing a variety o
 
 Let your users manage multiple tabs within a single window by displaying your Progressive Web App (PWA) in tabbed application mode. Tabbed application mode provides an intuitive, familiar tab navigation strip for users to manage multiple files, documents, or conversations simultaneously.
 
-![A PWA displayed in tabbed application mode.](insert_image_url_here)
+![A PWA displayed in tabbed application mode.](ix://posts/m118/pwa-tabs.png)
 
 To use tabbed application mode with your PWA, update `display_override` in your web app manifest:
 
