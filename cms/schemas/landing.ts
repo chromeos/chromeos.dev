@@ -68,7 +68,7 @@ export default defineType({
       group: ['content'],
       options: {
         disableNew: true,
-        filter: 'is_post_category == true',
+        filter: 'is_doc_category == true',
       },
       readOnly: isL10n,
       hidden: isL10n,
