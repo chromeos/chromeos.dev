@@ -67,19 +67,6 @@ export const languages = Object.values(microcopy)
   .map((m) => m.locale)
   .sort((a, b) => a.code - b.code);
 
-// Documentation
-export const docs = await groq(
-  `*[_type == "documentation"]
-  {
-    ${coreQuery}
-    ${themeQuery}
-  }`,
-  (doc) => {
-    // console.log(doc);
-    return doc as Documentation;
-  },
-);
-
 // Stories
 export const stories = await groq(
   `*[_type == "story"]
@@ -129,6 +116,7 @@ export const posts = await groq(
   },
 );
 
+// Documentation
 export const documentation = await groq(
   `*[_type == "documentation"]
   {
@@ -147,6 +135,7 @@ export const documentation = await groq(
   },
 );
 
+// Landing Pages
 export const landings = (
   await sanity.fetch(
     `*[_type == 'landing' && !(_id in path('drafts.**'))]
@@ -171,6 +160,8 @@ export const landings = (
 
   return landing as Landing;
 });
+
+export const all = [...posts, ...documentation, ...stories, ...landings];
 
 /** ****************
  *
