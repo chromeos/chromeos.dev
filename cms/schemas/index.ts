@@ -66,6 +66,7 @@ import stories from './stories';
 import cookies from './cookies';
 import pwas from './pwas';
 import landing from './landing';
+import appSupport from './app-support';
 
 export const schemaTypes = [
   // Schemas
@@ -84,6 +85,7 @@ export const schemaTypes = [
   cookies,
   pwas,
   landing,
+  appSupport,
 
   // Fields
   fullBlockField,

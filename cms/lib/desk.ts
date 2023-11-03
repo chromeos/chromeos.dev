@@ -19,6 +19,7 @@ import {
   BiFile,
   BiMailSend,
   BiCodeCurly,
+  BiSupport,
 } from 'react-icons/bi';
 import { RiTodoLine } from 'react-icons/ri';
 import { map } from 'rxjs/operators';
@@ -223,6 +224,11 @@ export const deskStructure = (
                 .title('Cookie Disclaimer')
                 .icon(BiCookie)
                 .child(buildStandaloneList('cookies', 'Cookie Disclaimer', S)),
+
+              S.listItem()
+                .title('App Support')
+                .icon(BiSupport)
+                .child(buildStandaloneList('app-support', 'App Support', S)),
             ]),
         ),
     ]);
