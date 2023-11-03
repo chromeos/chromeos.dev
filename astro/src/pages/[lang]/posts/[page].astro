@@ -6,7 +6,7 @@ import Authors from '$components/Authors.svelte';
 import PostHero from '$components/PostHero.svelte';
 import { posts, microcopy as micro } from '$lib/sanity';
 import type { PostHeroProps } from '$components/PostHero.svelte';
-import PortableText from '$components/PortableText.astro';
+import Text from '$components/Text.astro';
 import { buildTOC } from '$lib/portabletext';
 
 /**
@@ -86,7 +86,7 @@ const toc = buildTOC(post.body);
     )
   } -->
   <!-- Main content area -->
-  <PortableText body={post.body} slot="content" />
+  <Text body={post.body} slot="content" />
   <!-- <Fragment slot="content" set:html={content} /> -->
   <!-- Extras sidegar -->
   <Fragment slot="extras">

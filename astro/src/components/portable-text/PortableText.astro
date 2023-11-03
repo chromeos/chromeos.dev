@@ -1,0 +1,44 @@
+---
+import { PortableText } from 'astro-portabletext';
+import DynamicBody from './DynamicBody.astro';
+
+export interface Props {
+  body: any;
+  wrapped?: boolean;
+  inline?: boolean;
+}
+
+const { body, wrapped, inline } = Astro.props;
+
+const components = {
+  block: {
+    h2: DynamicBody,
+    h3: DynamicBody,
+  },
+  mark: {
+    link: DynamicBody,
+  },
+  type: {
+    Message: DynamicBody,
+    picture: DynamicBody,
+    statlist: DynamicBody,
+    figure: DynamicBody,
+  },
+};
+---
+
+{
+  inline && wrapped ? (
+    <span class="type">
+      <PortableText value={body} components={components} />
+    </span>
+  ) : inline ? (
+    <PortableText value={body} components={components} />
+  ) : wrapped !== false ? (
+    <div class="type">
+      <PortableText value={body} components={components} />
+    </div>
+  ) : (
+    <PortableText value={body} components={components} />
+  )
+}

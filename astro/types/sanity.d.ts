@@ -56,6 +56,7 @@ export type Hero = YouTube | Image;
 
 // Meta attributes assigned to all content
 interface CoreContentMeta {
+  _id: string;
   _slug: string;
   _type: string;
   _lang: string;

@@ -5,7 +5,7 @@ import { landings, microcopy as micro } from '$lib/sanity';
 import { buildSection } from '$lib/documentation';
 
 import SectionNav from '$components/SectionNav.svelte';
-import PortableText from '$components/PortableText.astro';
+import Text from '$components/Text.astro';
 
 /**
  * Static paths
@@ -43,6 +43,7 @@ const section = buildSection(landing.category);
     title={landing.category.title}
     links={section}
     slot="subnav"
+    client:visible
   />
-  <PortableText body={landing.body} slot="content" />
+  <Text body={landing.body} slot="content" />
 </Doc>

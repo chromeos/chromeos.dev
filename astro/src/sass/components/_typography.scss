@@ -35,7 +35,7 @@ $section-block-margin: 3.75rem;
   }
 
   &--wrapper {
-    margin-top: -5rem;
+    margin-top: -3rem;
     padding-top: 5rem;
   }
 }
@@ -124,7 +124,7 @@ $section-block-margin: 3.75rem;
 
   // Long-form type styling
   /* stylelint-disable-next-line selector-max-compound-selectors */
-  * + *:not(:empty) {
+  * + *:not(:empty):not(.header-anchor--wrapper) {
     margin-top: 1em;
   }
 

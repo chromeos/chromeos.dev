@@ -22,6 +22,7 @@ export const linkQuery = `
 `;
 
 export const coreMetaQuery = `
+  _id,
   _type,
   '_lang': coalesce(__i18n_lang, 'en_US'),
   '_langCode': string::split(coalesce(__i18n_lang, 'en_US'), '_')[0],
