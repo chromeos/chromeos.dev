@@ -1,6 +1,10 @@
 .cta {
   @extend %cta;
 
+  &__wrapper {
+    text-decoration: none;
+  }
+
   &--left-icon {
     @extend %cta--left-icon;
   }
@@ -27,6 +31,7 @@
 
   &--link {
     @extend %cta--link;
+    color: var(--cta-color, var(--blue-700));
   }
 
   &--back {
