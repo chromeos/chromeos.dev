@@ -34,7 +34,7 @@ const section = buildSection(landing.category);
 
 let color = 'var(--primary-blue)';
 
-switch (section) {
+switch (landing.category.slug) {
   case 'productivity':
   case 'linux':
   case 'android-environment':
@@ -68,10 +68,10 @@ switch (section) {
     >
       <h1 class="section--title">{landing.title}</h1>
       <div class="section--hero">
-        <!-- <picture>
-          <source srcset={hero.top} media="(min-width: 840px)" />
-          <img src={hero.bottom} alt={title} />
-        </picture> -->
+        <picture>
+          <source srcset={landing.banner.wide} media="(min-width: 840px)" />
+          <img src={landing.banner.narrow} alt="" />
+        </picture>
       </div>
     </header>
     <div class="section--content">
