@@ -40,9 +40,3 @@
     {/if}
   </span>
 </svelte:element>
-
-<style>
-  .cta--link {
-    color: var(--cta-color, var(--blue-700));
-  }
-</style>
