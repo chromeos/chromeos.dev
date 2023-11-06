@@ -8,6 +8,7 @@ import { posts, microcopy as micro } from '$lib/sanity';
 import type { PostHeroProps } from '$components/PostHero.svelte';
 import Text from '$components/Text.astro';
 import { buildTOC } from '$lib/portabletext';
+import type { Microcopy } from '$types/sanity';
 
 /**
  * Builds paths for news pagination
@@ -23,7 +24,7 @@ export function getStaticPaths() {
       },
       props: {
         post,
-        microcopy: micro[post._lang],
+        microcopy: micro[post._lang] as Microcopy,
       },
     };
   });
