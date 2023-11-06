@@ -70,7 +70,7 @@ export async function postHTMLGoogleStorageImages(tree) {
 
   // All sourceset tags
   tree.match({ attrs: { srcset: cdnRegex } }, (node) => {
-    const url = getURL(node.attrs.src);
+    const url = getURL(node.attrs.srcset);
     if (sizeMap[url]) {
       return node;
     }
