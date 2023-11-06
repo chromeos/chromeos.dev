@@ -69,7 +69,7 @@ interface CoreContentMeta {
 interface CoreContent extends CoreContentMeta {
   title: string;
   description: string;
-  body: PortableTextBlock;
+  body: PortableTextBlock[];
   category: Tag;
   tags: Tag[];
   dates: {
@@ -105,7 +105,11 @@ export interface Landing extends CoreContentMeta {
   title: string;
   description: string;
   category: Tag;
-  body: PortableTextBlock;
+  body: PortableTextBlock[];
+  banner: {
+    wide: string;
+    narrow: string;
+  };
 }
 
 export interface Documentation extends CoreContent {
@@ -119,7 +123,7 @@ export type AppSupport = {
   _lang: string;
   _langCode: string;
   title: string;
-  description: PortableTextBlock;
+  description: PortableTextBlock[];
   cta: {
     title: string;
     url: string;
@@ -201,3 +205,6 @@ export type Microcopy = {
     vertical: boolean;
   };
 };
+
+export type Content = Post | Documentation | Story | Landing;
+export type ContentArray = Post[] | Documentation[] | Story[] | Landing[];
