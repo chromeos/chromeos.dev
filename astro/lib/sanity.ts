@@ -4,6 +4,7 @@ import type {
   Documentation,
   Story,
   Landing,
+  AppSupport,
 } from '$types/sanity';
 import { useSanityClient } from '@sanity/astro';
 import { groupByLanguage, cleanup, buildPath } from '$lib/sanity/helpers';
@@ -21,6 +22,22 @@ import { inspect } from 'util';
 let includeDrafts = false;
 
 export const sanity = useSanityClient();
+
+// App Support
+export const appSupport = groupByLanguage(
+  (
+    await sanity.fetch(
+      `*[_type == 'app-support' && !(_id in path('drafts.**'))]
+  {
+    title,
+    description,
+    cta,
+    ${coreMetaQuery}
+  }`,
+    )
+  ).map((a) => a as AppSupport),
+  false,
+);
 
 // Microcopy
 export const microcopy = groupByLanguage(

@@ -113,6 +113,19 @@ export interface Documentation extends CoreContent {
   software: Software[];
 }
 
+export type AppSupport = {
+  _id: string;
+  _type: string;
+  _lang: string;
+  _langCode: string;
+  title: string;
+  description: PortableTextBlock;
+  cta: {
+    title: string;
+    url: string;
+  };
+};
+
 export type Microcopy = {
   _lang: string; // Full language code, with country, if applicable
   accessibility: {
