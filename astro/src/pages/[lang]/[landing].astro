@@ -1,11 +1,12 @@
 ---
-import Doc from '$layouts/doc.astro';
+import Wrapper from '$layouts/wrapper.astro';
 
 import { landings, microcopy as micro } from '$lib/sanity';
 import { buildSection } from '$lib/documentation';
 
 import SectionNav from '$components/SectionNav.svelte';
 import Text from '$components/Text.astro';
+import AppSupport from '$components/AppSupport.svelte';
 
 /**
  * Static paths
@@ -30,20 +31,178 @@ export function getStaticPaths() {
 const { landing, microcopy } = Astro.props;
 
 const section = buildSection(landing.category);
+
+let color = 'var(--primary-blue)';
+
+switch (section) {
+  case 'productivity':
+  case 'linux':
+  case 'android-environment':
+  case 'web-environment':
+    color = 'var(--secondary-yellow)';
+    break;
+  case 'publish':
+    color = 'var(--primary-green)';
+    break;
+}
 ---
 
-<Doc
+<Wrapper
+  title={landing.title}
+  locale={microcopy.locale}
+  metadesc={landing.description}
+>
+  <article class="section">
+    <aside class="section--subnav">
+      <SectionNav
+        active={landing._path}
+        title={landing.category.title}
+        links={section}
+        client:visible
+      />
+    </aside>
+    <header
+      class="section--header type--mega"
+      style={`background: ${color}`}
+      id="content"
+    >
+      <h1 class="section--title">{landing.title}</h1>
+      <div class="section--hero">
+        <!-- <picture>
+          <source srcset={hero.top} media="(min-width: 840px)" />
+          <img src={hero.bottom} alt={title} />
+        </picture> -->
+      </div>
+    </header>
+    <div class="section--content">
+      <section class="type" id="article">
+        <div>
+          <Text body={landing.body} />
+          <AppSupport lang={landing._lang} />
+        </div>
+      </section>
+      <!-- {
+        meta.interest && (
+          <div>
+            <DeveloperOptIn
+              title={meta.interest.title}
+              description={meta.interest.body}
+              cta={meta.interest.cta}
+            />
+          </div>
+        )
+      } -->
+      <!-- <ChapterListing microcopy={microcopy} chapters={chapters} /> -->
+      <!-- <section class="section--topics">
+        <h3 class="type--h1">{microcopy.microcopy.landing.chapters}</h3>
+        <ul>
+          {
+            chapters.map((chapter) => (
+              <Card
+                title={chapter.title}
+                body={chapter.meta.metadesc}
+                cta={{
+                  type: 'link',
+                  direction: 'forward',
+                  url: chapter.href,
+                  text: '',
+                }}
+              />
+            ))
+          }
+        </ul>
+      </section> -->
+    </div>
+  </article>
+</Wrapper>
+
+<!-- <Doc
   title={landing.title}
   locale={microcopy.locale}
   metadesc={landing.description}
   section={landing._section}
 >
-  <SectionNav
-    active={landing._path}
-    title={landing.category.title}
-    links={section}
-    slot="subnav"
-    client:visible
-  />
-  <Text body={landing.body} slot="content" />
-</Doc>
+  
+  
+</Doc> -->
+
+<style lang="scss">
+  @import '$sass/shared';
+
+  .section {
+    display: grid;
+    --inline-subnav: 1;
+
+    @include mq($bkpt-article--2-cols) {
+      --inline-subnav: 0;
+      grid-template-columns: 300px 1fr minmax(50ch, 90ch) 1fr;
+      grid-template-rows: auto auto 1fr auto;
+    }
+
+    &--title,
+    &--hero {
+      grid-row: 1;
+    }
+
+    &--hero {
+      margin-inline-start: auto;
+      align-self: flex-end;
+      justify-self: flex-start;
+
+      :global(img) {
+        display: block;
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+        max-height: 5em;
+      }
+    }
+
+    &--title {
+      color: var(--white);
+      text-wrap: balance;
+      padding-block: var(--header-spacing);
+    }
+
+    &--header,
+    &--content,
+    &--extras {
+      padding-inline: 1.5rem;
+      @include mq($bkpt-article--2-cols) {
+        grid-column: 3;
+      }
+    }
+
+    &--content {
+      padding-block-end: 2rem;
+    }
+
+    &--header {
+      padding-inline-end: 0;
+
+      margin-block-end: 1.5rem;
+      display: flex;
+      overflow: hidden;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+
+      @include mq($bkpt-article--2-cols) {
+        grid-column: 2 / -1;
+      }
+    }
+
+    &--subnav {
+      @include mq($bkpt-article--2-cols) {
+        grid-row: 1 / span 2;
+        padding-block-end: 2rem;
+      }
+    }
+
+    &--content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+</style>
