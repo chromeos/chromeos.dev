@@ -85,7 +85,7 @@ export const languages = Object.values(microcopy)
   .sort((a, b) => a.code - b.code);
 
 // Stories
-export const stories = await groq(
+export const stories = (await groq(
   `*[_type == "story"]
   {
     ${coreQuery}
@@ -95,10 +95,10 @@ export const stories = await groq(
     // console.log(story);
     return story as Story;
   },
-);
+)) as Story[];
 
 // Posts
-export const posts = await groq(
+export const posts = (await groq(
   `*[_type == "post"]
   {
     ${coreQuery}
@@ -131,10 +131,10 @@ export const posts = await groq(
 
     return post as Post;
   },
-);
+)) as Post[];
 
 // Documentation
-export const documentation = await groq(
+export const documentation = (await groq(
   `*[_type == "documentation"]
   {
     ${coreQuery}
@@ -150,7 +150,7 @@ export const documentation = await groq(
   (doc) => {
     return doc as Documentation;
   },
-);
+)) as Documentation[];
 
 // Landing Pages
 export const landings = (
@@ -176,7 +176,7 @@ export const landings = (
   }
 
   return landing as Landing;
-});
+}) as Landing[];
 
 export const all = [...posts, ...documentation, ...stories, ...landings];
 
