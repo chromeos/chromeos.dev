@@ -35,6 +35,7 @@
     padding-block-end: 2.5rem;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 
     .type {
       color: var(--grey-700);

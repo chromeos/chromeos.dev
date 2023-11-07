@@ -1,0 +1,78 @@
+---
+import Wrapper from '$layouts/wrapper.astro';
+
+export interface Props {
+  title: string;
+  metadesc: string;
+  locale: {
+    code: string;
+    dir: string;
+  };
+}
+
+const { title, metadesc, locale } = Astro.props;
+---
+
+<Wrapper title={title} metadesc={metadesc} locale={locale}>
+  <article class="section">
+    <aside class="section--subnav">
+      <slot name="subnav" />
+    </aside>
+    <div class="section--header">
+      <slot name="header" />
+    </div>
+    <section class="section--content">
+      <slot name="content" />
+    </section>
+    <section class="section--topics">
+      <slot name="topics" />
+    </section>
+  </article>
+</Wrapper>
+
+<style lang="scss">
+  @import '$sass/shared';
+
+  .section {
+    display: grid;
+    padding-block-end: 2rem;
+    --inline-subnav: 1;
+    --inline-padding: 1.5rem;
+
+    @include mq($bkpt-article--2-cols) {
+      --inline-subnav: 0;
+      grid-template-columns: 300px 1fr minmax(50ch, 90ch) 1fr;
+      grid-template-rows: auto auto 1fr auto;
+    }
+
+    &--header {
+      @include mq($bkpt-article--2-cols) {
+        grid-column: 2 / -1;
+      }
+    }
+
+    &--content,
+    &--topics {
+      padding-inline: var(--inline-padding);
+
+      @include mq($bkpt-article--2-cols) {
+        grid-column: 3;
+      }
+    }
+
+    &--topics:not(:empty) {
+      border-top: 1px solid var(--grey-300);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding-block-start: 2rem;
+    }
+
+    &--content {
+      padding-block-end: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+</style>

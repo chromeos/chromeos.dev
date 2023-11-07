@@ -24,3 +24,22 @@ export function buildSection(category: Tag) {
 
   return [landing, sections].flat();
 }
+
+/**
+ * Build documentation topics
+ * @param {string[]} paths Array of paths
+ * @return {Object}
+ */
+export function buildTopics(paths: string[]) {
+  return documentation
+    .filter((d) => paths.includes(d._path))
+    .sort((a, b) => a.weight - b.weight)
+    .map((d) => ({
+      title: d.title,
+      body: d.description,
+      cta: {
+        url: d._path,
+        text: '',
+      },
+    }));
+}
