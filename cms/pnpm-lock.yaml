@@ -17,9 +17,6 @@ dependencies:
   '@sanity/icons':
     specifier: ^2.4.1
     version: 2.4.1(react@18.2.0)
-  '@sanity/table':
-    specifier: ^1.0.1
-    version: 1.0.1(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.15.1)(styled-components@5.3.6)
   '@sanity/ui':
     specifier: ^1.7.8
     version: 1.7.8(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.6)
@@ -2636,25 +2633,6 @@ packages:
       scroll-into-view-if-needed: 2.2.31
       slate: 0.81.1
       tiny-invariant: 1.0.6
-    dev: false
-
-  /@sanity/table@1.0.1(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.15.1)(styled-components@5.3.6):
-    resolution: {integrity: sha512-QeqTW6MAOS9FElIqV766yArhYVxeiWVYy8LvPlRbLzIfRVBhOm8sDTFQdULK6DuBMIMdV9vVZNRsHS5hHXfr9Q==}
-    engines: {node: '>=14'}
-    peerDependencies:
-      react: ^18
-      react-dom: ^18
-      sanity: ^3.0.0
-    dependencies:
-      '@sanity/icons': 2.4.1(react@18.2.0)
-      '@sanity/incompatible-plugin': 1.0.4(react-dom@18.2.0)(react@18.2.0)
-      '@sanity/ui': 1.7.8(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.6)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      sanity: 3.15.1(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.6)
-    transitivePeerDependencies:
-      - react-is
-      - styled-components
     dev: false
 
   /@sanity/timed-out@4.0.2:

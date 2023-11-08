@@ -16,7 +16,8 @@
 // Fields
 import fullBlockField from '$fields/full-block';
 import restrictedBlockField from '$fields/restricted-block';
-import inlieBlockField from '$fields/inline-block';
+import inlineBlockField from '$fields/inline-block';
+import cellBlockField from '$fields/cell-block';
 import pictureField from '$fields/picture';
 import titleField from '$fields/title';
 import descriptionField from '$fields/description';
@@ -38,6 +39,7 @@ import keyValueField from '$fields/key-value';
 import statisticField from '$fields/statistic';
 import ctaField from '$fields/cta';
 import fieldField from '$fields/field';
+import tableField from '$fields/table';
 
 // Subschemas
 import heroSubschema from '$subschema/hero';
@@ -90,7 +92,8 @@ export const schemaTypes = [
   // Fields
   fullBlockField,
   restrictedBlockField,
-  inlieBlockField,
+  inlineBlockField,
+  cellBlockField,
   pictureField,
   titleField,
   descriptionField,
@@ -112,6 +115,7 @@ export const schemaTypes = [
   statisticField,
   ctaField,
   fieldField,
+  tableField,
 
   // Subschema
   heroSubschema,

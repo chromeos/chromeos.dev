@@ -29,7 +29,6 @@
     "@sanity/code-input": "^4.1.1",
     "@sanity/document-internationalization": "^1.0.2",
     "@sanity/icons": "^2.4.1",
-    "@sanity/table": "^1.0.1",
     "@sanity/ui": "^1.7.8",
     "@sanity/vision": "^3.0.6",
     "get-youtube-id": "^1.0.1",
