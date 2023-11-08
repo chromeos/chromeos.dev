@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { defineType, defineArrayMember, defineField } from 'sanity';
+import { KBDDecorator } from '$components/KBD';
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -45,7 +46,7 @@ export default defineType({
         decorators: [
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' },
-          { title: 'Keyboard', value: 'kbd' },
+          KBDDecorator,
           { title: 'Code', value: 'code' },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
