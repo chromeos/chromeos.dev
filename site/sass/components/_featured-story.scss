@@ -73,6 +73,7 @@
     display: block;
     height: clamp(10rem, 60vw, 30rem);
     object-fit: cover;
+    object-position: top;
     width: 100%;
 
     @include mq($story-query) {
