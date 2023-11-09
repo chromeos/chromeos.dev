@@ -32,7 +32,7 @@ For Boosteroid, ChromeOS appeared to be the perfect path toward audience expansi
 > ChromeOS drives wider cloud gaming adoption and brings video games far beyond their traditional audiences. We believe cloud gaming on Chromebooks contributes to a gaming-as-a-lifestyle trend and plays an important role in creating the future cloud gaming market where every gamer plays via the cloud.
 > {cite="Artem Skoryi, VP of Business Development, Boosteroid"}
 
-![Boosteroid's platform, depicting a splash of the video game Shatterline alongside a list of other games: Ready or Not, Age of Empires II, Fortnite, Dust & Neon, and Endling.](inline.png)
+![Boosteroid's platform, depicting a splash of the video game Shatterline alongside a list of other games: Ready or Not, Age of Empires II, Fortnite, Dust & Neon, and Endling.](ix://stories/boosteroid/inline.png)
 
 ## The journey from web client to PWA in Google Play
 
