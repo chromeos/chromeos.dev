@@ -1,6 +1,15 @@
-import Prism from 'prismjs';
-import loadLanguages from 'prismjs/components/index.js';
-loadLanguages();
+/* eslint-global Prism */
+import 'prismjs/components/prism-typescript.js';
+import 'prismjs/components/prism-javascript.js';
+import 'prismjs/components/prism-css.js';
+import 'prismjs/components/prism-markup.js';
+import 'prismjs/components/prism-bash.js';
+import 'prismjs/components/prism-scss.js';
+import 'prismjs/components/prism-json.js';
+import 'prismjs/components/prism-yaml.js';
+import 'prismjs/components/prism-kotlin.js';
+import 'prismjs/components/prism-java.js';
+import 'prismjs/components/prism-groovy.js';
 
 /**
  * @param {string} code - The code to highlight
