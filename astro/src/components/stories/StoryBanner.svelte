@@ -1,15 +1,15 @@
 <script lang="ts">
   import type { CTA } from '$types/content';
+  import type { Story } from '$types/sanity';
   import CallToAction from '$components/CTA.svelte';
-  export let story = {};
+
+  export let story: Story;
   export let cta: CTA;
 
+  const { slug: category } = story.category;
+
   const type =
-    story.tags[0] === 'pwa'
-      ? 'web'
-      : story.tags[0] === 'android'
-      ? 'android'
-      : 'games';
+    category === 'gaming' ? 'games' : category === 'pwa' ? 'web' : 'android';
 
   const banner = `ix://landings/stories/banner-${type}.svg`;
 </script>
@@ -31,9 +31,9 @@
     />
     <h1 class="story-banner--title type--h1">{story.title}</h1>
     <figure class="app">
-      <img src={story.app.logo} class="app--logo" alt="" sizes="60px" />
+      <img src={story.app.logo.image} class="app--logo" alt="" sizes="60px" />
       <figcaption class="app--info">
-        <p class="app--text type--h6">{story.app.name}</p>
+        <p class="app--text type--h6">{story.app.title}</p>
         <p class="app--text type--small">{story.app.company}</p>
       </figcaption>
     </figure>
