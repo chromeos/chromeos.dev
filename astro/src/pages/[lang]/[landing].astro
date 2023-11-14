@@ -34,8 +34,6 @@ const { landing, microcopy } = Astro.props;
 const section = buildSection(landing.category);
 const topics = buildTopics(section.map((s) => s.href));
 
-console.log(topics);
-
 let color = 'var(--primary-blue)';
 
 switch (landing.category.slug) {
