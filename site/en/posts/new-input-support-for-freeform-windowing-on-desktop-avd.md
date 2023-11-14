@@ -1,5 +1,5 @@
 ---
-title: New Input Support for Freeform Windowing on Desktop AVD
+title: Bringing New Input Support to the Desktop AVD
 metadesc: Learn about Android 13's impacts on the Desktop AVD when testing and optimizing input support for freeform windowing.
 tags:
   - announcement
