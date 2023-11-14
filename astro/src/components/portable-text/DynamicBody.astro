@@ -6,6 +6,7 @@ import Picture from './Picture.svelte';
 import Stats from '$components/Stats.svelte';
 import Figure from './Figure.svelte';
 import Link from './Link.svelte';
+import Code from './Code.svelte';
 import YouTube from '$components/YouTube.svelte';
 
 import { microcopy as micro } from '$$sanity';
@@ -31,6 +32,8 @@ const microcopy = Object.values(micro).find(
     <Figure block={props}>
       <PortableText body={props.caption} wrapped={false} />
     </Figure>
+  ) : props._type === 'code' ? (
+    <Code block={props} />
   ) : props._type === 'block' &&
     (props.style === 'h2' || props.style === 'h3') ? (
     <Heading block={props} />
