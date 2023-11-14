@@ -6,8 +6,16 @@ import Picture from './Picture.svelte';
 import Stats from '$components/Stats.svelte';
 import Figure from './Figure.svelte';
 import Link from './Link.svelte';
+import YouTube from '$components/YouTube.svelte';
+
+import { microcopy as micro } from '$$sanity';
+import type { Microcopy } from '$types/sanity';
 
 const { node: props /* , isInline, class */ } = Astro.props;
+const { lang } = Astro.params;
+const microcopy = Object.values(micro).find(
+  (m) => m._langCode === lang,
+) as Microcopy;
 ---
 
 {
@@ -26,10 +34,21 @@ const { node: props /* , isInline, class */ } = Astro.props;
   ) : props._type === 'block' &&
     (props.style === 'h2' || props.style === 'h3') ? (
     <Heading block={props} />
-  ) : props.markType == 'link' ? (
+  ) : props._type === 'youtube' ? (
+    <YouTube
+      id={props.id}
+      alt=""
+      label={microcopy.actions.loadVideo}
+      client:visible
+    />
+  ) : props.markType === 'link' ? (
     <Link mark={props.markDef}>
       <PortableText body={props.children} wrapped={false} inline={true} />
     </Link>
+  ) : props.markType === 'kbd' ? (
+    <kbd>
+      <PortableText body={props.children} wrapped={false} inline={true} />
+    </kbd>
   ) : (
     <PortableText body={props.children} />
   )
