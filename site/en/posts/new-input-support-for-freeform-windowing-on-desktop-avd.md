@@ -1,6 +1,6 @@
 ---
-title: Android 13 on the Desktop AVD
-metadesc: Learn how Android 13 impacts the Desktop AVD when testing and optimizing your Android app's experience on ChromeOS.
+title: New Input Support for Freeform Windowing on Desktop AVD
+metadesc: Learn about Android 13's impacts on the Desktop AVD when testing and optimizing input support for freeform windowing.
 tags:
   - announcement
   - android studio
@@ -12,7 +12,7 @@ tags:
   - input devices
 authors:
   - jhale
-date: 2023-11-09
+date: 2023-11-14
 ---
 
 At ChromeOS, we strive to bring the community impactful tools that will enable Android developers to adapt their apps for Chromebooks—and enhance the overall experience of building for [large screen experiences](https://developer.android.com/large-screens).
@@ -29,15 +29,15 @@ When an Android app runs on a Chromebook, it uses functionality that mirrors des
 **Note:** For a deeper dive into the Desktop AVD, check out [Desktop AVD in Android Studio](/{{locale.code}}/posts/desktop-avd-in-android-studio).
 !!!
 
-![The Desktop AVD emulator, rendering a clock app, browser window, and downloads folder in freeform windowing mode.](inline.png)
+![The Desktop AVD emulator, rendering a clock app, browser window, and downloads folder in freeform windowing mode.](ix://posts/desktop-avd/inline.gif)
 
-## What enhancements come with Android 13?
+## What enhancements come with the Android 13 desktop AVD?
 
 Most laptops use a keyboard—and it's a common input device for increased productivity with tablets and foldables. Prior to Android 13, the Desktop AVD relied solely on uncustomizable input mapping built into Android Studio, which can cause friction points for users who rely on physical devices for mapped input and shortcuts. The Android 13 release of the Desktop AVD adds support for common keyboard interactions with Android apps. You can now test shortcuts, support keys, and mouse support to help you adhere to the [large screen app quality guidelines](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality#large_screen_ready_tests).
 
-### Shortcuts
+### Keyboard shortcuts
 
-The majority of apps within Google Play are designed for mobile usage and as such do not always support keyboard interactions. In Android 13, the Desktop AVD adds support for commonly used shortcuts, such as [[Ctrl]]+[[C]] (Copy) and [[Ctrl]]+[[V]] (Paste). These shortcuts can be used when copying text within a `TextView` or pasting text into an `EditText` widget. These shortcuts are intercepted by the system and automatically applied.
+The majority of apps within Google Play are designed for mobile usage and as such do not always support [keyboard interactions](https://developer.android.com/guide/topics/large-screens/input-compatibility-large-screens#shortcuts). In Android 13, the Desktop AVD adds support for commonly used shortcuts, such as [[Ctrl]]+[[C]] (Copy) and [[Ctrl]]+[[V]] (Paste). These shortcuts can be used when copying text from a `TextView/Text` composable or pasting text into an `EditText`/`TextField`. These shortcuts are intercepted by the system and automatically applied.
 
 Custom shortcuts (which are not intercepted by the system) are also included in this release. An example of this type of shortcut: a media player app that uses the [[Spacebar]] to play or pause media. You must use the new Hardware Input feature within Android Studio Hedgehog to use custom shortcuts. This will allow Android Studio to pass custom shortcuts directly to the emulator. If this is not enabled, Android Studio may consume the key combination.
 
@@ -46,15 +46,15 @@ Custom shortcuts (which are not intercepted by the system) are also included in 
 Android 13 supports additional keymappings for support keys. These keys are mapped to controls that are similar to experiences for keyboard shortcuts on a desktop. Some examples of these support keys include:
 
 - **Esc:** Dismisses pop-ups and notifications.
-- **Delete / Backspace:** Deletes text within an `EditText` field.
+- **Delete / Backspace:** Deletes text within an `EditText` or `TextField`.
 - **Arrow Keys:** Provides in-app navigation ([[&uarr;]]/[[&darr;]] to scroll).
 
 ### Mouse support
 
-In addition to enhanced keyboard support, there are additional mouse controls integrated into the Desktop AVD. Using the scroll wheel within an Android app will send a mouse scroll event to the app. Right-clicking on a mouse will send a right-click event—which can be used to show context menus, if the app supports it.
+In addition to enhanced keyboard support, there are additional mouse controls integrated into the Desktop AVD. Using the scroll wheel sends a mouse scroll event to the app that has input focus. Right-clicking the mouse sends a right-click event—which can be used to show context menus if the app [supports it](https://developer.android.com/guide/topics/large-screens/input-compatibility-large-screens#right-click).
 
 ## Where can you start?
 
-To create high quality large screen apps across all form factors, there is additional guidance provided for [large screen app quality](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality). This guidance outlines a comprehensive set of quality requirements for most types of Android apps. Not all requirements need to be met, but it's best practice for you to adhere to the requirements that make sense for your apps.
+[Large screen app quality](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality) provides guidance around creating high quality large screen apps across all form factors, outlining a comprehensive set of quality requirements for most types of Android apps. Not all requirements need to be met, but it's best practice for you to adhere to the requirements that make sense for your apps.
 
 Create a desktop emulator today in [Android Studio Hedgehog](https://developer.android.com/studio/preview) to see how your Android app responds to keyboard and mouse inputs and freeform window resizing.
