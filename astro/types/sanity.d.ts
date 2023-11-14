@@ -87,6 +87,12 @@ export interface Post extends CoreContent {
 
 export interface Story extends CoreContent {
   theme: Theme;
+  app: {
+    title: string;
+    company: string;
+    logo: Image;
+  };
+  hero: Image;
 }
 
 export type CMSLinkReference = {

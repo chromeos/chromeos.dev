@@ -64,9 +64,10 @@ export function buildPath(item) {
 
   if (item._type === 'post') {
     item._section = 'posts';
-  }
-  if (item._type === 'documentation') {
+  } else if (item._type === 'documentation') {
     item._section = item.category.slug;
+  } else if (item._type === 'story') {
+    item._section = 'stories';
   }
 
   // Build path

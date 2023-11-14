@@ -90,6 +90,18 @@ export const stories = (await groq(
   {
     ${coreQuery}
     ${themeQuery}
+    'app': {
+      'company': app.company,
+      'title': app.title,
+      'logo': {
+        'image': 'cms://' + app.logo.asset._ref,
+        'alt': app.logo.alt
+      },
+    },
+    'hero': {
+      'image': 'cms://' + hero.image.asset._ref,
+      'alt': hero.image.alt
+    }
   }`,
   (story) => {
     // console.log(story);
