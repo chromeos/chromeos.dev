@@ -9,7 +9,12 @@ tags:
 authors:
   - ikarahan
 date: 2022-10-17
+updated: 2023-11-16
 ---
+
+!!! aside.message--warning
+The Manifest V2 support timeline has been updated. See Chrome's [November 2023 blog post](https://developer.chrome.com/blog/resuming-the-transition-to-mv3/) and the [Manifest V2 support timeline page](https://developer.chrome.com/docs/extensions/mv3/mv2-sunset/) for details.
+!!!
 
 Last year, Chrome browser [announced a timeline](https://developer.chrome.com/blog/mv2-transition/) for sunsetting Manifest V2 extensions, and migrating them to Manifest V3 to promote safety and privacy for Chrome users.
 
