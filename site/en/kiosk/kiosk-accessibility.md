@@ -35,7 +35,7 @@ On a ChromeOS device in a normal user session, users can manage their accessibil
 
 Admins can find the "Kiosk accessibility" settings in the Google Admin Console by going to **Devices** > **Chrome** > **Settings** > **Device settings** tab.
 
-![The kiosk accessibility settings that can be configured from the Google Admin Console.](ix://kiosk/accessibility/inline-1.png)
+![The kiosk accessibility settings that can be configured from the Google Admin Console.](ix://kiosk/accessibility/inline-1%20.png)
 
 There are two main settings to look out for:
 
@@ -105,7 +105,7 @@ Display and magnification features change display colors and provide magnificati
 - `screenMagnifier`: Controls the full-screen magnifier feature which zooms in to make items on the screen bigger.
 - `dockedMagnifier`: Controls the docked magnifier feature which magnifies focused areas of the screen in a split-screen view.
 
-![A view of the chromeOS.dev home page with the docked magnifier feature on and focused on the word "world."](ix://kiosk/accessibility/inline-2.png)
+![A view of the chromeOS.dev home page with the docked magnifier feature on and focused on the word "world."](ix://kiosk/accessibility/inline-2%20.png)
 
 ### Keyboard and text input
 
