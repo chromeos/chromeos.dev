@@ -35,7 +35,7 @@ On a ChromeOS device in a normal user session, users can manage their accessibil
 
 Admins can find the "Kiosk accessibility" settings in the Google Admin Console by going to **Devices** > **Chrome** > **Settings** > **Device settings** tab.
 
-![The kiosk accessibility settings that can be configured from the Google Admin Console.](inline-1.png)
+![The kiosk accessibility settings that can be configured from the Google Admin Console.](ix://kiosk/accessibility/inline-1.png)
 
 There are two main settings to look out for:
 
@@ -56,10 +56,10 @@ The state of ChromeOS accessibility features can be accessed through the [`chrom
 
 The chrome.accessibilityFeatures API has a corresponding [property for each accessibility feature](https://developer.chrome.com/docs/extensions/reference/accessibilityFeatures/#property). Each property is a [`type.ChromeSetting` prototype](https://developer.chrome.com/docs/extensions/reference/types/#type-ChromeSetting) which has the following methods:
 
-- `get()`: to get the value of the setting
-- `set()`: to set the value of the setting
-- `onChange()`: to add a listener for when the setting changes
-- `clear()`: to clear the setting and restore the default values
+- `get()`: to get the value of the setting.
+- `set()`: to set the value of the setting.
+- `onChange()`: to add a listener for when the setting changes.
+- `clear()`: to clear the setting and restore the default values.
 
 To get the status of a property, call `onChange()` or `get()` which returns a details object via a callback with the following relevant fields:
 
@@ -105,7 +105,7 @@ Display and magnification features change display colors and provide magnificati
 - `screenMagnifier`: Controls the full-screen magnifier feature which zooms in to make items on the screen bigger.
 - `dockedMagnifier`: Controls the docked magnifier feature which magnifies focused areas of the screen in a split-screen view.
 
-![A view of the chromeOS.dev home page with the docked magnifier feature on and focused on the word "world."](inline-2.png)
+![A view of the chromeOS.dev home page with the docked magnifier feature on and focused on the word "world."](ix://kiosk/accessibility/inline-2.png)
 
 ### Keyboard and text input
 
