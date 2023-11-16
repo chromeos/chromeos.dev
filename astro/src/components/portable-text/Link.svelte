@@ -3,7 +3,9 @@
 
   type SourceRef = {
     source: {
-      reference: {
+      _url?: string;
+      _type?: string;
+      reference?: {
         _ref: string;
         _type: string;
       };
@@ -32,8 +34,12 @@
   let link = '';
 
   if (mark?.source) {
-    const ref = getReference(mark.source.reference._ref);
-    link = ref._path;
+    if (mark?.source?.url) {
+      link = mark.source.url;
+    } else if (mark?.source?.reference?._ref) {
+      const ref = getReference(mark.source.reference._ref);
+      link = ref._path;
+    }
   } else if (mark?.url) {
     link = mark.url;
   } else if (mark?.href) {
@@ -41,4 +47,8 @@
   }
 </script>
 
-<a href={link}><slot /></a>
+{#if link === ''}
+  <slot />
+{:else}
+  <a href={link}><slot /></a>
+{/if}

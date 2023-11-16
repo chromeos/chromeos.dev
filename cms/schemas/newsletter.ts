@@ -112,6 +112,24 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'settings',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'endpoint',
+          title: 'Endpoint',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'id',
+          title: 'ID',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+    }),
   ],
   preview: preview('title'),
 });

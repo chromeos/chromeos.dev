@@ -1,94 +1,106 @@
 ---
 import countries from 'i18n-iso-countries';
-import { getMicrocopy, getLanguages } from '$$microcopy';
 import Wrapper from '$layouts/wrapper.astro';
 import Input from '$components/Input.svelte';
-import { renderMarkdown } from '$lib/markdown';
+import type { Newsletter } from '$lib/types';
+import { newsletter as n, microcopy as micro } from '$lib/sanity';
+import Text from '$components/Text.astro';
 
 /**
  * Builds paths for content files
  * @return {object[]} Paths
  */
 export function getStaticPaths() {
-  const languages = getLanguages();
-  return languages.map((l) => ({
-    params: {
-      lang: l.code,
-    },
-    props: {
-      microcopy: getMicrocopy(l.code),
-    },
-  }));
+  return n.map((nl) => {
+    return {
+      params: {
+        lang: nl._langCode,
+      },
+      props: {
+        newsletter: nl as Newsletter,
+        microcopy: micro[nl._lang],
+      },
+    };
+  });
 }
 
-const { microcopy } = Astro.props;
-const { locale, newsletter } = microcopy;
+const { microcopy, newsletter } = Astro.props;
+const { locale } = microcopy;
+
 const fields = newsletter.fields.map((f) => {
   const field = {
-    type: f.type,
-    required: f.required,
-    label: f.label,
-    name: f.name,
+    type: f.field.type,
+    label: f?.label,
+    name: f?.name,
+    required: f?.required || false,
+    options: f.field?.options,
+    value: f?.value,
+    text: null,
   };
 
-  const text = {};
-
-  if (f.required) {
-    text.required = newsletter.content.required;
-  }
-  if (f.error) {
-    text.error = f.error;
+  if (field.options) {
+    field.options = field.options.map((o) => ({
+      text: o,
+    }));
   }
 
-  if (Object.keys(text).length) {
-    field.text = text;
-  }
-
-  if (f.options) {
-    field.options = f.options;
-  }
-
-  if (f.value) {
-    field.value = f.value;
-  }
-
-  if (f.type === 'country') {
+  if (field.type === 'country') {
     field.options = Object.entries(countries.getNames(locale.code)).map(
       ([code, name]) => ({ value: code, text: name }),
     );
     field.type = 'select';
   }
 
-  return field;
+  if (field.type === 'submit') {
+    delete field.name;
+  }
+
+  if (field.required) {
+    field.text = {
+      required: microcopy.actions.required,
+    };
+  }
+
+  if (f.error) {
+    field.text = Object.assign(field.text || {}, {
+      error: f.error,
+    });
+  }
+
+  return Object.fromEntries(Object.entries(field).filter(([_, v]) => v));
 });
 
 const generic = ['submit', 'button', 'radio'];
 const full = ['EmailAddress'];
-const { content: disclaimer } = await renderMarkdown(
-  newsletter.content.disclaimer,
-);
+const subscribe = fields.find((f) => f.type === 'submit');
 ---
 
-<Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
+<Wrapper
+  locale={locale}
+  metadesc={newsletter.description}
+  title={newsletter.title}
+>
   <article
     class="wrapper wrapper--full-bleed wrapper--padded wrapper--padding wrapper--full-circles"
   >
     <div class="subscribe">
-      <h2 class="subscribe--title type--h2">{newsletter.content.title}</h2>
-      <p class="subscribe--copy">{newsletter.content.copy}</p>
+      <h2 class="subscribe--title type--h2">{newsletter.title}</h2>
+      <p class="subscribe--copy">{newsletter.description}</p>
       {
-        newsletter.messages.map((message) => (
-          <p
-            class={`message message--${message.type} subscribe--message subscribe--message__${message.type}`}
+        Object.entries(newsletter.messages).map(([type, message]) => (
+          <aside
+            class={`message subscribe--message subscribe--message__${type}`}
+            data-type={type === 'success' ? 'tip' : type}
           >
-            {message.text}
-          </p>
+            <p>{message}</p>
+          </aside>
         ))
       }
+
       <form
         class="subscribe--form"
         action={newsletter.settings.endpoint}
-        id={newsletter.settings.name}
+        id={newsletter.settings.id}
         method="post"
         enctype="multipart/form-content"
         novalidate
@@ -100,13 +112,11 @@ const { content: disclaimer } = await renderMarkdown(
             }
           })
         }
-
-        <div
-          class="subscribe--disclaimer type type--small"
-          set:html={disclaimer}
-        />
+        <div class="subscribe--disclaimer type type--small">
+          <Text body={newsletter.disclaimer} wrapped={false} inline={true} />
+        </div>
         <button class="subscribe--submit cta cta--high" type="submit"
-          >{newsletter.subscribe.cta.text}</button
+          >{subscribe.value}</button
         >
       </form>
     </div>

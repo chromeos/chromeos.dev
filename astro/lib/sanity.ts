@@ -41,22 +41,20 @@ export const appSupport = groupByLanguage(
 );
 
 // Newsletter Signup
-export const newsletter = groupByLanguage(
-  (
-    await sanity.fetch(
-      `*[_type == 'newsletter' && !(_id in path('drafts.**'))]
+export const newsletter = (
+  await sanity.fetch(
+    `*[_type == 'newsletter' && !(_id in path('drafts.**'))]
   {
     title,
     description,
     disclaimer,
     messages,
     fields,
+    settings,
     ${coreMetaQuery}
   }`,
-    )
-  ).map((a) => a as Newsletter),
-  false,
-);
+  )
+).map((a) => a as Newsletter) as Newsletter[];
 
 // Microcopy
 export const microcopy = groupByLanguage(

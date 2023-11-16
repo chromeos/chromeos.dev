@@ -105,6 +105,10 @@ export interface Newsletter extends CoreContentMeta {
     error: string;
   };
   fields: Field[];
+  settings: {
+    endpoint: string;
+    id: string;
+  };
 }
 
 export interface Post extends CoreContent {
