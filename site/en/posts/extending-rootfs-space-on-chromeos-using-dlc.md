@@ -35,7 +35,7 @@ As ChromeOS has continued to integrate artificial intelligence and machine learn
 
 Below you will see a illustration of the 3rd version of the ChromeOS disk layout:
 
-![Diagram of the current ChromeOS disk layout on version 3, from the first sector of the disk at the top to the last sector of the disk at the bottom.](inline-1.png)
+![Diagram of the current ChromeOS disk layout on version 3, from the first sector of the disk at the top to the last sector of the disk at the bottom.](ix://posts/rootfs/inline-1.png)
 
 # How DLC works
 
@@ -47,7 +47,7 @@ The primary components of the DLC installation workflow are:
 - **ChromeOS services:** Where [ChromeOS Build and Release Console](https://chromiumdash.appspot.com/serving-builds?deviceCategory=ChromeOS) resides, handling and responding to installation requests.
 - **Google Services:** Where the actual image fetching happens. Google Services provides the self-service download server that lets ChromeOS developers host downloads for end users. For stability and performance, the dlcserver daemon retrieves the payload from Google servers by querying the edge caching server(s) or BandAids (BDNs).
 
-![Diagram of DLC installation flow between ChromeOS services, Google Services, and ChromeOS.](inline-2.png)
+![Diagram of DLC installation flow between ChromeOS services, Google Services, and ChromeOS.](ix://posts/rootfs/inline-2.png)
 
 Daemons involved in DLC installation are the following:
 
@@ -79,7 +79,7 @@ Logical volume management can be used to create a logical volume/partition for e
 
 Besides managing DLC during a Powerwash, using an LVM improves performance. Compared to stateful encryption, logical volume is expected to provide:
 
-![Graph showing 4KiB, 8KiB, and 16KiB read speeds between Encrypted Stateful Reads and Logical Volume Reads, with logical volume reads showing improvement.](inline-3.png)
+![Graph showing 4KiB, 8KiB, and 16KiB read speeds between Encrypted Stateful Reads and Logical Volume Reads, with logical volume reads showing improvement.](ix://posts/rootfs/inline-3.png)
 
 %[(13%, Reduction in time with 8KiB random reads), (20%, Reduction in time with 16KiB random reads)]
 
