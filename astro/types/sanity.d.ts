@@ -54,6 +54,23 @@ export type Software = {
 
 export type Hero = YouTube | Image;
 
+export type Field = {
+  label?: string;
+  name?: string;
+  value: ?string;
+  required?: boolean;
+  error?: string;
+  type:
+    | 'text'
+    | 'email'
+    | 'checkbox'
+    | 'select'
+    | 'country'
+    | 'hidden'
+    | 'submit';
+  options?: string[];
+};
+
 // Meta attributes assigned to all content
 interface CoreContentMeta {
   _id: string;
@@ -76,6 +93,18 @@ interface CoreContent extends CoreContentMeta {
     published: Date;
     updated?: Date;
   };
+}
+
+export interface Newsletter extends CoreContentMeta {
+  title: string;
+  description: string;
+  disclaimer: PortableTextBlock[];
+  messages: {
+    warning: string;
+    success: string;
+    error: string;
+  };
+  fields: Field[];
 }
 
 export interface Post extends CoreContent {

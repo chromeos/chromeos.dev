@@ -5,6 +5,7 @@ import type {
   Story,
   Landing,
   AppSupport,
+  Newsletter,
 } from '$types/sanity';
 import { useSanityClient } from '@sanity/astro';
 import { groupByLanguage, cleanup, buildPath } from '$lib/sanity/helpers';
@@ -36,6 +37,24 @@ export const appSupport = groupByLanguage(
   }`,
     )
   ).map((a) => a as AppSupport),
+  false,
+);
+
+// Newsletter Signup
+export const newsletter = groupByLanguage(
+  (
+    await sanity.fetch(
+      `*[_type == 'newsletter' && !(_id in path('drafts.**'))]
+  {
+    title,
+    description,
+    disclaimer,
+    messages,
+    fields,
+    ${coreMetaQuery}
+  }`,
+    )
+  ).map((a) => a as Newsletter),
   false,
 );
 
