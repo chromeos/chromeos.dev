@@ -1,0 +1,58 @@
+---
+import PortableText from './PortableText.astro';
+import Message from './Message.svelte';
+import Heading from './Heading.svelte';
+import Picture from './Picture.svelte';
+import Stats from '$components/Stats.svelte';
+import Figure from './Figure.svelte';
+import Link from './Link.svelte';
+import Code from './Code.svelte';
+import YouTube from '$components/YouTube.svelte';
+
+import { microcopy as micro } from '$$sanity';
+import type { Microcopy } from '$types/sanity';
+
+const { node: props /* , isInline, class */ } = Astro.props;
+const { lang } = Astro.params;
+const microcopy = Object.values(micro).find(
+  (m) => m._langCode === lang,
+) as Microcopy;
+---
+
+{
+  props._type === 'Message' ? (
+    <Message type={props.type}>
+      <PortableText body={props.text} wrapped={false} />
+    </Message>
+  ) : props._type === 'picture' ? (
+    <Picture block={props} />
+  ) : props._type === 'statlist' ? (
+    <Stats stats={props.stats} />
+  ) : props._type === 'figure' ? (
+    <Figure block={props}>
+      <PortableText body={props.caption} wrapped={false} />
+    </Figure>
+  ) : props._type === 'code' ? (
+    <Code block={props} />
+  ) : props._type === 'block' &&
+    (props.style === 'h2' || props.style === 'h3') ? (
+    <Heading block={props} />
+  ) : props._type === 'youtube' ? (
+    <YouTube
+      id={props.id}
+      alt=""
+      label={microcopy.actions.loadVideo}
+      client:visible
+    />
+  ) : props.markType === 'link' ? (
+    <Link mark={props.markDef}>
+      <PortableText body={props.children} wrapped={false} inline={true} />
+    </Link>
+  ) : props.markType === 'kbd' ? (
+    <kbd>
+      <PortableText body={props.children} wrapped={false} inline={true} />
+    </kbd>
+  ) : (
+    <PortableText body={props.children} />
+  )
+}

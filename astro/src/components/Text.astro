@@ -1,0 +1,16 @@
+---
+import PortableText from '$components/portable-text/PortableText.astro';
+
+export interface Props {
+  body: any;
+}
+
+const { body } = Astro.props;
+---
+
+<PortableText body={body} />
+
+<script>
+  // Include paint worklets
+  await import('$js/paint.js');
+</script>

@@ -20,7 +20,9 @@
 </script>
 
 <figure class="author">
-  <img class="author--image" src={author.image} alt="" sizes="32px" />
+  {#if author.image}
+    <img class="author--image" src={author.image} alt="" sizes="32px" />
+  {/if}
   <figcaption class="author--copy">
     <p class="type--h6">{name}</p>
     {#if title}

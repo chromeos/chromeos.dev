@@ -2,6 +2,7 @@
   interface Languages {
     code: string;
     name: string;
+    label: string;
   }
 
   export let languages: Languages[] = [];

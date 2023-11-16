@@ -1,6 +1,11 @@
-<script lang="ts">
-  import type { Eyebrow } from '$types/content';
+<script context="module" lang="ts">
+  export type Eyebrow = {
+    icon?: string;
+    text: string;
+  };
+</script>
 
+<script lang="ts">
   export let eyebrow: Eyebrow;
   export let size: 'small' | 'large';
 

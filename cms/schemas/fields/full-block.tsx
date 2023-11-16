@@ -111,8 +111,8 @@ export default defineType({
       of: [
         {
           type: 'message',
-          name: 'Message',
           icon: BiInfoCircle,
+          name: 'message',
           options: {
             modal: {
               type: 'dialog',

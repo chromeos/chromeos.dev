@@ -1,83 +1,71 @@
-import type { CTA, HeroMedia } from '$types/content';
-import { buildSectionsFromGlob, metaFromFile } from '$$data';
-import { getMicrocopy } from '$$microcopy';
+import type { Post, Microcopy } from '$types/sanity';
+import { microcopy, posts } from '$lib/sanity';
+import { groupByLanguage } from '$lib/sanity/helpers';
+
+export type PostPage = {
+  params: {
+    lang: string;
+    page: number;
+  };
+  props: {
+    featured: Post;
+    posts: Post[];
+    microcopy: Microcopy;
+    pages: number;
+  };
+};
+
+const itemsPerPage = 12;
 
 /**
  *
- * @param {AstroMarkdownFile[]} posts - Glob of Markdown files
- * @return {object[]}
+ * @param {Number} [page] - Specific page to return
+ * @return {PostPage[] | PostPage}
  */
-export function buildPostsFromGlob(posts) {
-  const sections = buildSectionsFromGlob(posts);
+export function buildPostPagination(
+  page: number | null = null,
+): PostPage[] | PostPage {
+  return Object.entries(groupByLanguage(posts))
+    .map(([lang, posts]: [string, Array<Post>]) => {
+      const featured = posts.find((p) => p.featured);
+      const filtered = posts.filter((p) => p._slug !== featured._slug);
+      const pages = Math.ceil(filtered.length / itemsPerPage);
 
-  const postMeta = posts
-    .map((story) => {
-      const { path, lang } = metaFromFile(story.file);
-      return {
-        path,
-        lang,
-        ...story.frontmatter,
-      };
-    })
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
+      const groups = [];
 
-  const langs = Object.keys(sections);
+      for (let i = 0; i < filtered.length; i += itemsPerPage) {
+        groups.push(filtered.slice(i, i + itemsPerPage));
+      }
 
-  return langs
-    .map((lang) => {
-      const posts = postMeta.filter((s) => s.lang === lang);
-      const microcopy = getMicrocopy(lang);
-      const featuredIndex = posts.findIndex((s) => s?.featured);
-      const featured = {
-        data: posts[featuredIndex],
-      };
-      featured.cta = {
-        text: microcopy.microcopy.more,
-        url: featured.path,
-        type: 'link',
-        direction: 'forward',
-      } as CTA;
-      featured.media = {
-        url: featured.data.featured.images[0].image,
-        alt: featured.data.featured.images[0].alt,
-      } as HeroMedia;
-
-      return posts
-        .filter((p) => p.path !== featured.path)
-        .map((p) => ({
-          title: p.title,
-          body: p.metadesc,
-          cta: {
-            text: microcopy.microcopy.more,
-            url: `/` + p.path,
-            type: 'link',
-            direction: 'forward',
-          },
-          eyebrow: {
-            text: p?.theme?.eyebrow || p?.tags[0],
-            icon: p?.theme?.icon || `ix://icons/eyebrows/${p?.tags[0]}.svg`,
-          },
-        }))
-        .reduce((acc, cur, i) => {
-          const chunk = Math.floor(i / 12);
-          if (!acc[chunk]) {
-            acc[chunk] = [];
-          }
-          acc[chunk].push(cur);
-          return acc;
-        }, [])
-        .map((chunk, i, a) => ({
+      // If a page is specified, return only that page
+      if (page !== null) {
+        return {
           params: {
-            lang,
-            page: i,
+            lang: filtered[0]._langCode,
+            page: page + 1,
           },
           props: {
-            posts: chunk,
-            microcopy,
             featured,
-            pages: a.length,
+            posts: groups[page],
+            microcopy: microcopy[lang],
+            pages: pages,
           },
-        }));
+        };
+      }
+
+      // Otherwise return all pages
+      return groups.map((group, i) => ({
+        params: {
+          lang: filtered[0]._langCode,
+          page: i + 1,
+        },
+        props: {
+          featured,
+          posts: group,
+          microcopy: microcopy[lang],
+          pages: pages,
+        },
+      }));
     })
     .flat();
 }

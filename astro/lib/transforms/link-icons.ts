@@ -75,7 +75,9 @@ export async function postHTMLLinkIcons(tree) {
       node.content.unshift(icon('arrow-back'));
     }
 
-    node.attrs.class = classes.join(' ');
+    if (node?.attrs?.class) {
+      node.attrs.class = classes.join(' ');
+    }
 
     return node;
   });

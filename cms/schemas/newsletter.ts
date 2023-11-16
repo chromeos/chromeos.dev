@@ -75,23 +75,23 @@ export default defineType({
     defineField({
       name: 'messages',
       title: 'Messages',
-      type: 'array',
-      of: [
-        defineArrayMember({
+      type: 'object',
+      fields: [
+        defineField({
           name: 'warning',
           title: 'Warning',
           type: 'string',
           description: 'If something goes wrong',
           validation: (Rule) => Rule.required(),
         }),
-        defineArrayMember({
+        defineField({
           name: 'success',
           title: 'Success',
           type: 'string',
           description: 'When successful.',
           validation: (Rule) => Rule.required(),
         }),
-        defineArrayMember({
+        defineField({
           name: 'offline',
           title: 'Offline',
           type: 'string',

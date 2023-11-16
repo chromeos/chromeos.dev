@@ -1,0 +1,143 @@
+---
+import Section from '$layouts/section.astro';
+
+import { landings, microcopy as micro } from '$lib/sanity';
+import { buildSection, buildTopics } from '$lib/documentation';
+
+import SectionNav from '$components/SectionNav.svelte';
+import Text from '$components/Text.astro';
+import AppSupport from '$components/AppSupport.svelte';
+import Card from '$components/Card.svelte';
+
+/**
+ * Static paths
+ *
+ * @return {object} paths
+ */
+export function getStaticPaths() {
+  return landings.map((landing) => {
+    return {
+      params: {
+        lang: landing._langCode,
+        landing: landing._slug,
+      },
+      props: {
+        landing,
+        microcopy: micro[landing._lang],
+      },
+    };
+  });
+}
+
+const { landing, microcopy } = Astro.props;
+
+const section = buildSection(landing.category);
+const topics = buildTopics(section.map((s) => s.href));
+
+let color = 'var(--primary-blue)';
+
+switch (landing.category.slug) {
+  case 'productivity':
+  case 'linux':
+  case 'android-environment':
+  case 'web-environment':
+    color = 'var(--secondary-yellow)';
+    break;
+  case 'publish':
+    color = 'var(--primary-green)';
+    break;
+}
+---
+
+<Section
+  title={landing.title}
+  locale={microcopy.locale}
+  metadesc={landing.description}
+>
+  <SectionNav
+    active={landing._path}
+    title={landing.category.title}
+    links={section}
+    client:visible
+    slot="subnav"
+  />
+
+  <header
+    class="hero type--mega"
+    style={`background: ${color}`}
+    id="content"
+    slot="header"
+  >
+    <h1 class="hero--title">{landing.title}</h1>
+    <div class="hero--hero">
+      <picture>
+        <source srcset={landing.banner.wide} media="(min-width: 840px)" />
+        <img src={landing.banner.narrow} alt="" />
+      </picture>
+    </div>
+  </header>
+
+  <Fragment slot="content">
+    <Text body={landing.body} />
+    <AppSupport lang={landing._lang} />
+  </Fragment>
+
+  <Fragment slot="topics">
+    <h3 class="topics-header type--h1">
+      {microcopy.topics.section}
+    </h3>
+    <div class="topics">
+      {
+        topics.map(({ title, body, cta }) => (
+          <Card title={title} body={body} position="end" cta={cta} />
+        ))
+      }
+    </div>
+  </Fragment>
+</Section>
+
+<style lang="scss">
+  @import '$sass/shared';
+
+  .hero {
+    padding-inline: var(--inline-padding);
+    padding-inline-end: 0;
+
+    margin-block-end: 1.5rem;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    &--title {
+      color: var(--white);
+      text-wrap: balance;
+      padding-block: var(--header-spacing);
+    }
+
+    &--hero {
+      margin-inline-start: auto;
+      align-self: flex-end;
+      justify-self: flex-start;
+
+      :global(img) {
+        display: block;
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+        max-height: 5em;
+      }
+    }
+  }
+
+  .topics-header {
+    text-align: center;
+  }
+
+  .topics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 1.5rem;
+  }
+</style>
