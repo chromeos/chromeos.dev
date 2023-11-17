@@ -71,6 +71,12 @@ export type Field = {
   options?: string[];
 };
 
+export type StorySection = {
+  title: string;
+  description: string;
+  category: Tag;
+};
+
 // Meta attributes assigned to all content
 interface CoreContentMeta {
   _id: string;
@@ -111,6 +117,10 @@ export interface Newsletter extends CoreContentMeta {
   };
 }
 
+export interface StoryLanding extends CoreContentMeta {
+  sections: StorySection[];
+}
+
 export interface Post extends CoreContent {
   author: Author[];
   hero?: Hero;
@@ -126,6 +136,7 @@ export interface Story extends CoreContent {
     logo: Image;
   };
   hero: Image;
+  featured?: Featured;
 }
 
 export type CMSLinkReference = {

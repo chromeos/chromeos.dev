@@ -6,6 +6,7 @@ import type {
   Landing,
   AppSupport,
   Newsletter,
+  StoryLanding,
 } from '$types/sanity';
 import { useSanityClient } from '@sanity/astro';
 import { groupByLanguage, cleanup, buildPath } from '$lib/sanity/helpers';
@@ -55,6 +56,24 @@ export const newsletter = (
   }`,
   )
 ).map((a) => a as Newsletter) as Newsletter[];
+
+// Story landing page
+export const storyLandings = (await sanity.fetch(
+  `
+  *[_type == 'stories' && !(_id in path('drafts.**'))]
+  {
+    title,
+    sections[] {
+      title,
+      description,
+      category->{
+        title,
+        'slug': slug.current
+      },
+    },
+    ${coreMetaQuery}
+  }`,
+)) as StoryLanding[];
 
 // Microcopy
 export const microcopy = groupByLanguage(
@@ -107,6 +126,7 @@ export const stories = (await groq(
   {
     ${coreQuery}
     ${themeQuery}
+    ${featuredQuery}
     'app': {
       'company': app.company,
       'title': app.title,
