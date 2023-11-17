@@ -1,7 +1,0 @@
-posts:
-  title: Noticias sobre Chrome OS
-  modifiers:
-    custom: item-grid--posts
-featured:
-  modifiers:
-    custom: landing--news-grey-overlay

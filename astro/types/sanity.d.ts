@@ -254,6 +254,11 @@ export type Microcopy = {
     dir: string;
     vertical: boolean;
   };
+  identifiers: {
+    featured: string;
+    resources: string;
+    recommended: string;
+  };
 };
 
 export type Content = Post | Documentation | Story | Landing;
