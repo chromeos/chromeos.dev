@@ -78,7 +78,6 @@ export default defineType({
               title: 'Icon',
               type: 'object',
               hidden: ({ parent }) => parent.section !== true,
-              validation: (Rule) => validation(true, 'Icon is required')(Rule),
               fields: [
                 defineField({
                   name: 'name',
@@ -107,9 +106,7 @@ export default defineType({
                 defineArrayMember({
                   name: 'section',
                   title: 'Section',
-                  type: 'structured-link',
-                  validation: (Rule) =>
-                    validation(true, 'Section is required')(Rule),
+                  type: 'text-link',
                 }),
               ],
             }),
@@ -117,9 +114,8 @@ export default defineType({
             defineField({
               name: 'link',
               title: 'Link',
-              type: 'structured-link',
+              type: 'text-link',
               hidden: ({ parent }) => parent.section === true,
-              validation: (Rule) => validation(false, 'Link is required')(Rule),
             }),
           ],
         }),

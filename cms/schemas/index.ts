@@ -40,6 +40,7 @@ import statisticField from '$fields/statistic';
 import ctaField from '$fields/cta';
 import fieldField from '$fields/field';
 import tableField from '$fields/table';
+import textLinkField from '$fields/text-link';
 
 // Subschemas
 import heroSubschema from '$subschema/hero';
@@ -116,6 +117,7 @@ export const schemaTypes = [
   ctaField,
   fieldField,
   tableField,
+  textLinkField,
 
   // Subschema
   heroSubschema,
