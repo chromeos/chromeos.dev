@@ -105,7 +105,21 @@ export default defineType({
                 defineArrayMember({
                   name: 'section',
                   title: 'Section',
-                  type: 'text-link',
+                  type: 'object',
+                  fields: [
+                    defineField({
+                      name: 'title',
+                      title: 'Title',
+                      type: 'string',
+                      validation: (Rule) =>
+                        validation(true, 'Title is required')(Rule),
+                    }),
+                    defineField({
+                      name: 'link',
+                      title: 'Link',
+                      type: 'text-link',
+                    }),
+                  ],
                 }),
               ],
             }),
