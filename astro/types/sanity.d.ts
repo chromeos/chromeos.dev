@@ -77,6 +77,18 @@ export type StorySection = {
   category: Tag;
 };
 
+export type NavLink = {
+  title: string;
+  url: string;
+};
+
+export type NavSection = {
+  title: string;
+  links: NavLink[];
+};
+
+export type NavItem = NavLink | NavSection;
+
 // Meta attributes assigned to all content
 interface CoreContentMeta {
   _id: string;
@@ -99,6 +111,14 @@ interface CoreContent extends CoreContentMeta {
     published: Date;
     updated?: Date;
   };
+}
+
+export interface Navigation {
+  id: string;
+  type: string;
+  _lang: string;
+  _langCode: string;
+  items: NavItem[];
 }
 
 export interface Newsletter extends CoreContentMeta {

@@ -7,6 +7,7 @@ import type {
   AppSupport,
   Newsletter,
   StoryLanding,
+  Navigation,
 } from '$types/sanity';
 import { useSanityClient } from '@sanity/astro';
 import { groupByLanguage, cleanup, buildPath } from '$lib/sanity/helpers';
@@ -24,6 +25,48 @@ import { inspect } from 'util';
 let includeDrafts = false;
 
 export const sanity = useSanityClient();
+
+const linkRegex = /^\/{\s*{\s*locale\s*}\s*}\//gm;
+
+export const navigation = (
+  await sanity.fetch(
+    `*[_type == 'nav' && !(_id in path('drafts.**'))]
+    {
+      items[] {
+        title,
+        section == true => {
+          // description,
+          'items': sections[] {
+            title,
+            'url': link,
+          }
+        },
+        section != true => {
+          'url': link,
+        }
+      },
+      ${coreMetaQuery}
+    }`,
+  )
+).map((a) => {
+  const locale = a._langCode;
+
+  // Cleanup
+  a.items = a.items.map((item) => {
+    if (item.url) {
+      item.url = item.url.replace(linkRegex, `/${locale}/`);
+    }
+    if (item.sections) {
+      item.sections = item.sections.map((section) => {
+        section.url = section.url.replace(linkRegex, `/${locale}/`);
+        return section;
+      });
+    }
+    return item;
+  });
+
+  return a as Navigation;
+}) as Navigation[];
 
 // App Support
 export const appSupport = groupByLanguage(
