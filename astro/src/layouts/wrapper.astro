@@ -22,7 +22,9 @@ const { title, props = [], locale, metadesc } = Astro.props;
 // TODO: get all availabe languages for current content
 const languages = [];
 
-const nav = navigation.find((n) => n._langCode === locale.code);
+const nav =
+  navigation.find((n) => n._langCode === locale.code) ||
+  navigation.find((n) => n._langCode === 'en');
 const microcopy = getMicrocopyFromLangCode(locale.code);
 const subscribe = {
   text: microcopy.actions.subscribe,
