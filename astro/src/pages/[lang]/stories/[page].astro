@@ -16,7 +16,6 @@ import { buildTOC } from '$lib/portabletext';
  */
 export function getStaticPaths() {
   return stories.map((story) => {
-    console.log(story);
     return {
       params: {
         lang: story._langCode,
