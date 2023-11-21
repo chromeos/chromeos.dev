@@ -21,7 +21,8 @@
     "css:fix": "stylelint --fix \"**/*.{css,scss,astro}\"",
     "firebase": "firebase",
     "firebase:emulate": "firebase emulators:start",
-    "firebase:deploy": "firebase hosting:channel:deploy"
+    "firebase:deploy": "firebase hosting:channel:deploy",
+    "firebase:deploy:preview": "firebase hosting:channel:deploy next --expires 30d"
   },
   "dependencies": {
     "@astrojs/node": "^6.0.0",
@@ -93,8 +94,8 @@
     "**/*.*": "prettier --plugin-search-dir=. -c"
   },
   "engines": {
-    "node": ">=18.16.0",
-    "pnpm": ">=8.6.0"
+    "node": "18",
+    "pnpm": "8"
   },
   "volta": {
     "node": "18.16.0",
