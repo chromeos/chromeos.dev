@@ -1,72 +1,57 @@
 ---
 import Doc from '$layouts/doc.astro';
+import { buildSection } from '$lib/documentation';
+import { buildTOC } from '$lib/portabletext';
+
 import TOC from '$components/TOC.svelte';
 import SectionNav from '$components/SectionNav.svelte';
-import { renderMarkdown } from '$$markdown';
-import { buildSectionsFromGlob, metaFromFile } from '$$data';
+import Text from '$components/Text.astro';
+
+import { documentation, microcopy as micro } from '$lib/sanity';
 
 /**
  * Builds paths for content files
  */
 export async function getStaticPaths() {
-  const articles = await Astro.glob('../../markdown/**/*.md');
-  const sections = buildSectionsFromGlob(articles);
-
-  const all = await Promise.all(
-    articles.map(async (article) => {
-      const { slug, section, lang } = metaFromFile(article.file);
-      const { content, toc } = await renderMarkdown(article.rawContent());
-
-      article.frontmatter.date = new Date(article.frontmatter.date);
-      return {
-        params: {
-          lang,
-          path: slug,
-        },
-        props: {
-          content,
-          toc,
-          meta: article.frontmatter,
-          section,
-          subnav: sections[lang][section],
-        },
-      };
-    }),
-  );
-  return all.filter(
-    (article) =>
-      article.props.section !== 'posts' && article.props.section !== 'stories',
-  );
+  return documentation.map((doc) => {
+    const pathRegex = new RegExp(`^/${doc._langCode}/`);
+    return {
+      params: {
+        lang: doc._langCode,
+        path: doc._path.replace(pathRegex, ''),
+      },
+      props: {
+        doc,
+        microcopy: micro[doc._lang],
+      },
+    };
+  });
 }
 
-const { lang } = Astro.params;
-const { content, meta, section, toc, subnav } = Astro.props;
+const { doc, microcopy } = Astro.props;
 
-const locale = {
-  code: lang,
-  dir: 'ltr',
-};
+const section = buildSection(doc.category);
+const toc = buildTOC(doc.body);
 ---
 
 <Doc
-  title={meta.title}
-  locale={locale}
-  metadesc={meta.metadesc}
-  section={section}
+  title={doc.title}
+  locale={microcopy.locale}
+  metadesc={doc.description}
+  section={doc.category.slug}
 >
   <!-- Subnav Sidebar -->
-  <Fragment slot="subnav">
-    <SectionNav
-      links={subnav}
-      title={section}
-      active={Astro.url.pathname}
-      client:load
-    />
-  </Fragment>
+  <SectionNav
+    active={doc._path}
+    title={doc.category.title}
+    links={section}
+    client:visible
+    slot="subnav"
+  />
   <!-- Main content area -->
-  <Fragment slot="content" set:html={content} />
-  <!-- Extras sidegar -->
+  <Text body={doc.body} slot="content" />
+  <!-- Extras sidebar -->
   <Fragment slot="extras">
-    {toc.length > 0 && <TOC toc={toc} client:load />}
+    {toc.length > 0 && <TOC toc={toc} client:idle />}
   </Fragment>
 </Doc>

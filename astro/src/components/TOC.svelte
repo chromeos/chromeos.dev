@@ -1,3 +1,11 @@
+<script context="module" lang="ts">
+  export type TOC = {
+    title: string;
+    url: string;
+    children?: TOC[];
+  };
+</script>
+
 <script lang="ts">
   import { onMount } from 'svelte';
 

@@ -62,7 +62,6 @@ export default defineType({
               name: 'title',
               title: 'Title',
               type: 'string',
-              hidden: ({ parent }) => parent.section !== true,
               validation: (Rule) => validation(true, 'Title is required')(Rule),
             }),
             defineField({
@@ -73,29 +72,28 @@ export default defineType({
               validation: (Rule) =>
                 validation(true, 'Description is required')(Rule),
             }),
-            defineField({
-              name: 'icon',
-              title: 'Icon',
-              type: 'object',
-              hidden: ({ parent }) => parent.section !== true,
-              validation: (Rule) => validation(true, 'Icon is required')(Rule),
-              fields: [
-                defineField({
-                  name: 'name',
-                  title: 'Name',
-                  type: 'string',
-                  validation: (Rule) =>
-                    validation(true, 'Icon name is required')(Rule),
-                }),
-                defineField({
-                  name: 'background',
-                  title: 'Background',
-                  type: 'string',
-                  validation: (Rule) =>
-                    validation(true, 'Icon background is required')(Rule),
-                }),
-              ],
-            }),
+            // defineField({
+            //   name: 'icon',
+            //   title: 'Icon',
+            //   type: 'object',
+            //   hidden: ({ parent }) => parent.section !== true,
+            //   fields: [
+            //     defineField({
+            //       name: 'name',
+            //       title: 'Name',
+            //       type: 'string',
+            //       validation: (Rule) =>
+            //         validation(true, 'Icon name is required')(Rule),
+            //     }),
+            //     defineField({
+            //       name: 'background',
+            //       title: 'Background',
+            //       type: 'string',
+            //       validation: (Rule) =>
+            //         validation(true, 'Icon background is required')(Rule),
+            //     }),
+            //   ],
+            // }),
             defineField({
               name: 'sections',
               title: 'Sections',
@@ -107,9 +105,21 @@ export default defineType({
                 defineArrayMember({
                   name: 'section',
                   title: 'Section',
-                  type: 'structured-link',
-                  validation: (Rule) =>
-                    validation(true, 'Section is required')(Rule),
+                  type: 'object',
+                  fields: [
+                    defineField({
+                      name: 'title',
+                      title: 'Title',
+                      type: 'string',
+                      validation: (Rule) =>
+                        validation(true, 'Title is required')(Rule),
+                    }),
+                    defineField({
+                      name: 'link',
+                      title: 'Link',
+                      type: 'text-link',
+                    }),
+                  ],
                 }),
               ],
             }),
@@ -117,9 +127,8 @@ export default defineType({
             defineField({
               name: 'link',
               title: 'Link',
-              type: 'structured-link',
+              type: 'text-link',
               hidden: ({ parent }) => parent.section === true,
-              validation: (Rule) => validation(false, 'Link is required')(Rule),
             }),
           ],
         }),

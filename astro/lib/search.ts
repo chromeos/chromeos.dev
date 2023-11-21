@@ -112,6 +112,7 @@ export function search(input: string, lang: string) {
  * @return {Array<Object>}
  */
 export function findRelated(title: string, lang: string, url: string) {
+  return [];
   const found = search(title, lang).filter((item) => item.href !== url);
   const related = found.filter(
     (v, i, s) => i === s.findIndex((t) => t.section === v.section),

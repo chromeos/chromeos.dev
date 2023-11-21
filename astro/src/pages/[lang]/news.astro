@@ -1,27 +1,22 @@
 ---
-import { buildPostsFromGlob } from '$lib/posts';
 import News from '$layouts/news.astro';
+import { buildPostPagination } from '$lib/posts';
 
 /**
  * Builds paths for news landing page
  */
 export async function getStaticPaths() {
-  const posts = await Astro.glob('../../markdown/**/posts/*.md');
-  return buildPostsFromGlob(posts)
-    .filter((r) => r.params.page === 0)
-    .map((a) => {
-      delete a.params.page;
-      return a;
-    });
+  return buildPostPagination(0);
 }
 
-const { posts, microcopy, featured, pages } = Astro.props;
+const { page } = Astro.params;
+const { posts, microcopy: mc, featured, pages } = Astro.props;
 ---
 
 <News
   featured={featured}
   posts={posts}
-  microcopy={microcopy}
-  page={0}
+  microcopy={mc}
+  page={page}
   pages={pages}
 />

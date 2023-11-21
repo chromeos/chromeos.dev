@@ -22,6 +22,7 @@
   }
 
   export let story: StoryPreview;
+  export let action: string;
 
   const id = crypto.randomUUID().replace(/-/g, '').substring(0, 7);
   const image = story?.hero?.image || placeholder();
@@ -44,7 +45,7 @@
   const cta = {
     type: 'link',
     direction: 'forward',
-    text: 'Read more',
+    text: action,
   };
 </script>
 

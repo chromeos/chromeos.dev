@@ -60,6 +60,7 @@ export default defineType({
               validation: (Rule) => Rule.required(),
               options: {
                 disableNew: true,
+                filter: 'is_story_category == true',
               },
               readOnly: isL10n,
               hidden: isL10n,

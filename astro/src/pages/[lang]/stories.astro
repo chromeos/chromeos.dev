@@ -2,57 +2,39 @@
 import Wrapper from '$layouts/wrapper.astro';
 import StoryCard from '$components/stories/StoryCard.svelte';
 import FeaturedStory from '$components/stories/FeaturedStory.svelte';
-import { buildSectionsFromGlob, metaFromFile } from '$$data';
-import { getMicrocopy } from '$$microcopy';
+import { storyLandings, microcopy as micro, stories as st } from '$$sanity';
 
 /**
  * Builds paths for content files
  */
 export async function getStaticPaths() {
-  const stories = await Astro.glob('../../markdown/**/stories/*.md');
-  // const landings = await Astro.glob('../../markdown/**/stories/**.md');
-  const sections = buildSectionsFromGlob(stories);
-
-  const storyMeta = stories
-    .map((story) => {
-      const { path, lang } = metaFromFile(story.file);
-      return {
-        path: '/' + path,
-        lang,
-        ...story.frontmatter,
-      };
-    })
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
-  // console.log(storyMeta);
-
-  // console.log(sections);
-  const langs = Object.keys(sections);
-  // console.log(sections.en.stories);
-
-  return langs.map((lang) => {
+  return storyLandings.map((s) => {
     return {
       params: {
-        lang,
+        lang: s._langCode,
       },
       props: {
-        stories: storyMeta.filter((s) => s.lang === lang),
-        microcopy: getMicrocopy(lang),
+        landing: s,
+        microcopy: micro[s._lang],
       },
     };
   });
 }
 
-const { stories, microcopy } = Astro.props;
+const { landing, microcopy } = Astro.props;
 const { locale } = microcopy;
 
+const stories = st.filter((s) => s._langCode === landing._langCode);
 const featuredIndex = stories.findIndex((s) => s?.featured);
 const featured = stories[featuredIndex];
 
-const sections = microcopy.stories.sections.headings
+const sections = landing.sections
   .map((section) => {
     const result = section;
     result.stories = stories.filter(
-      (story) => story?.tags[0] === section.tag && story.path !== featured.path,
+      (story) =>
+        story.category.slug === section.category.slug &&
+        story._path !== featured?._path,
     );
     result.image = `ix://icons/eyebrows/${
       section.tag === 'pwa'
@@ -64,9 +46,11 @@ const sections = microcopy.stories.sections.headings
     return result;
   })
   .filter((s) => s.stories.length > 0);
+
+console.log(sections);
 ---
 
-<Wrapper title={microcopy.title} metadesc="" locale={locale}>
+<Wrapper title={landing.title} metadesc="" locale={locale}>
   {featured && <FeaturedStory story={featured} microcopy={microcopy} />}
 
   {
@@ -78,11 +62,11 @@ const sections = microcopy.stories.sections.headings
             <h2 class="type--h2">{section.title}</h2>
           </div>
 
-          <p class="subtitle type--subtitle">{section.subtitle}</p>
+          <p class="subtitle type--subtitle">{section.description}</p>
         </header>
         <div class="content">
           {section.stories.map((story) => (
-            <StoryCard story={story} />
+            <StoryCard story={story} action={microcopy.actions.more} />
           ))}
         </div>
       </section>

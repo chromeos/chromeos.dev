@@ -1,178 +1,78 @@
 ---
-import type { Locale } from '$types/content';
 import Wrapper from '$layouts/wrapper.astro';
-import DeveloperOptIn from '$components/DeveloperOptIn.svelte';
-import ChapterListing from '$components/ChapterListing.svelte';
-import { getMicrocopy } from '$$microcopy';
 
 export interface Props {
   title: string;
   metadesc: string;
-  props?: Array<{
-    property: string;
-    content: string;
-  }>;
-  chapters: Array<any>;
-  meta: any;
-  locale: Locale;
+  locale: {
+    code: string;
+    dir: string;
+  };
 }
 
-const { title, props = [], locale, metadesc, meta, chapters } = Astro.props;
-const {
-  hero: { image: hero },
-} = meta;
-const microcopy = getMicrocopy(locale.code);
-const section = Astro.url.pathname.split('/')[2];
-
-let color = 'var(--primary-blue)';
-
-switch (section) {
-  case 'productivity':
-  case 'linux':
-  case 'android-environment':
-  case 'web-environment':
-    color = 'var(--secondary-yellow)';
-    break;
-  case 'publish':
-    color = 'var(--primary-green)';
-    break;
-}
+const { title, metadesc, locale } = Astro.props;
 ---
 
-<Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>
+<Wrapper title={title} metadesc={metadesc} locale={locale}>
   <article class="section">
     <aside class="section--subnav">
       <slot name="subnav" />
     </aside>
-    <header
-      class="section--header type--mega"
-      style={`background: ${color}`}
-      id="content"
-    >
-      <h1 class="section--title">{title}</h1>
-      <div class="section--hero">
-        <picture>
-          <source srcset={hero.top} media="(min-width: 840px)" />
-          <img src={hero.bottom} alt={title} />
-        </picture>
-      </div>
-    </header>
-    <div class="section--content">
-      <section class="type" id="article">
-        <slot name="content" />
-      </section>
-      {
-        meta.interest && (
-          <div>
-            <DeveloperOptIn
-              title={meta.interest.title}
-              description={meta.interest.body}
-              cta={meta.interest.cta}
-            />
-          </div>
-        )
-      }
-      <ChapterListing microcopy={microcopy} chapters={chapters} />
-      <!-- <section class="section--topics">
-        <h3 class="type--h1">{microcopy.microcopy.landing.chapters}</h3>
-        <ul>
-          {
-            chapters.map((chapter) => (
-              <Card
-                title={chapter.title}
-                body={chapter.meta.metadesc}
-                cta={{
-                  type: 'link',
-                  direction: 'forward',
-                  url: chapter.href,
-                  text: '',
-                }}
-              />
-            ))
-          }
-        </ul>
-      </section> -->
+    <div class="section--header">
+      <slot name="header" />
     </div>
+    <section class="section--content">
+      <slot name="content" />
+    </section>
+    <section class="section--topics">
+      <slot name="topics" />
+    </section>
   </article>
+</Wrapper>
 
-  <style lang="scss">
-    @import '$sass/shared';
+<style lang="scss">
+  @import '$sass/shared';
 
-    .section {
-      display: grid;
-      --inline-subnav: 1;
+  .section {
+    display: grid;
+    padding-block-end: 2rem;
+    --inline-subnav: 1;
+    --inline-padding: 1.5rem;
 
+    @include mq($bkpt-article--2-cols) {
+      --inline-subnav: 0;
+      grid-template-columns: 300px 1fr minmax(50ch, 90ch) 1fr;
+      grid-template-rows: auto auto 1fr auto;
+    }
+
+    &--header {
       @include mq($bkpt-article--2-cols) {
-        --inline-subnav: 0;
-        grid-template-columns: 300px 1fr minmax(50ch, 90ch) 1fr;
-        grid-template-rows: auto auto 1fr auto;
-      }
-
-      &--title,
-      &--hero {
-        grid-row: 1;
-      }
-
-      &--hero {
-        margin-inline-start: auto;
-        align-self: flex-end;
-        justify-self: flex-start;
-
-        :global(img) {
-          display: block;
-          height: 100%;
-          width: auto;
-          object-fit: cover;
-          max-height: 5em;
-        }
-      }
-
-      &--title {
-        color: var(--white);
-        text-wrap: balance;
-        padding-block: var(--header-spacing);
-      }
-
-      &--header,
-      &--content,
-      &--extras {
-        padding-inline: 1.5rem;
-        @include mq($bkpt-article--2-cols) {
-          grid-column: 3;
-        }
-      }
-
-      &--content {
-        padding-block-end: 2rem;
-      }
-
-      &--header {
-        padding-inline-end: 0;
-
-        margin-block-end: 1.5rem;
-        display: flex;
-        overflow: hidden;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-
-        @include mq($bkpt-article--2-cols) {
-          grid-column: 2 / -1;
-        }
-      }
-
-      &--subnav {
-        @include mq($bkpt-article--2-cols) {
-          grid-row: 1 / span 2;
-          padding-block-end: 2rem;
-        }
-      }
-
-      &--content {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
+        grid-column: 2 / -1;
       }
     }
-  </style>
-</Wrapper>
+
+    &--content,
+    &--topics {
+      padding-inline: var(--inline-padding);
+
+      @include mq($bkpt-article--2-cols) {
+        grid-column: 3;
+      }
+    }
+
+    &--topics:not(:empty) {
+      border-top: 1px solid var(--grey-300);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding-block-start: 2rem;
+    }
+
+    &--content {
+      padding-block-end: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+</style>

@@ -1,14 +1,14 @@
 ---
-import { getMicrocopy, getLanguages } from '$$microcopy';
+import { languages } from '$$sanity';
+import { getMicrocopyFromLangCode } from '$$microcopy';
 import LanguageSwitcher from '$components/LanguageSwitcher.svelte';
 export interface Props {
   lang: string;
 }
 
 const { lang } = Astro.props;
-
-const microcopy = getMicrocopy(lang);
-const languages = getLanguages();
+const microcopy = getMicrocopyFromLangCode(lang);
+const { links, help, language: select } = microcopy.footer;
 ---
 
 <footer class="footer container">
@@ -24,7 +24,7 @@ const languages = getLanguages();
     <!-- </div> -->
     <ul class="footer--primary-links">
       {
-        microcopy.footer.links.map((link) => (
+        links.map((link) => (
           <li class="footer--item">
             <a class="type--tertiary-nav" href={link.url}>
               {link.text}
@@ -34,17 +34,19 @@ const languages = getLanguages();
       }
     </ul>
     <div class="footer--secondary-links">
-      <a
-        href="https://support.google.com/"
-        class="type--tertiary-nav footer--link"
-      >
+      <a href={help.url} class="type--tertiary-nav footer--link">
         <svg role="img" aria-hidden="true" class="icon footer__help-icon">
           <use href="/images/icons/sprite.svg#help"></use>
         </svg>
 
-        <span>Help</span>
+        <span>{help.text}</span>
       </a>
-      <LanguageSwitcher languages={languages} current={lang} client:visible />
+      <LanguageSwitcher
+        languages={languages}
+        current={lang}
+        label={select}
+        client:visible
+      />
     </div>
   </section>
 </footer>

@@ -18,7 +18,6 @@ import { deskTool } from 'sanity/desk';
 import { schemaTypes } from './schemas';
 import { visionTool } from '@sanity/vision';
 import { codeInput } from '@sanity/code-input';
-import { table } from '@sanity/table';
 import { withDocumentI18nPlugin } from '@sanity/document-internationalization';
 import { deskStructure, defaultDocumentNodeResolver } from '$lib/desk';
 import { theme as _theme } from './lib/theme';
@@ -35,7 +34,6 @@ const plugins = withDocumentI18nPlugin(
       defaultDocumentNode: defaultDocumentNodeResolver,
     }),
     codeInput(),
-    table(),
     ...(isDev ? devOnlyPlugins : []),
   ],
   {

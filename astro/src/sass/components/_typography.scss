@@ -35,7 +35,7 @@ $section-block-margin: 3.75rem;
   }
 
   &--wrapper {
-    margin-top: -5rem;
+    margin-top: -3rem;
     padding-top: 5rem;
   }
 }
@@ -124,7 +124,8 @@ $section-block-margin: 3.75rem;
 
   // Long-form type styling
   /* stylelint-disable-next-line selector-max-compound-selectors */
-  * + *:not(:empty) {
+  * + *:not(:empty):not(.header-anchor--wrapper),
+  * + astro-island > *:not(:empty) {
     margin-top: 1em;
   }
 
@@ -174,9 +175,9 @@ $section-block-margin: 3.75rem;
   figcaption:not(.code-figure--caption) {
     margin-top: 0.5rem;
 
-    &:not([class]) {
-      @extend %type--caption;
-    }
+    // &:not([class]) {
+    @extend %type--caption;
+    // }
   }
 
   img:not(:first-child):not([class]),

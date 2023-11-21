@@ -1,9 +1,9 @@
 ---
 import type { Locale } from '$types/content';
-import SiteHeader from '$components/SiteHeader.svelte';
+// import SiteHeader from '$components/SiteHeader.svelte';
 import SubscribeFooter from '$components/SubscribeFooter.svelte';
 import Footer from '$components/Footer.astro';
-import { getMicrocopy } from '$$microcopy';
+// import { getMicrocopyFromLangCode } from '$$microcopy';
 import '$sass/global.scss';
 
 export interface Props {
@@ -35,7 +35,7 @@ function l10nURL(url: URL, lang: string) {
   return localized;
 }
 
-const microcopy = getMicrocopy(locale.code);
+// const microcopy = getMicrocopyFromLangCode(locale.code);
 ---
 
 <!DOCTYPE html>
@@ -78,7 +78,7 @@ const microcopy = getMicrocopy(locale.code);
   </head>
   <body id="body">
     <!-- Header -->
-    <SiteHeader lang={locale.code} nav={microcopy.nav} client:load />
+    <!-- <SiteHeader lang={locale.code} nav={microcopy.nav} client:load /> -->
     <main class="main">
       <slot />
     </main>

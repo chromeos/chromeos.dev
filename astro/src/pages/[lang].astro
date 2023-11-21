@@ -1,31 +1,33 @@
 ---
-import { getMicrocopy, getLanguages } from '$$microcopy';
+import { getMicrocopyFromLangCode } from '$$microcopy';
 import Wrapper from '$layouts/wrapper.astro';
-import AnimatedHero from '$components/home/animated-hero.svelte';
+// import AnimatedHero from '$components/home/animated-hero.svelte';
+import { languages } from '$$sanity';
 
 /**
  * Builds paths for content files
  * @return {object[]} Paths
  */
 export function getStaticPaths() {
-  const languages = getLanguages();
   return languages.map((l) => ({
     params: {
       lang: l.code,
     },
     props: {
-      microcopy: getMicrocopy(l.code),
+      microcopy: getMicrocopyFromLangCode(l.code),
     },
   }));
 }
 
 const { microcopy } = Astro.props;
-const { home, locale } = microcopy;
-const hero = { heading: home.hero.heading, copy: home.hero.copy };
+const { locale } = microcopy;
+// const hero = { heading: home.hero.heading, copy: home.hero.copy };
+
+// console.log(languages);
 ---
 
 <Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
-  <AnimatedHero hero={hero} client:idle />
+  <!-- <AnimatedHero hero={hero} client:idle /> -->
 
   <script>
     import { theme } from '$js/theme';

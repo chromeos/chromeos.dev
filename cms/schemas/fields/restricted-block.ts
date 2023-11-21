@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 import { defineType, defineArrayMember, defineField } from 'sanity';
+import { KBDDecorator } from '$components/KBD';
+import { ImFilePicture } from 'react-icons/im';
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -49,7 +51,7 @@ export default defineType({
         decorators: [
           { title: 'Strong', value: 'strong' },
           { title: 'Emphasis', value: 'em' },
-          { title: 'Keyboard', value: 'kbd' },
+          KBDDecorator,
           { title: 'Code', value: 'code' },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
@@ -91,6 +93,13 @@ export default defineType({
           },
         ],
       },
+      of: [
+        {
+          type: 'picture',
+          title: 'Image',
+          icon: ImFilePicture,
+        },
+      ],
     }),
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array

@@ -1,3 +1,13 @@
+<script context="module" lang="ts">
+  export type CardProps = {
+    title: string;
+    body: string;
+    eyebrow?: Eyebrow;
+    position?: 'start' | 'end' | 'inline';
+    cta?: CTA;
+  };
+</script>
+
 <script lang="ts">
   import type { Eyebrow, CTA } from '$types/content';
   import EyebrowC from '$components/Eyebrow.svelte';
