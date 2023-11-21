@@ -8,6 +8,8 @@ import Figure from './Figure.svelte';
 import Link from './Link.svelte';
 import Code from './Code.svelte';
 import YouTube from '$components/YouTube.svelte';
+import Quote from './Quote.svelte';
+import Table from './Table.astro';
 
 import { microcopy as micro } from '$$sanity';
 import type { Microcopy } from '$types/sanity';
@@ -20,7 +22,7 @@ const microcopy = Object.values(micro).find(
 ---
 
 {
-  props._type === 'Message' ? (
+  props._type === 'Message' || props._type === 'message' ? (
     <Message type={props.type}>
       <PortableText body={props.text} wrapped={false} />
     </Message>
@@ -37,6 +39,10 @@ const microcopy = Object.values(micro).find(
   ) : props._type === 'block' &&
     (props.style === 'h2' || props.style === 'h3') ? (
     <Heading block={props} />
+  ) : props._type === 'quote' ? (
+    <Quote block={props}>
+      <PortableText body={props.quote} wrapped={false} />
+    </Quote>
   ) : props._type === 'youtube' ? (
     <YouTube
       id={props.id}
@@ -44,6 +50,14 @@ const microcopy = Object.values(micro).find(
       label={microcopy.actions.loadVideo}
       client:visible
     />
+  ) : props._type === 'table' ? (
+    <Table block={props} />
+  ) : props._type === 'break' ? (
+    <br />
+  ) : props._type === 'span' ? (
+    <span>
+      <PortableText body={props.children} wrapped={false} inline={true} />
+    </span>
   ) : props.markType === 'link' ? (
     <Link mark={props.markDef}>
       <PortableText body={props.children} wrapped={false} inline={true} />

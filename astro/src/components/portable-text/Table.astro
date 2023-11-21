@@ -1,0 +1,31 @@
+---
+import PortableText from './PortableText.astro';
+const { block: table /* , isInline, class */ } = Astro.props;
+---
+
+<table>
+  {
+    table.headers && (
+      <thead>
+        <tr>
+          {table.headers.map((header) => (
+            <th>{header}</th>
+          ))}
+        </tr>
+      </thead>
+    )
+  }
+  <tbody>
+    {
+      table.rows.map((row) => (
+        <tr>
+          {row.cells.map((cell) => (
+            <td>
+              <PortableText body={cell.content} wrapped={false} inline={true} />
+            </td>
+          ))}
+        </tr>
+      ))
+    }
+  </tbody>
+</table>
