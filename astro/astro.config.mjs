@@ -13,7 +13,6 @@ import tsconfig from './tsconfig.json';
 
 // Get the current directory
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
-console.log(__dirname);
 
 // Get the aliases from tsconfig
 const aliases = Object.entries(tsconfig.compilerOptions.paths).map(
