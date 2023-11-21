@@ -10,6 +10,7 @@ import Code from './Code.svelte';
 import YouTube from '$components/YouTube.svelte';
 import Quote from './Quote.svelte';
 import Table from './Table.astro';
+import Footnote from './Footnote.svelte';
 
 import { microcopy as micro } from '$$sanity';
 import type { Microcopy } from '$types/sanity';
@@ -58,6 +59,10 @@ const microcopy = Object.values(micro).find(
     <span>
       <PortableText body={props.children} wrapped={false} inline={true} />
     </span>
+  ) : props.markType === 'footnote' ? (
+    <Footnote block={props}>
+      <PortableText body={props.children} wrapped={false} inline={true} />
+    </Footnote>
   ) : props.markType === 'link' ? (
     <Link mark={props.markDef}>
       <PortableText body={props.children} wrapped={false} inline={true} />

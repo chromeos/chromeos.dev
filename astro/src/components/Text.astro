@@ -1,5 +1,6 @@
 ---
 import PortableText from '$components/portable-text/PortableText.astro';
+import { filterAST } from '$lib/portabletext';
 
 export interface Props {
   body: any;
@@ -8,11 +9,72 @@ export interface Props {
 }
 
 const { body, wrapped = true, inline = false } = Astro.props;
+
+// Filter to find just the blocks that contain footnotes
+const footnoteBlocks = filterAST(body, (node) =>
+  node?.markDefs?.find((def) => def._type === 'footnote'),
+);
+
+const footnotes = [];
+let footnoteCounter = 0;
+
+// Extract the footnotes from the blocks, give them an ID, and attach the ID to the footnote markDefs
+for (const block of footnoteBlocks) {
+  const fn = block?.markDefs?.filter((def) => def._type === 'footnote') || [];
+
+  // Sadly need a double loop here to maintain the reference to the original markDefs
+  for (const f of fn) {
+    footnoteCounter++;
+    footnotes.push({
+      _key: f._key,
+      text: f.description.text,
+      id: footnoteCounter,
+    });
+    f.id = footnoteCounter;
+  }
+}
 ---
 
 <PortableText body={body} wrapped={wrapped} inline={inline} />
+
+{
+  footnotes.length > 0 && (
+    <section class="footnotes">
+      <hr class="footnotes--sep" />
+      <ol class="footnotes--list">
+        {footnotes.map((f) => (
+          <li class="footnotes--li" id={`fn-${f.id}`}>
+            <span class="footnotes--item">
+              <PortableText body={f.text} wrapped={false} inline={false} />{' '}
+              <a href={`#fnref-${f.id}`} class="footnote-backref type--link">
+                ↩︎
+              </a>
+            </span>
+          </li>
+        ))}
+      </ol>
+    </section>
+  )
+}
 
 <script>
   // Include paint worklets
   await import('$js/paint.js');
 </script>
+
+<style lang="scss">
+  .footnotes {
+    &--sep {
+      margin-block: 2rem;
+    }
+    &--list {
+      margin-inline: 1rem;
+    }
+
+    &--item {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  }
+</style>
