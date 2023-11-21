@@ -2,7 +2,6 @@
   import { getContext } from 'svelte';
   export let item;
 
-  const lang = getContext('lang');
   const active = getContext('active');
 
   const id = `nav-${item.title.toLowerCase().replace(/ /g, '-')}`;
@@ -32,14 +31,14 @@
   >
     {#each item.sections as section}
       <li>
-        <a href="/{lang}/{section.url}" class="type--primary-nav">
+        <a href={section.url} class="type--primary-nav">
           {section.title}
         </a>
       </li>
     {/each}
   </ul>
 {:else}
-  <a href="/{lang}/{item.url}" class="type--primary-nav">{item.title}</a>
+  <a href={item.url} class="type--primary-nav">{item.title}</a>
 {/if}
 
 <style lang="scss">

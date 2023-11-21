@@ -1,28 +1,23 @@
-<script>
+<script lang="ts">
+  import type { Navigation } from '$types/sanity';
   import Logo from '$components/site-header/Logo.svelte';
   import NavItem from '$components/site-header/NavItem.svelte';
   import Search from '$components/Search.svelte';
   import { setContext } from 'svelte';
   import { writable } from 'svelte/store';
 
-  export let lang;
-  export let nav;
+  export let nav: Navigation;
+  export let subscribe: { text: string; url: string; type: string };
 
+  const lang = nav._langCode;
   let popover;
   let first;
   let last;
   let searchIcon;
   let searchActive = null;
 
-  const subscribe = {
-    text: 'Subscribe',
-    url: `/${lang}/subscribe`,
-    type: 'high',
-  };
-
   const active = writable(null);
 
-  setContext('lang', lang);
   setContext('active', active);
 
   /**
@@ -79,8 +74,8 @@
   <!-- Navigation -->
   <nav class="header--nav">
     <ul class="header--nav-items">
-      {#if nav}
-        {#each nav as item}
+      {#if nav.items}
+        {#each nav.items as item}
           <li>
             <NavItem {item} />
           </li>
@@ -122,8 +117,8 @@
 
   <nav>
     <ul class="popover--nav">
-      {#if nav}
-        {#each nav as item}
+      {#if nav.items}
+        {#each nav.items as item}
           <li class="popover--nav-item">
             <NavItem {item} />
           </li>

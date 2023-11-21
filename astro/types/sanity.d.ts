@@ -84,7 +84,7 @@ export type NavLink = {
 
 export type NavSection = {
   title: string;
-  links: NavLink[];
+  sections: NavLink[];
 };
 
 export type NavItem = NavLink | NavSection;

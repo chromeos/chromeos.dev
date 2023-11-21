@@ -36,7 +36,7 @@ export const navigation = (
         title,
         section == true => {
           // description,
-          'items': sections[] {
+          sections[] {
             title,
             'url': link,
           }

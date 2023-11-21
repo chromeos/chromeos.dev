@@ -1,9 +1,10 @@
 ---
 import type { Locale } from '$types/content';
-// import SiteHeader from '$components/SiteHeader.svelte';
+import SiteHeader from '$components/SiteHeader.svelte';
 import SubscribeFooter from '$components/SubscribeFooter.svelte';
 import Footer from '$components/Footer.astro';
-// import { getMicrocopyFromLangCode } from '$$microcopy';
+import { navigation } from '$lib/sanity';
+import { getMicrocopyFromLangCode } from '$$microcopy';
 import '$sass/global.scss';
 
 export interface Props {
@@ -20,6 +21,14 @@ const { title, props = [], locale, metadesc } = Astro.props;
 
 // TODO: get all availabe languages for current content
 const languages = [];
+
+const nav = navigation.find((n) => n._langCode === locale.code);
+const microcopy = getMicrocopyFromLangCode(locale.code);
+const subscribe = {
+  text: microcopy.actions.subscribe,
+  url: `/${locale.code}/subscribe`,
+  type: 'high',
+};
 
 /**
  * Returns a localized URL for a given URL and language code.
@@ -78,7 +87,7 @@ function l10nURL(url: URL, lang: string) {
   </head>
   <body id="body">
     <!-- Header -->
-    <!-- <SiteHeader lang={locale.code} nav={microcopy.nav} client:load /> -->
+    <SiteHeader nav={nav} subscribe={subscribe} client:load />
     <main class="main">
       <slot />
     </main>
