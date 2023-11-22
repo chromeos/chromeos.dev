@@ -46,44 +46,44 @@
   };
 </script>
 
-<svelte:element this={Wrapper} class="story-hero">
+<svelte:element this={Wrapper} class="post-hero">
   <div class="theme {`theme__${theme.slug}`}">
-    <div class="story-hero--inner">
-      <div class="story-hero--content-wrapper wrapper--padded wrapper--padding">
+    <div class="post-hero--inner">
+      <div class="post-hero--content-wrapper wrapper--padded wrapper--padding">
         {#if form === 'header' && cta.url}
-          <div class="story-hero--top-cta">
+          <div class="post-hero--top-cta">
             <CallToAction cta={callToAction} />
           </div>
         {/if}
         {#if theme.eyebrow}
-          <div
-            class="story-hero--eyebrow {!banner ? 'story-hero--unibrow' : ''}"
-          >
+          <div class="post-hero--eyebrow {!banner ? 'post-hero--unibrow' : ''}">
             <Eyebrow {eyebrow} size={banner ? 'large' : 'small'} />
           </div>
         {/if}
 
-        <svelte:element this={Header} class="type--h1">{title}</svelte:element>
+        <svelte:element this={Header} class="post-hero--title type--h1"
+          >{title}</svelte:element
+        >
         <!-- Only include the description and lower CTA if this isn't being displayed as a header -->
         {#if form !== 'header'}
-          <p class="story-hero--body type--h4">{description}</p>
-          <div class="story-hero--cta">
+          <p class="post-hero--body type--h4">{description}</p>
+          <div class="post-hero--cta">
             <CallToAction cta={callToAction} />
           </div>
         {/if}
       </div>
       {#if media?.image}
-        <div class="story-hero--image-wrapper">
-          <img src={media.image} alt={media.alt} class="story-hero--image" />
+        <div class="post-hero--image-wrapper">
+          <img src={media.image} alt={media.alt} class="post-hero--image" />
         </div>
       {/if}
 
       {#if theme.backgrounds}
-        <div class="story-hero--background">
+        <div class="post-hero--background">
           <img
             loading="lazy"
             data-large
-            aria-hidden
+            aria-hidden="true"
             src={theme.backgrounds.large}
           />
           <img
@@ -101,12 +101,16 @@
 <style lang="scss">
   $swap: 690px;
 
-  .story-hero {
+  .post-hero {
     $parent: #{&};
 
     container-type: inline-size;
     position: relative;
     width: 100%;
+
+    &--title {
+      text-wrap: balance;
+    }
 
     &--inner {
       display: flex;
