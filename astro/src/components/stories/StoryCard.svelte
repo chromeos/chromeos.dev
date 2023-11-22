@@ -49,7 +49,7 @@
   };
 </script>
 
-<a href={story.path} class="story-card" aria-labelledby={id}>
+<a href={story._path} class="story-card" aria-labelledby={id}>
   <article class="story-card--container">
     <img src={image} alt={story?.hero?.alt || null} />
     <div class="story-card--content">
