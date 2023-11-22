@@ -94,6 +94,7 @@
 
 <style lang="scss">
   .pagination {
+    margin-top: 1rem;
     &--pages {
       list-style: none;
       display: flex;
