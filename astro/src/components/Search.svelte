@@ -12,7 +12,6 @@
     aria-label={label}
     placeholder={label}
   />
-  <input type="hidden" name="locale" value={locale.code} />
   <input type="hidden" name="page" value="1" />
   <button aria-label={label} class="search--button">
     <svg role="img" aria-hidden="true" class="icon">

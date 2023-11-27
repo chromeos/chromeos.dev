@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
 import nodejs from '@astrojs/node';
 import sanity from '@sanity/astro';
+import virtual from '@rollup/plugin-virtual';
 
 import 'dotenv/config';
 
@@ -57,6 +58,11 @@ export default defineConfig({
   ],
   compressHTML: true,
   vite: {
+    plugins: [
+      virtual({
+        'virtual:search': '',
+      }),
+    ],
     resolve: {
       alias: aliases,
     },

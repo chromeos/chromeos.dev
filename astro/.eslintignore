@@ -10,3 +10,4 @@ dist
 .firebaserc
 .gitignore
 .prettierignore
+public/pagefind

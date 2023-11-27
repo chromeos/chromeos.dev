@@ -66,3 +66,20 @@ export function buildTOC(body: PortableTextBlock[]): TOC[] {
       return i;
     });
 }
+
+/**
+ * Convert PortableText AST to plain text, quick and dirty
+ * TODO: Replace with recursive function
+ * @param {PortableTextBlock[]} blocks - Portable Text Block
+ * @return {string}
+ */
+export function blocksToText(blocks) {
+  return blocks
+    .map((block) => {
+      if (block._type !== 'block' || !block.children) {
+        return '';
+      }
+      return block.children.map((child) => child.text).join('');
+    })
+    .join('\n\n');
+}

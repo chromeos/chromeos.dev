@@ -4,11 +4,33 @@ import ISO6391 from 'iso-639-1';
 import fm from 'front-matter';
 import { readFileSync } from 'fs';
 import { renderMarkdown } from './markdown';
+import { all } from './sanity';
+import { blocksToText } from './portabletext';
+
+import * as pagefind from 'pagefind';
 
 const searchIndex = {};
 let searchContent = {};
 const searchPreviews = {};
 const countryCodes = ISO6391.getAllCodes().join('|');
+
+const { index } = await pagefind.createIndex();
+
+for (const item of all) {
+  await index.addCustomRecord({
+    url: item._path,
+    language: item._langCode,
+    content: blocksToText(item.body),
+    meta: {
+      title: item.title,
+      description: item.description,
+    },
+  });
+}
+
+await index.writeFiles({
+  outputPath: 'public/pagefind',
+});
 
 /**
  *

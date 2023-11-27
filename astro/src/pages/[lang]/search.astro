@@ -1,91 +1,50 @@
 ---
-// import { getMicrocopy, getLanguages } from '$$microcopy';
-// import { search } from '$lib/search';
+import { getMicrocopyFromLangCode } from '$$microcopy';
 import Wrapper from '$layouts/wrapper.astro';
-// import Card from '$components/Card.svelte';
-// import Pagination from '$components/Pagination.svelte';
-// import Search from '$components/Search.svelte';
+import Search from '$components/Search.svelte';
+import SearchResults from '$components/SearchResults.svelte';
+// import AnimatedHero from '$components/home/animated-hero.svelte';
+import { languages } from '$$sanity';
 
-export const prerender = false;
+/**
+ * Builds paths for content files
+ * @return {object[]} Paths
+ */
+export function getStaticPaths() {
+  return languages.map((l) => ({
+    params: {
+      lang: l.code,
+    },
+    props: {
+      microcopy: getMicrocopyFromLangCode(l.code),
+    },
+  }));
+}
 
-// const { lang } = Astro.params;
-// const languages = getLanguages();
-
-// if (!languages.map((l) => l.code).includes(lang)) {
-//   return Astro.redirect('/');
-// }
-
-const {
-  // q,
-  locale,
-  // page: p = 1,
-} = Object.fromEntries(Astro.url.searchParams.entries());
-
-// const microcopy = getMicrocopy(lang);
-// const { search: s, locale, microcopy: m } = microcopy;
-// const found = q ? search(q, l || locale.code) : [];
-
-// let results = found;
-// const pages = Math.ceil(found.length / 10);
-// // console.log(found.length)
-// if (found.length > 10) {
-//   const count = Number(p - 1) * 10;
-//   results = found.slice(count, count + 10);
-// }
+const { microcopy } = Astro.props;
+const { locale } = microcopy;
+// console.log(locale);
+// const hero = { heading: home.hero.heading, copy: home.hero.copy };
 ---
 
-<Wrapper locale={locale} metadesc="" title="Search">
-  <h1>Search</h1>
-  <!-- <div class="wrapper wrapper--padded wrapper--padding wrapper--full-height">
-    <div class="search-wrapper"> -->
-  <!-- If there's a search term, display results length -->
-  <!-- {
-        q && (
-          <p class="type--h2">
-            {s.results
-              .replace('((d))', found.length)
-              .replace('((t))', '"' + q + '"')}
-          </p>
-        )
-      }
-      <Search label={s.placeholder} locale={locale} /> -->
+<Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
+  <Search locale={locale} label="Search" />
+  <div id="SearchResults">
+    <SearchResults
+      resultsString={microcopy.search.results}
+      locale={locale}
+      pagination={microcopy.pagination}
+      client:load
+    />
+  </div>
 
-  <!-- If there are results, display them -->
-  <!-- {
-        results.length > 0 && (
-          <ol class="results">
-            {results.map((item) => (
-              <li class="results--item">
-                <Card
-                  title={item.title}
-                  body={item.metadesc}
-                  position="inline"
-                  cta={{
-                    text: '',
-                    url: item.href,
-                    type: 'link',
-                    direction: 'forward',
-                  }}
-                />
-              </li>
-            ))}
-          </ol>
-        )
-      }
-      {
-        Number(pages) > 1 && (
-          <Pagination
-            base={`/${locale.code}/search?q=${q}&locale=${locale.code}&page=`}
-            current={p}
-            total={pages}
-            locale={locale.code}
-            labels={m.pagination}
-            pager="query"
-          />
-        )
-      }
-    </div>
-  </div> -->
+  <script type="module">
+    // eslint-disable-next-line import/no-unresolved
+    window.pagefind = await import('/pagefind/pagefind.js');
+    const results = document.getElementById('SearchResults');
+    const searchEvent = new Event('SearchReady');
+    results.dispatchEvent(searchEvent);
+  </script>
 </Wrapper>
 
 <style lang="scss">
