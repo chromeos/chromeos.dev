@@ -46,7 +46,7 @@ for (const block of footnoteBlocks) {
           <li class="footnotes--li" id={`fn-${f.id}`}>
             <span class="footnotes--item">
               <PortableText body={f.text} wrapped={false} inline={false} />{' '}
-              <a href={`#fnref-${f.id}`} class="footnote-backref type--link">
+              <a href={`#fnref-${f.id}`} class="footnotes--backref">
                 ↩︎
               </a>
             </span>
@@ -73,8 +73,15 @@ for (const block of footnoteBlocks) {
 
     &--item {
       display: inline-flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+      align-items: flex-end;
+      gap: 0.25rem;
+      text-wrap: pretty;
+    }
+
+    &--backref {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
     }
   }
 </style>
