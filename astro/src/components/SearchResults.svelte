@@ -65,9 +65,9 @@
   });
 </script>
 
-{#if q}
-  {#if results}
-    <div class="results">
+<div class="results">
+  {#if q}
+    {#if results}
       <h2 class="type--h3 results--header">{rString}</h2>
       <ul class="results--list">
         {#each results as result}
@@ -97,13 +97,13 @@
           pager="query"
         />
       {/if}
-    </div>
-  {:else if error}
-    <h1>Error</h1>
-  {:else}
-    <h1>Loading</h1>
+    {:else if error}
+      <h2 class="type--h3 results--header">Error</h2>
+    {:else}
+      <h2 class="type--h3 results--header">Loading</h2>
+    {/if}
   {/if}
-{/if}
+</div>
 
 <style lang="scss">
   .results {
