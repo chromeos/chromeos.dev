@@ -37,11 +37,13 @@
   }
 
   onMount(async () => {
+    // Get params
+    const params = new URLSearchParams(window.location.search);
+    q = params.get('q');
+    page = Number(params.get('page')) || 1;
+
     // Set up search function
     search = async function search() {
-      const params = new URLSearchParams(window.location.search);
-      q = params.get('q');
-      page = Number(params.get('page'));
       const { results: r } = await $pagefind.search(q);
       pages = Math.ceil(r.length / pager);
       const start = (page - 1) * pager;
@@ -63,31 +65,65 @@
   });
 </script>
 
-{#if results}
-  <h2>{rString}</h2>
-  {#each results as result}
-    <Card
-      title={result.meta.title}
-      body={result.meta.description}
-      position="inline"
-      cta={{
-        text: '',
-        url: result.url,
-      }}
-    />
-  {/each}
-  {#if pages > 1}
-    <Pagination
-      base={`/${locale.code}/search?q=${q}&page=`}
-      current={page}
-      total={pages}
-      locale={locale.code}
-      labels={pagination}
-      pager="query"
-    />
+{#if q}
+  {#if results}
+    <div class="results">
+      <h2 class="type--h3 results--header">{rString}</h2>
+      <ul class="results--list">
+        {#each results as result}
+          <li>
+            <Card
+              title={result.meta.title}
+              body={result.meta.description}
+              position="inline"
+              cta={{
+                text: '',
+                url: result.url,
+                direction: 'forward',
+                type: 'link',
+              }}
+            />
+          </li>
+        {/each}
+      </ul>
+
+      {#if pages > 1}
+        <Pagination
+          base={`/${locale.code}/search?q=${q}&page=`}
+          current={page}
+          total={pages}
+          locale={locale.code}
+          labels={pagination}
+          pager="query"
+        />
+      {/if}
+    </div>
+  {:else if error}
+    <h1>Error</h1>
+  {:else}
+    <h1>Loading</h1>
   {/if}
-{:else if error}
-  <h1>Error</h1>
-{:else}
-  <h1>Loading</h1>
 {/if}
+
+<style lang="scss">
+  .results {
+    max-width: 80ch;
+    margin-inline: auto;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin-block-start: 2rem;
+
+    &--header {
+      text-align: center;
+    }
+
+    &--list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>
