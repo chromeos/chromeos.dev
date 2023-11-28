@@ -28,6 +28,29 @@ for (const item of all) {
   });
 }
 
+const { files } = await index.getFiles();
+
+// File paths and total size of offline files
+export const offline = files
+  .filter((f) =>
+    f.path.endsWith('.css') ||
+    f.path.endsWith('-ui.js') ||
+    f.path === 'pagefind-highlight.js'
+      ? false
+      : true,
+  )
+  .reduce(
+    (acc, cur) => {
+      acc.files.push(`/pagefind/${cur.path}`);
+      acc.size += cur.content.byteLength / 1000;
+      return acc;
+    },
+    {
+      files: [],
+      size: 0,
+    },
+  );
+
 await index.writeFiles({
   outputPath: 'public/pagefind',
 });
