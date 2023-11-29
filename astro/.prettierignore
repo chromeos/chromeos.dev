@@ -13,3 +13,5 @@ dist
 .eslintignore
 .firebaserc
 .gitignore
+public/pagefind
+src/js/generated

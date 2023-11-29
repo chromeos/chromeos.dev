@@ -18,6 +18,7 @@ import {
   featuredQuery,
   coreMetaQuery,
 } from '$lib/sanity/queries';
+import { generateSearchFiles } from '$lib/sanity/search';
 import { rtl, vertical } from '$lib/i18n';
 import iso6391 from 'iso-639-1';
 import { inspect } from 'util';
@@ -271,6 +272,8 @@ export const landings = (
 }) as Landing[];
 
 export const all = [...posts, ...documentation, ...stories, ...landings];
+
+export const search = await generateSearchFiles(all);
 
 /** ****************
  *

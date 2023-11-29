@@ -2,13 +2,12 @@
   import { onMount } from 'svelte';
   import Card from '$components/Card.svelte';
   import Pagination from '$components/Pagination.svelte';
-  import { writable } from 'svelte/store';
 
   export let resultsString = '';
   export let locale;
   export let pagination;
 
-  const pagefind = writable();
+  let pagefind = {};
   let q = '';
   let page = 1;
   let pages;
@@ -22,7 +21,7 @@
 
   $: {
     // If pagefind is set, search
-    if ($pagefind?.search) {
+    if (pagefind?.search && search) {
       search();
     } else {
       // If it's not set, keep waiting for 3 seconds, then error
@@ -44,7 +43,7 @@
 
     // Set up search function
     search = async function search() {
-      const { results: r } = await $pagefind.search(q);
+      const { results: r } = await pagefind.search(q);
       pages = Math.ceil(r.length / pager);
       const start = (page - 1) * pager;
       const end = start + pager;
@@ -52,16 +51,17 @@
       rString = resultsString.replace('((d))', r.length).replace('((q))', q);
     };
 
-    // Try and set Pagefind from the window object
-    pagefind.set(window.pagefind);
+    // Set up Pagefind
+    const pf = await import('$js/generated/pagefind.js');
 
-    // If it's not there, wait for the SearchResults component to emit it
-    if (!$pagefind?.search) {
-      const SearchResults = document.getElementById('SearchResults');
-      SearchResults.addEventListener('SearchReady', () => {
-        pagefind.set(window.pagefind);
-      });
-    }
+    // Point Pagefind to public files and initialize
+    await pf.options({
+      basePath: '/pagefind/',
+    });
+
+    pf.init();
+
+    pagefind = pf;
   });
 </script>
 

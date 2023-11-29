@@ -4,56 +4,11 @@ import ISO6391 from 'iso-639-1';
 import fm from 'front-matter';
 import { readFileSync } from 'fs';
 import { renderMarkdown } from './markdown';
-import { all } from './sanity';
-import { blocksToText } from './portabletext';
-
-import * as pagefind from 'pagefind';
 
 const searchIndex = {};
 let searchContent = {};
 const searchPreviews = {};
 const countryCodes = ISO6391.getAllCodes().join('|');
-
-const { index } = await pagefind.createIndex();
-
-for (const item of all) {
-  await index.addCustomRecord({
-    url: item._path,
-    language: item._langCode,
-    content: blocksToText(item.body),
-    meta: {
-      title: item.title,
-      description: item.description,
-    },
-  });
-}
-
-const { files } = await index.getFiles();
-
-// File paths and total size of offline files
-export const offline = files
-  .filter((f) =>
-    f.path.endsWith('.css') ||
-    f.path.endsWith('-ui.js') ||
-    f.path === 'pagefind-highlight.js'
-      ? false
-      : true,
-  )
-  .reduce(
-    (acc, cur) => {
-      acc.files.push(`/pagefind/${cur.path}`);
-      acc.size += cur.content.byteLength / 1000;
-      return acc;
-    },
-    {
-      files: [],
-      size: 0,
-    },
-  );
-
-await index.writeFiles({
-  outputPath: 'public/pagefind',
-});
 
 /**
  *

@@ -11,3 +11,4 @@ dist
 .gitignore
 .prettierignore
 public/pagefind
+src/js/generated

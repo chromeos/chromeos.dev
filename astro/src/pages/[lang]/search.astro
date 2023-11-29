@@ -42,14 +42,6 @@ const { locale } = microcopy;
       />
     </div>
   </article>
-
-  <script type="module">
-    // eslint-disable-next-line import/no-unresolved
-    window.pagefind = await import('/pagefind/pagefind.js');
-    const results = document.getElementById('SearchResults');
-    const searchEvent = new Event('SearchReady');
-    results.dispatchEvent(searchEvent);
-  </script>
 </Wrapper>
 
 <style lang="scss">
