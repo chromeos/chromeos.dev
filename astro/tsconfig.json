@@ -11,7 +11,8 @@
       "$$*": ["lib/*"],
       "$types/*": ["types/*"],
       "$sass/*": ["src/sass/*"],
-      "$markdown/*": ["src/markdown/*"]
+      "$markdown/*": ["src/markdown/*"],
+      "$generated/*": [".generated/*"]
     }
   }
 }

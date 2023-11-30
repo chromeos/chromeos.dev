@@ -22,4 +22,4 @@ pnpm-debug.log*
 .DS_Store
 
 public/pagefind
-src/js/generated
+.generated

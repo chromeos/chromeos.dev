@@ -14,4 +14,4 @@ dist
 .firebaserc
 .gitignore
 public/pagefind
-src/js/generated
+.generated

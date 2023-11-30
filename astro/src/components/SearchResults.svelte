@@ -52,7 +52,7 @@
     };
 
     // Set up Pagefind
-    const pf = await import('$js/generated/pagefind.js');
+    const pf = await import('$generated/pagefind.js');
 
     // Point Pagefind to public files and initialize
     await pf.options({

@@ -1,14 +1,12 @@
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
 import nodejs from '@astrojs/node';
-import sanity from '@sanity/astro';
 import virtual from '@rollup/plugin-virtual';
 
 import 'dotenv/config';
 
 import * as path from 'path';
 import * as url from 'url';
-import process from 'process';
 
 import tsconfig from './tsconfig.json';
 
@@ -46,16 +44,7 @@ export default defineConfig({
   adapter: nodejs({
     mode: 'middleware',
   }),
-  integrations: [
-    svelte(),
-    sanity({
-      projectId: process.env.SANITY_PROJECT_ID,
-      dataset: process.env.SANITY_DATASET,
-      token: process.env.SANITY_TOKEN,
-      apiVersion: '2023-10-02',
-      useCdn: process.env.NODE_ENV === 'production',
-    }),
-  ],
+  integrations: [svelte()],
   compressHTML: true,
   vite: {
     plugins: [

@@ -8,8 +8,12 @@ import type {
   Newsletter,
   StoryLanding,
   Navigation,
-} from '$types/sanity';
-import { useSanityClient } from '@sanity/astro';
+} from '../types/sanity';
+
+import 'dotenv/config';
+import process from 'process';
+
+import { createClient } from '@sanity/client';
 import { groupByLanguage, cleanup, buildPath } from '$lib/sanity/helpers';
 import {
   linkQuery,
@@ -18,14 +22,19 @@ import {
   featuredQuery,
   coreMetaQuery,
 } from '$lib/sanity/queries';
-import { generateSearchFiles } from '$lib/sanity/search';
 import { rtl, vertical } from '$lib/i18n';
 import iso6391 from 'iso-639-1';
 import { inspect } from 'util';
 
 let includeDrafts = false;
 
-export const sanity = useSanityClient();
+export const sanity = createClient({
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_DATASET,
+  token: process.env.SANITY_TOKEN,
+  apiVersion: '2023-10-02',
+  useCdn: process.env.NODE_ENV === 'production',
+});
 
 const linkRegex = /^\/{\s*{\s*locale\s*}\s*}\//gm;
 
@@ -272,8 +281,6 @@ export const landings = (
 }) as Landing[];
 
 export const all = [...posts, ...documentation, ...stories, ...landings];
-
-export const search = await generateSearchFiles(all);
 
 /** ****************
  *
