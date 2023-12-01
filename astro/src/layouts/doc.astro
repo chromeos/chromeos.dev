@@ -1,8 +1,7 @@
 ---
 import type { Locale } from '$types/content';
 import Wrapper from '$layouts/wrapper.astro';
-import { findRelated } from '$lib/search';
-import Card from '$components/Card.svelte';
+import Recommended from '$components/Recommended.svelte';
 import { getMicrocopyFromLangCode } from '$$microcopy';
 
 export interface Props {
@@ -17,11 +16,7 @@ export interface Props {
 }
 
 const { title, props = [], locale, metadesc, section } = Astro.props;
-const related = findRelated(title, locale.code, Astro.url.pathname);
-// console.log(locale);
 const microcopy = getMicrocopyFromLangCode(locale.code);
-// const microcopy = getMicrocopy(locale.code);
-// console.log(microcopy);
 ---
 
 <Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>
@@ -40,30 +35,13 @@ const microcopy = getMicrocopyFromLangCode(locale.code);
       <slot name="content" />
     </section>
   </article>
-  <aside
-    class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__contained wrapper__background"
-  >
-    <h3 class="article--recommended type--h1">
-      {microcopy.identifiers.recommended}
-    </h3>
-    <div class="article--recommendations">
-      {
-        related.map((item) => (
-          <Card
-            title={item.title}
-            body={item.metadesc}
-            position="end"
-            cta={{
-              text: '',
-              url: item.href,
-              type: 'link',
-              direction: 'forward',
-            }}
-          />
-        ))
-      }
-    </div>
-  </aside>
+
+  <Recommended
+    title={title}
+    language={locale.code}
+    url={Astro.url.pathname}
+    header={microcopy.identifiers.recommended}
+  />
 </Wrapper>
 
 <style lang="scss">
@@ -117,20 +95,6 @@ const microcopy = getMicrocopyFromLangCode(locale.code);
         grid-row: 1 / span 2;
         // margin-block-end: 0;
       }
-    }
-
-    &--recommended {
-      margin-block: 0;
-      margin-inline: auto;
-      max-width: 30ch;
-      text-align: center;
-    }
-
-    &--recommendations {
-      grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
-      display: grid;
-      gap: 2.5rem 1.5rem;
-      margin-block: 2.5rem;
     }
   }
 </style>

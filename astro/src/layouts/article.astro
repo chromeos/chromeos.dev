@@ -1,7 +1,6 @@
 ---
 import Wrapper from '$layouts/wrapper.astro';
-// import { findRelated } from '$lib/search';
-// import Card from '$components/Card.svelte';
+import Recommended from '$components/Recommended.svelte';
 
 export interface Props {
   title: string;
@@ -15,7 +14,6 @@ export interface Props {
 
 const { title, props = [], metadesc, microcopy } = Astro.props;
 const { locale } = microcopy;
-// const related = findRelated(title, locale.code, Astro.url.pathname);
 ---
 
 <Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>
@@ -35,30 +33,12 @@ const { locale } = microcopy;
       </section>
     </div>
   </article>
-  <aside
-    class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__contained wrapper__background"
-  >
-    <!-- <h3 class="article--recommended type--h1">
-      {microcopy.microcopy.recommended}
-    </h3>
-    <div class="article--recommendations">
-      {
-        related.map((item) => (
-          <Card
-            title={item.title}
-            body={item.metadesc}
-            position="end"
-            cta={{
-              text: '',
-              url: item.href,
-              type: 'link',
-              direction: 'forward',
-            }}
-          />
-        ))
-      }
-    </div> -->
-  </aside>
+  <Recommended
+    title={title}
+    language={locale.code}
+    url={Astro.url.pathname}
+    header={microcopy.identifiers.recommended}
+  />
 </Wrapper>
 
 <style lang="scss">
@@ -145,20 +125,6 @@ const { locale } = microcopy;
         // }
         // margin-block-end: 0;
       }
-    }
-
-    &--recommended {
-      margin-block: 0;
-      margin-inline: auto;
-      max-width: 30ch;
-      text-align: center;
-    }
-
-    &--recommendations {
-      grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
-      display: grid;
-      gap: 2.5rem 1.5rem;
-      margin-block: 2.5rem;
     }
 
     :global(.extras-section) {
