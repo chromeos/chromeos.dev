@@ -1,0 +1,36 @@
+---
+import type { Cookiejar } from '$types/sanity';
+import CookieConsent from '$components/CookieConsent.svelte';
+import Text from '$components/Text.astro';
+
+export interface Props {
+  cookiejar: Cookiejar;
+}
+
+const { cookiejar } = Astro.props;
+---
+
+<CookieConsent
+  title={cookiejar.title}
+  accept={cookiejar.accept}
+  decline={cookiejar.decline}
+  client:load
+>
+  <Text body={cookiejar.description} />
+</CookieConsent>
+
+<!-- Google Tag Manager -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript
+  ><iframe
+    src="https://www.googletagmanager.com/ns.html?id=GTM-P2W8H6G"
+    height="0"
+    width="0"
+    style="display: none; visibility: hidden;"></iframe></noscript
+>
+<!-- End Google Tag Manager (noscript) -->

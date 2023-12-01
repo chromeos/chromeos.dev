@@ -3,7 +3,8 @@ import type { Locale } from '$types/content';
 import SiteHeader from '$components/SiteHeader.svelte';
 import SubscribeFooter from '$components/SubscribeFooter.svelte';
 import Footer from '$components/Footer.astro';
-import { navigation } from '$lib/sanity';
+import Analytics from '$components/Analytics.astro';
+import { navigation, cookies } from '$lib/sanity';
 import { getMicrocopyFromLangCode } from '$$microcopy';
 import '$sass/global.scss';
 
@@ -46,6 +47,8 @@ function l10nURL(url: URL, lang: string) {
   return localized;
 }
 
+const cookiejar = cookies.find((c) => c._langCode === locale.code);
+
 // const microcopy = getMicrocopyFromLangCode(locale.code);
 ---
 
@@ -86,6 +89,8 @@ function l10nURL(url: URL, lang: string) {
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Google+Sans:400,500|Google+Sans+Text:400,400i,500,700,700i|Google+Sans+Mono:400,600&display=swap"
     />
+    <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-P2W8H6G"
+    ></script>
   </head>
   <body id="body">
     <!-- Header -->
@@ -103,22 +108,6 @@ function l10nURL(url: URL, lang: string) {
       theme.init();
     </script>
 
-    <!-- Cookie Disclaimer -->
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script>
-      /* eslint-disable no-undef, prefer-rest-params */
-      window.dataLayer = window?.dataLayer || [];
-      /**
-       * Kick off the Google Analytics script.
-       */
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', 'UA-168234575-1');
-      /* eslint-enable no-undef, prefer-rest-params */
-    </script>
+    <Analytics cookiejar={cookiejar} />
   </body>
 </html>

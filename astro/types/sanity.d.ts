@@ -121,6 +121,13 @@ export interface Navigation {
   items: NavItem[];
 }
 
+export interface Cookiejar extends CoreContentMeta {
+  title: string;
+  description: PortableTextBlock[];
+  accept: string;
+  decline: string;
+}
+
 export interface Newsletter extends CoreContentMeta {
   title: string;
   description: string;

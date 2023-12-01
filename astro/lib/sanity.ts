@@ -8,6 +8,7 @@ import type {
   Newsletter,
   StoryLanding,
   Navigation,
+  Cookiejar,
 } from '../types/sanity';
 
 import 'dotenv/config';
@@ -37,6 +38,18 @@ export const sanity = createClient({
 });
 
 const linkRegex = /^\/{\s*{\s*locale\s*}\s*}\//gm;
+
+export const cookies = (await sanity.fetch(
+  `*[_type == 'cookies' && !(_id in path('drafts.**'))]
+    {
+      title,
+      description,
+      "accept": cta.accept,
+      "decline": cta.decline,
+      ${coreMetaQuery}
+    }
+    `,
+)) as Cookiejar[];
 
 export const navigation = (
   await sanity.fetch(
