@@ -67,7 +67,7 @@
     "eslint-plugin-n": "^15.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-svelte3": "^4.0.0",
-    "firebase-tools": "^12.3.1",
+    "firebase-tools": "^12.9.1",
     "front-matter": "^4.0.2",
     "fs-extra": "^11.1.1",
     "glob": "^9.3.2",
