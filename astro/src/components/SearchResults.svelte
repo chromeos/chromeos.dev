@@ -73,8 +73,8 @@
         {#each results as result}
           <li>
             <Card
-              title={result.meta.title}
-              body={result.meta.description}
+              title={result.meta?.title}
+              body={result.meta?.description}
               position="inline"
               cta={{
                 text: '',
