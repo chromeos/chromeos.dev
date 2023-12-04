@@ -89,13 +89,50 @@ export type NavSection = {
 
 export type NavItem = NavLink | NavSection;
 
-// Meta attributes assigned to all content
-interface CoreContentMeta {
+export type HomepageRefCTA = {
+  text: string;
+  ref: string;
+};
+
+export type HomepageURLCTA = {
+  text: string;
+  url: string;
+};
+
+export type HomepageCTA = HomepageRefCTA | HomepageURLCTA;
+
+export type HomepageCard = {
+  title: string;
+  copy: string;
+  image: Image;
+  cta: HomepageCTA;
+};
+
+export type HomepageQuote = {
+  quote: string;
+  author: {
+    name: string;
+    title: string;
+  };
+  image: Image;
+};
+
+export type HomepageStat = {
+  stat: string;
+  description: string;
+  source: string;
+};
+
+interface CoreMeta {
   _id: string;
-  _slug: string;
   _type: string;
   _lang: string;
   _langCode: string;
+}
+
+// Meta attributes assigned to all content
+interface CoreContentMeta extends CoreMeta {
+  _slug: string;
   _section: string;
   _path: string;
 }
@@ -113,12 +150,65 @@ interface CoreContent extends CoreContentMeta {
   };
 }
 
-export interface Navigation {
+export interface Navigation extends CoreMeta {
   id: string;
   type: string;
   _lang: string;
   _langCode: string;
   items: NavItem[];
+}
+
+export interface Home extends CoreMeta {
+  chromebook: {
+    title: string;
+    copy: string;
+    image: Image;
+    cta: HomepageCTA;
+  };
+  commercial: {
+    title: string;
+    copy: string;
+    items: HomepageCard[];
+  };
+  hero: {
+    heading: {
+      default: string;
+      accent: string;
+    };
+    copy: string;
+  };
+  community: string;
+  linux: {
+    title: string;
+    copy: string;
+    images: Image[];
+    cta: HomepageCTA;
+  };
+  posts: {
+    title: string;
+    copy: string;
+    cta: string;
+  };
+  quotes: {
+    title: string;
+    copy: string;
+    items: HomepageQuote[];
+  };
+  routing: HomepageCard[];
+  stats: {
+    title: string;
+    copy: string;
+    items: HomepageStat[];
+  };
+  stories: {
+    title: string;
+    copy: string;
+    cta: string;
+  };
+  subnav: {
+    title: string;
+    copy: string;
+  };
 }
 
 export interface Cookiejar extends CoreContentMeta {

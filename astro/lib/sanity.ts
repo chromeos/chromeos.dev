@@ -9,6 +9,7 @@ import type {
   StoryLanding,
   Navigation,
   Cookiejar,
+  Home,
 } from '../types/sanity';
 
 import 'dotenv/config';
@@ -22,6 +23,7 @@ import {
   themeQuery,
   featuredQuery,
   coreMetaQuery,
+  homepageCardQuery,
 } from '$lib/sanity/queries';
 import { rtl, vertical } from '$lib/i18n';
 import iso6391 from 'iso-639-1';
@@ -38,6 +40,80 @@ export const sanity = createClient({
 });
 
 const linkRegex = /^\/{\s*{\s*locale\s*}\s*}\//gm;
+
+export const home = (await sanity.fetch(
+  `*[_type == 'home' && !(_id in path('drafts.**'))]
+  {
+    "chromebook": {
+      "title": chromebook.title,
+      "copy": chromebook.copy,
+      "image": {
+        "alt": chromebook.image.alt,
+        "image": 'cms://' + chromebook.image.asset._ref
+      },
+      "cta": {
+        "text": chromebook.cta.text,
+        "url": chromebook.cta.link.url
+      }
+    },
+    "commercial": {
+      "title": commercial.title,
+      "copy": commercial.copy,
+      "items": commercial.items[] {
+        ${homepageCardQuery}
+      }
+    },
+    hero,
+    community,
+    "linux": {
+      "title": linux.content.title,
+      "copy": linux.content.copy,
+      "cta": {
+        "text": linux.cta.text,
+        "ref": linux.cta.link.reference._ref
+      },
+      "images": linux.images[] {
+        "alt": alt,
+        "image": 'cms://' + asset._ref
+      }
+    },
+    posts,
+    "quotes": {
+      "title": quotes.title,
+      "copy": quotes.copy,
+      "items": quotes.items[] {
+        quote,
+        author,
+        "image": {
+          "alt": image.alt,
+          "image": 'cms://' + image.asset._ref
+        }
+      }
+    },
+    "routing": routing.items[] {
+      ${homepageCardQuery}
+    },
+    "stats": {
+      "title": stats.content.title,
+      "copy": stats.content.copy,
+      "items": stats.items[] {
+        "stat": statistic.stat,
+        "description": statistic.description,
+        "source": modifiers.source
+      }
+    },
+    stories,
+    subnav,
+    "videos": {
+      "title": videos.title,
+      "items": videos.items[] {
+        title,
+        "id": video.id,
+      }
+    },
+    ${coreMetaQuery}
+  }`,
+)) as Home[];
 
 export const cookies = (await sanity.fetch(
   `*[_type == 'cookies' && !(_id in path('drafts.**'))]

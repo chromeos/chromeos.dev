@@ -11,8 +11,6 @@
     copy: string;
   };
 
-  // console.log('Init');
-
   type Animation = 'home' | 'phosphor';
 
   export let hero: Hero;
@@ -34,6 +32,7 @@
   // Watch for changes in the theme, and update the animation and fallback image appropriately
   $: {
     if ($theme) {
+      console.log($theme);
       // console.log('Image swap');
       if ($theme === 'dark') {
         animation = 'phosphor';
@@ -157,21 +156,32 @@
   .animated-hero {
     // This needs to be based on height/width dimensions because a static 3rem doesn't make sense
     padding-block-start: 3rem;
-    text-align: center;
     color: var(--white);
-    min-height: 100vh;
-    min-height: 100svh;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    max-width: 1440px;
+    margin-inline: auto;
+
+    @media (min-width: 700px) {
+      flex-wrap: nowrap;
+      column-gap: 2.5rem;
+      padding-block: 0rem;
+    }
 
     [class^='type'] {
       color: inherit;
     }
 
     &--text {
+      text-align: center;
       max-width: 50ch;
+
+      @media (min-width: 700px) {
+        text-align: left;
+        margin-inline-start: clamp(0vw, 7vw, 7.5rem);
+      }
     }
 
     &--title {
@@ -183,7 +193,8 @@
     }
 
     &--animation {
-      width: 100%;
+      // width: 100%;
+      max-width: 48rem;
     }
 
     &--fallback {

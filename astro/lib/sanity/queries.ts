@@ -96,3 +96,20 @@ export const featuredQuery = `
       }
     }
   },`;
+
+export const homepageCardQuery = `
+  "title": content.title,
+  "copy": content.copy,
+  "image": {
+    "alt": image.alt,
+    "image": 'cms://' + image.asset._ref
+  },
+  "cta": {
+    "text": cta.text,
+    cta.link.reference._type == 'reference' => {
+      "ref": cta.link.reference._ref
+    },
+    cta.link.url != null => {
+      "url": cta.link.url
+    }
+  }`;
