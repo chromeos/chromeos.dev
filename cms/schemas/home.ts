@@ -50,25 +50,6 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'media',
-      type: 'object',
-      validation: (Rule) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'placeholder',
-          type: 'picture',
-        }),
-        defineField({
-          name: 'phosphor',
-          type: 'picture',
-        }),
-        defineField({
-          name: 'static',
-          type: 'picture',
-        }),
-      ],
-    }),
-    defineField({
       name: 'routing',
       type: 'object',
       validation: (Rule) => Rule.required(),
@@ -95,17 +76,7 @@ export default defineType({
           fields: [
             defineField({
               name: 'title',
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'top',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'bottom',
-                  type: 'string',
-                }),
-              ],
+              type: 'string',
             }),
             defineField({
               name: 'copy',
@@ -157,6 +128,10 @@ export default defineType({
                 defineField({
                   name: 'statistic',
                   type: 'statistic',
+                }),
+                defineField({
+                  name: 'source',
+                  type: 'string',
                 }),
                 defineField({
                   name: 'modifiers',
@@ -213,7 +188,7 @@ export default defineType({
         }),
         defineField({
           name: 'cta',
-          type: 'cta',
+          type: 'string',
         }),
       ],
     }),
@@ -232,7 +207,7 @@ export default defineType({
         }),
         defineField({
           name: 'cta',
-          type: 'cta',
+          type: 'string',
         }),
       ],
     }),
