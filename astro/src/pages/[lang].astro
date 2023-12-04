@@ -39,12 +39,10 @@ const {
   // stories,
   // subnav,
 } = data;
-
-console.log(hero);
 ---
 
 <Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
-  <AnimatedHero hero={hero} client:idle />
+  <AnimatedHero hero={hero} client:load />
 
   <script>
     import { theme } from '$js/theme';

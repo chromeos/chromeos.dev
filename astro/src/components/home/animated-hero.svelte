@@ -32,7 +32,6 @@
   // Watch for changes in the theme, and update the animation and fallback image appropriately
   $: {
     if ($theme) {
-      console.log($theme);
       // console.log('Image swap');
       if ($theme === 'dark') {
         animation = 'phosphor';
@@ -102,10 +101,14 @@
       // Load the appropriate animation
       if (animation === 'home') {
         const { animationData: a } = await import('$js/animations/home');
-        animationData = a;
+        requestIdleCallback(() => {
+          animationData = a;
+        });
       } else if (animation === 'phosphor') {
         const { animationData: a } = await import('$js/animations/phosphor');
-        animationData = a;
+        requestIdleCallback(() => {
+          animationData = a;
+        });
       }
     });
   }
