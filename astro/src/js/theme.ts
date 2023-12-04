@@ -7,12 +7,19 @@ import { writable } from 'svelte/store';
 function createThemeStore() {
   const { subscribe, set } = writable();
 
+  /**
+   * @param {string} theme - Theme to set
+   */
+  function saveTheme(theme: 'dark' | 'light') {
+    if ('localStorage' in window) {
+      localStorage.setItem('theme', theme);
+    }
+  }
+
   return {
     subscribe,
     set(theme: 'dark' | 'light') {
-      if ('localStorage' in window) {
-        localStorage.setItem('theme', theme);
-      }
+      saveTheme(theme);
       set(theme);
     },
     init() {
@@ -29,7 +36,11 @@ function createThemeStore() {
             : 'light';
       }
 
+      // TODO: Make this work once color switcher is in place
+      theme = 'light';
+
       set(theme);
+      saveTheme(theme);
     },
   };
 }
