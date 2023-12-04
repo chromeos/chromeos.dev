@@ -130,10 +130,6 @@ export default defineType({
                   type: 'statistic',
                 }),
                 defineField({
-                  name: 'source',
-                  type: 'string',
-                }),
-                defineField({
                   name: 'modifiers',
                   type: 'object',
                   fields: [
