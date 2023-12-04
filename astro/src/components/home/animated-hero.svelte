@@ -195,14 +195,11 @@
       color: var(--tertiary-blue);
     }
 
-    &--animation {
-      // width: 100%;
-      max-width: 48rem;
-    }
-
+    &--animation,
     &--fallback {
-      aspect-ratio: 1 / 1;
       width: 100%;
+      max-width: 48rem;
+      aspect-ratio: 1 / 1;
     }
   }
 </style>
