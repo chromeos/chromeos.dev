@@ -9,6 +9,7 @@
     "start": "sanity start",
     "pretest": "run-s lint",
     "test": "run-s build",
+    "sanity": "sanity",
     "build": "sanity build",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
