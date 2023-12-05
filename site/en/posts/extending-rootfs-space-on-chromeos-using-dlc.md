@@ -29,7 +29,7 @@ Through DLC, developers can better manage OS space utilization. If you're a Chro
 **Note:** Steam on ChromeOS is [distributed as DLC](https://chromeos.dev/en/posts/bringing-steam-to-chromeos)—it is only installed if the user chooses to install Steam. Once the user installs it, the DLC automatically keeps the Steam installation updated with every subsequent ChromeOS release.
 !!!
 
-DLC is recommended for features not needed to boot the device; optional features irrespective of size. If the feature takes up a significant amount of space, it's an even more ideal candidate for DLC. On the other hand, critical features of ChromeOS, such as those required to boot the system or reach the login screen, should remain in rootfs or use DLCs more carefully. rootfs is the core of the operating system and is essential for the system to function properly. If any critical features are moved to DLC, there is a risk that they could be corrupted or deleted—which could prevent the system from starting up or working correctly with the utmost resilience due to networking dependency.
+DLC is recommended for features not needed to boot the device; optional features irrespective of size. If the feature takes up a significant amount of space, it's an even more ideal candidate for DLC. On the other hand, critical features of ChromeOS, such as those required to boot the system or reach the login screen, should remain in rootfs or use DLCs more carefully. The rootfs is the core of the operating system and is essential for the system to function properly. If any critical features are moved to DLC, there is a risk that they could be corrupted or deleted—which could prevent the system from starting up or working correctly with the utmost resilience due to networking dependency.
 
 As ChromeOS has continued to integrate artificial intelligence and machine learning (AI/ML) infused capabilities, DLC has become the go-to method to deliver the very large libraries and models necessary for these features to users. Additionally, because AI/ML models are constantly being updated, delivering them as DLC ensures users can always have the latest and greatest features.
 
@@ -43,7 +43,7 @@ A DLC installation request and response moves between ChromeOS Services and the 
 
 The primary components of the DLC installation workflow are:
 
-- **ChromeOS:** The ChromeOS platform, specifically the [`dlcservice` daemon](https://chromium.googlesource.com/chromiumos/platform2/+/HEAD/dlcservice/README.md) and [`imageloader.cc`](https://chromium.googlesource.com/chromiumos/platform/imageloader/+/refs/heads/factory-eve-9667.B/imageloader.cc).
+- **ChromeOS:** The ChromeOS platform, specifically the [`dlcservice` daemon](https://chromium.googlesource.com/chromiumos/platform2/+/HEAD/dlcservice/README.md) and [`imageloader.cc`](https://chromium.googlesource.com/chromiumos/platform2/+/main/imageloader/README.md).
 - **ChromeOS services:** Where [ChromeOS Build and Release Console](https://chromiumdash.appspot.com/serving-builds?deviceCategory=ChromeOS) resides, handling and responding to installation requests.
 - **Google Services:** Where the actual image fetching happens. Google Services provides the self-service download server that lets ChromeOS developers host downloads for end users. For stability and performance, the dlcserver daemon retrieves the payload from Google servers by querying the edge caching server(s) or BandAids (BDNs).
 
@@ -51,11 +51,11 @@ The primary components of the DLC installation workflow are:
 
 Daemons involved in DLC installation are the following:
 
-- [`update engine`](https://chromium.googlesource.com/aosp/platform/system/update_engine/+/HEAD/README.md#Update-Engine-Daemon) is responsible for updating the entire ChromeOS system, installing DLCs, etc.
+- [`update engine`](https://chromium.googlesource.com/chromiumos/platform2/+/main/update_engine/README.md) is responsible for updating the entire ChromeOS system, installing DLCs, etc.
 
 - [`dlcservice`](https://chromium.googlesource.com/chromiumos/platform2/+/HEAD/dlcservice/README.md) is responsible for managing the lifetime of DLCs, allocating space in stateful, and communicating with other system daemons.
 
-- [`imageloader.cc`](https://chromium.googlesource.com/chromiumos/platform/imageloader/+/refs/heads/factory-eve-9667.B/imageloader.cc) enables mounting of device images securely using [`dm-verity`](https://docs.kernel.org/admin-guide/device-mapper/verity.html).
+- [`imageloader.cc`](https://chromium.googlesource.com/chromiumos/platform2/+/main/imageloader/README.md) enables mounting of device images securely using [`dm-verity`](https://docs.kernel.org/admin-guide/device-mapper/verity.html).
 
 !!!aside.message--note
 **Note:** See the [Chromium DLC Developer Guide](https://chromium.googlesource.com/chromiumos/platform2/+/HEAD/dlcservice/docs/developer.md) for more information on how to build, enable, install, uninstall, and test DLCs.
