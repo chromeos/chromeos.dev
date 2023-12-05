@@ -1,8 +1,9 @@
 ---
 import { getMicrocopyFromLangCode } from '$$microcopy';
 import Wrapper from '$layouts/wrapper.astro';
-import { home } from '$$sanity';
 import AnimatedHero from '$components/home/AnimatedHero.svelte';
+import Routing from '$components/home/Routing.svelte';
+import { home, landings } from '$$sanity';
 
 /**
  * Builds paths for content files
@@ -34,15 +35,23 @@ const {
   // linux,
   // posts,
   // quotes,
-  // routing,
+  routing,
   // stats,
   // stories,
   // subnav,
 } = data;
+// Get routing CTA URLs
+for (const r of routing) {
+  if (r.cta?.ref) {
+    r.cta.url = landings.find((l) => l._id === r.cta.ref)._path;
+  }
+}
+// console.log(landings);
 ---
 
 <Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
   <AnimatedHero hero={hero} client:load />
+  <Routing cards={routing} />
 
   <script>
     import { theme } from '$js/theme';

@@ -106,6 +106,7 @@ export type HomepageCard = {
   copy: string;
   image: Image;
   cta: HomepageCTA;
+  shape: string;
 };
 
 export type HomepageQuote = {

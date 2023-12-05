@@ -100,6 +100,7 @@ export const featuredQuery = `
 export const homepageCardQuery = `
   "title": content.title,
   "copy": content.copy,
+  "shape": modifiers.shape,
   "image": {
     "alt": image.alt,
     "image": 'cms://' + image.asset._ref
