@@ -17,9 +17,8 @@
 
   const { heading, copy } = hero;
 
-  // Transparent placeholder image 1px gif to prevent layout shift
-  let img =
-    'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+  // Start with light mode image and render an actual image
+  let img = animationPlaceholders.light;
 
   let loadLottie = false;
   let lottie;
@@ -117,7 +116,6 @@
    * Wait for the component to mount before loading Lottie
    */
   onMount(async () => {
-    console.log('Mounted');
     // Load the polyfill if requestIdleCallback isn't supported
     if (!('requestIdleCallback' in window)) {
       import('requestidlecallback');
@@ -143,14 +141,31 @@
     </div>
 
     <div aria-hidden="true" bind:this={holder} class="animated-hero--animation">
-      <img
-        src={img}
-        bind:this={fallback}
-        class="animated-hero--fallback"
-        alt=""
-        height="500"
-        width="500"
-      />
+      {#if $theme}
+        <img
+          src={img}
+          bind:this={fallback}
+          class="animated-hero--fallback"
+          alt=""
+          height="500"
+          width="500"
+        />
+      {:else}
+        <!-- Significantly improves LCP -->
+        <picture>
+          <source
+            srcset={animationPlaceholders.dark}
+            media="(prefers-color-scheme:dark)"
+          />
+          <img
+            src={img}
+            class="animated-hero--fallback"
+            alt=""
+            height="500"
+            width="500"
+          />
+        </picture>
+      {/if}
     </div>
   </div>
 </header>
