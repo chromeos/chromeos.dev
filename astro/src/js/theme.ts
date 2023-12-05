@@ -10,10 +10,14 @@ function createThemeStore() {
   /**
    * @param {string} theme - Theme to set
    */
-  function saveTheme(theme: 'dark' | 'light') {
+  function saveTheme(theme: 'dark' | 'light' | 'auto') {
     if ('localStorage' in window) {
       localStorage.setItem('theme', theme);
     }
+    // --theme can be light, dark, or auto
+    // --style-queries should be 0 or 1
+    // Something about using auto unless style queries are available
+    document.body.style.setProperty('--theme', `'${theme}'`);
   }
 
   return {
