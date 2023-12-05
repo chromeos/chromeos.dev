@@ -2,6 +2,7 @@
   export type Stat = {
     stat: string;
     description: string;
+    footnote?: number;
   };
 </script>
 
@@ -16,7 +17,13 @@
     {#each stats as stat, i}
       <div class="stat">
         <dt class="stat--stat stat__{shapes[i]}"><span>{stat.stat}</span></dt>
-        <dd class="stat--desc type--base">{stat.description}</dd>
+        <dd class="stat--desc type--base">
+          {stat.description}{#if stat.footnote}<sup>
+              <a href={`#fn-${stat.footnote}`} id={`fnref-${stat.footnote}`}
+                >[{stat.footnote}]</a
+              >
+            </sup>{/if}
+        </dd>
       </div>
     {/each}
   </dl>

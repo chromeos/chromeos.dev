@@ -3,6 +3,8 @@ import { getMicrocopyFromLangCode } from '$$microcopy';
 import Wrapper from '$layouts/wrapper.astro';
 import AnimatedHero from '$components/home/AnimatedHero.svelte';
 import Routing from '$components/home/Routing.svelte';
+import Stats from '$components/home/Stats.svelte';
+import StatsFootnote from '$components/home/StatsFootnote.svelte';
 import { home, landings } from '$$sanity';
 
 /**
@@ -36,7 +38,7 @@ const {
   // posts,
   // quotes,
   routing,
-  // stats,
+  stats,
   // stories,
   // subnav,
 } = data;
@@ -47,11 +49,15 @@ for (const r of routing) {
   }
 }
 // console.log(landings);
+console.log(stats);
 ---
 
 <Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
   <AnimatedHero hero={hero} client:load />
   <Routing cards={routing} />
+  <Stats stats={stats} />
+
+  <StatsFootnote stats={stats.items} />
 
   <script>
     import { theme } from '$js/theme';
