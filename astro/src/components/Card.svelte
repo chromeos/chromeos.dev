@@ -57,6 +57,7 @@
     $self: &;
     display: block;
     text-decoration: none;
+    height: 100%;
 
     &--container {
       @include elevation(0);
