@@ -3,7 +3,7 @@
 </script>
 
 <footer
-  class="wrapper wrapper--full-bleed wrapper--padded wrapper--padding wrapper__contained wrapper--no-top wrapper__background--light wrapper--no-bottom footnotes"
+  class="wrapper wrapper--full-bleed wrapper--padded wrapper--padding wrapper__contained wrapper__background--light wrapper--no-bottom footnotes"
 >
   <ol class="footnotes--list">
     {#each stats as stat, i}
