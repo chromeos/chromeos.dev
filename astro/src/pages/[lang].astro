@@ -5,6 +5,7 @@ import AnimatedHero from '$components/home/AnimatedHero.svelte';
 import Routing from '$components/home/Routing.svelte';
 import Stats from '$components/home/Stats.svelte';
 import StatsFootnote from '$components/home/StatsFootnote.svelte';
+import Linux from '$components/home/Linux.svelte';
 import { home, landings } from '$$sanity';
 
 /**
@@ -34,7 +35,7 @@ const {
   // commercial,
   hero,
   // community,
-  // linux,
+  linux,
   // posts,
   // quotes,
   routing,
@@ -48,31 +49,20 @@ for (const r of routing) {
     r.cta.url = landings.find((l) => l._id === r.cta.ref)._path;
   }
 }
-// console.log(landings);
-console.log(stats);
+
+linux.cta.url = landings.find((l) => l._id === linux.cta.ref)._path;
 ---
 
 <Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
   <AnimatedHero hero={hero} client:load />
   <Routing cards={routing} />
+  <Linux linux={linux} />
   <Stats stats={stats} />
 
   <StatsFootnote stats={stats.items} />
 
   <script>
-    import { theme } from '$js/theme';
-    import { animationPlaceholders } from '$js/constants';
-
-    theme.subscribe((t) => {
-      const animation = document.querySelector('.animated-hero--animation');
-
-      if (animation) {
-        const img = animation.querySelector('.animated-hero--fallback');
-
-        if (img) {
-          img.src = animationPlaceholders[t];
-        }
-      }
-    });
+    // Import Houdini paint setup
+    await import('$js/paint.js');
   </script>
 </Wrapper>
