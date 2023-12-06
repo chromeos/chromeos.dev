@@ -3,7 +3,7 @@
 </script>
 
 <footer
-  class="wrapper wrapper--full-bleed wrapper__background wrapper__background--light wrapper--padded wrapper--padding wrapper__contained footnotes"
+  class="wrapper wrapper--full-bleed wrapper--padded wrapper--padding wrapper__contained wrapper--no-top wrapper__background--light wrapper--no-bottom footnotes"
 >
   <ol class="footnotes--list">
     {#each stats as stat, i}
@@ -19,11 +19,11 @@
 
 <style lang="scss">
   .footnotes {
-    &--sep {
-      margin-block: 2rem;
-    }
-    &--list {
-      margin-inline: 1rem;
+    margin-inline: 0;
+    padding-block: 2rem;
+
+    &--li {
+      margin-inline-start: 2ch;
     }
 
     &--item {

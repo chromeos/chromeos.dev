@@ -59,7 +59,7 @@ linux.cta.url = landings.find((l) => l._id === linux.cta.ref)._path;
   <Linux linux={linux} />
   <Stats stats={stats} />
 
-  <StatsFootnote stats={stats.items} />
+  <StatsFootnote stats={stats.items} slot="prefooter" />
 
   <script>
     // Import Houdini paint setup

@@ -101,6 +101,9 @@ const cookiejar = cookies.find((c) => c._langCode === locale.code);
 
     <!-- Footer -->
     <SubscribeFooter lang={locale.code} />
+
+    <slot name="prefooter" />
+
     <Footer lang={locale.code} />
 
     <script>
