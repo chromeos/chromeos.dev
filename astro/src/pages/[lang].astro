@@ -6,7 +6,10 @@ import Routing from '$components/home/Routing.svelte';
 import Stats from '$components/home/Stats.svelte';
 import StatsFootnote from '$components/home/StatsFootnote.svelte';
 import Linux from '$components/home/Linux.svelte';
-import { home, landings } from '$$sanity';
+import Stories from '$components/home/Stories.svelte';
+import PostHero from '$components/PostHero.svelte';
+import Posts from '$components/home/Posts.svelte';
+import { home, landings, stories, posts } from '$$sanity';
 
 /**
  * Builds paths for content files
@@ -36,11 +39,11 @@ const {
   hero,
   // community,
   linux,
-  // posts,
+  posts: postsData,
   // quotes,
   routing,
   stats,
-  // stories,
+  stories: storiesData,
   // subnav,
 } = data;
 // Get routing CTA URLs
@@ -51,6 +54,23 @@ for (const r of routing) {
 }
 
 linux.cta.url = landings.find((l) => l._id === linux.cta.ref)._path;
+
+const featuredStories = stories.filter((s) => s.featured).slice(0, 3);
+
+const featuredPost = posts.filter((p) => p.featured)[0];
+const feature = {
+  ...featuredPost,
+  cta: {
+    text: microcopy.actions.more,
+    url: featuredPost._path,
+    type: 'medium',
+  },
+  theme: featuredPost.theme,
+  form: 'banner',
+};
+feature.theme.eyebrow = microcopy.identifiers.featured;
+
+const latestPosts = posts.filter((p) => p._id !== featuredPost._id).slice(0, 3);
 ---
 
 <Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
@@ -59,8 +79,34 @@ linux.cta.url = landings.find((l) => l._id === linux.cta.ref)._path;
   <Linux linux={linux} />
   <Stats stats={stats} />
 
-  <StatsFootnote stats={stats.items} slot="prefooter" />
+  {
+    featuredStories.length > 0 && (
+      <Stories
+        title={storiesData.title}
+        copy={storiesData.copy}
+        cta={storiesData.cta}
+        locale={locale.code}
+        stories={featuredStories}
+      />
+    )
+  }
 
+  {featuredPost && <PostHero {...feature} />}
+
+  {
+    latestPosts.length > 0 && (
+      <Posts
+        title={postsData.title}
+        copy={postsData.copy}
+        cta={postsData.cta}
+        locale={locale.code}
+        microcopy={microcopy}
+        posts={latestPosts}
+      />
+    )
+  }
+
+  <StatsFootnote stats={stats.items} slot="prefooter" />
   <script>
     // Import Houdini paint setup
     await import('$js/paint.js');
