@@ -34,7 +34,7 @@
   function placeholder() {
     const t = story.tags[0];
     if (t === 'pwa') {
-      return 'ix://landings/stories/placeholder-pwa.svg';
+      return 'ix://landings/stories/placeholder-web.svg';
     } else if (t === 'android') {
       return 'ix://landings/stories/placeholder-android.svg';
     } else {
