@@ -7,7 +7,7 @@ import Stats from '$components/home/Stats.svelte';
 import StatsFootnote from '$components/home/StatsFootnote.svelte';
 import Linux from '$components/home/Linux.svelte';
 import Stories from '$components/home/Stories.svelte';
-import PostHero from '$components/PostHero.svelte';
+import FeaturedPost from '$components/home/FeaturedPost.svelte';
 import Posts from '$components/home/Posts.svelte';
 import { home, landings, stories, posts } from '$$sanity';
 
@@ -91,7 +91,7 @@ const latestPosts = posts.filter((p) => p._id !== featuredPost._id).slice(0, 3);
     )
   }
 
-  {featuredPost && <PostHero {...feature} />}
+  {featuredPost && <FeaturedPost featured={feature} />}
 
   {
     latestPosts.length > 0 && (
