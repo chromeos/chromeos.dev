@@ -3,8 +3,8 @@
 
   export let story = {};
   export let microcopy = {};
-  const featured = microcopy.microcopy.featured.eyebrow;
-  const more = microcopy.microcopy.more;
+  const featured = microcopy.identifiers.featured;
+  const more = microcopy.actions.more;
 
   const cta = {
     type: 'link',
@@ -24,8 +24,8 @@
     <div class="featured-story--info">
       <img
         class="featured-story--logo"
-        src={story.app.logo}
-        alt={story.app.name}
+        src={story.app.logo.image}
+        alt={story.app.logo.alt}
       />
       <small class="type--eyebrow featured-story--eyebrow">{featured}</small>
       <h1 class="type--h3 featured-story--title">{story.title}</h1>
