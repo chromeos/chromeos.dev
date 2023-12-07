@@ -10,6 +10,7 @@ import Stories from '$components/home/Stories.svelte';
 import FeaturedPost from '$components/home/FeaturedPost.svelte';
 import Posts from '$components/home/Posts.svelte';
 import Commercial from '$components/home/Commercial.svelte';
+import Quotes from '$components/home/Quotes.svelte';
 import { home, landings, stories, posts } from '$$sanity';
 import '$sass/home.scss';
 
@@ -42,7 +43,7 @@ const {
   // community,
   linux,
   posts: postsData,
-  // quotes,
+  quotes,
   routing,
   stats,
   stories: storiesData,
@@ -82,6 +83,9 @@ const latestPosts = posts.filter((p) => p._id !== featuredPost._id).slice(0, 3);
 for (const c of commercial.items) {
   c.cta.url = landings.find((l) => l._id === c.cta.ref)._path;
 }
+
+// Quotes
+console.log(quotes);
 ---
 
 <Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
@@ -122,6 +126,8 @@ for (const c of commercial.items) {
     copy={commercial.copy}
     items={commercial.items}
   />
+
+  <Quotes title={quotes.title} copy={quotes.copy} quotes={quotes.items} />
 
   <StatsFootnote stats={stats.items} slot="prefooter" />
   <script>
