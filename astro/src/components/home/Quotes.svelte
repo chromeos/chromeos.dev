@@ -5,7 +5,7 @@
   console.log(quotes[0]);
 </script>
 
-<section class="wrapper wrapper--padding wrapper--padded">
+<section class="wrapper wrapper--padding wrapper--padded wrapper__contained">
   <div class="inner">
     <header class="home--header">
       <h1 class="type--h1">{title}</h1>
@@ -53,10 +53,21 @@
     display: flex;
     flex-wrap: wrap;
     gap: 4rem 1.25rem;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+
+    @media (min-width: 815px) {
+      margin-top: 0;
+    }
+
+    @media (min-width: 1233px) {
+      justify-content: space-between;
+    }
   }
 
   .decorator {
+    display: none;
     width: clamp(5.625rem, 12.1vw, 10rem);
     height: clamp(5.625rem, 12.1vw, 10rem);
     border-radius: 50%;
@@ -66,19 +77,25 @@
       transform: scale(0.75) translateX(150%) translateY(-60%);
       margin-bottom: -4rem;
     }
+
+    @media (min-width: 815px) {
+      display: block;
+    }
   }
 
   .quote {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    max-width: 22ch;
     position: relative;
+    align-items: center;
+    justify-content: center;
 
     &--quote {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      max-width: 22rem;
 
       p {
         &::before {
@@ -94,7 +111,7 @@
     &--image {
       border-radius: 50%;
       aspect-ratio: 1 / 1;
-      width: clamp(13.75rem, 21.05vw, 21.5625rem);
+      width: clamp(13.75rem, 21vw, 22rem);
       object-fit: cover;
     }
 
