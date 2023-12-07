@@ -204,6 +204,7 @@
 
     &--title {
       margin-block-end: 1rem;
+      text-wrap: balance;
     }
 
     &--accent {
