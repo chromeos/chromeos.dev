@@ -31,7 +31,7 @@
   class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__background wrapper__contained"
 >
   <div class="inner">
-    <header class="header">
+    <header class="home--header">
       <h1 class="type--h1">{title}</h1>
       <h2 class="type--large">{copy}</h2>
     </header>
@@ -43,20 +43,15 @@
       {/each}
     </ol>
     <footer class="footer">
-      <a class="cta cta--medium case-studies__cta" href={`/${locale}/news`}
-        >{cta}</a
+      <a
+        class="cta cta--medium case-studies__cta home--cta"
+        href={`/${locale}/news`}>{cta}</a
       >
     </footer>
   </div>
 </section>
 
 <style lang="scss">
-  .header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
   .posts {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(325px, 100%), 1fr));
@@ -69,10 +64,5 @@
 
   .footer {
     margin-top: 2.5rem;
-  }
-
-  .cta {
-    margin-inline: auto;
-    width: max-content;
   }
 </style>

@@ -11,13 +11,14 @@
   class="wrapper wrapper--padding wrapper--padded wrapper--full-bleed wrapper__background wrapper__contained"
 >
   <div class="inner">
-    <header>
+    <header class="home--header">
       <h1 class="type--h1">{title}</h1>
       <h2 class="type--large">{copy}</h2>
     </header>
     <footer>
-      <a class="cta cta--medium case-studies__cta" href={`/${locale}/stories`}
-        >{cta}</a
+      <a
+        class="cta cta--medium case-studies__cta home--cta"
+        href={`/${locale}/stories`}>{cta}</a
       >
     </footer>
   </div>
