@@ -9,6 +9,7 @@ import Linux from '$components/home/Linux.svelte';
 import Stories from '$components/home/Stories.svelte';
 import FeaturedPost from '$components/home/FeaturedPost.svelte';
 import Posts from '$components/home/Posts.svelte';
+import Commercial from '$components/home/Commercial.svelte';
 import { home, landings, stories, posts } from '$$sanity';
 import '$sass/home.scss';
 
@@ -36,7 +37,7 @@ const { locale } = microcopy;
 // console.log(languages);
 const {
   // chromebook,
-  // commercial,
+  commercial,
   hero,
   // community,
   linux,
@@ -47,6 +48,7 @@ const {
   stories: storiesData,
   // subnav,
 } = data;
+
 // Get routing CTA URLs
 for (const r of routing) {
   if (r.cta?.ref) {
@@ -54,10 +56,13 @@ for (const r of routing) {
   }
 }
 
+// Linux URL
 linux.cta.url = landings.find((l) => l._id === linux.cta.ref)._path;
 
+// Featured Stories
 const featuredStories = stories.filter((s) => s.featured).slice(0, 3);
 
+// Posts
 const featuredPost = posts.filter((p) => p.featured)[0];
 const feature = {
   ...featuredPost,
@@ -72,6 +77,11 @@ const feature = {
 feature.theme.eyebrow = microcopy.identifiers.featured;
 
 const latestPosts = posts.filter((p) => p._id !== featuredPost._id).slice(0, 3);
+
+// Commercial
+for (const c of commercial.items) {
+  c.cta.url = landings.find((l) => l._id === c.cta.ref)._path;
+}
 ---
 
 <Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
@@ -106,6 +116,12 @@ const latestPosts = posts.filter((p) => p._id !== featuredPost._id).slice(0, 3);
       />
     )
   }
+
+  <Commercial
+    title={commercial.title}
+    copy={commercial.copy}
+    items={commercial.items}
+  />
 
   <StatsFootnote stats={stats.items} slot="prefooter" />
   <script>
