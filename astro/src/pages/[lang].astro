@@ -12,6 +12,7 @@ import Posts from '$components/home/Posts.svelte';
 import Commercial from '$components/home/Commercial.svelte';
 import Quotes from '$components/home/Quotes.svelte';
 import Videos from '$components/home/Videos.svelte';
+import Chromebook from '$components/home/Chromebook.svelte';
 import { home, landings, stories, posts } from '$$sanity';
 import '$sass/home.scss';
 
@@ -38,7 +39,7 @@ const { locale } = microcopy;
 
 // console.log(languages);
 const {
-  // chromebook,
+  chromebook,
   commercial,
   hero,
   // community,
@@ -87,7 +88,7 @@ for (const c of commercial.items) {
 }
 
 // Quotes
-// console.log(micr);
+console.log(chromebook);
 ---
 
 <Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
@@ -130,6 +131,8 @@ for (const c of commercial.items) {
   />
 
   <Quotes title={quotes.title} copy={quotes.copy} quotes={quotes.items} />
+
+  <Chromebook chromebook={chromebook} />
 
   <Videos
     title={videos.title}
