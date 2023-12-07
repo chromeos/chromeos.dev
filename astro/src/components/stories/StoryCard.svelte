@@ -23,6 +23,7 @@
 
   export let story: StoryPreview;
   export let action: string;
+  export let eyebrow: string;
 
   const id = crypto.randomUUID().replace(/-/g, '').substring(0, 7);
   const image = story?.hero?.image || placeholder();
@@ -53,6 +54,9 @@
   <article class="story-card--container">
     <img src={image} alt={story?.hero?.alt || null} />
     <div class="story-card--content">
+      {#if eyebrow}
+        <small class="type--eyebrow">{eyebrow}</small>
+      {/if}
       <h2 class="story-card--title type--h4" {id}>{story.title}</h2>
       <CTA {cta} inline={true} />
     </div>

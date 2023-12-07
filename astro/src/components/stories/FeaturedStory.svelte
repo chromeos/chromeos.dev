@@ -10,7 +10,7 @@
     type: 'link',
     direction: 'forward',
     text: more,
-    url: story.path,
+    url: story._path,
   };
 </script>
 
