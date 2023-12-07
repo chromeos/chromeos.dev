@@ -16,7 +16,9 @@ ChromeOS 119 reached stable release on November 14, 2023. As of this version of 
 
 Chrome 119 removes WebSQL access in all contexts. Access to WebSQL is available until Chrome 123 using the [WebSQLAccess](https://chromeenterprise.google/policies/#WebSQLAccess) policy, but we recommend that WebSQL users switch to SQLite compiled to WebAssembly.
 
+!!! aside.message--note
 **Note:** Learn more about why we replaced [WebSQL](https://developer.chrome.com/blog/deprecating-web-sql/).
+!!!
 
 ## Manage camera and microphone settings in Privacy Hub
 
