@@ -11,6 +11,14 @@ body {
   --header-height: 4rem;
   --header-spacing: 0rem;
   --header-offset: calc(var(--header-height) + var(--header-spacing));
+  --wrapper-block-spacing-s: $wrapper-block-spacing-s;
+  --wrapper-block-spacing-m: $wrapper-block-spacing-m;
+  --wrapper-block-spacing-l: $wrapper-block-spacing-l;
+  --wrapper-block-spacing-r: $wrapper-block-spacing-r;
+  --wrapper-inline-spacing-s: $wrapper-inline-spacing-s;
+  --wrapper-inline-spacing-m: $wrapper-inline-spacing-m;
+  --wrapper-inline-spacing-l: $wrapper-inline-spacing-l;
+  --wrapper-inline-spacing-r: $wrapper-inline-spacing-r;
   display: flex;
   flex-direction: column;
 
