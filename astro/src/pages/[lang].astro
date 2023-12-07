@@ -11,6 +11,7 @@ import FeaturedPost from '$components/home/FeaturedPost.svelte';
 import Posts from '$components/home/Posts.svelte';
 import Commercial from '$components/home/Commercial.svelte';
 import Quotes from '$components/home/Quotes.svelte';
+import Videos from '$components/home/Videos.svelte';
 import { home, landings, stories, posts } from '$$sanity';
 import '$sass/home.scss';
 
@@ -47,6 +48,7 @@ const {
   routing,
   stats,
   stories: storiesData,
+  videos,
   // subnav,
 } = data;
 
@@ -85,7 +87,7 @@ for (const c of commercial.items) {
 }
 
 // Quotes
-console.log(quotes);
+// console.log(micr);
 ---
 
 <Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
@@ -128,6 +130,13 @@ console.log(quotes);
   />
 
   <Quotes title={quotes.title} copy={quotes.copy} quotes={quotes.items} />
+
+  <Videos
+    title={videos.title}
+    videos={videos.items}
+    label={microcopy.actions.loadVideo}
+    client:visible
+  />
 
   <StatsFootnote stats={stats.items} slot="prefooter" />
   <script>

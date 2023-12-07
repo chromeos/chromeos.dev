@@ -2,7 +2,6 @@
   export let title: string;
   export let copy: string;
   export let quotes: any[];
-  console.log(quotes[0]);
 </script>
 
 <section class="wrapper wrapper--padding wrapper--padded wrapper__contained">
