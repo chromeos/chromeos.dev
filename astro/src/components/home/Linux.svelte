@@ -22,6 +22,10 @@
 <style lang="scss">
   $bkpt: 600px;
 
+  .type--h1 {
+    text-wrap: balance;
+  }
+
   .fifty-fifty {
     display: flex;
     flex-direction: column;

@@ -84,54 +84,56 @@ for (const c of commercial.items) {
 ---
 
 <Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
-  <AnimatedHero hero={hero} client:load />
-  <Routing cards={routing} />
-  <Linux linux={linux} />
-  <Stats stats={stats} />
+  <div class="home">
+    <AnimatedHero hero={hero} client:load />
+    <Routing cards={routing} />
+    <Linux linux={linux} />
+    <Stats stats={stats} />
 
-  {
-    featuredStories.length > 0 && (
-      <Stories
-        title={storiesData.title}
-        copy={storiesData.copy}
-        cta={storiesData.cta}
-        stories={featuredStories}
-        microcopy={microcopy}
-      />
-    )
-  }
+    {
+      featuredStories.length > 0 && (
+        <Stories
+          title={storiesData.title}
+          copy={storiesData.copy}
+          cta={storiesData.cta}
+          stories={featuredStories}
+          microcopy={microcopy}
+        />
+      )
+    }
 
-  {featuredPost && <FeaturedPost featured={feature} />}
+    {featuredPost && <FeaturedPost featured={feature} />}
 
-  {
-    latestPosts.length > 0 && (
-      <Posts
-        title={postsData.title}
-        copy={postsData.copy}
-        cta={postsData.cta}
-        locale={locale.code}
-        microcopy={microcopy}
-        posts={latestPosts}
-      />
-    )
-  }
+    {
+      latestPosts.length > 0 && (
+        <Posts
+          title={postsData.title}
+          copy={postsData.copy}
+          cta={postsData.cta}
+          locale={locale.code}
+          microcopy={microcopy}
+          posts={latestPosts}
+        />
+      )
+    }
 
-  <Commercial
-    title={commercial.title}
-    copy={commercial.copy}
-    items={commercial.items}
-  />
+    <Commercial
+      title={commercial.title}
+      copy={commercial.copy}
+      items={commercial.items}
+    />
 
-  <Quotes title={quotes.title} copy={quotes.copy} quotes={quotes.items} />
+    <Quotes title={quotes.title} copy={quotes.copy} quotes={quotes.items} />
 
-  <Chromebook chromebook={chromebook} />
+    <Chromebook chromebook={chromebook} />
 
-  <Videos
-    title={videos.title}
-    videos={videos.items}
-    label={microcopy.actions.loadVideo}
-    client:visible
-  />
+    <Videos
+      title={videos.title}
+      videos={videos.items}
+      label={microcopy.actions.loadVideo}
+      client:visible
+    />
+  </div>
 
   <StatsFootnote stats={stats.items} slot="prefooter" />
   <script>

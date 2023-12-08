@@ -12,7 +12,7 @@
 
   .wrapper {
     @media (min-width: #{$wrapper-max-width}) {
-      margin-block-end: calc($wrapper-block-spacing-r / 2);
+      margin-block: calc($wrapper-block-spacing-r / 2);
     }
   }
 </style>

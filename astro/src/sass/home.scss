@@ -1,27 +1,32 @@
-.home--header {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-inline: auto;
+.home {
+  overflow-x: hidden;
 
-  > .type--large {
-    max-width: 40rem;
+  &--header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-inline: auto;
+
+    > .type--large {
+      max-width: 40rem;
+      text-wrap: pretty;
+    }
   }
-}
 
-.home--cta {
-  margin-inline: auto;
-  width: max-content;
-}
+  &--cta {
+    margin-inline: auto;
+    width: max-content;
+  }
 
-.home--card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 3rem 1.25rem;
-  row-gap: clamp(1rem, 7rem - 16vw, 3rem);
-  padding-bottom: calc(clamp(8.25rem, 12vw, 10.5rem) / 2);
-  position: relative;
-  z-index: 1;
+  &--card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 3rem 1.25rem;
+    row-gap: clamp(1rem, 7rem - 16vw, 3rem);
+    padding-bottom: calc(clamp(8.25rem, 12vw, 10.5rem) / 2);
+    position: relative;
+    z-index: 1;
+  }
 }

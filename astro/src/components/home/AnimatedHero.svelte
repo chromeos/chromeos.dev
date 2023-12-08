@@ -198,7 +198,7 @@
 
       @media (min-width: 700px) {
         text-align: left;
-        margin-inline-start: clamp(0vw, 7vw, 7.5rem);
+        // margin-inline-start: clamp(0vw, 7vw, 7.5rem);
       }
     }
 
@@ -214,8 +214,12 @@
     &--animation,
     &--fallback {
       width: 100%;
-      max-width: 48rem;
       aspect-ratio: 1 / 1;
+      min-width: 40%;
+    }
+
+    &--animation {
+      transform: scale(1.25);
     }
   }
 </style>
