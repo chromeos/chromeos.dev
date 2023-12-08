@@ -34,15 +34,11 @@ export function getStaticPaths() {
 
 const { microcopy, data } = Astro.props;
 const { locale } = microcopy;
-// console.log(locale);
-// const hero = { heading: home.hero.heading, copy: home.hero.copy };
 
-// console.log(languages);
 const {
   chromebook,
   commercial,
   hero,
-  // community,
   linux,
   posts: postsData,
   quotes,
@@ -50,7 +46,6 @@ const {
   stats,
   stories: storiesData,
   videos,
-  // subnav,
 } = data;
 
 // Get routing CTA URLs
@@ -86,9 +81,6 @@ const latestPosts = posts.filter((p) => p._id !== featuredPost._id).slice(0, 3);
 for (const c of commercial.items) {
   c.cta.url = landings.find((l) => l._id === c.cta.ref)._path;
 }
-
-// Quotes
-console.log(chromebook);
 ---
 
 <Wrapper locale={locale} metadesc="" title="ChromeOS.dev">
