@@ -8,7 +8,7 @@
 </script>
 
 <section
-  class="wrapper wrapper--full-bleed wrapper--padding wrapper--padded wrapper__contained wrapper__background"
+  class="wrapper wrapper--full-bleed wrapper--padding wrapper--padded wrapper__contained wrapper__background wrapper--no-top"
 >
   <div class="inner">
     <header class="home--header">
