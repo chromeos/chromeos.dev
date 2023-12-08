@@ -24,7 +24,8 @@ export type Image = {
 };
 
 export type YouTube = {
-  youtube: string;
+  id: string;
+  title?: string;
 };
 
 export type Backgrounds = {
@@ -209,6 +210,10 @@ export interface Home extends CoreMeta {
   subnav: {
     title: string;
     copy: string;
+  };
+  videos: {
+    title: string;
+    items: YouTube[];
   };
 }
 
