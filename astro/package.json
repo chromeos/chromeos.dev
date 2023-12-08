@@ -34,6 +34,7 @@
     "@portabletext/svelte": "^1.0.1",
     "@sanity/astro": "^1.3.0",
     "@sanity/client": "^6.8.0",
+    "@sanity/webhook": "^4.0.0",
     "astro": "^3.0.5",
     "astro-portabletext": "^0.9.4",
     "css-paint-polyfill": "^3.4.0",
