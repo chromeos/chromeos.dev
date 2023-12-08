@@ -7,6 +7,9 @@ export const POST: APIRoute = async ({ request }) => {
   const signature = request.headers[SIGNATURE_HEADER_NAME];
   const body = await request.text();
 
+  console.log('A DEPLOY REQUEST WAS MADE');
+  console.log(body);
+
   const valid = await isValidSignature(body, signature, secret);
 
   if (!valid) {
