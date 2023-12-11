@@ -1,5 +1,5 @@
 ---
-import { getMicrocopyFromLangCode } from '$$microcopy';
+import { getMicrocopy } from '$$microcopy';
 import Wrapper from '$layouts/wrapper.astro';
 import AnimatedHero from '$components/home/AnimatedHero.svelte';
 import Routing from '$components/home/Routing.svelte';
@@ -27,7 +27,7 @@ export function getStaticPaths() {
     },
     props: {
       data: h,
-      microcopy: getMicrocopyFromLangCode(h._langCode),
+      microcopy: getMicrocopy(h._langCode),
     },
   }));
 }

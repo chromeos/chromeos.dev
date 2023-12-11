@@ -1,5 +1,5 @@
 ---
-import { getMicrocopyFromLangCode } from '$$microcopy';
+import { getMicrocopy } from '$$microcopy';
 import Wrapper from '$layouts/wrapper.astro';
 import Search from '$components/Search.svelte';
 import SearchResults from '$components/SearchResults.svelte';
@@ -16,7 +16,7 @@ export function getStaticPaths() {
       lang: l.code,
     },
     props: {
-      microcopy: getMicrocopyFromLangCode(l.code),
+      microcopy: getMicrocopy(l.code),
     },
   }));
 }

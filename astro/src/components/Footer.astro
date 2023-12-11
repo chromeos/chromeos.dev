@@ -1,13 +1,13 @@
 ---
 import { languages } from '$$sanity';
-import { getMicrocopyFromLangCode } from '$$microcopy';
+import { getMicrocopy } from '$$microcopy';
 import LanguageSwitcher from '$components/LanguageSwitcher.svelte';
 export interface Props {
   lang: string;
 }
 
 const { lang } = Astro.props;
-const microcopy = getMicrocopyFromLangCode(lang);
+const microcopy = getMicrocopy(lang);
 const { links, help, language: select } = microcopy.footer;
 ---
 
