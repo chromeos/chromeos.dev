@@ -1,11 +1,11 @@
 ---
-import { getLanguages } from '$$microcopy';
+import { languages } from '$$sanity';
 
 /**
- * Builds paths for news pagination
+ * Builds paths for content files
+ * @return {object[]} Paths
  */
-export async function getStaticPaths() {
-  const languages = getLanguages();
+export function getStaticPaths() {
   return languages.map((l) => ({
     params: {
       lang: l.code,
