@@ -1,13 +1,11 @@
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
 import nodejs from '@astrojs/node';
+import sitemap from '@astrojs/sitemap';
 import virtual from '@rollup/plugin-virtual';
-
 import 'dotenv/config';
-
 import * as path from 'path';
 import * as url from 'url';
-
 import tsconfig from './tsconfig.json';
 
 // Get the current directory
@@ -44,7 +42,7 @@ export default defineConfig({
   adapter: nodejs({
     mode: 'middleware',
   }),
-  integrations: [svelte()],
+  integrations: [svelte(), sitemap()],
   compressHTML: true,
   vite: {
     plugins: [
