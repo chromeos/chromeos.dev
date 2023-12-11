@@ -53,7 +53,6 @@
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "@typescript-eslint/parser": "^5.48.0",
     "breakpoint-sass": "^3.0.0",
-    "chromeos-dev-markdown": "^1.0.1",
     "dotenv": "^16.0.3",
     "eslint": "^8.31.0",
     "eslint-config-google": "^0.14.0",

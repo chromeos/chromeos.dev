@@ -70,9 +70,6 @@ devDependencies:
   breakpoint-sass:
     specifier: ^3.0.0
     version: 3.0.0(sass@1.69.5)
-  chromeos-dev-markdown:
-    specifier: ^1.0.1
-    version: 1.0.1(@types/markdown-it@13.0.6)
   dotenv:
     specifier: ^16.0.3
     version: 16.3.1
@@ -1535,128 +1532,6 @@ packages:
       kuler: 2.0.0
     dev: true
 
-  /@emmetio/abbreviation@0.6.6:
-    resolution: {integrity: sha512-jsh1Hyc7iY+5tADcn6GlIF/kxEbglPW+JE/FcCb4NNYqDr2swXvEGWd+DN3porBA67VDfDZVAwThhvYTsHKrRw==}
-    dependencies:
-      '@emmetio/node': 0.1.2
-      '@emmetio/stream-reader': 2.2.0
-      '@emmetio/stream-reader-utils': 0.1.0
-    dev: true
-
-  /@emmetio/abbreviation@0.7.0:
-    resolution: {integrity: sha512-CjLWtUCyh2nRgG/TkBruPTNI03i+b2Bau9UP7g0zgWdeV6bBjNC8CxX106ZdMekK3I/RmTrWuzVV9b+7nwqKXA==}
-    dependencies:
-      '@emmetio/node': 0.1.2
-      '@emmetio/stream-reader': 2.2.0
-      '@emmetio/stream-reader-utils': 0.1.0
-    dev: true
-
-  /@emmetio/css-abbreviation@0.4.0:
-    resolution: {integrity: sha512-8b4+ZoBElpNMedO+gGCiEX/xGv8Do0NYUvsdVNv6O0fuP9octnxyzjb7HFGqDJ7hFzVORAfzOhpjyL8y2dw9AQ==}
-    dependencies:
-      '@emmetio/node': 0.1.2
-      '@emmetio/stream-reader': 2.2.0
-      '@emmetio/stream-reader-utils': 0.1.0
-    dev: true
-
-  /@emmetio/css-snippets-resolver@0.4.0:
-    resolution: {integrity: sha512-H0eOed2KljA/nQ64j3BKwAkAFliku5LAD58o4pvS3A9tZ2g3ctEpJ+61po78SZE1+Q+gRA3CGtC6rxtk7QlGPA==}
-    dev: true
-
-  /@emmetio/expand-abbreviation@0.7.3:
-    resolution: {integrity: sha512-qlgYLsvzwkT17YmIGWUxyz4HeiGhxpKYmKe6067frHgUiSRWbIUY8es9B6J9ygveOye+VbeiULy7ae+7YF2xpQ==}
-    dependencies:
-      '@emmetio/abbreviation': 0.7.0
-      '@emmetio/css-abbreviation': 0.4.0
-      '@emmetio/css-snippets-resolver': 0.4.0
-      '@emmetio/html-snippets-resolver': 0.1.4
-      '@emmetio/html-transform': 0.3.10
-      '@emmetio/lorem': 1.0.2
-      '@emmetio/markup-formatters': 0.4.1
-      '@emmetio/output-profile': 0.1.6
-      '@emmetio/snippets': 0.2.12
-      '@emmetio/snippets-registry': 0.3.1
-      '@emmetio/stylesheet-formatters': 0.2.1
-      '@emmetio/variable-resolver': 0.2.1
-    dev: true
-
-  /@emmetio/field-parser@0.3.1:
-    resolution: {integrity: sha512-A26JuVvZRUBb/rNpaDdmBB2jaN3spx2JRLJQfkskz9CRbiSW9ZE/M7etKKMunV5UWUfSlygFaFUclT3y+UNDxw==}
-    dependencies:
-      '@emmetio/stream-reader': 2.2.0
-      '@emmetio/stream-reader-utils': 0.1.0
-    dev: true
-
-  /@emmetio/html-snippets-resolver@0.1.4:
-    resolution: {integrity: sha512-KqskLHiFGLHOQeiGxPJqkdgtgu+ZzxqzZh6n/CSPWBNjUard9dmHZHFL+jgDhk/y6nKl5G7ynxeKVU8k+yKDvw==}
-    dependencies:
-      '@emmetio/abbreviation': 0.6.6
-    dev: true
-
-  /@emmetio/html-transform@0.3.10:
-    resolution: {integrity: sha512-GxKcFDCkHQAre4lBRr4hbyYfRhAtTqDrcnwDi2n97CX6bKhdfL9p7fZIobtNtjX+ZdCVs36x4vizpiChEYOArg==}
-    dependencies:
-      '@emmetio/implicit-tag': 1.0.0
-    dev: true
-
-  /@emmetio/implicit-tag@1.0.0:
-    resolution: {integrity: sha512-FEuVxAbcayYrzXE06prKdFZ7jjILKnFirSadmy4gVzU/c/jsoBjmP63KXXYh8re6vxJa9uhNATRz//SxoJw1lA==}
-    dev: true
-
-  /@emmetio/lorem@1.0.2:
-    resolution: {integrity: sha512-oUGR22inLtyIV6sreAYmkDSZaZO2mkiL3DKKD7sI9diHlT3ZyjBB480KCFKLjWUVRZDEQsuKeNMxsMVgZlc24w==}
-    dependencies:
-      '@emmetio/implicit-tag': 1.0.0
-    dev: true
-
-  /@emmetio/markup-formatters@0.4.1:
-    resolution: {integrity: sha512-RR+QPozAAL7pnFL5Nl3g5qXxUF2qw54oGl0njmBTZYYwf96LDJ2p6DfRhy8uCenRjMMgUijjQ31wtmDR4cobDA==}
-    dependencies:
-      '@emmetio/field-parser': 0.3.1
-      '@emmetio/output-renderer': 0.1.2
-    dev: true
-
-  /@emmetio/node@0.1.2:
-    resolution: {integrity: sha512-rykoUNl5M0f2H2TNLY8JgiZFgeL12NHRG65dYyKU83A6qi3KhGSTb4mK4WdnwC/xQz4QWWu3nPa/PanTi55NRQ==}
-    dev: true
-
-  /@emmetio/output-profile@0.1.6:
-    resolution: {integrity: sha512-7bIwR3YHmTEnyy76X4l9e5+wXE+lah2E1AIoeDyKFIfVujztXNqcv+BmPcV4LRl1+V6Qir8hIex+F2nz7PTPCg==}
-    dev: true
-
-  /@emmetio/output-renderer@0.1.2:
-    resolution: {integrity: sha512-+N7J5L8UHJVXESSpbFTQ11tJwTgorJsIiJeep1YqFz66N8WutHbX5lRqv1H7O0Ve+jrAMo7VFCurfHxGB174yA==}
-    dependencies:
-      '@emmetio/field-parser': 0.3.1
-    dev: true
-
-  /@emmetio/snippets-registry@0.3.1:
-    resolution: {integrity: sha512-Mot1w4oRzEDCGNTaeA1DZbvQD1d0z5fm1c8aySJ5dB8Zegg7BvHGB4EB8NPyo5KnK6RnEECKk2vPp6ofJaz49Q==}
-    dev: true
-
-  /@emmetio/snippets@0.2.12:
-    resolution: {integrity: sha512-xgjkyLZ4Ez8kN2qGNY59MadoIlStIohn80/FUSk+/DyNp/0SVpAe+/uQ5qJ4Mo4DDzfnkEkfCBMO/yq4SKoB0w==}
-    dev: true
-
-  /@emmetio/stream-reader-utils@0.1.0:
-    resolution: {integrity: sha512-ZsZ2I9Vzso3Ho/pjZFsmmZ++FWeEd/txqybHTm4OgaZzdS8V9V/YYWQwg5TC38Z7uLWUV1vavpLLbjJtKubR1A==}
-    dev: true
-
-  /@emmetio/stream-reader@2.2.0:
-    resolution: {integrity: sha512-fXVXEyFA5Yv3M3n8sUGT7+fvecGrZP4k6FnWWMSZVQf69kAq0LLpaBQLGcPR30m3zMmKYhECP4k/ZkzvhEW5kw==}
-    dev: true
-
-  /@emmetio/stylesheet-formatters@0.2.1:
-    resolution: {integrity: sha512-1XHNVx6S3ra7dnv12CNT6Gq15VyT2Fkrhgp2yCj4g2jJJflVHU6t++VfjoK6w36hGYu0AqZL9TCa/8hLj2YjQw==}
-    dependencies:
-      '@emmetio/field-parser': 0.3.1
-      '@emmetio/output-renderer': 0.1.2
-    dev: true
-
-  /@emmetio/variable-resolver@0.2.1:
-    resolution: {integrity: sha512-IBBC9VNRJHKOPvicJx2FF4IgxFh8rud06siuv/ctLKuM8MU/kwOPuPOMD2rsbghIobiavIiLAsAoQWPtk1gNFQ==}
-    dev: true
-
   /@esbuild/android-arm64@0.18.20:
     resolution: {integrity: sha512-Nz4rJcchGDtENV0eMKUNa6L12zz2zBDXuhj/Vjh18zGqB44Bi7MBMSXjgunJgjRhCmKOjnPuZp4Mb6OKqtMHLQ==}
     engines: {node: '>=12'}
@@ -2737,13 +2612,6 @@ packages:
 
   /@types/markdown-it@12.2.3:
     resolution: {integrity: sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==}
-    dependencies:
-      '@types/linkify-it': 3.0.5
-      '@types/mdurl': 1.0.5
-    dev: true
-
-  /@types/markdown-it@13.0.6:
-    resolution: {integrity: sha512-0VqpvusJn1/lwRegCxcHVdmLfF+wIsprsKMC9xW8UPcTxhFcQtoN/fBU1zMe8pH7D/RuueMh2CaBaNv+GrLqTw==}
     dependencies:
       '@types/linkify-it': 3.0.5
       '@types/mdurl': 1.0.5
@@ -3934,29 +3802,6 @@ packages:
   /chownr@2.0.0:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
     engines: {node: '>=10'}
-    dev: true
-
-  /chromeos-dev-markdown@1.0.1(@types/markdown-it@13.0.6):
-    resolution: {integrity: sha512-pFUY24Rk/VVJLvs9B45ygGlLLVoi2MKHfW3fl5Q4na6R3lRlpCW1B8CoELpNz80YII7reqGYxXftHcWhd7EhgA==}
-    dependencies:
-      '@emmetio/expand-abbreviation': 0.7.3
-      markdown-it: 12.3.2
-      markdown-it-abbr: 1.0.4
-      markdown-it-anchor: 8.6.7(@types/markdown-it@13.0.6)(markdown-it@12.3.2)
-      markdown-it-attrs: 4.1.6(markdown-it@12.3.2)
-      markdown-it-container: 3.0.0
-      markdown-it-deflist: 2.1.0
-      markdown-it-emoji: 2.0.2
-      markdown-it-figure: 0.2.0
-      markdown-it-footnote: 3.0.3
-      markdown-it-header-sections: 1.0.0
-      markdown-it-kbd: 2.2.2
-      markdown-it-sup: 1.0.0
-      markdown-it-video: 0.6.3
-      prismjs: 1.29.0
-      uslug: 1.0.4
-    transitivePeerDependencies:
-      - '@types/markdown-it'
     dev: true
 
   /ci-info@2.0.0:
@@ -7779,10 +7624,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /markdown-it-abbr@1.0.4:
-    resolution: {integrity: sha512-ZeA4Z4SaBbYysZap5iZcxKmlPL6bYA8grqhzJIHB1ikn7njnzaP8uwbtuXc4YXD5LicI4/2Xmc0VwmSiFV04gg==}
-    dev: true
-
   /markdown-it-anchor@8.6.7(@types/markdown-it@12.2.3)(markdown-it@12.3.2):
     resolution: {integrity: sha512-FlCHFwNnutLgVTflOYHPW2pPcl2AACqVzExlkGQNsi4CJgqOHN7YTgDd4LuhgN1BFO3TS0vLAruV1Td6dwWPJA==}
     peerDependencies:
@@ -7791,62 +7632,6 @@ packages:
     dependencies:
       '@types/markdown-it': 12.2.3
       markdown-it: 12.3.2
-    dev: true
-
-  /markdown-it-anchor@8.6.7(@types/markdown-it@13.0.6)(markdown-it@12.3.2):
-    resolution: {integrity: sha512-FlCHFwNnutLgVTflOYHPW2pPcl2AACqVzExlkGQNsi4CJgqOHN7YTgDd4LuhgN1BFO3TS0vLAruV1Td6dwWPJA==}
-    peerDependencies:
-      '@types/markdown-it': '*'
-      markdown-it: '*'
-    dependencies:
-      '@types/markdown-it': 13.0.6
-      markdown-it: 12.3.2
-    dev: true
-
-  /markdown-it-attrs@4.1.6(markdown-it@12.3.2):
-    resolution: {integrity: sha512-O7PDKZlN8RFMyDX13JnctQompwrrILuz2y43pW2GagcwpIIElkAdfeek+erHfxUOlXWPsjFeWmZ8ch1xtRLWpA==}
-    engines: {node: '>=6'}
-    peerDependencies:
-      markdown-it: '>= 9.0.0'
-    dependencies:
-      markdown-it: 12.3.2
-    dev: true
-
-  /markdown-it-container@3.0.0:
-    resolution: {integrity: sha512-y6oKTq4BB9OQuY/KLfk/O3ysFhB3IMYoIWhGJEidXt1NQFocFK2sA2t0NYZAMyMShAGL6x5OPIbrmXPIqaN9rw==}
-    dev: true
-
-  /markdown-it-deflist@2.1.0:
-    resolution: {integrity: sha512-3OuqoRUlSxJiuQYu0cWTLHNhhq2xtoSFqsZK8plANg91+RJQU1ziQ6lA2LzmFAEes18uPBsHZpcX6We5l76Nzg==}
-    dev: true
-
-  /markdown-it-emoji@2.0.2:
-    resolution: {integrity: sha512-zLftSaNrKuYl0kR5zm4gxXjHaOI3FAOEaloKmRA5hijmJZvSjmxcokOLlzycb/HXlUFWzXqpIEoyEMCE4i9MvQ==}
-    dev: true
-
-  /markdown-it-figure@0.2.0:
-    resolution: {integrity: sha512-9xyzwyPGmLeedQqsU+sTDg2PqZoE8IXBqsM6sFR7AH099hkhXifBaRXnt79jCsD+ue9s1MaQXMxQX0u4prelag==}
-    dev: true
-
-  /markdown-it-footnote@3.0.3:
-    resolution: {integrity: sha512-YZMSuCGVZAjzKMn+xqIco9d1cLGxbELHZ9do/TSYVzraooV8ypsppKNmUJ0fVH5ljkCInQAtFpm8Rb3eXSrt5w==}
-    dev: true
-
-  /markdown-it-header-sections@1.0.0:
-    resolution: {integrity: sha512-GndZbs+iTo7NkNRf00VmT4mtFql7VoJNnSwB7hP5xkomGUTdQ78siVZIuRco4fbiWJd45JUemLxUS9vO8luPSA==}
-    dev: true
-
-  /markdown-it-kbd@2.2.2:
-    resolution: {integrity: sha512-J5qVHtLuxh1HTJcl5xhopiFpf6fnHIBY0OO1akGHf2KW0VwQLYhsip/bkiTJFoEZqhssxQuUBY1LO5/SbCrB6g==}
-    engines: {node: '>=6.0.0'}
-    dev: true
-
-  /markdown-it-sup@1.0.0:
-    resolution: {integrity: sha512-E32m0nV9iyhRR7CrhnzL5msqic7rL1juWre6TQNxsnApg7Uf+F97JOKxUijg5YwXz86lZ0mqfOnutoryyNdntQ==}
-    dev: true
-
-  /markdown-it-video@0.6.3:
-    resolution: {integrity: sha512-T4th1kwy0OcvyWSN4u3rqPGxvbDclpucnVSSaH3ZacbGsAts964dxokx9s/I3GYsrDCJs4ogtEeEeVP18DQj0Q==}
     dev: true
 
   /markdown-it@12.3.2:
@@ -9377,6 +9162,7 @@ packages:
   /prismjs@1.29.0:
     resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
     engines: {node: '>=6'}
+    dev: false
 
   /probe-image-size@7.2.3:
     resolution: {integrity: sha512-HubhG4Rb2UH8YtV4ba0Vp5bQ7L78RTONYu/ujmCu5nBI8wGv24s4E9xSKBi0N1MowRpxk76pFCpJtW0KPzOK0w==}
