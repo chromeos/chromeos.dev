@@ -3,8 +3,8 @@
   import Logo from '$components/site-header/Logo.svelte';
   import NavItem from '$components/site-header/NavItem.svelte';
   import Search from '$components/Search.svelte';
-  import { setContext } from 'svelte';
   import { writable } from 'svelte/store';
+  import { setContext } from 'svelte';
 
   export let nav: Navigation;
   export let subscribe: { text: string; url: string; type: string };
@@ -142,7 +142,7 @@
     top: 0;
     left: 0;
     z-index: 50;
-    background: white;
+    background: var(--global-background);
     height: var(--header-height);
     width: 100%;
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.1));
@@ -216,12 +216,14 @@
       display: flex;
       flex-direction: row-reverse;
       width: 100%;
+      color: var(--global-foreground);
 
       :global(.search) {
         display: none;
         background-color: var(--grey-100);
         padding-right: 2rem;
         width: 100%;
+        color: var(--global-foreground);
       }
 
       [data-active-search] & {
@@ -243,6 +245,10 @@
       [data-active-search] & {
         background-color: var(--grey-100);
       }
+
+      :global(.icon) {
+        color: var(--global-foreground);
+      }
     }
   }
 
@@ -257,6 +263,7 @@
     transform: translateX(0);
     transition: transform 0.3s ease-in-out;
     overflow-y: auto;
+    background-color: var(--global-background);
 
     &:initial {
       transform: translateX(-100%);
@@ -307,6 +314,10 @@
       grid-row: 3;
       border-radius: 0;
     }
+  }
+
+  .icon {
+    fill: var(--global-foreground);
   }
 
   li {

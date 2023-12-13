@@ -19,7 +19,7 @@
   &--page-nav {
     @include fontSetup(14px, 18px);
     color: var(--grey-700);
-    font-family: $font-body;
+    font-family: var(--font-body);
     text-decoration: none;
 
     &[data-active],
@@ -44,7 +44,7 @@
   &--primary {
     @include fontSetup(16px, 24px);
     color: var(--grey-700);
-    font-family: $font-google-sans;
+    font-family: var(--font-sans);
     font-weight: 500;
     text-decoration: none;
 
@@ -58,7 +58,7 @@
   &--secondary {
     @include fontSetup(14px, 18px);
     color: var(--grey-700);
-    font-family: $font-body;
+    font-family: var(--font-body);
     text-decoration: none;
 
     &[data-active],
@@ -72,7 +72,7 @@
   &--tertiary {
     @include fontSetup(16px, 24px, 500);
     color: var(--grey-700);
-    font-family: $font-google-sans;
+    font-family: var(--font-sans);
     text-decoration: none;
 
     &:hover,

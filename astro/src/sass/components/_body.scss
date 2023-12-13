@@ -6,8 +6,6 @@ html {
 }
 
 body {
-  --theme: 'auto';
-  --style-queries: 0;
   --header-height: 4rem;
   --header-spacing: 0rem;
   --header-offset: calc(var(--header-height) + var(--header-spacing));
@@ -21,6 +19,8 @@ body {
   --wrapper-inline-spacing-r: #{$wrapper-inline-spacing-r};
   display: flex;
   flex-direction: column;
+  background-color: var(--global-background);
+  color: var(--global-foreground);
 
   @each $code, $size in $bkpt-lang-headers {
     @media (min-width: $size) {

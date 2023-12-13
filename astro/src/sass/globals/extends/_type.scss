@@ -10,42 +10,42 @@
   &--mega {
     @extend %type--header;
     @include flexFont((36px 50.4px), (56px 64.4px), (64px 73.6px));
-    font-family: $font-google-sans;
+    font-family: var(--font-sans);
     letter-spacing: -0.01em;
   }
 
   &--h1 {
     @extend %type--header;
     @include flexFont((28px 39.2px), (40px 52px), (48px 62.4px));
-    font-family: $font-google-sans;
+    font-family: var(--font-sans);
     letter-spacing: -0.01em;
   }
 
   &--h2 {
     @extend %type--header;
     @include flexFont((24px 33.6px), (28px 36.4px), (32px 38.4px));
-    font-family: $font-google-sans;
+    font-family: var(--font-sans);
     letter-spacing: -0.01em;
   }
 
   &--h3 {
     @extend %type--header;
     @include flexFont((20px 28px), (26px 33.8px), (28px 36.4px));
-    font-family: $font-google-sans;
+    font-family: var(--font-sans);
     letter-spacing: -0.01em;
   }
 
   &--h4 {
     @extend %type--header;
     @include flexFont((18px 22.4px), (20px 28px), (22px 30.8px));
-    font-family: $font-body;
+    font-family: var(--font-body);
     letter-spacing: -0.01em;
   }
 
   &--h5 {
     @extend %type--header;
     @include flexFont((16px 22.4px), (16px 19.2px), (18px 21.6px));
-    font-family: $font-body;
+    font-family: var(--font-body);
     font-weight: 500;
     letter-spacing: -0.01em;
   }
@@ -54,13 +54,13 @@
     @extend %type--header;
 
     @include flexFont((14px 24px), (16px 28px), (16px 28px), 500);
-    font-family: $font-body;
+    font-family: var(--font-body);
   }
 
   &--base {
     @include fontSetup(16px, 24px, 400);
     color: var(--grey-900);
-    font-family: $font-body;
+    font-family: var(--font-body);
     letter-spacing: -0.01em;
   }
 
@@ -79,14 +79,14 @@
   &--quote {
     @include fontSetup(20px, 28px, 500);
     color: var(--grey-700);
-    font-family: $font-body;
+    font-family: var(--font-body);
   }
 
   &--eyebrow {
     @extend %type--header;
     @include fontSetup(14px, 14px, 700);
     display: inline-block;
-    font-family: $font-body;
+    font-family: var(--font-body);
     letter-spacing: 0.01em;
     text-transform: uppercase;
   }
@@ -113,7 +113,7 @@
     @include fontSetup(14px, 20px, 400, false);
     background-color: var(--grey-100);
     color: var(--grey-700);
-    font-family: $font-mono;
+    font-family: var(--font-mono);
     padding: 0.25em;
     word-break: break-word;
 
@@ -159,7 +159,7 @@
     border-radius: pxRem(3px);
     box-shadow: 1px 1px 1px var(--grey-700);
     display: inline-block;
-    font-family: $font-mono;
+    font-family: var(--font-mono);
     font-size: 0.8em;
     font-variant: small-caps;
     font-weight: $font-weight-bold;

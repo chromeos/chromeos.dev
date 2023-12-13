@@ -35,12 +35,17 @@
       grid-column: 2;
       background: none;
       border: 0;
+      color: var(--global-foreground);
     }
 
     &--button {
       padding: 0;
       border: 0;
       background: none;
+    }
+
+    .icon {
+      fill: var(--global-foreground);
     }
   }
 </style>

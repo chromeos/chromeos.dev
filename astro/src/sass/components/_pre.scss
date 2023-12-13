@@ -1,7 +1,7 @@
 %base--pre-build {
   direction: ltr;
   display: block;
-  font-family: $font-mono;
+  font-family: var(--font-mono);
   font-weight: $font-weight-normal;
   hyphens: none;
   letter-spacing: normal;
