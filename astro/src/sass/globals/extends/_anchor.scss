@@ -30,6 +30,10 @@
 
     &[data-active] {
       text-shadow: 0 0 0 currentColor;
+
+      [data-theme='dark'] & {
+        color: var(--global-background);
+      }
     }
 
     &:focus {
@@ -38,6 +42,10 @@
 
     &:visited {
       color: var(--grey-700);
+
+      [data-theme='dark'] & {
+        color: var(--global-background);
+      }
     }
   }
 

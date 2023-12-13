@@ -138,7 +138,7 @@
   @import '$sass/shared';
 
   .header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     z-index: 50;

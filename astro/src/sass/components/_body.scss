@@ -1,7 +1,7 @@
 // Styles for the main sections
 body,
 html {
-  height: 100%;
+  min-height: 100%;
   scroll-behavior: smooth;
 }
 
@@ -34,5 +34,4 @@ body {
 .main {
   flex: 1 0 auto;
   height: max-content;
-  margin-top: var(--header-offset);
 }
