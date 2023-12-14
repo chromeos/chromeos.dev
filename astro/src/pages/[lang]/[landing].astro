@@ -110,10 +110,18 @@ switch (landing.category.slug) {
     align-items: center;
     gap: 1rem;
 
+    :global([data-theme='dark']) & {
+      background-color: var(--phosphor-grey) !important;
+    }
+
     &--title {
       color: var(--white);
       text-wrap: balance;
       padding-block: var(--header-spacing);
+
+      :global([data-theme='dark']) & {
+        color: var(--global-foreground);
+      }
     }
 
     &--hero {
