@@ -212,8 +212,10 @@
     &--title {
       margin-block-end: 1rem;
       text-wrap: balance;
+    }
 
-      color: red;
+    &--accent {
+      color: var(--tertiary-blue);
     }
 
     &--animation,
