@@ -2,7 +2,7 @@
 import type { Locale } from '$types/content';
 import Wrapper from '$layouts/wrapper.astro';
 import Recommended from '$components/Recommended.svelte';
-import { getMicrocopyFromLangCode } from '$$microcopy';
+import { getMicrocopy } from '$$microcopy';
 
 export interface Props {
   title: string;
@@ -16,7 +16,7 @@ export interface Props {
 }
 
 const { title, props = [], locale, metadesc, section } = Astro.props;
-const microcopy = getMicrocopyFromLangCode(locale.code);
+const microcopy = getMicrocopy(locale.code);
 ---
 
 <Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>

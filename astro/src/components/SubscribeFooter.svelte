@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { getMicrocopyFromLangCode } from '$$microcopy';
+  import { getMicrocopy } from '$$microcopy';
 
   export let lang: string;
 
-  const microcopy = getMicrocopyFromLangCode(lang);
+  const microcopy = getMicrocopy(lang);
   const { subscribe } = microcopy.footer;
   const action = microcopy.actions.subscribe;
 </script>
