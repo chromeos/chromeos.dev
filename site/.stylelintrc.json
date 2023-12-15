@@ -1,5 +1,7 @@
 {
-  "extends": ["stylelint-config-recommended", "stylelint-config-sass-guidelines", "stylelint-config-prettier"],
+  "extends": ["stylelint-config-recommended", "stylelint-config-prettier"],
+  "ignoreFiles": ["node_modules/**/*", "dist/**/*", "public/**/*"],
+  "customSyntax": "postcss-html",
   "rules": {
     "indentation": 2,
     "string-quotes": "single",
@@ -17,7 +19,19 @@
     "function-no-unknown": [
       true,
       {
-        "ignoreFunctions": ["pxRem", "pxEm", "generateScaling", "if", "pxCast", "unquote", "unitless", "math.percentage", "math.div", "nth", "map-get"]
+        "ignoreFunctions": [
+          "pxRem",
+          "pxEm",
+          "generateScaling",
+          "if",
+          "pxCast",
+          "unquote",
+          "unitless",
+          "math.percentage",
+          "math.div",
+          "nth",
+          "map-get"
+        ]
       }
     ],
     "property-no-unknown": [
@@ -31,6 +45,12 @@
     "font-family-name-quotes": "always-where-required",
     "at-rule-no-vendor-prefix": true,
     "selector-pseudo-element-colon-notation": "double",
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
     "selector-no-vendor-prefix": true,
     "media-feature-name-no-vendor-prefix": true,
     "selector-class-pattern": [
@@ -39,47 +59,18 @@
         "message": "Selector should be written in lowercase with hyphens (selector-class-pattern)"
       }
     ],
-    "scss/percent-placeholder-pattern": [
-      "^[_a-z0-9\\-]+$",
-      {
-        "message": "Placeholder selector should be written in lowercase with hyphens (selector-class-pattern)"
-      }
-    ],
     "max-nesting-depth": [
       3,
       {
-        "ignoreAtRules": ["each", "media", "supports", "include", "for", "container"]
+        "ignoreAtRules": [
+          "each",
+          "media",
+          "supports",
+          "include",
+          "for",
+          "container"
+        ]
       }
-    ],
-    "scss/at-function-pattern": "^[a-z]+([a-zA-Z0-9-]+[a-zA-Z0-9]+)?$",
-    "scss/at-mixin-pattern": "^[a-z]+([a-zA-Z0-9-]+[a-zA-Z0-9]+)?$",
-    "scss/at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": ["container"]
-      }
-    ],
-    "order/order": [
-      [
-        "dollar-variables",
-        "custom-properties",
-        {
-          "type": "at-rule",
-          "name": "extend"
-        },
-        {
-          "type": "at-rule",
-          "name": "include",
-          "hasBlock": false
-        },
-        "declarations",
-        {
-          "type": "at-rule",
-          "name": "include",
-          "hasBlock": true
-        },
-        "rules"
-      ]
     ]
   }
 }

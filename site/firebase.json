@@ -1,25 +1,9 @@
 {
   "hosting": {
-    "trailingSlash": false,
-    "appAssociation": "AUTO",
-    "rewrites": [
-      {
-        "source": "/search",
-        "function": "search"
-      },
-      {
-        "source": "/l/**",
-        "dynamicLinks": true
-      }
-    ],
-    "redirects": [
-      {
-        "source": "/",
-        "destination": "/en",
-        "type": 301
-      }
-    ],
-    "public": "public",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "src/**", "tests/**", "lib/**", "gulpfile.js", "rollup.*.config.js", "rollup.sw.js", "babel.config.js", "package*.json", "package-lock.json", "lighthouse.config.json"]
+    "source": ".",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "frameworksBackend": {
+      "region": "us-central1"
+    }
   }
 }

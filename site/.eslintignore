@@ -2,3 +2,13 @@
 site/public/js/indexes
 site/public/js/_data
 site/js/_data
+.env
+.npmrc
+dist
+.astro
+.firebase/
+.firebaserc
+.gitignore
+.prettierignore
+public/pagefind
+.generated

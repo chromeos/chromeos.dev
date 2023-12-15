@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://chromeos.dev/sitemap-index.xml

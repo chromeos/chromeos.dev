@@ -1,20 +1,49 @@
 root: true
 extends:
   - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:n/recommended
   - google
+  - plugin:import/recommended
+  - plugin:import/typescript
   - plugin:prettier/recommended
+  - plugin:astro/recommended
 plugins:
   - import
   - prettier
+  - svelte3
+  - '@typescript-eslint'
 env:
   browser: true
-  node: false
+  node: true
   es6: true
   es2017: true
   es2020: true
 parserOptions:
-  parser: babel-eslint
-  ecmaVersion: 2020
+  parser: '@typescript-eslint/parser'
+  ecmaVersion: 2022
   sourceType: module
-globals:
-  PRODUCTION: readonly
+settings:
+  import/parsers:
+    '@typescript-eslint/parser':
+      - .ts
+      - .tsx
+  import/resolver:
+    typescript:
+      alwaysTryTypes: true
+      project: ./tsconfig.json
+  svelte3/typescript: true
+overrides:
+  - files:
+      - '*.astro'
+    parser: astro-eslint-parser
+    parserOptions:
+      parser: '@typescript-eslint/parser'
+      extraFileExtensions:
+        - '*.astro'
+  - files:
+      - '*.svelte'
+    processor: svelte3/svelte3
+rules:
+  n/no-missing-import: off
+  n/no-unpublished-import: off

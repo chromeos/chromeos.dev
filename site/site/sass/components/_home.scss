@@ -1,9 +1,0 @@
-// Home page one-off styling
-// Done with IDs because there should only be one section each
-/* stylelint-disable selector-max-id */
-#home {
-  &__subnav .item-grid__title {
-    margin-top: -6rem;
-    padding-top: 6rem;
-  }
-}

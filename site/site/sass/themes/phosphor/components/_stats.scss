@@ -1,9 +1,0 @@
-// Stats component styling
-
-.stats {
-  &__stat {
-    color: var(--phosphor-gray);
-    font-family: $font-mono;
-    text-shadow: 1px 1px var(--phosphor-green), -1px -1px var(--phosphor-green), 1px -1px var(--phosphor-green), -1px 1px var(--phosphor-green);
-  }
-}
