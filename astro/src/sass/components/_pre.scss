@@ -33,11 +33,15 @@
 
 pre {
   @extend %base--pre;
-  background: var(--grey-900);
+  background: map-get($google-colors, 'grey-900');
   max-width: calc(100vw - 4rem);
 
   > code {
-    color: var(--grey-50);
+    color: map-get($google-colors, 'grey-50');
+
+    [data-theme='dark'] & {
+      border: 2px solid var(--phosphor-green);
+    }
   }
 }
 
@@ -45,11 +49,11 @@ pre {
 .token.doctype,
 .token.cdata,
 .token.punctuation {
-  color: var(--grey-50);
+  color: map-get($google-colors, 'grey-50');
 }
 
 .token.comment {
-  color: var(--grey-500);
+  color: map-get($google-colors, 'grey-500');
 }
 
 .token.tag,
@@ -58,12 +62,12 @@ pre {
 .token.deleted,
 .token.keyword,
 .token.important {
-  color: var(--cyan-400);
+  color: map-get($google-colors, 'cyan-400');
 }
 
 .token.boolean,
 .token.number {
-  color: var(--green-300);
+  color: map-get($google-colors, 'green-300');
 }
 
 .token.selector,
@@ -72,13 +76,13 @@ pre {
 .token.builtin,
 .token.inserted,
 .token.function {
-  color: var(--purple-200);
+  color: map-get($google-colors, 'purple-200');
 }
 
 .token.atrule,
 .token.string,
 .token.attr-value {
-  color: var(--yellow-200);
+  color: map-get($google-colors, 'yellow-200');
 }
 
 .token.operator,
@@ -87,15 +91,15 @@ pre {
 .language-css .token.string,
 .style .token.string,
 .token.variable {
-  color: var(--pink-500);
+  color: map-get($google-colors, 'pink-500');
 }
 
 .token.property {
-  color: var(--cyan-400);
+  color: map-get($google-colors, 'cyan-400');
 }
 
 .token.regex {
-  color: var(--orange-300);
+  color: map-get($google-colors, 'orange-300');
 }
 
 .token.italic {

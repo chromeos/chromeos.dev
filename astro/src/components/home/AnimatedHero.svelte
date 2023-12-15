@@ -152,19 +152,22 @@
         />
       {:else}
         <!-- Significantly improves LCP -->
-        <picture>
-          <source
-            srcset={animationPlaceholders.dark}
-            media="(prefers-color-scheme:dark)"
-          />
-          <img
-            src={img}
-            class="animated-hero--fallback"
-            alt=""
-            height="500"
-            width="500"
-          />
-        </picture>
+        <img
+          src={animationPlaceholders.light}
+          class="animated-hero--fallback"
+          data-theme="light"
+          alt=""
+          height="500"
+          width="500"
+        />
+        <img
+          src={animationPlaceholders.dark}
+          class="animated-hero--fallback"
+          data-theme="dark"
+          alt=""
+          height="500"
+          width="500"
+        />
       {/if}
     </div>
   </div>
@@ -190,6 +193,10 @@
 
     [class^='type'] {
       color: inherit;
+
+      :global([data-theme='dark']) & {
+        color: var(--phosphor-green);
+      }
     }
 
     &--text {
@@ -205,10 +212,8 @@
     &--title {
       margin-block-end: 1rem;
       text-wrap: balance;
-    }
 
-    &--accent {
-      color: var(--tertiary-blue);
+      color: red;
     }
 
     &--animation,
@@ -216,6 +221,18 @@
       width: 100%;
       aspect-ratio: 1 / 1;
       min-width: 40%;
+    }
+
+    &--fallback {
+      display: none;
+
+      :global([data-theme='dark']) &[data-theme='dark'] {
+        display: block;
+      }
+
+      :global([data-theme='light']) &[data-theme='light'] {
+        display: block;
+      }
     }
 
     &--animation {

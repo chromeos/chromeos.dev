@@ -231,6 +231,35 @@
         }
       }
     }
+
+    [data-theme='dark'] & {
+      .cta--link {
+        &:hover,
+        &:focus {
+          color: var(--phosphor-gray);
+        }
+      }
+
+      &--dark {
+        background-color: var(--phosphor-gray);
+      }
+
+      &--blue {
+        background-color: var(--phosphor-gray);
+      }
+
+      &--color-stop {
+        background: var(--phosphor-gray);
+
+        &::after {
+          background-image: none;
+
+          @include mq(631px) {
+            background-image: none;
+          }
+        }
+      }
+    }
   }
 
   &__responsive-circle {

@@ -116,6 +116,7 @@
     font-family: var(--font-mono);
     padding: 0.25em;
     word-break: break-word;
+    border-radius: 2px;
 
     a & {
       color: $anchor-color--default;

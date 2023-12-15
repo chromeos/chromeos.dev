@@ -27,6 +27,10 @@
 <style lang="scss">
   .subscribe-footer {
     width: 100%;
+
+    :global([data-theme='dark']) & {
+      border: 2px solid var(--phosphor-green);
+    }
   }
 
   .call-out {
@@ -43,6 +47,10 @@
     &--body {
       color: var(--white);
       width: 100%;
+
+      :global([data-theme='dark']) & {
+        color: var(--phosphor-green);
+      }
     }
   }
 </style>

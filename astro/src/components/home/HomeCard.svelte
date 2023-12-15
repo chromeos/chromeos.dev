@@ -47,6 +47,10 @@
       clamp(1.5rem, 0.9661016949rem + 2.0338983051vw, 3rem);
     text-align: center;
 
+    :global([data-theme='dark']) & {
+      border: 2px solid var(--phosphor-green);
+    }
+
     &--image,
     &--image-holder {
       max-width: 16rem;
@@ -147,6 +151,7 @@
           &::before {
             background-image: url(https://chromeos-dev.imgix.net/icons/patterns/bracket-blue.svg);
           }
+
           &::after {
             --shape: triangle;
             --shape-color: var(--primary-yellow);

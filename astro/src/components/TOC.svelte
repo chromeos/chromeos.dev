@@ -169,6 +169,10 @@
         display: block;
         padding-block-end: 0rem;
         border-left: 2px solid var(--grey-200);
+
+        // :global([data-theme='dark']) & {
+        //   border-left-color: var(--phosphor-green);
+        // }
       }
 
       [data-expanded='true'] & {
@@ -182,6 +186,12 @@
       &:focus {
         background: none;
         --bkg: var(--blue-50);
+      }
+
+      :global([data-theme='dark']) & {
+        &:visited {
+          color: var(--phosphor-green);
+        }
       }
 
       &::after {
@@ -199,6 +209,19 @@
       &[data-active] {
         --bkg: var(--blue-50);
         --border: var(--blue-700);
+
+        :global([data-theme='dark']) & {
+          --bkg: transparent;
+          --border: transparent;
+          color: var(--phosphor-green);
+
+          &::after {
+            width: 100%;
+            height: 150%;
+            border: 2px solid var(--phosphor-green);
+          }
+          // border: 2px solid var(--phosphor-green);
+        }
       }
     }
 

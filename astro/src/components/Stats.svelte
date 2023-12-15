@@ -65,6 +65,13 @@
         position: absolute;
         z-index: -1;
       }
+
+      :global([data-theme='dark']) & {
+        color: var(--phosphor-gray);
+        text-shadow: 1px 1px var(--phosphor-green),
+          -1px -1px var(--phosphor-green), 1px -1px var(--phosphor-green),
+          -1px 1px var(--phosphor-green);
+      }
     }
 
     &--desc {

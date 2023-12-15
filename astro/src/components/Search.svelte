@@ -36,6 +36,11 @@
       background: none;
       border: 0;
       color: var(--global-foreground);
+
+      :global([data-theme='dark']) & {
+        padding: 0.5rem;
+        border: 2px solid var(--phosphor-green);
+      }
     }
 
     &--button {
@@ -46,6 +51,10 @@
 
     .icon {
       fill: var(--global-foreground);
+
+      :global([data-theme='dark']) & {
+        fill: var(--phosphor-green);
+      }
     }
   }
 </style>
