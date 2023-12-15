@@ -110,10 +110,20 @@ switch (landing.category.slug) {
     align-items: center;
     gap: 1rem;
 
+    :global([data-theme='dark']) & {
+      background-color: var(--phosphor-grey) !important;
+      border: 2px solid var(--phosphor-green);
+      // margin-top: -2px;
+    }
+
     &--title {
       color: var(--white);
       text-wrap: balance;
       padding-block: var(--header-spacing);
+
+      :global([data-theme='dark']) & {
+        color: var(--global-green);
+      }
     }
 
     &--hero {

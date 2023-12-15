@@ -72,6 +72,14 @@
       text-transform: capitalize;
     }
 
+    &--title {
+      :global([data-theme='dark']) & {
+        @container style(--inline-subnav: 1) {
+          color: var(--global-background);
+        }
+      }
+    }
+
     &--header {
       display: grid;
       background-color: var(--blue-50);
@@ -114,6 +122,7 @@
       cursor: pointer;
       position: relative;
       z-index: 2;
+
       @container style(--inline-subnav: 0) {
         display: none;
       }
@@ -152,6 +161,13 @@
 
       &[data-active] {
         --bkg: var(--blue-50);
+
+        :global([data-theme='dark']) & {
+          --bkg: transparent;
+          border: 2px solid var(--phosphor-green);
+          border-inline-start: 0;
+          border-radius: 0 2em 2em 0;
+        }
       }
     }
   }

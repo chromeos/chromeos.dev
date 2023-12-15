@@ -3,8 +3,8 @@
   import Logo from '$components/site-header/Logo.svelte';
   import NavItem from '$components/site-header/NavItem.svelte';
   import Search from '$components/Search.svelte';
-  import { setContext } from 'svelte';
   import { writable } from 'svelte/store';
+  import { setContext } from 'svelte';
 
   export let nav: Navigation;
   export let subscribe: { text: string; url: string; type: string };
@@ -138,11 +138,11 @@
   @import '$sass/shared';
 
   .header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     z-index: 50;
-    background: white;
+    background: var(--global-background);
     height: var(--header-height);
     width: 100%;
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.1));
@@ -159,6 +159,10 @@
     @container style(--inline-header: 1) {
       grid-template-columns: 185px auto min-content 156px;
       padding-inline-end: 0;
+    }
+
+    :global([data-theme='dark']) & {
+      border: 2px solid var(--phosphor-green);
     }
 
     &--subscribe,
@@ -216,12 +220,14 @@
       display: flex;
       flex-direction: row-reverse;
       width: 100%;
+      color: var(--phosphor-green);
 
       :global(.search) {
         display: none;
         background-color: var(--grey-100);
         padding-right: 2rem;
         width: 100%;
+        color: var(--phosphor-green);
       }
 
       [data-active-search] & {
@@ -243,6 +249,10 @@
       [data-active-search] & {
         background-color: var(--grey-100);
       }
+
+      :global(.icon) {
+        color: var(--global-foreground);
+      }
     }
   }
 
@@ -257,6 +267,11 @@
     transform: translateX(0);
     transition: transform 0.3s ease-in-out;
     overflow-y: auto;
+    background-color: var(--global-background);
+
+    :global([data-theme='dark']) & {
+      border: 2px solid var(--phosphor-green);
+    }
 
     &:initial {
       transform: translateX(-100%);
@@ -285,6 +300,10 @@
       border-bottom: 1px solid var(--grey-500);
       height: var(--header-height);
       align-items: center;
+
+      :global([data-theme='dark']) & {
+        border-bottom-color: var(--phosphor-green);
+      }
     }
 
     &--nav {
@@ -306,6 +325,14 @@
       width: 100%;
       grid-row: 3;
       border-radius: 0;
+    }
+  }
+
+  .icon {
+    fill: var(--global-foreground);
+
+    :global([data-theme='dark']) & {
+      fill: var(--phosphor-green);
     }
   }
 

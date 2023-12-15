@@ -38,6 +38,10 @@
         .cls-6 {
           fill: #5f6368;
         }
+
+        [data-theme='dark'] .cls-6 {
+          fill: var(--global-foreground);
+        }
       </style>
     </defs>
     <path

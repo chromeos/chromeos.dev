@@ -35,12 +35,26 @@
       grid-column: 2;
       background: none;
       border: 0;
+      color: var(--global-foreground);
+
+      :global([data-theme='dark']) & {
+        padding: 0.5rem;
+        border: 2px solid var(--phosphor-green);
+      }
     }
 
     &--button {
       padding: 0;
       border: 0;
       background: none;
+    }
+
+    .icon {
+      fill: var(--global-foreground);
+
+      :global([data-theme='dark']) & {
+        fill: var(--phosphor-green);
+      }
     }
   }
 </style>

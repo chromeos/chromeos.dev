@@ -2,6 +2,7 @@
 import { languages } from '$$sanity';
 import { getMicrocopy } from '$$microcopy';
 import LanguageSwitcher from '$components/LanguageSwitcher.svelte';
+import ThemeToggle from '$components/ThemeToggle.svelte';
 export interface Props {
   lang: string;
 }
@@ -41,6 +42,7 @@ const { links, help, language: select } = microcopy.footer;
 
         <span>{help.text}</span>
       </a>
+      <ThemeToggle client:load />
       <LanguageSwitcher
         languages={languages}
         current={lang}

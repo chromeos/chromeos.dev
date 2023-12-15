@@ -20,6 +20,11 @@
     'tertiary-red': map-get($google-colors, 'red-250'),
     'black': map-get($google-colors, 'grey-900'),
     'white': #ffffff,
+    'global-background': 'var(--white)',
+    'global-foreground': 'var(--black)',
+    'font-body': $font-body,
+    'font-sans': $font-google-sans,
+    'font-mono': $font-mono,
   );
 
   @each $c, $v in $theming-colors {
@@ -29,4 +34,38 @@
 
   // Flourishes
   --border-radius: 0.625rem;
+
+  &[data-theme='dark'] {
+    @each $c, $v in $phosphor-colors {
+      $name: '--#{$c}';
+      #{$name}: #{$v};
+    }
+
+    $theming-colors: (
+      'primary-blue': map-get($phosphor-colors, 'blue-650'),
+      'primary-green': map-get($phosphor-colors, 'green-450'),
+      'primary-yellow': map-get($phosphor-colors, 'yellow-450'),
+      'primary-red': map-get($phosphor-colors, 'red-650'),
+      'secondary-blue': map-get($phosphor-colors, 'blue-850'),
+      'secondary-green': map-get($phosphor-colors, 'green-850'),
+      'secondary-yellow': map-get($phosphor-colors, 'yellow-750'),
+      'secondary-red': map-get($phosphor-colors, 'red-750'),
+      'tertiary-blue': map-get($phosphor-colors, 'blue-250'),
+      'tertiary-green': map-get($phosphor-colors, 'green-250'),
+      'tertiary-yellow': map-get($phosphor-colors, 'yellow-250'),
+      'tertiary-red': map-get($phosphor-colors, 'red-250'),
+      'black': map-get($phosphor-colors, 'grey-900'),
+      'white': map-get($phosphor-colors, 'grey-50'),
+      'global-background': 'var(--phosphor-gray)',
+      'global-foreground': 'var(--phosphor-white)',
+      'font-body': $font-mono,
+      'font-sans': $font-mono,
+      'font-mono': $font-mono,
+    );
+
+    @each $c, $v in $theming-colors {
+      $name: '--#{$c}';
+      #{$name}: #{$v};
+    }
+  }
 }

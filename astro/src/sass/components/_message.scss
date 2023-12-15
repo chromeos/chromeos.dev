@@ -2,15 +2,20 @@
 
 .message {
   --message-icon: url('/images/icons/sprite.svg#info-sign');
-  background-color: var(--blue-25);
-  border: 1px solid var(--blue-600);
+  background-color: map-get($google-colors, 'blue-25');
+  border: 1px solid map-get($google-colors, 'blue-600');
   border-radius: 0.25rem;
   padding: 1.5rem 1.5rem 1.5rem 3.5rem;
   position: relative;
 
+  [data-theme='dark'] & {
+    background-color: var(--phosphor-gray);
+    border-width: 2px;
+  }
+
   &::before {
     content: '';
-    background-color: var(--grey-700);
+    background-color: map-get($google-colors, 'grey-700');
     position: absolute;
     height: 1.5rem;
     width: 1.5rem;
@@ -24,23 +29,52 @@
     mask-position: center center;
     mask-repeat: no-repeat;
     mask-size: 100%;
+
+    [data-theme='dark'] & {
+      background-color: map-get($google-colors, 'blue-600');
+    }
   }
 
   &[data-type='warning'] {
     --message-icon: url('/images/icons/sprite.svg#note-sign');
-    background-color: var(--yellow-50);
-    border-color: var(--yellow-600);
+    background-color: map-get($google-colors, 'yellow-50');
+    border-color: map-get($google-colors, 'yellow-600');
+
+    [data-theme='dark'] & {
+      background-color: transparent;
+
+      &::before {
+        background-color: map-get($google-colors, 'yellow-600');
+      }
+    }
   }
 
   &[data-type='error'] {
     --message-icon: url('/images/icons/sprite.svg#warning-sign');
-    background-color: var(--red-50);
-    border-color: var(--red-600);
+    background-color: map-get($google-colors, 'red-50');
+    border-color: map-get($google-colors, 'red-600');
+
+    [data-theme='dark'] & {
+      background-color: transparent;
+
+      &::before {
+        background-color: map-get($google-colors, 'red-600');
+      }
+    }
   }
 
   &[data-type='tip'] {
     --message-icon: url('/images/icons/sprite.svg#tip-sign');
-    background-color: var(--green-50);
-    border-color: var(--green-600);
+    background-color: map-get($google-colors, 'green-50');
+    border-color: map-get($google-colors, 'green-600');
+
+    [data-theme='dark'] & {
+      background-color: transparent;
+      border-color: var(--phosphor-green-light);
+
+      &::before {
+        background-color: var(--phosphor-green-light);
+      }
+    }
   }
 }

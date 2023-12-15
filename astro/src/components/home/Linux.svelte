@@ -40,6 +40,10 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    [data-theme='dark'] & p {
+      color: var(--phosphor-green);
+    }
   }
   .images {
     position: relative;

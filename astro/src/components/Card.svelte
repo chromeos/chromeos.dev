@@ -72,6 +72,10 @@
       width: 100%;
       z-index: 1;
 
+      :global([data-theme='dark']) & {
+        border-color: var(--phosphor-green);
+      }
+
       #{$self}:focus &,
       &:hover {
         @include elevation(2);

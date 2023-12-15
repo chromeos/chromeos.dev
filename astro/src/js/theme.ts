@@ -17,17 +17,27 @@ function createThemeStore() {
     // --theme can be light, dark, or auto
     // --style-queries should be 0 or 1
     // Something about using auto unless style queries are available
-    document.body.style.setProperty('--theme', `'${theme}'`);
+    // document.body.setAttribute('data-theme', theme);
+    // document.body.style.setProperty('--theme', theme);
+    if (theme === 'auto') {
+      theme =
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+    }
+    document.documentElement.dataset.theme = theme;
   }
 
   return {
     subscribe,
-    set(theme: 'dark' | 'light') {
+    set(theme: 'dark' | 'light' | 'auto') {
       saveTheme(theme);
       set(theme);
     },
     init() {
       let theme;
+
       if ('localStorage' in window) {
         theme = localStorage.getItem('theme') || null;
       }
@@ -39,9 +49,6 @@ function createThemeStore() {
             ? 'dark'
             : 'light';
       }
-
-      // TODO: Make this work once color switcher is in place
-      theme = 'light';
 
       set(theme);
       saveTheme(theme);

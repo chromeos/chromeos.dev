@@ -92,6 +92,29 @@ const cookiejar = cookies.find((c) => c._langCode === locale.code);
     />
     <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-P2W8H6G"
     ></script>
+
+    <script is:inline>
+      // This needs to happen really quickly in the page load so we don't have a flash of unthemed content. We also can't reuse the existing theme function here because we want this inlined
+      const setTheme = () => {
+        let theme;
+
+        if ('localStorage' in window) {
+          theme = localStorage.getItem('theme') || null;
+        }
+
+        if (theme === null || theme === 'auto') {
+          theme =
+            window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+        }
+
+        document.documentElement.dataset.theme = theme;
+      };
+
+      setTheme();
+    </script>
   </head>
   <body id="body">
     <!-- Header -->
@@ -106,11 +129,6 @@ const cookiejar = cookies.find((c) => c._langCode === locale.code);
     <slot name="prefooter" />
 
     <Footer lang={locale.code} />
-
-    <script>
-      import { theme } from '$js/theme';
-      theme.init();
-    </script>
 
     <Analytics cookiejar={cookiejar} />
   </body>

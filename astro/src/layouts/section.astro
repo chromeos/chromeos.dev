@@ -36,6 +36,7 @@ const { title, metadesc, locale } = Astro.props;
   .section {
     display: grid;
     padding-block-end: 2rem;
+    gap: 1rem;
     --inline-subnav: 1;
     --inline-padding: 1.5rem;
 
@@ -49,6 +50,10 @@ const { title, metadesc, locale } = Astro.props;
       @include mq($bkpt-article--2-cols) {
         grid-column: 2 / -1;
       }
+    }
+
+    &--subnav {
+      grid-row: span 2;
     }
 
     &--content,

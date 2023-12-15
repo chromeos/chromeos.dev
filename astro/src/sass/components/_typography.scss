@@ -6,6 +6,13 @@ $section-block-margin: 3.75rem;
   font-size: 100%;
 }
 
+// Footnotes
+[id^='fnref-'],
+.footnotes--backref {
+  color: currentColor;
+  text-decoration: none;
+}
+
 // Don't control class, essential to typography
 .header-anchor {
   color: inherit;
@@ -140,10 +147,19 @@ $section-block-margin: 3.75rem;
 
   a:not([class]) {
     @extend %anchor;
+
+    [data-theme='dark'] & {
+      color: var(--phosphor-white);
+    }
   }
 
   code:not([class]) {
     @extend %type--code;
+
+    [data-theme='dark'] & {
+      background-color: var(--phosphor-green-dark);
+      color: var(--phosphor-white);
+    }
   }
 
   dt:not([class]),
@@ -267,6 +283,10 @@ $section-block-margin: 3.75rem;
   td {
     border: 1px solid var(--grey-300);
     padding: 0.5rem;
+
+    [data-theme='dark'] & {
+      border-color: var(--phosphor-green-medium);
+    }
   }
 
   td {
