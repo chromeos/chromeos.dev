@@ -16,14 +16,11 @@ Los usuarios de Android acceden a su aplicación desde todos los diferentes tipo
 Los usuarios están familiarizados con diferentes convenciones para interactuar con diferentes tipos de objetos en dispositivos de pantalla grande. Android, sin necesidad de agregar ningún cambio, ofrece a los desarrolladores algunos de los iconos de cursor más comunes con los que los usuarios están familiarizados. Agregar algunos de estos iconos de cursor predeterminados del sistema es fácil. Echemos un vistazo al siguiente fragmento de Kotlin:
 
 ```kotlin {title="Kotlin" .code-figure}
-myView.setOnHoverListener { view, _ ->
-      view.pointerIcon =
+myView.pointerIcon =
          PointerIcon.getSystemIcon(applicationContext, PointerIcon.TYPE_HAND)
-      false // Listener did not consume the event.
-}
 ```
 
-`myView` es la vista que será asociada con cierto ícono de puntero bajo ciertas circumstancias. La condición utilizada para demostrar en este escenario es el estado al desplazarse sobre la vista (hover) . (En otros escenarios, puede ser recomendable tener un ícono de espera mientras la aplicación esté haciendo una tarea de procesamiento o un punto de mira en el caso de juegos). Aquí se utiliza `setOnHoverListener` para escuchar cuando el puntero se desliza sobre la vista y entonces actuar en ese evento. Dentro del método que escucha por el evento , se llama a `view.pointerIcon` para actualizar el ícono para esa vista en particular. Un ícono existente del sistema se utiliza para este caso. En Android existen varios íconos del sistema ya integrados y se puede encontrar una lista completa [al final de esta página](/{{locale.code}}/android/pointer-styling#system-default-cursors). En el ejemplo se uso el icono `TYPE_HAND` que muestra una mano cerrada con el dedo indice extendido.
+`myView` es la vista que será asociada con cierto ícono de puntero durante un evento de desplazarse sobre esta vista (hover). (En otros escenarios, puede ser recomendable tener un ícono de espera mientras la aplicación esté haciendo una tarea de procesamiento o un punto de mira en el caso de juegos). Llama a `myView.pointerIcon` para actualizar el ícono para esa vista en particular. Un ícono existente del sistema se utiliza para este caso. En Android existen varios íconos del sistema ya integrados y se puede encontrar una lista completa [al final de esta página](/{{locale.code}}/android/pointer-styling#system-default-cursors). En el ejemplo se uso el icono `TYPE_HAND` que muestra una mano cerrada con el dedo indice extendido.
 
 ## Usando tu propio cursor especial
 
