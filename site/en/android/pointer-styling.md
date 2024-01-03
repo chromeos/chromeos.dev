@@ -16,14 +16,11 @@ Android users come to your app from all different types of form factors i.e., ph
 Users are familiar with different conventions for interacting with different types of objects on large screen devices. Android out of the box luckily provides developers with some of the most common cursor icons that users are familiar with. Adding in some of these system default cursor icons is easy. Let's take a look at the following Kotlin snippet:
 
 ```kotlin {title="Kotlin" .code-figure}
-myView.setOnHoverListener { view, _ ->
-      view.pointerIcon =
+myView.pointerIcon =
          PointerIcon.getSystemIcon(applicationContext, PointerIcon.TYPE_HAND)
-      false // Listener did not consume the event.
-}
 ```
 
-`myView` is the view that will be set to a pointer icon under certain conditions. The condition that is demonstrated is a hover state in this scenario. This is when the mouse is hovering over a view. (In other scenarios, it may be desirable to have a waiting icon when processing or a crosshair when playing a game). Here the `setOnHoverListener` is used to listen for when the pointer has entered that hover state and then act upon that event. Inside the event listener, `view.pointerIcon` is called to set the pointer icon for that particular view. An existing system icon is used to set the pointers icon. There are several system icons already built into Android and a full list can be found at the [bottom of this page](/{{locale.code}}/android/pointer-styling#system-default-cursors). The `TYPE_HAND` icon was used which will show a closed hand with the index finger extended.
+`myView` is the view that will change the pointer icon when the mouse is hovering over it. (In other scenarios, it may be desirable to have a waiting icon when processing or a crosshair when playing a game). `myView.pointerIcon` is called to set the pointer icon for that particular view. An existing system icon is used to set the pointers icon. There are several system icons already built into Android and a full list can be found at the [bottom of this page](/{{locale.code}}/android/pointer-styling#system-default-cursors). The `TYPE_HAND` icon was used which will show a closed hand with the index finger extended.
 
 ## Using your own special cursor
 
