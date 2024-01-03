@@ -125,7 +125,7 @@ jobs:
       # - name: Setup Node
       #   uses: actions/setup-node@v1
       #   with:
-      #     node-version: 16
+      #     node-version: 18
       # - name: Install functions dependencies
       #   if: github.ref == 'refs/heads/main'
       #   run: |
