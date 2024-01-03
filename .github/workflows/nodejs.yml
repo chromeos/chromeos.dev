@@ -117,28 +117,28 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: firebase
-      - name: Download compiled indexes
-        uses: actions/download-artifact@v1
-        with:
-          name: indexes
-          path: functions/indexes
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16
-      - name: Install functions dependencies
-        if: github.ref == 'refs/heads/main'
-        run: |
-          npm ci --prefix functions
+      # - name: Download compiled indexes
+      #   uses: actions/download-artifact@v1
+      #   with:
+      #     name: indexes
+      #     path: functions/indexes
+      # - name: Setup Node
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 16
+      # - name: Install functions dependencies
+      #   if: github.ref == 'refs/heads/main'
+      #   run: |
+      #     npm ci --prefix functions
       - name: Deploy Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}'
           channelId: live
-      - name: Deploy Functions
-        uses: w9jds/firebase-action@v11.16.0
-        with:
-          args: deploy --only functions
-        env:
-          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}
+      # - name: Deploy Functions
+      #   uses: w9jds/firebase-action@v11.16.0
+      #   with:
+      #     args: deploy --only functions
+      #   env:
+      #     GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}
