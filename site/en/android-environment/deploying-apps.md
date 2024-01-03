@@ -15,6 +15,10 @@ Whether developers are deploying their Android app directly from Chrome OS (usin
 
 ## Enable ADB debug
 
+!!! aside.message--warning
+**Caution:** [Managed ChromeOS devices](https://support.google.com/chromebook/answer/1331549) cannot enable ADB. These devices can act as an ADB host to deploy to other devices via Linux on ChromeOS. However, you need to unenroll a managed device before you can use ADB to deploy to it or debug apps running on it. 
+!!!
+
 Previously, using ADB on your Chromebook was only possible while in developer mode, which requires powerwashing (resetting) the device and can reduce security. Luckily since Chrome 81, developers can keep their devices out of developer mode and still deploy apps they develop directly in Chrome OS, with the flip of a switch. Here is how:
 
 First, make sure the Chromebook is not in [developer mode](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md). Then go to settings and [turn on Linux](/{{locale.code}}/linux) (if you haven't done so before).
@@ -119,6 +123,10 @@ Connect to your Chromebook:
     ```
 
 1.  On your Chromebook, click Allow when prompted whether you want to allow the debugger. Your ADB session is established.
+
+!!! aside.message--tip
+**Tip:** For more information on using ADB over a network, see [our guidance on using ADB over Wi-Fi and ethernet on ChromeOS](/{{locale.code}}/android-environment/adb-over-wifi-and-ethernet).
+!!!
 
 #### Troubleshooting ADB debugging over a network
 
