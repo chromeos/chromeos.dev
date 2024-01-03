@@ -18,7 +18,7 @@ import { deskTool } from 'sanity/desk';
 import { schemaTypes } from './schemas';
 import { visionTool } from '@sanity/vision';
 import { codeInput } from '@sanity/code-input';
-import { withDocumentI18nPlugin } from '@sanity/document-internationalization';
+import { documentInternationalization } from '@sanity/document-internationalization';
 import { deskStructure, defaultDocumentNodeResolver } from '$lib/desk';
 import { theme as _theme } from './lib/theme';
 import './lib/overrides.css';
@@ -27,23 +27,35 @@ const devOnlyPlugins = [visionTool()];
 
 const theme = _theme as import('sanity').StudioTheme;
 
-const plugins = withDocumentI18nPlugin(
-  (pluginConfig) => [
-    deskTool({
-      structure: deskStructure,
-      defaultDocumentNode: defaultDocumentNodeResolver,
-    }),
-    codeInput(),
-    ...(isDev ? devOnlyPlugins : []),
-  ],
-  {
-    includeDeskTool: false,
-    languages: [
-      { id: 'en_US', title: 'English' },
+const plugins = [
+  deskTool({
+    structure: deskStructure,
+    defaultDocumentNode: defaultDocumentNodeResolver,
+  }),
+  codeInput(),
+  ...(isDev ? devOnlyPlugins : []),
+  documentInternationalization({
+    supportedLanguages: [
+      { id: 'en-US', title: 'English' },
       { id: 'es', title: 'Spanish' },
     ],
-  },
-);
+    schemaTypes: [
+      'post',
+      'story',
+      'documentation',
+      'tag',
+      'microcopy',
+      'home',
+      'nav',
+      'newsletter',
+      'stories',
+      'cookies',
+      'pwas',
+      'landing',
+      'app-support',
+    ],
+  }),
+];
 
 const schema = {
   types: schemaTypes,

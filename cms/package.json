@@ -28,10 +28,10 @@
   "dependencies": {
     "@portabletext/react": "^3.0.7",
     "@sanity/code-input": "^4.1.1",
-    "@sanity/document-internationalization": "^1.0.2",
+    "@sanity/document-internationalization": "^2.0",
     "@sanity/icons": "^2.4.1",
     "@sanity/ui": "^1.7.8",
-    "@sanity/vision": "^3.0.6",
+    "@sanity/vision": "^3.23",
     "get-youtube-id": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -39,7 +39,7 @@
     "react-is": "^18.2.0",
     "react-lite-youtube-embed": "^2.3.52",
     "rxjs": "^7.8.1",
-    "sanity": "^3.15.1",
+    "sanity": "^3.23.4",
     "sanity-plugin-computed-field": "^2.0.1",
     "styled-components": "^5.3.6"
   },
