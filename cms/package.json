@@ -10,7 +10,6 @@
     "pretest": "run-s lint",
     "test": "run-s build",
     "build": "sanity build",
-    "predeploy": "run-s sanity:create:singletons",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
     "prepare": "cd ../ && husky install ./cms/.husky",
