@@ -129,7 +129,7 @@ export const deskStructure = (
                 .icon(RiTodoLine)
                 .child(
                   S.documentTypeList('landing').filter(
-                    `_type == "landing" &&  language == 'en'`,
+                    `_type == "landing"  && (language == 'en' || !defined(language) || language == 'en_US')`,
                   ),
                 ),
               buildStandaloneList('pwas', IoLogoPwa, S),
