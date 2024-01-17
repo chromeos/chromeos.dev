@@ -15,6 +15,7 @@
  */
 import { defineField, defineType } from 'sanity';
 import { isL10n } from '$lib/validators/i18n';
+import { preview } from '$lib/previews/localization';
 
 export default defineType({
   name: 'documentation',
@@ -148,9 +149,5 @@ export default defineType({
     }),
   ],
 
-  preview: {
-    select: {
-      title: 'title',
-    },
-  },
+  preview: preview('title'),
 });

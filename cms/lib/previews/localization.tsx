@@ -1,5 +1,7 @@
+import type { PreviewValue } from 'sanity';
 import React from 'react';
 import { langToFlag } from '$lib/country';
+import { LANGUAGES } from '$lib/constants';
 
 export type SanityPreview = {
   select: {
@@ -18,7 +20,6 @@ export type SanityPreview = {
  * @return {SanityPreview} - Sanity preview object
  */
 export function preview(title: string): SanityPreview {
-  const ot = title;
   return {
     select: {
       lang: 'language',
@@ -28,14 +29,36 @@ export function preview(title: string): SanityPreview {
       const { lang } = selection;
       const { title } = selection;
 
-      return {
-        title: title || ot,
-        media: (
-          <span className="flag" style={{ fontSize: '2rem' }}>
-            {langToFlag(lang || 'en_US')}
-          </span>
-        ),
-      };
+      return i18nPreview(
+        title,
+        lang,
+        LANGUAGES.find((l) => l.id === lang)?.title,
+      );
     },
   };
+}
+
+/**
+ * Actual preview to feed to Sanity
+ * @param {string} title
+ * @param {string} lang
+ * @param {string} [subtitle]
+ * @return {PreviewValue}
+ */
+export function i18nPreview(
+  title: string,
+  lang: string,
+  subtitle: string | undefined = undefined,
+): PreviewValue {
+  const output = {
+    title,
+    subtitle,
+    media: (
+      <span className="flag" style={{ fontSize: '2rem' }}>
+        {langToFlag(lang || 'en_US')}
+      </span>
+    ),
+  };
+
+  return output;
 }

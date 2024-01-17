@@ -15,6 +15,7 @@
  */
 import { defineField, defineType } from 'sanity';
 import { isL10n } from '$lib/validators/i18n';
+import { preview } from '$lib/previews/localization';
 
 export default defineType({
   name: 'landing',
@@ -96,15 +97,5 @@ export default defineType({
     }),
   ],
 
-  preview: {
-    select: {
-      title: 'title',
-      media: 'banner.narrow',
-    },
-    prepare(selection) {
-      return {
-        ...selection,
-      };
-    },
-  },
+  preview: preview('title'),
 });

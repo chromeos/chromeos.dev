@@ -15,6 +15,7 @@
  */
 import { defineField, defineType } from 'sanity';
 import { minMax } from '$lib/validators/min-max';
+import { preview } from '$lib/previews/localization';
 
 export default defineType({
   name: 'story',
@@ -153,10 +154,5 @@ export default defineType({
     }),
   ],
 
-  preview: {
-    select: {
-      title: 'title',
-      media: 'mainImage',
-    },
-  },
+  preview: preview('title'),
 });

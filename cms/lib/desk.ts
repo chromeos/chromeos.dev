@@ -57,7 +57,7 @@ function buildStandaloneList(
             S.documentListItem()
               .schemaType(type)
               .id(type + '-' + lang.id)
-              .title(title + ' (' + lang.id.toLocaleUpperCase() + ')'),
+              .title(title),
           ),
         )
         .canHandleIntent(

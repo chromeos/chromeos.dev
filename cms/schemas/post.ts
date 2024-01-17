@@ -15,6 +15,7 @@
  */
 import { defineField, defineType } from 'sanity';
 import { isL10n } from '$lib/validators/i18n';
+import { i18nPreview } from '$lib/previews/localization';
 
 export default defineType({
   name: 'post',
@@ -185,16 +186,19 @@ export default defineType({
       author2: 'author.2.name',
       author3: 'author.3.name',
       media: 'mainImage',
+      lang: 'language',
     },
     prepare(selection) {
       const author: string = Object.entries(selection)
         .filter(([k, v]) => k.startsWith('author') && v)
         .map(([k, v]) => v.given + ' ' + v.family)
         .join(', ');
-      return {
-        ...selection,
-        subtitle: author && `by ${author}`,
-      };
+
+      return i18nPreview(
+        selection.title,
+        selection.lang,
+        author && `by ${author}`,
+      );
     },
   },
 });

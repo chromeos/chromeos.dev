@@ -15,6 +15,7 @@
  */
 import { defineField, defineType } from 'sanity';
 import { isL10n } from '$lib/validators/i18n';
+import { preview } from '$lib/previews/localization';
 
 export default defineType({
   name: 'tag',
@@ -86,4 +87,5 @@ export default defineType({
       hidden: isL10n,
     }),
   ],
+  preview: preview('title'),
 });
