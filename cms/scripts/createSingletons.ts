@@ -1,40 +1,13 @@
 import { getCliClient } from 'sanity/cli';
 import { SINGLETONS, LANGUAGES } from '../lib/constants';
 
-/**
- * This script will create one or many "singleton" documents for each language
- * It works by appending the language ID to the document ID
- * and creating the translations.metadata document
- *
- * 1. Take a backup of your dataset with:
- * `npx sanity@latest dataset export`
- *
- * 2. Copy this file to the root of your Sanity Studio project
- *
- * 3. Update the SINGLETONS and LANGUAGES constants to your needs
- *
- * 4. Run the script (replace <schema-type> with the name of your schema type):
- * npx sanity@latest exec ./createSingletons.ts --with-user-token
- *
- * 5. Update your desk structure to use the new documents
- */
-
-// const SINGLETONS = [
-//   { id: 'home', _type: 'page', title: 'Home' },
-//   { id: 'login', _type: 'page', title: 'Login' },
-// ];
-// const LANGUAGES = [
-//   { id: `en`, title: `English` },
-//   { id: `fr`, title: `French` },
-// ];
-
-// This will use the client configured in ./sanity.cli.ts
 const client = getCliClient();
 
 /**
  * Creates singletons
  */
 async function createSingletons() {
+  // TODO: Update this code so that existing content isn't lost
   const documents = SINGLETONS.map((singleton) => {
     const translations = LANGUAGES.map((language) => ({
       _id: `${singleton.type}-${language.id}`,
@@ -69,6 +42,7 @@ async function createSingletons() {
   await transaction
     .commit()
     .then((res) => {
+      // TODO: Update this code to copy the `en` content over on creation
       // eslint-disable-next-line no-console
       console.log(res);
     })
