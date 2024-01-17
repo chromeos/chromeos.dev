@@ -21,8 +21,11 @@ export default defineType({
   title: 'Home',
   description: 'Home page',
   type: 'document',
-  i18n: true,
   fields: [
+    defineField({
+      name: 'language',
+      type: 'language',
+    }),
     defineField({
       name: 'hero',
       type: 'object',

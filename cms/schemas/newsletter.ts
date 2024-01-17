@@ -22,7 +22,7 @@ export default defineType({
   title: 'Newsletter',
   description: 'Newsletter Options',
   type: 'document',
-  i18n: true,
+
   groups: [
     {
       title: 'Fields',
@@ -30,6 +30,10 @@ export default defineType({
     },
   ],
   fields: [
+    defineField({
+      name: 'language',
+      type: 'language',
+    }),
     defineField({
       name: 'title',
       title: 'Title',

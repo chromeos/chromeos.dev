@@ -18,9 +18,13 @@ import { deskTool } from 'sanity/desk';
 import { schemaTypes } from './schemas';
 import { visionTool } from '@sanity/vision';
 import { codeInput } from '@sanity/code-input';
-import { documentInternationalization } from '@sanity/document-internationalization';
+import {
+  documentInternationalization,
+  // DeleteTranslationAction,
+} from '@sanity/document-internationalization';
 import { deskStructure, defaultDocumentNodeResolver } from '$lib/desk';
 import { theme as _theme } from './lib/theme';
+import { LANGUAGES, i18nSCHEMAS } from './lib/constants';
 import './lib/overrides.css';
 
 const devOnlyPlugins = [visionTool()];
@@ -35,25 +39,8 @@ const plugins = [
   codeInput(),
   ...(isDev ? devOnlyPlugins : []),
   documentInternationalization({
-    supportedLanguages: [
-      { id: 'en-US', title: 'English' },
-      { id: 'es', title: 'Spanish' },
-    ],
-    schemaTypes: [
-      'post',
-      'story',
-      'documentation',
-      'tag',
-      'microcopy',
-      'home',
-      'nav',
-      'newsletter',
-      'stories',
-      'cookies',
-      'pwas',
-      'landing',
-      'app-support',
-    ],
+    supportedLanguages: LANGUAGES,
+    schemaTypes: i18nSCHEMAS,
   }),
 ];
 
@@ -76,6 +63,23 @@ export default defineConfig([
     plugins,
 
     // TODO: configure table to allow limited HTML in rows
-    schema,
+    schema: {
+      ...schema,
+      // Filter out the default template for new "page" and "lesson" type documents
+      templates: (prev) =>
+        prev.filter((template) => !i18nSCHEMAS.includes(template.id)),
+    },
+    // Allow document translations to be deleted
+    // document: {
+    //   actions: (prev, { schemaType }) => {
+    //     // Add to the same schema types you use for internationalization
+    //     if (i18nSCHEMAS.includes(schemaType)) {
+    //       // You might also like to filter out the built-in "delete" action
+    //       return [...prev, DeleteTranslationAction];
+    //     }
+
+    //     return prev;
+    //   },
+    // },
   },
 ]);

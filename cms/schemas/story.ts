@@ -41,6 +41,10 @@ export default defineType({
   ],
   fields: [
     defineField({
+      name: 'language',
+      type: 'language',
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'title',

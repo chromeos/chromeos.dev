@@ -1,7 +1,8 @@
+import type { ForwardRefExoticComponent } from 'react';
 import {
   DefaultDocumentNodeContext,
   StructureBuilder,
-  StructureResolverContext,
+  // StructureResolverContext,
 } from 'sanity/desk';
 import { Preview } from '$lib/desk/Preview';
 import {
@@ -22,12 +23,49 @@ import {
   BiSupport,
 } from 'react-icons/bi';
 import { RiTodoLine } from 'react-icons/ri';
-import { map } from 'rxjs/operators';
 
 import { AiOutlineFileSearch } from 'react-icons/ai';
 import { IoLogoPwa } from 'react-icons/io5';
 import { LuPaintbrush2 } from 'react-icons/lu';
-import { SanityDocument } from 'sanity';
+import { SINGLETONS, LANGUAGES } from './constants';
+
+/**
+ * Builds i18n structure for singletons
+ * @param {string} type - Type of document
+ * @param {ForwardRefExoticComponent} icon - Icon component
+ * @param {StructureBuilder} S - Structure builder
+ * @return {Observable<DocumentBuilder | ListBuilder>}
+ */
+function buildStandaloneList(
+  type: string,
+  icon: ForwardRefExoticComponent,
+  S: StructureBuilder,
+) {
+  const item = SINGLETONS.find((item) => item.type === type);
+  const title = item?.title || '';
+  const id = item?.type + '-en' || '';
+  return S.listItem()
+    .title(title)
+    .id(id)
+    .icon(icon)
+    .child(
+      S.list()
+        .title(title)
+        .id(type)
+        .items(
+          LANGUAGES.map((lang) =>
+            S.documentListItem()
+              .schemaType(type)
+              .id(type + '-' + lang.id)
+              .title(title + ' (' + lang.id.toLocaleUpperCase() + ')'),
+          ),
+        )
+        .canHandleIntent(
+          (intentName, params) =>
+            intentName === 'edit' && params.id.startsWith(type),
+        ),
+    );
+}
 
 /**
  * Builds desk structure
@@ -37,75 +75,8 @@ import { SanityDocument } from 'sanity';
  */
 export const deskStructure = (
   S: StructureBuilder,
-  context: StructureResolverContext,
+  // context: StructureResolverContext,
 ) => {
-  /**
-   *
-   * @param {string} type - Type of document
-   * @param {string} title - Title of list
-   * @param {StructureBuilder} S - Structure builder
-   * @return {Observable<DocumentBuilder | ListBuilder>}
-   */
-  function buildStandaloneList(
-    type: string,
-    title: string,
-    S: StructureBuilder,
-  ) {
-    return context.documentStore
-      .listenQuery(`*[_type == "${type}"]`, {}, { throttleTime: 1000 })
-      .pipe(
-        map((docs: SanityDocument[]) => {
-          const doubles: string[] = [];
-          const filteredDocs = docs
-            .filter((doc, i, a) => {
-              if (context.schema.has(doc._type)) {
-                // If the document is a draft, check to see if it has a double
-                let id = doc._id;
-                if (id.startsWith('drafts.')) {
-                  id = id.replace('drafts.', '');
-                  const i = a.findIndex((doc) => doc._id === id);
-                  if (i !== -1) {
-                    doubles.push(id);
-                  }
-                }
-                return true;
-              }
-
-              return false;
-            })
-            // Remove non-draft doubles
-            // This could be made faster by only looping doubles, but this should be fine for how it's used right now
-            .filter((doc) => !doubles.includes(doc._id));
-
-          // If there are no documents, return a default document
-          if (filteredDocs.length === 0) {
-            return S.documentTypeList(type);
-          }
-
-          return S.list()
-            .title(title)
-            .items(
-              filteredDocs
-                .map((doc) => doc)
-                .sort((a, b) => {
-                  // Ensure that the base document is always on top
-                  if (a?.__i18n_base && b?.__i18n_base) {
-                    return 0;
-                  }
-                  if (!a?.__i18n_base && b?.__i18n_base) {
-                    return -1;
-                  }
-
-                  return 1;
-                })
-                .map((doc) =>
-                  S.documentListItem().id(doc._id).schemaType(doc._type),
-                ),
-            );
-        }),
-      );
-  }
-
   return S.list()
     .title('Content')
     .items([
@@ -115,7 +86,9 @@ export const deskStructure = (
         .icon(BiFile)
         .child(
           S.documentTypeList('post')
-            .filter(`_type == 'post' && !defined(__i18n_base)`)
+            .filter(
+              `_type == 'post' && (language == 'en' || !defined(language) || language == 'en_US')`,
+            )
             .title('Posts'),
         ),
       // All base-language stories
@@ -124,7 +97,9 @@ export const deskStructure = (
         .icon(AiOutlineFileSearch)
         .child(
           S.documentTypeList('story')
-            .filter(`_type == 'story' && !defined(__i18n_base)`)
+            .filter(
+              `_type == 'story' && (language == 'en' || !defined(language) || language == 'en_US')`,
+            )
             .title('Case Studies'),
         ),
       // All base-language documentation
@@ -133,7 +108,7 @@ export const deskStructure = (
         .icon(BiCodeCurly)
         .child(
           S.documentTypeList('documentation').filter(
-            `_type == 'documentation' && !defined(__i18n_base)`,
+            `_type == 'documentation' && (language == 'en' || !defined(language) || language == 'en_US')`,
           ),
         ),
       S.divider(),
@@ -145,34 +120,19 @@ export const deskStructure = (
           S.list()
             .title('Pages')
             .items([
-              S.listItem()
-                .title('Home')
-                .icon(HomeIcon)
-                .child(buildStandaloneList('home', 'Home', S)),
-              S.listItem()
-                .title('News')
-                .icon(BiFile)
-                .child(buildStandaloneList('news', 'News', S)),
-              S.listItem()
-                .title('Stories')
-                .icon(AiOutlineFileSearch)
-                .child(buildStandaloneList('stories', 'Stories', S)),
-              S.listItem()
-                .title('Newsletter')
-                .icon(BiMailSend)
-                .child(buildStandaloneList('newsletter', 'Newsletter', S)),
+              buildStandaloneList('home', HomeIcon, S),
+              buildStandaloneList('news', BiFile, S),
+              buildStandaloneList('stories', AiOutlineFileSearch, S),
+              buildStandaloneList('newsletter', BiMailSend, S),
               S.listItem()
                 .title('Landing Pages')
                 .icon(RiTodoLine)
                 .child(
                   S.documentTypeList('landing').filter(
-                    '_type == "landing" &&  !defined(__i18n_base)',
+                    `_type == "landing" &&  language == 'en'`,
                   ),
                 ),
-              S.listItem()
-                .title('Powerful PWAs')
-                .icon(IoLogoPwa)
-                .child(buildStandaloneList('pwas', 'Powerful PWAs', S)),
+              buildStandaloneList('pwas', IoLogoPwa, S),
             ]),
         ),
 
@@ -211,24 +171,10 @@ export const deskStructure = (
           S.list()
             .title('Structure')
             .items([
-              S.listItem()
-                .title('Microcopy')
-                .icon(ControlsIcon)
-                .child(buildStandaloneList('microcopy', 'Microcopy', S)),
-              S.listItem()
-                .title('Navigation')
-                .icon(BiNavigation)
-                .child(buildStandaloneList('nav', 'Navigation', S)),
-
-              S.listItem()
-                .title('Cookie Disclaimer')
-                .icon(BiCookie)
-                .child(buildStandaloneList('cookies', 'Cookie Disclaimer', S)),
-
-              S.listItem()
-                .title('App Support')
-                .icon(BiSupport)
-                .child(buildStandaloneList('app-support', 'App Support', S)),
+              buildStandaloneList('microcopy', ControlsIcon, S),
+              buildStandaloneList('nav', BiNavigation, S),
+              buildStandaloneList('cookies', BiCookie, S),
+              buildStandaloneList('app-support', BiSupport, S),
             ]),
         ),
     ]);

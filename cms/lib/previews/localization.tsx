@@ -21,12 +21,13 @@ export function preview(title: string): SanityPreview {
   const ot = title;
   return {
     select: {
-      lang: '__i18n_lang',
+      lang: 'language',
       title,
     },
     prepare(selection) {
       const { lang } = selection;
       const { title } = selection;
+
       return {
         title: title || ot,
         media: (

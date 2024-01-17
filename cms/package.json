@@ -11,6 +11,7 @@
     "test": "run-s build",
     "sanity": "sanity",
     "build": "sanity build",
+    "predeploy": "run-s sanity:create:singletons",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
     "prepare": "cd ../ && husky install ./cms/.husky",
@@ -20,7 +21,9 @@
     "js:lint": "eslint .",
     "js:fix": "eslint --fix .",
     "prettier:lint": "prettier -c .",
-    "prettier:fix": "prettier --write ."
+    "prettier:fix": "prettier --write .",
+    "sanity:create:singletons": "sanity exec scripts/createSingletons.ts --with-user-token",
+    "sanity:test:singletons": "TARGET=dev sanity exec scripts/createSingletons.ts --with-user-token"
   },
   "keywords": [
     "sanity"

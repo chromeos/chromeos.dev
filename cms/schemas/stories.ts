@@ -22,8 +22,11 @@ export default defineType({
   title: 'Stories',
   description: 'Stories landing page',
   type: 'document',
-  i18n: true,
   fields: [
+    defineField({
+      name: 'language',
+      type: 'language',
+    }),
     defineField({
       name: 'title',
       title: 'Title',

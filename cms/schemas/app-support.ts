@@ -20,8 +20,11 @@ export default defineType({
   name: 'app-support',
   title: 'App Support',
   type: 'document',
-  i18n: true,
   fields: [
+    defineField({
+      name: 'language',
+      type: 'language',
+    }),
     defineField({
       name: 'title',
       title: 'Title',

@@ -20,7 +20,6 @@ export default defineType({
   name: 'post',
   title: 'Post',
   type: 'document',
-  i18n: true,
   groups: [
     {
       name: 'content',
@@ -41,6 +40,10 @@ export default defineType({
     },
   ],
   fields: [
+    defineField({
+      name: 'language',
+      type: 'language',
+    }),
     defineField({
       name: 'title',
       title: 'Title',

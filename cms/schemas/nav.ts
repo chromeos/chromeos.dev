@@ -40,8 +40,11 @@ export default defineType({
   name: 'nav',
   title: 'Navigation',
   type: 'document',
-  i18n: true,
   fields: [
+    defineField({
+      name: 'language',
+      type: 'language',
+    }),
     defineField({
       name: 'items',
       title: 'Items',

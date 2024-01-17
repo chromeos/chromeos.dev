@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Google LLC
+ * Copyright 2024 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,25 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { defineField, defineType } from 'sanity';
-import { preview } from '$lib/previews/localization';
+import { defineType } from 'sanity';
 
 export default defineType({
-  name: 'news',
-  title: 'News',
-  description: 'News landing page',
-  type: 'document',
-  fields: [
-    defineField({
-      name: 'language',
-      type: 'language',
-    }),
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-    }),
-  ],
-  preview: preview('title'),
+  name: 'language',
+  type: 'string',
+  readOnly: true,
+  hidden: true,
 });

@@ -21,7 +21,6 @@ export default defineType({
   title: 'Microcopy',
   description: 'Microcopy',
   type: 'document',
-  i18n: true,
   groups: [
     {
       title: 'Network',
@@ -61,6 +60,10 @@ export default defineType({
     },
   ],
   fields: [
+    defineField({
+      name: 'language',
+      type: 'language',
+    }),
     // Title
     defineField({
       name: 'title',

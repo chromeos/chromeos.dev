@@ -21,8 +21,11 @@ export default defineType({
   title: 'Powerful PWAs',
   description: 'Powerful PWAs extra items',
   type: 'document',
-  i18n: true,
   fields: [
+    defineField({
+      name: 'language',
+      type: 'language',
+    }),
     defineField({
       name: 'checklist',
       title: 'Checklist',

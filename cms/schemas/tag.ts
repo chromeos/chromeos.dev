@@ -20,7 +20,7 @@ export default defineType({
   name: 'tag',
   title: 'Tag',
   type: 'document',
-  i18n: true,
+
   groups: [
     {
       name: 'tag',
@@ -33,6 +33,10 @@ export default defineType({
     },
   ],
   fields: [
+    defineField({
+      name: 'language',
+      type: 'language',
+    }),
     defineField({
       name: 'title',
       title: 'Title',

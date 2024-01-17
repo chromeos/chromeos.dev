@@ -20,8 +20,11 @@ export default defineType({
   name: 'cookies',
   title: 'Cookie Disclaimer',
   type: 'document',
-  i18n: true,
   fields: [
+    defineField({
+      name: 'language',
+      type: 'language',
+    }),
     defineField({
       name: 'title',
       title: 'Title',

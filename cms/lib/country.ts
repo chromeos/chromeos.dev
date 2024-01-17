@@ -9,6 +9,8 @@ export function langToFlag(lang: string): string {
     throw new Error('Language is required');
   }
 
+  if (lang === 'en') lang = 'en_US';
+
   const separator = lang.indexOf('-') > -1 ? '-' : '_';
 
   return Array.from(lang.split(separator).pop() as string)
