@@ -5,7 +5,7 @@
  * @return {string} GROQ query for the microcopy item
  */
 export function groqMicrocopy(lang: string, property: string) {
-  return `*[_type == 'microcopy' && !(_id in path('drafts.**')) && (__i18n_lang == ${lang} || __i18n_lang == 'en_US')]{'item': ${property}}[0].item`;
+  return `*[_type == 'microcopy' && _id match 'microcopy-*' && !(_id in path('drafts.**')) && (language == ${lang} || language == 'en')]{'item': ${property}}[0].item`;
 }
 
 export const linkQuery = `
@@ -24,8 +24,8 @@ export const linkQuery = `
 export const coreMetaQuery = `
   _id,
   _type,
-  '_lang': coalesce(__i18n_lang, 'en_US'),
-  '_langCode': string::split(coalesce(__i18n_lang, 'en_US'), '_')[0],
+  '_lang': coalesce(language, 'en'),
+  '_langCode': string::split(coalesce(language, 'en'), '_')[0],
 `;
 
 export const coreQuery = `
@@ -60,7 +60,7 @@ export const themeQuery = `
     'eyebrow': coalesce(
       featured.featured.eyebrow,
       theme.theme->eyebrow,
-      ${groqMicrocopy('__i18n_lang', 'identifiers.featured')}
+      ${groqMicrocopy('language', 'identifiers.featured')}
     )
   },
   feature.feature != true => {

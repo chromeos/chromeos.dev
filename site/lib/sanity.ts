@@ -42,7 +42,7 @@ export const sanity = createClient({
 const linkRegex = /^\/{\s*{\s*locale\s*}\s*}\//gm;
 
 export const home = (await sanity.fetch(
-  `*[_type == 'home' && !(_id in path('drafts.**'))]
+  `*[_type == 'home' && _id match 'home-*' && !(_id in path('drafts.**'))]
   {
     "chromebook": {
       "title": chromebook.title,
@@ -116,7 +116,7 @@ export const home = (await sanity.fetch(
 )) as Home[];
 
 export const cookies = (await sanity.fetch(
-  `*[_type == 'cookies' && !(_id in path('drafts.**'))]
+  `*[_type == 'cookies' && _id match 'cookies-*' && !(_id in path('drafts.**'))]
     {
       title,
       description,
@@ -129,7 +129,7 @@ export const cookies = (await sanity.fetch(
 
 export const navigation = (
   await sanity.fetch(
-    `*[_type == 'nav' && !(_id in path('drafts.**'))]
+    `*[_type == 'nav' && _id match 'nav-*' && !(_id in path('drafts.**'))]
     {
       items[] {
         title,
@@ -151,6 +151,7 @@ export const navigation = (
   const locale = a._langCode;
 
   // Cleanup
+  console.log(a);
   a.items = a.items.map((item) => {
     if (item.url) {
       item.url = item.url.replace(linkRegex, `/${locale}/`);
@@ -171,7 +172,7 @@ export const navigation = (
 export const appSupport = groupByLanguage(
   (
     await sanity.fetch(
-      `*[_type == 'app-support' && !(_id in path('drafts.**'))]
+      `*[_type == 'app-support' && _id match 'app-support-*' && !(_id in path('drafts.**'))]
   {
     title,
     description,
@@ -186,7 +187,7 @@ export const appSupport = groupByLanguage(
 // Newsletter Signup
 export const newsletter = (
   await sanity.fetch(
-    `*[_type == 'newsletter' && !(_id in path('drafts.**'))]
+    `*[_type == 'newsletter' && _id match 'newsletter-*' && !(_id in path('drafts.**'))]
   {
     title,
     description,
@@ -202,7 +203,7 @@ export const newsletter = (
 // Story landing page
 export const storyLandings = (await sanity.fetch(
   `
-  *[_type == 'stories' && !(_id in path('drafts.**'))]
+  *[_type == 'stories' && _id match 'stories-*' && !(_id in path('drafts.**'))]
   {
     title,
     sections[] {
@@ -221,7 +222,7 @@ export const storyLandings = (await sanity.fetch(
 export const microcopy = groupByLanguage(
   (
     await sanity.fetch(
-      `*[_type == 'microcopy' && !(_id in path('drafts.**'))]{
+      `*[_type == 'microcopy' && _id match 'microcopy-*' && !(_id in path('drafts.**'))]{
       ...,
       'footer': {
         'links': footer.links[] {
@@ -234,18 +235,19 @@ export const microcopy = groupByLanguage(
         'subscribe': footer.subscribe,
       },
       'locale': {
-        'code': string::split(coalesce(__i18n_lang, 'en_US'), '_')[0],
+        'code': string::split(coalesce(language, 'en'), '_')[0],
       },
       ${coreMetaQuery}
     }`,
     )
   ).map((m) => {
+    console.log(m);
     delete m._id;
     delete m._type;
     delete m._rev;
     delete m._createdAt;
     delete m._updatedAt;
-    delete m.__i18n_lang;
+    delete m.language;
 
     // Build locale data
     m.locale.dir = rtl.includes(m.locale.code) ? 'rtl' : 'ltr';
@@ -477,7 +479,7 @@ export async function getPosts() {
 //   featured.featured.eyebrow,
 //   theme.theme->eyebrow,
 //   featured.feature == true => {${groqMicrocopy(
-//     '__i18n_lang',
+//     'language',
 //     'identifiers.featured',
 //   )}},
 //   category->title
@@ -493,7 +495,7 @@ export async function getPosts() {
  * @return {string}
  */
 export async function getCardData(type: string) {
-  // const q = `*[_type == "${type}"  && !(_id in path('drafts.**'))]{title, description, 'type': _type, 'slug': slug.current, 'lang': __i18n_lang, category->{title, 'slug': slug.current}}`;
+  // const q = `*[_type == "${type}"  && !(_id in path('drafts.**'))]{title, description, 'type': _type, 'slug': slug.current, 'lang': language, category->{title, 'slug': slug.current}}`;
   // console.log(microcopy);
   const q = await getPosts();
   const featured = q.find((post) => post?.featured);
