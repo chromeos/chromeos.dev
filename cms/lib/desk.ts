@@ -43,10 +43,9 @@ function buildStandaloneList(
 ) {
   const item = SINGLETONS.find((item) => item.type === type);
   const title = item?.title || '';
-  const id = item?.type + '-en' || '';
   return S.listItem()
     .title(title)
-    .id(id)
+    .id(type)
     .icon(icon)
     .child(
       S.list()
