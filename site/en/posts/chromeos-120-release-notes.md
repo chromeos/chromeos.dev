@@ -16,7 +16,7 @@ ChromeOS 120 reached stable release on January 4, 2024, introducing a new method
 
 ChromeOS 120 introduces fast access to operations such as desk visualization, desk switching, desk creation, and desk ordering via a new shelf button. The ChromeOS Virtual Desk Button ("Bento Button") is now available for all users who utilize virtual desks.
 
-![Bento button in action. A user clicks a button on their task bar, positioned to the left of their applications, to switch between two saved desks titled "Biology" and "Art Class."](inline-1.gif)
+![Bento button in action. A user clicks a button on their task bar, positioned to the left of their applications, to switch between two saved desks titled "Biology" and "Art Class."](ix://posts/m120/inline-1.gif)
 
 ## Deprecation of support for legacy ChromeOS media containers and codecs
 
