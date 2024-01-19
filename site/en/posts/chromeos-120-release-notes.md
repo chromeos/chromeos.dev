@@ -35,48 +35,14 @@ You now have more options for configuring your on-screen, keyboard, mouse, and e
 
 Finally, administrators will see the following new or updated ChromeOS policies in the **Admin console**:
 
-<table>
-  <thead>
-    <tr>
-      <th>Policy name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://chromeenterprise.google/policies/#PowerManagementIdleSettings">PowerManagementIdleSettings</a></td>
-      <td>Manage screen dim, screen off, and idle actions.</td>
-    </tr>
-    <tr>
-      <td><a href="https://chromeenterprise.google/policies/#ScreenLockDelays">ScreenLockDelays</a></td>
-      <td>Set the length of time before a screen lock when a user is idle. </td>
-    </tr>
-    <tr>
-      <td><a href="https://chromeenterprise.google/policies/#LidCloseAction">LidCloseAction</a></td>
-      <td>Specify the action to take when the lid of the device is closed.</td>
-    </tr>
-    <tr>
-      <td><a href="https://chromeenterprise.google/policies/#ChromeOsLockOnIdleSuspend">ChromeOsLockOnIdleSuspend</a> </td>
-      <td>Set whether the screen locks after the device's lid is closed. </td>
-    </tr>
-    <tr>
-      <td><a href="https://chromeenterprise.google/policies/#PrivateNetworkAccessRestrictionsEnabled">PrivateNetworkAccessRestrictionsEnabled</a></td>
-      <td>Specify whether to apply restrictions to requests to more-private network endpoints.</td>
-    </tr>
-    <tr>
-      <td><a href="https://chromeenterprise.google/policies/#DeviceFlexHwDataForProductImprovementEnabled">DeviceFlexHwDataForProductImprovementEnabled</a></td>
-      <td>Send hardware data to Google to support improvements to ChromeOS Flex.</td>
-    </tr>
-    <tr>
-      <td><a href="https://chromeenterprise.google/policies/#IPv6ReachabilityOverrideEnabled">IPv6ReachabilityOverrideEnabled</a></td>
-      <td>Enable IPv6 reachability check override.</td>
-    </tr>
-    <tr>
-      <td><a href="https://chromeenterprise.google/policies/#DataUrlInSvgUseEnabled">DataUrlInSvgUseEnabled</a></td>
-      <td>Enables Data URL support for SVGUseElement, which will be disabled by default starting in ChromeOS 119. </td>
-    </tr>
-  </tbody>
-</table>
+- **[PowerManagementIdleSettings](https://chromeenterprise.google/policies/#PowerManagementIdleSettings):** Manage screen dim, screen off, and idle actions.
+- **[ScreenLockDelays](https://chromeenterprise.google/policies/#ScreenLockDelays):** Set the length of time before a screen lock when a user is idle.
+- **[LidCloseAction](https://chromeenterprise.google/policies/#LidCloseAction):** Specify the action to take when the lid of the device is closed.
+- **[ChromeOsLockOnIdleSuspend](https://chromeenterprise.google/policies/#ChromeOsLockOnIdleSuspend):** Set whether the screen locks after the device's lid is closed.
+- **[PrivateNetworkAccessRestrictionsEnabled](https://chromeenterprise.google/policies/#PrivateNetworkAccessRestrictionsEnabled):** Specify whether to apply restrictions to requests to more-private network endpoints.
+- **[DeviceFlexHwDataForProductImprovementEnabled](https://chromeenterprise.google/policies/#DeviceFlexHwDataForProductImprovementEnabled):** Send hardware data to Google to support improvements to ChromeOS Flex.
+- **[IPv6ReachabilityOverrideEnabled](https://chromeenterprise.google/policies/#IPv6ReachabilityOverrideEnabled):** Enable IPv6 reachability check override.
+- **[DataUrlInSvgUseEnabled](https://chromeenterprise.google/policies/#DataUrlInSvgUseEnabled):** Enable Data URL support for `SVGUseElement`, which will be disabled by default starting in ChromeOS 119.
 
 ## Keep up-to-date with ChromeOS
 
