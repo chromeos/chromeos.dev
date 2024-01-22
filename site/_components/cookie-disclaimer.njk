@@ -14,16 +14,6 @@
   @param {string} ctas.info.url - Cta url.
  #}-->
 {% macro cookieDisclaimer(localeCode, title, content, ctas) %}
-<dialog class="cookie-disclaimer" aria-label="{{title}}" aria-describedby="cookieDisclaimer">
-  {%- set settings -%}
-  <a href="{{content.settings.url}}?hl={{localeCode}}">{{content.settings.text}}</a>
-  {%- endset -%}
-  <div class="cookie-disclaimer__wrapper">
-    <p id="cookieDisclaimer" class="type--h5">{{content.disclaimer | replace('((t))', settings) | safe}}</p>
-    <div class="cookie-disclaimer__buttons">
-      <button class="cta cta--high" data-type="decline">{{ctas.decline}}</button>
-      <button class="cta cta--high" data-type="accept">{{ctas.accept}}</button>
-    </div>
-  </div>
-</dialog>
+<link href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css" rel="stylesheet" />
+<script src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js" data-glue-cookie-notification-bar-category="2A" data-glue-cookie-notification-bar-site-id="chromeos.dev"></script>
 {% endmacro %}
