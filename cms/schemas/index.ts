@@ -42,6 +42,7 @@ import fieldField from '$fields/field';
 import tableField from '$fields/table';
 import textLinkField from '$fields/text-link';
 import languageField from '$fields/language';
+import comparisonField from '$fields/comparison-figure';
 
 // Subschemas
 import heroSubschema from '$subschema/hero';
@@ -53,6 +54,7 @@ import appSubschema from '$subschema/app';
 import resourcesSubschema from '$subschema/resources';
 import homepageCardSchema from '$subschema/homepage-card';
 import bannerSubschema from '$subschema/banner';
+import figureCardSubschema from '$subschema/figure-card';
 
 // Schemas
 import tag from './tag';
@@ -120,6 +122,7 @@ export const schemaTypes = [
   tableField,
   textLinkField,
   languageField,
+  comparisonField,
 
   // Subschema
   heroSubschema,
@@ -131,4 +134,5 @@ export const schemaTypes = [
   resourcesSubschema,
   homepageCardSchema,
   bannerSubschema,
+  figureCardSubschema,
 ];

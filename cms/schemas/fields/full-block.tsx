@@ -14,7 +14,12 @@
  * limitations under the License.
  */
 import { defineType, defineArrayMember, defineField } from 'sanity';
-import { FaStarOfLife, FaYoutube, FaTable } from 'react-icons/fa';
+import {
+  FaStarOfLife,
+  FaYoutube,
+  FaTable,
+  FaCheckCircle,
+} from 'react-icons/fa';
 import { TfiShortcode } from 'react-icons/tfi';
 
 import { AiOutlineFileSearch } from 'react-icons/ai';
@@ -191,6 +196,11 @@ export default defineType({
       type: 'table',
       title: 'Table',
       icon: FaTable,
+    }),
+    defineArrayMember({
+      type: 'comparison-figure',
+      title: 'Comparison Figure',
+      icon: FaCheckCircle,
     }),
   ],
 });
