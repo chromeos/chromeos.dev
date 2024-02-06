@@ -13,33 +13,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { defineField, defineType } from 'sanity';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 
 export default defineType({
-  name: 'comparison-figure',
-  title: 'Comparison Figure',
+  name: 'example-media',
+  title: 'Example Media',
   type: 'object',
   fields: [
     defineField({
-      name: 'primary',
-      type: 'figure-card',
-      title: 'Primary Figure',
+      name: 'title',
+      title: 'Title',
+      type: 'string',
     }),
     defineField({
-      name: 'secondary',
-      type: 'figure-card',
-      title: 'Secondary Figure',
+      name: 'figures',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          name: 'figure',
+          title: 'Figure',
+          type: 'figure-card',
+        }),
+      ],
     }),
   ],
   preview: {
     select: {
-      title: 'primary.caption.text',
-      subtitle: 'secondary.caption.text',
+      title: 'title',
     },
-    prepare({ title, subtitle }) {
+    prepare({ title }) {
       return {
         title,
-        subtitle,
       };
     },
   },

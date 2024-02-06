@@ -86,4 +86,14 @@ export default defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      title: 'caption.text',
+    },
+    prepare({ title }) {
+      return {
+        title,
+      };
+    },
+  },
 });

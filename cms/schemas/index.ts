@@ -42,7 +42,7 @@ import fieldField from '$fields/field';
 import tableField from '$fields/table';
 import textLinkField from '$fields/text-link';
 import languageField from '$fields/language';
-import comparisonField from '$fields/comparison-figure';
+import exampleMediaField from '$fields/example-media';
 
 // Subschemas
 import heroSubschema from '$subschema/hero';
@@ -73,6 +73,7 @@ import cookies from './cookies';
 import pwas from './pwas';
 import landing from './landing';
 import appSupport from './app-support';
+import guidelines from './guidelines';
 
 export const schemaTypes = [
   // Schemas
@@ -92,6 +93,7 @@ export const schemaTypes = [
   pwas,
   landing,
   appSupport,
+  guidelines,
 
   // Fields
   fullBlockField,
@@ -122,7 +124,7 @@ export const schemaTypes = [
   tableField,
   textLinkField,
   languageField,
-  comparisonField,
+  exampleMediaField,
 
   // Subschema
   heroSubschema,

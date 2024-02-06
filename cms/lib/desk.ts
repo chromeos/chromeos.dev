@@ -21,6 +21,7 @@ import {
   BiMailSend,
   BiCodeCurly,
   BiSupport,
+  BiCheckCircle,
 } from 'react-icons/bi';
 import { RiTodoLine } from 'react-icons/ri';
 
@@ -174,6 +175,7 @@ export const deskStructure = (
               buildStandaloneList('nav', BiNavigation, S),
               buildStandaloneList('cookies', BiCookie, S),
               buildStandaloneList('app-support', BiSupport, S),
+              buildStandaloneList('guidelines', BiCheckCircle, S),
             ]),
         ),
     ]);
