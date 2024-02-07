@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { colors } from '$lib/colors';
 import { iconOptionsList } from '$lib/icons';
 import { defineField, defineType } from 'sanity';
 
@@ -43,19 +42,6 @@ export default defineType({
       },
       fields: [
         defineField({
-          name: 'color',
-          title: 'Color',
-          type: 'string',
-          initialValue: 'false',
-          options: {
-            list: [
-              { title: 'None', value: 'false' },
-              { title: 'Red', value: colors.red[500].hex },
-              { title: 'Green', value: colors.green[800].hex },
-            ],
-          },
-        }),
-        defineField({
           name: 'icon',
           title: 'Icon',
           type: 'string',
@@ -63,13 +49,6 @@ export default defineType({
           options: {
             list: iconOptionsList,
           },
-          validation: (Rule) =>
-            Rule.custom((value, { parent }) => {
-              const parentColor = (parent as FigureCardCaption).color;
-              if (!parentColor || parentColor === 'false') return true;
-              if (value && value !== 'false') return true;
-              return 'An icon is required when a color has been selected.';
-            }),
         }),
         defineField({
           name: 'text',

@@ -133,6 +133,7 @@ export const deskStructure = (
                   ),
                 ),
               buildStandaloneList('pwas', IoLogoPwa, S),
+              buildStandaloneList('guidelines', BiCheckCircle, S),
             ]),
         ),
 
@@ -175,7 +176,6 @@ export const deskStructure = (
               buildStandaloneList('nav', BiNavigation, S),
               buildStandaloneList('cookies', BiCookie, S),
               buildStandaloneList('app-support', BiSupport, S),
-              buildStandaloneList('guidelines', BiCheckCircle, S),
             ]),
         ),
     ]);
