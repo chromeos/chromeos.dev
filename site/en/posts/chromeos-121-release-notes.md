@@ -20,7 +20,7 @@ When using App Streaming on Chromebooks, you can now use ChromeVox to navigate a
 
 You can now enable dictation using [[Search]] + [[D]] on your keyboard (or the dictation key on some Logitech keyboards). When enabling dictation, a dialog will appear to inform you that you are about to enable dictation, that certain speech files may be downloaded, and where to go to change your dictation language.
 
-![A ChromeOS desktop featuring an alert with the header ‘Turn on dictation.' The text reads: ‘You can type using your voice. To use dictation, press the dictation key or select the microphone icon at the bottom of the screen when you are on a text field. Your dictation language is English (United States). Speech files will be downloaded. To change dictation language, go to Settings > Accessibility > Keyboard and text input.' After the text, there are two prompts: ‘Cancel' and ‘Turn on'.](insert_image_url_here)
+![A ChromeOS desktop featuring an alert with the header ‘Turn on dictation.' The text reads: ‘You can type using your voice. To use dictation, press the dictation key or select the microphone icon at the bottom of the screen when you are on a text field. Your dictation language is English (United States). Speech files will be downloaded. To change dictation language, go to Settings > Accessibility > Keyboard and text input.' After the text, there are two prompts: ‘Cancel' and ‘Turn on'.](ix://posts/m121/1.png)
 
 ## ChromeOS Flex End of Device support
 
