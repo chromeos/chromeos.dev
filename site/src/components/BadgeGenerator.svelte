@@ -17,6 +17,7 @@
     link: string;
   };
   export let typeLabel: string;
+  export let attributionLabel: string;
   export let attribution: string;
   export let fields: Array<{
     name: string;
@@ -164,7 +165,7 @@
         {/each}
       </div>      
       <div class="badge-generator--attribution badge-generator--field">
-        <span class="badge-generator--radio-heading type--caption">Legal Attribution</span>
+        <span class="badge-generator--radio-heading type--caption">{attributionLabel}</span>
         <span class="badge-generator--attribution-text">
           {attribution}
         </span>
@@ -277,6 +278,7 @@
     }
 
     &--form-right {
+      pre, // TODO: remove `pre` when Code component is used
       :global(.code-figure) {
         width: 100%;
         max-width: 100cqi;

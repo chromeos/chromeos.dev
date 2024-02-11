@@ -334,6 +334,7 @@ export interface Guidelines extends CoreMeta {
       link: string;
     };
     typeLabel: string;
+    attributionLabel: string;
     attribution: string;
     fields: Array<{
       name: string;

@@ -376,7 +376,6 @@ export const landings = (
 export const guidelines: Guidelines[] = await sanity.fetch(
   `*[_type == 'guidelines' && _id match 'guidelines-*' && !(_id in path('drafts.**'))]
   {
-    ...,
     title,
     share {
       "title": string,
@@ -414,6 +413,7 @@ export const guidelines: Guidelines[] = await sanity.fetch(
       },
       "typeLabel": type_label,
       fields,
+      "attributionLabel": attribution_label,
       attribution,
       badges[] {
         name,
