@@ -274,15 +274,88 @@ export type CMSLink = {
   url: string | CMSLinkReference;
 };
 
+export type Banner = {
+  wide: string;
+  narrow: string;
+};
+
 export interface Landing extends CoreContentMeta {
   title: string;
   description: string;
   category: Tag;
   body: PortableTextBlock[];
-  banner: {
-    wide: string;
-    narrow: string;
+  banner: Banner;
+}
+
+export type MediaFigure = {
+  _key: string;
+  caption: {
+    icon: false | 'correct' | 'incorrect';
+    text: string;
   };
+  image: Image;
+};
+
+export type Example = {
+  title: string;
+  figures: MediaFigure[];
+};
+
+export type TwoColumnBody = {
+  heading: string;
+  copy: PortableTextBlock[];
+  examples: Example[];
+};
+
+export interface Guidelines extends CoreMeta {
+  title: string;
+  share?: {
+    title?: string;
+    description?: string;
+    image?: Image;
+  };
+  banner: Banner;
+  intro: {
+    copy: PortableTextBlock[];
+    cta: string;
+    message: {
+      type: 'note' | 'warning' | 'error' | 'tip';
+      text: PortableTextBlock[];
+    };
+    image: Image;
+  };
+  heading: string;
+  guidelines: TwoColumnBody;
+  usage: TwoColumnBody;
+  codegen: {
+    heading: string;
+    download: {
+      text: string;
+      link: string;
+    };
+    typeLabel: string;
+    attribution: string;
+    fields: Array<{
+      name: string;
+      label: string;
+      required: boolean;
+      value?: string;
+      field: {
+        type: Field['type'];
+        options: string[];
+      };
+      text?: {
+        required?: string;
+        error?: string;
+      };
+    }>;
+    badges: Array<{
+      name: string;
+      language: string;
+      image: Image;
+    }>;
+  };
+  messaging: TwoColumnBody;
 }
 
 export interface Documentation extends CoreContent {

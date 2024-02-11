@@ -68,6 +68,11 @@
     background-color: map-get($google-colors, 'green-50');
     border-color: map-get($google-colors, 'green-600');
 
+    @container style(--badge-guidelines: 1) {
+      background-color: map-get($google-colors, 'blue-50');
+      border-color: map-get($google-colors, 'blue-50');
+    }
+
     [data-theme='dark'] & {
       background-color: transparent;
       border-color: var(--phosphor-green-light);

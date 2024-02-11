@@ -10,6 +10,7 @@ import type {
   Navigation,
   Cookiejar,
   Home,
+  Guidelines,
 } from '../types/sanity';
 
 import 'dotenv/config';
@@ -24,6 +25,7 @@ import {
   featuredQuery,
   coreMetaQuery,
   homepageCardQuery,
+  twoColumnBodyQuery,
 } from '$lib/sanity/queries';
 import { rtl, vertical } from '$lib/i18n';
 import iso6391 from 'iso-639-1';
@@ -370,6 +372,64 @@ export const landings = (
 
   return landing as Landing;
 }) as Landing[];
+
+export const guidelines: Guidelines[] = await sanity.fetch(
+  `*[_type == 'guidelines' && _id match 'guidelines-*' && !(_id in path('drafts.**'))]
+  {
+    ...,
+    title,
+    share {
+      "title": string,
+      description,
+      "image": {
+        "alt": image.alt,
+        "src": 'cms://' + image.asset._ref
+      },
+    },
+    "banner": {
+      "wide": 'cms://' + banner.wide.asset._ref,
+      "narrow": 'cms://' + banner.narrow.asset._ref,
+    },
+    intro {
+      copy,
+      cta,
+      message,
+      "image": {
+        "alt": image.alt,
+        "image": 'cms://' + image.asset._ref
+      },
+    },
+    heading,
+    guidelines {
+      ${twoColumnBodyQuery}
+    },
+    usage {
+      ${twoColumnBodyQuery}
+    },
+    codegen {
+      heading,
+      "download": {
+        "text": download.text,
+        "link": download.link.url
+      },
+      "typeLabel": type_label,
+      fields,
+      attribution,
+      badges[] {
+        name,
+        language,
+        "image": {
+          "alt": image.alt,
+          "image": 'cms://' + image.asset._ref,
+        }
+      }
+    },
+    messaging {
+      ${twoColumnBodyQuery}
+    },
+    ${coreMetaQuery}
+  }`,
+);
 
 export const all = [...posts, ...documentation, ...stories, ...landings];
 

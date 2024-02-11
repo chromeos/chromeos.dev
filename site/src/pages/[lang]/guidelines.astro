@@ -1,0 +1,311 @@
+---
+import Wrapper from "$layouts/wrapper.astro";
+import { guidelines as guidelinesDocuments } from "$lib/sanity";
+import { getMicrocopy } from "$lib/microcopy";
+import Text from '$components/Text.astro';
+import CTA from "$components/CTA.svelte";
+import Message from "$components/portable-text/Message.svelte";
+import MediaExample from "$components/portable-text/MediaExample.svelte";
+import BadgeGenerator from "$components/BadgeGenerator.svelte";
+
+export async function getStaticPaths() {
+  return guidelinesDocuments.map((g) => {
+    return {
+      params: {
+        lang: g._langCode,
+      },
+      props: {
+        data: g,
+        microcopy: getMicrocopy(g._langCode)
+      }
+    }
+  });
+}
+
+const { data, microcopy } = Astro.props;
+const { locale } = microcopy;
+const {
+  title,
+  share,
+  banner,
+  intro,
+  heading,
+  guidelines,
+  usage,
+  codegen,
+  messaging
+} = data;
+---
+
+<Wrapper
+  title={title}
+  metadesc={share.description}
+  locale={locale}
+>
+  <article class="guidelines">
+    <header class="hero" id="content">
+      <h1 class="hero--title type--mega">{title}</h1>
+      <div class="hero--hero">
+        <picture>
+          <source srcset={banner.wide} media="(min-width: 840px)" />
+          <img src={banner.narrow} alt="" />
+        </picture>
+      </div>
+    </header>
+    <div class="guidelines--intro guidelines--section">
+      {intro.copy && (
+        <Text body={intro.copy} />
+      )}
+      {intro.cta && (
+        <CTA cta={{ text: intro.cta, url: "#codegen", type: "high", inline: true }}/>
+      )}
+      {intro.image && (
+        <aside class="guidelines--intro-aside">
+          <img
+            class="guidelines--intro-image"
+            src={intro.image.image}
+            alt={intro.image.alt}
+          />
+        </aside>
+      )}
+      {intro.message && (
+        <Message type={intro.message.type}>
+          <Text body={intro.message.text} />
+        </Message>
+      )}
+    </div>
+    {heading && <h2 class="guidelines--heading type--h2">{heading}</h2>}
+    <section class="guidelines--section">
+      {guidelines.heading && (
+        <h3 class="type--h3">{guidelines.heading}</h3>
+      )}
+      {guidelines.copy && (
+        <Text body={guidelines.copy} />
+      )}
+      {guidelines.examples && (
+        <aside class="guidelines--aside">
+          {guidelines.examples.map((example) => <MediaExample example={example} />)}
+        </aside>
+      )}
+    </section>
+    <section class="guidelines--section">
+      {usage.heading && (
+        <h3 class="type--h3">{usage.heading}</h3>
+      )}
+      {usage.copy && (
+        <Text body={usage.copy} />
+      )}
+      {usage.examples && (
+        <aside class="guidelines--aside">
+          {usage.examples.map((example) => <MediaExample example={example} />)}
+        </aside>
+      )}
+    </section>
+    <section id="codegen" class="guidelines--codegen wrapper--padded">
+      <BadgeGenerator {...codegen} microcopy={microcopy} client:load />
+    </section>
+    <section id="messaging" class="guidelines--section">
+      {messaging.heading && (
+        <h3 class="type--h3">{messaging.heading}</h3>
+      )}
+      {messaging.copy && (
+        <Text body={messaging.copy} />
+      )}
+      {messaging.examples && (
+        <aside class="guidelines--aside">
+          {messaging.examples.map((example) => <MediaExample example={example} />)}
+        </aside>
+      )}
+    </section>
+  </article>
+</Wrapper>
+
+<style lang="scss">
+  @import '$sass/shared';
+
+  .guidelines {
+    $intermediate: 826px;
+    $switch: 770px;
+    --badge-guidelines: 1;
+    --inline-aside: 0;
+    --intro-inline-aside: 0;
+    --grid: 1.25rem 1fr 1.25rem;
+    --block-rhythm: 0.5rem;
+
+    display: grid;
+    grid-template-columns: var(--grid);
+    row-gap: calc(var(--block-rhythm) * 3);
+    margin-block-end: calc(var(--block-rhythm) * 15);
+    container-type: inline-size;
+
+    @include mq($intermediate) {
+      --intro-inline-aside: 1;
+    }
+
+    @include mq($switch) {
+      --grid: 1fr 1.5rem minmax(43ch, 65ch) minmax(24px, 140px) minmax(235px, 340px) 1.5rem 1fr;
+      --inline-aside: 1;
+    }
+
+    :global(header),
+    &--codegen {
+      grid-column: 1 / span 3;
+
+      @container style(--inline-aside: 1) {
+        grid-column: 1 / span 7;
+      }
+    }
+
+    &--heading {
+      grid-column: 2;
+
+      @container style(--inline-aside: 1) {
+        grid-column: 3;
+      }
+    }
+    
+    &--section {
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-column: 2;
+      grid-auto-flow: column;
+      row-gap: calc(var(--block-rhythm) * 3);
+
+      &:not(:last-of-type) {
+        margin-block-end: calc(var(--block-rhythm) * 4);
+      }
+
+      @container style(--inline-aside: 1) {
+        grid-column: 3 / span 3;
+      }
+    }
+
+    &--aside {
+      grid-row: 3;
+
+      @container style(--inline-aside: 0) {
+        margin-block-start: calc(var(--block-rhythm) * 4);
+      }
+
+      @container style(--inline-aside: 1) {
+        grid-area: 2 / 3;
+      }
+    }
+
+    &--intro {
+      $switch: 826px;
+      row-gap: calc(var(--block-rhythm) * 3);
+
+      :global(.cta__wrapper) {
+        justify-self: flex-start;
+      }
+
+      :global(.message) {
+        grid-row: 4;
+
+        @container style(--inline-aside: 1) {
+          grid-row: 3;
+          grid-column: span 3;
+        }
+
+        @container style(--intro-inline-aside: 1) {
+          grid-column: 1;
+        }
+      }
+    }
+
+    &--intro-aside {
+      width: 100%;
+      grid-row: 3;
+  
+      @container style(--inline-aside: 1) {
+        grid-row: 1 / span 2;
+        grid-column: 4;
+      }
+
+      @container style(--intro-inline-aside: 1) {
+        grid-row: 1 / span 3;
+        grid-column: 4;
+      }
+    }
+
+    &--intro-image {
+      display: block;
+    }
+
+    &--usage {
+      margin-block: calc(var(--block-rhythm) * 7);
+    }
+
+    &--examples {
+      @container style(--inline-aside: 1) {
+        grid-column: 4;
+      }
+    }
+
+    &--codegen {
+      padding-block: calc(var(--block-rhythm) * 10);
+      background-color: var(--grey-50);
+    }
+
+    &--messaging {
+      margin-block: calc(var(--block-rhythm) * 7);
+    }
+
+    &--messaging-examples {
+      @container style(--inline-aside: 1) {
+        grid-column: 4;
+      }
+    }
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-block-end: calc(var(--block-rhythm) * 4);
+    overflow: hidden;
+    background: var(--primary-blue);
+
+    @container style(--inline-aside: 1) {
+      grid-template-columns: subgrid;
+    }
+
+    :global([data-theme='dark']) & {
+      background-color: var(--phosphor-grey) !important;
+      border: 2px solid var(--phosphor-green);
+    }
+
+    &--title {
+      align-self: center;
+      color: var(--white);
+      text-wrap: balance;
+      padding-block: 2.5rem;
+      padding-inline: 1.5rem;
+
+      @container style(--inline-aside) {
+        grid-column: 3;
+        padding-inline: 0;
+      }
+
+      :global([data-theme='dark']) & {
+        color: var(--global-green);
+      }
+    }
+
+    &--hero {
+      justify-self: end;
+
+      @container style(--inline-aside) {
+        grid-column: 4 / span 3;
+      }
+
+      :global(img) {
+        display: block;
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+        object-position: left;
+      }
+    }
+  }  
+</style>
