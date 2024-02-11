@@ -49,7 +49,6 @@ export default defineType({
               { title: 'Country', value: 'country' },
               { title: 'Hidden', value: 'hidden' },
               { title: 'Submit', value: 'submit' },
-              { title: 'Textarea', value: 'textarea' },
             ],
           },
         }),

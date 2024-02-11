@@ -68,10 +68,14 @@ export default defineType({
   preview: {
     select: {
       title: 'caption.text',
+      subtitle: 'image.alt',
+      media: 'image',
     },
-    prepare({ title }) {
+    prepare({ title, subtitle, media }) {
       return {
-        title,
+        title: title ?? subtitle,
+        subtitle: title ? subtitle : undefined,
+        media,
       };
     },
   },

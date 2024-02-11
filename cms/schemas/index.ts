@@ -55,6 +55,7 @@ import resourcesSubschema from '$subschema/resources';
 import homepageCardSchema from '$subschema/homepage-card';
 import bannerSubschema from '$subschema/banner';
 import figureCardSubschema from '$subschema/figure-card';
+import twoColumnBodySchema from '$subschema/two-column-body';
 
 // Schemas
 import tag from './tag';
@@ -137,4 +138,5 @@ export const schemaTypes = [
   homepageCardSchema,
   bannerSubschema,
   figureCardSubschema,
+  twoColumnBodySchema,
 ];

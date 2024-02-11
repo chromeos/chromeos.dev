@@ -16,39 +16,32 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
 export default defineType({
-  name: 'example-media',
-  title: 'Example Media',
+  name: 'two-column-body',
+  title: 'Two-Column Body',
   type: 'object',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
+      name: 'heading',
+      title: 'Heading',
       type: 'string',
     }),
     defineField({
-      name: 'figures',
+      name: 'copy',
+      title: 'Copy',
+      type: 'full-block',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'examples',
+      title: 'Examples',
       type: 'array',
       of: [
         defineArrayMember({
-          name: 'figure',
-          title: 'Figure',
-          type: 'figure-card',
+          name: 'example',
+          title: 'Example',
+          type: 'example-media',
         }),
       ],
     }),
   ],
-  preview: {
-    select: {
-      title: 'title',
-      primaryCardTitle: 'figures.0.caption.text',
-      media: 'figures.0.image',
-    },
-    prepare({ title, primaryCardTitle, media }) {
-      return {
-        title: title ?? primaryCardTitle,
-        subtitle: title ? primaryCardTitle : undefined,
-        media: media,
-      };
-    },
-  },
 });

@@ -50,9 +50,9 @@ export default defineType({
       group: ['content', 'seo_social'],
     }),
     defineField({
-      name: 'background',
-      title: 'Hero background pattern',
-      type: 'image',
+      name: 'banner',
+      title: 'Banner',
+      type: 'banner',
       group: ['content'],
       validation: (Rule) => Rule.required(),
     }),
@@ -85,35 +85,22 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'heading',
+      title: 'Heading',
+      type: 'string',
+      group: ['content'],
+    }),
+    defineField({
       name: 'guidelines',
       title: 'Badge Guidelines',
-      type: 'object',
+      type: 'two-column-body',
       group: ['content'],
-      fields: [
-        defineField({
-          name: 'heading',
-          title: 'Heading',
-          type: 'string',
-        }),
-        defineField({
-          name: 'copy',
-          title: 'Copy',
-          type: 'full-block',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'examples',
-          title: 'Examples',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              name: 'example',
-              title: 'Example',
-              type: 'example-media',
-            }),
-          ],
-        }),
-      ],
+    }),
+    defineField({
+      name: 'usage',
+      title: 'Badge Usage',
+      type: 'two-column-body',
+      group: ['content'],
     }),
     defineField({
       name: 'codegen',
@@ -128,7 +115,65 @@ export default defineType({
         }),
         defineField({
           name: 'download',
-          title: 'Download label',
+          title: 'Download CTA',
+          type: 'cta',
+        }),
+        defineField({
+          name: 'type_label',
+          title: 'Badge Type Label',
+          type: 'string',
+        }),
+        defineField({
+          name: 'badges',
+          title: 'Badges',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              name: 'badge',
+              title: 'Badge',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'name',
+                  title: 'Name',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'language',
+                  title: 'Language',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'image',
+                  title: 'Image',
+                  type: 'picture',
+                }),
+              ],
+              preview: {
+                select: {
+                  title: 'name',
+                  subtitle: 'language',
+                  media: 'image',
+                },
+                prepare({ title, subtitle, media }) {
+                  return {
+                    title,
+                    subtitle,
+                    media,
+                  };
+                },
+              },
+            }),
+          ],
+        }),
+        defineField({
+          name: 'attribution_label',
+          title: 'Attribution Label',
+          type: 'string',
+        }),
+        defineField({
+          name: 'attribution',
+          title: 'Legal Attribution Text',
           type: 'string',
         }),
         defineField({
@@ -149,32 +194,8 @@ export default defineType({
     defineField({
       name: 'messaging',
       title: 'Messaging Guidelines',
-      type: 'object',
+      type: 'two-column-body',
       group: ['content'],
-      fields: [
-        defineField({
-          name: 'heading',
-          title: 'Heading',
-          type: 'string',
-        }),
-        defineField({
-          name: 'copy',
-          title: 'Copy',
-          type: 'full-block',
-        }),
-        defineField({
-          name: 'examples',
-          title: 'Examples',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              name: 'example',
-              title: 'Example',
-              type: 'figure-card',
-            }),
-          ],
-        }),
-      ],
     }),
   ],
   preview: preview('Homepage'),
