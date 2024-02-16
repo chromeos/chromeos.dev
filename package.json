@@ -37,7 +37,7 @@
     "preview": "run-s build firebase:deploy:preview",
     "css:fix": "stylelint --fix 'site/sass/**/*.scss'",
     "css:lint": "stylelint 'site/sass/**/*.scss'",
-    "dev": "run-p *:watch",
+    "dev": "run-p start",
     "firebase:functions:log": "firebase functions:log",
     "firebase:functions:shell": "firebase functions:shell",
     "firebase:watch": "firebase serve --only functions --port=5010",
