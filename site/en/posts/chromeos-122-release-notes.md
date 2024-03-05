@@ -20,7 +20,7 @@ Create and share transcribed screen recordings. You can now trim your screencast
 
 ChromeOS media player now has bigger buttons—and colors to match your wallpaper. Play video or audio to reveal the media player under **Quick Settings** and click the **Pin icon** to move the media player to the shelf. ChromeOS media player lets you control media being cast or start casting media to speakers and screens on your local network.
 
-![Media controls box, with a pin selected in the upper right corner. The media player shows the media source, [youtube.com](youtube.com), the title of the content, the producer of the content, and the thumbnail associated with the content. At the bottom are the following media controls: go back, play, go forward, and fullscreen.](insert_image_url_here)
+![Media controls box, with a pin selected in the upper right corner. The media player shows the media source, [youtube.com](youtube.com), the title of the content, the producer of the content, and the thumbnail associated with the content. At the bottom are the following media controls: go back, play, go forward, and fullscreen.](ix://posts/m122/Inline-1.png)
 
 ## Extend battery time with the updated Battery Saver
 
