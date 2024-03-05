@@ -10,7 +10,7 @@ authors:
 date: 2024-03-05
 ---
 
-Released on March 5, 2024, ChromeOS 122 introduced improved screencasting recording, new enterprise controls—and a few generative AI features.
+Released on March 5, 2024, ChromeOS 122 introduced improved screencast recording, new enterprise controls, and a few generative AI features.
 
 ## Edit your transcribed Screencast recordings
 
@@ -58,4 +58,4 @@ ChromeOS for enterprise got a few updates to authentication flows, data controls
 
 ## Keep up-to-date with ChromeOS
 
-For more Chrome browser and ChromeOS updates, check out [Chrome Enterprise and Education release notes⁠](https://support.google.com/chrome/a/answer/7679408?hl=en&ref_topic=7679105&sjid=17790463155195284014-NA#). To keep up-to-date with the latest ChromeOS.dev news, sign up for the [ChromeOS developer newsletter](/{{locale.code}}/subscribe) or join the [ChromeOS Discord](https://chromeos.dev/discord).
+For more Chrome browser and ChromeOS updates, check out [Chrome Enterprise and Education release notes⁠](https://support.google.com/chrome/a/answer/7679408?hl=en&ref_topic=7679105&sjid=17790463155195284014-NA#). To keep up-to-date with the latest ChromeOS.dev news, sign up for the [ChromeOS developer newsletter](https://chromeos.dev/en/subscribe) or join the [ChromeOS Discord](https://chromeos.dev/discord).
