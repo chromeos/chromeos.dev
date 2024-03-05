@@ -48,7 +48,7 @@ ChromeOS for enterprise got a few updates to authentication flows, data controls
 
 - **Content scanning with BCE.** [BeyondCorp Enterprise (BCE)](https://cloud.google.com/security/products/beyondcorp-enterprise) enables continuous and real-time end-to-end protection. Content scanning with BCE is a new way to evaluate and enforce data controls restrictions on file transfers based on signals from BeyondCorp Enterprise.
 
-- **Enhanced SAML reauthentication flows.** We've introduced certain internal changes to our SAML single sign-on implementation. These changes will impact customers with misconfigured SAML settings. In particular, if you set the policy [LoginAuthenticationBehavior](https://chromeenterprise.google/policies/#LoginAuthenticationBehavior) to** Redirect to SAML IdP by default**, ensure that the [Single Sign-on](https://support.google.com/chrome/a/answer/2657289?#zippy=%2Csingle-sign-on) policy is set to **Enable SAML**—otherwise your SAML-based IdP won't be loaded.
+- **Enhanced SAML reauthentication flows.** We've introduced certain internal changes to our SAML single sign-on implementation. These changes will impact customers with misconfigured SAML settings. In particular, if you set the policy [LoginAuthenticationBehavior](https://chromeenterprise.google/policies/#LoginAuthenticationBehavior) to **Redirect to SAML IdP by default**, ensure that the [Single Sign-on](https://support.google.com/chrome/a/answer/2657289?#zippy=%2Csingle-sign-on) policy is set to **Enable SAML**—otherwise your SAML-based IdP won't be loaded.
 
 - **Badge-based authentication.** From ChromeOS 122 on, certain third-party Identity Management Providers (IdPs) can use badge authentication on ChromeOS devices. Users can simply start a session with a badge tap, and leave the session with another badge tap. To learn more, see [Set up badge-based authentication](https://support.google.com/chrome/a/answer/14587225).
 
@@ -58,4 +58,4 @@ ChromeOS for enterprise got a few updates to authentication flows, data controls
 
 ## Keep up-to-date with ChromeOS
 
-For more Chrome browser and ChromeOS updates, check out [Chrome Enterprise and Education release notes⁠](https://support.google.com/chrome/a/answer/7679408?hl=en&ref_topic=7679105&sjid=17790463155195284014-NA#). To keep up-to-date with the latest ChromeOS.dev news, sign up for the [ChromeOS developer newsletter](/{locale.code}/subscribe) or join the [ChromeOS Discord](https://chromeos.dev/discord).
+For more Chrome browser and ChromeOS updates, check out [Chrome Enterprise and Education release notes⁠](https://support.google.com/chrome/a/answer/7679408?hl=en&ref_topic=7679105&sjid=17790463155195284014-NA#). To keep up-to-date with the latest ChromeOS.dev news, sign up for the [ChromeOS developer newsletter](/{{locale.code}}/subscribe) or join the [ChromeOS Discord](https://chromeos.dev/discord).
