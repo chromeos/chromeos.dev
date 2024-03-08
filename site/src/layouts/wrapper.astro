@@ -50,6 +50,8 @@ function l10nURL(url: URL, lang: string) {
 const cookiejar = cookies.find((c) => c._langCode === locale.code);
 
 // const microcopy = getMicrocopy(locale.code);
+// Set title appropriately
+const t = (title && title !== 'ChromeOS.dev' ? title + ' | ' : '') + 'ChromeOS.dev';
 ---
 
 <!DOCTYPE html>
@@ -59,7 +61,7 @@ const cookiejar = cookies.find((c) => c._langCode === locale.code);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>{title ? title + ' | ' : ''}ChromeOS.dev</title>
+    <title>{t}</title>
     <meta name="Description" content={metadesc} />
     <meta name="theme-color" content="#1a73e8" />
     <link rel="sitemap" href="/sitemap-index.xml" />
