@@ -131,7 +131,7 @@
     "remark-lint": "^7.0.1",
     "remark-lint-prohibited-strings": "^1.5.2",
     "replaceall": "^0.1",
-    "sanitize-html": "^2.7.0",
+    "sanitize-html": "^2.12.1",
     "sass": "^1.49",
     "sass-toolkit": "^2.10.2",
     "sinon": "^13.0",
