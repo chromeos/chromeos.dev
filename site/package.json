@@ -12,7 +12,7 @@
     "build": "run-s generate:search astro:build",
     "preview": "astro preview",
     "astro": "astro",
-    "prepare": "cd ../ && husky install ./astro/.husky",
+    "prepare": "cd ../ && husky install ./site/.husky",
     "lint": "run-p *:lint",
     "lint:staged": "lint-staged",
     "fix": "run-p *:fix",
