@@ -51,7 +51,8 @@ const cookiejar = cookies.find((c) => c._langCode === locale.code);
 
 // const microcopy = getMicrocopy(locale.code);
 // Set title appropriately
-const t = (title && title !== 'ChromeOS.dev' ? title + ' | ' : '') + 'ChromeOS.dev';
+const t =
+  (title && title !== 'ChromeOS.dev' ? title + ' | ' : '') + 'ChromeOS.dev';
 ---
 
 <!DOCTYPE html>
@@ -89,8 +90,13 @@ const t = (title && title !== 'ChromeOS.dev' ? title + ' | ' : '') + 'ChromeOS.d
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="" />
     <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@0,400;1,400;500;0,700;1,700&family=Google+Sans:wght@400;500&family=Google+Sans+Mono:wght@400;600&display=swap"
+      as="style"
+    />
+    <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Google+Sans:400,500|Google+Sans+Text:400,400i,500,700,700i|Google+Sans+Mono:400,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@0,400;1,400;500;0,700;1,700&family=Google+Sans:wght@400;500&family=Google+Sans+Mono:wght@400;600&display=swap"
     />
     <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-P2W8H6G"
     ></script>
