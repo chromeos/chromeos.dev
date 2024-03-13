@@ -27,7 +27,6 @@ import {
 } from '$lib/sanity/queries';
 import { rtl, vertical } from '$lib/i18n';
 import iso6391 from 'iso-639-1';
-import { inspect } from 'util';
 
 let includeDrafts = false;
 
@@ -151,7 +150,7 @@ export const navigation = (
   const locale = a._langCode;
 
   // Cleanup
-  console.log(a);
+  // console.log(a);
   a.items = a.items.map((item) => {
     if (item.url) {
       item.url = item.url.replace(linkRegex, `/${locale}/`);
@@ -241,7 +240,7 @@ export const microcopy = groupByLanguage(
     }`,
     )
   ).map((m) => {
-    console.log(m);
+    // console.log(m);
     delete m._id;
     delete m._type;
     delete m._rev;
@@ -498,10 +497,10 @@ export async function getCardData(type: string) {
   // const q = `*[_type == "${type}"  && !(_id in path('drafts.**'))]{title, description, 'type': _type, 'slug': slug.current, 'lang': language, category->{title, 'slug': slug.current}}`;
   // console.log(microcopy);
   const q = await getPosts();
-  const featured = q.find((post) => post?.featured);
+  // const featured = q.find((post) => post?.featured);
 
   // const posts = await buildPostsFromAPI(q);
-  console.log(inspect(featured, false, null, true));
+  // console.log(inspect(featured, false, null, true));
   // const cards = (await sanity.fetch(query)).map((card) => {
   //   return card;
   // });
