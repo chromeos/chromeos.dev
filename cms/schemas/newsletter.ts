@@ -16,6 +16,7 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
 import { preview } from '$lib/previews/localization';
+import { isL10n } from '$lib/validators/i18n';
 
 export default defineType({
   name: 'newsletter',
@@ -119,18 +120,23 @@ export default defineType({
     defineField({
       name: 'settings',
       type: 'object',
+      hidden: isL10n,
       fields: [
         defineField({
           name: 'endpoint',
           title: 'Endpoint',
           type: 'string',
           validation: (Rule) => Rule.required(),
+          readOnly: isL10n,
+          hidden: isL10n,
         }),
         defineField({
           name: 'id',
           title: 'ID',
           type: 'string',
           validation: (Rule) => Rule.required(),
+          readOnly: isL10n,
+          hidden: isL10n,
         }),
       ],
     }),
