@@ -450,7 +450,7 @@ export default defineType({
           name: 'results',
           title: 'Results',
           type: 'string',
-          description: '((d)) - number of results ((n)) - number of results',
+          description: '((d)) - number of results; ((q)) - search query',
           validation: (Rule) => Rule.required(),
         }),
         defineField({
