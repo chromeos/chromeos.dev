@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 import { defineArrayMember, defineField, defineType } from 'sanity';
-import { isL10n } from '$lib/validators/i18n';
 import { preview } from '$lib/previews/localization';
 
 export default defineType({
@@ -65,8 +64,8 @@ export default defineType({
                 disableNew: true,
                 filter: 'is_story_category == true',
               },
-              readOnly: isL10n,
-              hidden: isL10n,
+              // readOnly: isL10n,
+              // hidden: isL10n,
             }),
           ],
         }),
