@@ -11,7 +11,7 @@ export const SINGLETONS = [
   { type: 'pwas', title: 'Powerful PWAs' },
   { type: 'microcopy', title: 'Microcopy' },
   { type: 'nav', title: 'Navigation' },
-  { type: 'cookies', title: 'Cookie Disclaimer' },
+  // { type: 'cookies', title: 'Cookie Disclaimer' },
   { type: 'app-support', title: 'App Support' },
 ];
 

@@ -67,7 +67,7 @@ import nav from './nav';
 import news from './news';
 import newsletter from './newsletter';
 import stories from './stories';
-import cookies from './cookies';
+// import cookies from './cookies';
 import pwas from './pwas';
 import landing from './landing';
 import appSupport from './app-support';
@@ -86,7 +86,7 @@ export const schemaTypes = [
   news,
   newsletter,
   stories,
-  cookies,
+  // cookies,
   pwas,
   landing,
   appSupport,

@@ -4,7 +4,7 @@ import SiteHeader from '$components/SiteHeader.svelte';
 import SubscribeFooter from '$components/SubscribeFooter.svelte';
 import Footer from '$components/Footer.astro';
 import Analytics from '$components/Analytics.astro';
-import { navigation, cookies } from '$lib/sanity';
+import { navigation } from '$lib/sanity';
 import { getMicrocopy } from '$$microcopy';
 import '$sass/global.scss';
 
@@ -46,8 +46,6 @@ function l10nURL(url: URL, lang: string) {
   localized.pathname = pth.join('/');
   return localized;
 }
-
-const cookiejar = cookies.find((c) => c._langCode === locale.code);
 
 // const microcopy = getMicrocopy(locale.code);
 // Set title appropriately
@@ -138,6 +136,6 @@ const t =
 
     <Footer lang={locale.code} />
 
-    <Analytics cookiejar={cookiejar} />
+    <Analytics />
   </body>
 </html>

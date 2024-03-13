@@ -15,7 +15,7 @@ import {
 } from '@sanity/icons';
 import {
   BiNavigation,
-  BiCookie,
+  // BiCookie,
   BiAtom,
   BiFile,
   BiMailSend,
@@ -172,7 +172,7 @@ export const deskStructure = (
             .items([
               buildStandaloneList('microcopy', ControlsIcon, S),
               buildStandaloneList('nav', BiNavigation, S),
-              buildStandaloneList('cookies', BiCookie, S),
+              // buildStandaloneList('cookies', BiCookie, S),
               buildStandaloneList('app-support', BiSupport, S),
             ]),
         ),

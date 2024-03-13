@@ -8,7 +8,7 @@ import type {
   Newsletter,
   StoryLanding,
   Navigation,
-  Cookiejar,
+  // Cookiejar,
   Home,
 } from '../types/sanity';
 
@@ -115,17 +115,17 @@ export const home = (await sanity.fetch(
   }`,
 )) as Home[];
 
-export const cookies = (await sanity.fetch(
-  `*[_type == 'cookies' && _id match 'cookies-*' && !(_id in path('drafts.**'))]
-    {
-      title,
-      description,
-      "accept": cta.accept,
-      "decline": cta.decline,
-      ${coreMetaQuery}
-    }
-    `,
-)) as Cookiejar[];
+// export const cookies = (await sanity.fetch(
+//   `*[_type == 'cookies' && _id match 'cookies-*' && !(_id in path('drafts.**'))]
+//     {
+//       title,
+//       description,
+//       "accept": cta.accept,
+//       "decline": cta.decline,
+//       ${coreMetaQuery}
+//     }
+//     `,
+// )) as Cookiejar[];
 
 export const navigation = (
   await sanity.fetch(
