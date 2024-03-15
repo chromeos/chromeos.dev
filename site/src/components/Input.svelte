@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
+
   type Input = {
     type:
       | 'color'
@@ -16,7 +18,9 @@
       | 'time'
       | 'url'
       | 'week'
-      | 'select';
+      | 'select'
+      | 'checkbox';
+
     label?: string;
     name: string;
     validation?: string;
@@ -36,6 +40,8 @@
   export let full = false;
 
   const id = `input-${input.name}`;
+
+  const dispatch = createEventDispatcher();
 </script>
 
 <div class={`input input--${input.type} ${full ? 'input__full' : ''}`}>
@@ -50,6 +56,7 @@
         name={input.name}
         placeholder=" "
         value={input.value || null}
+        on:change={(e) => dispatch('change', e)}
       >
         <option selected />
         {#each input.options as option}
@@ -68,6 +75,7 @@
         name={input.name}
         placeholder=" "
         value={input.value || null}
+        on:keyup={(e) => dispatch('keyup', e)}
       />
     {/if}
 
@@ -75,16 +83,18 @@
       <label for={id} class="input--label">{input.label}</label>
     {/if}
   </div>
-  <div class="input--info">
-    {#if input.required}
-      <p class="input--description type--small">{input.text.required}</p>
-    {/if}
-    {#if input?.text?.error}
-      <p role="alert" id={`invalid-${id}`} class="input--error type--small">
-        {input.text.error}
-      </p>
-    {/if}
-  </div>
+  {#if input.required || input?.text?.error }
+    <div class="input--info">
+      {#if input?.required}
+        <p class="input--description type--small">{input.text.required}</p>
+      {/if}
+      {#if input?.text?.error}
+        <p role="alert" id={`invalid-${id}`} class="input--error type--small">
+          {input.text.error}
+        </p>
+      {/if}
+    </div>
+  {/if}
 </div>
 
 <style lang="scss">
