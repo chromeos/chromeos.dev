@@ -18,11 +18,13 @@
               src="ix://lifestyle/code_sample_sudo.png"
               aria-hidden="true"
               class="decorator"
+              alt=""
             />
             <img
               src="ix://lifestyle/command_key.png"
               aria-hidden="true"
               class="decorator"
+              alt=""
             />
           {/if}
           <img

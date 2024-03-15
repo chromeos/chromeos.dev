@@ -1,5 +1,5 @@
 import { extname } from 'path';
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 const sizeMap = {};
 
 const imageSizes = [250, 400, 550, 700, 850, 1000, 1150, 1300, 1450, 1500];
@@ -17,25 +17,20 @@ async function getImageSize(url) {
     sizeMap[url] = {
       height: '',
       width: '',
-      missing: true,
     };
   } else {
     try {
-      console.log(url);
       const res = await fetch(`${url}?fm=json`);
       const img = await res.json();
       sizeMap[url] = {
         width: img.PixelWidth,
         height: img.PixelHeight,
       };
-      // console.log(url);
-      // console.log('DONE');
     } catch (e) {
-      console.log(e);
-
       sizeMap[url] = {
         height: '',
         width: '',
+        missing: true,
       };
     }
   }
@@ -187,7 +182,7 @@ export async function postHTMLGoogleStorageImages(tree) {
   });
 
   // Remove any images that are missing
-  tree.match({ attrs: { ixmissing: true } }, (node) => ({}));
+  tree.match({ attrs: { ixmissing: true } }, () => ({}));
 
   return tree;
 }

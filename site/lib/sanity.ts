@@ -496,7 +496,7 @@ export async function getPosts() {
 export async function getCardData(type: string) {
   // const q = `*[_type == "${type}"  && !(_id in path('drafts.**'))]{title, description, 'type': _type, 'slug': slug.current, 'lang': language, category->{title, 'slug': slug.current}}`;
   // console.log(microcopy);
-  const q = await getPosts();
+  // const q = await getPosts();
   // const featured = q.find((post) => post?.featured);
 
   // const posts = await buildPostsFromAPI(q);
@@ -504,6 +504,7 @@ export async function getCardData(type: string) {
   // const cards = (await sanity.fetch(query)).map((card) => {
   //   return card;
   // });
+  console.log(type);
   return '';
 }
 

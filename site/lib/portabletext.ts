@@ -48,7 +48,7 @@ export function buildTOC(body: PortableTextBlock[]): TOC[] {
         url: `#${slugify(title)}`,
       };
     })
-    .reduce((acc, cur, i) => {
+    .reduce((acc, cur) => {
       if (cur.depth === 2) {
         acc.push(cur);
       } else {

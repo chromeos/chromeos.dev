@@ -85,12 +85,14 @@
             data-large
             aria-hidden="true"
             src={theme.backgrounds.large}
+            alt=""
           />
           <img
             loading="lazy"
             data-small
             aria-hidden="true"
             src={theme.backgrounds.small}
+            alt=""
           />
         </div>
       {/if}
@@ -147,6 +149,7 @@
     &--body {
       margin-top: 1.25rem;
     }
+
     &--cta {
       --cta-color: var(--hero-theme-color);
       margin-top: 1.75rem;
