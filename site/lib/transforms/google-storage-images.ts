@@ -64,7 +64,10 @@ export async function postHTMLGoogleStorageImages(tree) {
     if (sizeMap[url]) {
       return node;
     }
-    images.push(getImageSize(url));
+    if (!images.includes(url)) {
+      images.push(url);
+    }
+
     return node;
   });
 
@@ -74,11 +77,14 @@ export async function postHTMLGoogleStorageImages(tree) {
     if (sizeMap[url]) {
       return node;
     }
-    images.push(getImageSize(url));
+    if (!images.includes(url)) {
+      images.push(url);
+    }
+
     return node;
   });
 
-  await Promise.all(images);
+  await Promise.all(images.map((i) => getImageSize(i)));
 
   tree.match({ attrs: { src: cdnRegex } }, (node) => {
     const url = getURL(node.attrs.src);
