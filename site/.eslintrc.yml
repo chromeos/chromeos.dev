@@ -51,6 +51,8 @@ rules:
   n/no-missing-import: off
   n/no-unpublished-import: off
   svelte/valid-compile: warn
+  # Breaks Svelte imports, until https://github.com/import-js/eslint-plugin-import/issues/1479 is resolved
+  import/no-duplicates: off
   '@typescript-eslint/no-explicit-any': off
   '@typescript-eslint/no-unused-vars':
     # Allow unused vars starting with _, for quick iterators
