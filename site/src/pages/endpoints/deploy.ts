@@ -1,28 +1,37 @@
 import type { APIRoute } from 'astro';
-import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook';
+import { logger } from 'firebase-functions';
+import bcrypt from 'bcrypt';
 
 const secret = process.env.SANITY_WEBHOOK_SECRET;
 
 export const prerender = false;
 
+// Valid Sanity webhook addresses
+// https://www.sanity.io/files/webhooks-egress-ips.txt
+// TODO: Automate the updating of this
+const addresses = ['34.79.12.229', '35.205.99.116', '35.190.215.189'];
+
 export const POST: APIRoute = async ({ request }) => {
-  const signature = request.headers[SIGNATURE_HEADER_NAME];
-  const body = await request.text();
+  const key = request.headers.get('deploy-key') || '';
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || '';
 
-  console.log('A DEPLOY REQUEST WAS MADE');
-  console.log(body);
+  const valid =
+    ip && key && addresses.includes(ip) && (await bcrypt.compare(secret, key));
 
-  const valid = await isValidSignature(body, signature, secret);
+  logger.log('Webhook Detected');
+  logger.log('IP: ', ip);
+  logger.log('Valid: ', valid);
 
+  // If not valid, stop working
   if (!valid) {
     return new Response(
       JSON.stringify({
-        error: 'Invalid Signature',
-        sent: body,
+        valid: false,
       }),
-      { status: 401 },
     );
   }
+
+  // If it is valid, keep rolling
 
   return new Response(JSON.stringify('Valid Signature'));
 };
