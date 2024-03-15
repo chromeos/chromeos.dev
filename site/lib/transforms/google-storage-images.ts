@@ -11,21 +11,32 @@ const imageSizes = [250, 400, 550, 700, 850, 1000, 1150, 1300, 1450, 1500];
  */
 async function getImageSize(url) {
   // TODO: Add @11ty/eleventy-cache-assets in? This will let us cache locally, maybe for images too?
-  try {
-    const img = await fetch(`${url}?fm=json`).then((res) => res.json());
-    sizeMap[url] = {
-      width: img.PixelWidth,
-      height: img.PixelHeight,
-    };
-  } catch (e) {
+
+  // SVGs don't generate JSON, so this check will always fail for them. We'll need to manually check them, but they also don't need sizes so it's OK
+  if (extname(url) === '.svg') {
     sizeMap[url] = {
       height: '',
       width: '',
+      missing: true,
     };
+  } else {
+    try {
+      console.log(url);
+      const res = await fetch(`${url}?fm=json`);
+      const img = await res.json();
+      sizeMap[url] = {
+        width: img.PixelWidth,
+        height: img.PixelHeight,
+      };
+      // console.log(url);
+      // console.log('DONE');
+    } catch (e) {
+      console.log(e);
 
-    // SVGs don't generate JSON, so this check will always fail for them. We'll need to manually check them, but they also don't need sizes so it's OK
-    if (extname(url) !== '.svg') {
-      sizeMap[url].missing = true;
+      sizeMap[url] = {
+        height: '',
+        width: '',
+      };
     }
   }
 
