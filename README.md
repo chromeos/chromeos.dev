@@ -1,6 +1,6 @@
 # ChromeOS.dev
 
-![Build, Test, Deploy](https://github.com/chromeos/chromeos.dev/workflows/Build,%20Test,%20Deploy/badge.svg)
+[![Build, Test, Deploy - Site ](https://github.com/chromeos/chromeos.dev/actions/workflows/tbd-site.yml/badge.svg)](https://github.com/chromeos/chromeos.dev/actions/workflows/tbd-site.yml) [![Test, Build, Deploy - CMS](https://github.com/chromeos/chromeos.dev/actions/workflows/tbd-cms.yml/badge.svg)](https://github.com/chromeos/chromeos.dev/actions/workflows/tbd-cms.yml)
 
 ChromeOS.dev is the digital home for all things Chrome OS. Learn how to adapt and optimize your existing apps to work on Chrome OS, the success other companies have had doing so, how to use Chrome OS as your developer machine, and keep up-to-date with the latest on Chrome OS.
 
