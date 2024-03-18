@@ -5,72 +5,60 @@ on:
     paths:
       - site/**
       - .github/workflows/tbd-site.yml
-    pull_request:
+  pull_request:
+    paths:
       - site/**
       - .github/workflows/tbd-site.yml
+  workflow_dispatch:
 
 jobs:
   #########################
-  ## Site Build & Testing
+  ## Site Testing & Building
   #########################
-  build-test:
+  test-build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      - name: Setup Node and PNPM
+        uses: pnpm/action-setup@v2
         with:
-          node-version: 14
-      - name: Examine Node
+          version: 8
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
         run: |
-          node -v
-          npm -v
-      - name: Determine Lockfile
-        id: lockfile
-        run: |
-          if [[ -f "package-lock.json" || -f "npm-shrinkwrap.json" ]]; then
-            echo "::set-output name=exists::true"
-          else
-            echo "::set-output name=exists::false"
-          fi
-      - name: Install - Lockfile
-        if: steps.lockfile.outputs.exists == 'true'
-        run: |
-          npm ci --no-optional
-      - name: Install - No Lockfile
-        if: steps.lockfile.outputs.exists == 'false'
-        run: |
-          npm install
-      - name: Install CLI dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install giflib-tools webp ffmpeg
-      - name: Build and Test
-        run: |
-          npm run build --if-present
-          npm test
-        env:
-          CI: true
-      - name: Upload built state
-        uses: actions/upload-artifact@v1
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - name: Install dependencies
+        working-directory: site
+        run: pnpm install
+      - name: Test and Build
+        working-directory: site
+        run: pnpm t
+        env: 
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          SANITY_TOKEN: ${{ secrets.SANITY_TOKEN }}
+          SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
+      - name: Upload site build
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v3
         with:
           name: site
-          path: public
-
-      # Needed for functions deploy
-      - name: Upload search index state
-        uses: actions/upload-artifact@v1
-        if: github.ref == 'refs/heads/main'
-        with:
-          name: indexes
-          path: functions/indexes
+          path: ./site/dist
 
   #########################
   ## Preview Deploy
   #########################
   preview:
-    needs: build-test
+    needs: test-build
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     steps:
@@ -92,39 +80,23 @@ jobs:
   ## Production Deploy
   #########################
   deploy:
-    needs: build-test
+    needs: test-build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    concurrency:
+      group: site-deploy
+      cancel-in-progress: true
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Download compiled site
-        uses: actions/download-artifact@v1
+      - name: Download artifact
+        uses: actions/download-artifact@v3
         with:
           name: site
-          path: public
-      - name: Download compiled indexes
-        uses: actions/download-artifact@v1
-        with:
-          name: indexes
-          path: functions/indexes
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
-      - name: Install functions dependencies
-        if: github.ref == 'refs/heads/main'
-        run: |
-          npm ci --prefix functions
+          path: dist
       - name: Deploy Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}'
           channelId: live
-      - name: Deploy Functions
-        uses: w9jds/firebase-action@v11.16.0
-        with:
-          args: deploy --only functions
-        env:
-          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}

@@ -6,27 +6,34 @@ on:
       - cms/**
       - .github/workflows/tbd-cms.yml
   pull_request:
-    branches-ignore:
-      - main
     paths:
       - cms/**
       - .github/workflows/tbd-cms.yml
+  workflow_dispatch:
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   test-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node and PNPM
+        uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 8
       - name: Get pnpm store directory
         id: pnpm-cache
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -39,8 +46,8 @@ jobs:
         working-directory: cms
         run: pnpm t
         env:
-          SANITY_STUDIO_PROJECT: ${{ secrets.SANITY_STUDIO_PROJECT }}
-      - name: Upload site build
+          SANITY_STUDIO_PROJECT: ${{ secrets.SANITY_PROJECT_ID }}
+      - name: Upload CMS build
         if: github.ref == 'refs/heads/main'
         uses: actions/upload-artifact@v3
         with:
@@ -50,12 +57,15 @@ jobs:
     needs: test-build
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    environment: cms
+    concurrency:
+      group: cms-deploy
+      cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
       - uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 8
       - name: Get pnpm store directory
         id: pnpm-cache
         shell: bash

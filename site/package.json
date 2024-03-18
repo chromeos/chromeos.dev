@@ -13,6 +13,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "cd ../ && husky install ./site/.husky",
+    "test": "run-s lint build",
     "lint": "run-p *:lint",
     "lint:staged": "lint-staged",
     "fix": "run-p *:fix",
