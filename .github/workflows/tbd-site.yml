@@ -114,3 +114,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}'
           # Change to live when merged
           channelId: next
+        env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
