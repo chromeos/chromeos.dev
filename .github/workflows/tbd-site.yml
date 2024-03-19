@@ -47,13 +47,13 @@ jobs:
           SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
           SANITY_TOKEN: ${{ secrets.SANITY_TOKEN }}
           SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
-      - name: Upload site build
+      - name: Upload search build
         # Switch to 'refs/heads/main' when merged
         if: github.ref == 'refs/heads/refactor/the-great-cms-migration'
         uses: actions/upload-artifact@v3
         with:
-          name: site
-          path: ./site/dist
+          name: search
+          path: ./site/public/pagefind
 
   #########################
   ## Preview Deploy
@@ -118,8 +118,8 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
-          name: site
-          path: dist
+          name: search
+          path: ./site/public/pagefind
       - name: Make .env file
         uses: SpicyPizza/create-envfile@v2.0
         with:
