@@ -108,8 +108,8 @@ jobs:
           envkey_GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
       - name: Deploy Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
+        working-directory: site
         with:
-          entryPoint: site
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}'
           # Change to live when merged
