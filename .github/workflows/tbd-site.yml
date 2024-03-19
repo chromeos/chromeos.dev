@@ -48,7 +48,8 @@ jobs:
           SANITY_TOKEN: ${{ secrets.SANITY_TOKEN }}
           SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
       - name: Upload site build
-        if: github.ref == 'refs/heads/main'
+        # Switch to 'refs/heads/main' when merged
+        if: github.ref == 'refs/heads/refactor/the-great-cms-migration'
         uses: actions/upload-artifact@v3
         with:
           name: site
