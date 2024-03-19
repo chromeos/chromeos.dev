@@ -20,22 +20,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Node and PNPM
+      - name: Setup PNPM
         uses: pnpm/action-setup@v3
         with:
           version: 8
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - name: Setup pnpm cache
-        uses: actions/cache@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          node-version: 20
+          cache: 'pnpm'
+          cache-dependency-path: site/pnpm-lock.yaml
+      # - name: Get pnpm store directory
+      #   id: pnpm-cache
+      #   shell: bash
+      #   run: |
+      #     echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      # - name: Setup pnpm cache
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+      #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         working-directory: site
         run: pnpm install
@@ -102,18 +108,24 @@ jobs:
         uses: pnpm/action-setup@v3
         with:
           version: 8
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - name: Setup pnpm cache
-        uses: actions/cache@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          node-version: 20
+          cache: 'pnpm'
+          cache-dependency-path: site/pnpm-lock.yaml
+      # - name: Get pnpm store directory
+      #   id: pnpm-cache
+      #   shell: bash
+      #   run: |
+      #     echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      # - name: Setup pnpm cache
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+      #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         working-directory: site
         run: pnpm install
