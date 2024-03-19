@@ -122,11 +122,12 @@ jobs:
         with:
           name: search
           path: ./site
-      # - name: Make .env file
-      #   uses: SpicyPizza/create-envfile@v2.0
-      #   with:
-      #     envkey_SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
-      #     envkey_GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
+      - name: Make .env file
+        uses: SpicyPizza/create-envfile@v2.0
+        with:
+          envkey_SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
+          envkey_GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
+          directory: site
       - name: Deploy Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
