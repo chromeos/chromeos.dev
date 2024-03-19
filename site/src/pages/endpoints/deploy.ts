@@ -1,8 +1,13 @@
 import type { APIRoute } from 'astro';
+import { Octokit } from 'octokit';
 import { logger } from 'firebase-functions';
 import bcrypt from 'bcrypt';
 
 const secret = process.env.SANITY_WEBHOOK_SECRET;
+
+const octokit = new Octokit({
+  auth: process.env.GITHUB_TOKEN,
+});
 
 export const prerender = false;
 
@@ -18,20 +23,31 @@ export const POST: APIRoute = async ({ request }) => {
   const valid =
     ip && key && addresses.includes(ip) && (await bcrypt.compare(secret, key));
 
-  logger.log('Webhook Detected');
+  logger.log('Deploy Requested');
   logger.log('IP: ', ip);
   logger.log('Valid: ', valid);
 
   // If not valid, stop working
   if (!valid) {
-    return new Response(
-      JSON.stringify({
-        valid: false,
-      }),
-    );
+    logger.info('Unauthorized');
+    return new Response('Unauthorized to trigger deploy.', { status: 403 });
   }
 
-  // If it is valid, keep rolling
-
-  return new Response(JSON.stringify('Valid Signature'));
+  // If it is valid, try triggering a deploy
+  logger.info('Triggering deploy');
+  try {
+    await octokit.rest.actions.createWorkflowDispatch({
+      owner: 'chromeos',
+      repo: 'chromeos.dev',
+      workflow_id: 'tbd-site.yml',
+      ref: 'refactor/the-great-cms-migration', // Swap to main when ready
+    });
+    logger.info('Deploy requested');
+    return new Response('Deploy triggered', { status: 200 });
+  } catch (e) {
+    logger.error(e);
+    return new Response('Error triggering deploy', {
+      status: 500,
+    });
+  }
 };
