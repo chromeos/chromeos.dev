@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Who Are You
-        run: echo "I am ${{ GITHUB_REF }}"
+        run: echo "I am ${{ github.ref }}"
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup Node and PNPM
