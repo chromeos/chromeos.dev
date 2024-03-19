@@ -122,11 +122,11 @@ jobs:
         with:
           name: search
           path: ./site
-      - name: Make .env file
-        uses: SpicyPizza/create-envfile@v2.0
-        with:
-          envkey_SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
-          envkey_GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
+      # - name: Make .env file
+      #   uses: SpicyPizza/create-envfile@v2.0
+      #   with:
+      #     envkey_SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
+      #     envkey_GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
       - name: Deploy Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -137,3 +137,8 @@ jobs:
           channelId: next
         env:
           FIREBASE_CLI_EXPERIMENTS: webframeworks
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          SANITY_TOKEN: ${{ secrets.SANITY_TOKEN }}
+          SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
