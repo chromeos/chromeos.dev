@@ -69,6 +69,11 @@ jobs:
         with:
           name: site
           path: public
+      - name: Make .env file
+        uses: SpicyPizza/create-envfile@v2.0
+        with:
+          envkey_SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
+          envkey_GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
       - name: Deploy Hosting Preview
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -82,7 +87,8 @@ jobs:
   deploy:
     needs: test-build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    # Change to 'refs/heads/main' when merged
+    if: github.ref == 'refs/head/refactor/the-great-cms-migration'
     concurrency:
       group: site-deploy
       cancel-in-progress: true
@@ -94,9 +100,15 @@ jobs:
         with:
           name: site
           path: dist
+      - name: Make .env file
+        uses: SpicyPizza/create-envfile@v2.0
+        with:
+          envkey_SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
+          envkey_GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
       - name: Deploy Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}'
-          channelId: live
+          # Change to live when merged
+          channelId: next
