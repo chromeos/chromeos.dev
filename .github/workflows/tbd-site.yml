@@ -96,6 +96,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Node and PNPM
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - name: Install dependencies
+        working-directory: site
+        run: pnpm install
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
@@ -108,8 +127,8 @@ jobs:
           envkey_GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
       - name: Deploy Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
-        working-directory: site
         with:
+          entryPoint: site
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}'
           # Change to live when merged
