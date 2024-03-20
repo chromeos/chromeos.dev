@@ -77,7 +77,7 @@ jobs:
         if: github.event_name == 'pull_request'
         run: echo "CHANNEL_ID=pr-${{ github.event.number }}" >> $GITHUB_ENV
       - name: Set Expiry
-        if: env.CHANNEL_ID != 'next'
+        if: env.CHANNEL_ID != 'live'
         run: echo "EXPIRES=30d" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v4
