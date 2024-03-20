@@ -92,7 +92,7 @@ jobs:
     steps:
       - name: Set Channel ID - Next
         if: github.ref == 'refs/heads/refactor/the-great-cms-migration'
-        run: echo "CHANNEL_ID=next" >> $GITHUB_ENV
+        run: echo "CHANNEL_ID=" >> $GITHUB_ENV
       - name: Set Channel ID - Live
         if: github.ref == 'refs/heads/main'
         run: echo "CHANNEL_ID=live" >> $GITHUB_ENV
@@ -125,8 +125,6 @@ jobs:
           envkey_SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
           envkey_GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
           directory: site
-      - name: Channel ID
-        run: echo ${{ env.CHANNEL_ID }}
       - name: Deploy Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
