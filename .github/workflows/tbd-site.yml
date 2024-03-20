@@ -90,15 +90,15 @@ jobs:
       group: ${{ github.ref }}
       cancel-in-progress: true
     steps:
-      # - name: Set Channel ID - Next
-      #   if: github.ref == 'refs/heads/refactor/the-great-cms-migration'
-      #   run: echo "CHANNEL_ID=next" >> $GITHUB_ENV
-      # - name: Set Channel ID - Live
-        if: github.ref == 'refs/heads/main'
-        run: echo "CHANNEL_ID=live" >> $GITHUB_ENV
       - name: Set Channel ID - Branch
         if: github.ref_type == 'branch' && !startsWith(github.ref_name , 'dependabot')
         run: echo "CHANNEL_ID=branch-${{ github.ref_name }}" >> $GITHUB_ENV
+      # - name: Set Channel ID - Next
+      #   if: github.ref == 'refs/heads/refactor/the-great-cms-migration'
+      #   run: echo "CHANNEL_ID=next" >> $GITHUB_ENV
+      - name: Set Channel ID - Live
+        if: github.ref == 'refs/heads/main'
+        run: echo "CHANNEL_ID=live" >> $GITHUB_ENV
       - name: Set Channel ID - PR
         if: github.event_name == 'pull_request'
         run: echo "CHANNEL_ID=pr-${{ github.event.number }}" >> $GITHUB_ENV
