@@ -30,18 +30,6 @@ jobs:
           node-version: 20
           cache: 'pnpm'
           cache-dependency-path: site/pnpm-lock.yaml
-      # - name: Get pnpm store directory
-      #   id: pnpm-cache
-      #   shell: bash
-      #   run: |
-      #     echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-      # - name: Setup pnpm cache
-      #   uses: actions/cache@v4
-      #   with:
-      #     path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-      #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         working-directory: site
         run: pnpm install
@@ -55,7 +43,7 @@ jobs:
           SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
       - name: Upload search build
         # Switch to 'refs/heads/main' when merged
-        if: github.ref == 'refs/heads/refactor/the-great-cms-migration'
+        if: github.ref == 'refs/heads/refactor/the-great-cms-migration' || github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
         with:
           name: search
@@ -86,7 +74,7 @@ jobs:
       - name: Deploy Hosting Preview
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}'
           expires: 30d
 
@@ -97,11 +85,20 @@ jobs:
     needs: test-build
     runs-on: ubuntu-latest
     # Change to 'refs/heads/main' when merged
-    if: github.ref == 'refs/heads/refactor/the-great-cms-migration'
+    if: github.ref == 'refs/heads/refactor/the-great-cms-migration' || github.event_name == 'pull_request'
     concurrency:
-      group: site-deploy
+      group: ${{ github.ref }}
       cancel-in-progress: true
     steps:
+      - name: Set Channel ID - Next
+        if: github.ref == 'refs/heads/refactor/the-great-cms-migration'
+        run: echo "CHANNEL_ID='next'" >> $GITHUB_ENV
+      - name: Set Channel ID - Live
+        if: github.ref == 'refs/heads/main'
+        run: echo "CHANNEL_ID='live'" >> $GITHUB_ENV
+      - name: Set Channel ID - PR
+        if: github.event_name == 'pull_request'
+        run: echo "CHANNEL_ID=''" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Node and PNPM
@@ -112,20 +109,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: pnpm
           cache-dependency-path: site/pnpm-lock.yaml
-      # - name: Get pnpm store directory
-      #   id: pnpm-cache
-      #   shell: bash
-      #   run: |
-      #     echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-      # - name: Setup pnpm cache
-      #   uses: actions/cache@v4
-      #   with:
-      #     path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-      #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         working-directory: site
         run: pnpm install
@@ -140,18 +125,19 @@ jobs:
           envkey_SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
           envkey_GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
           directory: site
-      - name: Deploy Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          entryPoint: site
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}'
-          # Change to live when merged
-          channelId: next
-        env:
-          FIREBASE_CLI_EXPERIMENTS: webframeworks
-          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
-          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
-          SANITY_TOKEN: ${{ secrets.SANITY_TOKEN }}
-          SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
-          GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
+      - name: Channel ID
+        run: echo ${{ env.CHANNEL_ID }}
+      # - name: Deploy Hosting
+      #   uses: FirebaseExtended/action-hosting-deploy@v0
+      #   with:
+      #     entryPoint: site
+      #     repoToken: ${{ secrets.GITHUB_TOKEN }}
+      #     firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}
+      #     channelId: ${{ env.CHANNEL_ID }}
+      #   env:
+      #     FIREBASE_CLI_EXPERIMENTS: webframeworks
+      #     SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+      #     SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+      #     SANITY_TOKEN: ${{ secrets.SANITY_TOKEN }}
+      #     SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
+      #     GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
