@@ -92,13 +92,13 @@ jobs:
     steps:
       - name: Set Channel ID - Next
         if: github.ref == 'refs/heads/refactor/the-great-cms-migration'
-        run: echo "CHANNEL_ID='next'" >> $GITHUB_ENV
+        run: echo "CHANNEL_ID=next" >> $GITHUB_ENV
       - name: Set Channel ID - Live
         if: github.ref == 'refs/heads/main'
-        run: echo "CHANNEL_ID='live'" >> $GITHUB_ENV
+        run: echo "CHANNEL_ID=live" >> $GITHUB_ENV
       - name: Set Channel ID - PR
         if: github.event_name == 'pull_request'
-        run: echo "CHANNEL_ID=''" >> $GITHUB_ENV
+        run: echo "CHANNEL_ID=" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Node and PNPM
