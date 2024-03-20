@@ -76,6 +76,9 @@ jobs:
       - name: Set Channel ID - PR
         if: github.event_name == 'pull_request'
         run: echo "CHANNEL_ID=pr-${{ github.event.number }}" >> $GITHUB_ENV
+      - name: Set Expiry
+        if: env.CHANNEL_ID != 'next'
+        run: echo "EXPIRES=30d" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup PNPM
@@ -109,7 +112,7 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}
           channelId: ${{ env.CHANNEL_ID }}
-          expires: 30d
+          expires: ${{ env.EXPIRES }}
         env:
           FIREBASE_CLI_EXPERIMENTS: webframeworks
           SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
