@@ -51,35 +51,9 @@ jobs:
             ./site/public/pagefind
             ./site/.generated
 
-  #########################
-  ## Preview Deploy
-  #########################
-  preview:
-    needs: test-build
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Download compiled site
-        uses: actions/download-artifact@v1
-        with:
-          name: site
-          path: public
-      - name: Make .env file
-        uses: SpicyPizza/create-envfile@v2.0
-        with:
-          envkey_SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
-          envkey_GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
-      - name: Deploy Hosting Preview
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}'
-          expires: 30d
 
   #########################
-  ## Deploy site to Firebase
+  ## Deploy site to Firebase (Branches and PRs only)
   #########################
   deploy:
     needs: test-build
@@ -135,6 +109,7 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}
           channelId: ${{ env.CHANNEL_ID }}
+          expires: 30d
         env:
           FIREBASE_CLI_EXPERIMENTS: webframeworks
           SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
