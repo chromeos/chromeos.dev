@@ -84,8 +84,8 @@ jobs:
           name: cms
           path: ./cms/dist
       - name: Deploy
-        working-directory: cms
-        run: pnpm run deploy
+        uses: sanity-io/github-action-sanity@v0.7-alpha
         env:
-          SANITY_STUDIO_PROJECT: ${{ secrets.SANITY_PROJECT_ID }}
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+        with:
+          args: deploy
