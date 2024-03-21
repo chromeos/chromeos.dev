@@ -88,3 +88,5 @@ jobs:
         run: pnpm run deploy
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_TOKEN }}
+          SANITY_STUDIO_PROJECT: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_STUDIO_PROD_DATASET: ${{ secrets.SANITY_DATASET }}
