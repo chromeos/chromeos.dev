@@ -63,19 +63,14 @@ jobs:
       group: cms-deploy
       cancel-in-progress: true
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install dependencies
-        working-directory: cms
-        run: pnpm install
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: cms
-          path: ./cms/dist
+          path: dist
       - name: Deploy
         uses: sanity-io/github-action-sanity@v0.7-alpha
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_TOKEN }}
         with:
-          args: deploy cms/dist
+          args: deploy dist
