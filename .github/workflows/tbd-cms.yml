@@ -32,9 +32,9 @@ jobs:
         with:
           node-version: 20
           cache: 'pnpm'
-          cache-dependency-path: site/pnpm-lock.yaml
+          cache-dependency-path: cms/pnpm-lock.yaml
       - name: Install dependencies
-        working-directory: site
+        working-directory: cms
         run: pnpm install
       - name: Test and Build
         working-directory: cms
@@ -74,9 +74,9 @@ jobs:
         with:
           node-version: 20
           cache: 'pnpm'
-          cache-dependency-path: site/pnpm-lock.yaml
+          cache-dependency-path: cms/pnpm-lock.yaml
       - name: Install dependencies
-        working-directory: site
+        working-directory: cms
         run: pnpm install
       - name: Download artifact
         uses: actions/download-artifact@v4
