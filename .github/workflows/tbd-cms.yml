@@ -22,73 +22,70 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node and PNPM
-        uses: pnpm/action-setup@v2
+        uses: actions/checkout@v4
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v3
         with:
           version: 8
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          node-version: 20
+          cache: 'pnpm'
+          cache-dependency-path: site/pnpm-lock.yaml
       - name: Install dependencies
-        working-directory: cms
+        working-directory: site
         run: pnpm install
       - name: Test and Build
         working-directory: cms
         run: pnpm t
         env:
           SANITY_STUDIO_PROJECT: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_STUDIO_PROD_DATASET: ${{ secrets.SANITY_DATASET }}
+          SANITY_STUDIO_DEV_DATASET: ${{ secrets.SANITY_DEV_DATASET }}
       - name: Upload CMS build
-        if: github.ref == 'refs/heads/main'
-        uses: actions/upload-artifact@v3
+        # Siwtch to refs/heads/main when merged
+        if: github.ref == 'refs/heads/refactor/the-great-cms-migration'
+        uses: actions/upload-artifact@v4
         with:
           name: cms
           path: ./cms/dist
+  
+  #########################
+  ## Deploy site to Sanity
+  #########################
   deploy:
     needs: test-build
-    if: github.ref == 'refs/heads/main'
+     # Siwtch to refs/heads/main when merged
+    if: github.ref == 'refs/heads/refactor/the-great-cms-migration'
     runs-on: ubuntu-latest
     concurrency:
       group: cms-deploy
       cancel-in-progress: true
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2
+        uses: actions/checkout@v4
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v3
         with:
           version: 8
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          node-version: 20
+          cache: 'pnpm'
+          cache-dependency-path: site/pnpm-lock.yaml
       - name: Install dependencies
-        working-directory: cms
+        working-directory: site
         run: pnpm install
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: cms
-          path: dist
+          path: ./cms/dist
       - name: Deploy
         working-directory: cms
         run: pnpm run deploy
         env:
-          SANITY_STUDIO_PROJECT: ${{ secrets.SANITY_STUDIO_PROJECT }}
+          SANITY_STUDIO_PROJECT: ${{ secrets.SANITY_PROJECT_ID }}
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
