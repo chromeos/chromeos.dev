@@ -354,9 +354,9 @@ export class Form {
     const holder = document.createElement('p');
 
     if (referrer !== false) {
-      holder.innerHTML = content.replace(/\[\[([\w|\s]*?)\]\]/, `<a href="${referrer.href}">$1</a>`);
+      holder.innerText = content.replace(/\[\[([\w|\s]*?)\]\]/, `<a href="${referrer.href}">$1</a>`);
     } else {
-      holder.innerHTML = content.replace(/\s*\[\[([\w|\s]*?)\]\]\s*\W/, '');
+      holder.innerText = content.replace(/\s*\[\[([\w|\s]*?)\]\]\s*\W/, '');
     }
 
     holder.classList.add('message', 'form__message', 'message--tip');
