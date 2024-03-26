@@ -51,19 +51,11 @@ We presented users with two versions of an audio clip recorded on Airpods: one b
 
 Listen to the below before and after demo samples processed by the model.
 
-| Audio signal from Bluetooth NBS connections | Audio signal processed by the model |
-| ------------------------------------------- | ----------------------------------- |
-
-|
-[nbs_input_4_airpods_pro.wav](https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/posts%2Fbluetooth-nbs%2Fnbs_input_4_airpods_pro.wav?alt=media)
-
-![A spectrogram representing the unprocessed audio clip. The scale measures from 0 to 12 kHz, with heat colors presenting a spectrum from -80 dB to +0 dB. The spectrogram shows that the audio clip does not exceed 4 kHz.](ix://posts/bluetooth-nbs/Inline-2.png)
-From the spectrogram, we can see that the highest frequency is capped at 4 kHz.
-|
-[nbs_processed_4_airpods_pro.wav](https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/posts%2Fbluetooth-nbs%2Fnbs_processed_4_airpods_pro.wav?alt=media)
-
-![A spectrogram representing the processed audio clip. The scale measures from 0 to 12 kHz, with heat colors presenting a spectrum from -80 dB to +0 dB. The spectrogram shows that the audio clip now peaks up to 12 kHz.](ix://posts/bluetooth-nbs/Inline-3.png)
-The highest frequency becomes 12 kHz and some of the higher frequency components are reconstructed. |
+| Audio signal from Bluetooth NBS connections                                                                                                                                                                                                                         | Audio signal processed by the model                                                                                                                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [nbs_input_4_airpods_pro.wav](https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/posts%2Fbluetooth-nbs%2Fnbs_input_4_airpods_pro.wav?alt=media)                                                                                                 | [nbs_processed_4_airpods_pro.wav](https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/posts%2Fbluetooth-nbs%2Fnbs_processed_4_airpods_pro.wav?alt=media)                                                                                        |
+| ![A spectrogram representing the unprocessed audio clip. The scale measures from 0 to 12 kHz, with heat colors presenting a spectrum from -80 dB to +0 dB. The spectrogram shows that the audio clip does not exceed 4 kHz.](ix://posts/bluetooth-nbs/Inline-2.png) | ![A spectrogram representing the processed audio clip. The scale measures from 0 to 12 kHz, with heat colors presenting a spectrum from -80 dB to +0 dB. The spectrogram shows that the audio clip now peaks up to 12 kHz.](ix://posts/bluetooth-nbs/Inline-3.png) |
+| From the spectrogram, we can see that the highest frequency is capped at 4 kHz.                                                                                                                                                                                     | The highest frequency becomes 12 kHz and some of the higher frequency components are reconstructed.                                                                                                                                                                |
 
 ## Try it out
 
