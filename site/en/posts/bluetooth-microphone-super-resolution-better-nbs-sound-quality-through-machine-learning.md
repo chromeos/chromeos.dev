@@ -63,14 +63,14 @@ Listen to the below before and after demo samples processed by the model.
       <td>
         <figure>
             <a href="https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/posts%2Fbluetooth-nbs%2Fnbs_input_4_airpods_pro.wav?alt=media">nbs_input_4_airpods_pro.wav</a>
-            <img src="insert_image_url_here" alt="A spectrogram representing the unprocessed audio clip. The scale measures from 0 to 12 kHz, with heat colors presenting a spectrum from -80 dB to +0 dB. The spectrogram shows that the audio clip does not exceed 4 kHz.">
+            <img src="ix://posts/bluetooth-nbs/Inline-2.png" alt="A spectrogram representing the unprocessed audio clip. The scale measures from 0 to 12 kHz, with heat colors presenting a spectrum from -80 dB to +0 dB. The spectrogram shows that the audio clip does not exceed 4 kHz.">
             <figcaption>From the spectrogram, we can see that the highest frequency is capped at 4 kHz.</figcaption>
         </figure>
         </td>
         <td>
         <figure>
             <a href="https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/posts%2Fbluetooth-nbs%2Fnbs_processed_4_airpods_pro.wav?alt=media">nbs_processed_airpods_pro.wav</a>
-        <img src="insert_image_url_here" alt="A spectrogram representing the processed audio clip. The scale measures from 0 to 12 kHz, with heat colors presenting a spectrum from -80 dB to +0 dB. The spectrogram shows that the audio clip now peaks up to 12 kHz.">
+        <img src="ix://posts/bluetooth-nbs/Inline-3.png" alt="A spectrogram representing the processed audio clip. The scale measures from 0 to 12 kHz, with heat colors presenting a spectrum from -80 dB to +0 dB. The spectrogram shows that the audio clip now peaks up to 12 kHz.">
         <figcaption>The highest frequency becomes 12 kHz and some of the higher frequency components are reconstructed.</figcaption>
         </figure>
     </td>
@@ -87,13 +87,13 @@ The feature is behind an experimental flag as of ChromeOS 122. If switched on, i
 To use the feature:
 
 1.  Start Chrome, type `chrome://flags#audio-hfp-mic-sr-toggle` in the search bar, and press [[enter]].
-    ![A Chrome browser window with 'chrome://flags#audio-hfp-mic-sr-toggle' typed into the search bar.](insert_image_url_here)
+    ![A Chrome browser window with 'chrome://flags#audio-hfp-mic-sr-toggle' typed into the search bar.](ix://posts/bluetooth-nbs/Inline-4.png)
 
 2.  Set the `audio-hfp-mic-sr-toggle` flag to `Enabled` and click **Restart**.
-    ![A settings page titled 'Experiments' with two tabs: Available and Unavailable. The Available tab is active. Below the Available tab is a setting named: Audio toggle for hfp-mic-sr. This setting has been enabled.](insert_image_url_here)
+    ![A settings page titled 'Experiments' with two tabs: Available and Unavailable. The Available tab is active. Below the Available tab is a setting named: Audio toggle for hfp-mic-sr. This setting has been enabled.](ix://posts/bluetooth-nbs/Inline-5.png)
 
 3.  In **Settings** > **Audio**, click **Bluetooth Super Resolution** to toggle the feature on.
-    ![The Audio settings page for Chrome. At the bottom of the page is a setting named: Bluetooth Super Resolution. It is enabled.](insert_image_url_here)
+    ![The Audio settings page for Chrome. At the bottom of the page is a setting named: Bluetooth Super Resolution. It is enabled.](ix://posts/bluetooth-nbs/Inline-6.png)
 
 You are now ready to use your enhanced Bluetooth microphone with any audio recording apps on your device, such as Meet.
 
