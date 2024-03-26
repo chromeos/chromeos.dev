@@ -51,32 +51,9 @@ We presented users with two versions of an audio clip recorded on Airpods: one b
 
 Listen to the below before and after demo samples processed by the model.
 
-<table>
-  <thead>
-    <tr>
-      <th>Audio signal from Bluetooth NBS connections</th>
-      <th>Audio signal processed by the model</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <figure>
-            <a href="https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/posts%2Fbluetooth-nbs%2Fnbs_input_4_airpods_pro.wav?alt=media">nbs_input_4_airpods_pro.wav</a>
-            <img src="ix://posts/bluetooth-nbs/Inline-2.png" alt="A spectrogram representing the unprocessed audio clip. The scale measures from 0 to 12 kHz, with heat colors presenting a spectrum from -80 dB to +0 dB. The spectrogram shows that the audio clip does not exceed 4 kHz.">
-            <figcaption>From the spectrogram, we can see that the highest frequency is capped at 4 kHz.</figcaption>
-        </figure>
-        </td>
-        <td>
-        <figure>
-            <a href="https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/posts%2Fbluetooth-nbs%2Fnbs_processed_4_airpods_pro.wav?alt=media">nbs_processed_airpods_pro.wav</a>
-        <img src="ix://posts/bluetooth-nbs/Inline-3.png" alt="A spectrogram representing the processed audio clip. The scale measures from 0 to 12 kHz, with heat colors presenting a spectrum from -80 dB to +0 dB. The spectrogram shows that the audio clip now peaks up to 12 kHz.">
-        <figcaption>The highest frequency becomes 12 kHz and some of the higher frequency components are reconstructed.</figcaption>
-        </figure>
-    </td>
-    </tr>
-  </tbody>
-</table>
+| Audio signal from Bluetooth NBS connections                                                                                | Audio signal processed by the model                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| #1[From the spectrogram, we can see that the highest frequency is capped at 4 kHz.](ix://posts/bluetooth-nbs/Inline-2.png) | #2[The highest frequency becomes 12 kHz and some of the higher frequency components are reconstructed.](ix://posts/bluetooth-nbs/Inline-3.png) |
 
 ## Try it out
 
