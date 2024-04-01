@@ -4,6 +4,7 @@ import TOC from '$components/TOC.svelte';
 import Published from '$components/Published.svelte';
 import Authors from '$components/Authors.svelte';
 import PostHero from '$components/PostHero.svelte';
+import YouTube from '$components/YouTube.svelte';
 import { posts, microcopy as micro } from '$lib/sanity';
 import type { PostHeroProps } from '$components/PostHero.svelte';
 import Text from '$components/Text.astro';
@@ -75,17 +76,17 @@ const toc = buildTOC(post.body);
     <PostHero {...hero} />
   </Fragment>
   <!-- YouTube embed -->
-  <!-- {
-    meta?.hero?.youtube && (
+  {
+    hero.media?.youtube && (
       <YouTube
         client:load
-        slot="hero"
-        id={meta.hero.youtube}
-        alt={meta.hero.alt}
-        label={microcopy.microcopy.loadVideo}
+        slot={hero.media?.youtube && 'hero'}
+        id={hero.media?.youtube}
+        alt={`YouTube ${hero.media?.youtube}`}
+        label={microcopy.actions.loadVideo}
       />
     )
-  } -->
+  }
   <!-- Main content area -->
   <Text body={post.body} slot="content" />
   <!-- <Fragment slot="content" set:html={content} /> -->

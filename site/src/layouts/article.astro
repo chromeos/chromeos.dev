@@ -22,9 +22,13 @@ const { locale } = microcopy;
       <slot name="header" />
     </div>
     <div class="article--wrapper">
-      <div class="article--hero">
-        <slot name="hero" />
-      </div>
+      {
+        Astro.slots.has('hero') && (
+          <div class="article--hero">
+            <slot name="hero" />
+          </div>
+        )
+      }
       <aside class="article--extras">
         <slot name="extras" />
       </aside>
