@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 
 const { doc, microcopy } = Astro.props;
 
-const section = buildSection(doc.category);
+const section = buildSection(doc.category, doc._lang);
 const toc = buildTOC(doc.body);
 ---
 

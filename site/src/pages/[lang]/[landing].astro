@@ -31,7 +31,7 @@ export function getStaticPaths() {
 
 const { landing, microcopy } = Astro.props;
 
-const section = buildSection(landing.category);
+const section = buildSection(landing.category, landing._lang);
 const topics = buildTopics(section.map((s) => s.href));
 
 let color = 'var(--primary-blue)';

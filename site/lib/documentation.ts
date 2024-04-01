@@ -4,10 +4,12 @@ import { documentation, landings } from '$lib/sanity';
 /**
  * Build documentation sections
  * @param {Tag} category
+ * @param {string} lang
  * @return {object}
  */
-export function buildSection(category: Tag) {
+export function buildSection(category: Tag, lang: string = 'en') {
   const sections = documentation
+    .filter((d) => d._lang === lang)
     .filter((d) => d.category.slug === category.slug)
     .sort((a, b) => a.weight - b.weight)
     .map((d) => ({
@@ -16,6 +18,7 @@ export function buildSection(category: Tag) {
     }));
 
   const landing = landings
+    .filter((l) => l._lang === lang)
     .filter((l) => l.category.slug === category.slug)
     .map((l) => ({
       title: l.title,
