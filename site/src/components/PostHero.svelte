@@ -314,5 +314,10 @@
           transparent var(--large)
         );
     }
+
+    :global([data-theme='dark']) & {
+      --hero-theme-color: var(--white);
+      --hero-theme-background: var(--phosphor-green);
+    }
   }
 </style>
