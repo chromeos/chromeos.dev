@@ -124,7 +124,7 @@
     "posthtml": "^0.16.6",
     "posthtml-external-link": "^0.1",
     "posthtml-match-helper": "^1.0",
-    "prettier": "^2.5",
+    "prettier": "^3.2",
     "remark": "^14.0",
     "remark-cli": "^8.0",
     "remark-frontmatter": "^2.0",
