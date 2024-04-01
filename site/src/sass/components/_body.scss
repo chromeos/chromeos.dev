@@ -21,6 +21,7 @@ body {
   flex-direction: column;
   background-color: var(--global-background);
   color: var(--global-foreground);
+  min-height: 100dvh;
 
   @each $code, $size in $bkpt-lang-headers {
     @media (min-width: $size) {

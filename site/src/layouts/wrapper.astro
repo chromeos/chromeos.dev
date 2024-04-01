@@ -1,9 +1,11 @@
 ---
 import type { Locale } from '$types/content';
+import { pwaInfo } from 'virtual:pwa-info';
 import SiteHeader from '$components/SiteHeader.svelte';
 import SubscribeFooter from '$components/SubscribeFooter.svelte';
 import Footer from '$components/Footer.astro';
 import Analytics from '$components/Analytics.astro';
+import ServiceWorker from '$components/ServiceWorker.svelte';
 import { navigation } from '$lib/sanity';
 import { getMicrocopy } from '$$microcopy';
 import '$sass/global.scss';
@@ -64,6 +66,7 @@ const t =
     <meta name="Description" content={metadesc} />
     <meta name="theme-color" content="#1a73e8" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
     <link rel="icon" type="image/png" href="ix://icons/favicon.png" />
     <link rel="apple-touch-icon" href="/images/icons/pwa/icon-192x192.png" />
     {
@@ -135,6 +138,8 @@ const t =
     <slot name="prefooter" />
 
     <Footer lang={locale.code} />
+
+    <ServiceWorker client:load />
 
     <Analytics />
   </body>

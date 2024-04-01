@@ -49,7 +49,14 @@
     "requestidlecallback": "^0.3.0",
     "svelte": "^4.0.0",
     "uslug": "^1.0.4",
-    "vite-plugin-pwa": "^0.15.0"
+    "workbox-cacheable-response": "^7.0.0",
+    "workbox-core": "^7.0.0",
+    "workbox-expiration": "^7.0.0",
+    "workbox-precaching": "^7.0.0",
+    "workbox-recipes": "^7.0.0",
+    "workbox-routing": "^7.0.0",
+    "workbox-strategies": "^7.0.0",
+    "workbox-window": "^7.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-virtual": "^3.0.2",
@@ -58,6 +65,7 @@
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
+    "@vite-pwa/astro": "^0.3.1",
     "breakpoint-sass": "^3.0.0",
     "dotenv": "^16.0.3",
     "eslint": "^8.57.0",

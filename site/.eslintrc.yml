@@ -60,3 +60,8 @@ rules:
     - argsIgnorePattern: '^_'
       varsIgnorePattern: '^_'
       caughtErrorsIgnorePattern: '^_'
+  import/no-unresolved:
+    - error
+    - ignore:
+        - 'virtual:pwa-info'
+        - 'virtual:pwa-register'
