@@ -187,20 +187,19 @@
       height: 20cqh;
 
       @container (min-width: #{$swap}) {
-        height: auto;
-        margin-top: 0;
-      }
-
-      #{$parent}:has(#{$parent}--image-wrapper) & {
         right: 0;
         z-index: 0;
         height: 100%;
         width: 100%;
+        margin-top: 0;
 
         img {
           position: absolute;
         }
       }
+
+      // #{$parent}:has(#{$parent}--image-wrapper) & {
+      // }
 
       img {
         display: none;
