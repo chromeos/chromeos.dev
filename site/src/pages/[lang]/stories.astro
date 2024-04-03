@@ -8,17 +8,19 @@ import { storyLandings, microcopy as micro, stories as st } from '$$sanity';
  * Builds paths for content files
  */
 export async function getStaticPaths() {
-  return storyLandings.map((s) => {
-    return {
-      params: {
-        lang: s._langCode,
-      },
-      props: {
-        landing: s,
-        microcopy: micro[s._lang],
-      },
-    };
-  });
+  return storyLandings
+    .filter((h) => h._langCode === 'en')
+    .map((s) => {
+      return {
+        params: {
+          lang: s._langCode,
+        },
+        props: {
+          landing: s,
+          microcopy: micro[s._lang],
+        },
+      };
+    });
 }
 
 const { landing, microcopy } = Astro.props;

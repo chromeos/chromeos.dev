@@ -17,18 +17,20 @@ import type { Microcopy } from '$types/sanity';
  * @return {object} paths
  */
 export function getStaticPaths() {
-  return posts.map((post) => {
-    return {
-      params: {
-        lang: post._langCode,
-        page: post._slug,
-      },
-      props: {
-        post,
-        microcopy: micro[post._lang] as Microcopy,
-      },
-    };
-  });
+  return posts
+    .filter((h) => h._langCode === 'en')
+    .map((post) => {
+      return {
+        params: {
+          lang: post._langCode,
+          page: post._slug,
+        },
+        props: {
+          post,
+          microcopy: micro[post._lang] as Microcopy,
+        },
+      };
+    });
 }
 
 const { post, microcopy } = Astro.props;

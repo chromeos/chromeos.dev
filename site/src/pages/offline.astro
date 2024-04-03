@@ -7,7 +7,6 @@ const offline = Object.values(microcopy).map((item) => ({
   locale: item.locale.code,
   ...item.network.offline,
 }));
-console.log(offline);
 
 const locale = microcopy.en.locale;
 ---

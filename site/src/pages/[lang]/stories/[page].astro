@@ -15,18 +15,20 @@ import { buildTOC } from '$lib/portabletext';
  * @return {object} paths
  */
 export function getStaticPaths() {
-  return stories.map((story) => {
-    return {
-      params: {
-        lang: story._langCode,
-        page: story._slug,
-      },
-      props: {
-        story,
-        microcopy: micro[story._lang] as Microcopy,
-      },
-    };
-  });
+  return stories
+    .filter((h) => h._langCode === 'en')
+    .map((story) => {
+      return {
+        params: {
+          lang: story._langCode,
+          page: story._slug,
+        },
+        props: {
+          story,
+          microcopy: micro[story._lang] as Microcopy,
+        },
+      };
+    });
 }
 
 const { story, microcopy } = Astro.props;

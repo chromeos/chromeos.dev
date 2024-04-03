@@ -48,11 +48,19 @@ const redirect: MiddlewareResponseHandler = async (
 ) => {
   const url = new URL(request.url);
   const { pathname } = url;
+
+  // ES redirect
+  if (pathname.startsWith('/es')) {
+    url.pathname = pathname.replace('/es', '/en');
+    return Response.redirect(url, 307);
+  }
+
   // Homepage redirect
   if (pathname === '/') {
     url.pathname = '/en';
     return Response.redirect(url, 301);
   }
+
   // News pagination redirect
   const newsRegex = /^\/(\w{2})\/news\/1$/;
   if (newsRegex.test(pathname)) {

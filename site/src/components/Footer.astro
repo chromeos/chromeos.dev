@@ -1,7 +1,7 @@
 ---
-import { languages } from '$$sanity';
+// import { languages } from '$$sanity';
 import { getMicrocopy } from '$$microcopy';
-import LanguageSwitcher from '$components/LanguageSwitcher.svelte';
+// import LanguageSwitcher from '$components/LanguageSwitcher.svelte';
 import ThemeToggle from '$components/ThemeToggle.svelte';
 export interface Props {
   lang: string;
@@ -9,7 +9,7 @@ export interface Props {
 
 const { lang } = Astro.props;
 const microcopy = getMicrocopy(lang);
-const { links, help, language: select } = microcopy.footer;
+const { links, help } = microcopy.footer;
 ---
 
 <footer class="footer container">
@@ -43,12 +43,12 @@ const { links, help, language: select } = microcopy.footer;
         <span>{help.text}</span>
       </a>
       <ThemeToggle client:load />
-      <LanguageSwitcher
+      <!-- <LanguageSwitcher
         languages={languages}
         current={lang}
         label={select}
         client:visible
-      />
+      /> -->
     </div>
   </section>
 </footer>

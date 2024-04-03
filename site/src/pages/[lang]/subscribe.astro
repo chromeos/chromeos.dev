@@ -11,21 +11,19 @@ import Text from '$components/Text.astro';
  * @return {object[]} Paths
  */
 export function getStaticPaths() {
-  return (
-    n
-      // .filter((nl) => nl._langCode === 'en')
-      .map((nl) => {
-        return {
-          params: {
-            lang: nl._langCode,
-          },
-          props: {
-            newsletter: nl as Newsletter,
-            microcopy: micro[nl._lang],
-          },
-        };
-      })
-  );
+  return n
+    .filter((nl) => nl._langCode === 'en')
+    .map((nl) => {
+      return {
+        params: {
+          lang: nl._langCode,
+        },
+        props: {
+          newsletter: nl as Newsletter,
+          microcopy: micro[nl._lang],
+        },
+      };
+    });
 }
 
 const { microcopy, newsletter } = Astro.props;
