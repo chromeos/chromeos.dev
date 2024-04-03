@@ -1,7 +1,4 @@
-export const LANGUAGES = [
-  { id: 'en', title: 'English' },
-  { id: 'es', title: 'Spanish' },
-];
+export const LANGUAGES = [{ id: 'en', title: 'English' }];
 
 export const SINGLETONS = [
   { type: 'home', title: 'Home' },
