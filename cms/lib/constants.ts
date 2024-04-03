@@ -10,6 +10,7 @@ export const SINGLETONS = [
   { type: 'nav', title: 'Navigation' },
   // { type: 'cookies', title: 'Cookie Disclaimer' },
   { type: 'app-support', title: 'App Support' },
+  { type: 'releases', title: 'Release Notes' },
 ];
 
 export const i18nSCHEMAS = [

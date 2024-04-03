@@ -71,6 +71,9 @@ import stories from './stories';
 import pwas from './pwas';
 import landing from './landing';
 import appSupport from './app-support';
+import releases from './releases';
+import release from './release';
+import snippet from './snippet';
 
 export const schemaTypes = [
   // Schemas
@@ -90,6 +93,9 @@ export const schemaTypes = [
   pwas,
   landing,
   appSupport,
+  releases,
+  release,
+  snippet,
 
   // Fields
   fullBlockField,

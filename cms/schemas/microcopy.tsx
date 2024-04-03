@@ -58,6 +58,10 @@ export default defineType({
       title: 'Pagination',
       name: 'pagination',
     },
+    {
+      title: 'Releases',
+      name: 'releases',
+    },
   ],
   fields: [
     defineField({
@@ -519,6 +523,12 @@ export default defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineField({
+          name: 'all',
+          title: 'All',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
           name: 'previous',
           title: 'Previous',
           type: 'string',
@@ -553,6 +563,65 @@ export default defineType({
           title: 'Page',
           type: 'string',
           description: '((n)) - current page number',
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+    }),
+    // Releases
+    defineField({
+      name: 'releases',
+      title: 'Releases',
+      type: 'object',
+      group: ['releases'],
+      fields: [
+        defineField({
+          name: 'releases',
+          title: 'Releases',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'notes',
+          title: 'Release Notes',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'stable',
+          title: 'Stable',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'dev',
+          title: 'Dev',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'lts',
+          title: 'Long-term Stable',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'ltc',
+          title: 'Long-term Stable Candidate',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'channel',
+          title: 'Channel',
+          type: 'string',
+          description: '((c)) - Channel Name',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'also',
+          title: 'Also released in',
+          type: 'string',
+          description: '((v)) - ChromeOS Version',
           validation: (Rule) => Rule.required(),
         }),
       ],

@@ -23,10 +23,11 @@ import {
   BiSupport,
 } from 'react-icons/bi';
 import { RiTodoLine } from 'react-icons/ri';
+import { MdOutlineNewReleases } from 'react-icons/md';
 
 import { AiOutlineFileSearch } from 'react-icons/ai';
 import { IoLogoPwa } from 'react-icons/io5';
-import { LuPaintbrush2 } from 'react-icons/lu';
+import { LuPaintbrush2, LuScissors } from 'react-icons/lu';
 import { SINGLETONS, LANGUAGES } from './constants';
 
 /**
@@ -86,7 +87,7 @@ export const deskStructure = (
         .child(
           S.documentTypeList('post')
             .filter(
-              `_type == 'post' && (language == 'en' || !defined(language) || language == 'en_US')`,
+              `_type == 'post' && (language == 'en' || !defined(language) || language == 'en')`,
             )
             .title('Posts'),
         ),
@@ -97,7 +98,7 @@ export const deskStructure = (
         .child(
           S.documentTypeList('story')
             .filter(
-              `_type == 'story' && (language == 'en' || !defined(language) || language == 'en_US')`,
+              `_type == 'story' && (language == 'en' || !defined(language) || language == 'en')`,
             )
             .title('Case Studies'),
         ),
@@ -107,7 +108,16 @@ export const deskStructure = (
         .icon(BiCodeCurly)
         .child(
           S.documentTypeList('documentation').filter(
-            `_type == 'documentation' && (language == 'en' || !defined(language) || language == 'en_US')`,
+            `_type == 'documentation' && (language == 'en' || !defined(language) || language == 'en')`,
+          ),
+        ),
+      // All base-language release notes
+      S.listItem()
+        .title('Release Notes')
+        .icon(MdOutlineNewReleases)
+        .child(
+          S.documentTypeList('release').filter(
+            `_type == 'release' && (language == 'en' || !defined(language) || language == 'en')`,
           ),
         ),
       S.divider(),
@@ -123,6 +133,7 @@ export const deskStructure = (
               buildStandaloneList('news', BiFile, S),
               buildStandaloneList('stories', AiOutlineFileSearch, S),
               buildStandaloneList('newsletter', BiMailSend, S),
+              buildStandaloneList('releases', MdOutlineNewReleases, S),
               S.listItem()
                 .title('Landing Pages')
                 .icon(RiTodoLine)
@@ -153,6 +164,11 @@ export const deskStructure = (
                 .title('Tags')
                 .icon(TagIcon)
                 .child(S.documentTypeList('tag').title('Tags')),
+              // Snippets
+              S.listItem()
+                .title('Snippets')
+                .icon(LuScissors)
+                .child(S.documentTypeList('snippet').title('Snippets')),
               // Themes
               S.listItem()
                 .title('Themes')

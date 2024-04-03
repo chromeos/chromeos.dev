@@ -1,7 +1,9 @@
 import { getCliClient } from 'sanity/cli';
-import { SINGLETONS, LANGUAGES } from '../lib/constants';
+import { LANGUAGES } from '../lib/constants';
 
 const client = getCliClient();
+
+const SINGLETONS = [{ type: 'releases', title: 'Release Notes' }];
 
 /**
  * Creates singletons
