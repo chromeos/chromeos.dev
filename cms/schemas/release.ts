@@ -61,7 +61,7 @@ export default defineType({
             defineField({
               name: 'content',
               title: 'Content',
-              type: 'restricted-block',
+              type: 'full-block',
               validation: (Rule) => Rule.required(),
             }),
           ],
