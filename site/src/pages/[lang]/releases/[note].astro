@@ -1,0 +1,213 @@
+---
+import Section from '$layouts/section.astro';
+
+import {
+  releaseNotes,
+  releaseNoteLandings,
+  microcopy as micro,
+} from '$lib/sanity';
+// import { buildSection, buildTopics } from '$lib/documentation';
+
+import SectionNav from '$components/SectionNav.svelte';
+import Text from '$components/Text.astro';
+
+/**
+ * Static paths
+ *
+ * @return {object} paths
+ */
+export function getStaticPaths() {
+  const sections = {};
+  const landings = {};
+  return releaseNotes
+    .filter((h) => h._langCode === 'en')
+    .map((landing) => {
+      if (!landings[landing._langCode]) {
+        landings[landing._langCode] = releaseNoteLandings.find(
+          (l) => l._langCode === landing._langCode,
+        );
+      }
+      if (!sections[landing._langCode]) {
+        sections[landing._langCode] = releaseNotes
+          .filter((note) => note._langCode === landing._langCode)
+          .sort((a, b) => b.stable - a.stable)
+          .map((note) => {
+            return {
+              title: note.title,
+              href: note._slug,
+            };
+          });
+      }
+      return {
+        params: {
+          lang: landing._langCode,
+          note: `chromeos-${landing.version}`,
+        },
+        props: {
+          microcopy: micro[landing._lang],
+          note: landing,
+          backgrounds: landings[landing._langCode].backgrounds,
+          sections: sections[landing._langCode],
+        },
+      };
+    });
+}
+
+const { backgrounds, microcopy, note, sections } = Astro.props;
+
+console.log(microcopy.releases);
+---
+
+<Section title={note.title} locale={microcopy.locale} metadesc={note.overview}>
+  <SectionNav
+    active={note._slug}
+    title={microcopy.releases.notes}
+    links={sections}
+    client:visible
+    slot="subnav"
+  />
+
+  <header
+    class="hero type--mega"
+    style={`background: var(--yellow-75)`}
+    id="content"
+    slot="header"
+  >
+    <h1 class="hero--title">
+      {microcopy.releases.notesfor.replace('((v))', note.title)}
+    </h1>
+    <div class="hero--hero">
+      <picture>
+        <source srcset={backgrounds.large} media="(min-width: 840px)" />
+        <img src={backgrounds.small} alt="" />
+      </picture>
+    </div>
+  </header>
+
+  <Fragment slot="content">
+    <div class="content">
+      <footer>
+        <p class="type--eyebrow">
+          {
+            microcopy.releases.channel.replace(
+              '((c))',
+              microcopy.releases.stable,
+            )
+          }
+        </p>
+        <p class="type--small">
+          {
+            microcopy.releases.releasedon
+              .replace('((c))', microcopy.releases.stable.toLowerCase())
+              .replace(
+                '((d))',
+                note.stable.toLocaleDateString(note._localeCode, {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                }),
+              )
+          }
+        </p>
+      </footer>
+      <div class="type">
+        <p>{note.overview}</p>
+        {
+          note.featured &&
+            note.featured.map((f) => {
+              return (
+                <>
+                  <h3>{f.title}</h3>
+                  <Text body={f.content} />
+                </>
+              );
+            })
+        }
+        <h3>
+          {microcopy.releases.also.replace('((v))', note.title)}
+        </h3>
+        <p>{note.additional.overview}</p>
+        {
+          note.additional.features &&
+            note.additional.features.map((f) => {
+              return (
+                <>
+                  <h4>{f.title}</h4>
+                  <Text body={f.content} />
+                </>
+              );
+            })
+        }
+      </div>
+    </div>
+  </Fragment>
+</Section>
+
+<style lang="scss">
+  @import '$sass/shared';
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .permalink {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .hero {
+    padding-inline: var(--inline-padding);
+    padding-inline-end: 0;
+
+    margin-block-end: 1.5rem;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    :global([data-theme='dark']) & {
+      /* stylelint-disable declaration-no-important */
+      // Need the background to be grey no matter what
+      background-color: var(--phosphor-grey) !important;
+      border: 2px solid var(--phosphor-green);
+      /* stylelint-enable declaration-no-important */
+    }
+
+    &--title {
+      color: var(--black);
+      text-wrap: balance;
+      padding-block: var(--header-spacing);
+
+      :global([data-theme='dark']) & {
+        color: var(--global-green);
+      }
+    }
+
+    &--hero {
+      margin-inline-start: auto;
+      align-self: flex-end;
+      justify-self: flex-start;
+
+      :global(img) {
+        display: block;
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+        max-height: 5em;
+      }
+    }
+  }
+
+  // .topics-header {
+  //   text-align: center;
+  // }
+
+  // .topics {
+  //   display: grid;
+  //   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  //   gap: 1.5rem;
+  // }
+</style>

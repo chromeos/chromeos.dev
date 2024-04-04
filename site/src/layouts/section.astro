@@ -14,27 +14,27 @@ const { title, metadesc, locale } = Astro.props;
 ---
 
 <Wrapper title={title} metadesc={metadesc} locale={locale}>
-  <article class='section'>
-    <aside class='section--subnav'>
-      <slot name='subnav' />
+  <article class="section">
+    <aside class="section--subnav">
+      <slot name="subnav" />
     </aside>
-    <div class='section--header'>
-      <slot name='header' />
+    <div class="section--header">
+      <slot name="header" />
     </div>
-    <section class='section--content'>
-      <slot name='content' />
+    <section class="section--content">
+      <slot name="content" />
     </section>
     {
       Astro.slots.has('topics') && (
-        <section class='section--topics'>
-          <slot name='topics' />
+        <section class="section--topics">
+          <slot name="topics" />
         </section>
       )
     }
   </article>
 </Wrapper>
 
-<style lang='scss'>
+<style lang="scss">
   @import '$sass/shared';
 
   .section {
@@ -51,8 +51,10 @@ const { title, metadesc, locale } = Astro.props;
     }
 
     &--header {
+      margin-block-start: -1rem;
       @include mq($bkpt-article--2-cols) {
         grid-column: 2 / -1;
+        margin-block-start: 0;
       }
     }
 
