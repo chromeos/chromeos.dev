@@ -594,6 +594,13 @@ export default defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineField({
+          name: 'releasedon',
+          title: 'Released on',
+          description: '((d)) - Date',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
           name: 'stable',
           title: 'Stable',
           type: 'string',

@@ -10,6 +10,8 @@ import type {
   Navigation,
   // Cookiejar,
   Home,
+  ReleaseNote,
+  ReleaseNotesLanding,
 } from '../types/sanity';
 
 import 'dotenv/config';
@@ -369,6 +371,52 @@ export const landings = (
 
   return landing as Landing;
 }) as Landing[];
+
+export const releaseNoteLandings = (await sanity.fetch(
+  `*[_type == 'releases' && !(_id in path('drafts.**'))]
+    {
+      ${coreMetaQuery}
+      title,
+      'backgrounds': {
+        'large': 'cms://' + backgrounds.background_large.asset._ref,
+        'small': 'cms://' + backgrounds.background_small.asset._ref,
+      }
+    }`,
+)) as ReleaseNotesLanding[];
+
+export const releaseNotes = (
+  await sanity.fetch(
+    `*[_type == 'release' && !(_id in path('drafts.**'))]
+    {
+      ${coreMetaQuery}
+      version,
+      stable,
+      overview,
+      featured[] {
+        title,
+        content,
+      },
+      'additional': {
+        'overview': additional.overview,
+        'features': additional.features[] {
+          title,
+          content,
+        },
+      },
+      cta->{
+        title,
+        body
+      }
+    }`,
+  )
+).map((note) => {
+  note.title = `Chrome OS ${note.version}`;
+  note._slug = `/${note._langCode}/releases/chromeos-${note.version}-release-notes`;
+  note.stable = new Date(note.stable);
+  return note;
+}) as ReleaseNote[];
+
+console.log(releaseNotes[0]);
 
 export const all = [...posts, ...documentation, ...stories, ...landings];
 
