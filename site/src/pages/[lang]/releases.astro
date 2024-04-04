@@ -313,8 +313,12 @@ console.log(rest);
     gap: 0;
   }
 
-  [open] .details-marker {
-    transform: rotate(90deg);
+  .details-marker {
+    fill: currentColor;
+
+    [open] & {
+      transform: rotate(90deg);
+    }
   }
 
   // .topics-header {
