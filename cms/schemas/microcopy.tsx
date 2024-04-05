@@ -62,6 +62,10 @@ export default defineType({
       title: 'Releases',
       name: 'releases',
     },
+    {
+      title: 'RSS',
+      name: 'rss',
+    },
   ],
   fields: [
     defineField({
@@ -636,6 +640,27 @@ export default defineType({
           title: 'Also released in',
           type: 'string',
           description: '((v)) - ChromeOS Version',
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+    }),
+    // RSS
+    defineField({
+      name: 'rss',
+      title: 'RSS',
+      type: 'object',
+      group: ['rss'],
+      fields: [
+        defineField({
+          name: 'title',
+          title: 'Title',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'description',
+          title: 'Description',
+          type: 'string',
           validation: (Rule) => Rule.required(),
         }),
       ],
