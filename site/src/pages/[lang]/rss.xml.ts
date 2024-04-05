@@ -37,6 +37,7 @@ export const GET: APIRoute = (context: APIContext) => {
         description: post.description,
         link: post._path,
         pubDate: post.dates.published,
+        customData: `<category>${post._type}</category>`, // TODO: i18n
       };
     });
   const releases = releaseNotes
@@ -50,6 +51,7 @@ export const GET: APIRoute = (context: APIContext) => {
         description: release.overview,
         link: release._path,
         pubDate: new Date(release.stable),
+        customData: `<category>${release._type}</category>`,
       };
     });
 
