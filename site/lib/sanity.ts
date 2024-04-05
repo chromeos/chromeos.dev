@@ -412,6 +412,7 @@ export const releaseNotes = (
 ).map((note) => {
   note.title = `Chrome OS ${note.version}`;
   note._slug = `/${note._langCode}/releases/chromeos-${note.version}`;
+  note._path = `/${note._langCode}/releases/chromeos-${note.version}`;
   note.stable = new Date(note.stable);
   return note;
 }) as ReleaseNote[];

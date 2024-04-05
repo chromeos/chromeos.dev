@@ -316,6 +316,7 @@ export type ReleaseNoteFeature = {
 export interface ReleaseNote extends CoreMeta {
   title: string;
   _slug: string;
+  _path: string;
   version: number;
   stable: Date;
   overview: string;
@@ -419,6 +420,10 @@ export type Microcopy = {
     lts: string;
     channel: string;
     also: string;
+  };
+  rss: {
+    title: string;
+    description: string;
   };
 };
 
