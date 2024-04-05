@@ -29,7 +29,6 @@ export async function getStaticPaths() {
 export const GET: APIRoute = (context: APIContext) => {
   const { lang } = context.params;
   const mc = microcopy[lang];
-  console.log(mc);
   const content = [...posts, ...documentation, ...stories]
     .filter((post) => post._langCode === lang)
     .map((post) => {
