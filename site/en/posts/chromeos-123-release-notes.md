@@ -51,7 +51,7 @@ From ChromeOS 123, ChromeOS Flex will upgrade to the Floss Bluetooth stack. As p
 
 If your devices are unable to connect to Bluetooth after updating to ChromeOS 123, go to `chrome://flags` and set the flag **Use Floss instead of BlueZ** to _Disabled_.
 
-![The Use Floss Instead of BlueZ setting which has been set to Disabled.](ix://posts/m123/Inline-4.gif)
+![The Use Floss Instead of BlueZ setting which has been set to Disabled.](ix://posts/m123/Inline-4.png)
 
 ## Control privacy settings per-app
 
