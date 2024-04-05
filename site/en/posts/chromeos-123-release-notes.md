@@ -18,7 +18,7 @@ Assign preferred key combinations to personalize your shortcuts in ChromeOS. Whe
 
 You can build a new shortcut through **Settings** > **Device** > **Keyboard and inputs** > **View keyboard shortcuts** > **Overview mode** > **Edit** > **Add Shortcut**.
 
-![A user adds a custom shortcut by navigating to Device, View keyboard shortcuts, Overview mode, Edit, and Add shortcut. The user then begins to customize their new shortcut.](insert_image_url_here)
+![A user adds a custom shortcut by navigating to Device, View keyboard shortcuts, Overview mode, Edit, and Add shortcut. The user then begins to customize their new shortcut.](ix://posts/m123/Inline-1.gif)
 
 ## Mouse button customization
 
@@ -26,13 +26,13 @@ If your mouse has more than two buttons, you can now assign them to a set of act
 
 Access these settings through **Settings** > **Device** > **Mouse** > **Customize mouse buttons**.
 
-![A user customizes their mouse button actions by navigating to Device, Mouse, and Customize mouse buttons. On the Customize mouse buttons screen, the user is able to select different mouse buttons and their corresponding actions.](insert_image_url_here)
+![A user customizes their mouse button actions by navigating to Device, Mouse, and Customize mouse buttons. On the Customize mouse buttons screen, the user is able to select different mouse buttons and their corresponding actions.](ix://posts/m123/Inline-2.gif)
 
 ## Setup Split Screen windows faster
 
 Faster Split Screen setup offers a quicker way to set up your window layout by showing an overview of your open windows on the other side of the screen. With Faster Split Screen, once you snap (or lock) a window in place on one side, you can choose an already-open window from **Overview** to snap into the other side—or select something from the shelf (the row of apps located at the bottom or side of your screen).
 
-![A user chooses to dock an application to one side of their screen by choosing from a set of template options: split, partials, fullscreen, and float. After selecting a template option, the user is prompted to select the application that they want on the other side of their screen.](insert_image_url_here)
+![A user chooses to dock an application to one side of their screen by choosing from a set of template options: split, partials, fullscreen, and float. After selecting a template option, the user is prompted to select the application that they want on the other side of their screen.](ix://posts/m123/Inline-3.gif)
 
 ## ChromeOS Flex upgrades to the Floss Bluetooth stack
 
@@ -51,7 +51,7 @@ From ChromeOS 123, ChromeOS Flex will upgrade to the Floss Bluetooth stack. As p
 
 If your devices are unable to connect to Bluetooth after updating to ChromeOS 123, go to `chrome://flags` and set the flag **Use Floss instead of BlueZ** to _Disabled_.
 
-![The Use Floss Instead of BlueZ setting which has been set to Disabled.](insert_image_url_here)
+![The Use Floss Instead of BlueZ setting which has been set to Disabled.](ix://posts/m123/Inline-4.gif)
 
 ## Control privacy settings per-app
 
