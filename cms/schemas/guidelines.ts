@@ -34,12 +34,6 @@ export default defineType({
   ],
   fields: [
     defineField({
-      name: 'share',
-      title: 'Share',
-      type: 'share',
-      group: 'seo_social',
-    }),
-    defineField({
       name: 'language',
       type: 'language',
     }),
@@ -85,14 +79,8 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'heading',
-      title: 'Heading',
-      type: 'string',
-      group: ['content'],
-    }),
-    defineField({
       name: 'guidelines',
-      title: 'Badge Guidelines',
+      title: 'Graphic Standards',
       type: 'two-column-body',
       group: ['content'],
     }),
@@ -116,76 +104,99 @@ export default defineType({
         defineField({
           name: 'download',
           title: 'Download CTA',
-          type: 'cta',
-        }),
-        defineField({
-          name: 'type_label',
-          title: 'Badge Type Label',
           type: 'string',
         }),
         defineField({
-          name: 'badges',
-          title: 'Badges',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              name: 'badge',
-              title: 'Badge',
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'name',
-                  title: 'Name',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'language',
-                  title: 'Language',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'image',
-                  title: 'Image',
-                  type: 'picture',
+          name: 'language',
+          title: 'Language Selection',
+          type: 'string',
+        }),
+        defineField({
+          name: 'type',
+          title: 'Badge Type',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'label',
+              title: 'Label',
+              type: 'string',
+            }),
+            defineField({
+              name: 'badges',
+              title: 'Badges',
+              type: 'array',
+              of: [
+                defineArrayMember({
+                  name: 'badge',
+                  title: 'Badge',
+                  type: 'object',
+                  fields: [
+                    defineField({
+                      name: 'name',
+                      title: 'Name',
+                      type: 'string',
+                    }),
+
+                    defineField({
+                      name: 'image',
+                      title: 'Image',
+                      type: 'picture',
+                    }),
+                  ],
+                  preview: {
+                    select: {
+                      title: 'name',
+                      media: 'image',
+                    },
+                    prepare({ title, media }) {
+                      return {
+                        title,
+                        media,
+                      };
+                    },
+                  },
                 }),
               ],
-              preview: {
-                select: {
-                  title: 'name',
-                  subtitle: 'language',
-                  media: 'image',
-                },
-                prepare({ title, subtitle, media }) {
-                  return {
-                    title,
-                    subtitle,
-                    media,
-                  };
-                },
-              },
+            }),
+          ],
+        }),
+
+        defineField({
+          name: 'attribution',
+          title: 'Attribution',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'label',
+              title: 'Label',
+              type: 'string',
+            }),
+            defineField({
+              name: 'copy',
+              title: 'Copy',
+              type: 'string',
             }),
           ],
         }),
         defineField({
-          name: 'attribution_label',
-          title: 'Attribution Label',
-          type: 'string',
-        }),
-        defineField({
-          name: 'attribution',
-          title: 'Legal Attribution Text',
-          type: 'string',
-        }),
-        defineField({
           name: 'fields',
           title: 'Fields',
-          type: 'array',
-          of: [
-            defineArrayMember({
-              name: 'field',
-              title: 'Field',
-              type: 'field',
-              validation: (Rule) => Rule.required(),
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'url',
+              title: 'ChromeOS App URL',
+              type: 'string',
+            }),
+            defineField({
+              name: 'source',
+              title: 'UTM Source',
+              type: 'string',
+            }),
+            defineField({
+              name: 'campaign',
+              title: 'UTM Campaign',
+              type: 'string',
             }),
           ],
         }),
@@ -197,6 +208,12 @@ export default defineType({
       type: 'two-column-body',
       group: ['content'],
     }),
+    defineField({
+      name: 'share',
+      title: 'Share',
+      type: 'share',
+      group: 'seo_social',
+    }),
   ],
-  preview: preview('Homepage'),
+  preview: preview('title'),
 });
