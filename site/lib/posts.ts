@@ -26,9 +26,10 @@ export function buildPostPagination(
   page: number | null = null,
 ): PostPage[] | PostPage {
   return Object.entries(groupByLanguage(posts))
+    .filter(([lang]: [string, Array<Post>]) => lang === 'en')
     .map(([lang, posts]: [string, Array<Post>]) => {
       const featured = posts.find((p) => p.featured);
-      const filtered = posts.filter((p) => p._slug !== featured._slug);
+      const filtered = posts.filter((p) => p._slug !== featured?._slug);
       const pages = Math.ceil(filtered.length / itemsPerPage);
 
       const groups = [];

@@ -25,15 +25,15 @@ $section-block-margin: 3.75rem;
     content: '';
     display: block;
     height: 0.75em;
-    left: -0.875em;
+    left: -1.5rem;
     margin-left: 0;
     mask-image: url('/images/icons/sprite.svg#link');
     mask-position: center right;
     mask-repeat: no-repeat;
-    mask-size: 0.75em;
+    mask-size: 1.25rem;
     position: absolute;
     top: 0.25em;
-    width: 0.75em;
+    width: 1.25rem;
   }
 
   &:hover::after,
@@ -131,7 +131,7 @@ $section-block-margin: 3.75rem;
 
   // Long-form type styling
   /* stylelint-disable-next-line selector-max-compound-selectors */
-  * + *:not(:empty):not(.header-anchor--wrapper),
+  * + *:not(:empty):not(.header-anchor--wrapper):not(dd),
   * + astro-island > *:not(:empty) {
     margin-top: 1em;
   }

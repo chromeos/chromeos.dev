@@ -42,6 +42,7 @@ import fieldField from '$fields/field';
 import tableField from '$fields/table';
 import textLinkField from '$fields/text-link';
 import languageField from '$fields/language';
+import exampleMediaField from '$fields/example-media';
 
 // Subschemas
 import heroSubschema from '$subschema/hero';
@@ -53,6 +54,8 @@ import appSubschema from '$subschema/app';
 import resourcesSubschema from '$subschema/resources';
 import homepageCardSchema from '$subschema/homepage-card';
 import bannerSubschema from '$subschema/banner';
+import figureCardSubschema from '$subschema/figure-card';
+import twoColumnBodySchema from '$subschema/two-column-body';
 
 // Schemas
 import tag from './tag';
@@ -67,10 +70,14 @@ import nav from './nav';
 import news from './news';
 import newsletter from './newsletter';
 import stories from './stories';
-import cookies from './cookies';
+// import cookies from './cookies';
 import pwas from './pwas';
 import landing from './landing';
 import appSupport from './app-support';
+import guidelines from './guidelines';
+import releases from './releases';
+import release from './release';
+import snippet from './snippet';
 
 export const schemaTypes = [
   // Schemas
@@ -86,10 +93,14 @@ export const schemaTypes = [
   news,
   newsletter,
   stories,
-  cookies,
+  // cookies,
   pwas,
   landing,
   appSupport,
+  guidelines,
+  releases,
+  release,
+  snippet,
 
   // Fields
   fullBlockField,
@@ -120,6 +131,7 @@ export const schemaTypes = [
   tableField,
   textLinkField,
   languageField,
+  exampleMediaField,
 
   // Subschema
   heroSubschema,
@@ -131,4 +143,6 @@ export const schemaTypes = [
   resourcesSubschema,
   homepageCardSchema,
   bannerSubschema,
+  figureCardSubschema,
+  twoColumnBodySchema,
 ];

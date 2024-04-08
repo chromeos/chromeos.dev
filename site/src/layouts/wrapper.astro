@@ -1,10 +1,12 @@
 ---
 import type { Locale } from '$types/content';
+import { pwaInfo } from 'virtual:pwa-info';
 import SiteHeader from '$components/SiteHeader.svelte';
 import SubscribeFooter from '$components/SubscribeFooter.svelte';
 import Footer from '$components/Footer.astro';
 import Analytics from '$components/Analytics.astro';
-import { navigation, cookies } from '$lib/sanity';
+import ServiceWorker from '$components/ServiceWorker.svelte';
+import { navigation } from '$lib/sanity';
 import { getMicrocopy } from '$$microcopy';
 import '$sass/global.scss';
 
@@ -47,22 +49,24 @@ function l10nURL(url: URL, lang: string) {
   return localized;
 }
 
-const cookiejar = cookies.find((c) => c._langCode === locale.code);
-
 // const microcopy = getMicrocopy(locale.code);
+// Set title appropriately
+const t =
+  (title && title !== 'ChromeOS.dev' ? title + ' | ' : '') + 'ChromeOS.dev';
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={locale.code} dir={locale.dir}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>{title ? title + ' | ' : ''}ChromeOS.dev</title>
+    <title>{t}</title>
     <meta name="Description" content={metadesc} />
     <meta name="theme-color" content="#1a73e8" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
     <link rel="icon" type="image/png" href="ix://icons/favicon.png" />
     <link rel="apple-touch-icon" href="/images/icons/pwa/icon-192x192.png" />
     {
@@ -87,8 +91,19 @@ const cookiejar = cookies.find((c) => c._langCode === locale.code);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="" />
     <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@0,400;1,400;500;0,700;1,700&family=Google+Sans:wght@400;500&family=Google+Sans+Mono:wght@400;600&display=swap"
+      as="style"
+    />
+    <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Google+Sans:400,500|Google+Sans+Text:400,400i,500,700,700i|Google+Sans+Mono:400,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@0,400;1,400;500;0,700;1,700&family=Google+Sans:wght@400;500&family=Google+Sans+Mono:wght@400;600&display=swap"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="ChromeOS.dev"
+      href={`${Astro.site}${locale.code}/rss.xml`}
     />
     <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-P2W8H6G"
     ></script>
@@ -130,6 +145,8 @@ const cookiejar = cookies.find((c) => c._langCode === locale.code);
 
     <Footer lang={locale.code} />
 
-    <Analytics cookiejar={cookiejar} />
+    <ServiceWorker client:load />
+
+    <Analytics />
   </body>
 </html>

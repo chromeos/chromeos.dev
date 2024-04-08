@@ -167,6 +167,18 @@ export default defineType({
                   ],
                 }),
               ],
+              preview: {
+                select: {
+                  title: 'statistic.stat',
+                  subtitle: 'statistic.description',
+                },
+                prepare({ title, subtitle }) {
+                  return {
+                    title,
+                    subtitle,
+                  };
+                },
+              },
             }),
           ],
         }),
@@ -277,6 +289,21 @@ export default defineType({
                   type: 'picture',
                 }),
               ],
+              preview: {
+                select: {
+                  quote: 'quote',
+                  author: 'author.name',
+                  title: 'author.title',
+                  image: 'image',
+                },
+                prepare({ quote, author, title, image }) {
+                  return {
+                    title: quote,
+                    subtitle: `${author}, ${title}`,
+                    media: image,
+                  };
+                },
+              },
             }),
           ],
         }),

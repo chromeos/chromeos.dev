@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { defineType, defineField, defineArrayMember } from 'sanity';
+import { KBDDecorator } from '$components/KBD';
 
 export default defineType({
   name: 'deflist',
@@ -31,7 +32,23 @@ export default defineType({
           fields: [
             defineField({
               name: 'term',
-              type: 'inline-block',
+              type: 'array',
+              of: [
+                defineArrayMember({
+                  title: 'Block',
+                  type: 'block',
+                  styles: [{ title: 'Normal', value: 'normal' }],
+                  marks: {
+                    decorators: [
+                      KBDDecorator,
+                      { title: 'Code', value: 'code' },
+                    ],
+                    annotations: [],
+                  },
+                  lists: [],
+                }),
+              ],
+
               validation: (Rule) =>
                 Rule.custom((value, { parent }) => {
                   if (parent?.definition && !value) return 'Term is required';

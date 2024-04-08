@@ -1,5 +1,5 @@
 import { extname } from 'path';
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 const sizeMap = {};
 
 const imageSizes = [250, 400, 550, 700, 850, 1000, 1150, 1300, 1450, 1500];
@@ -11,21 +11,27 @@ const imageSizes = [250, 400, 550, 700, 850, 1000, 1150, 1300, 1450, 1500];
  */
 async function getImageSize(url) {
   // TODO: Add @11ty/eleventy-cache-assets in? This will let us cache locally, maybe for images too?
-  try {
-    const img = await fetch(`${url}?fm=json`).then((res) => res.json());
-    sizeMap[url] = {
-      width: img.PixelWidth,
-      height: img.PixelHeight,
-    };
-  } catch (e) {
+
+  // SVGs don't generate JSON, so this check will always fail for them. We'll need to manually check them, but they also don't need sizes so it's OK
+  if (extname(url) === '.svg') {
     sizeMap[url] = {
       height: '',
       width: '',
     };
-
-    // SVGs don't generate JSON, so this check will always fail for them. We'll need to manually check them, but they also don't need sizes so it's OK
-    if (extname(url) !== '.svg') {
-      sizeMap[url].missing = true;
+  } else {
+    try {
+      const res = await fetch(`${url}?fm=json`);
+      const img = await res.json();
+      sizeMap[url] = {
+        width: img.PixelWidth,
+        height: img.PixelHeight,
+      };
+    } catch (e) {
+      sizeMap[url] = {
+        height: '',
+        width: '',
+        missing: true,
+      };
     }
   }
 
@@ -64,7 +70,10 @@ export async function postHTMLGoogleStorageImages(tree) {
     if (sizeMap[url]) {
       return node;
     }
-    images.push(getImageSize(url));
+    if (!images.includes(url)) {
+      images.push(url);
+    }
+
     return node;
   });
 
@@ -74,11 +83,14 @@ export async function postHTMLGoogleStorageImages(tree) {
     if (sizeMap[url]) {
       return node;
     }
-    images.push(getImageSize(url));
+    if (!images.includes(url)) {
+      images.push(url);
+    }
+
     return node;
   });
 
-  await Promise.all(images);
+  await Promise.all(images.map((i) => getImageSize(i)));
 
   tree.match({ attrs: { src: cdnRegex } }, (node) => {
     const url = getURL(node.attrs.src);
@@ -170,7 +182,7 @@ export async function postHTMLGoogleStorageImages(tree) {
   });
 
   // Remove any images that are missing
-  tree.match({ attrs: { ixmissing: true } }, (node) => ({}));
+  tree.match({ attrs: { ixmissing: true } }, () => ({}));
 
   return tree;
 }

@@ -59,6 +59,25 @@ const microcopy = Object.values(micro).find(
     <span>
       <PortableText body={props.children} wrapped={false} inline={true} />
     </span>
+  ) : props._type === 'deflist' ? (
+    <dl>
+      {props.items.map((item) => {
+        return (
+          <>
+            <dt>
+              <PortableText body={item.term} wrapped={false} inline={true} />
+            </dt>
+            <dd>
+              <PortableText
+                body={item.definition}
+                wrapped={false}
+                inline={true}
+              />
+            </dd>
+          </>
+        );
+      })}
+    </dl>
   ) : props.markType === 'footnote' ? (
     <Footnote block={props}>
       <PortableText body={props.children} wrapped={false} inline={true} />
@@ -71,6 +90,10 @@ const microcopy = Object.values(micro).find(
     <kbd>
       <PortableText body={props.children} wrapped={false} inline={true} />
     </kbd>
+  ) : props.markType === 'abbreviation' ? (
+    <abbr title={props.markDef.abbreviation.description}>
+      <PortableText body={props.children} wrapped={false} inline={true} />
+    </abbr>
   ) : (
     <PortableText body={props.children} />
   )

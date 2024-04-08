@@ -10,8 +10,8 @@
     cta?.direction === 'forward'
       ? 'cta--right-icon'
       : cta?.direction === 'back'
-      ? 'cta--left-icon'
-      : '';
+        ? 'cta--left-icon'
+        : '';
 
   const wrapper = inline === true ? 'span' : 'a';
 </script>

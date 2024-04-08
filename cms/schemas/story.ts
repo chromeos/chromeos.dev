@@ -89,7 +89,6 @@ export default defineType({
       title: 'Hero media',
       type: 'hero',
       group: ['content'],
-      validation: (Rule) => Rule.required(),
     }),
 
     defineField({

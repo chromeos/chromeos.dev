@@ -11,23 +11,39 @@ import Text from '$components/Text.astro';
  * @return {object[]} Paths
  */
 export function getStaticPaths() {
-  return n.map((nl) => {
-    return {
-      params: {
-        lang: nl._langCode,
-      },
-      props: {
-        newsletter: nl as Newsletter,
-        microcopy: micro[nl._lang],
-      },
-    };
-  });
+  return n
+    .filter((nl) => nl._langCode === 'en')
+    .map((nl) => {
+      return {
+        params: {
+          lang: nl._langCode,
+        },
+        props: {
+          newsletter: nl as Newsletter,
+          microcopy: micro[nl._lang],
+        },
+      };
+    });
 }
 
 const { microcopy, newsletter } = Astro.props;
 const { locale } = microcopy;
+const langFields = newsletter.fields;
 
-const fields = newsletter.fields.map((f) => {
+// Merge the base English fields with the lang-specific fields
+const base = n.find((nl) => nl._langCode === 'en');
+let fields = structuredClone(base.fields);
+
+for (const [i, field] of fields.entries()) {
+  if (langFields[i]) {
+    fields[i] = {
+      ...field,
+      ...langFields[i],
+    };
+  }
+}
+
+fields = fields.map((f) => {
   const field = {
     type: f.field.type,
     label: f?.label,
@@ -99,8 +115,8 @@ const subscribe = fields.find((f) => f.type === 'submit');
 
       <form
         class="subscribe--form"
-        action={newsletter.settings.endpoint}
-        id={newsletter.settings.id}
+        action={base.settings.endpoint}
+        id={base.settings.id}
         method="post"
         enctype="multipart/form-content"
         novalidate

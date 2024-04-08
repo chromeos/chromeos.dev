@@ -48,7 +48,8 @@
 ) {
   $shadow-color: rgba(map-get($google-colors, 'grey-800'), 0.3);
   $ambient-color: rgba(map-get($google-colors, 'grey-800'), 0.15);
-  box-shadow: 0 $key-offset-y $key-spread 0 $shadow-color,
+  box-shadow:
+    0 $key-offset-y $key-spread 0 $shadow-color,
     0 $ambient-offset-y $ambient-spread $ambient-blur $ambient-color;
 }
 

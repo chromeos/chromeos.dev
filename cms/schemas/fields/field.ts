@@ -87,4 +87,33 @@ export default defineType({
       description: 'Error message to display if field is invalid',
     }),
   ],
+  preview: {
+    select: {
+      title: 'label',
+      name: 'name',
+      type: 'field.type',
+      value: 'value',
+    },
+    prepare(selection) {
+      const { title, name, type, value } = selection;
+      let t = title || name || value;
+      let s = name;
+      if (s === t) {
+        s = type;
+      }
+
+      if (type && s === type) {
+        s = `[${s}]`;
+      }
+
+      if (t === value) {
+        t = `{${t}}`;
+      }
+
+      return {
+        title: t,
+        subtitle: s || '',
+      };
+    },
+  },
 });

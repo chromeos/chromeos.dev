@@ -1,7 +1,10 @@
 import { getCliClient } from 'sanity/cli';
-import { SINGLETONS, LANGUAGES } from '../lib/constants';
+import { LANGUAGES } from '../lib/constants';
 
 const client = getCliClient();
+
+// Change this to the line from lib/constants.ts that coincides with the singletons you want to create
+const SINGLETONS = [{ type: 'guidelines', title: 'Guidelines' }];
 
 /**
  * Creates singletons

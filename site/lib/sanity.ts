@@ -8,9 +8,11 @@ import type {
   Newsletter,
   StoryLanding,
   Navigation,
-  Cookiejar,
+  // Cookiejar,
   Home,
   Guidelines,
+  ReleaseNote,
+  ReleaseNotesLanding,
 } from '../types/sanity';
 
 import 'dotenv/config';
@@ -29,7 +31,6 @@ import {
 } from '$lib/sanity/queries';
 import { rtl, vertical } from '$lib/i18n';
 import iso6391 from 'iso-639-1';
-import { inspect } from 'util';
 
 let includeDrafts = false;
 
@@ -117,17 +118,17 @@ export const home = (await sanity.fetch(
   }`,
 )) as Home[];
 
-export const cookies = (await sanity.fetch(
-  `*[_type == 'cookies' && _id match 'cookies-*' && !(_id in path('drafts.**'))]
-    {
-      title,
-      description,
-      "accept": cta.accept,
-      "decline": cta.decline,
-      ${coreMetaQuery}
-    }
-    `,
-)) as Cookiejar[];
+// export const cookies = (await sanity.fetch(
+//   `*[_type == 'cookies' && _id match 'cookies-*' && !(_id in path('drafts.**'))]
+//     {
+//       title,
+//       description,
+//       "accept": cta.accept,
+//       "decline": cta.decline,
+//       ${coreMetaQuery}
+//     }
+//     `,
+// )) as Cookiejar[];
 
 export const navigation = (
   await sanity.fetch(
@@ -153,7 +154,7 @@ export const navigation = (
   const locale = a._langCode;
 
   // Cleanup
-  console.log(a);
+  // console.log(a);
   a.items = a.items.map((item) => {
     if (item.url) {
       item.url = item.url.replace(linkRegex, `/${locale}/`);
@@ -243,7 +244,7 @@ export const microcopy = groupByLanguage(
     }`,
     )
   ).map((m) => {
-    console.log(m);
+    // console.log(m);
     delete m._id;
     delete m._type;
     delete m._rev;
@@ -431,6 +432,51 @@ export const guidelines: Guidelines[] = await sanity.fetch(
   }`,
 );
 
+export const releaseNoteLandings = (await sanity.fetch(
+  `*[_type == 'releases' && !(_id in path('drafts.**'))]
+    {
+      ${coreMetaQuery}
+      title,
+      'backgrounds': {
+        'large': 'cms://' + backgrounds.background_large.asset._ref,
+        'small': 'cms://' + backgrounds.background_small.asset._ref,
+      }
+    }`,
+)) as ReleaseNotesLanding[];
+
+export const releaseNotes = (
+  await sanity.fetch(
+    `*[_type == 'release' && !(_id in path('drafts.**'))]
+    {
+      ${coreMetaQuery}
+      version,
+      stable,
+      overview,
+      featured[] {
+        title,
+        content,
+      },
+      'additional': {
+        'overview': additional.overview,
+        'features': additional.features[] {
+          title,
+          content,
+        },
+      },
+      cta->{
+        title,
+        body
+      }
+    }`,
+  )
+).map((note) => {
+  note.title = `Chrome OS ${note.version}`;
+  note._slug = `/${note._langCode}/releases/chromeos-${note.version}`;
+  note._path = `/${note._langCode}/releases/chromeos-${note.version}`;
+  note.stable = new Date(note.stable);
+  return note;
+}) as ReleaseNote[];
+
 export const all = [...posts, ...documentation, ...stories, ...landings];
 
 /** ****************
@@ -557,14 +603,15 @@ export async function getPosts() {
 export async function getCardData(type: string) {
   // const q = `*[_type == "${type}"  && !(_id in path('drafts.**'))]{title, description, 'type': _type, 'slug': slug.current, 'lang': language, category->{title, 'slug': slug.current}}`;
   // console.log(microcopy);
-  const q = await getPosts();
-  const featured = q.find((post) => post?.featured);
+  // const q = await getPosts();
+  // const featured = q.find((post) => post?.featured);
 
   // const posts = await buildPostsFromAPI(q);
-  console.log(inspect(featured, false, null, true));
+  // console.log(inspect(featured, false, null, true));
   // const cards = (await sanity.fetch(query)).map((card) => {
   //   return card;
   // });
+  console.log(type);
   return '';
 }
 

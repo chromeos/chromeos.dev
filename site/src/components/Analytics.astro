@@ -1,23 +1,8 @@
 ---
-import type { Cookiejar } from '$types/sanity';
 import CookieConsent from '$components/CookieConsent.svelte';
-import Text from '$components/Text.astro';
-
-export interface Props {
-  cookiejar: Cookiejar;
-}
-
-const { cookiejar } = Astro.props;
 ---
 
-<CookieConsent
-  title={cookiejar.title}
-  accept={cookiejar.accept}
-  decline={cookiejar.decline}
-  client:load
->
-  <Text body={cookiejar.description} />
-</CookieConsent>
+<CookieConsent client:load />
 
 <!-- Google Tag Manager -->
 <script>
