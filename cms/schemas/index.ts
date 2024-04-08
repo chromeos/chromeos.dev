@@ -70,11 +70,14 @@ import nav from './nav';
 import news from './news';
 import newsletter from './newsletter';
 import stories from './stories';
-import cookies from './cookies';
+// import cookies from './cookies';
 import pwas from './pwas';
 import landing from './landing';
 import appSupport from './app-support';
 import guidelines from './guidelines';
+import releases from './releases';
+import release from './release';
+import snippet from './snippet';
 
 export const schemaTypes = [
   // Schemas
@@ -90,11 +93,14 @@ export const schemaTypes = [
   news,
   newsletter,
   stories,
-  cookies,
+  // cookies,
   pwas,
   landing,
   appSupport,
   guidelines,
+  releases,
+  release,
+  snippet,
 
   // Fields
   fullBlockField,

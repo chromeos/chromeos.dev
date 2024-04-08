@@ -4,4 +4,4 @@
 # Make code run through TTY
 exec >/dev/tty 2>&1
 
-cd astro && pnpm lint-staged
+cd site && pnpm lint-staged

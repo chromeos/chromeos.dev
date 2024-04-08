@@ -1,7 +1,4 @@
-export const LANGUAGES = [
-  { id: 'en', title: 'English' },
-  { id: 'es', title: 'Spanish' },
-];
+export const LANGUAGES = [{ id: 'en', title: 'English' }];
 
 export const SINGLETONS = [
   { type: 'home', title: 'Home' },
@@ -11,9 +8,10 @@ export const SINGLETONS = [
   { type: 'pwas', title: 'Powerful PWAs' },
   { type: 'microcopy', title: 'Microcopy' },
   { type: 'nav', title: 'Navigation' },
-  { type: 'cookies', title: 'Cookie Disclaimer' },
+  // { type: 'cookies', title: 'Cookie Disclaimer' },
   { type: 'app-support', title: 'App Support' },
   { type: 'guidelines', title: 'Guidelines' },
+  { type: 'releases', title: 'Release Notes' },
 ];
 
 export const i18nSCHEMAS = [

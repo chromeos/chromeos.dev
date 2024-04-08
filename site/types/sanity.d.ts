@@ -303,6 +303,34 @@ export type AppSupport = {
   };
 };
 
+export interface ReleaseNotesLanding extends CoreMeta {
+  title: string;
+  backgrounds: Backgrounds;
+}
+
+export type ReleaseNoteFeature = {
+  title: string;
+  content: PortableTextBlock[];
+};
+
+export interface ReleaseNote extends CoreMeta {
+  title: string;
+  _slug: string;
+  _path: string;
+  version: number;
+  stable: Date;
+  overview: string;
+  featured: ReleaseNoteFeature[];
+  additional: {
+    overview: string;
+    features: ReleaseNoteFeature[];
+  };
+  cta: {
+    title: string;
+    body: PortableTextBlock[];
+  };
+}
+
 export type Microcopy = {
   _lang: string; // Full language code, with country, if applicable
   accessibility: {
@@ -365,6 +393,7 @@ export type Microcopy = {
   pagination: {
     next: string;
     previous: string;
+    all: string;
     current: string;
     first: string;
     last: string;
@@ -381,6 +410,20 @@ export type Microcopy = {
     featured: string;
     resources: string;
     recommended: string;
+  };
+  releases: {
+    releases: string;
+    notes: string;
+    stable: string;
+    dev: string;
+    ltc: string;
+    lts: string;
+    channel: string;
+    also: string;
+  };
+  rss: {
+    title: string;
+    description: string;
   };
 };
 

@@ -6,7 +6,7 @@ import type {
 
 import { posthtml } from '$lib/posthtml';
 import { sequence } from 'astro/middleware';
-
+import redirects from '../redirects.json';
 import { extname } from 'path';
 
 /**
@@ -43,23 +43,43 @@ const postprocess: MiddlewareResponseHandler = async (
  * @return {Response | MiddlewareNextResponse}
  */
 const redirect: MiddlewareResponseHandler = async (
-  { request }: APIContext,
+  { request, site }: APIContext,
   next: MiddlewareNextResponse,
 ) => {
   const url = new URL(request.url);
   const { pathname } = url;
+
+  const redirect = new URL(site.href);
+  redirect.hash = url.hash;
+  redirect.search = url.search;
+
+  // ES redirect
+  if (pathname.startsWith('/es')) {
+    redirect.pathname = pathname.replace('/es', '/en');
+    return Response.redirect(redirect, 307);
+  }
+
   // Homepage redirect
   if (pathname === '/') {
-    url.pathname = '/en';
-    return Response.redirect(url, 301);
+    redirect.pathname = '/en';
+    return Response.redirect(redirect, 301);
   }
+
   // News pagination redirect
   const newsRegex = /^\/(\w{2})\/news\/1$/;
   if (newsRegex.test(pathname)) {
     const [, lang] = newsRegex.exec(pathname);
-    url.pathname = `/${lang}/news`;
-    return Response.redirect(url, 301);
+    redirect.pathname = `/${lang}/news`;
+    return Response.redirect(redirect, 301);
   }
+
+  for (const [from, to] of Object.entries(redirects)) {
+    if (pathname === from) {
+      redirect.pathname = to;
+      return Response.redirect(redirect, 301);
+    }
+  }
+
   return next();
 };
 

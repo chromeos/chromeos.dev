@@ -5,126 +5,118 @@ on:
     paths:
       - site/**
       - .github/workflows/tbd-site.yml
-    pull_request:
+  pull_request:
+    paths:
       - site/**
       - .github/workflows/tbd-site.yml
+  workflow_dispatch:
 
 jobs:
   #########################
-  ## Site Build & Testing
+  ## Site Testing & Building
   #########################
-  build-test:
+  test-build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: 14
-      - name: Examine Node
-        run: |
-          node -v
-          npm -v
-      - name: Determine Lockfile
-        id: lockfile
-        run: |
-          if [[ -f "package-lock.json" || -f "npm-shrinkwrap.json" ]]; then
-            echo "::set-output name=exists::true"
-          else
-            echo "::set-output name=exists::false"
-          fi
-      - name: Install - Lockfile
-        if: steps.lockfile.outputs.exists == 'true'
-        run: |
-          npm ci --no-optional
-      - name: Install - No Lockfile
-        if: steps.lockfile.outputs.exists == 'false'
-        run: |
-          npm install
-      - name: Install CLI dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install giflib-tools webp ffmpeg
-      - name: Build and Test
-        run: |
-          npm run build --if-present
-          npm test
-        env:
-          CI: true
-      - name: Upload built state
-        uses: actions/upload-artifact@v1
+          node-version: 20
+          cache: 'pnpm'
+          cache-dependency-path: site/pnpm-lock.yaml
+      - name: Install dependencies
+        working-directory: site
+        run: pnpm install
+      - name: Test and Build
+        working-directory: site
+        run: pnpm t
+        env: 
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          SANITY_TOKEN: ${{ secrets.SANITY_TOKEN }}
+          SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
+      - name: Upload search build
+        # Switch to 'refs/heads/main' when merged
+        if: github.ref == 'refs/heads/refactor/the-great-cms-migration' || github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
         with:
-          name: site
-          path: public
+          name: search
+          path: |
+            ./site/public/pagefind
+            ./site/.generated
 
-      # Needed for functions deploy
-      - name: Upload search index state
-        uses: actions/upload-artifact@v1
-        if: github.ref == 'refs/heads/main'
-        with:
-          name: indexes
-          path: functions/indexes
 
   #########################
-  ## Preview Deploy
-  #########################
-  preview:
-    needs: build-test
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Download compiled site
-        uses: actions/download-artifact@v1
-        with:
-          name: site
-          path: public
-      - name: Deploy Hosting Preview
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}'
-          expires: 30d
-
-  #########################
-  ## Production Deploy
+  ## Deploy site to Firebase (Branches and PRs only)
   #########################
   deploy:
-    needs: build-test
+    needs: test-build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    # Let non-Dependabot branches and PRs do a preview deploy
+    if: (github.ref_type == 'branch' && !startsWith(github.ref_name , 'dependabot')) || github.event_name == 'pull_request'
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Download compiled site
-        uses: actions/download-artifact@v1
-        with:
-          name: site
-          path: public
-      - name: Download compiled indexes
-        uses: actions/download-artifact@v1
-        with:
-          name: indexes
-          path: functions/indexes
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
-      - name: Install functions dependencies
+      - name: Set Channel ID - Branch
+        if: github.ref_type == 'branch'
+        run: echo "CHANNEL_ID=branch-${{ github.ref_name }}" >> $GITHUB_ENV
+      - name: Set Channel ID - Next
+        if: github.ref == 'refs/heads/refactor/the-great-cms-migration'
+        run: echo "CHANNEL_ID=next" >> $GITHUB_ENV
+      - name: Set Channel ID - Live
         if: github.ref == 'refs/heads/main'
-        run: |
-          npm ci --prefix functions
+        run: echo "CHANNEL_ID=live" >> $GITHUB_ENV
+      - name: Set Channel ID - PR
+        if: github.event_name == 'pull_request'
+        run: echo "CHANNEL_ID=pr-${{ github.event.number }}" >> $GITHUB_ENV
+      - name: Set Expiry
+        if: env.CHANNEL_ID != 'live'
+        run: echo "EXPIRES=30d" >> $GITHUB_ENV
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: site/pnpm-lock.yaml
+      - name: Install dependencies
+        working-directory: site
+        run: pnpm install
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: search
+          path: ./site
+      - name: Make .env file
+        uses: SpicyPizza/create-envfile@v2.0
+        with:
+          envkey_SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
+          envkey_GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
+          directory: site
       - name: Deploy Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}'
-          channelId: live
-      - name: Deploy Functions
-        uses: w9jds/firebase-action@v11.16.0
-        with:
-          args: deploy --only functions
+          entryPoint: site
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}
+          channelId: ${{ env.CHANNEL_ID }}
+          expires: ${{ env.EXPIRES }}
         env:
-          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          SANITY_TOKEN: ${{ secrets.SANITY_TOKEN }}
+          SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}

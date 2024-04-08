@@ -7,6 +7,8 @@ const { outputFileSync } = fsExtra;
 
 const { index } = await pagefind.createIndex({});
 
+// TODO: Add Release Notes
+
 for (const item of all) {
   await index.addCustomRecord({
     url: item._path,

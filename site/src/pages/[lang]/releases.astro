@@ -1,0 +1,333 @@
+---
+import Section from '$layouts/section.astro';
+
+import {
+  releaseNotes,
+  releaseNoteLandings,
+  microcopy as micro,
+} from '$lib/sanity';
+// import { buildSection, buildTopics } from '$lib/documentation';
+
+import SectionNav from '$components/SectionNav.svelte';
+import Text from '$components/Text.astro';
+// import AppSupport from '$components/AppSupport.svelte';
+// import Card from '$components/Card.svelte';
+
+/**
+ * Static paths
+ *
+ * @return {object} paths
+ */
+export function getStaticPaths() {
+  return releaseNoteLandings
+    .filter((h) => h._langCode === 'en')
+    .map((landing) => {
+      const notes = releaseNotes
+        .filter((note) => note._langCode === landing._langCode)
+        .sort((a, b) => b.stable - a.stable);
+
+      return {
+        params: {
+          lang: landing._langCode,
+        },
+        props: {
+          landing,
+          microcopy: micro[landing._lang],
+          notes,
+        },
+      };
+    });
+}
+
+const { landing, microcopy, notes } = Astro.props;
+
+const section = notes.map((note) => {
+  return {
+    title: note.title,
+    href: note._slug,
+  };
+});
+
+const first = notes[0];
+const rest = notes.slice(1);
+
+console.log(rest);
+
+// const section = buildSection(landing.category, landing._lang);
+// const topics = buildTopics(section.map((s) => s.href));
+
+// let color = 'var(--primary-blue)';
+
+// switch (landing.category.slug) {
+//   case 'productivity':
+//   case 'linux':
+//   case 'android-environment':
+//   case 'web-environment':
+//     color = 'var(--secondary-yellow)';
+//     break;
+//   case 'publish':
+//     color = 'var(--primary-green)';
+//     break;
+// }
+---
+
+<Section
+  title={landing.title}
+  locale={microcopy.locale}
+  metadesc={landing.title}
+>
+  <SectionNav
+    active={''}
+    title={microcopy.releases.notes}
+    links={section}
+    client:visible
+    slot="subnav"
+  />
+
+  <header
+    class="hero type--mega"
+    style={`background: var(--yellow-75)`}
+    id="content"
+    slot="header"
+  >
+    <h1 class="hero--title">{landing.title}</h1>
+    <div class="hero--hero">
+      <picture>
+        <source srcset={landing.backgrounds.large} media="(min-width: 840px)" />
+        <img src={landing.backgrounds.small} alt="" />
+      </picture>
+    </div>
+  </header>
+
+  <Fragment slot="content">
+    <article class="note">
+      <header>
+        <p class="type--eyebrow">
+          {
+            microcopy.releases.channel.replace(
+              '((c))',
+              microcopy.releases.stable,
+            )
+          }
+        </p>
+        <h2 class="type--h1 header-anchor--wrapper permalink">
+          <a class="header-anchor" href={first._slug}>{first.title}</a>
+        </h2>
+        <p class="type--small">
+          {
+            microcopy.releases.releasedon
+              .replace('((c))', microcopy.releases.stable.toLowerCase())
+              .replace(
+                '((d))',
+                first.stable.toLocaleDateString(first._localeCode, {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                }),
+              )
+          }
+        </p>
+      </header>
+      <section class="type">
+        <p>{first.overview}</p>
+        {
+          first.featured &&
+            first.featured.map((f) => {
+              return (
+                <>
+                  <h3>{f.title}</h3>
+                  <Text body={f.content} />
+                </>
+              );
+            })
+        }
+        <h3>
+          {microcopy.releases.also.replace('((v))', first.title)}
+        </h3>
+        <p>{first.additional.overview}</p>
+        {
+          first.additional.features &&
+            first.additional.features.map((f) => {
+              return (
+                <>
+                  <h4>{f.title}</h4>
+                  <Text body={f.content} />
+                </>
+              );
+            })
+        }
+      </section>
+    </article>
+
+    {
+      rest.map((note) => {
+        return (
+          <article class="note">
+            <header>
+              <p class="type--eyebrow">
+                {microcopy.releases.channel.replace(
+                  '((c))',
+                  microcopy.releases.stable,
+                )}
+              </p>
+              <h2 class="type--h2 header-anchor--wrapper permalink">
+                <a class="header-anchor" href={note._slug}>
+                  {note.title}
+                </a>
+              </h2>
+              <p class="type--small">
+                {microcopy.releases.releasedon
+                  .replace('((c))', microcopy.releases.stable.toLowerCase())
+                  .replace(
+                    '((d))',
+                    note.stable.toLocaleDateString(note._localeCode, {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    }),
+                  )}
+              </p>
+            </header>
+            <details class="type">
+              <summary>
+                {note.overview}
+                <svg
+                  aria-hidden="true"
+                  class="details-marker"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7.59 18.59L9 20l8-8-8-8-1.41 1.41L14.17 12" />
+                </svg>
+              </summary>
+              {note.featured &&
+                note.featured.map((f) => {
+                  return (
+                    <>
+                      <h3>{f.title}</h3>
+                      <Text body={f.content} />
+                    </>
+                  );
+                })}
+            </details>
+            <h3 class="type--h4">
+              {microcopy.releases.also.replace('((v))', note.title)}
+            </h3>
+            <details class="type">
+              <summary>
+                {note.additional.overview}
+                <svg
+                  aria-hidden="true"
+                  class="details-marker"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7.59 18.59L9 20l8-8-8-8-1.41 1.41L14.17 12" />
+                </svg>
+              </summary>
+              {note.additional.features &&
+                note.additional.features.map((f) => {
+                  return (
+                    <>
+                      <h4>{f.title}</h4>
+                      <Text body={f.content} />
+                    </>
+                  );
+                })}
+            </details>
+          </article>
+        );
+      })
+    }
+  </Fragment>
+</Section>
+
+<style lang="scss">
+  @import '$sass/shared';
+
+  :global(.section) {
+    background-color: var(--grey-50);
+  }
+
+  .note {
+    @include elevation(0);
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .permalink {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .hero {
+    padding-inline: var(--inline-padding);
+    padding-inline-end: 0;
+
+    margin-block-end: 1.5rem;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    :global([data-theme='dark']) & {
+      /* stylelint-disable declaration-no-important */
+      // Need the background to be grey no matter what
+      background-color: var(--phosphor-grey) !important;
+      border: 2px solid var(--phosphor-green);
+      /* stylelint-enable declaration-no-important */
+    }
+
+    &--title {
+      color: var(--black);
+      text-wrap: balance;
+      padding-block: var(--header-spacing);
+
+      :global([data-theme='dark']) & {
+        color: var(--global-green);
+      }
+    }
+
+    &--hero {
+      margin-inline-start: auto;
+      align-self: flex-end;
+      justify-self: flex-start;
+
+      :global(img) {
+        display: block;
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+        max-height: 5em;
+      }
+    }
+  }
+
+  summary {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1rem;
+    gap: 0;
+  }
+
+  .details-marker {
+    fill: currentColor;
+
+    [open] & {
+      transform: rotate(90deg);
+    }
+  }
+
+  // .topics-header {
+  //   text-align: center;
+  // }
+
+  // .topics {
+  //   display: grid;
+  //   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  //   gap: 1.5rem;
+  // }
+</style>

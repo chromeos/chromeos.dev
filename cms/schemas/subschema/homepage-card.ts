@@ -50,4 +50,11 @@ export default defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      title: 'content.title',
+      subtitle: 'content.copy',
+      media: 'image',
+    },
+  },
 });

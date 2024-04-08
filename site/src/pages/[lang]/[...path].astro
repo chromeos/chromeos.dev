@@ -13,24 +13,26 @@ import { documentation, microcopy as micro } from '$lib/sanity';
  * Builds paths for content files
  */
 export async function getStaticPaths() {
-  return documentation.map((doc) => {
-    const pathRegex = new RegExp(`^/${doc._langCode}/`);
-    return {
-      params: {
-        lang: doc._langCode,
-        path: doc._path.replace(pathRegex, ''),
-      },
-      props: {
-        doc,
-        microcopy: micro[doc._lang],
-      },
-    };
-  });
+  return documentation
+    .filter((h) => h._langCode === 'en')
+    .map((doc) => {
+      const pathRegex = new RegExp(`^/${doc._langCode}/`);
+      return {
+        params: {
+          lang: doc._langCode,
+          path: doc._path.replace(pathRegex, ''),
+        },
+        props: {
+          doc,
+          microcopy: micro[doc._lang],
+        },
+      };
+    });
 }
 
 const { doc, microcopy } = Astro.props;
 
-const section = buildSection(doc.category);
+const section = buildSection(doc.category, doc._lang);
 const toc = buildTOC(doc.body);
 ---
 

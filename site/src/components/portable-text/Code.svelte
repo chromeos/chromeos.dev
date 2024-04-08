@@ -19,7 +19,9 @@
 
 <figure class="code-figure">
   <figcaption class="type--label">{filename || l}</figcaption>
+  <!-- eslint-disable svelte/no-at-html-tags -->
   <pre class={cls}><code class={cls}>{@html highlighted}</code></pre>
+  <!-- eslint-enable svelte/no-at-html-tags -->
 </figure>
 
 <style lang="scss">

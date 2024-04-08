@@ -21,15 +21,17 @@ import '$sass/home.scss';
  * @return {object[]} Paths
  */
 export function getStaticPaths() {
-  return home.map((h) => ({
-    params: {
-      lang: h._langCode,
-    },
-    props: {
-      data: h,
-      microcopy: getMicrocopy(h._langCode),
-    },
-  }));
+  return home
+    .filter((h) => h._langCode === 'en')
+    .map((h) => ({
+      params: {
+        lang: h._langCode,
+      },
+      props: {
+        data: h,
+        microcopy: getMicrocopy(h._langCode),
+      },
+    }));
 }
 
 const { microcopy, data } = Astro.props;

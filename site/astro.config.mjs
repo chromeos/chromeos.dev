@@ -3,6 +3,8 @@ import svelte from '@astrojs/svelte';
 import nodejs from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import virtual from '@rollup/plugin-virtual';
+import AstroPWA from '@vite-pwa/astro';
+import manifest from './src/manifest.json';
 import 'dotenv/config';
 import * as path from 'path';
 import * as url from 'url';
@@ -42,7 +44,27 @@ export default defineConfig({
   adapter: nodejs({
     mode: 'middleware',
   }),
-  integrations: [svelte(), sitemap()],
+  integrations: [
+    svelte(),
+    sitemap(),
+    // eslint-disable-next-line new-cap
+    AstroPWA({
+      injectRegister: false,
+      manifest,
+      srcDir: './src',
+      filename: 'sw.js',
+      strategies: 'injectManifest',
+      injectManifest: {
+        globPatterns: [
+          '_astro/**/*.css',
+          '_astro/Offline*.js',
+          'pagefind/**/*',
+          'images/icons/**/*',
+          'offline/index.html',
+        ],
+      },
+    }),
+  ],
   compressHTML: true,
   vite: {
     plugins: [

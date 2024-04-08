@@ -1,21 +1,18 @@
 {
-  "extends": ["stylelint-config-recommended", "stylelint-config-prettier"],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-sass-guidelines"
+  ],
   "ignoreFiles": ["node_modules/**/*", "dist/**/*", "public/**/*"],
   "customSyntax": "postcss-html",
   "rules": {
-    "indentation": 2,
-    "string-quotes": "single",
     "no-duplicate-selectors": true,
-    "color-hex-case": "lower",
-    "color-hex-length": "long",
     "color-named": "never",
     "selector-no-qualifying-type": true,
     "selector-attribute-quotes": "always",
-    "declaration-block-trailing-semicolon": "always",
     "declaration-no-important": true,
     "property-no-vendor-prefix": true,
     "value-no-vendor-prefix": true,
-    "number-leading-zero": "always",
     "function-no-unknown": [
       true,
       {

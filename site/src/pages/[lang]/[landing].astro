@@ -15,23 +15,25 @@ import Card from '$components/Card.svelte';
  * @return {object} paths
  */
 export function getStaticPaths() {
-  return landings.map((landing) => {
-    return {
-      params: {
-        lang: landing._langCode,
-        landing: landing._slug,
-      },
-      props: {
-        landing,
-        microcopy: micro[landing._lang],
-      },
-    };
-  });
+  return landings
+    .filter((h) => h._langCode === 'en')
+    .map((landing) => {
+      return {
+        params: {
+          lang: landing._langCode,
+          landing: landing._slug,
+        },
+        props: {
+          landing,
+          microcopy: micro[landing._lang],
+        },
+      };
+    });
 }
 
 const { landing, microcopy } = Astro.props;
 
-const section = buildSection(landing.category);
+const section = buildSection(landing.category, landing._lang);
 const topics = buildTopics(section.map((s) => s.href));
 
 let color = 'var(--primary-blue)';
@@ -111,9 +113,11 @@ switch (landing.category.slug) {
     gap: 1rem;
 
     :global([data-theme='dark']) & {
+      /* stylelint-disable declaration-no-important */
+      // Need the background to be grey no matter what
       background-color: var(--phosphor-grey) !important;
       border: 2px solid var(--phosphor-green);
-      // margin-top: -2px;
+      /* stylelint-enable declaration-no-important */
     }
 
     &--title {

@@ -85,12 +85,14 @@
             data-large
             aria-hidden="true"
             src={theme.backgrounds.large}
+            alt=""
           />
           <img
             loading="lazy"
             data-small
             aria-hidden="true"
             src={theme.backgrounds.small}
+            alt=""
           />
         </div>
       {/if}
@@ -147,6 +149,7 @@
     &--body {
       margin-top: 1.25rem;
     }
+
     &--cta {
       --cta-color: var(--hero-theme-color);
       margin-top: 1.75rem;
@@ -184,20 +187,19 @@
       height: 20cqh;
 
       @container (min-width: #{$swap}) {
-        height: auto;
-        margin-top: 0;
-      }
-
-      #{$parent}:has(#{$parent}--image-wrapper) & {
         right: 0;
         z-index: 0;
         height: 100%;
         width: 100%;
+        margin-top: 0;
 
         img {
           position: absolute;
         }
       }
+
+      // #{$parent}:has(#{$parent}--image-wrapper) & {
+      // }
 
       img {
         display: none;
@@ -310,6 +312,11 @@
           var(--blue-300) var(--large),
           transparent var(--large)
         );
+    }
+
+    :global([data-theme='dark']) & {
+      --hero-theme-color: var(--white);
+      --hero-theme-background: var(--phosphor-green);
     }
   }
 </style>

@@ -8,17 +8,19 @@ import { storyLandings, microcopy as micro, stories as st } from '$$sanity';
  * Builds paths for content files
  */
 export async function getStaticPaths() {
-  return storyLandings.map((s) => {
-    return {
-      params: {
-        lang: s._langCode,
-      },
-      props: {
-        landing: s,
-        microcopy: micro[s._lang],
-      },
-    };
-  });
+  return storyLandings
+    .filter((h) => h._langCode === 'en')
+    .map((s) => {
+      return {
+        params: {
+          lang: s._langCode,
+        },
+        props: {
+          landing: s,
+          microcopy: micro[s._lang],
+        },
+      };
+    });
 }
 
 const { landing, microcopy } = Astro.props;
@@ -40,8 +42,8 @@ const sections = landing.sections
       section.tag === 'pwa'
         ? 'web'
         : section.tag === 'android'
-        ? 'android'
-        : 'games'
+          ? 'android'
+          : 'games'
     }.svg`;
     return result;
   })
@@ -78,10 +80,12 @@ const sections = landing.sections
     flex-direction: column;
     gap: 1rem;
   }
+
   .heading {
     display: flex;
     gap: 1rem;
   }
+
   .content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 30ch), 1fr));

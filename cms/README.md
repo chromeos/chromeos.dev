@@ -1,11 +1,7 @@
-# Sanity Blogging Content Studio
+# ChromeOS.dev CMS
 
-Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
+[![Test, Build, Deploy](https://github.com/chromeos/chromeos.dev/actions/workflows/tbd-cms.yml/badge.svg)](https://github.com/chromeos/chromeos.dev/actions/workflows/tbd-cms.yml)
 
-Now you can do the following things:
+ChromeOS.dev is the digital home for all things Chrome OS. Learn how to adapt and optimize your existing apps to work on Chrome OS, the success other companies have had doing so, how to use Chrome OS as your developer machine, and keep up-to-date with the latest on Chrome OS.
 
-- [Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
-- Check out the example frontend: [React/Next.js](https://github.com/sanity-io/tutorial-sanity-blog-react-next)
-- [Read the blog post about this template](https://www.sanity.io/blog/build-your-own-blog-with-sanity-and-next-js?utm_source=readme)
-- [Join the community Slack](https://slack.sanity.io/?utm_source=readme)
-- [Extend and build plugins](https://www.sanity.io/docs/content-studio/extending?utm_source=readme)
+If you'd like to contribute to the site, please [read our wiki](https://github.com/chromeos/chromeos.dev/wiki) for full documentation, including how to get started, how to install dependencies, what tools we use, our folder structure, coding standards, and more.

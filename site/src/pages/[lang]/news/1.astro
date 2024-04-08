@@ -6,11 +6,13 @@ import { languages } from '$$sanity';
  * @return {object[]} Paths
  */
 export function getStaticPaths() {
-  return languages.map((l) => ({
-    params: {
-      lang: l.code,
-    },
-  }));
+  return languages
+    .filter((h) => h.code === 'en')
+    .map((l) => ({
+      params: {
+        lang: l.code,
+      },
+    }));
 }
 
 const { lang } = Astro.params;
