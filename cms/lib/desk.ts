@@ -21,6 +21,7 @@ import {
   BiMailSend,
   BiCodeCurly,
   BiSupport,
+  BiCheckCircle,
 } from 'react-icons/bi';
 import { RiTodoLine } from 'react-icons/ri';
 import { MdOutlineNewReleases } from 'react-icons/md';
@@ -143,6 +144,7 @@ export const deskStructure = (
                   ),
                 ),
               buildStandaloneList('pwas', IoLogoPwa, S),
+              buildStandaloneList('guidelines', BiCheckCircle, S),
             ]),
         ),
 

@@ -321,6 +321,12 @@ export default defineType({
           type: 'string',
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: 'download',
+          title: 'Download',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
     // Meta

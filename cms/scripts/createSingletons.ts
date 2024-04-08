@@ -3,7 +3,8 @@ import { LANGUAGES } from '../lib/constants';
 
 const client = getCliClient();
 
-const SINGLETONS = [{ type: 'releases', title: 'Release Notes' }];
+// Change this to the line from lib/constants.ts that coincides with the singletons you want to create
+const SINGLETONS = [{ type: 'guidelines', title: 'Guidelines' }];
 
 /**
  * Creates singletons
