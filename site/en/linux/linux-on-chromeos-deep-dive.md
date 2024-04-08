@@ -12,7 +12,7 @@ Chrome OS supports running arbitrary code inside of [VMs](https://en.wikipedia.o
 
 ## Prerequisites
 
-- Ensure that your Chrome OS device [supports Linux on Chrome OS](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-linux)
+- Ensure that your Chrome OS device [supports Linux on Chrome OS](https://www.chromium.org/chromium-os/chrome-os-systems-supporting-linux/)
 - Make sure you're running Chrome OS release 72 (M72+) or greater (released February 2019).
   - Start a [system update](https://support.google.com/chromebook/answer/177889) if need be and reboot.
   - This should work in the [stable channel](https://support.google.com/chromebook/answer/1086915).
