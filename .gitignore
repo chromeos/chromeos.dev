@@ -89,7 +89,6 @@ typings/
 
 # Other Items
 .DS_Store
-site/public
 site/functions/indexes
 site/.eyeglass_cache
 site/.firebase
