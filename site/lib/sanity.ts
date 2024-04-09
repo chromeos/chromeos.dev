@@ -10,6 +10,7 @@ import type {
   Navigation,
   // Cookiejar,
   Home,
+  Guidelines,
   ReleaseNote,
   ReleaseNotesLanding,
 } from '../types/sanity';
@@ -26,6 +27,7 @@ import {
   featuredQuery,
   coreMetaQuery,
   homepageCardQuery,
+  twoColumnBodyQuery,
 } from '$lib/sanity/queries';
 import { rtl, vertical } from '$lib/i18n';
 import iso6391 from 'iso-639-1';
@@ -372,6 +374,59 @@ export const landings = (
   return landing as Landing;
 }) as Landing[];
 
+export const guidelines: Guidelines[] = await sanity.fetch(
+  `*[_type == 'guidelines' && _id match 'guidelines-*' && !(_id in path('drafts.**'))]
+  {
+    title,
+    share {
+      "title": string,
+      description,
+      "image": {
+        "alt": image.alt,
+        "src": 'cms://' + image.asset._ref
+      },
+    },
+    "banner": {
+      "wide": 'cms://' + banner.wide.asset._ref,
+      "narrow": 'cms://' + banner.narrow.asset._ref,
+    },
+    intro {
+      copy,
+      cta,
+      message,
+      "image": {
+        "alt": image.alt,
+        "image": 'cms://' + image.asset._ref
+      },
+    },
+    guidelines {
+      ${twoColumnBodyQuery}
+    },
+    usage {
+      ${twoColumnBodyQuery}
+    },
+    codegen {
+      heading,
+      download,
+      language,
+      type {
+        label,
+        primary,
+        secondary,
+      },
+      attribution,
+      fields,
+      alt,
+    },
+    messaging {
+      ${twoColumnBodyQuery}
+    },
+    ${coreMetaQuery}
+  }`,
+);
+
+console.log(guidelines[0].codegen);
+
 export const releaseNoteLandings = (await sanity.fetch(
   `*[_type == 'releases' && !(_id in path('drafts.**'))]
     {
@@ -416,8 +471,6 @@ export const releaseNotes = (
   note.stable = new Date(note.stable);
   return note;
 }) as ReleaseNote[];
-
-console.log(releaseNotes[0]);
 
 export const all = [...posts, ...documentation, ...stories, ...landings];
 

@@ -274,15 +274,79 @@ export type CMSLink = {
   url: string | CMSLinkReference;
 };
 
+export type Banner = {
+  wide: string;
+  narrow: string;
+};
+
 export interface Landing extends CoreContentMeta {
   title: string;
   description: string;
   category: Tag;
   body: PortableTextBlock[];
-  banner: {
-    wide: string;
-    narrow: string;
+  banner: Banner;
+}
+
+export type MediaFigure = {
+  _key: string;
+  caption: {
+    icon: false | 'correct' | 'incorrect';
+    text: string;
   };
+  image: Image;
+};
+
+export type Example = {
+  title: string;
+  figures: MediaFigure[];
+};
+
+export type TwoColumnBody = {
+  heading: string;
+  copy: PortableTextBlock[];
+  examples: Example[];
+};
+
+export interface Guidelines extends CoreMeta {
+  title: string;
+  share?: {
+    title?: string;
+    description?: string;
+    image?: Image;
+  };
+  banner: Banner;
+  intro: {
+    copy: PortableTextBlock[];
+    cta: string;
+    message: {
+      type: 'note' | 'warning' | 'error' | 'tip';
+      text: PortableTextBlock[];
+    };
+    image: Image;
+  };
+  guidelines: TwoColumnBody;
+  usage: TwoColumnBody;
+  codegen: {
+    heading: string;
+    download: string;
+    language: string;
+    type: {
+      label: string;
+      primary: string;
+      secondary: string;
+    };
+    attribution: {
+      label: string;
+      copy: string;
+    };
+    fields: {
+      campaign: string;
+      source: string;
+      url: string;
+    };
+    alt: string;
+  };
+  messaging: TwoColumnBody;
 }
 
 export interface Documentation extends CoreContent {

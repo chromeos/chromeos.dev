@@ -114,3 +114,19 @@ export const homepageCardQuery = `
       "url": cta.link.url
     }
   }`;
+
+export const twoColumnBodyQuery = `
+  heading,
+  copy,
+  examples[] {
+    title,
+    figures[] {
+      _key,
+      caption,
+      "image": {
+        "alt": image.alt,
+        "image": 'cms://' + image.asset._ref,
+      }
+    }
+  }
+`;
