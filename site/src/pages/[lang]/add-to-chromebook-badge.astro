@@ -1,13 +1,18 @@
 ---
-import Wrapper from "$layouts/wrapper.astro";
-import { guidelines as guidelinesDocuments } from "$lib/sanity";
-import { getMicrocopy } from "$lib/microcopy";
+import Wrapper from '$layouts/wrapper.astro';
+import { guidelines as guidelinesDocuments } from '$lib/sanity';
+import { getMicrocopy } from '$lib/microcopy';
 import Text from '$components/Text.astro';
-import CTA from "$components/CTA.svelte";
-import Message from "$components/portable-text/Message.svelte";
-import MediaExample from "$components/portable-text/MediaExample.svelte";
-import BadgeGenerator from "$components/BadgeGenerator.svelte";
+import CTA from '$components/CTA.svelte';
+import Message from '$components/portable-text/Message.svelte';
+import MediaExample from '$components/MediaExample.svelte';
+import BadgeGenerator from '$components/BadgeGenerator.svelte';
 
+/**
+ * Static paths
+ *
+ * @return {object} paths
+ */
 export async function getStaticPaths() {
   return guidelinesDocuments.map((g) => {
     return {
@@ -16,32 +21,23 @@ export async function getStaticPaths() {
       },
       props: {
         data: g,
-        microcopy: getMicrocopy(g._langCode)
-      }
-    }
+        microcopy: getMicrocopy(g._langCode),
+      },
+    };
   });
 }
 
 const { data, microcopy } = Astro.props;
 const { locale } = microcopy;
-const {
-  title,
-  share,
-  banner,
-  intro,
-  heading,
-  guidelines,
-  usage,
-  codegen,
-  messaging
-} = data;
+const { title, share, banner, intro, guidelines, usage, codegen, messaging } =
+  data;
+
+const downloadSize = '14kb';
+
+codegen.download = codegen.download.replace('((s))', `(${downloadSize})`);
 ---
 
-<Wrapper
-  title={title}
-  metadesc={share.description}
-  locale={locale}
->
+<Wrapper title={title} metadesc={share?.description} locale={locale}>
   <article class="guidelines">
     <header class="hero" id="content">
       <h1 class="hero--title type--mega">{title}</h1>
@@ -53,69 +49,84 @@ const {
       </div>
     </header>
     <div class="guidelines--intro guidelines--section">
-      {intro.copy && (
-        <Text body={intro.copy} />
-      )}
-      {intro.cta && (
-        <CTA cta={{ text: intro.cta, url: "#codegen", type: "high", inline: true }}/>
-      )}
-      {intro.image && (
-        <aside class="guidelines--intro-aside">
-          <img
-            class="guidelines--intro-image"
-            src={intro.image.image}
-            alt={intro.image.alt}
+      {intro.copy && <Text body={intro.copy} />}
+      {
+        intro.cta && (
+          <CTA
+            cta={{
+              text: intro.cta,
+              url: '#codegen',
+              type: 'high',
+              inline: true,
+            }}
           />
-        </aside>
-      )}
-      {intro.message && (
-        <Message type={intro.message.type}>
-          <Text body={intro.message.text} />
-        </Message>
-      )}
+        )
+      }
+      {
+        intro.image && (
+          <aside class="guidelines--intro-aside">
+            <img
+              class="guidelines--intro-image"
+              src={intro.image.image}
+              alt={intro.image.alt}
+            />
+          </aside>
+        )
+      }
+      {
+        intro.message && (
+          <Message type={intro.message.type}>
+            <Text body={intro.message.text} />
+          </Message>
+        )
+      }
     </div>
-    {heading && <h2 class="guidelines--heading type--h2">{heading}</h2>}
+    <!-- {heading && <h2 class='guidelines--heading type--h2'>{heading}</h2>} -->
     <section class="guidelines--section">
-      {guidelines.heading && (
-        <h3 class="type--h3">{guidelines.heading}</h3>
-      )}
-      {guidelines.copy && (
-        <Text body={guidelines.copy} />
-      )}
-      {guidelines.examples && (
-        <aside class="guidelines--aside">
-          {guidelines.examples.map((example) => <MediaExample example={example} />)}
-        </aside>
-      )}
+      {guidelines.heading && <h3 class="type--h3">{guidelines.heading}</h3>}
+      {guidelines.copy && <Text body={guidelines.copy} />}
+      {
+        guidelines.examples && (
+          <aside class="guidelines--aside">
+            {guidelines.examples.map((example) => (
+              <MediaExample example={example} />
+            ))}
+          </aside>
+        )
+      }
     </section>
     <section class="guidelines--section">
-      {usage.heading && (
-        <h3 class="type--h3">{usage.heading}</h3>
-      )}
-      {usage.copy && (
-        <Text body={usage.copy} />
-      )}
-      {usage.examples && (
-        <aside class="guidelines--aside">
-          {usage.examples.map((example) => <MediaExample example={example} />)}
-        </aside>
-      )}
+      {usage.heading && <h3 class="type--h3">{usage.heading}</h3>}
+      {usage.copy && <Text body={usage.copy} />}
+      {
+        usage.examples && (
+          <aside class="guidelines--aside">
+            {usage.examples.map((example) => (
+              <MediaExample example={example} />
+            ))}
+          </aside>
+        )
+      }
     </section>
     <section id="codegen" class="guidelines--codegen wrapper--padded">
-      <BadgeGenerator {...codegen} microcopy={microcopy} client:load />
+      <BadgeGenerator
+        {codegen}
+        required={microcopy.actions.required}
+        client:load
+      />
     </section>
     <section id="messaging" class="guidelines--section">
-      {messaging.heading && (
-        <h3 class="type--h3">{messaging.heading}</h3>
-      )}
-      {messaging.copy && (
-        <Text body={messaging.copy} />
-      )}
-      {messaging.examples && (
-        <aside class="guidelines--aside">
-          {messaging.examples.map((example) => <MediaExample example={example} />)}
-        </aside>
-      )}
+      {messaging.heading && <h3 class="type--h3">{messaging.heading}</h3>}
+      {messaging.copy && <Text body={messaging.copy} />}
+      {
+        messaging.examples && (
+          <aside class="guidelines--aside">
+            {messaging.examples.map((example) => (
+              <MediaExample example={example} />
+            ))}
+          </aside>
+        )
+      }
     </section>
   </article>
 </Wrapper>
@@ -143,7 +154,8 @@ const {
     }
 
     @include mq($switch) {
-      --grid: 1fr 1.5rem minmax(43ch, 65ch) minmax(24px, 140px) minmax(235px, 340px) 1.5rem 1fr;
+      --grid: 1fr 1.5rem minmax(43ch, 65ch) minmax(24px, 140px)
+        minmax(235px, 340px) 1.5rem 1fr;
       --inline-aside: 1;
     }
 
@@ -163,7 +175,7 @@ const {
         grid-column: 3;
       }
     }
-    
+
     &--section {
       display: grid;
       grid-template-columns: subgrid;
@@ -217,7 +229,7 @@ const {
     &--intro-aside {
       width: 100%;
       grid-row: 3;
-  
+
       @container style(--inline-aside: 1) {
         grid-row: 1 / span 2;
         grid-column: 4;
@@ -271,7 +283,7 @@ const {
     }
 
     :global([data-theme='dark']) & {
-      background-color: var(--phosphor-grey) !important;
+      background-color: var(--phosphor-grey);
       border: 2px solid var(--phosphor-green);
     }
 
@@ -296,7 +308,7 @@ const {
       justify-self: end;
 
       @container style(--inline-aside) {
-        grid-column: 4 / span 3;
+        grid-column: 4 / -1;
       }
 
       :global(img) {
@@ -307,5 +319,5 @@ const {
         object-position: left;
       }
     }
-  }  
+  }
 </style>

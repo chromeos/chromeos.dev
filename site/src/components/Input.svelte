@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher } from 'svelte';
 
   type Input = {
     type:
@@ -26,6 +26,7 @@
     validation?: string;
     required?: boolean;
     value?: string;
+    empty?: boolean;
     text?: {
       required?: string;
       error?: string;
@@ -58,7 +59,9 @@
         value={input.value || null}
         on:change={(e) => dispatch('change', e)}
       >
-        <option selected />
+        {#if input.empty !== false}
+          <option selected />
+        {/if}
         {#each input.options as option}
           <option value={option.value || option.text}>{option.text}</option>
         {/each}
@@ -83,7 +86,7 @@
       <label for={id} class="input--label">{input.label}</label>
     {/if}
   </div>
-  {#if input.required || input?.text?.error }
+  {#if input.required || input?.text?.error}
     <div class="input--info">
       {#if input?.required}
         <p class="input--description type--small">{input.text.required}</p>

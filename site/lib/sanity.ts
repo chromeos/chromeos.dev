@@ -399,7 +399,6 @@ export const guidelines: Guidelines[] = await sanity.fetch(
         "image": 'cms://' + image.asset._ref
       },
     },
-    heading,
     guidelines {
       ${twoColumnBodyQuery}
     },
@@ -408,22 +407,16 @@ export const guidelines: Guidelines[] = await sanity.fetch(
     },
     codegen {
       heading,
-      "download": {
-        "text": download.text,
-        "link": download.link.url
+      download,
+      language,
+      type {
+        label,
+        primary,
+        secondary,
       },
-      "typeLabel": type_label,
-      fields,
-      "attributionLabel": attribution_label,
       attribution,
-      badges[] {
-        name,
-        language,
-        "image": {
-          "alt": image.alt,
-          "image": 'cms://' + image.asset._ref,
-        }
-      }
+      fields,
+      alt,
     },
     messaging {
       ${twoColumnBodyQuery}
@@ -431,6 +424,8 @@ export const guidelines: Guidelines[] = await sanity.fetch(
     ${coreMetaQuery}
   }`,
 );
+
+console.log(guidelines[0].codegen);
 
 export const releaseNoteLandings = (await sanity.fetch(
   `*[_type == 'releases' && !(_id in path('drafts.**'))]

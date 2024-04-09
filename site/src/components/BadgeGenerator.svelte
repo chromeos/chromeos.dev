@@ -1,120 +1,124 @@
 <script lang="ts">
-  import Input from "./Input.svelte";
+  import Input from './Input.svelte';
   /**
    * TODO:
-   * 
+   *
    * Importing Code throws a client-side error and breaks this component.
    * It appears to be due to an issue with prismjs.
-  */
-  // import Code from "$components/portable-text/Code.svelte";
-  import type { Field, Image, Microcopy } from "$types/sanity";
-  import Generic from "./ctas/Generic.svelte";
-  import Download from "./icons/Download.svelte";
+   */
+  import Generic from './ctas/Generic.svelte';
+  import Download from './icons/Download.svelte';
 
-  export let heading: string;
-  export let download: {
-    text: string;
-    link: string;
-  };
-  export let typeLabel: string;
-  export let attributionLabel: string;
-  export let attribution: string;
-  export let fields: Array<{
-    name: string;
-    label: string;
-    required: boolean;
-    value?: string;
-    field: {
-      type: Field["type"];
-      options: string[];
-    };
-    text?: {
-      required?: string;
-      error?: string;
-    };
-  }>;
-  export let microcopy: Microcopy;
-  export let badges: Array<{
-    name: string;
-    language: string;
-    image: Image
-  }>
+  export let codegen;
+  export let required: string;
 
-  const parsedFields = fields.map((f) => {
-    const field = {
-      type: f.field.type,
-      label: f.label,
-      name: f.name,
-      required: f.required || false,
-      options: f.field.options?.map((o) => {
-        return {
-          value: o,
-          text: o
-        }
-      }),
-      value: f.value,
+  const fields = [
+    {
+      type: 'text',
+      label: codegen.fields.url,
+      name: 'url',
+      required: true,
       text: {
-        required: f.text?.error || microcopy.actions.required,
-        error: f.text?.error,
-      }
-    }
+        required,
+      },
+    },
+    {
+      type: 'text',
+      label: codegen.fields.source,
+      name: 'source',
+    },
+    {
+      type: 'text',
+      label: codegen.fields.campaign,
+      name: 'campaign',
+    },
+  ];
 
-    return field;
-  });
+  const languages = [
+    {
+      value: 'en',
+      text: 'English',
+    },
+    {
+      value: 'es',
+      text: 'Spanish',
+    },
+    {
+      value: 'fr',
+      text: 'French',
+    },
+    {
+      value: 'de',
+      text: 'German',
+    },
+    {
+      value: 'it',
+      text: 'Italian',
+    },
+  ];
 
-  const languageOptions = Array.from(new Set(badges.map((b) => b.language)));
-  const urlFallback = "https://play.google.com/store/123";
-  const sourceFallback = "UTM_SOURCE";
-  const campaignFallback = "UTM_CAMPAIGN";
-  const altFallback = "Get it on Chromebook";
-  const srcFallback = "cms://path-to-file.png";
+  let language = 'en';
+  let url = 'https://chromeos.dev';
+  let source = 'badge';
+  let campaign = 'add-to';
+  let type = 'primary';
 
-  let selectedLanguage = languageOptions[0].toLowerCase();
-  let urlValue = urlFallback;
-  let sourceValue = sourceFallback;
-  let campaignValue = campaignFallback;
-  let derivedBadges = badges.filter((b) => b.language.toLowerCase() === selectedLanguage);
-
+  /**
+   * Handle form input changes
+   * @param {Event} e
+   */
   function handleInputChange(e) {
-    const { name: n, value } = e.detail.target;
+    const { name: n, value } = e?.detail?.target || e.target;
     const name = n.toLowerCase();
 
-    if (name === "language") {
-      selectedLanguage = value;
+    if (name === 'language') {
+      language = value;
     }
 
-    if (name === "url") {
-      urlValue = value;
+    if (name === 'url') {
+      url = value;
     }
 
-    if (name === "source") {
-      sourceValue = value;
+    if (name === 'source') {
+      source = value;
     }
 
-    if (name === "campaign") {
-      campaignValue = value;
+    if (name === 'campaign') {
+      campaign = value;
+    }
+
+    if (name === 'badge-type') {
+      type = value;
     }
   }
 
-  $: derivedBadges = badges.filter((b) => {
-    return b.language.toLowerCase() === selectedLanguage
-  });
+  let badgeURL = url;
 
-  let badgeType = derivedBadges[0].name;
+  $: badgeURL = `${url}?utm_source=${source}&utm_campaign=${campaign}`;
+  $: badgeSrc = `https://${type}.svg?language=${language?.toLowerCase().slice(0, 2)}`;
 
-  $: badgeMarkup = `
-  <a href="${urlValue || urlFallback}?utm_source=${sourceValue || sourceFallback}&utm_campaign=${campaignValue || campaignValue}">
-    <img
-      alt="${derivedBadges.find((b) => b.name === badgeType).image.alt || altFallback}"
-      src="${derivedBadges.find((b) => b.name === badgeType).image.image || srcFallback}"
-    />
-  </a>`
+  $: badges = [
+    {
+      id: 'primary',
+      name: codegen.type.primary,
+      image: `/badges/primary.svg?lang=${language}`,
+    },
+    {
+      id: 'secondary',
+      name: codegen.type.secondary,
+      image: `/badges/secondary.svg?lang=${language}`,
+    },
+  ];
 </script>
 
 <section class="badge-generator--wrapper">
   <header class="badge-generator--header">
-    <h2 class="badge-generator--heading type--h2">{heading}</h2>
-    <a class="badge-generator--download-link" href={download.link} download>{download.text}<Download /></a>
+    <h2 class="badge-generator--heading type--h2">{codegen.heading}</h2>
+    <a
+      class="badge-generator--download-link"
+      href="https://chromeos.dev"
+      download>{codegen.download}<Download /></a
+    >
   </header>
   <form class="badge-generator--form">
     <div class="badge-generator--form-left">
@@ -122,39 +126,39 @@
         <Input
           input={{
             type: 'select',
-            label: 'Language',
-            name: "language",
-            required: true,
-            options: languageOptions.map((o) => ({
-              value: o.toLowerCase(),
-              text: o
-            })),
-            text: {
-              required: microcopy.actions.required,
-            }
+            label: codegen.language,
+            name: 'language',
+            options: languages,
+            empty: false,
+            value: languages[0].value,
           }}
           on:change={handleInputChange}
         />
       </div>
       <div class="badge-generator--radio-group badge-generator--field">
-        <span class="badge-generator--radio-heading type--caption">{typeLabel}</span>
-        {#each derivedBadges as badge (badge.name)}
+        <span class="badge-generator--radio-heading type--caption"
+          >{codegen.type.label}</span
+        >
+        {#each badges as badge, i}
           <span class="badge-generator--radio">
             <input
-              id="input-badge-{badge.name}"
+              id="input-badge-{badge.id}"
               name="badge-type"
               type="radio"
-              value={badge.name}
-              bind:group={badgeType}
+              value={badge.id}
               hidden
+              checked={i === 0}
+              on:change={handleInputChange}
             />
-            <label class="badge-generator--radio-label" for="input-badge-{badge.name}">
-              <!-- TODO: Svelte hydration breaks posthtml img srcs here -->
-              <img src={badge.image.image} alt={badge.name} draggable="false" />
+            <label
+              class="badge-generator--radio-label"
+              for="input-badge-{badge.id}"
+            >
+              <img src={badge.image} alt={badge.name} draggable="false" />
               <Generic
                 cta={{
-                  type: "low",
-                  url: "",
+                  type: 'low',
+                  url: '',
                   text: badge.name,
                 }}
                 type="low"
@@ -163,28 +167,56 @@
             </label>
           </span>
         {/each}
-      </div>      
+      </div>
       <div class="badge-generator--attribution badge-generator--field">
-        <span class="badge-generator--radio-heading type--caption">{attributionLabel}</span>
+        <span class="badge-generator--radio-heading type--caption"
+          >{codegen.attribution.label}</span
+        >
         <span class="badge-generator--attribution-text">
-          {attribution}
+          {codegen.attribution.copy}
         </span>
       </div>
     </div>
     <div class="badge-generator--form-right">
-      <!-- TODO: Swap w/ <Code /> once prismjs issue is resolved. -->
-      <pre>
-        <code>
-          {badgeMarkup}
-        </code>
-      </pre>
-      <!-- <Code
-        block={{
-          code: badgeMarkup,
-          language: 'html',
-        }}
-      /> -->
-      {#each parsedFields as field (field.name)}
+      <figure class="code-figure">
+        <figcaption class="type--label code-figure--caption type--label">
+          html
+        </figcaption>
+        <pre class="language--html"><code class="language--html"
+            ><span class="token tag"
+              ><span class="token tag"
+                ><span class="token punctuation">&lt;</span>a</span
+              > <span class="token attr-name">href</span><span
+                class="token attr-value"
+                ><span class="token punctuation attr-equals">=</span><span
+                  class="token punctuation">"</span
+                >{badgeURL}<span class="token punctuation">"</span></span
+              ><span class="token punctuation">&gt;</span></span
+            >
+  <span class="token tag"
+              ><span class="token tag"
+                ><span class="token punctuation">&lt;</span>img</span
+              > <span class="token attr-name">src</span><span
+                class="token attr-value"
+                ><span class="token punctuation attr-equals">=</span><span
+                  class="token punctuation">"</span
+                >{badgeSrc}<span class="token punctuation">"</span></span
+              ><span class="token attr-name"> alt</span><span
+                class="token attr-value"
+                ><span class="token punctuation attr-equals">=</span><span
+                  class="token punctuation">"</span
+                >{codegen.alt}<span class="token punctuation">"</span></span
+              ><span class="token punctuation">/&gt;</span></span
+            >
+<span class="token tag"
+              ><span class="token tag"
+                ><span class="token punctuation">&lt;/</span>a</span
+              ><span class="token punctuation">&gt;</span></span
+            ></code
+          ></pre>
+      </figure>
+
+      {#each fields as field}
         <div class="badge-generator--field">
           <Input input={field} on:keyup={handleInputChange} />
         </div>
@@ -197,7 +229,6 @@
   @import '$sass/shared';
 
   .badge-generator {
-
     &--wrapper {
       $switch: 521px;
       --form-grid: unset;
@@ -219,7 +250,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-block-end: 1.875rem; 
+      margin-block-end: 1.875rem;
     }
 
     &--download-link {
@@ -228,8 +259,8 @@
       font-size: 0.875rem;
       letter-spacing: -0.01em;
       line-height: 1.4;
-      /* TODO - Should we add this to $google-colors or use an existing one that's similar? */
-      color: #3665F3;
+      color: var(--blue-600);
+      fill: currentColor;
 
       :global(svg) {
         height: 1.25rem;
@@ -278,8 +309,7 @@
     }
 
     &--form-right {
-      pre, // TODO: remove `pre` when Code component is used
-      :global(.code-figure) {
+      .code-figure {
         width: 100%;
         max-width: 100cqi;
       }
@@ -305,11 +335,9 @@
     }
 
     &--attribution-text {
-      padding: 1rem;
-      border: 1px solid var(--grey-700);
-      border-radius: 0.25rem;
       font-size: 1rem;
       line-height: normal;
+      font-style: italic;
     }
 
     &--radio-group {
@@ -322,6 +350,7 @@
     &--radio-heading {
       font-weight: 500;
       flex-basis: 100%;
+      color: var(--grey-900);
     }
 
     &--radio {
@@ -329,17 +358,16 @@
       border-radius: 0.625rem;
       transition: background-color 0.2s ease;
       min-width: 186px;
-      
+
       img {
         max-width: 146px;
       }
-      
+
       &:has(input:checked) {
-        /* TODO - Design specified value was barely different from blue-50. Do we want to add a new shade? */
         background-color: var(--blue-50);
       }
     }
-    
+
     &--radio-label {
       display: flex;
       flex-direction: column;
@@ -350,7 +378,15 @@
       cursor: pointer;
 
       :global(.cta) {
-        color: var(--grey-850);
+        color: var(--grey-900);
+      }
+
+      :checked ~ & {
+        :global(.cta) {
+          :global([data-theme='dark']) & {
+            color: var(--phosphor-gray);
+          }
+        }
       }
     }
   }

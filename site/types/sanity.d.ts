@@ -324,37 +324,27 @@ export interface Guidelines extends CoreMeta {
     };
     image: Image;
   };
-  heading: string;
   guidelines: TwoColumnBody;
   usage: TwoColumnBody;
   codegen: {
     heading: string;
-    download: {
-      text: string;
-      link: string;
-    };
-    typeLabel: string;
-    attributionLabel: string;
-    attribution: string;
-    fields: Array<{
-      name: string;
+    download: string;
+    language: string;
+    type: {
       label: string;
-      required: boolean;
-      value?: string;
-      field: {
-        type: Field['type'];
-        options: string[];
-      };
-      text?: {
-        required?: string;
-        error?: string;
-      };
-    }>;
-    badges: Array<{
-      name: string;
-      language: string;
-      image: Image;
-    }>;
+      primary: string;
+      secondary: string;
+    };
+    attribution: {
+      label: string;
+      copy: string;
+    };
+    fields: {
+      campaign: string;
+      source: string;
+      url: string;
+    };
+    alt: string;
   };
   messaging: TwoColumnBody;
 }

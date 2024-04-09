@@ -1,13 +1,9 @@
 <script lang="ts">
-  import Correct from "$components/icons/Correct.svelte";
-  import Incorrect from "$components/icons/Incorrect.svelte";
-  import type { Example } from "$types/sanity";
+  import Correct from '$components/icons/Check.svelte';
+  import Incorrect from '$components/icons/Close.svelte';
+  import type { Example } from '$types/sanity';
 
   export let example: Example;
-
-  function derivedColor(icon: false | 'correct' | 'incorrect') {
-    return icon === false ? undefined : icon === 'correct' ? 'var(--green-800)' : 'var(--red-500)';
-  }
 </script>
 
 {#if example}
@@ -21,11 +17,14 @@
           <img src={figure.image.image} alt={figure.image.alt} />
 
           {#if figure.caption.text}
-            <span class="comparison-figure--caption" style="--icon-color: {derivedColor(figure.caption.icon)}">
-              {#if figure.caption.icon === "correct"}
+            <span
+              class="comparison-figure--caption"
+              data-style={figure.caption.icon}
+            >
+              {#if figure.caption.icon === 'correct'}
                 <Correct />
               {/if}
-              {#if figure.caption.icon === "incorrect"}
+              {#if figure.caption.icon === 'incorrect'}
                 <Incorrect />
               {/if}
               {figure.caption.text}
@@ -38,7 +37,7 @@
 {/if}
 
 <style lang="scss">
-  @import "$sass/shared";
+  @import '$sass/shared';
 
   .comparison-figure {
     flex: 1 0 auto;
@@ -50,7 +49,7 @@
       width: 100%;
       object-fit: contain;
     }
-    
+
     &--wrapper:not(:last-of-type) {
       margin-block-end: 1.5rem;
     }
@@ -76,8 +75,18 @@
       column-gap: 0.5rem;
       color: var(--grey-700);
 
+      &[data-style='correct'] {
+        color: var(--green-800);
+      }
+      &[data-style='incorrect'] {
+        color: var(--red-600);
+      }
+
       :global(svg) {
-        color: var(--icon-color);
+        fill: var(--white);
+        background-color: currentColor;
+        border-radius: 50%;
+        padding: 0.15rem;
       }
     }
   }
