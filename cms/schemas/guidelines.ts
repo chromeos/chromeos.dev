@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { defineField, defineType } from 'sanity';
 import { preview } from '$lib/previews/localization';
 
 export default defineType({
@@ -122,41 +122,14 @@ export default defineType({
               type: 'string',
             }),
             defineField({
-              name: 'badges',
-              title: 'Badges',
-              type: 'array',
-              of: [
-                defineArrayMember({
-                  name: 'badge',
-                  title: 'Badge',
-                  type: 'object',
-                  fields: [
-                    defineField({
-                      name: 'name',
-                      title: 'Name',
-                      type: 'string',
-                    }),
-
-                    defineField({
-                      name: 'image',
-                      title: 'Image',
-                      type: 'picture',
-                    }),
-                  ],
-                  preview: {
-                    select: {
-                      title: 'name',
-                      media: 'image',
-                    },
-                    prepare({ title, media }) {
-                      return {
-                        title,
-                        media,
-                      };
-                    },
-                  },
-                }),
-              ],
+              name: 'primary',
+              title: 'Primary',
+              type: 'string',
+            }),
+            defineField({
+              name: 'secondary',
+              title: 'Secondary',
+              type: 'string',
             }),
           ],
         }),
@@ -178,6 +151,7 @@ export default defineType({
             }),
           ],
         }),
+
         defineField({
           name: 'fields',
           title: 'Fields',
@@ -199,6 +173,12 @@ export default defineType({
               type: 'string',
             }),
           ],
+        }),
+
+        defineField({
+          name: 'alt',
+          title: 'Badge Alt Text',
+          type: 'string',
         }),
       ],
     }),
