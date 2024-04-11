@@ -66,6 +66,7 @@
       // grid-column: 1;
       // grid-row: 1;
     }
+
     &--inner {
       --inner-spacing: clamp(1rem, 4cqi, 8cqi);
       display: grid;
@@ -113,7 +114,7 @@
       @container (min-width: 612px) {
         padding: 2rem;
         justify-content: center;
-        border: none;
+        border: 0;
         border-radius: 0;
       }
 

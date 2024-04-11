@@ -88,6 +88,7 @@
         background-color: transparent;
       }
     }
+
     &--text,
     &--toggle {
       grid-column: 1;
@@ -96,16 +97,11 @@
       padding-block: $block;
     }
 
-    &--text {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
     &--expand {
       position: relative;
       z-index: 0;
       transform: scale(0.75);
+
       [data-expanded='true'] & {
         transform: rotate(180deg) scale(0.75);
       }
@@ -146,7 +142,7 @@
       padding-block: math.div($block, 3) * 2;
       position: relative;
 
-      &:after {
+      &::after {
         content: '';
         position: absolute;
         left: 0;

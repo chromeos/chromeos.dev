@@ -188,7 +188,7 @@
     @media (min-width: 700px) {
       flex-wrap: nowrap;
       column-gap: 2.5rem;
-      padding-block: 0rem;
+      padding-block: 0;
     }
 
     [class^='type'] {

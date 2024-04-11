@@ -78,6 +78,7 @@
       &[data-style='correct'] {
         color: var(--green-800);
       }
+
       &[data-style='incorrect'] {
         color: var(--red-600);
       }

@@ -8,6 +8,3 @@
     <figcaption><slot /></figcaption>
   </figure>
 {/if}
-
-<style lang="scss">
-</style>

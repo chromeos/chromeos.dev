@@ -49,7 +49,7 @@
     display: grid;
 
     grid-template-columns: subgrid;
-    grid-columns: 1 / -1;
+    grid-column: 1 / -1;
     position: relative;
 
     &--back {

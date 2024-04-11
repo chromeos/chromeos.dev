@@ -43,6 +43,7 @@
       overflow: hidden;
       aspect-ratio: 16 / 9;
     }
+
     figcaption {
       margin-top: 1rem;
       text-align: center;

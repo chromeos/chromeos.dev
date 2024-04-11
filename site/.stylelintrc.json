@@ -6,6 +6,13 @@
   "ignoreFiles": ["node_modules/**/*", "dist/**/*", "public/**/*"],
   "customSyntax": "postcss-html",
   "rules": {
+    "no-invalid-position-at-import-rule": [
+      true,
+      {
+        "ignoreAtRules": ["use"]
+      }
+    ],
+    "media-query-no-invalid": null,
     "selector-max-compound-selectors": null,
     "no-descending-specificity": null,
     "no-duplicate-selectors": true,
@@ -47,7 +54,7 @@
     "selector-pseudo-class-no-unknown": [
       true,
       {
-        "ignorePseudoClasses": ["global"]
+        "ignorePseudoClasses": ["global", "initial"]
       }
     ],
     "selector-no-vendor-prefix": true,
@@ -59,7 +66,7 @@
       }
     ],
     "max-nesting-depth": [
-      3,
+      4,
       {
         "ignoreAtRules": [
           "each",

@@ -43,7 +43,7 @@
   .language-switcher {
     appearance: none;
     background-color: var(--grey-50);
-    background-image: url(/images/icons/sprite.svg#arrow-drop-down);
+    background-image: url('/images/icons/sprite.svg#arrow-drop-down');
     background-position: right 0% top 50%;
     background-repeat: no-repeat;
     background-size: 24px 24px;

@@ -19,6 +19,7 @@
     &--header {
       margin-bottom: 5rem;
     }
+
     &--subtitle {
       margin-top: 1rem;
     }

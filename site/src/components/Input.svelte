@@ -109,6 +109,7 @@
       opacity: 0.5;
     }
 
+    /* stylelint-disable selector-no-qualifying-type */
     &:has(:invalid option[value='']:checked) {
       --border-color: var(--black);
     }
@@ -117,10 +118,12 @@
     &:has(:focus option[value='']:checked) {
       --border-color: var(--blue-600);
     }
+    /* stylelint-enable selector-no-qualifying-type */
 
     &:has(:invalid:not([type='checkbox']):not(select):not(:placeholder-shown)),
     &:has(:invalid option:not([value='']):checked),
     &:has([aria-invalid='true']) {
+      /* stylelint-disable-next-line declaration-no-important */
       --border-color: var(--red-600) !important;
     }
     // Is invalid and doesn't have focus
@@ -175,6 +178,7 @@
         box-shadow: 0 0 0 1px var(--border-color);
         outline: none;
       }
+
       &:invalid {
         border-color: var(--border-color);
       }
@@ -183,7 +187,7 @@
       &:focus,
       &:not(select):not(:placeholder-shown),
       &:has(option:not([value='']):checked) {
-        & + #{$this}--label {
+        + #{$this}--label {
           transform: translateY(calc(-1.5rem - 1px));
           font-size: 0.75rem;
           background: var(--white);
@@ -217,7 +221,7 @@
       &:focus,
       &:active,
       &:invalid {
-        & + #{$this}--label {
+        + #{$this}--label {
           color: var(--border-color);
         }
       }
@@ -225,7 +229,7 @@
 
     &--select &--field {
       appearance: none;
-      background-image: url(/images/icons/sprite.svg#arrow-drop-down);
+      background-image: url('/images/icons/sprite.svg#arrow-drop-down');
       background-position: right 1% top 50%;
       background-repeat: no-repeat;
       background-size: 1.5rem 1.5rem;

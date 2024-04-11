@@ -135,6 +135,7 @@
 </dialog>
 
 <style lang="scss">
+  @use 'sass:map';
   @import '$sass/shared';
 
   .header {
@@ -177,7 +178,7 @@
     &--menu,
     &--search-toggle {
       background: none;
-      border: none;
+      border: 0;
       padding: 0;
       cursor: pointer;
     }
@@ -261,7 +262,7 @@
     max-width: 40ch;
     height: 100%;
     max-height: unset;
-    border: none;
+    border: 0;
     margin-inline: 0;
     padding: 0;
     transform: translateX(0);
@@ -283,7 +284,7 @@
     }
 
     &::backdrop {
-      background: rgba(map-get($google-colors, 'grey-900'), 0.9);
+      background: rgba(map.get($google-colors, 'grey-900'), 0.9);
       backdrop-filter: blur(5px);
       // opacity: 0;
       transition: opacity 0.3s ease-in-out;

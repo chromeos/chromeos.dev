@@ -77,12 +77,13 @@
         display: block;
         position: absolute;
       }
+
       &::before {
         left: 0;
-        -webkit-mask-image: paint(shape);
         mask-image: paint(shape);
         top: 0;
       }
+
       &::after {
         background-image: paint(shape);
       }
@@ -92,14 +93,16 @@
         &::after {
           --shape-size: (100% 100%);
         }
+
         &::before {
           --shape: triangle;
           --shape-color: var(--primary-yellow);
-          background-image: url(https://chromeos-dev.imgix.net/icons/patterns/angle-yellow.svg);
+          background-image: url('https://chromeos-dev.imgix.net/icons/patterns/angle-yellow.svg');
           height: 100%;
           transform: rotate(-17deg) translate(-9%, 5%);
           width: 100%;
         }
+
         &::after {
           --shape: circle;
           --shape-color: var(--primary-red);
@@ -111,8 +114,9 @@
 
         &[data-shape~='alt'] {
           &::before {
-            background-image: url(https://chromeos-dev.imgix.net/icons/patterns/angle-green.svg);
+            background-image: url('https://chromeos-dev.imgix.net/icons/patterns/angle-green.svg');
           }
+
           &::after {
             --shape-color: var(--primary-blue);
           }
@@ -134,7 +138,7 @@
           left: -20%;
           width: 135%;
           height: 68%;
-          background-image: url(https://chromeos-dev.imgix.net/icons/patterns/bracket-green.svg);
+          background-image: url('https://chromeos-dev.imgix.net/icons/patterns/bracket-green.svg');
           transform: rotate(20deg);
         }
 
@@ -149,7 +153,7 @@
 
         &[data-shape~='alt'] {
           &::before {
-            background-image: url(https://chromeos-dev.imgix.net/icons/patterns/bracket-blue.svg);
+            background-image: url('https://chromeos-dev.imgix.net/icons/patterns/bracket-blue.svg');
           }
 
           &::after {
@@ -170,7 +174,7 @@
 
         &::before {
           --shape-color: var(--primary-blue);
-          background-image: url(https://chromeos-dev.imgix.net/icons/patterns/slash-blue.svg);
+          background-image: url('https://chromeos-dev.imgix.net/icons/patterns/slash-blue.svg');
           height: 95%;
           left: 5%;
           top: -8%;

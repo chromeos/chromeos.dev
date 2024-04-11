@@ -117,6 +117,7 @@
     &--header {
       display: grid;
     }
+
     &--text,
     &--toggle {
       grid-column: 1;
@@ -135,6 +136,7 @@
       position: relative;
       z-index: 0;
       transform: scale(0.75);
+
       [data-expanded='true'] & {
         transform: rotate(180deg) scale(0.75);
       }
@@ -167,7 +169,7 @@
 
       @container style(--inline-extras: 0) {
         display: block;
-        padding-block-end: 0rem;
+        padding-block-end: 0;
         border-left: 2px solid var(--grey-200);
 
         // :global([data-theme='dark']) & {
@@ -183,6 +185,7 @@
     &--link {
       display: block;
       position: relative;
+
       &:focus {
         background: none;
         --bkg: var(--blue-50);

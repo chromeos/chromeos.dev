@@ -95,6 +95,7 @@
 <style lang="scss">
   .pagination {
     margin-top: 1rem;
+
     &--pages {
       list-style: none;
       display: flex;
@@ -102,9 +103,11 @@
       gap: 1rem;
       align-items: center;
     }
+
     &--link {
       color: var(--black);
       text-decoration: none;
+
       &[aria-label] {
         text-decoration: underline;
       }

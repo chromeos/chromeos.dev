@@ -98,7 +98,7 @@
         }
       }
 
-      & .toggle--icon {
+      .toggle--icon {
         transform: rotate(180deg);
       }
     }
@@ -150,6 +150,7 @@
         left: -2px;
       }
     }
+
     &[hidden] {
       display: none;
     }
