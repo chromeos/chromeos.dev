@@ -95,7 +95,7 @@
   let badgeURL = url;
 
   $: badgeURL = `${url}?utm_source=${source}&utm_campaign=${campaign}`;
-  $: badgeSrc = `https://${type}.svg?language=${language?.toLowerCase().slice(0, 2)}`;
+  $: badgeSrc = `https://chromeos.dev/badges/${type}.svg`;
 
   $: badges = [
     {
@@ -114,10 +114,8 @@
 <section class="badge-generator--wrapper">
   <header class="badge-generator--header">
     <h2 class="badge-generator--heading type--h2">{codegen.heading}</h2>
-    <a
-      class="badge-generator--download-link"
-      href="https://chromeos.dev"
-      download>{codegen.download}<Download /></a
+    <a class="badge-generator--download-link" href="/badges/badges.zip" download
+      >{codegen.download}<Download /></a
     >
   </header>
   <form class="badge-generator--form">
@@ -382,10 +380,8 @@
       }
 
       :checked ~ & {
-        :global(.cta) {
-          :global([data-theme='dark']) & {
-            color: var(--phosphor-gray);
-          }
+        :global(.cta) :global([data-theme='dark']) & {
+          color: var(--phosphor-gray);
         }
       }
     }
