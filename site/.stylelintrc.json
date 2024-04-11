@@ -6,6 +6,8 @@
   "ignoreFiles": ["node_modules/**/*", "dist/**/*", "public/**/*"],
   "customSyntax": "postcss-html",
   "rules": {
+    "selector-max-compound-selectors": false,
+    "no-descending-specificity": false,
     "no-duplicate-selectors": true,
     "color-named": "never",
     "selector-no-qualifying-type": true,
