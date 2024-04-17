@@ -385,7 +385,7 @@ export interface ReleaseNote extends CoreMeta {
   stable: Date;
   overview: string;
   featured: ReleaseNoteFeature[];
-  additional: {
+  additional?: {
     overview: string;
     features: ReleaseNoteFeature[];
   };
@@ -480,8 +480,14 @@ export type Microcopy = {
     notes: string;
     stable: string;
     dev: string;
-    ltc: string;
-    lts: string;
+    ltc: {
+      abbr: string;
+      full: string;
+    };
+    lts: {
+      abbr: string;
+      full: string;
+    };
     channel: string;
     also: string;
   };

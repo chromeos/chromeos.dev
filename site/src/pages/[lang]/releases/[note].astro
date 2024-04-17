@@ -9,7 +9,7 @@ import {
 // import { buildSection, buildTopics } from '$lib/documentation';
 
 import SectionNav from '$components/SectionNav.svelte';
-import Text from '$components/Text.astro';
+import Release from '$components/Release.astro';
 
 /**
  * Static paths
@@ -19,6 +19,13 @@ import Text from '$components/Text.astro';
 export function getStaticPaths() {
   const sections = {};
   const landings = {};
+  const max = releaseNotes.reduce((acc, cur) => {
+    if (!acc[cur._langCode] || cur.version > acc[cur._langCode]) {
+      acc[cur._langCode] = cur.version;
+    }
+
+    return acc;
+  }, {});
   return releaseNotes
     .filter((h) => h._langCode === 'en')
     .map((landing) => {
@@ -48,14 +55,13 @@ export function getStaticPaths() {
           note: landing,
           backgrounds: landings[landing._langCode].backgrounds,
           sections: sections[landing._langCode],
+          max: max[landing._langCode],
         },
       };
     });
 }
 
-const { backgrounds, microcopy, note, sections } = Astro.props;
-
-console.log(microcopy.releases);
+const { backgrounds, microcopy, note, sections, max } = Astro.props;
 ---
 
 <Section title={note.title} locale={microcopy.locale} metadesc={note.overview}>
@@ -85,77 +91,12 @@ console.log(microcopy.releases);
   </header>
 
   <Fragment slot="content">
-    <div class="content">
-      <footer>
-        <p class="type--eyebrow">
-          {
-            microcopy.releases.channel.replace(
-              '((c))',
-              microcopy.releases.stable,
-            )
-          }
-        </p>
-        <p class="type--small">
-          {
-            microcopy.releases.releasedon
-              .replace('((c))', microcopy.releases.stable.toLowerCase())
-              .replace(
-                '((d))',
-                note.stable.toLocaleDateString(note._localeCode, {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                }),
-              )
-          }
-        </p>
-      </footer>
-      <div class="type">
-        <p>{note.overview}</p>
-        {
-          note.featured &&
-            note.featured.map((f) => {
-              return (
-                <>
-                  <h3>{f.title}</h3>
-                  <Text body={f.content} />
-                </>
-              );
-            })
-        }
-        <h3>
-          {microcopy.releases.also.replace('((v))', note.title)}
-        </h3>
-        <p>{note.additional.overview}</p>
-        {
-          note.additional.features &&
-            note.additional.features.map((f) => {
-              return (
-                <>
-                  <h4>{f.title}</h4>
-                  <Text body={f.content} />
-                </>
-              );
-            })
-        }
-      </div>
-    </div>
+    <Release note={note} microcopy={microcopy} max={max} single={true} />
   </Fragment>
 </Section>
 
 <style lang="scss">
   @import '$sass/shared';
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .permalink {
-    margin-top: 0;
-    padding-top: 0;
-  }
 
   .hero {
     padding-inline: var(--inline-padding);
@@ -200,14 +141,4 @@ console.log(microcopy.releases);
       }
     }
   }
-
-  // .topics-header {
-  //   text-align: center;
-  // }
-
-  // .topics {
-  //   display: grid;
-  //   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-  //   gap: 1.5rem;
-  // }
 </style>

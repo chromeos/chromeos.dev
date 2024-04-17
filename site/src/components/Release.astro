@@ -1,0 +1,211 @@
+---
+import type { Microcopy, ReleaseNote } from '$types/sanity';
+import Text from '$components/Text.astro';
+
+export interface Props {
+  note: ReleaseNote;
+  microcopy: Microcopy;
+  max: number;
+  condensed?: boolean;
+  single?: boolean;
+}
+
+const { note, microcopy, max, condensed = false, single = false } = Astro.props;
+
+let lts;
+
+if (note.version % 6 === 0) {
+  if (note.version + 3 <= max) {
+    lts = microcopy.releases.lts;
+    lts.channel = 'lts';
+  } else {
+    lts = microcopy.releases.ltc;
+    lts.channel = 'ltc';
+  }
+}
+
+const classes = ['header-anchor--wrapper', 'permalink'];
+
+if (condensed) {
+  classes.push('type--h2');
+} else {
+  classes.push('type--h1');
+}
+
+let WrapperElement = 'article';
+let HeaderElement = 'header';
+
+if (single) {
+  WrapperElement = 'div';
+  HeaderElement = 'footer';
+}
+---
+
+<WrapperElement class="note">
+  <HeaderElement>
+    <p class="type--eyebrow">
+      {microcopy.releases.channel.replace('((c))', microcopy.releases.stable)}
+      {
+        lts && (
+          <abbr title={lts.full} data-channel={lts.channel}>
+            {lts.abbr}
+          </abbr>
+        )
+      }
+    </p>
+
+    {
+      !single && (
+        <h2 class={classes.join(' ')}>
+          <a class="header-anchor" href={note._slug}>
+            {note.title}
+          </a>
+        </h2>
+      )
+    }
+
+    <p class="type--small">
+      {
+        microcopy.releases.releasedon
+          .replace('((c))', microcopy.releases.stable.toLowerCase())
+          .replace(
+            '((d))',
+            note.stable.toLocaleDateString(note._localeCode, {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            }),
+          )
+      }
+    </p>
+  </HeaderElement>
+  {
+    !condensed && (
+      <section class="type">
+        <p>{note.overview}</p>
+        {note.featured &&
+          note.featured.map((f) => {
+            return (
+              <>
+                <h3>{f.title}</h3>
+                <Text body={f.content} />
+              </>
+            );
+          })}
+        <h3>{microcopy.releases.also.replace('((v))', note.title)}</h3>
+        {note.additional && <p>{note.additional.overview}</p>}
+        {note.additional?.features &&
+          note.additional.features.map((f) => {
+            return (
+              <>
+                <h4>{f.title}</h4>
+                <Text body={f.content} />
+              </>
+            );
+          })}
+      </section>
+    )
+  }
+  {
+    condensed && (
+      <>
+        <details class="type">
+          <summary>
+            {note.overview}
+            <svg aria-hidden="true" class="details-marker" viewBox="0 0 24 24">
+              <path d="M7.59 18.59L9 20l8-8-8-8-1.41 1.41L14.17 12" />
+            </svg>
+          </summary>
+          {note.featured &&
+            note.featured.map((f) => {
+              return (
+                <>
+                  <h3>{f.title}</h3>
+                  <Text body={f.content} />
+                </>
+              );
+            })}
+        </details>
+        <h3 class="type--h4">
+          {microcopy.releases.also.replace('((v))', note.title)}
+        </h3>
+        {note.additional && (
+          <details class="type">
+            <summary>
+              {note.additional.overview}
+              <svg
+                aria-hidden="true"
+                class="details-marker"
+                viewBox="0 0 24 24"
+              >
+                <path d="M7.59 18.59L9 20l8-8-8-8-1.41 1.41L14.17 12" />
+              </svg>
+            </summary>
+            {note.additional.features &&
+              note.additional.features.map((f) => {
+                return (
+                  <>
+                    <h4>{f.title}</h4>
+                    <Text body={f.content} />
+                  </>
+                );
+              })}
+          </details>
+        )}
+      </>
+    )
+  }
+</WrapperElement>
+
+<style lang="scss">
+  .note {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .permalink {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  summary {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1rem;
+    gap: 0;
+  }
+
+  .details-marker {
+    fill: currentColor;
+
+    [open] & {
+      transform: rotate(90deg);
+    }
+  }
+
+  .type--eyebrow {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-block-end: 0.25rem;
+  }
+
+  abbr {
+    font-size: 0.8em;
+    padding: 0.25em 0.8em;
+    border-radius: 0.5em;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  [data-channel='lts'] {
+    background-color: var(--tertiary-green);
+  }
+
+  [data-channel='ltc'] {
+    background-color: var(--tertiary-yellow);
+  }
+</style>

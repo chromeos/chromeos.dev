@@ -9,7 +9,7 @@ import {
 // import { buildSection, buildTopics } from '$lib/documentation';
 
 import SectionNav from '$components/SectionNav.svelte';
-import Text from '$components/Text.astro';
+import Release from '$components/Release.astro';
 // import AppSupport from '$components/AppSupport.svelte';
 // import Card from '$components/Card.svelte';
 
@@ -48,27 +48,110 @@ const section = notes.map((note) => {
   };
 });
 
+const max = notes.reduce((acc, cur) => {
+  if (cur.version > acc) {
+    acc = cur.version;
+  }
+
+  return acc;
+}, 0);
+
 const first = notes[0];
 const rest = notes.slice(1);
 
-console.log(rest);
+const r = max % 6;
+let lts;
+let ltc;
 
-// const section = buildSection(landing.category, landing._lang);
-// const topics = buildTopics(section.map((s) => s.href));
+// Three past is when LTC graduates to LTS
 
-// let color = 'var(--primary-blue)';
+if (r >= 3) {
+  lts = max - r;
+  ltc = max + (6 - r);
+} else {
+  lts = max - 6 - r;
+  ltc = max - r;
+}
 
-// switch (landing.category.slug) {
-//   case 'productivity':
-//   case 'linux':
-//   case 'android-environment':
-//   case 'web-environment':
-//     color = 'var(--secondary-yellow)';
-//     break;
-//   case 'publish':
-//     color = 'var(--primary-green)';
-//     break;
-// }
+/**
+ * Determines the date when a release should be out
+ * @param {number} version
+ * @return {string}
+ */
+function ltxDate(version: number) {
+  if (version <= max) {
+    const n = notes.find((n) => n.version === version);
+    if (n) {
+      return n.stable.toLocaleDateString(microcopy._localeCode, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
+    }
+  }
+
+  const diff = version - first.version;
+  const d = new Date(first.stable);
+  const stable = new Date(d.setMonth(d.getMonth() + diff));
+  return microcopy.releases.relative.expected.replace(
+    '((d))',
+    stable.toLocaleDateString(microcopy._localeCode, {
+      year: 'numeric',
+      month: 'long',
+    }),
+  );
+}
+
+const releases = [
+  {
+    channel: microcopy.releases.stable,
+    version: first.version,
+    next: '((c))',
+    date: ltxDate(first.version),
+  },
+  {
+    channel: 'Beta',
+    version: first.version + 1,
+    next: '((c))',
+    date: ltxDate(first.version + 1),
+  },
+  {
+    channel: microcopy.releases.dev,
+    version: first.version + 2,
+    next: '((c))',
+    date: ltxDate(first.version + 2),
+  },
+];
+
+const stables = [
+  {
+    channel: microcopy.releases.lts,
+    next:
+      lts > max
+        ? microcopy.releases.relative.next
+        : microcopy.releases.relative.current,
+    version: lts,
+    date: ltxDate(lts),
+  },
+  {
+    channel: microcopy.releases.ltc,
+    next:
+      ltc > max
+        ? microcopy.releases.relative.next
+        : microcopy.releases.relative.current,
+    version: ltc,
+    date: ltxDate(ltc),
+  },
+];
+
+if (ltc < max || ltc === max) {
+  stables.push({
+    channel: microcopy.releases.ltc,
+    next: microcopy.releases.relative.next,
+    version: ltc + 6,
+    date: ltxDate(ltc + 6),
+  });
+}
 ---
 
 <Section
@@ -100,166 +183,94 @@ console.log(rest);
   </header>
 
   <Fragment slot="content">
-    <article class="note">
-      <header>
-        <p class="type--eyebrow">
-          {
-            microcopy.releases.channel.replace(
-              '((c))',
-              microcopy.releases.stable,
-            )
-          }
-        </p>
-        <h2 class="type--h1 header-anchor--wrapper permalink">
-          <a class="header-anchor" href={first._slug}>{first.title}</a>
-        </h2>
-        <p class="type--small">
-          {
-            microcopy.releases.releasedon
-              .replace('((c))', microcopy.releases.stable.toLowerCase())
-              .replace(
-                '((d))',
-                first.stable.toLocaleDateString(first._localeCode, {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                }),
-              )
-          }
-        </p>
-      </header>
-      <section class="type">
-        <p>{first.overview}</p>
-        {
-          first.featured &&
-            first.featured.map((f) => {
-              return (
-                <>
-                  <h3>{f.title}</h3>
-                  <Text body={f.content} />
-                </>
-              );
-            })
-        }
-        <h3>
-          {microcopy.releases.also.replace('((v))', first.title)}
-        </h3>
-        <p>{first.additional.overview}</p>
-        {
-          first.additional.features &&
-            first.additional.features.map((f) => {
-              return (
-                <>
-                  <h4>{f.title}</h4>
-                  <Text body={f.content} />
-                </>
-              );
-            })
-        }
-      </section>
-    </article>
+    <ol class="releases">
+      {
+        releases.map((release) => {
+          return (
+            <li>
+              <p class="type--eyebrow">{release.channel}</p>
+              <h2 class="type--h3">ChromeOS {release.version}</h2>
+
+              <p class="type--small">{release.date}</p>
+            </li>
+          );
+        })
+      }
+    </ol>
+
+    <ol class="releases lts">
+      {
+        stables.map((release) => {
+          return (
+            <li>
+              <p
+                class="type--eyebrow"
+                set:html={release.next.replace(
+                  '((c))',
+                  `<abbr title="${release.channel.full}">${release.channel.abbr}</abbr>`,
+                )}
+              />
+
+              <h2 class="type--h3">ChromeOS {release.version}</h2>
+
+              <p class="type--small">{release.date}</p>
+            </li>
+          );
+        })
+      }
+    </ol>
+
+    <Release note={first} microcopy={microcopy} max={max} />
 
     {
-      rest.map((note) => {
-        return (
-          <article class="note">
-            <header>
-              <p class="type--eyebrow">
-                {microcopy.releases.channel.replace(
-                  '((c))',
-                  microcopy.releases.stable,
-                )}
-              </p>
-              <h2 class="type--h2 header-anchor--wrapper permalink">
-                <a class="header-anchor" href={note._slug}>
-                  {note.title}
-                </a>
-              </h2>
-              <p class="type--small">
-                {microcopy.releases.releasedon
-                  .replace('((c))', microcopy.releases.stable.toLowerCase())
-                  .replace(
-                    '((d))',
-                    note.stable.toLocaleDateString(note._localeCode, {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    }),
-                  )}
-              </p>
-            </header>
-            <details class="type">
-              <summary>
-                {note.overview}
-                <svg
-                  aria-hidden="true"
-                  class="details-marker"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M7.59 18.59L9 20l8-8-8-8-1.41 1.41L14.17 12" />
-                </svg>
-              </summary>
-              {note.featured &&
-                note.featured.map((f) => {
-                  return (
-                    <>
-                      <h3>{f.title}</h3>
-                      <Text body={f.content} />
-                    </>
-                  );
-                })}
-            </details>
-            <h3 class="type--h4">
-              {microcopy.releases.also.replace('((v))', note.title)}
-            </h3>
-            <details class="type">
-              <summary>
-                {note.additional.overview}
-                <svg
-                  aria-hidden="true"
-                  class="details-marker"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M7.59 18.59L9 20l8-8-8-8-1.41 1.41L14.17 12" />
-                </svg>
-              </summary>
-              {note.additional.features &&
-                note.additional.features.map((f) => {
-                  return (
-                    <>
-                      <h4>{f.title}</h4>
-                      <Text body={f.content} />
-                    </>
-                  );
-                })}
-            </details>
-          </article>
-        );
-      })
+      rest.map((note) => (
+        <Release note={note} microcopy={microcopy} max={max} condensed={true} />
+      ))
     }
   </Fragment>
 </Section>
 
 <style lang="scss">
+  @use 'sass:map';
   @import '$sass/shared';
 
   :global(.section) {
     background-color: var(--grey-50);
   }
 
-  .note {
+  :global(.note) {
     @include elevation(0);
     background: var(--white);
     padding: 2rem;
     border-radius: var(--border-radius);
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
   }
 
-  .permalink {
-    margin-top: 0;
-    padding-top: 0;
+  .releases {
+    list-style: none;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(20ch, 1fr));
+
+    &.lts {
+      margin-block-start: 1rem;
+      border-top: 1px solid rgba(map.get($google-colors, 'grey-800'), 0.15);
+      padding-block-start: 1rem;
+      padding-block-end: 1rem;
+    }
+
+    img {
+      height: 1.5rem;
+      width: 1.5rem;
+      padding: 0;
+    }
+
+    li {
+      text-align: center;
+    }
+  }
+
+  .release {
+    text-align: center;
   }
 
   .hero {
@@ -305,29 +316,4 @@ console.log(rest);
       }
     }
   }
-
-  summary {
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1rem;
-    gap: 0;
-  }
-
-  .details-marker {
-    fill: currentColor;
-
-    [open] & {
-      transform: rotate(90deg);
-    }
-  }
-
-  // .topics-header {
-  //   text-align: center;
-  // }
-
-  // .topics {
-  //   display: grid;
-  //   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-  //   gap: 1.5rem;
-  // }
 </style>
