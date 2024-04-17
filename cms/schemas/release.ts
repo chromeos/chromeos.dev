@@ -72,7 +72,6 @@ export default defineType({
     defineField({
       name: 'additional',
       title: 'Additional Content',
-      validation: (Rule) => Rule.required(),
       type: 'object',
       fields: [
         defineField({
