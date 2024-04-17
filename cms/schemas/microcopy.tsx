@@ -617,10 +617,38 @@ export default defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineField({
+          name: 'beta',
+          title: 'Beta',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
           name: 'dev',
           title: 'Dev',
           type: 'string',
           validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'relative',
+          title: 'Relative strings',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'expected',
+              title: 'Expected ((d))',
+              type: 'string',
+            }),
+            defineField({
+              name: 'current',
+              title: 'Current ((c))',
+              type: 'string',
+            }),
+            defineField({
+              name: 'next',
+              title: 'Next ((d))',
+              type: 'string',
+            }),
+          ],
         }),
         defineField({
           name: 'lts',
