@@ -632,20 +632,24 @@ export default defineType({
           name: 'relative',
           title: 'Relative strings',
           type: 'object',
+          validation: (Rule) => Rule.required(),
           fields: [
             defineField({
               name: 'expected',
-              title: 'Expected ((d))',
+              title: 'Expected',
+              description: '((d)) - Date',
               type: 'string',
             }),
             defineField({
               name: 'current',
-              title: 'Current ((c))',
+              title: 'Current',
+              description: '((c)) - Channel',
               type: 'string',
             }),
             defineField({
               name: 'next',
-              title: 'Next ((d))',
+              title: 'Next',
+              description: '((c)) - Channel',
               type: 'string',
             }),
           ],
