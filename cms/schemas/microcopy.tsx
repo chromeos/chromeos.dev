@@ -625,13 +625,37 @@ export default defineType({
         defineField({
           name: 'lts',
           title: 'Long-term Stable',
-          type: 'string',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'abbr',
+              title: 'Abbreviation',
+              type: 'string',
+            }),
+            defineField({
+              name: 'full',
+              title: 'Full',
+              type: 'string',
+            }),
+          ],
           validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'ltc',
           title: 'Long-term Stable Candidate',
-          type: 'string',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'abbr',
+              title: 'Abbreviation',
+              type: 'string',
+            }),
+            defineField({
+              name: 'full',
+              title: 'Full',
+              type: 'string',
+            }),
+          ],
           validation: (Rule) => Rule.required(),
         }),
         defineField({
