@@ -72,12 +72,12 @@ export const themeQuery = `
   'backgrounds': {
     'large': coalesce(
     theme.backgrounds.background_large.asset,
-    theme.theme->background_large.asset,
+    theme.theme->backgrounds.background_large.asset,
       'ix://landings/news/top/banner-' + category-> slug.current + '.svg'
     ),
     'small': coalesce(
     theme.backgrounds.background_small.asset,
-    theme.theme->background_small.asset,
+    theme.theme->backgrounds.background_small.asset,
       'ix://landings/news/banner-' + category-> slug.current + '.svg'
     ),
   }
