@@ -34,7 +34,9 @@
       <img src={story.app.logo.image} class="app--logo" alt="" sizes="60px" />
       <figcaption class="app--info">
         <p class="app--text type--h6">{story.app.title}</p>
-        <p class="app--text type--small">{story.app.company}</p>
+        {#if story.app.company}
+          <p class="app--text type--small">{story.app.company}</p>
+        {/if}
       </figcaption>
     </figure>
   </div>
