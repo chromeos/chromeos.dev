@@ -92,7 +92,7 @@ function ltxDate(version: number) {
 
   const diff = version - first.version;
   const d = new Date(first.stable);
-  const stable = new Date(d.setMonth(d.getMonth() + diff));
+  const stable = new Date(d.setDate(d.getDate() + diff * 7 * 4));
   return microcopy.releases.relative.expected.replace(
     '((d))',
     stable.toLocaleDateString(microcopy._localeCode, {
