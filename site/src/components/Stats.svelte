@@ -80,14 +80,21 @@
       max-width: 20rem;
       flex-grow: 1;
       color: var(--grey-750);
+
+      :global([data-theme='dark']) & {
+        text-shadow:
+          1px 1px var(--phosphor-gray),
+          -1px -1px var(--phosphor-gray),
+          1px -1px var(--phosphor-gray),
+          -1px 1px var(--phosphor-gray);
+      }
     }
 
     &__semicircle::after {
       $circle-l: 65;
-      --shape-color: var(--primary-yellow);
-      #{'--circle-radius'}: $circle-l;
-      #{'--circle-offset'}: $circle-l;
-      background-image: paint(circles);
+      background-color: var(--primary-yellow);
+      clip-path: circle(math.div($circle-l, 16) * 1rem at bottom);
+      // border-radius: 100% 100% 0 0;
       height: math.div($circle-l, 16) * 1rem;
       top: 100%;
       transform: translate(-50%, -0%) rotate(210deg);
@@ -97,10 +104,8 @@
 
     &__circle::after {
       $circle-s: 42.5;
-      --shape-color: var(--primary-blue);
-      #{'--circle-radius'}: $circle-s;
-      #{'--circle-offset'}: $circle-s;
-      background-image: paint(circles);
+      background-color: var(--primary-blue);
+      border-radius: 50%;
       bottom: 0;
       height: math.div($circle-s, 8) * 1rem;
       transform: translateX(-50%);
@@ -119,9 +124,13 @@
       );
       height: $size;
       top: 0;
-      transform: translate(-50%, -25%) rotate(-15deg);
+      transform: translate(-50%, -25%) rotate(-15deg) scale(0.9);
       transform-origin: bottom right;
       width: $size;
+
+      :global([data-theme='dark']) & {
+        --shape-color: var(--red-650);
+      }
     }
   }
 </style>
