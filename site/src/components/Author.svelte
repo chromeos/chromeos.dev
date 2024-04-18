@@ -37,4 +37,8 @@
     width: 2rem;
     border-radius: 50%;
   }
+
+  .type--h6 {
+    font-weight: 400;
+  }
 </style>

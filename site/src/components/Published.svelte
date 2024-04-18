@@ -16,3 +16,9 @@
     })}</time
   >
 </svelte:element>
+
+<style>
+  .type--h6 {
+    font-weight: 400;
+  }
+</style>
