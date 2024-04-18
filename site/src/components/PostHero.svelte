@@ -291,6 +291,12 @@
       --hero-theme-cta-background: transparent;
     }
 
+    &__io-2023 {
+      --hero-theme-color: var(--black);
+      --hero-theme-background: var(--yellow-500);
+      --hero-theme-cta-background: transparent;
+    }
+
     &__lumafusion {
       --hero-theme-color: var(--white);
       --hero-theme-background: var(--blue-850);
