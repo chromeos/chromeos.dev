@@ -29,7 +29,14 @@ export function buildPostPagination(
     .filter(([lang]: [string, Array<Post>]) => lang === 'en')
     .map(([lang, posts]: [string, Array<Post>]) => {
       const featured = posts.find((p) => p.featured);
-      const filtered = posts.filter((p) => p._slug !== featured?._slug);
+      const filtered = posts
+        .filter((p) => p._slug !== featured?._slug)
+        .sort((a, b) => {
+          const dateA = a.dates?.updated || a.dates.published;
+          const dateB = b.dates?.updated || b.dates.published;
+
+          return new Date(dateB) - new Date(dateA);
+        });
       const pages = Math.ceil(filtered.length / itemsPerPage);
 
       const groups = [];
