@@ -240,8 +240,12 @@ export interface Newsletter extends CoreContentMeta {
   };
 }
 
-export interface StoryLanding extends CoreContentMeta {
+export interface StoryLanding extends CoreMeta {
   sections: StorySection[];
+}
+
+export interface NewsLanding extends CoreMeta {
+  title: string;
 }
 
 export interface Post extends CoreContent {

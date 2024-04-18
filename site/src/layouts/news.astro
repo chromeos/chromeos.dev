@@ -2,6 +2,7 @@
 import type { Microcopy, Post } from '$types/sanity';
 import type { CardProps } from '$components/Card.svelte';
 import type { PostHeroProps } from '$components/PostHero.svelte';
+import { newsLandings } from '$lib/sanity';
 import Wrapper from '$layouts/wrapper.astro';
 import PostHero from '$components/PostHero.svelte';
 import Card from '$components/Card.svelte';
@@ -44,15 +45,17 @@ const postcards = posts.map((post) => {
     },
   } as CardProps;
 });
+
+const title = newsLandings.find((l) => l._langCode === locale.code).title;
 ---
 
-<Wrapper locale={locale} metadesc="" title="News">
+<Wrapper locale={locale} metadesc="" title={title}>
   <div class="news">
     <PostHero {...feature} />
     <section
       class="wrapper wrapper--full-bleed wrapper--padding wrapper--padded wrapper__background wrapper__contained"
     >
-      <h2 class="type--h1 news--title">News</h2>
+      <h2 class="type--h1 news--title">{title}</h2>
       <ol class="news--items">
         {
           postcards.map((post) => {
@@ -89,6 +92,7 @@ const postcards = posts.map((post) => {
     //
     &--title {
       text-align: center;
+      margin-block-end: 2.5rem;
     }
 
     &--items {

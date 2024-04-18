@@ -13,6 +13,7 @@ import type {
   Guidelines,
   ReleaseNote,
   ReleaseNotesLanding,
+  NewsLanding,
 } from '../types/sanity';
 
 import 'dotenv/config';
@@ -220,6 +221,15 @@ export const storyLandings = (await sanity.fetch(
     ${coreMetaQuery}
   }`,
 )) as StoryLanding[];
+
+export const newsLandings = (await sanity.fetch(
+  `
+  *[_type == 'news' && _id match 'news-*' && !(_id in path('drafts.**'))]
+  {
+    title,
+    ${coreMetaQuery}
+  }`,
+)) as NewsLanding[];
 
 // Microcopy
 export const microcopy = groupByLanguage(
