@@ -52,7 +52,11 @@ const toc = buildTOC(story.body);
   <!-- Hero image -->
   {
     story?.hero?.image && (
-      <img src={story.hero.image} alt={story.hero.alt} slot="hero" />
+      <img
+        src={story.hero.image}
+        alt={story.hero.alt}
+        slot={story?.hero?.image && 'hero'}
+      />
     )
   }
   <!-- Main content area -->

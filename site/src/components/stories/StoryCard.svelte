@@ -1,27 +1,9 @@
 <script lang="ts">
   import crypto from 'crypto';
   import CTA from '$components/CTA.svelte';
+  import type { Story } from '$types/sanity';
 
-  interface StoryPreview {
-    title: string;
-    metadesc: string;
-    path: string;
-    lang: string;
-    date: Date;
-    app: {
-      name: string;
-      logo: string;
-      company: string;
-    };
-    hero: {
-      image: string;
-      alt: string;
-    };
-    featurd: boolean;
-    tags: string[];
-  }
-
-  export let story: StoryPreview;
+  export let story: Story;
   export let action: string;
   export let eyebrow: string;
 
@@ -33,13 +15,13 @@
    * @return {string} Placeholder image
    */
   function placeholder() {
-    const t = story.tags[0];
+    const t = story.category.slug;
     if (t === 'pwa') {
       return 'ix://landings/stories/placeholder-web.svg';
     } else if (t === 'android') {
       return 'ix://landings/stories/placeholder-android.svg';
     } else {
-      return 'ix://landings/stories/placeholder=games.svg';
+      return 'ix://landings/stories/placeholder-games.svg';
     }
   }
 
@@ -52,7 +34,7 @@
 
 <a href={story._path} class="story-card" aria-labelledby={id}>
   <article class="story-card--container">
-    <img src={image} alt={story?.hero?.alt || null} />
+    <img src={image} alt={story?.hero?.alt || placeholder()} />
     <div class="story-card--content">
       {#if eyebrow}
         <small class="type--eyebrow">{eyebrow}</small>
