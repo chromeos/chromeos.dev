@@ -78,6 +78,7 @@ import guidelines from './guidelines';
 import releases from './releases';
 import release from './release';
 import snippet from './snippet';
+import announcement from './announcement';
 
 export const schemaTypes = [
   // Schemas
@@ -101,6 +102,7 @@ export const schemaTypes = [
   releases,
   release,
   snippet,
+  announcement,
 
   // Fields
   fullBlockField,

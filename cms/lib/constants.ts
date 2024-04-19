@@ -11,6 +11,7 @@ export const SINGLETONS = [
   // { type: 'cookies', title: 'Cookie Disclaimer' },
   { type: 'app-support', title: 'App Support' },
   { type: 'guidelines', title: 'Badge Guidelines' },
+  { type: 'announcement', title: 'Announcement' },
   { type: 'releases', title: 'Release Notes' },
 ];
 

@@ -29,6 +29,7 @@ import { MdOutlineNewReleases } from 'react-icons/md';
 import { AiOutlineFileSearch } from 'react-icons/ai';
 import { IoLogoPwa } from 'react-icons/io5';
 import { LuPaintbrush2, LuScissors } from 'react-icons/lu';
+// import { TfiAnnouncement } from 'react-icons/tfi';
 import { SINGLETONS, LANGUAGES } from './constants';
 
 /**
@@ -121,7 +122,10 @@ export const deskStructure = (
             `_type == 'release' && (language == 'en' || !defined(language) || language == 'en')`,
           ),
         ),
+
       S.divider(),
+      // Announcement
+      // buildStandaloneList('announcement', TfiAnnouncement, S),
       // Pages
       S.listItem()
         .title('Pages')
@@ -178,6 +182,7 @@ export const deskStructure = (
                 .child(S.documentTypeList('theme').title('Themes')),
             ]),
         ),
+
       S.divider(),
 
       // Shared documents
