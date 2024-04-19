@@ -499,6 +499,7 @@ export type Microcopy = {
     title: string;
     description: string;
   };
+  announcement?: PortableTextBlock[];
 };
 
 export type Content = Post | Documentation | Story | Landing;

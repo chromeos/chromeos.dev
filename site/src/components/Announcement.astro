@@ -1,0 +1,52 @@
+---
+import PortableText from '$components/portable-text/PortableText.astro';
+
+export interface Props {
+  announcement: any;
+}
+
+const { announcement } = Astro.props;
+---
+
+<aside class="announcement wrapper--padded">
+  <PortableText body={announcement} wrapped={false} inline={true} />
+</aside>
+
+<style lang="scss">
+  @import '$sass/shared';
+
+  .announcement {
+    background-color: var(--yellow-100);
+    border: 1px solid var(--yellow-300);
+    padding-block: 1rem;
+
+    :global([data-theme='dark']) & {
+      background-color: transparent;
+
+      // color: var(--white);
+
+      @media (prefers-reduced-motion: no-preference) {
+        :global(p) {
+          animation: phmarquee 20s linear infinite;
+          margin: 0;
+          transform: translateX(100vw);
+          width: max-content;
+        }
+      }
+
+      :global(a) {
+        color: var(--global-foreground);
+      }
+    }
+  }
+
+  @keyframes phmarquee {
+    0% {
+      transform: translateX(100vw);
+    }
+
+    100% {
+      transform: translateX(calc(-1 * (100% + $wrapper-inline-spacing-r)));
+    }
+  }
+</style>

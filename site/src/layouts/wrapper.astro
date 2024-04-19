@@ -2,6 +2,7 @@
 import type { Locale } from '$types/content';
 import { pwaInfo } from 'virtual:pwa-info';
 import SiteHeader from '$components/SiteHeader.svelte';
+import Announcement from '$components/Announcement.astro';
 import SubscribeFooter from '$components/SubscribeFooter.svelte';
 import Footer from '$components/Footer.astro';
 import Analytics from '$components/Analytics.astro';
@@ -134,7 +135,13 @@ const t =
   <body id="body">
     <!-- Header -->
     <SiteHeader nav={nav} subscribe={subscribe} client:load />
+
     <main class="main">
+      {
+        microcopy.announcement && (
+          <Announcement announcement={microcopy.announcement} />
+        )
+      }
       <slot />
     </main>
 
