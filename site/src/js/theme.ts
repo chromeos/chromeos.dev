@@ -27,6 +27,20 @@ function createThemeStore() {
           : 'light';
     }
     document.documentElement.dataset.theme = theme;
+
+    // Swap theme color for dark mode
+    const darkColor = '#33ff00';
+    const lightColor = '#1967d2';
+
+    let themeColor = lightColor;
+
+    if (theme === 'dark') {
+      themeColor = darkColor;
+    }
+
+    document
+      .querySelector('meta[name="theme-color"]')
+      .setAttribute('content', themeColor);
   }
 
   return {

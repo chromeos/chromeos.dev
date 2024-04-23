@@ -51,6 +51,9 @@ export default defineConfig({
     AstroPWA({
       injectRegister: false,
       manifest,
+      devOptions: {
+        enabled: true,
+      },
       srcDir: './src',
       filename: 'sw.js',
       strategies: 'injectManifest',

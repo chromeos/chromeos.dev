@@ -17,12 +17,13 @@ const { announcement } = Astro.props;
 
   .announcement {
     background-color: var(--yellow-100);
-    border: 1px solid var(--yellow-300);
+    border: 2px solid var(--yellow-300);
     padding-block: 1rem;
     overflow-x: hidden;
 
     :global([data-theme='dark']) & {
       background-color: transparent;
+      border-top: 0;
 
       // color: var(--white);
 

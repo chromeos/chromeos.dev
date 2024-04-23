@@ -1,11 +1,24 @@
 {
   "name": "chromeOS.dev",
   "short_name": "chromeOS.dev",
-  "theme_color": "#1a73e8",
-  "background_color": "#1a73e8",
+  "theme_color": "#1967d2",
+  "background_color": "#1967d2",
   "display": "minimal-ui",
+  "display_override": ["tabbed"],
+  "tab_strip": {
+    "home_tab": {
+      "scope_patterns": [
+        {
+          "pathname": "/:lang"
+        }
+      ]
+    },
+    "new_tab_button": {
+      "url": "/en/index.html"
+    }
+  },
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/en",
   "icons": [
     {
       "src": "/images/icons/pwa/icon-72x72.png",
