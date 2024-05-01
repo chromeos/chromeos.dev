@@ -7,6 +7,8 @@ import CTA from '$components/CTA.svelte';
 import Message from '$components/portable-text/Message.svelte';
 import MediaExample from '$components/MediaExample.svelte';
 import BadgeGenerator from '$components/BadgeGenerator.svelte';
+import { localizations } from '$lib/data/guidelines';
+import ISO6391 from 'iso-639-1';
 
 /**
  * Static paths
@@ -32,9 +34,23 @@ const { locale } = microcopy;
 const { title, share, banner, intro, guidelines, usage, codegen, messaging } =
   data;
 
-const downloadSize = '110 KB';
+const downloadSize = '1.1 MB';
 
 codegen.download = codegen.download.replace('((s))', `(${downloadSize})`);
+
+const en = localizations.find((lc) => lc.code == 'en');
+const l = localizations.map((lc) => {
+  if (!lc.name) {
+    const n = lc.code.split('-');
+    lc.name = ISO6391.getNativeName(n[0]) + (n[1] ? ` (${n[1]})` : '');
+  }
+
+  if (!lc.legal) {
+    lc.legal = en.legal;
+  }
+
+  return lc;
+});
 ---
 
 <Wrapper title={title} metadesc={share?.description} locale={locale}>
@@ -112,6 +128,8 @@ codegen.download = codegen.download.replace('((s))', `(${downloadSize})`);
       <BadgeGenerator
         {codegen}
         required={microcopy.actions.required}
+        localizations={l}
+        locale={locale.code}
         client:load
       />
     </section>

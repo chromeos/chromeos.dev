@@ -423,6 +423,7 @@ export const guidelines: Guidelines[] = await sanity.fetch(
         label,
         primary,
         secondary,
+        dark,
       },
       attribution,
       fields,

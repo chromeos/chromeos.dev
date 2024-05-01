@@ -1,16 +1,19 @@
 <script lang="ts">
   import Input from './Input.svelte';
-  /**
-   * TODO:
-   *
-   * Importing Code throws a client-side error and breaks this component.
-   * It appears to be due to an issue with prismjs.
-   */
   import Generic from './ctas/Generic.svelte';
   import Download from './icons/Download.svelte';
 
+  interface localization {
+    code: string;
+    a2c: string;
+    legal: string;
+    name: string;
+  }
+
   export let codegen;
   export let required: string;
+  export let localizations: localization[];
+  export let locale: string;
 
   const fields = [
     {
@@ -34,41 +37,23 @@
     },
   ];
 
-  const languages = [
-    {
-      value: 'en',
-      text: 'English',
-    },
-    {
-      value: 'es',
-      text: 'Spanish',
-    },
-    {
-      value: 'fr',
-      text: 'French',
-    },
-    {
-      value: 'de',
-      text: 'German',
-    },
-    {
-      value: 'it',
-      text: 'Italian',
-    },
-  ];
+  const languages = localizations.map((l) => ({ value: l.code, text: l.name }));
+  $: i18n = localizations.find((l) => l.code === language);
 
   let language = 'en';
-  let url = 'https://chromeos.dev';
-  let source = 'badge';
-  let campaign = 'add-to';
+  let url = '';
+  let source = '';
+  let campaign = '';
   let type = 'primary';
+  let dark = false;
 
   /**
    * Handle form input changes
    * @param {Event} e
    */
   function handleInputChange(e) {
-    const { name: n, value } = e?.detail?.target || e.target;
+    const { target } = e?.detail || e;
+    const { name: n, value } = target;
     const name = n.toLowerCase();
 
     if (name === 'language') {
@@ -90,23 +75,27 @@
     if (name === 'badge-type') {
       type = value;
     }
+
+    if (name === 'dark') {
+      dark = target.checked;
+    }
   }
 
   let badgeURL = url;
 
-  $: badgeURL = `${url}?utm_source=${source}&utm_campaign=${campaign}`;
-  $: badgeSrc = `https://chromeos.dev/badges/${type}.svg`;
+  $: badgeURL = `${url}${source || campaign ? '?' : ''}${source ? `utm_source=${source}` : ''}${source && campaign ? '&' : ''}${campaign ? `utm_campaign=${campaign}` : ''}`;
+  $: badgeSrc = `https://chromeos.dev/badges/${language}/${type}.svg`;
 
   $: badges = [
     {
       id: 'primary',
       name: codegen.type.primary,
-      image: `/badges/primary.svg?lang=${language}`,
+      image: `/badges/${language}/primary.svg?lang=${language}`,
     },
     {
       id: 'secondary',
       name: codegen.type.secondary,
-      image: `/badges/secondary.svg?lang=${language}`,
+      image: `/badges/${language}/secondary.svg?lang=${language}`,
     },
   ];
 </script>
@@ -128,7 +117,7 @@
             name: 'language',
             options: languages,
             empty: false,
-            value: languages[0].value,
+            value: locale,
           }}
           on:change={handleInputChange}
         />
@@ -166,12 +155,22 @@
           </span>
         {/each}
       </div>
+      <div class="badge-generator--field">
+        <Input
+          input={{
+            type: 'checkbox',
+            name: 'dark',
+            label: codegen.type.dark,
+          }}
+          on:change={handleInputChange}
+        />
+      </div>
       <div class="badge-generator--attribution badge-generator--field">
         <span class="badge-generator--radio-heading type--caption"
           >{codegen.attribution.label}</span
         >
         <span class="badge-generator--attribution-text">
-          {codegen.attribution.copy}
+          {i18n.legal}
         </span>
       </div>
     </div>
@@ -181,37 +180,96 @@
           html
         </figcaption>
         <pre class="language--html"><code class="language--html"
-            ><span class="token tag"
-              ><span class="token tag"
-                ><span class="token punctuation">&lt;</span>a</span
-              > <span class="token attr-name">href</span><span
-                class="token attr-value"
-                ><span class="token punctuation attr-equals">=</span><span
-                  class="token punctuation">"</span
-                >{badgeURL}<span class="token punctuation">"</span></span
-              ><span class="token punctuation">&gt;</span></span
-            >
+            >{#if !dark}<span class="token tag"
+                ><span class="token tag"
+                  ><span class="token punctuation">&lt;</span>a</span
+                > <span class="token attr-name">href</span><span
+                  class="token attr-value"
+                  ><span class="token punctuation attr-equals">=</span><span
+                    class="token punctuation">"</span
+                  >{badgeURL}<span class="token punctuation">"</span></span
+                ><span class="token punctuation">&gt;</span></span
+              >
   <span class="token tag"
-              ><span class="token tag"
-                ><span class="token punctuation">&lt;</span>img</span
-              > <span class="token attr-name">src</span><span
-                class="token attr-value"
-                ><span class="token punctuation attr-equals">=</span><span
-                  class="token punctuation">"</span
-                >{badgeSrc}<span class="token punctuation">"</span></span
-              ><span class="token attr-name"> alt</span><span
-                class="token attr-value"
-                ><span class="token punctuation attr-equals">=</span><span
-                  class="token punctuation">"</span
-                >{codegen.alt}<span class="token punctuation">"</span></span
-              ><span class="token punctuation">/&gt;</span></span
-            >
+                ><span class="token tag"
+                  ><span class="token punctuation">&lt;</span>img</span
+                > <span class="token attr-name">src</span><span
+                  class="token attr-value"
+                  ><span class="token punctuation attr-equals">=</span><span
+                    class="token punctuation">"</span
+                  >{badgeSrc}<span class="token punctuation">"</span></span
+                ><span class="token attr-name"> alt</span><span
+                  class="token attr-value"
+                  ><span class="token punctuation attr-equals">=</span><span
+                    class="token punctuation">"</span
+                  >{i18n.a2c}<span class="token punctuation">"</span></span
+                ><span class="token punctuation">/&gt;</span></span
+              >
 <span class="token tag"
-              ><span class="token tag"
-                ><span class="token punctuation">&lt;/</span>a</span
-              ><span class="token punctuation">&gt;</span></span
-            ></code
-          ></pre>
+                ><span class="token tag"
+                  ><span class="token punctuation">&lt;/</span>a</span
+                ><span class="token punctuation">&gt;</span></span
+              >{:else}<span class="token tag"
+                ><span class="token tag"
+                  ><span class="token punctuation">&lt;</span>a</span
+                > <span class="token attr-name">href</span><span
+                  class="token attr-value"
+                  ><span class="token punctuation attr-equals">=</span><span
+                    class="token punctuation">"</span
+                  >{badgeURL}<span class="token punctuation">"</span></span
+                ><span class="token punctuation">&gt;</span></span
+              >
+  <span class="token tag"
+                ><span class="token tag"
+                  ><span class="token punctuation">&lt;</span>picture</span
+                ><span class="token punctuation">&gt;</span></span
+              >
+    <span class="token tag"
+                ><span class="token tag"
+                  ><span class="token punctuation">&lt;</span>source</span
+                > <span class="token attr-name">srcset</span><span
+                  class="token attr-value"
+                  ><span class="token punctuation attr-equals">=</span><span
+                    class="token punctuation">"</span
+                  >https://chromeos.dev/badges/{language}/dark.svg<span
+                    class="token punctuation">"</span
+                  ></span
+                > <span class="token attr-name">media</span><span
+                  class="token attr-value"
+                  ><span class="token punctuation attr-equals">=</span><span
+                    class="token punctuation">"</span
+                  >(prefers-color-scheme: dark)<span class="token punctuation"
+                    >"</span
+                  ></span
+                ><span class="token punctuation">&gt;</span></span
+              >
+    <span class="token tag"
+                ><span class="token tag"
+                  ><span class="token punctuation">&lt;</span>img</span
+                > <span class="token attr-name">src</span><span
+                  class="token attr-value"
+                  ><span class="token punctuation attr-equals">=</span><span
+                    class="token punctuation">"</span
+                  >{badgeSrc}<span class="token punctuation">"</span></span
+                > <span class="token attr-name">alt</span><span
+                  class="token attr-value"
+                  ><span class="token punctuation attr-equals">=</span><span
+                    class="token punctuation">"</span
+                  >{i18n.a2c}<span class="token punctuation">"</span></span
+                ><span class="token punctuation">/&gt;</span></span
+              >
+  <span class="token tag"
+                ><span class="token tag"
+                  ><span class="token punctuation">&lt;/</span>picture</span
+                ><span class="token punctuation">&gt;</span></span
+              >
+<span class="token tag"
+                ><span class="token tag"
+                  ><span class="token punctuation">&lt;/</span>a</span
+                ><span class="token punctuation">&gt;</span></span
+              >
+            {/if}
+            </code></pre>
       </figure>
 
       {#each fields as field}
@@ -356,13 +414,28 @@
       border-radius: 0.625rem;
       transition: background-color 0.2s ease;
       min-width: 186px;
+      border: 1px solid transparent;
 
       img {
-        max-width: 146px;
+        height: 3.125rem;
+      }
+
+      &:nth-of-type(2) {
+        background-color: var(--blue-50);
+
+        :global([data-theme='dark']) & {
+          &:has(input:checked) {
+            border-color: var(--phosphor-white);
+          }
+
+          :global(.cta) {
+            color: var(--phosphor-gray);
+          }
+        }
       }
 
       &:has(input:checked) {
-        background-color: var(--blue-50);
+        border-color: var(--black);
       }
     }
 
@@ -377,12 +450,6 @@
 
       :global(.cta) {
         color: var(--grey-900);
-      }
-
-      :checked ~ & {
-        :global(.cta) :global([data-theme='dark']) & {
-          color: var(--phosphor-gray);
-        }
       }
     }
   }

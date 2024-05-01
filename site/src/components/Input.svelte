@@ -79,6 +79,7 @@
         placeholder=" "
         value={input.value || null}
         on:keyup={(e) => dispatch('keyup', e)}
+        on:change={(e) => dispatch('change', e)}
       />
     {/if}
 
