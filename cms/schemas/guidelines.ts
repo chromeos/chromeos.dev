@@ -123,12 +123,17 @@ export default defineType({
             }),
             defineField({
               name: 'primary',
-              title: 'Primary',
+              title: 'Without border',
               type: 'string',
             }),
             defineField({
               name: 'secondary',
-              title: 'Secondary',
+              title: 'With border',
+              type: 'string',
+            }),
+            defineField({
+              name: 'dark',
+              title: 'Include dark mode?',
               type: 'string',
             }),
           ],
