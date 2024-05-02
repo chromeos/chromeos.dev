@@ -35,7 +35,7 @@ export const localizations = [
   { code: 'hy', a2c: 'Ավելացնել Chromebook-ում', legal: '' },
   { code: 'id', a2c: 'Tambahkan ke Chromebook', legal: '' },
   { code: 'is', a2c: 'Bæta við Chromebook', legal: '' },
-  { code: 'it', a2c: '', legal: '' },
+  { code: 'it', a2c: 'Aggiungi a Chromebook', legal: '' },
   { code: 'he', a2c: 'הוספה ל-Chromebook', legal: '' },
   { code: 'ja', a2c: 'Chromebook に追加', legal: '' },
   { code: 'ka', a2c: 'Chromebook-ში დამატება', legal: '' },
