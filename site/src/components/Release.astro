@@ -1,6 +1,7 @@
 ---
 import type { Microcopy, ReleaseNote } from '$types/sanity';
 import Text from '$components/Text.astro';
+import { slugify } from '$lib/data';
 
 export interface Props {
   note: ReleaseNote;
@@ -87,20 +88,55 @@ if (single) {
           note.featured.map((f) => {
             return (
               <>
-                <h3>{f.title}</h3>
+                <h3 id={slugify(f.title)} class="header-anchor--wrapper">
+                  {!condensed && !single ? (
+                    f.title
+                  ) : (
+                    <a class="header-anchor" href={'#' + slugify(f.title)}>
+                      {f.title}
+                    </a>
+                  )}
+                </h3>
                 <Text body={f.content} />
               </>
             );
           })}
         {note.additional.features && (
           <>
-            <h3>{microcopy.releases.also.replace('((v))', note.title)}</h3>
+            <h3
+              id={slugify(microcopy.releases.also.replace('((v))', note.title))}
+              class="header-anchor--wrapper"
+            >
+              {!condensed && !single ? (
+                microcopy.releases.also.replace('((v))', note.title)
+              ) : (
+                <a
+                  class="header-anchor"
+                  href={
+                    '#' +
+                    slugify(
+                      microcopy.releases.also.replace('((v))', note.title),
+                    )
+                  }
+                >
+                  {microcopy.releases.also.replace('((v))', note.title)}
+                </a>
+              )}
+            </h3>
             {note.additional && <p>{note.additional.overview}</p>}
             {note.additional?.features &&
               note.additional.features.map((f) => {
                 return (
                   <>
-                    <h4>{f.title}</h4>
+                    <h4 id={slugify(f.title)} class="header-anchor--wrapper">
+                      {!condensed && !single ? (
+                        f.title
+                      ) : (
+                        <a class="header-anchor" href={'#' + slugify(f.title)}>
+                          {f.title}
+                        </a>
+                      )}
+                    </h4>
                     <Text body={f.content} />
                   </>
                 );
