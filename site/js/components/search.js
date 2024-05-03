@@ -191,7 +191,7 @@ export class Search {
 
     this.searchBox_.style.display = 'block';
     this.offline_.style.display = 'flex';
-    this.searchSummary_.innerHTML = '';
+    this.searchSummary_.innerText = '';
     if (this.currentResults_) {
       this.addSearchResults_(this.currentResults_);
     }
