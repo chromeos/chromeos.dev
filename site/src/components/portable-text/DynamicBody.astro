@@ -38,7 +38,7 @@ const microcopy = Object.values(micro).find(
   ) : props._type === 'code' ? (
     <Code block={props} />
   ) : props._type === 'block' &&
-    (props.style === 'h2' || props.style === 'h3') ? (
+    (props.style === 'h2' || props.style === 'h3' || props.style === 'h4') ? (
     <Heading block={props} />
   ) : props._type === 'quote' ? (
     <Quote block={props}>
