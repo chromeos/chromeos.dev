@@ -11,7 +11,7 @@ export const localizations = [
   { code: 'cs', a2c: 'Přidat do Chromebooku', legal: '' },
   { code: 'cy', a2c: 'Ychwanegu at Chromebook', legal: '' },
   { code: 'da', a2c: 'Føj til Chromebook', legal: '' },
-  { code: 'de', a2c: 'Auf Chromebook hinzufügen', legal: '' },
+  { code: 'de', a2c: 'Zum Chromebook hinzufügen', legal: '' },
   { code: 'el', a2c: 'Προσθήκη στο Chromebook', legal: '' },
   {
     code: 'en',
