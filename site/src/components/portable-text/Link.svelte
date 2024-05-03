@@ -23,6 +23,7 @@
   type Mark = {
     _type: string;
     _key: string;
+    anchor?: string;
   };
 
   interface SourceMark extends SourceRef, Mark {}
@@ -45,6 +46,21 @@
   } else if (mark?.href) {
     link = mark.href;
   }
+
+  let url;
+
+  // Build full URLs with anchors
+  try {
+    url = new URL(link);
+  } catch (e) {
+    url = new URL(`https://chromeos.dev${link}`);
+  }
+
+  if (mark.anchor && !url.hash) {
+    url.hash = mark.anchor;
+  }
+
+  link = url.toString();
 </script>
 
 {#if link === ''}

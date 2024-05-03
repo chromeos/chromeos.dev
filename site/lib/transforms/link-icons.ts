@@ -41,7 +41,14 @@ function icon(id, modifier = false) {
 export async function postHTMLLinkIcons(tree) {
   tree.match({ tag: 'a' }, (node) => {
     const classes = node?.attrs?.class?.split(' ') || [];
-    const href = node?.attrs?.href || '';
+    let href = node?.attrs?.href || '';
+
+    // Do a check for ChromeOS.dev links
+    if (RegExp('^https?://chromeos.dev').test(href)) {
+      href = href.replace(/^https?:\/\/chromeos\.dev/, '');
+      node.attrs.href = href;
+    }
+
     const external = RegExp('^https?://').test(href);
 
     const types = {
