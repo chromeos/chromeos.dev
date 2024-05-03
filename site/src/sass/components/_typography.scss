@@ -237,6 +237,13 @@ $section-block-margin: 3.75rem;
     /* stylelint-enable no-descending-specificity */
   }
 
+  // Whenever there's an image or figure that's the only child of a paragraph tag, make it block and centered
+  p > img:first-child:last-child,
+  p > figure:first-child:last-child {
+    display: block;
+    margin: 0 auto;
+  }
+
   .code-figure {
     margin-bottom: 1.5rem;
     margin-top: 1.5rem;
