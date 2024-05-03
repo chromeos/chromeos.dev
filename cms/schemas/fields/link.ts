@@ -47,5 +47,18 @@ export default defineType({
       readOnly: ({ parent }) => (parent?.reference?._ref ? true : false),
       validation: (Rule) => Rule.uri({ scheme: ['http', 'https'] }),
     }),
+    defineField({
+      name: 'anchor',
+      title: 'Anchor',
+      type: 'string',
+      description: 'Anchor in the link, without the #',
+      validation: (Rule) =>
+        Rule.custom((input) => {
+          if (input?.length && input.startsWith('#')) {
+            return 'Anchor cannot start with #';
+          }
+          return true;
+        }),
+    }),
   ],
 });
