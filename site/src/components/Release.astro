@@ -143,6 +143,16 @@ if (single) {
               })}
           </>
         )}
+        {note.cta.title && single && (
+          <>
+            <h3 id={slugify(note.cta.title)} class="header-anchor--wrapper">
+              <a class="header-anchor" href={'#' + slugify(note.cta.title)}>
+                {note.cta.title}
+              </a>
+            </h3>
+            <Text body={note.cta.body} />
+          </>
+        )}
       </section>
     )
   }
