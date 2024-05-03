@@ -92,17 +92,21 @@ if (single) {
               </>
             );
           })}
-        <h3>{microcopy.releases.also.replace('((v))', note.title)}</h3>
-        {note.additional && <p>{note.additional.overview}</p>}
-        {note.additional?.features &&
-          note.additional.features.map((f) => {
-            return (
-              <>
-                <h4>{f.title}</h4>
-                <Text body={f.content} />
-              </>
-            );
-          })}
+        {note.additional.features && (
+          <>
+            <h3>{microcopy.releases.also.replace('((v))', note.title)}</h3>
+            {note.additional && <p>{note.additional.overview}</p>}
+            {note.additional?.features &&
+              note.additional.features.map((f) => {
+                return (
+                  <>
+                    <h4>{f.title}</h4>
+                    <Text body={f.content} />
+                  </>
+                );
+              })}
+          </>
+        )}
       </section>
     )
   }
@@ -126,31 +130,34 @@ if (single) {
               );
             })}
         </details>
-        <h3 class="type--h4">
-          {microcopy.releases.also.replace('((v))', note.title)}
-        </h3>
-        {note.additional && (
-          <details class="type">
-            <summary>
-              {note.additional.overview}
-              <svg
-                aria-hidden="true"
-                class="details-marker"
-                viewBox="0 0 24 24"
-              >
-                <path d="M7.59 18.59L9 20l8-8-8-8-1.41 1.41L14.17 12" />
-              </svg>
-            </summary>
-            {note.additional.features &&
-              note.additional.features.map((f) => {
-                return (
-                  <>
-                    <h4>{f.title}</h4>
-                    <Text body={f.content} />
-                  </>
-                );
-              })}
-          </details>
+
+        {note.additional.features && (
+          <>
+            <h3 class="type--h4">
+              {microcopy.releases.also.replace('((v))', note.title)}
+            </h3>
+            <details class="type">
+              <summary>
+                {note.additional.overview}
+                <svg
+                  aria-hidden="true"
+                  class="details-marker"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7.59 18.59L9 20l8-8-8-8-1.41 1.41L14.17 12" />
+                </svg>
+              </summary>
+              {note.additional.features &&
+                note.additional.features.map((f) => {
+                  return (
+                    <>
+                      <h4>{f.title}</h4>
+                      <Text body={f.content} />
+                    </>
+                  );
+                })}
+            </details>
+          </>
         )}
       </>
     )
