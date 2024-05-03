@@ -90,13 +90,16 @@ const { locale } = microcopy;
     &--hero {
       margin-block-end: 2.5rem;
       margin-block-start: -5rem;
-      aspect-ratio: 16 / 9;
       border-radius: 0.3125rem;
       box-shadow: 0 2px 1.5rem rgba(0, 0, 0, 0.2);
       position: relative;
       overflow: hidden;
       width: calc(100% - 3rem);
       margin-inline: auto;
+
+      &:has(.youtube) {
+        aspect-ratio: 16 / 9;
+      }
 
       > :global(img),
       > :global(video) {
