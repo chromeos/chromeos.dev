@@ -26,6 +26,8 @@
   } as PaginationLabels;
   export let pager: 'page' | 'query' = 'page';
 
+  console.log(current);
+
   const pages = [];
   const formatter = new Intl.NumberFormat(locale, {
     style: 'decimal',
@@ -46,7 +48,7 @@
       {
         label: labels.previous,
         text: '‹',
-        url: `${base}${c - 1 > 0 ? s + (c - 1) : pager === 'query' ? 1 : ''}`,
+        url: `${base}${c - 1 > 1 ? s + (c - 1) : pager === 'query' ? 1 : ''}`,
       },
     );
   }
@@ -64,7 +66,7 @@
       {
         label: labels.next,
         text: '›',
-        url: `${base}${s}${c + 1}`,
+        url: `${base}${s}${c > 1 ? c + 1 : c + 2}`,
       },
       {
         label: labels.last,
