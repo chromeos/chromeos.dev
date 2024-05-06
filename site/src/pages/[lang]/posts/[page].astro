@@ -57,7 +57,7 @@ const hero = {
   title: post.title,
   theme: post.theme,
   form: 'header',
-  media: post.hero.youtube ? null : post.hero?.image,
+  media: post.hero?.youtube ? null : post.hero?.image,
   cta: {
     text: microcopy.actions.back.replace('((a))', 'News'), // TODO: Replace with proper data pull from CMS
     url: `/${locale.code}/news`,
