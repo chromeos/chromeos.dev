@@ -4,21 +4,18 @@ export default defineType({
   name: 'hero',
   title: 'Hero media',
   description:
-    'Primary media to be displayed with this content, either a YouTube video or an image.',
+    'Primary media to be displayed with this content, either a YouTube video or an image. If both are set, YouTube will be used on stand-alone views, image will be used in preview views.',
   type: 'object',
   fields: [
     defineField({
       name: 'image',
       title: 'Image',
       type: 'picture',
-      readOnly: ({ parent }) => (parent?.youtube ? true : false),
     }),
     defineField({
       name: 'youtube',
       title: 'YouTube Video',
       type: 'youtube',
-      readOnly: ({ parent }) =>
-        parent?.image?.alt || parent?.image?.asset?._ref ? true : false,
     }),
   ],
 });
