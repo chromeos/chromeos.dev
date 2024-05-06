@@ -26,8 +26,6 @@
   } as PaginationLabels;
   export let pager: 'page' | 'query' = 'page';
 
-  console.log(current);
-
   const pages = [];
   const formatter = new Intl.NumberFormat(locale, {
     style: 'decimal',
