@@ -97,7 +97,7 @@
       // border-radius: 100% 100% 0 0;
       height: math.div($circle-l, 16) * 1rem;
       top: 100%;
-      transform: translate(-50%, -0%) rotate(210deg);
+      transform: translate(-50%, -10%) rotate(210deg) scale(0.95);
       transform-origin: top center;
       width: math.div($circle-l, 8) * 1rem;
     }
