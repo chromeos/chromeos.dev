@@ -12,6 +12,8 @@ import Quote from './Quote.svelte';
 import Table from './Table.astro';
 import Footnote from './Footnote.svelte';
 
+import { slugify } from '$lib/data';
+
 import { microcopy as micro } from '$$sanity';
 import type { Microcopy } from '$types/sanity';
 
@@ -63,7 +65,7 @@ const microcopy = Object.values(micro).find(
     <dl>
       {props.items.map((item) => {
         return (
-          <>
+          <div id={slugify(item.term)}>
             <dt>
               <PortableText body={item.term} wrapped={false} inline={true} />
             </dt>
@@ -74,7 +76,7 @@ const microcopy = Object.values(micro).find(
                 inline={true}
               />
             </dd>
-          </>
+          </div>
         );
       })}
     </dl>
