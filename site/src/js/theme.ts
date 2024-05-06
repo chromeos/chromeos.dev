@@ -57,11 +57,13 @@ function createThemeStore() {
       }
 
       if (theme === null) {
-        theme =
-          window.matchMedia &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'dark'
-            : 'light';
+        // Swap this back later
+        theme = 'light';
+        // theme =
+        //   window.matchMedia &&
+        //   window.matchMedia('(prefers-color-scheme: dark)').matches
+        //     ? 'dark'
+        //     : 'light';
       }
 
       set(theme);
