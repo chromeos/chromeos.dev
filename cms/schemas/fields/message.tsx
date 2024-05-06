@@ -27,7 +27,7 @@ export default defineType({
       title: 'Type',
       type: 'string',
       options: {
-        list: ['', 'note', 'warning', 'tip'],
+        list: ['info', 'tip', 'warning', 'error'],
       },
     }),
     defineField({
@@ -39,14 +39,18 @@ export default defineType({
   components: {
     preview: ({ message, type }) => {
       const background =
-        type === 'note'
+        type === 'info'
           ? '#aecbfa'
+          : type === 'tip'
+          ? '#e6f4ea'
           : type === 'warning'
           ? '#fde293'
           : '#f6aea9';
       const borderColor =
-        type === 'note'
+        type === 'info'
           ? '#1967d2'
+          : type === 'tip'
+          ? '#1e8e3'
           : type === 'warning'
           ? '#f29900'
           : '#c5221f';
