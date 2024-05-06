@@ -53,7 +53,10 @@ export type Software = {
   url: string;
 };
 
-export type Hero = YouTube | Image;
+export type Hero = {
+  youtube?: YouTube;
+  image?: Image;
+};
 
 export type Field = {
   label?: string;

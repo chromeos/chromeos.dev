@@ -314,15 +314,17 @@ export const posts = (await groq(
       'image': image.asset
     },
     hero.include == true => {
-      'hero': coalesce(
-        {
-        'youtube': hero.hero.youtube.id,
+      'hero': {
+        hero.hero.youtube.id != null => {
+          'youtube': hero.hero.youtube,
         },
-        {
-          'image': hero.hero.image.asset,
-          'alt': hero.hero.image.alt,
+        hero.hero.image != null => {
+          'image': {
+            'image': 'cms://' + hero.hero.image.asset._ref,
+            'alt': hero.hero.image.alt,
+          }
         }
-      )
+      }
     },
     ${themeQuery}
     ${featuredQuery}
@@ -435,8 +437,6 @@ export const guidelines: Guidelines[] = await sanity.fetch(
     ${coreMetaQuery}
   }`,
 );
-
-console.log(guidelines[0].codegen);
 
 export const releaseNoteLandings = (await sanity.fetch(
   `*[_type == 'releases' && !(_id in path('drafts.**'))]
