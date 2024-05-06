@@ -63,6 +63,11 @@ $section-block-margin: 3.75rem;
     }
   }
 
+  &[data-contained] {
+    container-type: inline-size;
+    container-name: type;
+  }
+
   &--mega {
     @extend %type--mega;
   }
@@ -131,7 +136,7 @@ $section-block-margin: 3.75rem;
 
   // Long-form type styling
   /* stylelint-disable-next-line selector-max-compound-selectors */
-  * + *:not(:empty):not(.header-anchor--wrapper):not(dd),
+  * + *:not(:empty):not(.header-anchor--wrapper):not(dd):not(.stat):not(td),
   * + astro-island > *:not(:empty) {
     margin-top: 1em;
   }
@@ -269,38 +274,5 @@ $section-block-margin: 3.75rem;
 
   .message {
     margin: 2.5rem 0;
-  }
-
-  // Table
-  table {
-    border: 1px solid var(--grey-300);
-    border-collapse: collapse;
-    margin: 0 auto;
-  }
-
-  th {
-    background-color: var(--blue-600);
-    color: var(--white);
-    line-height: 1.25;
-    text-align: center;
-    vertical-align: middle;
-  }
-
-  th,
-  td {
-    border: 1px solid var(--grey-300);
-    padding: 0.5rem;
-
-    [data-theme='dark'] & {
-      border-color: var(--phosphor-green-medium);
-    }
-  }
-
-  td {
-    vertical-align: top;
-  }
-
-  tbody tr:nth-of-type(even) {
-    background-color: var(--grey-100);
   }
 }

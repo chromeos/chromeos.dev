@@ -48,7 +48,7 @@ const components = {
   ) : inline ? (
     <PortableText value={body} components={components} />
   ) : wrapped !== false ? (
-    <div class="type">
+    <div class="type" data-contained>
       <PortableText value={body} components={components} />
     </div>
   ) : (
