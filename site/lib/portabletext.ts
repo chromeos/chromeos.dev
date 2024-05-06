@@ -68,7 +68,7 @@ export function buildTOC(body: PortableTextBlock[]): TOC[] {
 }
 
 /**
- * Convert PortableText AST to plain text, quick and dirty
+ * Convert PortableText block AST to plain text, quick and dirty
  * TODO: Replace with recursive function
  * @param {PortableTextBlock[]} blocks - Portable Text Block
  * @return {string}
@@ -79,7 +79,27 @@ export function blocksToText(blocks) {
       if (block._type !== 'block' || !block.children) {
         return '';
       }
-      return block.children.map((child) => child.text).join('');
+      return toText(block.children);
     })
     .join('\n\n');
+}
+
+/**
+ * Convert PortableText AST to plain text, quick and dirty
+ * @param {PortableTextBlock[]} blocks - Portable Text Block
+ * @return {string}
+ */
+export function toText(blocks) {
+  return blocks
+    .map((block) => {
+      if (block.children) {
+        return toText(block.children);
+      } else if (block.text) {
+        return block.text;
+      } else {
+        return '';
+      }
+    })
+    .flat()
+    .join('');
 }
