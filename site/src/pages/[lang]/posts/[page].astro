@@ -99,12 +99,20 @@ const toc = buildTOC(post.body);
     <!-- Published date info -->
     <Published
       locale={locale.code}
-      label={post.dates.updated
-        ? microcopy.meta.updated
-        : microcopy.meta.posted}
-      date={post.dates.updated || post.dates.published}
+      label={microcopy.meta.posted}
+      date={post.dates.published}
       wrapper="section"
     />
+    {
+      post.dates.updated && (
+        <Published
+          locale={locale.code}
+          label={microcopy.meta.updated}
+          date={post.dates.updated}
+          wrapper="section"
+        />
+      )
+    }
 
     <!-- Table of Contents -->
     {toc.length > 0 && <TOC toc={toc} client:idle />}
