@@ -118,8 +118,8 @@
 
   &--transparent {
     background-color: transparent;
-    border: 1px solid var(--white);
-    color: var(--white);
+    border: 1px solid var(--cta-color, var(--white));
+    color: var(--cta-color, var(--white));
 
     &:hover,
     &:focus-visible,
