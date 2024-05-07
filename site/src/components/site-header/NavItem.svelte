@@ -125,12 +125,14 @@
   }
 
   .dropdown {
+    list-style: none;
+
     @container style(--inline-header: 1) {
       position: absolute;
       width: calc(100% + 4px);
       display: flex;
       flex-wrap: wrap;
-      list-style: none;
+
       margin: 0;
       padding: 0;
       padding-inline: 1rem;
