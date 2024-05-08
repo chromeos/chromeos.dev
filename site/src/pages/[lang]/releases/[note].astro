@@ -26,6 +26,15 @@ export function getStaticPaths() {
 
     return acc;
   }, {});
+
+  // TODO: Add next/previous buttons at bottom of relesaes
+  // const min = releaseNotes.reduce((acc, cur) => {
+  //   if (!acc[cur._langCode] || cur.version < acc[cur._langCode]) {
+  //     acc[cur._langCode] = cur.version;
+  //   }
+
+  //   return acc;
+  // }, {});
   return releaseNotes
     .filter((h) => h._langCode === 'en')
     .map((landing) => {
@@ -56,6 +65,7 @@ export function getStaticPaths() {
           backgrounds: landings[landing._langCode].backgrounds,
           sections: sections[landing._langCode],
           max: max[landing._langCode],
+          // min: min[landing._langCode],
         },
       };
     });
