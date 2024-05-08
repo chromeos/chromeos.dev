@@ -136,7 +136,13 @@ $section-block-margin: 3.75rem;
 
   // Long-form type styling
   /* stylelint-disable-next-line selector-max-compound-selectors */
-  * + *:not(:empty):not(.header-anchor--wrapper):not(dd):not(.stat):not(td),
+  *
+    + *:not(:empty)
+    :not(.header-anchor--wrapper)
+    :not(dd)
+    :not(.stat)
+    :not(td):not(dl div)
+    :not(dl),
   * + astro-island > *:not(:empty) {
     margin-top: 1em;
   }
@@ -164,6 +170,20 @@ $section-block-margin: 3.75rem;
     [data-theme='dark'] & {
       background-color: var(--phosphor-green-dark);
       color: var(--phosphor-white);
+    }
+  }
+
+  dl {
+    margin-top: -4rem;
+  }
+
+  dl > div {
+    margin: 0;
+    padding-top: 5rem;
+    margin-top: -3rem;
+
+    &:not(:last-of-type) {
+      margin-bottom: -4rem;
     }
   }
 
