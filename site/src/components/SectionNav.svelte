@@ -74,9 +74,7 @@
 
     &--title {
       :global([data-theme='dark']) & {
-        @container style(--inline-subnav: 1) {
-          color: var(--global-background);
-        }
+        color: var(--global-background);
       }
     }
 
