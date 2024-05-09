@@ -50,6 +50,7 @@ overrides:
 rules:
   n/no-missing-import: off
   n/no-unpublished-import: off
+  n/no-unsupported-features/node-builtins: off
   svelte/valid-compile: warn
   # Breaks Svelte imports, until https://github.com/import-js/eslint-plugin-import/issues/1479 is resolved
   import/no-duplicates: off
