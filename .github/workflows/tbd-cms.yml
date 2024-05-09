@@ -50,7 +50,7 @@ jobs:
   deploy:
     needs: test-build
      # Siwtch to refs/heads/main when merged
-    if: github.ref == 'refs/heads/refactor/main'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     concurrency:
       group: cms-deploy
