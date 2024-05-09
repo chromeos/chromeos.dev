@@ -40,7 +40,7 @@ export const POST: APIRoute = async ({ request }) => {
       owner: 'chromeos',
       repo: 'chromeos.dev',
       workflow_id: 'tbd-site.yml',
-      ref: 'refactor/the-great-cms-migration', // Swap to main when ready
+      ref: 'main', // Swap to main when ready
     });
     logger.info('Deploy requested');
     return new Response('Deploy triggered', { status: 200 });
