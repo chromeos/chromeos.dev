@@ -116,10 +116,8 @@
    * Wait for the component to mount before loading Lottie
    */
   onMount(async () => {
-    // Load the polyfill if requestIdleCallback isn't supported
-    if (!('requestIdleCallback' in window)) {
-      import('requestidlecallback');
-    }
+    // Polyfill for Safari
+    await import('requestidlecallback');
 
     // Kick off the animation loading
     requestIdleCallback(() => {

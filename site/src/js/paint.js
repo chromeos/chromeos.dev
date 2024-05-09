@@ -1,9 +1,7 @@
+import 'requestidlecallback';
+
 window.addEventListener('load', () => {
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(paintSetup);
-  } else {
-    paintSetup();
-  }
+  requestIdleCallback(paintSetup);
 });
 
 /**
