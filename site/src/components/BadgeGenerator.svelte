@@ -8,6 +8,7 @@
     a2c: string;
     legal: string;
     name: string;
+    rtl: boolean;
   }
 
   export let codegen;
@@ -168,12 +169,16 @@
         />
       </div>
       <div class="badge-generator--attribution badge-generator--field">
-        <span class="badge-generator--radio-heading type--caption"
-          >{codegen.attribution.label}</span
+        <p class="badge-generator--radio-heading type--caption">
+          {codegen.attribution.label}
+        </p>
+
+        <p
+          class="badge-generator--attribution-text"
+          dir={i18n.rtl ? 'rtl' : 'ltr'}
         >
-        <span class="badge-generator--attribution-text">
           {i18n.legal}
-        </span>
+        </p>
       </div>
     </div>
     <div class="badge-generator--form-right">
