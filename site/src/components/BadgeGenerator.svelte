@@ -16,28 +16,6 @@
   export let localizations: localization[];
   export let locale: string;
 
-  const fields = [
-    {
-      type: 'text',
-      label: codegen.fields.url,
-      name: 'url',
-      required: true,
-      text: {
-        required,
-      },
-    },
-    {
-      type: 'text',
-      label: codegen.fields.source,
-      name: 'source',
-    },
-    {
-      type: 'text',
-      label: codegen.fields.campaign,
-      name: 'campaign',
-    },
-  ];
-
   const languages = localizations.map((l) => ({ value: l.code, text: l.name }));
   $: i18n = localizations.find((l) => l.code === language);
 
@@ -279,11 +257,40 @@
             </code></pre>
       </figure>
 
-      {#each fields as field}
-        <div class="badge-generator--field">
-          <Input input={field} on:keyup={handleInputChange} />
-        </div>
-      {/each}
+      <div class="badge-generator--field">
+        <Input
+          input={{
+            type: 'text',
+            label: codegen.fields.url,
+            name: 'url',
+            required: true,
+            text: {
+              required,
+            },
+          }}
+          on:keyup={handleInputChange}
+        />
+      </div>
+
+      <div class="badge-generator--field badge-generator--utm">
+        <Input
+          input={{
+            type: 'text',
+            label: codegen.fields.source,
+            name: 'source',
+          }}
+          on:keyup={handleInputChange}
+        />
+
+        <Input
+          input={{
+            type: 'text',
+            label: codegen.fields.campaign,
+            name: 'campaign',
+          }}
+          on:keyup={handleInputChange}
+        />
+      </div>
     </div>
   </form>
 </section>
@@ -347,28 +354,16 @@
       display: grid;
       grid-template-columns: var(--form-grid);
       gap: 1.25rem;
-      margin-block-end: 3.25rem;
+      padding-block-end: 1rem;
     }
 
     &--form-left,
     &--form-right {
       display: flex;
-      flex-wrap: wrap;
-      flex: 1 0 auto;
-      max-width: 100%;
+      flex-direction: column;
       gap: 1.25rem;
-
-      .badge-generator--field {
-        &:last-of-type {
-          align-self: end;
-        }
-      }
-    }
-
-    &--form-left {
-      .badge-generator--field {
-        flex-basis: 100%;
-      }
+      align-items: flex-start;
+      justify-content: start;
     }
 
     &--form-right {
@@ -376,19 +371,20 @@
         width: 100%;
         max-width: 100cqi;
       }
-
-      .badge-generator--field {
-        align-self: end;
-
-        &:first-of-type {
-          align-self: start;
-          flex-basis: 100%;
-        }
-      }
     }
 
     &--field {
-      flex-grow: 1;
+      width: 100%;
+    }
+
+    &--utm {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+
+      > :global(.input) {
+        flex-grow: 1;
+      }
     }
 
     &--attribution {
