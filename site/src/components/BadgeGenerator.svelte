@@ -103,8 +103,10 @@
 <section class="badge-generator--wrapper">
   <header class="badge-generator--header">
     <h2 class="badge-generator--heading type--h2">{codegen.heading}</h2>
-    <a class="badge-generator--download-link" href="/badges/badges.zip" download
-      >{codegen.download}<Download /></a
+    <a
+      class="badge-generator--download-link"
+      href="https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/badges.zip?alt=media&token=d63bb452-7b14-4d3c-a8ef-7e640470a188"
+      download>{codegen.download}<Download /></a
     >
   </header>
   <form class="badge-generator--form">
