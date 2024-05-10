@@ -8,34 +8,13 @@
     a2c: string;
     legal: string;
     name: string;
+    rtl: boolean;
   }
 
   export let codegen;
   export let required: string;
   export let localizations: localization[];
   export let locale: string;
-
-  const fields = [
-    {
-      type: 'text',
-      label: codegen.fields.url,
-      name: 'url',
-      required: true,
-      text: {
-        required,
-      },
-    },
-    {
-      type: 'text',
-      label: codegen.fields.source,
-      name: 'source',
-    },
-    {
-      type: 'text',
-      label: codegen.fields.campaign,
-      name: 'campaign',
-    },
-  ];
 
   const languages = localizations.map((l) => ({ value: l.code, text: l.name }));
   $: i18n = localizations.find((l) => l.code === language);
@@ -103,8 +82,10 @@
 <section class="badge-generator--wrapper">
   <header class="badge-generator--header">
     <h2 class="badge-generator--heading type--h2">{codegen.heading}</h2>
-    <a class="badge-generator--download-link" href="/badges/badges.zip" download
-      >{codegen.download}<Download /></a
+    <a
+      class="badge-generator--download-link"
+      href="https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/badges.zip?alt=media&token=d63bb452-7b14-4d3c-a8ef-7e640470a188"
+      download>{codegen.download}<Download /></a
     >
   </header>
   <form class="badge-generator--form">
@@ -166,12 +147,16 @@
         />
       </div>
       <div class="badge-generator--attribution badge-generator--field">
-        <span class="badge-generator--radio-heading type--caption"
-          >{codegen.attribution.label}</span
+        <p class="badge-generator--radio-heading type--caption">
+          {codegen.attribution.label}
+        </p>
+
+        <p
+          class="badge-generator--attribution-text"
+          dir={i18n.rtl ? 'rtl' : 'ltr'}
         >
-        <span class="badge-generator--attribution-text">
           {i18n.legal}
-        </span>
+        </p>
       </div>
     </div>
     <div class="badge-generator--form-right">
@@ -272,11 +257,40 @@
             </code></pre>
       </figure>
 
-      {#each fields as field}
-        <div class="badge-generator--field">
-          <Input input={field} on:keyup={handleInputChange} />
-        </div>
-      {/each}
+      <div class="badge-generator--field">
+        <Input
+          input={{
+            type: 'text',
+            label: codegen.fields.url,
+            name: 'url',
+            required: true,
+            text: {
+              required,
+            },
+          }}
+          on:keyup={handleInputChange}
+        />
+      </div>
+
+      <div class="badge-generator--field badge-generator--utm">
+        <Input
+          input={{
+            type: 'text',
+            label: codegen.fields.source,
+            name: 'source',
+          }}
+          on:keyup={handleInputChange}
+        />
+
+        <Input
+          input={{
+            type: 'text',
+            label: codegen.fields.campaign,
+            name: 'campaign',
+          }}
+          on:keyup={handleInputChange}
+        />
+      </div>
     </div>
   </form>
 </section>
@@ -340,28 +354,16 @@
       display: grid;
       grid-template-columns: var(--form-grid);
       gap: 1.25rem;
-      margin-block-end: 3.25rem;
+      padding-block-end: 1rem;
     }
 
     &--form-left,
     &--form-right {
       display: flex;
-      flex-wrap: wrap;
-      flex: 1 0 auto;
-      max-width: 100%;
+      flex-direction: column;
       gap: 1.25rem;
-
-      .badge-generator--field {
-        &:last-of-type {
-          align-self: end;
-        }
-      }
-    }
-
-    &--form-left {
-      .badge-generator--field {
-        flex-basis: 100%;
-      }
+      align-items: flex-start;
+      justify-content: start;
     }
 
     &--form-right {
@@ -369,19 +371,20 @@
         width: 100%;
         max-width: 100cqi;
       }
-
-      .badge-generator--field {
-        align-self: end;
-
-        &:first-of-type {
-          align-self: start;
-          flex-basis: 100%;
-        }
-      }
     }
 
     &--field {
-      flex-grow: 1;
+      width: 100%;
+    }
+
+    &--utm {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+
+      > :global(.input) {
+        flex-grow: 1;
+      }
     }
 
     &--attribution {

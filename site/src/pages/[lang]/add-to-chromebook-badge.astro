@@ -8,6 +8,7 @@ import Message from '$components/portable-text/Message.svelte';
 import MediaExample from '$components/MediaExample.svelte';
 import BadgeGenerator from '$components/BadgeGenerator.svelte';
 import { localizations } from '$lib/data/guidelines';
+import { rtl } from '$lib/i18n';
 import ISO6391 from 'iso-639-1';
 
 /**
@@ -34,20 +35,23 @@ const { locale } = microcopy;
 const { title, share, banner, intro, guidelines, usage, codegen, messaging } =
   data;
 
-const downloadSize = '1.1 MB';
+const downloadSize = '4.8 MB';
 
 codegen.download = codegen.download.replace('((s))', `(${downloadSize})`);
 
 const en = localizations.find((lc) => lc.code == 'en');
 const l = localizations.map((lc) => {
+  const n = lc.code.split('-');
+
   if (!lc.name) {
-    const n = lc.code.split('-');
     lc.name = ISO6391.getNativeName(n[0]) + (n[1] ? ` (${n[1]})` : '');
   }
 
   if (!lc.legal) {
     lc.legal = en.legal;
   }
+
+  lc.rtl = rtl.includes(n[0]);
 
   return lc;
 });
