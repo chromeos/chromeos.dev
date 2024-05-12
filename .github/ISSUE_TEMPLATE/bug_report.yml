@@ -1,4 +1,4 @@
-name: "\U0001F41E Bug report"
+name: "\U0001F41E ChromeOS.dev Bug Report"
 description: Report an issue with ChromeOS.dev. To report an issue with ChromeOS, see the "Report a ChromeOS problem or send feedback" link below
 labels: ["problem: bug"]
 body:
