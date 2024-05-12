@@ -1,0 +1,49 @@
+name: "\U0001F680 New ChromeOS.dev feature request"
+description: Propose a new feature to be added to ChromeOS.dev
+labels: ["enhancement: feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your interest and taking the time to fill out this feature request! This form should only be used to request features for ChromeOS.dev, our developer documentation and news site. If you're looking to request a feature for ChromeOS, please [report a ChromeOS problem or send feedback](https://support.google.com/chromebook/answer/2982029?hl=en) instead, or [request a ChromeOS feature](https://www.chromium.org/chromium-os/developer-library/guides/bugs/reporting-bugs/) directly.
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Description
+      description: "Clear and concise description of the problem. Please make the reason and usecases as detailed as possible. If you intend to submit a PR for this issue, tell us in the description. Thanks!"
+      placeholder: As a developer using ChromeOS.dev I want [goal / wish] so that [benefit].
+    validations:
+      required: true
+  - type: textarea
+    id: suggested-solution
+    attributes:
+      label: Suggested solution
+      description: "In section [xy] we could provide [ab]..."
+    validations:
+      required: true
+  - type: textarea
+    id: alternative
+    attributes:
+      label: Alternative
+      description: Clear and concise description of any alternative solutions or features you've considered.
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Any other context or screenshots about the feature request here.
+  - type: checkboxes
+    id: checkboxes
+    attributes:
+      label: Validations
+      description: Before submitting the issue, please make sure you do the following
+      options:
+        - label: Follow our [Code of Conduct](https://github.com/chromeos/chromeos.dev/blob/main/CODE_OF_CONDUCT.md)
+          required: true
+        - label: Read the [Contributing Guidelines](https://github.com/chromeos/chromeos.dev/blob/main/CONTRIBUTING.md).
+          required: true
+        - label: Check that there isn't [already an issue](https://github.com/chromeos/chromeos.dev/issues) that requests the same feature to avoid creating a duplicate.
+          required: true
+        - label: Make sure this is a ChromeOS.dev (the ChromeOS documentation and news site) issue and not a general ChromeOS issue. If you're looking to request a feature for ChromeOS, please [report a ChromeOS problem or send feedback](https://support.google.com/chromebook/answer/2982029?hl=en) instead.
+          required: true
+        - label: Check that this is a concrete feature request. For Q&A, either ask in the [Chromebook Help Community](https://support.google.com/chromebook/community?sjid=4749359234014638826-NA) or join the `#chromeos` or `#chromeos-forum` channels in the [Google Developer Community Discord](https://discord.gg/google-dev-community).
+          required: true

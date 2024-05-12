@@ -1,0 +1,50 @@
+name: "\U0001F4DA Documentation"
+description: Suggest an update to, or new, developer documentation on ChromeOS.dev
+labels: ["experience: documentation", "scope: content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to request updates to, or new developer documentation for ChromeOS!
+  - type: checkboxes
+    id: documentation_is
+    attributes:
+      label: Documentation is
+      options:
+        - label: Missing
+        - label: Outdated
+        - label: Confusing
+        - label: Not sure?
+  - type: input
+    id: url
+    attributes:
+      label: URL of existing documentation
+      description: If reporting outdated or confusing documentation, please include the current page URL.
+  - type: textarea
+    id: description
+    attributes:
+      label: Explain in Detail
+      description: A clear and concise description of your suggestion.
+      placeholder: The description of ... page is not clear. I thought it meant ... but it wasn't.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Your Suggestion for Changes
+    validations:
+      required: true
+  - type: checkboxes
+    id: checkboxes
+    attributes:
+      label: Validations
+      description: Before submitting the issue, please make sure you do the following
+      options:
+        - label: Follow our [Code of Conduct](https://github.com/chromeos/chromeos.dev/blob/main/CODE_OF_CONDUCT.md)
+          required: true
+        - label: Read the [Contributing Guidelines](https://github.com/chromeos/chromeos.dev/blob/main/CONTRIBUTING.md).
+          required: true
+        - label: Check that there isn't [already an issue](https://github.com/chromeos/chromeos.dev/issues) that requests the same updates to avoid creating a duplicate.
+          required: true
+        - label: Check that this is a concrete documentation request. For Q&A, either ask in the [Chromebook Help Community](https://support.google.com/chromebook/community?sjid=4749359234014638826-NA) or join the `#chromeos` or `#chromeos-forum` channels in the [Google Developer Community Discord](https://discord.gg/google-dev-community).
+          required: true
