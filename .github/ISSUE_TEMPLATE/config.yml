@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a ChromeOS problem or send feedback
+    url: https://support.google.com/chromebook/answer/2982029?hl=en
+    about: How to report a problem or send feedback about ChromeOS
+  - name: Report a ChromeOS bug
+    url: https://www.chromium.org/chromium-os/developer-library/guides/bugs/reporting-bugs/
+    about: How to report bugs for ChromeOS
+  - name: Google Developer Community Discord
+    url: https://discord.gg/google-dev-community
+    about: "Official Google Discord community for developers working with Google technology. Join us in the #chromeos and #chromeos-forum channels."
+  - name: Chromebook Help Community
+    url: https://support.google.com/chromebook/community?sjid=4749359234014638826-NA
+    about: Community help forum where Chromebook Product Experts and other Chromebook users can help you.

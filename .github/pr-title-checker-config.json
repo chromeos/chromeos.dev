@@ -4,11 +4,11 @@
     "color": "#db2780"
   },
   "CHECKS": {
-    "regexp": "^(🐎|🐛|🆕|📝|♻️|📌|💎){1}(\\((site|functions|build|tests|content)\\))? {1}\\w(\\w|\\s|\\d|.|,|\\-)*$"
+    "regexp": "^(🐛|🆕|📝|♻️|💎|🐎|📌){1}(\\((site|cms|repo|ci|tests|config|lib|types|components|layouts|pages|js|desk|schema|scripts)\\))? {1}([A-Z]\\w(\\w|\\s|\\d|.|,|\\-)*[^(\\.|\\s)])$"
   },
   "MESSAGES": {
     "success": "All OK",
-    "failure": "Please make sure your PR title matches the following format: 🐎|🐛|🆕|📝|♻️|📌|💎(site|functions|build|tests|content) title. Title can contain letters, spaces, numbers, dashes, commas, and dots, and must start with a letter",
+    "failure": "Please make sure your PR title matches the following format: 🐛|🆕|📝|♻️|💎|🐎|📌(scope) subject. Subject must be written in English, start with a capital letter, can contain letters, spaces, numbers, dashes, commas, and dots, and must not end with a period or extra whitespace.",
     "notice": ""
   }
 }
