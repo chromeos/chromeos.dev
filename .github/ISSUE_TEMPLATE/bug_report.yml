@@ -34,8 +34,6 @@ body:
       label: Browser context
       description: Browser, browser version, operating system, and optional device. Please include if reporting a site bug.
       placeholder: Chrome 124 on ChromeOS 124, Google Pixelbook
-      validation:
-        required: false
   - type: textarea
     id: system-info
     attributes:
