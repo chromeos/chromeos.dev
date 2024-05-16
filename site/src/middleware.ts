@@ -75,8 +75,12 @@ const redirect: MiddlewareResponseHandler = async (
 
   for (const [from, to] of Object.entries(redirects)) {
     if (pathname === from) {
-      redirect.pathname = to;
-      return Response.redirect(redirect, 301);
+      if (!to.startsWith('http')) {
+        redirect.pathname = to;
+        return Response.redirect(redirect, 301);
+      } else {
+        return Response.redirect(to, 301);
+      }
     }
   }
 
