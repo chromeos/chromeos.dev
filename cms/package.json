@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "scripts": {
     "dev": "sanity dev",
     "start": "sanity start",
@@ -22,7 +22,8 @@
     "prettier:fix": "prettier --write .",
     "sanity": "sanity",
     "sanity:create:singletons": "sanity exec scripts/createSingletons.ts --with-user-token",
-    "sanity:test:singletons": "TARGET=dev sanity exec scripts/createSingletons.ts --with-user-token"
+    "sanity:test:singletons": "TARGET=dev sanity exec scripts/createSingletons.ts --with-user-token",
+    "sanity:pull": "sanity dataset export production && sanity dataset import --replace production.tar.gz development && rm production.tar.gz"
   },
   "keywords": [
     "sanity"
