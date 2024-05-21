@@ -1,4 +1,6 @@
 ---
+import type { Share } from '$types/sanity';
+
 import Wrapper from '$layouts/wrapper.astro';
 import Recommended from '$components/Recommended.svelte';
 
@@ -10,13 +12,20 @@ export interface Props {
     content: string;
   }>;
   microcopy: object;
+  share?: Share;
 }
 
-const { title, props = [], metadesc, microcopy } = Astro.props;
+const { title, props = [], metadesc, microcopy, share } = Astro.props;
 const { locale } = microcopy;
 ---
 
-<Wrapper title={title} metadesc={metadesc} locale={locale} props={props}>
+<Wrapper
+  title={title}
+  metadesc={metadesc}
+  locale={locale}
+  props={props}
+  share={share}
+>
   <article class="article">
     <div class="article--header">
       <slot name="header" />

@@ -58,6 +58,12 @@ export type Hero = {
   image?: Image;
 };
 
+export type Share = {
+  image?: Image;
+  title: string;
+  description: string;
+};
+
 export type Field = {
   label?: string;
   name?: string;
@@ -149,6 +155,7 @@ interface CoreContent extends CoreContentMeta {
   body: PortableTextBlock[];
   category: Tag;
   tags: Tag[];
+  share?: Share;
   dates: {
     published: Date;
     updated?: Date;
