@@ -11,6 +11,7 @@
 
   height: auto;
   margin: math.div($wrapper-block-spacing-m, 2) auto;
+  width: 100%;
   max-width: $wrapper-content-max-width;
 
   @supports (margin: clamp(1px, 1vw, 2px)) {
