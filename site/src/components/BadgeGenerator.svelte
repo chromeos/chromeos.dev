@@ -122,7 +122,12 @@
               class="badge-generator--radio-label"
               for="input-badge-{badge.id}"
             >
-              <img src={badge.image} alt={badge.name} draggable="false" />
+              <img
+                src={badge.image}
+                alt={badge.name}
+                draggable="false"
+                lang={language}
+              />
               <Generic
                 cta={{
                   type: 'low',
@@ -154,6 +159,7 @@
         <p
           class="badge-generator--attribution-text"
           dir={i18n.rtl ? 'rtl' : 'ltr'}
+          lang={language}
         >
           {i18n.legal}
         </p>
