@@ -35,4 +35,6 @@ body {
 .main {
   flex: 1 0 auto;
   height: max-content;
+  display: flex;
+  flex-direction: column;
 }
