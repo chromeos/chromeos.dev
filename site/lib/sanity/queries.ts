@@ -37,7 +37,18 @@ export const coreQuery = `
       'slug': slug.current
     },
     body,
-    // share,
+    share != null => {
+      'share': {
+        share.image.asset != null => {
+          'image': {
+            'image': 'cms://' + share.image.asset._ref,
+            'alt': share.image.alt,
+          },
+        },
+        'title': coalesce(share.title, title),
+        'description':coalesce(share.description, description),
+      }
+    },
     tags[]->{
       title,
       'slug': slug.current

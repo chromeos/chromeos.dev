@@ -1,5 +1,7 @@
 ---
 import type { Locale } from '$types/content';
+import type { Share } from '$types/sanity';
+
 import { pwaInfo } from 'virtual:pwa-info';
 import SiteHeader from '$components/SiteHeader.svelte';
 import Announcement from '$components/Announcement.astro';
@@ -19,9 +21,10 @@ export interface Props {
     content: string;
   }>;
   locale: Locale;
+  share?: Share;
 }
 
-const { title, props = [], locale, metadesc } = Astro.props;
+const { title, props = [], locale, metadesc, share } = Astro.props;
 
 // TODO: get all availabe languages for current content
 const languages = [];
@@ -70,6 +73,22 @@ const t =
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
     <link rel="icon" type="image/png" href="ix://icons/favicon.png" />
     <link rel="apple-touch-icon" href="/images/icons/pwa/icon-192x192.png" />
+    <!-- Open Graph -->
+    {
+      share && (
+        <>
+          <meta property="og:title" content={share.title} />
+          <meta property="og:description" content={share.description} />
+          {share.image && (
+            <>
+              <meta property="og:image" content={share.image.image} />
+              <meta property="og:image:alt" content={share.image.alt} />
+            </>
+          )}
+        </>
+      )
+    }
+    <meta property="og:url" content={l10nURL(Astro.url, locale.code)} />
     {
       props.map((prop) => {
         return <meta property={`og:${prop.property}`} content={prop.content} />;

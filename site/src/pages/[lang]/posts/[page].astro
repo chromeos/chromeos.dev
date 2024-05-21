@@ -9,7 +9,7 @@ import { posts, microcopy as micro } from '$lib/sanity';
 import type { PostHeroProps } from '$components/PostHero.svelte';
 import Text from '$components/Text.astro';
 import { buildTOC } from '$lib/portabletext';
-import type { Microcopy } from '$types/sanity';
+import type { Microcopy, Share } from '$types/sanity';
 
 /**
  * Builds paths for news pagination
@@ -71,9 +71,15 @@ const authors = {
 };
 
 const toc = buildTOC(post.body);
+const share = (post.share as Share) || null;
 ---
 
-<Article title={post.title} metadesc={post.description} microcopy={microcopy}>
+<Article
+  title={post.title}
+  metadesc={post.description}
+  microcopy={microcopy}
+  share={share}
+>
   <Fragment slot="header">
     <PostHero {...hero} />
   </Fragment>
