@@ -86,6 +86,11 @@
 
   <!-- Search Field -->
   <div class="header--search">
+    <a href={`/${lang}/search`} aria-label="Search" class="header--search-link">
+      <svg role="img" aria-hidden="true" class="icon">
+        <use bind:this={searchIcon} href="/images/icons/sprite.svg#search" />
+      </svg></a
+    >
     <button class="header--search-toggle" on:click={toggleSearch}>
       <svg role="img" aria-hidden="true" class="icon">
         <use bind:this={searchIcon} href="/images/icons/sprite.svg#search" />
@@ -176,7 +181,8 @@
     }
 
     &--menu,
-    &--search-toggle {
+    &--search-toggle,
+    &--search-link {
       background: none;
       border: 0;
       padding: 0;
@@ -242,10 +248,21 @@
       }
     }
 
+    &--search-link {
+      @media (min-width: 535px) {
+        display: none;
+      }
+    }
+
     &--search-toggle {
+      display: none;
       width: 2rem;
       margin-inline-start: auto;
       padding-inline-end: 0.25rem;
+
+      @media (min-width: 535px) {
+        display: block;
+      }
 
       [data-active-search] & {
         background-color: var(--grey-100);
