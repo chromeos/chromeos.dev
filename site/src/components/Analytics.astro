@@ -1,8 +1,15 @@
----
-import CookieConsent from '$components/CookieConsent.svelte';
----
+<!-- Cookie Consent Banner -->
+<script
+  src="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.js"
+  data-glue-cookie-notification-bar-category="2A"
+  data-glue-cookie-notification-bar-site-id="chromeos.dev"
+  defer></script>
 
-<CookieConsent client:load />
+<link
+  href="https://www.gstatic.com/glue/cookienotificationbar/cookienotificationbar.min.css"
+  rel="stylesheet"
+/>
+<!-- End Cookie Consent Banner -->
 
 <!-- Google Tag Manager -->
 <script>
@@ -11,11 +18,11 @@ import CookieConsent from '$components/CookieConsent.svelte';
 </script>
 <!-- End Google Tag Manager -->
 <!-- Google Tag Manager (noscript) -->
-<noscript
-  ><iframe
+<noscript>
+  <iframe
     src="https://www.googletagmanager.com/ns.html?id=GTM-P2W8H6G"
     height="0"
     width="0"
-    style="display: none; visibility: hidden;"></iframe></noscript
->
+    style="display: none; visibility: hidden;"></iframe>
+</noscript>
 <!-- End Google Tag Manager (noscript) -->
