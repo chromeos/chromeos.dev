@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
+    "dev:dev": "SANITY_DATASET=development astro dev",
     "generate:search": "tsx ./lib/search.ts",
     "astro:dev": "astro dev",
     "astro:build": "astro build",

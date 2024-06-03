@@ -40,6 +40,11 @@ async function getImageSize(url) {
 
 const cdnRegex = /^((ix|cms):\/\/)(image-)?/;
 
+let cmsImageBase = 'https://chromeos.imgix.net/';
+if (process.env.SANITY_DATASET === 'development') {
+  cmsImageBase = 'https://chromeos-cms-dev.imgix.net/';
+}
+
 /**
  *
  * @param {string} src Image src that matches cdnRegex
@@ -50,9 +55,7 @@ function getURL(src) {
   if (base === 'ix') {
     return src.replace(cdnRegex, 'https://chromeos-dev.imgix.net/');
   } else if (base === 'cms') {
-    return src
-      .replace(cdnRegex, 'https://chromeos.imgix.net/')
-      .replace(/-(\w{3,4})$/, '.$1');
+    return src.replace(cdnRegex, cmsImageBase).replace(/-(\w{3,4})$/, '.$1');
   }
 }
 
