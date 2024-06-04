@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "astro dev",
     "dev:dev": "SANITY_DATASET=development astro dev",
+    "dev:offline": "OFFLINE=true astro dev",
     "generate:search": "tsx ./lib/search.ts",
+    "generate:archive": "tsx ./lib/archive.ts",
     "astro:dev": "astro dev",
     "astro:build": "astro build",
     "start": "run-s generate:search astro:dev",
