@@ -179,12 +179,16 @@
         max-height: 50cqh;
         margin-top: 0;
       }
+
+      img {
+        object-fit: contain;
+      }
     }
 
     &--background {
       display: flex;
       justify-content: flex-end;
-      height: 20cqh;
+      height: 45cqw;
 
       @container (min-width: #{$swap}) {
         right: 0;
@@ -302,10 +306,7 @@
       --hero-theme-color: var(--io-black);
       --hero-theme-background: var(--white);
       border-bottom: 2px solid var(--io-black);
-
-      @container (min-width: #{$swap}) {
-        border-width: 1px;
-      }
+      border-top: 2px solid var(--io-black);
 
       :global([data-theme='dark']) & {
         // Specificity of the general override is higher than this, and I don't want to mix things, so I'm adding important here and only here.
@@ -336,7 +337,6 @@
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center bottom -2px;
-        height: 45cqw;
 
         :global([data-theme='dark']) & {
           background-image: url('https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/themes%2Fio-2024%2Fdark-small.svg?alt=media&token=f95c8be7-26ae-4311-9197-dc5b08e3d5e8');
