@@ -70,6 +70,10 @@ export default defineType({
       title: 'Announcement',
       name: 'announcement',
     },
+    {
+      title: 'Tutorials',
+      name: 'tutorials',
+    },
   ],
   fields: [
     defineField({
@@ -771,6 +775,92 @@ export default defineType({
               },
             ],
           },
+        }),
+      ],
+    }),
+
+    // Tutorials
+    defineField({
+      name: 'tutorials',
+      title: 'Tutorials',
+      type: 'object',
+      group: ['tutorials'],
+      fields: [
+        defineField({
+          name: 'tutorial',
+          title: 'Tutorial',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'introduction',
+          title: 'Introduction',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'wrapup',
+          title: 'Wrap-up',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'tasks',
+          title: '((n)) tasks',
+          type: 'string',
+          description: '((n)) - Task number, as a numeral',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'task',
+          title: 'Task ((n))',
+          type: 'string',
+          description: '((n)) - Task number, as a numeral',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'completed',
+          title: '((n)) tasks completed',
+          type: 'string',
+          description: '((n)) - Task number, as a numeral',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'minutes',
+          title: '((n)) minutes',
+          type: 'string',
+          description: '((n)) - Number of minutes, as a numeral',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'goals',
+          title: "What you'll learn",
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'prerequisites',
+          title: 'What you should know',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'reinforcement',
+          title: 'Your turn',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'learned',
+          title: 'What you learned',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'next',
+          title: "What's next",
+          type: 'string',
+          validation: (Rule) => Rule.required(),
         }),
       ],
     }),
