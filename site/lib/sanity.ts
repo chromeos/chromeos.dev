@@ -14,6 +14,7 @@ import type {
   ReleaseNote,
   ReleaseNotesLanding,
   NewsLanding,
+  Tutorial,
 } from '../types/sanity';
 
 import 'dotenv/config';
@@ -51,6 +52,7 @@ export let landings;
 export let guidelines: Guidelines[];
 export let releaseNotes;
 export let releaseNoteLandings;
+export let tutorials;
 
 let sanity;
 
@@ -74,6 +76,7 @@ if (process.env.OFFLINE) {
       guidelines,
       releaseNotes,
       releaseNoteLandings,
+      tutorials,
     } = archive);
   } catch (e) {
     throw new Error('Archive not available');
@@ -526,9 +529,73 @@ if (process.env.OFFLINE) {
     note.stable = new Date(note.stable);
     return note;
   }) as ReleaseNote[];
+
+  tutorials = (await groq(
+    `*[_type == 'tutorial']
+      {
+        ${coreQuery}
+        software[] {
+          min,
+          max,
+          name,
+          url
+        },
+        code,
+        tasks,
+        weight,
+        intro,
+        outro,
+      }`,
+    (tutorial) => {
+      console.log(tutorial);
+      tutorial.intro.goals = tutorial.intro.goals.map((g) => g.goal);
+      if (tutorial.intro.prerequisite) {
+        tutorial.intro.prerequisites = tutorial.intro.prerequisites.map(
+          (p) => p.prerequisite,
+        );
+      }
+
+      tutorial.tasks = tutorial.tasks.map((t) => {
+        delete t._type;
+        delete t._key;
+        t.reinforcement = t.reinforcement.map((r) => r.item);
+        return t;
+      });
+
+      if (tutorial.outro?.next?.steps) {
+        tutorial.outro.next.steps = tutorial.outro.next.steps.map(
+          (s) => s.step,
+        );
+      }
+
+      tutorial.body = [
+        tutorial.intro.body,
+        tutorial.tasks.map((t) => t.body).flat(1),
+        tutorial.outro.body,
+      ];
+
+      if (tutorial.outro.next) {
+        tutorial.body.push(tutorial.outro.next.body);
+      }
+
+      tutorial.body = tutorial.body.flat(1);
+
+      console.log(tutorial);
+
+      return tutorial;
+    },
+  )) as Tutorial[];
+
+  // console.log(tutorials[0]);
 }
 
-export const all = [...posts, ...documentation, ...stories, ...landings];
+export const all = [
+  ...posts,
+  ...documentation,
+  ...stories,
+  ...landings,
+  ...tutorials,
+];
 
 /** ****************
  *
