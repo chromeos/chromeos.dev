@@ -129,7 +129,7 @@ export default defineType({
 
     // Introduction
     defineField({
-      name: 'introduction',
+      name: 'intro',
       title: 'Introduction',
       group: 'content',
       type: 'object',
@@ -230,34 +230,9 @@ export default defineType({
               validation: (Rule) => Rule.required(),
             }),
             defineField({
-              name: 'introduction',
+              name: 'body',
               type: 'full-block',
               validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: 'steps',
-              title: 'Steps',
-              type: 'array',
-              validation: (Rule) => Rule.required(),
-              of: [
-                defineArrayMember({
-                  name: 'step',
-                  title: 'Step',
-                  type: 'object',
-                  fields: [
-                    defineField({
-                      name: 'title',
-                      type: 'string',
-                      validation: (Rule) => Rule.required(),
-                    }),
-                    defineField({
-                      name: 'description',
-                      type: 'full-block',
-                      validation: (Rule) => Rule.required(),
-                    }),
-                  ],
-                }),
-              ],
             }),
             defineField({
               name: 'reinforcement',
@@ -297,7 +272,7 @@ export default defineType({
 
     // Outro
     defineField({
-      name: 'completion',
+      name: 'outro',
       title: 'Outro',
       group: 'content',
       type: 'object',
@@ -315,7 +290,7 @@ export default defineType({
           type: 'object',
           fields: [
             defineField({
-              name: 'next',
+              name: 'body',
               title: 'Introduction',
               type: 'restricted-inline-block',
               validation: (Rule) => Rule.required(),
