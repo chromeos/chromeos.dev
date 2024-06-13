@@ -16,6 +16,7 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 import { isL10n } from '$lib/validators/i18n';
 import { preview } from '$lib/previews/localization';
+import { toPlainText } from '@portabletext/react';
 
 export default defineType({
   name: 'tutorial',
@@ -116,6 +117,7 @@ export default defineType({
         }),
       ],
     }),
+
     // defineField({
     //   name: 'resources',
     //   title: 'Resources',
@@ -125,11 +127,13 @@ export default defineType({
     //   group: ['content'],
     // }),
 
+    // Introduction
     defineField({
-      name: 'introduction',
+      name: 'intro',
       title: 'Introduction',
       group: 'content',
       type: 'object',
+      validation: (Rule) => Rule.required(),
       fields: [
         defineField({
           name: 'body',
@@ -141,6 +145,7 @@ export default defineType({
           name: 'goals',
           title: 'Learning Goals',
           type: 'array',
+          validation: (Rule) => Rule.required().min(2),
           of: [
             defineArrayMember({
               name: 'goal',
@@ -152,6 +157,17 @@ export default defineType({
                   type: 'restricted-inline-block',
                 }),
               ],
+              preview: {
+                select: {
+                  goal: 'goal',
+                },
+                prepare(selection) {
+                  const { goal } = selection;
+                  return {
+                    title: toPlainText(goal),
+                  };
+                },
+              },
             }),
           ],
         }),
@@ -168,6 +184,144 @@ export default defineType({
                 defineField({
                   name: 'prerequisite',
                   type: 'restricted-inline-block',
+                }),
+              ],
+              preview: {
+                select: {
+                  prerequisite: 'prerequisite',
+                },
+                prepare(selection) {
+                  const { prerequisite } = selection;
+                  return {
+                    title: toPlainText(prerequisite),
+                  };
+                },
+              },
+            }),
+          ],
+        }),
+      ],
+    }),
+
+    // Tasks
+    defineField({
+      name: 'tasks',
+      title: 'Tasks',
+      group: 'content',
+      type: 'array',
+      validation: (Rule) => Rule.required().min(2),
+      of: [
+        defineArrayMember({
+          name: 'task',
+          title: 'Task',
+          type: 'object',
+          validation: (Rule) => Rule.required(),
+          fields: [
+            defineField({
+              name: 'title',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'duration',
+              title: 'Estimated duration to complete',
+              type: 'number',
+              description: 'In minutes',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'body',
+              type: 'full-block',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'reinforcement',
+              title: 'Reinforcement',
+              description:
+                "List of actions a reader should take, based on the task, to reinforce the learning from its steps. Can draw on previous tasks or stated tutorial prerequisites, and should require stretching the reader's knowledge.",
+              type: 'array',
+              validation: (Rule) => Rule.required().min(2),
+              of: [
+                defineArrayMember({
+                  name: 'item',
+                  type: 'object',
+                  fields: [
+                    defineField({
+                      name: 'item',
+                      type: 'restricted-inline-block',
+                    }),
+                  ],
+                  preview: {
+                    select: {
+                      item: 'item',
+                    },
+                    prepare(selection) {
+                      const { item } = selection;
+                      return {
+                        title: toPlainText(item),
+                      };
+                    },
+                  },
+                }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+
+    // Outro
+    defineField({
+      name: 'outro',
+      title: 'Outro',
+      group: 'content',
+      type: 'object',
+      validation: (Rule) => Rule.required(),
+      fields: [
+        defineField({
+          name: 'body',
+          title: 'Congratulations',
+          type: 'full-block',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'next',
+          title: 'Next step',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'body',
+              title: 'Introduction',
+              type: 'restricted-inline-block',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'steps',
+              title: 'Actions',
+              type: 'array',
+              validation: (Rule) => Rule.required().min(2),
+              of: [
+                defineArrayMember({
+                  name: 'step',
+                  title: 'Item',
+                  type: 'object',
+                  fields: [
+                    defineField({
+                      name: 'step',
+                      type: 'restricted-inline-block',
+                    }),
+                  ],
+                  preview: {
+                    select: {
+                      step: 'step',
+                    },
+                    prepare(selection) {
+                      const { step } = selection;
+                      return {
+                        title: toPlainText(step),
+                      };
+                    },
+                  },
                 }),
               ],
             }),

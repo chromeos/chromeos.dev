@@ -68,6 +68,8 @@ export function buildPath(item) {
     item._section = item.category.slug;
   } else if (item._type === 'story') {
     item._section = 'stories';
+  } else if (item._type === 'tutorial') {
+    item._section = 'tutorials';
   }
 
   // Build path

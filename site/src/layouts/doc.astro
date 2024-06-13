@@ -31,9 +31,20 @@ const microcopy = getMicrocopy(locale.code);
     <aside class="article--extras">
       <slot name="extras" />
     </aside>
-    <section class="article--content type" id="article">
-      <slot name="content" />
-    </section>
+    {
+      Astro.slots.has('content') && (
+        <section class="article--content type" id="article">
+          <slot name="content" />
+        </section>
+      )
+    }
+    {
+      Astro.slots.has('body') && (
+        <section class="article--content" id="article">
+          <slot name="body" />
+        </section>
+      )
+    }
   </article>
 
   <Recommended
@@ -89,10 +100,18 @@ const microcopy = getMicrocopy(locale.code);
 
     &--extras {
       margin-block-end: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      // align-items: center;
+      // justify-content: center;
+
       @include mq($bkpt-article--3-cols) {
         padding-inline: 0;
         grid-column: 4;
         grid-row: 1 / span 2;
+        margin-block-start: 2rem;
+
         // margin-block-end: 0;
       }
     }
