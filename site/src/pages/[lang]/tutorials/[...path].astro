@@ -345,9 +345,8 @@ if (intro) {
         </>
       )
     }
-    {toc && toc.length > 0 && <TOC toc={toc} client:idle />}
     {
-      outro !== true && (
+      intro === true && (
         <a href={tutorial.code.url} class="cta cta--high code">
           {tutorial.code.text}
           {tutorial.code.download && (
@@ -377,6 +376,7 @@ if (intro) {
         </a>
       )
     }
+    {toc && toc.length > 0 && <TOC toc={toc} client:idle />}
   </Fragment>
 </Doc>
 
