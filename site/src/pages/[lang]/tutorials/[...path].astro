@@ -224,7 +224,7 @@ if (intro) {
               <ul>
                 {tutorial.intro.prerequisites.map((g) => (
                   <li>
-                    <Text body={g} inline={true} wrapped={false} />
+                    <Text body={g.prerequisite} inline={true} wrapped={false} />
                   </li>
                 ))}
               </ul>
