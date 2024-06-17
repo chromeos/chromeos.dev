@@ -10,7 +10,10 @@
   let clean: boolean = true;
   let confetti;
   let canvas;
+  let anchor;
   let active: boolean = false;
+  let visible: boolean = false;
+  let fired: boolean = false;
 
   let done: boolean = false;
 
@@ -23,10 +26,23 @@
       done = !Object.values($state[base]).includes(false);
     }
 
-    if (done && canvas?.confetti) {
+    if (done && canvas?.confetti && visible && !fired) {
       tada();
+      fired = true;
     }
   }
+
+  $: {
+    if (done === false) {
+      fired = false;
+    }
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      visible = entry.isIntersecting;
+    });
+  });
 
   const count = 200;
   const defaults = {
@@ -116,9 +132,12 @@
         useWorker: true,
         disableForReducedMotion: true,
       });
+
+    observer.observe(anchor);
   });
 </script>
 
+<div class="anchor" bind:this={anchor}></div>
 <canvas data-active={active || null} bind:this={canvas}></canvas>
 
 <style lang="scss">
