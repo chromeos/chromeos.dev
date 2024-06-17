@@ -44,6 +44,7 @@
     padding-inline: 2rem;
     padding-block: 2rem;
     background-color: var(--grey-150);
+    cursor: pointer;
 
     &:has(:checked) .check {
       display: grid;
