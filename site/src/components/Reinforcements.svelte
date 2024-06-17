@@ -124,7 +124,6 @@
     );
 
     confetti = (await import('canvas-confetti')).default;
-    console.log(confetti);
     canvas.confetti =
       canvas.confetti ||
       confetti.create(canvas, {
