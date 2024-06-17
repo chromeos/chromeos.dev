@@ -15,10 +15,14 @@
     l = 'text';
     highlighted = highlight(code, l);
   }
+
+  const caption = l === 'sh' && !filename ? '' : filename || l;
 </script>
 
 <figure class="code-figure">
-  <figcaption class="type--label">{filename || l}</figcaption>
+  {#if caption}
+    <figcaption class="type--label">{caption}</figcaption>
+  {/if}
   <!-- eslint-disable svelte/no-at-html-tags -->
   <pre class={cls}><code class={cls}>{@html highlighted}</code></pre>
   <!-- eslint-enable svelte/no-at-html-tags -->
@@ -31,7 +35,7 @@
       margin-block: 0;
     }
 
-    pre {
+    figcaption + pre {
       margin-block-start: 0.25rem;
     }
   }
