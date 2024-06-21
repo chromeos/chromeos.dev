@@ -1,14 +1,6 @@
 ---
-import Article from '$layouts/article.astro';
-import TOC from '$components/TOC.svelte';
-import Published from '$components/Published.svelte';
-import Authors from '$components/Authors.svelte';
-import PostHero from '$components/PostHero.svelte';
-import YouTube from '$components/YouTube.svelte';
+import Post from '$views/Post.astro';
 import { posts, microcopy as micro } from '$lib/sanity';
-import type { PostHeroProps } from '$components/PostHero.svelte';
-import Text from '$components/Text.astro';
-import { buildTOC } from '$lib/portabletext';
 import type { Microcopy } from '$types/sanity';
 
 /**
@@ -34,87 +26,6 @@ export function getStaticPaths() {
 }
 
 const { post, microcopy } = Astro.props;
-const { locale } = microcopy;
-
-// const cta: CTA = {
-//   text: microcopy.microcopy.breadcrumbs.replace(
-//     '((t))',
-//     microcopy.news.posts.title,
-//   ),
-//   url: `/${locale.code}/news`,
-// };
-
-// const theme = meta?.theme || {};
-
-// const hero = {};
-
-// if (meta.hero) {
-//   hero.url = meta.hero.image;
-//   hero.alt = meta.hero.alt;
-// }
-
-const hero = {
-  title: post.title,
-  theme: post.theme,
-  form: 'header',
-  media: post.hero?.youtube ? null : post.hero?.image,
-  cta: {
-    text: microcopy.actions.back.replace('((a))', 'News'), // TODO: Replace with proper data pull from CMS
-    url: `/${locale.code}/news`,
-  },
-} as PostHeroProps;
-
-const authors = {
-  authors: post.author,
-  label: microcopy.meta.authored,
-  wrapper: 'section',
-};
-
-const toc = buildTOC(post.body);
 ---
 
-<Article title={post.title} metadesc={post.description} microcopy={microcopy}>
-  <Fragment slot="header">
-    <PostHero {...hero} />
-  </Fragment>
-  <!-- YouTube embed -->
-  {
-    post.hero?.youtube && (
-      <YouTube
-        client:load
-        slot={post.hero?.youtube && 'hero'}
-        id={post.hero?.youtube.id}
-        alt={`YouTube ${post.hero?.youtube.id}`}
-        label={microcopy.actions.loadVideo}
-      />
-    )
-  }
-  <!-- Main content area -->
-  <Text body={post.body} slot="content" />
-  <!-- <Fragment slot="content" set:html={content} /> -->
-  <!-- Extras sidegar -->
-  <Fragment slot="extras">
-    <!-- Author Info -->
-    <Authors {...authors} />
-    <!-- Published date info -->
-    <Published
-      locale={locale.code}
-      label={microcopy.meta.posted}
-      date={post.dates.published}
-      wrapper="section"
-    />
-    {
-      post.dates.updated && (
-        <Published
-          locale={locale.code}
-          label={microcopy.meta.updated}
-          date={post.dates.updated}
-          wrapper="section"
-        />
-      )
-    }
-
-    <!-- Table of Contents -->
-    {toc.length > 0 && <TOC toc={toc} client:idle />}
-  </Fragment>
-</Article>
+<Post post={post} microcopy={microcopy} />

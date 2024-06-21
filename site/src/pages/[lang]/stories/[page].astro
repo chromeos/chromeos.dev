@@ -1,13 +1,7 @@
 ---
-import type { CTA } from '$types/content';
 import type { Microcopy } from '$types/sanity';
-import Article from '$layouts/article.astro';
-import TOC from '$components/TOC.svelte';
-import Published from '$components/Published.svelte';
-import StoryBanner from '$components/stories/StoryBanner.svelte';
+import Story from '$views/Story.astro';
 import { stories, microcopy as micro } from '$lib/sanity';
-import Text from '$components/Text.astro';
-import { buildTOC } from '$lib/portabletext';
 
 /**
  * Builds paths for news pagination
@@ -32,48 +26,6 @@ export function getStaticPaths() {
 }
 
 const { story, microcopy } = Astro.props;
-const { locale } = microcopy;
-
-// TODO - i18n text
-const cta: CTA = {
-  text: microcopy.actions.back.replace('((a))', 'Stories'),
-  url: `/${locale.code}/stories`,
-  type: 'link',
-  direction: 'back',
-};
-
-const toc = buildTOC(story.body);
 ---
 
-<Article title={story.title} metadesc={story.description} microcopy={microcopy}>
-  <Fragment slot="header">
-    <StoryBanner story={story} cta={cta} />
-  </Fragment>
-  <!-- Hero image -->
-  {
-    story?.hero?.image && (
-      <img
-        src={story.hero.image}
-        alt={story.hero.alt}
-        slot={story?.hero?.image && 'hero'}
-      />
-    )
-  }
-  <!-- Main content area -->
-  <Text body={story.body} slot="content" />
-  <!-- Extras sidebar -->
-  <Fragment slot="extras">
-    <!-- Published date info -->
-    <Published
-      locale={locale.code}
-      label={story.dates.updated
-        ? microcopy.meta.updated
-        : microcopy.meta.posted}
-      date={story.dates.updated || story.dates.published}
-      wrapper="section"
-    />
-
-    <!-- Table of Contents -->
-    {toc.length > 0 && <TOC toc={toc} client:idle />}
-  </Fragment>
-</Article>
+<Story story={story} microcopy={microcopy} />
