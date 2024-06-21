@@ -49,6 +49,10 @@
     &:has(:checked) .check {
       display: grid;
     }
+
+    :global([data-theme='dark']) & {
+      border: 1px solid var(--phosphor-green);
+    }
   }
 
   input {
