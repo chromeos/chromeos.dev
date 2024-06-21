@@ -5,6 +5,7 @@
     "baseUrl": ".",
     "paths": {
       "$components/*": ["src/components/*"],
+      "$views/*": ["src/layouts/views/*"],
       "$layouts/*": ["src/layouts/*"],
       "$js/*": ["src/js/*"],
       "$lib/*": ["lib/*"],
