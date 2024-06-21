@@ -8,7 +8,7 @@ import YouTube from '$components/YouTube.svelte';
 import type { PostHeroProps } from '$components/PostHero.svelte';
 import Text from '$components/Text.astro';
 import { buildTOC } from '$lib/portabletext';
-import type { Post, Microcopy } from '$types/sanity';
+import type { Post, Microcopy, Share } from '$types/sanity';
 
 export interface Props {
   post: Post;
@@ -53,9 +53,15 @@ const authors = {
 };
 
 const toc = buildTOC(post.body);
+const share = (post.share as Share) || null;
 ---
 
-<Article title={post.title} metadesc={post.description} microcopy={microcopy}>
+<Article
+  title={post.title}
+  metadesc={post.description}
+  microcopy={microcopy}
+  share={share}
+>
   <Fragment slot="header">
     <PostHero {...hero} />
   </Fragment>
