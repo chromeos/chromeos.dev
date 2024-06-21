@@ -10,8 +10,8 @@
   import { onMount } from 'svelte';
 
   export let toc = [];
+  export let title = 'On this page';
 
-  const title = 'On this page';
   const buttonTitle = 'Open table of contents';
   const tocs = toc
     .map((i) => {
