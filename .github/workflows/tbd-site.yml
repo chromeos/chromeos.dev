@@ -101,6 +101,9 @@ jobs:
         with:
           envkey_SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
           envkey_GITHUB_TOKEN: ${{ secrets.WORKFLOW_PAT }}
+          envkey_SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          envkey_SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          envkey_SANITY_TOKEN: ${{ secrets.SANITY_TOKEN }}
           directory: site
       - name: Deploy Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
