@@ -53,6 +53,7 @@ rules:
   n/no-unsupported-features/node-builtins: off
   svelte/valid-compile: warn
   # Breaks Svelte imports, until https://github.com/import-js/eslint-plugin-import/issues/1479 is resolved
+  import/namespace: off
   import/no-duplicates: off
   '@typescript-eslint/no-explicit-any': off
   '@typescript-eslint/no-unused-vars':
