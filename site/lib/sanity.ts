@@ -21,18 +21,17 @@ import 'dotenv/config';
 import process from 'process';
 
 import { createClient } from '@sanity/client';
-import { groupByLanguage, cleanup, buildPath } from '$lib/sanity/helpers';
+import { groupByLanguage } from '$lib/sanity/helpers';
 import {
   linkQuery,
-  coreQuery,
-  themeQuery,
-  featuredQuery,
   coreMetaQuery,
   homepageCardQuery,
   twoColumnBodyQuery,
 } from '$lib/sanity/queries';
 import { rtl, vertical } from '$lib/i18n';
 import iso6391 from 'iso-639-1';
+import * as content from '$lib/sanity/content';
+import { buildGROQ } from '$lib/sanity/functions';
 
 let includeDrafts = false;
 
@@ -89,6 +88,8 @@ if (process.env.OFFLINE) {
     apiVersion: '2023-10-02',
     useCdn: process.env.NODE_ENV === 'production',
   });
+
+  const groq = buildGROQ(sanity, includeDrafts);
 
   const linkRegex = /^\/{\s*{\s*locale\s*}\s*}\//gm;
 
@@ -328,83 +329,27 @@ if (process.env.OFFLINE) {
   stories = (await groq(
     `*[_type == "story"]
     {
-      ${coreQuery}
-      ${themeQuery}
-      ${featuredQuery}
-      'app': {
-        'company': app.company,
-        'title': app.title,
-        'logo': {
-          'image': 'cms://' + app.logo.asset._ref,
-          'alt': app.logo.alt
-        },
-      },
-      'hero': {
-        'image': 'cms://' + hero.image.asset._ref,
-        'alt': hero.image.alt
-      }
+      ${content.stories.query}
     }`,
-    (story) => {
-      // console.log(story);
-      return story as Story;
-    },
+    content.stories.fn,
   )) as Story[];
 
   // Posts
   posts = (await groq(
     `*[_type == "post"]
     {
-      ${coreQuery}
-      author[]->{
-        name,
-        work,
-        'image': image.asset
-      },
-      hero.include == true => {
-        'hero': {
-          hero.hero.youtube.id != null => {
-            'youtube': hero.hero.youtube,
-          },
-          hero.hero.image != null => {
-            'image': {
-              'image': 'cms://' + hero.hero.image.asset._ref,
-              'alt': hero.hero.image.alt,
-            }
-          }
-        }
-      },
-      ${themeQuery}
-      ${featuredQuery}
+      ${content.posts.query}
     }`,
-    (post) => {
-      if (post.theme.icon?._ref) {
-        post.theme.icon = `cms://${post.theme.icon._ref}`;
-      }
-      // if (post._slug === 'io-2022') {
-      //   console.log(post.theme.icon);
-      // }
-
-      return post as Post;
-    },
+    content.posts.fn,
   )) as Post[];
 
   // Documentation
   documentation = (await groq(
     `*[_type == "documentation"]
     {
-      ${coreQuery}
-      ${themeQuery}
-      weight,
-      software[] {
-        min,
-        max,
-        name,
-        url
-      }
+      ${content.documentation.query}
     }`,
-    (doc) => {
-      return doc as Documentation;
-    },
+    content.documentation.fn,
   )) as Documentation[];
 
   // Landing Pages
@@ -412,26 +357,10 @@ if (process.env.OFFLINE) {
     await sanity.fetch(
       `*[_type == 'landing' && !(_id in path('drafts.**'))]
       {
-        ${coreQuery}
-        banner
+        ${content.landings.query}
       }`,
     )
-  ).map((landing) => {
-    delete landing.dates;
-    delete landing.tags;
-    delete landing.banner._type;
-
-    buildPath(landing);
-
-    if (landing?.banner?.wide?.asset?._ref) {
-      landing.banner.wide = `cms://${landing.banner.wide.asset._ref}`;
-    }
-    if (landing?.banner?.narrow?.asset?._ref) {
-      landing.banner.narrow = `cms://${landing.banner.narrow.asset._ref}`;
-    }
-
-    return landing as Landing;
-  }) as Landing[];
+  ).map(content.landings.fn) as Landing[];
 
   guidelines = await sanity.fetch(
     `*[_type == 'guidelines' && _id match 'guidelines-*' && !(_id in path('drafts.**'))]
@@ -501,89 +430,17 @@ if (process.env.OFFLINE) {
     await sanity.fetch(
       `*[_type == 'release' && !(_id in path('drafts.**'))]
       {
-        ${coreMetaQuery}
-        version,
-        stable,
-        overview,
-        featured[] {
-          title,
-          content,
-        },
-        'additional': {
-          'overview': additional.overview,
-          'features': additional.features[] {
-            title,
-            content,
-          },
-        },
-        cta->{
-          title,
-          body
-        }
+        ${content.releaseNotes.query}
       }`,
     )
-  ).map((note) => {
-    note.title = `Chrome OS ${note.version}`;
-    note._slug = `/${note._langCode}/releases/chromeos-${note.version}`;
-    note._path = `/${note._langCode}/releases/chromeos-${note.version}`;
-    note.stable = new Date(note.stable);
-    return note;
-  }) as ReleaseNote[];
+  ).map(content.releaseNotes.fn) as ReleaseNote[];
 
   tutorials = (await groq(
     `*[_type == 'tutorial']
       {
-        ${coreQuery}
-        software[] {
-          min,
-          max,
-          name,
-          url
-        },
-        code,
-        tasks,
-        weight,
-        intro,
-        outro,
+        ${content.tutorials.query}
       }`,
-    (tutorial) => {
-      console.log(tutorial);
-      tutorial.intro.goals = tutorial.intro.goals.map((g) => g.goal);
-      if (tutorial.intro.prerequisite) {
-        tutorial.intro.prerequisites = tutorial.intro.prerequisites.map(
-          (p) => p.prerequisite,
-        );
-      }
-
-      tutorial.tasks = tutorial.tasks.map((t) => {
-        delete t._type;
-        delete t._key;
-        t.reinforcement = t.reinforcement.map((r) => r.item);
-        return t;
-      });
-
-      if (tutorial.outro?.next?.steps) {
-        tutorial.outro.next.steps = tutorial.outro.next.steps.map(
-          (s) => s.step,
-        );
-      }
-
-      tutorial.body = [
-        tutorial.intro.body,
-        tutorial.tasks.map((t) => t.body).flat(1),
-        tutorial.outro.body,
-      ];
-
-      if (tutorial.outro.next) {
-        tutorial.body.push(tutorial.outro.next.body);
-      }
-
-      tutorial.body = tutorial.body.flat(1);
-
-      console.log(tutorial);
-
-      return tutorial;
-    },
+    content.tutorials.fn,
   )) as Tutorial[];
 
   // console.log(tutorials[0]);
@@ -608,52 +465,4 @@ export const all = [
  */
 export function enableDrafts() {
   includeDrafts = true;
-}
-
-/**
- * GROQ callback types
- */
-type GroqCallbackReturn = Post | Documentation | Story;
-type GroqAsyncCallback = (item: any) => Promise<GroqCallbackReturn>;
-type GroqSyncCallback = (item: any) => GroqCallbackReturn;
-type GroqCallback = GroqAsyncCallback | GroqSyncCallback;
-
-/**
- * Queries the Sanity backend based on the GROQ query, and applies standard and custom transforms
- * @param {string} query - GROQ query
- * @param {GroqCallback} [cb] - Callback function
- * @return {Post[] | Documentation[] | Story[]}
- */
-async function groq(query: string, cb: GroqCallback) {
-  if (includeDrafts === false) {
-    query = query.replace(/^\*\[/, '*[!(_id in path("drafts.**")) && ');
-  }
-
-  const items = await sanity.fetch(query);
-
-  return (
-    await Promise.all(
-      items.map(async (item) => {
-        // Clean up dates
-        if (item.dates.published === item.dates.updated) {
-          delete item.dates.updated;
-        }
-        item.dates.published = new Date(item.dates.published);
-        if (item.dates.updated) {
-          item.dates.updated = new Date(item.dates.updated);
-        }
-
-        // Normalize sections
-        buildPath(item);
-        cleanup(item);
-
-        item = await cb(item);
-
-        return item;
-      }),
-    )
-  ).sort((a, b) => {
-    // Sort by date.published
-    return b.dates.published - a.dates.published;
-  });
 }
