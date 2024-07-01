@@ -161,7 +161,7 @@ $section-block-margin: 3.75rem;
     }
   }
 
-  code:not([class]) {
+  :not(.shiki) > code {
     @extend %type--code;
 
     [data-theme='dark'] & {

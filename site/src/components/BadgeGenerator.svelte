@@ -170,97 +170,81 @@
         <figcaption class="type--label code-figure--caption type--label">
           html
         </figcaption>
-        <pre class="language--html"><code class="language--html"
-            >{#if !dark}<span class="token tag"
-                ><span class="token tag"
-                  ><span class="token punctuation">&lt;</span>a</span
-                > <span class="token attr-name">href</span><span
-                  class="token attr-value"
-                  ><span class="token punctuation attr-equals">=</span><span
-                    class="token punctuation">"</span
-                  >{badgeURL}<span class="token punctuation">"</span></span
-                ><span class="token punctuation">&gt;</span></span
+        <pre
+          class="shiki material-theme-darker"
+          style="background-color:#272822;color:#F8F8F2"
+          tabindex="0"><code
+            ><span class="line"
+              ><span style="color:#F8F8F2">&#x3C;</span><span
+                style="color:#F92672">a</span
+              ><span style="color:#A6E22E"> href</span><span
+                style="color:#F8F8F2">=</span
+              ><span style="color:#F8F8F2"
+                >"<span style="color:#E6DB74">{badgeURL}</span>"</span
+              ><span style="color:#F8F8F2">></span></span
+            >
+{#if !dark}<span class="line"
+                ><span style="color:#F8F8F2">  &#x3C;</span><span
+                  style="color:#F92672">img</span
+                ><span style="color:#A6E22E"> src</span><span
+                  style="color:#F8F8F2">=</span
+                ><span style="color:#F8F8F2">"</span><span style="color:#E6DB74"
+                  >{badgeSrc}</span
+                ><span style="color:#F8F8F2">"</span><span
+                  style="color:#A6E22E"> alt</span
+                ><span style="color:#F8F8F2">=</span><span style="color:#F8F8F2"
+                  >"</span
+                ><span style="color:#E6DB74">{i18n.a2c}</span><span
+                  style="color:#F8F8F2">"</span
+                ><span style="color:#F8F8F2">/></span></span
+              >{:else}
+              <span class="line"
+                ><span style="color:#F8F8F2">  &#x3C;</span><span
+                  style="color:#F92672">picture</span
+                ><span style="color:#F8F8F2">></span></span
               >
-  <span class="token tag"
-                ><span class="token tag"
-                  ><span class="token punctuation">&lt;</span>img</span
-                > <span class="token attr-name">src</span><span
-                  class="token attr-value"
-                  ><span class="token punctuation attr-equals">=</span><span
-                    class="token punctuation">"</span
-                  >{badgeSrc}<span class="token punctuation">"</span></span
-                ><span class="token attr-name"> alt</span><span
-                  class="token attr-value"
-                  ><span class="token punctuation attr-equals">=</span><span
-                    class="token punctuation">"</span
-                  >{i18n.a2c}<span class="token punctuation">"</span></span
-                ><span class="token punctuation">/&gt;</span></span
+<span class="line"
+                ><span style="color:#F8F8F2">    &#x3C;</span><span
+                  style="color:#F92672">source</span
+                ><span style="color:#A6E22E"> srcset</span><span
+                  style="color:#F8F8F2">=</span
+                ><span style="color:#F8F8F2">"</span><span style="color:#E6DB74"
+                  >https://chromeos.dev/badges/{language}/dark.svg</span
+                ><span style="color:#F8F8F2">"</span><span
+                  style="color:#A6E22E"> media</span
+                ><span style="color:#F8F8F2">=</span><span style="color:#F8F8F2"
+                  >"</span
+                ><span style="color:#E6DB74">(prefers-color-scheme: dark)</span
+                ><span style="color:#F8F8F2">"</span><span style="color:#F8F8F2"
+                  >></span
+                ></span
               >
-<span class="token tag"
-                ><span class="token tag"
-                  ><span class="token punctuation">&lt;/</span>a</span
-                ><span class="token punctuation">&gt;</span></span
-              >{:else}<span class="token tag"
-                ><span class="token tag"
-                  ><span class="token punctuation">&lt;</span>a</span
-                > <span class="token attr-name">href</span><span
-                  class="token attr-value"
-                  ><span class="token punctuation attr-equals">=</span><span
-                    class="token punctuation">"</span
-                  >{badgeURL}<span class="token punctuation">"</span></span
-                ><span class="token punctuation">&gt;</span></span
+<span class="line"
+                ><span style="color:#F8F8F2">    &#x3C;</span><span
+                  style="color:#F92672">img</span
+                ><span style="color:#A6E22E"> src</span><span
+                  style="color:#F8F8F2">=</span
+                ><span style="color:#F8F8F2">"</span><span style="color:#E6DB74"
+                  >{badgeSrc}</span
+                ><span style="color:#F8F8F2">"</span><span
+                  style="color:#A6E22E"> alt</span
+                ><span style="color:#F8F8F2">=</span><span style="color:#F8F8F2"
+                  >"</span
+                ><span style="color:#E6DB74">{i18n.a2c}</span><span
+                  style="color:#F8F8F2">"</span
+                ><span style="color:#F8F8F2">/></span></span
               >
-  <span class="token tag"
-                ><span class="token tag"
-                  ><span class="token punctuation">&lt;</span>picture</span
-                ><span class="token punctuation">&gt;</span></span
-              >
-    <span class="token tag"
-                ><span class="token tag"
-                  ><span class="token punctuation">&lt;</span>source</span
-                > <span class="token attr-name">srcset</span><span
-                  class="token attr-value"
-                  ><span class="token punctuation attr-equals">=</span><span
-                    class="token punctuation">"</span
-                  >https://chromeos.dev/badges/{language}/dark.svg<span
-                    class="token punctuation">"</span
-                  ></span
-                > <span class="token attr-name">media</span><span
-                  class="token attr-value"
-                  ><span class="token punctuation attr-equals">=</span><span
-                    class="token punctuation">"</span
-                  >(prefers-color-scheme: dark)<span class="token punctuation"
-                    >"</span
-                  ></span
-                ><span class="token punctuation">&gt;</span></span
-              >
-    <span class="token tag"
-                ><span class="token tag"
-                  ><span class="token punctuation">&lt;</span>img</span
-                > <span class="token attr-name">src</span><span
-                  class="token attr-value"
-                  ><span class="token punctuation attr-equals">=</span><span
-                    class="token punctuation">"</span
-                  >{badgeSrc}<span class="token punctuation">"</span></span
-                > <span class="token attr-name">alt</span><span
-                  class="token attr-value"
-                  ><span class="token punctuation attr-equals">=</span><span
-                    class="token punctuation">"</span
-                  >{i18n.a2c}<span class="token punctuation">"</span></span
-                ><span class="token punctuation">/&gt;</span></span
-              >
-  <span class="token tag"
-                ><span class="token tag"
-                  ><span class="token punctuation">&lt;/</span>picture</span
-                ><span class="token punctuation">&gt;</span></span
-              >
-<span class="token tag"
-                ><span class="token tag"
-                  ><span class="token punctuation">&lt;/</span>a</span
-                ><span class="token punctuation">&gt;</span></span
-              >
-            {/if}
-            </code></pre>
+<span class="line"
+                ><span style="color:#F8F8F2">  &#x3C;/</span><span
+                  style="color:#F92672">picture</span
+                ><span style="color:#F8F8F2">></span></span
+              >{/if}
+<span class="line"
+              ><span style="color:#F8F8F2">&#x3C;/</span><span
+                style="color:#F92672">a</span
+              ><span style="color:#F8F8F2">></span></span
+            ></code
+          ></pre>
       </figure>
 
       <div class="badge-generator--field">
