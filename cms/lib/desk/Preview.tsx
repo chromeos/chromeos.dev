@@ -23,7 +23,6 @@ export const Preview = (context: DeskToolContextValue) => {
     return <h1>Preview not supported for this content type</h1>;
   }
 
-  console.log(process.env);
   const base =
     process.env.MODE === 'development'
       ? 'http://localhost:4321'
