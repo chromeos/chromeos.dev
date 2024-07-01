@@ -1,33 +1,110 @@
-import { ComponentView } from 'sanity/desk';
+import { DeskToolContextValue } from 'sanity/desk';
+import { FaRegCopy } from 'react-icons/fa';
+import { IoReload } from 'react-icons/io5';
+import { RxOpenInNewWindow } from 'react-icons/rx';
 
 /**
  *
  * @param {Object} context
  * @return {ComponentView}
  */
-export const Preview = (context: ComponentView) => {
-  const { document, documentId, schemaType } = context;
-  // Site preview URL?
-  const previewURL = `https://staging.chromeos.dev/en/posts/${document.displayed.slug.current}?id=${document.displayed._id}&rev=${document.displayed._rev}&preview=true`;
-  console.log(document);
-  console.log(documentId);
-  console.log(schemaType);
-  console.log(previewURL);
+export const Preview = (context: DeskToolContextValue) => {
+  const { document: d, schemaType } = context;
+  const types = [
+    'documentation',
+    'post',
+    'story',
+    'tutorial',
+    // 'landing',
+    // 'release',
+  ];
 
-  const style = {
-    width: '100%',
-    height: '50vh',
-  };
+  if (!types.includes(schemaType.name)) {
+    return <h1>Preview not supported for this content type</h1>;
+  }
+
+  const base =
+    process.env.MODE === 'development'
+      ? 'http://localhost:4321'
+      : 'https://chromeos.dev';
+  // Site preview URL?
+  const previewURL = `${base}/preview?id=${d.displayed._id}&rev=${
+    d.displayed._rev
+  }&key=${encodeURIComponent(process.env.SANITY_STUDIO_PREVIEW_KEY)}`;
+
+  const id = `preview-${Math.round(Math.random() * 1000)}`;
 
   return (
     <div>
-      <h1>Document Preview</h1>
-      <p>Preview URL: {previewURL}</p>
+      <h1>Preview</h1>
+      <div
+        className="actions"
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          paddingInline: '1rem',
+          paddingBlock: '.5rem',
+          backgroundColor: '#111',
+          gap: '1rem',
+        }}
+      >
+        <button
+          style={{
+            appearance: 'none',
+            border: 'none',
+            backgroundColor: '#111',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '.5rem',
+            cursor: 'pointer',
+          }}
+          onClick={async () => {
+            await navigator.clipboard.writeText(previewURL);
+          }}
+        >
+          <FaRegCopy></FaRegCopy> Copy URL
+        </button>
+        <span
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            gap: '1rem',
+          }}
+        >
+          <button
+            style={{
+              appearance: 'none',
+              border: 'none',
+              backgroundColor: '#111',
+              cursor: 'pointer',
+            }}
+            onClick={() => {
+              const iframe = document.querySelector(`#${id}`);
+              if (iframe) iframe.src = previewURL;
+            }}
+          >
+            <IoReload></IoReload>
+          </button>
+          <a
+            href={previewURL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: 'white',
+            }}
+          >
+            <RxOpenInNewWindow />
+          </a>
+        </span>
+      </div>
       <iframe
         title="preview"
-        src="https://chromeos.dev"
-        frameBorder="0"
-        style={style}
+        src={previewURL}
+        style={{
+          width: '100%',
+          height: '50vh',
+        }}
+        id={id}
       ></iframe>
     </div>
   );

@@ -1,0 +1,36 @@
+---
+import { highlight } from '$lib/helpers/text';
+
+export interface Props {
+  block: any;
+}
+
+const { block } = Astro.props;
+
+const { code, language, filename } = block;
+
+const highlighted = await highlight(code, language);
+
+const caption = language === 'sh' && !filename ? '' : filename || language;
+---
+
+<figure class="code-figure">
+  {caption && <figcaption class="type--label">{caption}</figcaption>}
+  <!-- eslint-disable svelte/no-at-html-tags -->
+  <Fragment set:html={highlighted} />
+  <!-- <pre class={cls}><code class={cls}>{@html highlighted}</code></pre> -->
+  <!-- eslint-enable svelte/no-at-html-tags -->
+</figure>
+
+<style lang="scss">
+  .code-figure {
+    figcaption,
+    pre {
+      margin-block: 0;
+    }
+
+    figcaption + pre {
+      margin-block-start: 0.25rem;
+    }
+  }
+</style>

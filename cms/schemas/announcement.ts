@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { defineField, defineType, defineArrayMember } from 'sanity';
+import { defineField, defineType } from 'sanity';
 import { preview } from '$lib/previews/localization';
 
 export default defineType({
@@ -29,43 +29,7 @@ export default defineType({
     defineField({
       name: 'body',
       title: 'Announcement',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          title: 'Block',
-          type: 'block',
-          // Styles let you set what your user can mark up blocks with. These
-          // correspond with HTML tags, but you can set any title or value
-          // you want and decide how you want to deal with it where you want to
-          // use your content.
-          styles: [{ title: 'Normal', value: 'normal' }],
-          lists: [],
-          // Marks let you mark up inline text in the block editor.
-          marks: {
-            // Decorators usually describe a single property – e.g. a typographic
-            // preference or highlighting by editors.
-            decorators: [
-              { title: 'Strong', value: 'strong' },
-              { title: 'Emphasis', value: 'em' },
-            ],
-            // Annotations can be any object structure – e.g. a link or a footnote.
-            annotations: [
-              {
-                title: 'Link',
-                name: 'link',
-                type: 'object',
-                fields: [
-                  defineField({
-                    title: 'Source',
-                    name: 'source',
-                    type: 'link',
-                  }),
-                ],
-              },
-            ],
-          },
-        }),
-      ],
+      type: 'restricted-inline-block',
       validation: (Rule) => Rule.required(),
     }),
   ],

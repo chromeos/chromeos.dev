@@ -134,6 +134,13 @@ export type HomepageStat = {
   source: string;
 };
 
+export type TutorialTask = {
+  duration: number;
+  title: string;
+  body: PortableTextBlock[];
+  reinforcement: Array<PortableTextBlock[]>;
+};
+
 interface CoreMeta {
   _id: string;
   _type: string;
@@ -409,6 +416,31 @@ export interface ReleaseNote extends CoreMeta {
   };
 }
 
+export interface Tutorial extends CoreContentMeta {
+  title: string;
+  description: string;
+  category: Tag;
+  tags: Tag[];
+  dates: {
+    published: Date;
+    updated?: Date;
+  };
+  software: Software[];
+  intro: {
+    body: PortableTextBlock[];
+    prerequisites?: Array<PortableTextBlock[]>;
+    goals: Array<PortableTextBlock[]>;
+  };
+  tasks: TutorialTask[];
+  outro: {
+    body: PortableTextBlock[];
+    next?: {
+      body: PortableTextBlock[];
+      steps: Array<PortableTextBlock[]>;
+    };
+  };
+}
+
 export type Microcopy = {
   _lang: string; // Full language code, with country, if applicable
   accessibility: {
@@ -510,6 +542,19 @@ export type Microcopy = {
     description: string;
   };
   announcement?: PortableTextBlock[];
+  tutorials: {
+    completed: string;
+    reinforcement: string;
+    tutorial: string;
+    task: string;
+    wrapup: string;
+    minutes: string;
+    tasks: string;
+    learned: string;
+    introduction: string;
+    goals: string;
+    prerequisites: string;
+  };
 };
 
 export type Content = Post | Documentation | Story | Landing;

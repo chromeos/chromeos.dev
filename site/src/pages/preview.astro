@@ -1,0 +1,150 @@
+---
+import { createClient } from '@sanity/client'; // eslint-ignore import/namespace
+import { buildPreviewGROQ, buildGROQ } from '$lib/sanity/functions';
+import Documentation from '$views/Documentation.astro';
+import Story from '$views/Story.astro';
+import Post from '$views/Post.astro';
+import Tutorial from '$views/Tutorial.astro';
+import { buildPages } from '$lib/tutorials';
+import type { Microcopy } from '$types/sanity';
+
+export const prerender = false;
+
+const url = new URL(Astro.request.url);
+const params = url.searchParams;
+const key = params.get('key');
+const id = params.get('id');
+const rev = params.get('rev');
+
+if (key !== process.env.PREVIEW_KEY) {
+  console.error('Bad Request');
+  return new Response('Unauthorized', {
+    status: 401,
+    statusText: 'Invalid preview key',
+  });
+}
+
+const sanity = createClient({
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_DATASET,
+  token: process.env.SANITY_TOKEN,
+  apiVersion: '2023-10-02',
+  useCdn: process.env.NODE_ENV === 'production',
+});
+
+const groq = buildGROQ(sanity, true);
+const previewGroq = buildPreviewGROQ(groq, sanity);
+
+let item;
+let microcopy: Microcopy;
+
+try {
+  ({ item, microcopy } = await previewGroq(id, rev));
+} catch (e) {
+  console.error(e);
+
+  return new Response(
+    'Error generating preview, please try again in a few minutes',
+    {
+      status: 500,
+      statusText: 'Query error',
+    },
+  );
+}
+
+let pages = [];
+
+if (item._type === 'tutorial') {
+  // console.log(item);
+  // console.log(microcopy);
+  pages = buildPages({ [item._lang]: microcopy })(item).map((p) => p.props);
+}
+
+console.log('Generating preview');
+---
+
+{
+  item._type === 'documentation' && (
+    <Documentation doc={item} microcopy={microcopy} />
+  )
+}
+
+{item._type === 'story' && <Story story={item} microcopy={microcopy} />}
+
+{item._type === 'post' && <Post post={item} microcopy={microcopy} />}
+
+{
+  item._type === 'tutorial' && pages.length > 0 && (
+    <div class="holder">
+      {pages.map((p) => (
+        <div class="page">
+          <Tutorial
+            tutorial={item}
+            microcopy={microcopy}
+            intro={p.intro}
+            outro={p.outro}
+            task={p.task}
+            section={p.section}
+          />
+        </div>
+      ))}
+    </div>
+  )
+}
+
+<!-- <p class='url'>https://chromeos.dev{item._path}</p> -->
+
+<style lang="scss">
+  .holder {
+    --first: var(--red-500);
+    --second: var(--yellow-100);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    background-image: linear-gradient(
+      135deg,
+      var(--first) 25%,
+      var(--second) 25%,
+      var(--second) 50%,
+      var(--first) 50%,
+      var(--first) 75%,
+      var(--second) 75%,
+      var(--second) 100%
+    );
+    background-size: 2rem 2rem;
+
+    :global([data-theme='dark']) & {
+      --first: var(--phosphor-green-dark);
+      --second: var(--phosphor-green-light);
+    }
+  }
+
+  .page {
+    background: var(--global-background);
+
+    &:not(:first-child) {
+      border-top: 0.25rem solid var(--first);
+    }
+
+    &:not(:last-child) {
+      border-bottom: 0.25rem solid var(--first);
+    }
+  }
+
+  .url {
+    position: fixed;
+    z-index: 1000;
+    bottom: 0.5rem;
+    left: 50%;
+    background-color: var(--global-foreground);
+    color: var(--global-background);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: calc(100dvi - 2rem);
+    margin-inline: 1rem;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+    border: 1px solid var(--grey-500);
+  }
+</style>

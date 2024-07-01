@@ -1,0 +1,26 @@
+---
+import Tutorial from '$views/Tutorial.astro';
+import { buildPages } from '$lib/tutorials';
+import { tutorials, microcopy as micro } from '$lib/sanity';
+
+/**
+ * Builds paths for content files
+ */
+export async function getStaticPaths() {
+  return tutorials
+    .filter((h) => h._langCode === 'en')
+    .map(buildPages(micro))
+    .flat();
+}
+
+const { tutorial, microcopy, intro, outro, task, section } = Astro.props;
+---
+
+<Tutorial
+  tutorial={tutorial}
+  microcopy={microcopy}
+  intro={intro}
+  outro={outro}
+  task={task}
+  section={section}
+/>

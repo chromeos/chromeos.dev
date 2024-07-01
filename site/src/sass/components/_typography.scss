@@ -139,7 +139,7 @@ $section-block-margin: 3.75rem;
   *
     + *:not(:empty):not(.header-anchor--wrapper):not(dd):not(.stat):not(td):not(
       dl div
-    ):not(dl),
+    ):not(dl):not(figcaption + pre),
   * + astro-island > *:not(:empty) {
     margin-top: 1em;
   }
@@ -161,7 +161,7 @@ $section-block-margin: 3.75rem;
     }
   }
 
-  code:not([class]) {
+  :not(.shiki) > code {
     @extend %type--code;
 
     [data-theme='dark'] & {

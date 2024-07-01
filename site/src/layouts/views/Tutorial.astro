@@ -1,0 +1,443 @@
+---
+import Doc from '$layouts/doc.astro';
+import CTA from '$components/CTA.svelte';
+import { buildTOC } from '$lib/portabletext';
+import { slugify } from '$lib/data';
+
+import TOC from '$components/TOC.svelte';
+import SectionNav from '$components/SectionNav.svelte';
+import Text from '$components/Text.astro';
+import Clock from '$components/icons/Clock.svelte';
+import Task from '$components/icons/Task.svelte';
+
+import Software from '$components/Software.svelte';
+import Reinforcements from '$components/Reinforcements.svelte';
+import Reinforcement from '$components/Reinforcement.svelte';
+import type { Tutorial, Microcopy } from '$types/sanity';
+
+export interface Props {
+  tutorial: Tutorial;
+  microcopy: Microcopy;
+  intro?: boolean;
+  outro?: boolean;
+  task?: number;
+  section: Array<{
+    href: string;
+    title: string;
+  }>;
+}
+
+const { tutorial, microcopy, intro, outro, task, section } = Astro.props;
+
+const pagination = [];
+
+if (intro) {
+  pagination.push({
+    url: `${tutorial._path}/1`,
+    text: tutorial.tasks[0].title,
+    type: 'high',
+    direction: 'forward',
+  });
+}
+
+if (!isNaN(task)) {
+  if (task === 0) {
+    pagination.push({
+      url: `${tutorial._path}`,
+      text: microcopy.tutorials.introduction,
+      type: 'medium',
+      direction: 'back',
+    });
+  } else {
+    pagination.push({
+      url: `${tutorial._path}/${task}`,
+      text: tutorial.tasks[task - 1].title,
+      type: 'medium',
+      direction: 'back',
+    });
+  }
+
+  if (task + 1 === tutorial.tasks.length) {
+    pagination.push({
+      url: `${tutorial._path}/${tutorial.tasks.length + 1}`,
+      text: microcopy.tutorials.wrapup,
+      type: 'high',
+      direction: 'forward',
+    });
+  } else {
+    pagination.push({
+      url: `${tutorial._path}/${task + 2}`,
+      text: tutorial.tasks[task + 1].title,
+      type: 'high',
+      direction: 'forward',
+    });
+  }
+}
+
+if (outro) {
+  pagination.push({
+    url: `${tutorial._path}/${tutorial.tasks.length}`,
+    text: tutorial.tasks[tutorial.tasks.length - 1].title,
+    type: 'medium',
+    direction: 'back',
+  });
+}
+
+const active = `/${tutorial._lang}/tutorials/${Astro.params.path}`;
+
+// console.log(microcopy.tutorials);
+
+const duration = tutorial.tasks.reduce((acc, cur) => {
+  acc += cur.duration;
+  return acc;
+}, 0);
+
+let toc;
+
+if (!isNaN(task)) {
+  toc = buildTOC(tutorial.tasks[task].body);
+}
+
+// console.log(toc);
+
+// const toc = buildTOC(doc.body);
+
+// console.log(tutorial.tasks[task]);
+
+let title;
+let eyebrow;
+if (intro) {
+  title = tutorial.title;
+  eyebrow = tutorial.category.slug;
+} else if (!isNaN(task)) {
+  title = tutorial.tasks[task].title;
+  eyebrow = tutorial.title;
+} else {
+  title = microcopy.tutorials.wrapup;
+  eyebrow = tutorial.title;
+}
+---
+
+<Doc
+  title={title}
+  locale={microcopy.locale}
+  metadesc={tutorial.description}
+  section={eyebrow}
+>
+  <!-- Subnav Sidebar -->
+  <SectionNav
+    active={active}
+    title={tutorial.title}
+    links={section}
+    client:visible
+    slot="subnav"
+  />
+  <!-- Main content area -->
+  <div slot="body" class="content">
+    <!-- Intro -->
+    {
+      intro && (
+        <>
+          <div class="overview">
+            <p class="overview--group">
+              <Task />
+              {microcopy.tutorials.tasks.replace(
+                '((n))',
+                tutorial.tasks.length,
+              )}
+            </p>
+            <p class="overview--group">
+              <Clock /> {microcopy.tutorials.minutes.replace('((n))', duration)}
+            </p>
+          </div>
+          <Text body={tutorial.intro.body} />
+          <section class="block goals">
+            <h2 class="type--h3">{microcopy.tutorials.goals}</h2>
+            <ul>
+              {tutorial.intro.goals.map((g) => (
+                <li>
+                  <Text body={g} inline={true} wrapped={false} />
+                </li>
+              ))}
+            </ul>
+          </section>
+          {tutorial.intro?.prerequisites && (
+            <section class="block goals">
+              <h2 class="type--h3">{microcopy.tutorials.prerequisites}</h2>
+              <ul>
+                {tutorial.intro.prerequisites.map((g) => (
+                  <li>
+                    <Text body={g.prerequisite} inline={true} wrapped={false} />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </>
+      )
+    }
+
+    <!-- Task -->
+    {
+      !isNaN(task) && (
+        <>
+          <div class="overview">
+            <p class="overview--group">
+              <Task />
+              {microcopy.tutorials.task.replace('((n))', task + 1)}
+            </p>
+            <p class="overview--group">
+              <Clock />{' '}
+              {microcopy.tutorials.minutes.replace(
+                '((n))',
+                tutorial.tasks[task].duration,
+              )}
+            </p>
+          </div>
+          <Text body={tutorial.tasks[task].body} />
+          <section class="block goals">
+            <h2 class="type--h3">{microcopy.tutorials.reinforcement}</h2>
+            <Reinforcements
+              tutorial={slugify(tutorial.title)}
+              task={slugify(tutorial.tasks[task].title)}
+              client:only="svelte"
+            />
+            <ul class="reinforcements">
+              {tutorial.outro.next.steps.map((g, i) => (
+                <Reinforcement
+                  tutorial={slugify(tutorial.title)}
+                  task={slugify(tutorial.tasks[task].title)}
+                  step={i}
+                  client:load
+                >
+                  <Text body={g} inline={true} wrapped={false} />
+                </Reinforcement>
+              ))}
+            </ul>
+          </section>
+        </>
+      )
+    }
+
+    <!-- Outro -->
+    {
+      outro && (
+        <>
+          <div class="overview">
+            <p class="overview--group">
+              <Task />
+              {microcopy.tutorials.completed.replace(
+                '((n))',
+                tutorial.tasks.length,
+              )}
+            </p>
+          </div>
+          <Text body={tutorial.outro.body} />
+          <section class="block goals">
+            <h2 class="type--h3">{microcopy.tutorials.learned}</h2>
+            <ul class="wrapup">
+              {tutorial.intro.goals.map((g) => (
+                <li>
+                  <Text body={g} inline={true} wrapped={false} />
+                </li>
+              ))}
+            </ul>
+          </section>
+          {tutorial.outro.next && (
+            <>
+              <Text body={tutorial.outro.next.body} />
+              <section class="block goals">
+                <h2 class="type--h3">{microcopy.tutorials.next}</h2>
+                <ul>
+                  {tutorial.outro.next.steps.map((g) => (
+                    <li>
+                      <Text body={g} inline={true} wrapped={false} />
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </>
+          )}
+        </>
+      )
+    }
+
+    <!-- Pagination -->
+    <nav class="pagination">
+      <ol class="pagination--pages">
+        {
+          pagination.map((p) => (
+            <li data-direction={p.direction}>
+              <CTA cta={p} />
+            </li>
+          ))
+        }
+      </ol>
+    </nav>
+  </div>
+  <!-- <Text body={doc.body} slot="content" /> -->
+  <!-- Extras sidebar -->
+  <Fragment slot="extras">
+    {
+      intro && (
+        <>
+          <Software
+            software={tutorial.software}
+            microcopy={microcopy.meta.tools}
+          />
+        </>
+      )
+    }
+    {
+      intro === true && (
+        <a href={tutorial.code.url} class="cta cta--high code">
+          {tutorial.code.text}
+          {tutorial.code.download && (
+            <span class="icon--container">
+              ⁠
+              <svg
+                role="img"
+                aria-hidden="true"
+                class="icon icon--inline-external"
+              >
+                <use href="/images/icons/sprite.svg#file-download" />
+              </svg>
+            </span>
+          )}
+          {!tutorial.code.download && (
+            <span class="icon--container">
+              ⁠
+              <svg
+                role="img"
+                aria-hidden="true"
+                class="icon icon--inline-external"
+              >
+                <use href="/images/icons/sprite.svg#open-in-new" />
+              </svg>
+            </span>
+          )}
+        </a>
+      )
+    }
+    {toc && toc.length > 0 && <TOC toc={toc} client:idle />}
+  </Fragment>
+</Doc>
+
+<style lang="scss">
+  .overview {
+    display: flex;
+    gap: 1rem;
+
+    @container style(--inline-extras: 0) {
+      margin-top: -1rem;
+    }
+
+    &--tasks {
+      display: inline-flex;
+      height: 1.25rem;
+      width: 1.25rem;
+      background: var(--black);
+      color: var(--white);
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-variant-numeric: tabular;
+    }
+
+    &--group {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    :global(.icon) {
+      height: 1rem;
+      width: 1rem;
+      fill: var(--global-foreground);
+    }
+  }
+
+  .block {
+    background-color: var(--grey-50);
+    border: 1px solid var(--grey-300);
+
+    padding: 2rem;
+    border-radius: 0.75rem;
+    position: relative;
+
+    :global([data-theme='dark']) & {
+      border-color: var(--phosphor-green);
+    }
+  }
+
+  .goals {
+    ul:not([class]) {
+      margin-block-start: 1rem;
+      margin-inline-start: 1.5rem;
+    }
+  }
+
+  .wrapup {
+    list-style: none;
+
+    li {
+      padding-inline-start: 0.5rem;
+
+      &::marker {
+        content: '✓';
+        display: inline;
+        color: var(--green-600);
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .pagination {
+    &--pages {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+
+      :global(.cta) {
+        height: 100%;
+      }
+    }
+
+    [data-direction='back'] {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    [data-direction='forward'] {
+      grid-column: 2;
+      grid-row: 1;
+    }
+  }
+
+  .code {
+    @container style(--inline-extras: 0) {
+      margin-inline: 1.75rem;
+    }
+  }
+
+  .reinforcements {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-block-start: 1rem;
+  }
+</style>

@@ -74,7 +74,7 @@
 
     &--title {
       :global([data-theme='dark']) & {
-        color: var(--global-background);
+        color: var(--phosphor-green);
       }
     }
 

@@ -21,6 +21,20 @@
     @extend %cta--medium;
   }
 
+  &--medium,
+  &--high {
+    &:has(.icon--arrow-forward) {
+      display: grid;
+      grid-template-columns: 1fr 1rem;
+      gap: 0.5rem;
+    }
+    &:has(.icon--arrow-back) {
+      display: grid;
+      grid-template-columns: 1rem 1fr;
+      gap: 0.5rem;
+    }
+  }
+
   &--low {
     @extend %cta--low;
   }

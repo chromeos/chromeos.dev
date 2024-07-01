@@ -17,6 +17,7 @@
 import fullBlockField from '$fields/full-block';
 import restrictedBlockField from '$fields/restricted-block';
 import inlineBlockField from '$fields/inline-block';
+import restrictedInlineBlockField from '$fields/restricted-inline-block';
 import cellBlockField from '$fields/cell-block';
 import pictureField from '$fields/picture';
 import titleField from '$fields/title';
@@ -79,6 +80,7 @@ import releases from './releases';
 import release from './release';
 import snippet from './snippet';
 import announcement from './announcement';
+import tutorial from './tutorial';
 
 export const schemaTypes = [
   // Schemas
@@ -103,11 +105,13 @@ export const schemaTypes = [
   release,
   snippet,
   announcement,
+  tutorial,
 
   // Fields
   fullBlockField,
   restrictedBlockField,
   inlineBlockField,
+  restrictedInlineBlockField,
   cellBlockField,
   pictureField,
   titleField,

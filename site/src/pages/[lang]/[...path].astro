@@ -1,12 +1,5 @@
 ---
-import Doc from '$layouts/doc.astro';
-import { buildSection } from '$lib/documentation';
-import { buildTOC } from '$lib/portabletext';
-
-import TOC from '$components/TOC.svelte';
-import SectionNav from '$components/SectionNav.svelte';
-import Text from '$components/Text.astro';
-
+import Documentation from '$views/Documentation.astro';
 import { documentation, microcopy as micro } from '$lib/sanity';
 
 /**
@@ -31,29 +24,6 @@ export async function getStaticPaths() {
 }
 
 const { doc, microcopy } = Astro.props;
-
-const section = buildSection(doc.category, doc._lang);
-const toc = buildTOC(doc.body);
 ---
 
-<Doc
-  title={doc.title}
-  locale={microcopy.locale}
-  metadesc={doc.description}
-  section={doc.category.slug}
->
-  <!-- Subnav Sidebar -->
-  <SectionNav
-    active={doc._path}
-    title={doc.category.title}
-    links={section}
-    client:visible
-    slot="subnav"
-  />
-  <!-- Main content area -->
-  <Text body={doc.body} slot="content" />
-  <!-- Extras sidebar -->
-  <Fragment slot="extras">
-    {toc.length > 0 && <TOC toc={toc} client:idle />}
-  </Fragment>
-</Doc>
+<Documentation doc={doc} microcopy={microcopy} />

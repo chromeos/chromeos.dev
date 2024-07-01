@@ -27,7 +27,7 @@ import { RiTodoLine } from 'react-icons/ri';
 import { MdOutlineNewReleases } from 'react-icons/md';
 
 import { AiOutlineFileSearch } from 'react-icons/ai';
-import { IoLogoPwa } from 'react-icons/io5';
+import { IoLogoPwa, IoSchoolOutline } from 'react-icons/io5';
 import { LuPaintbrush2, LuScissors } from 'react-icons/lu';
 // import { TfiAnnouncement } from 'react-icons/tfi';
 import { SINGLETONS, LANGUAGES } from './constants';
@@ -111,6 +111,15 @@ export const deskStructure = (
         .child(
           S.documentTypeList('documentation').filter(
             `_type == 'documentation' && (language == 'en' || !defined(language) || language == 'en')`,
+          ),
+        ),
+      // All base-language tutorial
+      S.listItem()
+        .title('Tutorials')
+        .icon(IoSchoolOutline)
+        .child(
+          S.documentTypeList('tutorial').filter(
+            `_type == 'tutorial' && (language == 'en' || !defined(language) || language == 'en')`,
           ),
         ),
       // All base-language release notes

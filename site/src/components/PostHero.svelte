@@ -179,12 +179,16 @@
         max-height: 50cqh;
         margin-top: 0;
       }
+
+      img {
+        object-fit: contain;
+      }
     }
 
     &--background {
       display: flex;
       justify-content: flex-end;
-      height: 20cqh;
+      height: 45cqw;
 
       @container (min-width: #{$swap}) {
         right: 0;
@@ -295,6 +299,66 @@
       --hero-theme-color: var(--black);
       --hero-theme-background: var(--yellow-500);
       --hero-theme-cta-background: transparent;
+    }
+
+    &__io-2024 {
+      --io-black: rgb(32 33 36);
+      --hero-theme-color: var(--io-black);
+      --hero-theme-background: var(--white);
+      border-bottom: 2px solid var(--io-black);
+      border-top: 2px solid var(--io-black);
+
+      :global([data-theme='dark']) & {
+        // Specificity of the general override is higher than this, and I don't want to mix things, so I'm adding important here and only here.
+        /* stylelint-disable declaration-no-important  */
+        --hero-theme-color: var(--phosphor-white) !important;
+        --hero-theme-background: var(--io-black) !important;
+        /* stylelint-enable declaration-no-important  */
+        border-color: var(--phosphor-white);
+      }
+
+      .post-hero--inner {
+        min-height: 25vh;
+
+        @container (min-width: #{$swap}) {
+          padding-block-start: 2rem;
+          padding-inline-end: 1rem;
+        }
+      }
+
+      .post-hero--content-wrapper {
+        @container (min-width: #{$swap}) {
+          margin-block-start: -2rem;
+        }
+      }
+
+      .post-hero--background {
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/themes%2Fio-2024%2Flight-small.svg?alt=media&token=15b3c69a-2633-447e-aad5-e346510d1315');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center bottom -2px;
+
+        :global([data-theme='dark']) & {
+          background-image: url('https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/themes%2Fio-2024%2Fdark-small.svg?alt=media&token=f95c8be7-26ae-4311-9197-dc5b08e3d5e8');
+        }
+
+        @container (min-width: #{$swap}) {
+          background-image: url('https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/themes%2Fio-2024%2Flight-large.svg?alt=media&token=7c120b79-3420-44fa-9ed1-24c478a78311');
+          background-size: auto calc(100% - 2rem);
+          background-size: contain;
+          background-position: bottom right;
+          background-repeat: no-repeat;
+          height: 100%;
+
+          :global([data-theme='dark']) & {
+            background-image: url('https://firebasestorage.googleapis.com/v0/b/cros-staging.appspot.com/o/themes%2Fio-2024%2Fdark-large.svg?alt=media&token=1309977e-5266-44e8-b5c1-11c79ac8c95e');
+          }
+        }
+
+        img {
+          display: none;
+        }
+      }
     }
 
     &__lumafusion {
