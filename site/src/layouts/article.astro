@@ -2,7 +2,6 @@
 import type { Share } from '$types/sanity';
 
 import Wrapper from '$layouts/wrapper.astro';
-import Recommended from '$components/Recommended.svelte';
 
 export interface Props {
   title: string;
@@ -46,12 +45,6 @@ const { locale } = microcopy;
       </section>
     </div>
   </article>
-  <Recommended
-    title={title}
-    language={locale.code}
-    url={Astro.url.pathname}
-    header={microcopy.identifiers.recommended}
-  />
 </Wrapper>
 
 <style lang="scss">
