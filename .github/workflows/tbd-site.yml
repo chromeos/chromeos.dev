@@ -104,6 +104,7 @@ jobs:
           envkey_SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
           envkey_SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
           envkey_SANITY_TOKEN: ${{ secrets.SANITY_TOKEN }}
+          envkey_PREVIEW_KEY: ${{ secrets.PREVIEW_KEY }}
           directory: site
       - name: Deploy Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
