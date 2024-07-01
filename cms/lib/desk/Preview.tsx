@@ -23,9 +23,13 @@ export const Preview = (context: DeskToolContextValue) => {
     return <h1>Preview not supported for this content type</h1>;
   }
 
-  console.log(schemaType);
+  console.log(process.env);
+  const base =
+    process.env.MODE === 'development'
+      ? 'http://localhost:4321'
+      : 'https://chromeos.dev';
   // Site preview URL?
-  const previewURL = `https://chromeos.dev/preview?id=${d.displayed._id}&rev=${
+  const previewURL = `${base}/preview?id=${d.displayed._id}&rev=${
     d.displayed._rev
   }&key=${encodeURIComponent(process.env.SANITY_STUDIO_PREVIEW_KEY)}`;
 
