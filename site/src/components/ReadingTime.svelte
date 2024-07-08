@@ -5,11 +5,11 @@
 
   export let body: PortableTextBlock[];
   export let label = 'Reading time';
-  export let duration = `{{n}} minutes`;
+  export let duration = `((n)) minutes`;
   export let wrapper = 'div';
 
   const { minutes } = readingTime(toPlainText(body));
-  const length = duration.replace('{{n}}', `${Math.ceil(minutes)}`);
+  const length = duration.replace('((n))', `${Math.ceil(minutes)}`);
 </script>
 
 <svelte:element this={wrapper} class="extras-section">

@@ -104,7 +104,11 @@ const showUpdated =
     <!-- Author Info -->
     <Authors {...authors} />
     <!-- Reading Time -->
-    <ReadingTime body={post.body} />
+    <ReadingTime
+      body={post.body}
+      label={microcopy.meta?.readtime}
+      duration={microcopy.tutorials.minutes}
+    />
     <!-- Published date info -->
     <Published
       locale={locale.code}

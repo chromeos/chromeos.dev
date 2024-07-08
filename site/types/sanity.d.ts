@@ -462,6 +462,7 @@ export type Microcopy = {
   };
   meta: {
     authored: string;
+    readtime: string;
     toc: string;
     updated: string;
     posted: string;
