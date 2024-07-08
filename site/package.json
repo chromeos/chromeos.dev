@@ -54,6 +54,7 @@
     "pagefind": "^1.1.0",
     "posthtml": "^0.16.6",
     "posthtml-match-helper": "^2.0.0",
+    "reading-time": "^1.5.0",
     "requestidlecallback": "^0.3.0",
     "shiki": "^1.10.0",
     "slugify": "^1.6.6",

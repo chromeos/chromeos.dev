@@ -8,6 +8,7 @@ import YouTube from '$components/YouTube.svelte';
 import type { PostHeroProps } from '$components/PostHero.svelte';
 import Text from '$components/Text.astro';
 import { buildTOC } from '$lib/portabletext';
+import ReadingTime from '$components/ReadingTime.svelte';
 import type { Post, Microcopy, Share } from '$types/sanity';
 
 export interface Props {
@@ -54,6 +55,24 @@ const authors = {
 
 const toc = buildTOC(post.body);
 const share = (post.share as Share) || null;
+
+/**
+ *
+ * @param {Date} d
+ * @return {string}
+ */
+function localeDate(d: Date) {
+  return d.toLocaleDateString(locale, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+const showUpdated =
+  post?.dates?.published &&
+  post?.dates?.updated &&
+  localeDate(post.dates.published) !== localeDate(post.dates.updated);
 ---
 
 <Article
@@ -84,6 +103,12 @@ const share = (post.share as Share) || null;
   <Fragment slot="extras">
     <!-- Author Info -->
     <Authors {...authors} />
+    <!-- Reading Time -->
+    <ReadingTime
+      body={post.body}
+      label={microcopy.meta?.readtime}
+      duration={microcopy.tutorials.minutes}
+    />
     <!-- Published date info -->
     <Published
       locale={locale.code}
@@ -92,7 +117,7 @@ const share = (post.share as Share) || null;
       wrapper="section"
     />
     {
-      post.dates.updated && (
+      showUpdated && (
         <Published
           locale={locale.code}
           label={microcopy.meta.updated}

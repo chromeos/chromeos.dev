@@ -351,6 +351,12 @@ export default defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineField({
+          name: 'readtime',
+          title: 'Reading Time',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
           name: 'posted',
           title: 'Posted',
           type: 'string',

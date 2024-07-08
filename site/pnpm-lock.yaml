@@ -65,6 +65,9 @@ dependencies:
   posthtml-match-helper:
     specifier: ^2.0.0
     version: 2.0.0(posthtml@0.16.6)
+  reading-time:
+    specifier: ^1.5.0
+    version: 1.5.0
   requestidlecallback:
     specifier: ^0.3.0
     version: 0.3.0
@@ -8210,6 +8213,10 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+
+  /reading-time@1.5.0:
+    resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
+    dev: false
 
   /reflect.getprototypeof@1.0.6:
     resolution: {integrity: sha512-fmfw4XgoDke3kdI6h4xcUz1dG8uaiv5q9gcEwLS4Pnth2kxT+GZ7YehS1JTMGBQmtV7Y4GFGbs2re2NqhdozUg==}

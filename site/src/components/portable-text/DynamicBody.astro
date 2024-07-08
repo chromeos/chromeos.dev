@@ -14,14 +14,15 @@ import Footnote from './Footnote.svelte';
 
 import { slugify } from '$lib/data';
 
-import { microcopy as micro } from '$$sanity';
-import type { Microcopy } from '$types/sanity';
+// import { microcopy as micro } from '$$sanity';
+// import type { Microcopy } from '$types/sanity';
 
 const { node: props /* , isInline, class */ } = Astro.props;
-const { lang } = Astro.params;
-const microcopy = Object.values(micro).find(
-  (m) => m._langCode === lang,
-) as Microcopy;
+// const { lang } = Astro.params;
+// const microcopy = Object.values(micro).find(
+//   (m) => m._langCode === lang,
+// ) as Microcopy;
+// TODO: YouTube's "Load Video" label needs to be swapped with `microcopy.actions.loadVideo` one we can properly pass down the microcopy we need for both build time and preview runtime.
 ---
 
 {
@@ -47,12 +48,7 @@ const microcopy = Object.values(micro).find(
       <PortableText body={props.quote} wrapped={false} />
     </Quote>
   ) : props._type === 'youtube' ? (
-    <YouTube
-      id={props.id}
-      alt=""
-      label={microcopy.actions.loadVideo}
-      client:visible
-    />
+    <YouTube id={props.id} alt="" label="Load Video" client:visible />
   ) : props._type === 'table' ? (
     <Table block={props} />
   ) : props._type === 'break' ? (
