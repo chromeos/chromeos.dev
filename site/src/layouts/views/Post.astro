@@ -54,6 +54,24 @@ const authors = {
 
 const toc = buildTOC(post.body);
 const share = (post.share as Share) || null;
+
+/**
+ *
+ * @param {Date} d
+ * @return {string}
+ */
+function localeDate(d: Date) {
+  return d.toLocaleDateString(locale, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+const showUpdated =
+  post?.dates?.published &&
+  post?.dates?.updated &&
+  localeDate(post.dates.published) !== localeDate(post.dates.updated);
 ---
 
 <Article
@@ -92,7 +110,7 @@ const share = (post.share as Share) || null;
       wrapper="section"
     />
     {
-      post.dates.updated && (
+      showUpdated && (
         <Published
           locale={locale.code}
           label={microcopy.meta.updated}
