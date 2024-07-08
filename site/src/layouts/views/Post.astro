@@ -8,6 +8,7 @@ import YouTube from '$components/YouTube.svelte';
 import type { PostHeroProps } from '$components/PostHero.svelte';
 import Text from '$components/Text.astro';
 import { buildTOC } from '$lib/portabletext';
+import ReadingTime from '$components/ReadingTime.svelte';
 import type { Post, Microcopy, Share } from '$types/sanity';
 
 export interface Props {
@@ -102,6 +103,8 @@ const showUpdated =
   <Fragment slot="extras">
     <!-- Author Info -->
     <Authors {...authors} />
+    <!-- Reading Time -->
+    <ReadingTime body={post.body} />
     <!-- Published date info -->
     <Published
       locale={locale.code}
