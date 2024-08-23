@@ -6,6 +6,8 @@
 
   export let title: string;
   export let links: Array<Link>;
+  export let tutorials: Array<Link>;
+  export let ttitle: string;
   export let active: string;
 
   const buttonTitle = 'Open section navigation';
@@ -20,7 +22,9 @@
 >
   <div class="section-nav--header">
     <div class="section-nav--text">
-      <p id="section-nav--title" class="section-nav--title type--h5">{title}</p>
+      <h2 id="section-nav--title" class="section-nav--title type--h5">
+        {title}
+      </h2>
       <svg role="img" aria-hidden="true" class="icon section-nav--expand">
         <use href="/images/icons/sprite.svg#expand-more" />
       </svg>
@@ -43,6 +47,20 @@
         </li>
       {/each}
     </ul>
+    {#if tutorials}
+      <h3 class="ttitle type--h6">{ttitle}</h3>
+      <ul class="tutorials">
+        {#each tutorials as link}
+          <li class="section-nav--item">
+            <a
+              href={link.href}
+              data-active={active === link.href ? true : null}
+              class="section-nav--link type--secondary-nav">{link.title}</a
+            >
+          </li>
+        {/each}
+      </ul>
+    {/if}
   </div>
 </nav>
 
@@ -164,5 +182,12 @@
         }
       }
     }
+  }
+
+  .ttitle {
+    padding-inline: var(--inline);
+    padding-block: math.div($block, 3) * 2;
+    margin: 0;
+    line-height: 1;
   }
 </style>

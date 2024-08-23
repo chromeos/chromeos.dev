@@ -1,6 +1,6 @@
 ---
 import Doc from '$layouts/doc.astro';
-import { buildSection } from '$lib/documentation';
+import { buildSection, buildTutorials } from '$lib/documentation';
 import { buildTOC } from '$lib/portabletext';
 
 import TOC from '$components/TOC.svelte';
@@ -16,6 +16,7 @@ export interface Props {
 const { doc, microcopy } = Astro.props;
 
 const section = buildSection(doc.category, doc._lang);
+const tutorials = buildTutorials(doc.category, doc._lang);
 const toc = buildTOC(doc.body);
 ---
 
@@ -30,6 +31,8 @@ const toc = buildTOC(doc.body);
     active={doc._path}
     title={doc.category.title}
     links={section}
+    tutorials={tutorials}
+    ttitle="Tutorials"
     client:visible
     slot="subnav"
   />

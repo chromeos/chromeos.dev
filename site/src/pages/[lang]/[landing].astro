@@ -2,7 +2,7 @@
 import Section from '$layouts/section.astro';
 
 import { landings, microcopy as micro } from '$lib/sanity';
-import { buildSection, buildTopics } from '$lib/documentation';
+import { buildSection, buildTopics, buildTutorials } from '$lib/documentation';
 
 import SectionNav from '$components/SectionNav.svelte';
 import Text from '$components/Text.astro';
@@ -34,6 +34,7 @@ export function getStaticPaths() {
 const { landing, microcopy } = Astro.props;
 
 const section = buildSection(landing.category, landing._lang);
+const tutorials = buildTutorials(landing.category, landing._lang);
 const topics = buildTopics(section.map((s) => s.href));
 
 let color = 'var(--primary-blue)';
@@ -60,6 +61,8 @@ switch (landing.category.slug) {
     active={landing._path}
     title={landing.category.title}
     links={section}
+    tutorials={tutorials}
+    ttitle="Tutorials"
     client:visible
     slot="subnav"
   />
