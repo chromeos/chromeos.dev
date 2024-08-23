@@ -48,38 +48,40 @@ const schema = {
   types: schemaTypes,
 };
 
-export default defineConfig([
-  {
-    theme,
-    name: isDev ? 'development' : 'production',
-    basePath: isDev ? '/dev' : '/',
-    title: isDev ? 'Development' : 'Production',
+export default defineConfig({
+  theme,
+  name: isDev ? 'development' : 'production',
+  basePath: isDev ? '/dev' : '/',
+  title: isDev ? 'Development' : 'Production',
 
-    projectId: import.meta.env.SANITY_STUDIO_PROJECT || '',
-    dataset: isDev
-      ? import.meta.env.SANITY_STUDIO_DEV_DATASET || ''
-      : import.meta.env.SANITY_STUDIO_PROD_DATASET || '',
+  projectId: import.meta.env.SANITY_STUDIO_PROJECT || '',
+  dataset: isDev
+    ? import.meta.env.SANITY_STUDIO_DEV_DATASET || ''
+    : import.meta.env.SANITY_STUDIO_PROD_DATASET || '',
 
-    plugins,
+  plugins,
 
-    // TODO: configure table to allow limited HTML in rows
-    schema: {
-      ...schema,
-      // Filter out the default template for new "page" and "lesson" type documents
-      templates: (prev) =>
-        prev.filter((template) => !i18nSCHEMAS.includes(template.id)),
-    },
-    // Allow document translations to be deleted
-    // document: {
-    //   actions: (prev, { schemaType }) => {
-    //     // Add to the same schema types you use for internationalization
-    //     if (i18nSCHEMAS.includes(schemaType)) {
-    //       // You might also like to filter out the built-in "delete" action
-    //       return [...prev, DeleteTranslationAction];
-    //     }
-
-    //     return prev;
-    //   },
-    // },
+  // TODO: configure table to allow limited HTML in rows
+  schema: {
+    ...schema,
+    // Filter out the default template for new "page" and "lesson" type documents
+    templates: (prev) =>
+      prev.filter((template) => !i18nSCHEMAS.includes(template.id)),
   },
-]);
+  scheduledPublishing: {
+    enabled: true,
+    inputDateTimeFormat: 'MM/dd/yyyy h:mm a',
+  },
+  // Allow document translations to be deleted
+  // document: {
+  //   actions: (prev, { schemaType }) => {
+  //     // Add to the same schema types you use for internationalization
+  //     if (i18nSCHEMAS.includes(schemaType)) {
+  //       // You might also like to filter out the built-in "delete" action
+  //       return [...prev, DeleteTranslationAction];
+  //     }
+
+  //     return prev;
+  //   },
+  // },
+});
