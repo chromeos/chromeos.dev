@@ -6,6 +6,8 @@ import { buildTOC } from '$lib/portabletext';
 import TOC from '$components/TOC.svelte';
 import SectionNav from '$components/SectionNav.svelte';
 import Text from '$components/Text.astro';
+import Software from '$components/Software.svelte';
+
 import type { Documentation, Microcopy } from '$types/sanity';
 
 export interface Props {
@@ -39,7 +41,12 @@ const toc = buildTOC(doc.body);
   <!-- Main content area -->
   <Text body={doc.body} slot="content" />
   <!-- Extras sidebar -->
-  <Fragment slot="extras">
+  <div slot="extras">
+    {
+      doc.software && (
+        <Software software={doc.software} microcopy={microcopy.meta.tools} />
+      )
+    }
     {toc.length > 0 && <TOC toc={toc} client:idle title={microcopy.meta.toc} />}
-  </Fragment>
+  </div>
 </Doc>
