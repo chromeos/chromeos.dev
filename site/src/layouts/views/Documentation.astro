@@ -1,11 +1,13 @@
 ---
 import Doc from '$layouts/doc.astro';
-import { buildSection } from '$lib/documentation';
+import { buildSection, buildTutorials } from '$lib/documentation';
 import { buildTOC } from '$lib/portabletext';
 
 import TOC from '$components/TOC.svelte';
 import SectionNav from '$components/SectionNav.svelte';
 import Text from '$components/Text.astro';
+import Software from '$components/Software.svelte';
+
 import type { Documentation, Microcopy } from '$types/sanity';
 
 export interface Props {
@@ -16,6 +18,7 @@ export interface Props {
 const { doc, microcopy } = Astro.props;
 
 const section = buildSection(doc.category, doc._lang);
+const tutorials = buildTutorials(doc.category, doc._lang);
 const toc = buildTOC(doc.body);
 ---
 
@@ -30,13 +33,20 @@ const toc = buildTOC(doc.body);
     active={doc._path}
     title={doc.category.title}
     links={section}
+    tutorials={tutorials}
+    ttitle="Tutorials"
     client:visible
     slot="subnav"
   />
   <!-- Main content area -->
   <Text body={doc.body} slot="content" />
   <!-- Extras sidebar -->
-  <Fragment slot="extras">
+  <div slot="extras">
+    {
+      doc.software && (
+        <Software software={doc.software} microcopy={microcopy.meta.tools} />
+      )
+    }
     {toc.length > 0 && <TOC toc={toc} client:idle title={microcopy.meta.toc} />}
-  </Fragment>
+  </div>
 </Doc>
