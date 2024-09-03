@@ -35,7 +35,7 @@ jobs:
         run: pnpm install
       - name: Test and Build
         working-directory: site
-        run: pnpm t
+        run: pnpm pregen && pnpm t
         env: 
           SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
           SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
