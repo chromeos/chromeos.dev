@@ -203,16 +203,28 @@ if (intro) {
               client:only="svelte"
             />
             <ul class="reinforcements">
-              {tutorial.outro.next.steps.map((g, i) => (
-                <Reinforcement
-                  tutorial={slugify(tutorial.title)}
-                  task={slugify(tutorial.tasks[task].title)}
-                  step={i}
-                  client:load
-                >
-                  <Text body={g} inline={true} wrapped={false} />
-                </Reinforcement>
-              ))}
+              {tutorial?.tasks[task]?.reinforcement &&
+                tutorial?.tasks[task]?.reinforcement.map((g, i) => (
+                  <Reinforcement
+                    tutorial={slugify(tutorial.title)}
+                    task={slugify(tutorial.tasks[task].title)}
+                    step={i}
+                    client:load
+                  >
+                    <Text body={g} inline={true} wrapped={false} />
+                  </Reinforcement>
+                ))}
+              {outro &&
+                tutorial.outro.next.steps.map((g, i) => (
+                  <Reinforcement
+                    tutorial={slugify(tutorial.title)}
+                    task={slugify(tutorial.tasks[task].title)}
+                    step={i}
+                    client:load
+                  >
+                    <Text body={g} inline={true} wrapped={false} />
+                  </Reinforcement>
+                ))}
             </ul>
           </section>
         </>
@@ -397,6 +409,7 @@ if (intro) {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    overflow-x: clip;
   }
 
   .pagination {
