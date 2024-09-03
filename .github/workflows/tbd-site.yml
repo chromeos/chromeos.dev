@@ -91,11 +91,14 @@ jobs:
       - name: Install dependencies
         working-directory: site
         run: pnpm install
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: search
-          path: ./site
+      - name: Build Pregen
+        working-directory: site
+        run: pnpm pregen
+        env: 
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+          SANITY_TOKEN: ${{ secrets.SANITY_TOKEN }}
+          SANITY_WEBHOOK_SECRET: ${{ secrets.SANITY_WEBHOOK_SECRET }}
       - name: Make .env file
         uses: SpicyPizza/create-envfile@v2.0
         with:
