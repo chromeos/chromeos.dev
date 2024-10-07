@@ -114,7 +114,7 @@ jobs:
         with:
           entryPoint: site
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CROS_STAGING }}"
           channelId: ${{ env.CHANNEL_ID }}
           expires: ${{ env.EXPIRES }}
         env:
