@@ -43,7 +43,7 @@ Optionally, one of the following scopes should be included in parenthesis after 
 - `tests`
 - `content`
 
-Title should have a space between either the emoji and the start of the title, or the clothing parenthesis of the scope and the start of the title. There should be no space between the emoji and the opening parenthesis of the scope. We have automation in place to check your PR titles to help you out.
+Title should have a space between either the emoji and the start of the title, or the closing parenthesis of the scope and the start of the title. There should be no space between the emoji and the opening parenthesis of the scope. We have automation in place to check your PR titles to help you out.
 
 All together a PR title should look something like this:
 
