@@ -66,7 +66,7 @@ jobs:
     steps:
       - name: Set Channel ID - Branch
         if: github.ref_type == 'branch'
-        run: echo "CHANNEL_ID=branch-${{ github.ref_name }}" >> $GITHUB_ENV
+        run: echo "CHANNEL_ID=branch-${GITHUB_REF_NAME}" >> $GITHUB_ENV
       - name: Set Channel ID - Live
         if: github.ref == 'refs/heads/main'
         run: echo "CHANNEL_ID=live" >> $GITHUB_ENV
