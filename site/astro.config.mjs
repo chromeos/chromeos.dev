@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
-import nodejs from '@astrojs/node';
+// import nodejs from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import virtual from '@rollup/plugin-virtual';
 import AstroPWA from '@vite-pwa/astro';
@@ -40,10 +40,10 @@ aliases.push({
 // https://astro.build/config
 export default defineConfig({
   site: 'https://chromeos.dev',
-  output: 'hybrid',
-  adapter: nodejs({
-    mode: 'middleware',
-  }),
+  // output: 'hybrid',
+  // adapter: nodejs({
+  //   mode: 'middleware',
+  // }),
   integrations: [
     svelte(),
     sitemap(),
