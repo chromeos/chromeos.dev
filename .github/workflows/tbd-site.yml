@@ -118,6 +118,7 @@ jobs:
           channelId: ${{ env.CHANNEL_ID }}
           expires: ${{ env.EXPIRES }}
         env:
+          NODE_ENV: production
           FIREBASE_CLI_EXPERIMENTS: webframeworks
           SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
           SANITY_DATASET: ${{ secrets.SANITY_DATASET }}

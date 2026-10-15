@@ -4,14 +4,20 @@ import nodejs from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import virtual from '@rollup/plugin-virtual';
 import AstroPWA from '@vite-pwa/astro';
-import manifest from './src/manifest.json';
 import 'dotenv/config';
+import * as fs from 'fs';
 import * as path from 'path';
 import * as url from 'url';
-import tsconfig from './tsconfig.json';
 
 // Get the current directory
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
+const manifest = JSON.parse(
+  fs.readFileSync(path.join(__dirname, './src/manifest.json'), 'utf-8'),
+);
+const tsconfig = JSON.parse(
+  fs.readFileSync(path.join(__dirname, './tsconfig.json'), 'utf-8'),
+);
 
 // Get the aliases from tsconfig
 const aliases = Object.entries(tsconfig.compilerOptions.paths).map(
@@ -44,6 +50,9 @@ export default defineConfig({
   adapter: nodejs({
     mode: 'middleware',
   }),
+  image: {
+    endpoint: 'astro/assets/endpoint/generic',
+  },
   integrations: [
     svelte(),
     sitemap(),
