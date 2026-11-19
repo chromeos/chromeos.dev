@@ -1,6 +1,6 @@
 name: 'PR Title Checker'
 on:
-  pull_request_target:
+  pull_request:
     types:
       - opened
       - edited
@@ -8,11 +8,16 @@ on:
       - labeled
       - unlabeled
 
+permissions: {}
+
 jobs:
   check:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
-      - uses: thehanimo/pr-title-checker@v1.3.4
+      - uses: thehanimo/pr-title-checker@b69bc3a841cf4e3cfef2d822625d8c90a588e9da # v2.0.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           pass_on_octokit_error: false
