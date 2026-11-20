@@ -34,7 +34,7 @@
     "firebase:deploy:preview": "firebase hosting:channel:deploy next --expires 30d"
   },
   "dependencies": {
-    "@astrojs/node": "^8.2.5",
+    "@astrojs/node": "^10.0.5",
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/svelte": "^5.4.0",
