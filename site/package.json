@@ -39,7 +39,7 @@
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/svelte": "^5.4.0",
     "@sanity/client": "^6.18.0",
-    "astro": "^4.8.0",
+    "astro": "^6.4.6",
     "astro-portabletext": "^0.10.0",
     "bcrypt": "^5.1.1",
     "canvas-confetti": "^1.9.3",
